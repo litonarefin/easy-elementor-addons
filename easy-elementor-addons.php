@@ -3,145 +3,114 @@
  * Plugin Name: Easy Elementor Addons
  * Description: Easy and must have Elementor Addons for WordPress Page Builder
  * Plugin URI: https://jeweltheme.com
- * Author: WPDeveloper
- * Version: 1.0.0
+ * Author: Liton Arefin
+ * Version: 1.0.0	
  * Author URI: https://twitter.com/Litonice11
  * Text Domain: eeael
  * Domain Path: /languages
  */
 
-// No Direct Access Sire !!!
-defined('ABSPATH') || exit;
+if (!defined('ABSPATH')) { exit; } // No, Direct access Sir !!!
 
+final class Easy_Elementor_Addons_Base{
 
-/*
- * Easy Elementor Addons Constants
- */
+	const VERSION = "1.0.0";
+	const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
+	const MINIMUM_PHP_VERSION = '5.6';
 
-if( !class_exists('Easy_Elementor_Addons') ){
-	class Easy_Elementor_Addons{
+	public function __construct(){
+
+		//Translations
+		add_action('init', [$this, 'eeael_i18n']);
 		
-		public  $version = "1.0.0";
-		private $plugin_path;
-		private $plugin_url;
-		private $plugin_slug;
-		public  $plugin_dir_url;
-		public  $plugin_name = 'Easy Elementor Addons';
+		// Initialize Plugin
+		add_action('plugins_loaded', [$this, 'eeael_init']);
 
-		private static $instance = null;
-	   	
-	   	public static function get_instance() {
-	  //     	if ( null === self::$instance ) {
-			// 	self::$instance = new Easy_Elementor_Addons();
-			// }
-			if ( ! self::$instance )
-				self::$instance = new self;
-			return self::$instance;			
-	   	}
+		$this->eeael_include_files();
+	}
 
-		/* Initialize */
-		public function init(){		
-			add_action( 'elementor/init', array( $this, 'widgets_registered' ) );
-		}
+	// Include Files
+	public function eeael_include_files(){
+		require_once ( __DIR__  . '/inc/class-elementor-addon.php' );
+	}
 
-		public function __construct(){
+	// Translation
+	public function eeael_i18n(){
+		load_plugin_textdomain(	'eeael', false, dirname(plugin_basename(__FILE__)) . '/languages/' );
+	}
 
-			//Defined Constants
-			define( 'EEAEL', $this->plugin_name );
-			define( 'EEAEL_VERSION', $this->version );
-			define( 'EEAEL_PLUGIN_URL', $this->eeael_plugin_url());
-			define( 'EEAEL_PLUGIN_DIR', $this->eeael_plugin_path() );
-			define( 'EEAEL_PLUGIN_DIR_URL', $this->eeael_plugin_dir_url());
-			define( 'EEAEL_IMAGE_DIR', $this->eeael_plugin_dir_url().'/assets/images/');
-			define( 'EEAEL_TD', $this->eeael_load_textdomain());  // Ultimate Gutenberg Text Domain
-			define( 'EEAEL_FILE', __FILE__ );
-			define( 'EEAEL_DIR', dirname( __FILE__ ) );
+	// Initialize
+	public function eeael_init(){
+		
+		// Check if Elementor installed and activated
+        if ( ! did_action( 'elementor/loaded' ) ) {
+            add_action( 'admin_notices', array( $this, 'eeael_admin_notice_missing_main_plugin' ) );
+            return;
+        }		
 
-			$this->plugin_slug    			= 'easy-elementor-addons';
-			$this->plugin_path     			= untrailingslashit( plugin_dir_path( '/', __FILE__ ) );
-			$this->plugin_url     			= untrailingslashit( plugins_url( '/', __FILE__ ) );
+        // Check for required Elementor version
+        if ( ! version_compare( ELEMENTOR_VERSION, self::MINIMUM_ELEMENTOR_VERSION, '>=' ) ) {
+            add_action( 'admin_notices', array( $this, 'eeael_admin_notice_minimum_elementor_version' ) );
+            return;
+        }
 
-			$this->eeael_include_files();
-			$this->eeael_define_admin_hooks();			
-		}
-
-
-		public function widgets_registered() {
-
-			// We check if the Elementor plugin has been installed / activated.
-			if(defined('ELEMENTOR_PATH') && class_exists('Elementor\Widget_Base')){
-
-				// We look for any theme overrides for this custom Elementor element.
-				// If no theme overrides are found we use the default one in this plugin.
-
-				$widget_file = 'plugins/easy-elementor-addons/addons/my-widgets.php';
-				$template_file = locate_template($widget_file);
-				if ( !$template_file || !is_readable( $template_file ) ) {
-					$template_file = plugin_dir_path(__FILE__).'/addons/my-widgets.php';
-				}
-				if ( $template_file && is_readable( $template_file ) ) {
-					require_once $template_file;
-				}
-			}
-			if ( defined( 'ELEMENTOR_PATH' ) && class_exists( 'Elementor\Widget_Base' ) ) {
-				// get our own widgets up and running:
-				// copied from widgets-manager.php
-
-				if ( class_exists( 'Elementor\Plugin' ) ) {
-					if ( is_callable( 'Elementor\Plugin', 'instance' ) ) {
-						$elementor = Elementor\Plugin::instance();
-						if ( isset( $elementor->widgets_manager ) ) {
-							if ( method_exists( $elementor->widgets_manager, 'register_widget_type' ) ) {
-
-								$widget_file   = 'plugins/easy-elementor-addons/addons/my-widgets.php';
-								$template_file = locate_template( $widget_file );
-								if ( $template_file && is_readable( $template_file ) ) {
-									require_once $template_file;
-									Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Elementor\Widget_My_Custom_Elementor_Thing() );
-
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-
-
-		// Text Domains
-		public function eeael_load_textdomain(){
-			load_plugin_textdomain(	'eeael', false, dirname(plugin_basename(__FILE__)) . '/languages/' );
-		}
-
-		// Include Files
-		public function eeael_include_files(){
-
-		}
-
-		// Admin Hooks
-		public function eeael_define_admin_hooks(){
-			
-		}
-
-		// Plugin URL
-		public function eeael_plugin_url(){
-			
-		}
-
-		// Plugin Path
-		public function eeael_plugin_path(){
-			
-		}
-
-		// Plugin Dir Path
-		public function eeael_plugin_dir_url(){
-			
-		}
-
+        // Check for required PHP version
+        if ( version_compare( PHP_VERSION, self::MINIMUM_PHP_VERSION, '<' ) ) {
+            add_action( 'admin_notices', array( $this, 'eeael_admin_notice_minimum_php_version' ) );
+            return;
+        }        
 
 	}
+
+
+    public function eeael_admin_notice_missing_main_plugin() {
+        if ( isset( $_GET['activate'] ) ) {
+            unset( $_GET['activate'] );
+        }
+
+        $message = sprintf(
+        /* translators: 1: Plugin name 2: Elementor */
+            esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'widget-mentor' ),
+            '<strong>' . esc_html__( 'Elementor Widget Mentor', 'widget-mentor' ) . '</strong>',
+            '<strong>' . esc_html__( 'Elementor', 'widget-mentor' ) . '</strong>'
+        );
+
+        printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+    }	
+
+    public function eeael_admin_notice_minimum_elementor_version() {
+        if ( isset( $_GET['activate'] ) ) {
+            unset( $_GET['activate'] );
+        }
+
+        $message = sprintf(
+        /* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
+            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'widget-mentor' ),
+            '<strong>' . esc_html__( 'Elementor Widget Mentor', 'widget-mentor' ) . '</strong>',
+            '<strong>' . esc_html__( 'Elementor', 'widget-mentor' ) . '</strong>',
+            self::MINIMUM_ELEMENTOR_VERSION
+        );
+
+        printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+    }    
+
+    public function eeael_admin_notice_minimum_php_version() {
+        if ( isset( $_GET['activate'] ) ) {
+            unset( $_GET['activate'] );
+        }
+
+        $message = sprintf(
+        /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
+            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'widget-mentor' ),
+            '<strong>' . esc_html__( 'Elementor Widget Mentor', 'widget-mentor' ) . '</strong>',
+            '<strong>' . esc_html__( 'PHP', 'widget-mentor' ) . '</strong>',
+            self::MINIMUM_PHP_VERSION
+        );
+
+        printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+    }
+
 }
 
-Easy_Elementor_Addons::get_instance()->init();
-
+// Instantiate 
+new Easy_Elementor_Addons_Base();
