@@ -12,7 +12,7 @@
 
 if (!defined('ABSPATH')) { exit; } // No, Direct access Sir !!!
 
-final class Easy_Elementor_Addons_Base{
+final class Easy_Elementor_Addons{
 
 	const VERSION = "1.0.0";
 	const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
@@ -113,4 +113,4 @@ final class Easy_Elementor_Addons_Base{
 }
 
 // Instantiate 
-new Easy_Elementor_Addons_Base();
+new Easy_Elementor_Addons();

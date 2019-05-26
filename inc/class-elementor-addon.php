@@ -1,5 +1,5 @@
 <?php
- namespace Easy_Elementor_Addons_Base;
+ namespace Easy_Elementor_Addons;
 /*
  * Easy Elementor Addons Constants
  */
