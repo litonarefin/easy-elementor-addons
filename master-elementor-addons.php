@@ -75,7 +75,7 @@ final class Master_Elementor_Addons{
             'masteraddons-elementor', // Menu Slug
             [ $this, 'mela_welcome_page_content' ],  // Callback Function
             // $icon_svg,   // Icon 
-            MELA_PLUGIN_URL . '/assets/images/egb-icon.png',
+            MELA_PLUGIN_URL . '/assets/images/master-addons-icon.png',
             87  // Positon
         );
 
