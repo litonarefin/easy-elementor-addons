@@ -1,5 +1,5 @@
 <?php
- namespace Master_Elementor_Addons;
+// namespace Master_Elementor_Addons_Class;
 /*
  * Master Elementor Addons Constants
  */
@@ -9,7 +9,7 @@
 define( 'MELA', $this->plugin_name );
 define( 'MELA_VERSION', $this->version );
 define( 'MELA_BASE', plugin_basename( __FILE__ ) );
-define( 'MELA_PLUGIN_URL', Master_Elementor_Addons::mela_plugin_url());
+define( 'MELA_PLUGIN_URL', Master_Elementor_Addons_Class::mela_plugin_url());
 define( 'MELA_PLUGIN_PATH', $this->mela_plugin_path() );
 define( 'MELA_PLUGIN_PATH_URL', $this->mela_plugin_dir_url());
 define( 'MELA_IMAGE_DIR', $this->mela_plugin_dir_url().'/assets/images/');
@@ -17,8 +17,8 @@ define( 'MELA_TD', $this->mela_load_textdomain());  // Ultimate Gutenberg Text D
 define( 'MELA_FILE', __FILE__ );
 define( 'MELA_DIR', dirname( __FILE__ ) );
 
-if( !class_exists('Master_Elementor_Addons') ){
-	class Master_Elementor_Addons{
+if( !class_exists('Master_Elementor_Addons_Class') ){
+	class Master_Elementor_Addons_Class{
 		
 		public  $version = "1.0.0";
 		private $plugin_path;
@@ -47,7 +47,18 @@ if( !class_exists('Master_Elementor_Addons') ){
 			$this->plugin_url     			= untrailingslashit( plugins_url( '/', __FILE__ ) );
 
 			//$this->mela_include_files();
-			$this->mela_define_admin_hooks();			
+			$this->mela_define_admin_hooks();
+
+			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_actions_links' ));
+		}
+
+
+		public function plugin_actions_links(){
+	        if( is_admin() ){
+	            $links[] = '<a href="https://jeweltheme.com/support/" target="_blank">'. esc_html__( 'Support', MELA_TD ) .'</a>';
+	            $links[] = '<a href="https://docs.jeweltheme.com/" target="_blank">'. esc_html__( 'Documentation', MELA_TD ) .'</a>';
+	        }
+	        return $links;			
 		}
 
 
@@ -134,4 +145,4 @@ if( !class_exists('Master_Elementor_Addons') ){
 	}
 }
 
-Master_Elementor_Addons::get_instance();
+Master_Elementor_Addons_Class::get_instance();
