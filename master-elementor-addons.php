@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Easy Elementor Addons
+ * Plugin Name: Master Addons for Elementor
  * Description: Easy and must have Elementor Addons for WordPress Page Builder
  * Plugin URI: https://jeweltheme.com
  * Author: Liton Arefin
@@ -12,7 +12,7 @@
 
 if (!defined('ABSPATH')) { exit; } // No, Direct access Sir !!!
 
-final class Easy_Elementor_Addons{
+final class Master_Elementor_Addons{
 
 	const VERSION = "1.0.0";
 	const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
@@ -113,4 +113,4 @@ final class Easy_Elementor_Addons{
 }
 
 // Instantiate 
-new Easy_Elementor_Addons();
+new Master_Elementor_Addons();
