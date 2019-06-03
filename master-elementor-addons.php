@@ -92,14 +92,14 @@ final class Master_Elementor_Addons{
 
     // Plugin Dir Path
     public function mela_plugin_dir_url(){
-        
+
         if ( self::$plugin_dir_url ) return self::$plugin_dir_url;
 
         return self::$plugin_dir_url = untrailingslashit(plugin_dir_url(__FILE__));
     }
 
 
-    public function plugin_actions_links(){
+    public function plugin_actions_links( $links ){
         if( is_admin() ){
             $links[] = '<a href="https://jeweltheme.com/support/" target="_blank">'. esc_html__( 'Support', MELA_TD ) .'</a>';
             $links[] = '<a href="https://docs.jeweltheme.com/" target="_blank">'. esc_html__( 'Documentation', MELA_TD ) .'</a>';
