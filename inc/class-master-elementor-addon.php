@@ -1,18 +1,18 @@
 <?php
- namespace Easy_Elementor_Addons;
+ namespace Master_Elementor_Addons\Inc;
 /*
- * Easy Elementor Addons Constants
+ * Master Elementor Addons Constants
  */
 
-if( !class_exists('Easy_Elementor_Addons') ){
-	class Easy_Elementor_Addons{
+if( !class_exists('Master_Elementor_Addons') ){
+	class Master_Elementor_Addons{
 		
 		public  $version = "1.0.0";
 		private $plugin_path;
 		private $plugin_url;
 		private $plugin_slug;
 		public  $plugin_dir_url;
-		public  $plugin_name = 'Easy Elementor Addons';
+		public  $plugin_name = 'Master Elementor Addons';
 
 		private static $instance = null;
 	   	
@@ -132,4 +132,4 @@ if( !class_exists('Easy_Elementor_Addons') ){
 	}
 }
 
-Easy_Elementor_Addons::get_instance();
+Master_Elementor_Addons::get_instance();

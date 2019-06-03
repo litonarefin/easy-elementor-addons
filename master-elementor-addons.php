@@ -6,7 +6,7 @@
  * Author: Liton Arefin
  * Version: 1.0.0	
  * Author URI: https://twitter.com/Litonice11
- * Text Domain: eeael
+ * Text Domain: mela
  * Domain Path: /languages
  */
 
@@ -21,49 +21,49 @@ final class Master_Elementor_Addons{
 	public function __construct(){
 
 		//Translations
-		add_action('init', [$this, 'eeael_i18n']);
+		add_action('init', [$this, 'mela_i18n']);
 		
 		// Initialize Plugin
-		add_action('plugins_loaded', [$this, 'eeael_init']);
+		add_action('plugins_loaded', [$this, 'mela_init']);
 
-		$this->eeael_include_files();
+		$this->mela_include_files();
 	}
 
 	// Include Files
-	public function eeael_include_files(){
-		require_once ( __DIR__  . '/inc/class-elementor-addon.php' );
+	public function mela_include_files(){
+		require_once ( __DIR__  . '/inc/class-master-elementor-addon.php' );
 	}
 
 	// Translation
-	public function eeael_i18n(){
-		load_plugin_textdomain(	'eeael', false, dirname(plugin_basename(__FILE__)) . '/languages/' );
+	public function mela_i18n(){
+		load_plugin_textdomain(	'mela', false, dirname(plugin_basename(__FILE__)) . '/languages/' );
 	}
 
 	// Initialize
-	public function eeael_init(){
+	public function mela_init(){
 		
 		// Check if Elementor installed and activated
         if ( ! did_action( 'elementor/loaded' ) ) {
-            add_action( 'admin_notices', array( $this, 'eeael_admin_notice_missing_main_plugin' ) );
+            add_action( 'admin_notices', array( $this, 'mela_admin_notice_missing_main_plugin' ) );
             return;
         }		
 
         // Check for required Elementor version
         if ( ! version_compare( ELEMENTOR_VERSION, self::MINIMUM_ELEMENTOR_VERSION, '>=' ) ) {
-            add_action( 'admin_notices', array( $this, 'eeael_admin_notice_minimum_elementor_version' ) );
+            add_action( 'admin_notices', array( $this, 'mela_admin_notice_minimum_elementor_version' ) );
             return;
         }
 
         // Check for required PHP version
         if ( version_compare( PHP_VERSION, self::MINIMUM_PHP_VERSION, '<' ) ) {
-            add_action( 'admin_notices', array( $this, 'eeael_admin_notice_minimum_php_version' ) );
+            add_action( 'admin_notices', array( $this, 'mela_admin_notice_minimum_php_version' ) );
             return;
         }        
 
 	}
 
 
-    public function eeael_admin_notice_missing_main_plugin() {
+    public function mela_admin_notice_missing_main_plugin() {
         if ( isset( $_GET['activate'] ) ) {
             unset( $_GET['activate'] );
         }
@@ -78,7 +78,7 @@ final class Master_Elementor_Addons{
         printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
     }	
 
-    public function eeael_admin_notice_minimum_elementor_version() {
+    public function mela_admin_notice_minimum_elementor_version() {
         if ( isset( $_GET['activate'] ) ) {
             unset( $_GET['activate'] );
         }
@@ -94,7 +94,7 @@ final class Master_Elementor_Addons{
         printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
     }    
 
-    public function eeael_admin_notice_minimum_php_version() {
+    public function mela_admin_notice_minimum_php_version() {
         if ( isset( $_GET['activate'] ) ) {
             unset( $_GET['activate'] );
         }
