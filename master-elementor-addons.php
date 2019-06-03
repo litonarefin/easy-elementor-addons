@@ -12,13 +12,9 @@
 
 if (!defined('ABSPATH')) { exit; } // No, Direct access Sir !!!
 
-// echo Master_Elementor_Addons::version();
-
 // Instantiate 
-// $mela = new Master_Elementor_Addons();
+$mela = new Master_Elementor_Addons();
 //Defined Constants
-// echo Master_Elementor_Addons::$plugin_name;
-
 define( 'MELA', Master_Elementor_Addons::$plugin_name );
 define( 'MELA_VERSION', Master_Elementor_Addons::version() );
 define( 'MELA_BASE', plugin_basename( __FILE__ ) );
@@ -26,7 +22,7 @@ define( 'MELA_PLUGIN_URL', Master_Elementor_Addons::mela_plugin_url());
 define( 'MELA_PLUGIN_PATH', Master_Elementor_Addons::mela_plugin_path() );
 // define( 'MELA_PLUGIN_PATH_URL', $this->mela_plugin_dir_url());
 // define( 'MELA_IMAGE_DIR', $this->mela_plugin_dir_url().'/assets/images/');
-// define( 'MELA_TD', $mela->mela_load_textdomain());  // Ultimate Gutenberg Text Domain
+define( 'MELA_TD', $mela->mela_load_textdomain());  // Ultimate Gutenberg Text Domain
 define( 'MELA_FILE', __FILE__ );
 define( 'MELA_DIR', dirname( __FILE__ ) );
 
