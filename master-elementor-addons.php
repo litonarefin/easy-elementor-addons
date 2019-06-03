@@ -62,8 +62,21 @@ final class Master_Elementor_Addons{
         //Welcome Screen
         add_action( 'admin_menu', [ $this, 'mela_admin_menu' ]);
         // add_action( 'admin_enqueue_scripts', [ $this, 'mela_admin_enqueue_scripts' ]);
-
+        
+        add_action( 'elementor/init', 'mela_category' );
 	}
+
+
+    function mela_category() {
+        \Elementor\Plugin::instance()->elements_manager->add_category(
+            'power-pack',
+            array(
+                'title' => 'Master Addons',
+                'icon'  => 'font',
+            ),
+            1 );
+    }
+
 
     public function mela_admin_menu(){
 
