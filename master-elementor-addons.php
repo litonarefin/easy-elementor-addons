@@ -14,14 +14,15 @@ if (!defined('ABSPATH')) { exit; } // No, Direct access Sir !!!
 
 // Instantiate 
 $mela = new Master_Elementor_Addons();
+
 //Defined Constants
 define( 'MELA', Master_Elementor_Addons::$plugin_name );
 define( 'MELA_VERSION', Master_Elementor_Addons::version() );
 define( 'MELA_BASE', plugin_basename( __FILE__ ) );
 define( 'MELA_PLUGIN_URL', Master_Elementor_Addons::mela_plugin_url());
 define( 'MELA_PLUGIN_PATH', Master_Elementor_Addons::mela_plugin_path() );
-// define( 'MELA_PLUGIN_PATH_URL', $this->mela_plugin_dir_url());
-// define( 'MELA_IMAGE_DIR', $this->mela_plugin_dir_url().'/assets/images/');
+define( 'MELA_PLUGIN_PATH_URL', Master_Elementor_Addons::mela_plugin_dir_url());
+define( 'MELA_IMAGE_DIR', Master_Elementor_Addons::mela_plugin_dir_url() . '/assets/images/');
 define( 'MELA_TD', $mela->mela_load_textdomain());  // Ultimate Gutenberg Text Domain
 define( 'MELA_FILE', __FILE__ );
 define( 'MELA_DIR', dirname( __FILE__ ) );
@@ -36,7 +37,7 @@ final class Master_Elementor_Addons{
     private static $plugin_path;
     private static $plugin_url;
     private $plugin_slug;
-    public  $plugin_dir_url;
+    public static $plugin_dir_url;
     public static $plugin_name = 'Master Addons for Elementor ';
 
 
@@ -45,7 +46,7 @@ final class Master_Elementor_Addons{
 		//Translations
 		add_action('init', [$this, 'mela_load_textdomain']);
 
-        add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'plugin_actions_links' ]);
+        add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'plugin_actions_links' ] );
 		
 		// Initialize Plugin
 		add_action('plugins_loaded', [$this, 'mela_init']);
@@ -92,6 +93,9 @@ final class Master_Elementor_Addons{
     // Plugin Dir Path
     public function mela_plugin_dir_url(){
         
+        if ( self::$plugin_dir_url ) return self::$plugin_dir_url;
+
+        return self::$plugin_dir_url = untrailingslashit(plugin_dir_url(__FILE__));
     }
 
 
