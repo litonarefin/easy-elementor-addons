@@ -16,7 +16,7 @@ final class Master_Elementor_Addons{
 
 	const VERSION = "1.0.0";
 	const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
-	const MINIMUM_PHP_VERSION = '5.6';
+	const MINIMUM_PHP_VERSION = '5.4';
 
 	public function __construct(){
 
@@ -31,7 +31,7 @@ final class Master_Elementor_Addons{
 
 	// Include Files
 	public function mela_include_files(){
-		require_once ( __DIR__  . '/inc/class-master-elementor-addon.php' );
+		require_once ( __DIR__  . '/class-master-elementor-addon.php' );
 	}
 
 	// Translation
