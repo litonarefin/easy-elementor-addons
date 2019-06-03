@@ -5,27 +5,10 @@
  */
 
 
-//Defined Constants
-define( 'MELA', $this->plugin_name );
-define( 'MELA_VERSION', $this->version );
-define( 'MELA_BASE', plugin_basename( __FILE__ ) );
-define( 'MELA_PLUGIN_URL', Master_Elementor_Addons_Class::mela_plugin_url());
-define( 'MELA_PLUGIN_PATH', $this->mela_plugin_path() );
-define( 'MELA_PLUGIN_PATH_URL', $this->mela_plugin_dir_url());
-define( 'MELA_IMAGE_DIR', $this->mela_plugin_dir_url().'/assets/images/');
-define( 'MELA_TD', $this->mela_load_textdomain());  // Ultimate Gutenberg Text Domain
-define( 'MELA_FILE', __FILE__ );
-define( 'MELA_DIR', dirname( __FILE__ ) );
-
 if( !class_exists('Master_Elementor_Addons_Class') ){
+	
 	class Master_Elementor_Addons_Class{
 		
-		public  $version = "1.0.0";
-		private $plugin_path;
-		private $plugin_url;
-		private $plugin_slug;
-		public  $plugin_dir_url;
-		public  $plugin_name = 'Master Elementor Addons';
 
 		private static $instance = null;
 	   	
@@ -47,19 +30,9 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 			$this->plugin_url     			= untrailingslashit( plugins_url( '/', __FILE__ ) );
 
 			//$this->mela_include_files();
-			$this->mela_define_admin_hooks();
-
-			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_actions_links' ));
+			
 		}
 
-
-		public function plugin_actions_links(){
-	        if( is_admin() ){
-	            $links[] = '<a href="https://jeweltheme.com/support/" target="_blank">'. esc_html__( 'Support', MELA_TD ) .'</a>';
-	            $links[] = '<a href="https://docs.jeweltheme.com/" target="_blank">'. esc_html__( 'Documentation', MELA_TD ) .'</a>';
-	        }
-	        return $links;			
-		}
 
 
 		public function widgets_registered() {
@@ -105,44 +78,9 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 
 
 
-		// Text Domains
-		public function mela_load_textdomain(){
-			load_plugin_textdomain(	'eeael', false, dirname(plugin_basename(__FILE__)) . '/languages/' );
-		}
-
-		// Include Files
-		public function mela_include_files(){
-
-		}
-
-		// Admin Hooks
-		public function mela_define_admin_hooks(){
-			
-		}
-
-		// Plugin URL
-		public static function mela_plugin_url(){
-	
-	        if ($this->plugin_url) return $this->plugin_url;
-
-	        return $this->plugin_url = untrailingslashit(plugins_url('/', __FILE__));
-			
-		}
-
-		// Plugin Path
-		public function mela_plugin_path(){
-	        if ($this->plugin_path) return $this->plugin_path;
-
-	        return $this->plugin_path = untrailingslashit(plugin_dir_path(__FILE__));			
-		}
-
-		// Plugin Dir Path
-		public function mela_plugin_dir_url(){
-			
-		}
 
 
 	}
+	Master_Elementor_Addons_Class::get_instance();
 }
 
-Master_Elementor_Addons_Class::get_instance();
