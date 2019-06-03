@@ -59,7 +59,33 @@ final class Master_Elementor_Addons{
 
         $this->mela_define_admin_hooks();
 
+        //Welcome Screen
+        add_action( 'admin_menu', [ $this, 'mela_admin_menu' ]);
+        // add_action( 'admin_enqueue_scripts', [ $this, 'mela_admin_enqueue_scripts' ]);
+
 	}
+
+    public function mela_admin_menu(){
+
+        // Add Menu Item.
+        add_menu_page(
+            esc_html__( 'Master Addons for Elementor', MELA_TD ), // Page Title
+            esc_html__( 'Master Addons', MELA_TD ),    // Menu Title
+            'edit_posts',   // Capability
+            'masteraddons-elementor', // Menu Slug
+            [ $this, 'mela_welcome_page_content' ],  // Callback Function
+            // $icon_svg,   // Icon 
+            MELA_PLUGIN_URL . '/assets/images/egb-icon.png',
+            87  // Positon
+        );
+
+    }
+
+
+    public function mela_welcome_page_content(){
+        include_once $this->mela_plugin_path() . '/inc/admin/welcome.php';
+    }
+
 
 
     public static function version(){
