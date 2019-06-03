@@ -25,12 +25,8 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 
 		public function __construct(){
 
-			$this->plugin_slug    			= 'master-elementor-addons';
-			$this->plugin_path     			= untrailingslashit( plugin_dir_path( '/', __FILE__ ) );
-			$this->plugin_url     			= untrailingslashit( plugins_url( '/', __FILE__ ) );
-
 			//$this->mela_include_files();
-			
+
 		}
 
 
@@ -43,10 +39,10 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 				// We look for any theme overrides for this custom Elementor element.
 				// If no theme overrides are found we use the default one in this plugin.
 
-				$widget_file = 'plugins/master-elementor-addons/addons/my-widgets.php';
+				$widget_file = Master_Elementor_Addons::mela_plugin_path() . '/inc/addons/my-widgets.php';
 				$template_file = locate_template($widget_file);
 				if ( !$template_file || !is_readable( $template_file ) ) {
-					$template_file = plugin_dir_path(__FILE__).'/addons/my-widgets.php';
+					$template_file = Master_Elementor_Addons::mela_plugin_path() . '/inc/addons/my-widgets.php';
 				}
 				if ( $template_file && is_readable( $template_file ) ) {
 					require_once $template_file;

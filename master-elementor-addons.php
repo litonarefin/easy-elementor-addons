@@ -36,12 +36,16 @@ final class Master_Elementor_Addons{
 
     private static $plugin_path;
     private static $plugin_url;
-    private $plugin_slug;
+    private static $plugin_slug;
     public static $plugin_dir_url;
     public static $plugin_name = 'Master Addons for Elementor ';
 
 
 	public function __construct(){
+
+        self::$plugin_slug              = 'master-elementor-addons';
+        self::$plugin_path              = untrailingslashit( plugin_dir_path( '/', __FILE__ ) );
+        self::$plugin_url               = untrailingslashit( plugins_url( '/', __FILE__ ) );
 
 		//Translations
 		add_action('init', [$this, 'mela_load_textdomain']);
@@ -55,8 +59,8 @@ final class Master_Elementor_Addons{
 
         $this->mela_define_admin_hooks();
 
-
 	}
+
 
     public static function version(){
         return self::VERSION;
@@ -84,14 +88,14 @@ final class Master_Elementor_Addons{
     }
 
     // Plugin Path
-    public function mela_plugin_path(){
+    public static function mela_plugin_path(){
         if (self::$plugin_path) return self::$plugin_path;
 
         return self::$plugin_path = untrailingslashit(plugin_dir_path(__FILE__));           
     }
 
     // Plugin Dir Path
-    public function mela_plugin_dir_url(){
+    public static function mela_plugin_dir_url(){
 
         if ( self::$plugin_dir_url ) return self::$plugin_dir_url;
 
@@ -110,8 +114,9 @@ final class Master_Elementor_Addons{
 
 	// Include Files
 	public function mela_include_files(){
-		require_once ( __DIR__  . '/class-master-elementor-addon.php' );
+		require_once $this->mela_plugin_path() . '/class-master-elementor-addon.php';
 	}
+
 
 
 	// Initialize
@@ -145,9 +150,9 @@ final class Master_Elementor_Addons{
 
         $message = sprintf(
         /* translators: 1: Plugin name 2: Elementor */
-            esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'widget-mentor' ),
-            '<strong>' . esc_html__( 'Elementor Widget Mentor', 'widget-mentor' ) . '</strong>',
-            '<strong>' . esc_html__( 'Elementor', 'widget-mentor' ) . '</strong>'
+            esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', MELA_TD ),
+            '<strong>' . esc_html__( 'Master Addons for Elementor', MELA_TD ) . '</strong>',
+            '<strong>' . esc_html__( 'Elementor', MELA_TD ) . '</strong>'
         );
 
         printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
@@ -160,9 +165,9 @@ final class Master_Elementor_Addons{
 
         $message = sprintf(
         /* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'widget-mentor' ),
-            '<strong>' . esc_html__( 'Elementor Widget Mentor', 'widget-mentor' ) . '</strong>',
-            '<strong>' . esc_html__( 'Elementor', 'widget-mentor' ) . '</strong>',
+            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', MELA_TD ),
+            '<strong>' . esc_html__( 'Master Addons for Elementor', MELA_TD ) . '</strong>',
+            '<strong>' . esc_html__( 'Elementor', MELA_TD ) . '</strong>',
             self::MINIMUM_ELEMENTOR_VERSION
         );
 
@@ -176,9 +181,9 @@ final class Master_Elementor_Addons{
 
         $message = sprintf(
         /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'widget-mentor' ),
-            '<strong>' . esc_html__( 'Elementor Widget Mentor', 'widget-mentor' ) . '</strong>',
-            '<strong>' . esc_html__( 'PHP', 'widget-mentor' ) . '</strong>',
+            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', MELA_TD ),
+            '<strong>' . esc_html__( 'Master Addons for Elementor', MELA_TD ) . '</strong>',
+            '<strong>' . esc_html__( 'PHP', MELA_TD ) . '</strong>',
             self::MINIMUM_PHP_VERSION
         );
 
