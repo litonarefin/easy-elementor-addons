@@ -9,7 +9,8 @@
 if( !class_exists('Master_Elementor_Addons_Class') ){
 	
 	class Master_Elementor_Addons_Class{
-		
+
+		private $_localize_settings = [];
 
 		private static $instance = null;
 	   	
@@ -26,15 +27,54 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 
 		public function __construct(){
 
+//			spl_autoload_register( [ $this, 'autoloader' ] );
+
 			$this->include_files();
-
 		}
-
 
 		public function include_files(){
 			require Master_Elementor_Addons::mela_plugin_path() . '/inc/classes/addons-manager.php';
 		}
 
+		public function autoloader( $class ) {
+			if ( 0 !== strpos( $class, __NAMESPACE__ ) ) {
+				return;
+			}
+
+			$filename = strtolower(
+				preg_replace(
+					[ '/^' . __NAMESPACE__ . '\\\/', '/([a-z])([A-Z])/', '/_/', '/\\\/' ],
+					[ '', '$1-$2', '-', DIRECTORY_SEPARATOR ],
+					$class
+				)
+			);
+			$filename = Master_Elementor_Addons::mela_plugin_path() . $filename . '.php';
+
+			if ( is_readable( $filename ) ) {
+				include( $filename );
+			}
+		}
+
+
+		public function get_localize_settings() {
+			return $this->_localize_settings;
+		}
+
+		public function add_localize_settings( $setting_key, $setting_value = null ) {
+			if ( is_array( $setting_key ) ) {
+				$this->_localize_settings = array_replace_recursive( $this->_localize_settings, $setting_key );
+
+				return;
+			}
+
+			if ( ! is_array( $setting_value ) || ! isset( $this->_localize_settings[ $setting_key ] ) || ! is_array( $this->_localize_settings[ $setting_key ] ) ) {
+				$this->_localize_settings[ $setting_key ] = $setting_value;
+
+				return;
+			}
+
+			$this->_localize_settings[ $setting_key ] = array_replace_recursive( $this->_localize_settings[ $setting_key ], $setting_value );
+		}
 
 		public function widgets_registered() {
 
@@ -63,7 +103,7 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 						if ( isset( $elementor->widgets_manager ) ) {
 							if ( method_exists( $elementor->widgets_manager, 'register_widget_type' ) ) {
 
-								$widget_file   = 'plugins/master-elementor-addons/addons/my-widgets.php';
+								$widget_file   = Master_Elementor_Addons::mela_plugin_path() . '/inc/addons/my-widgets.php';
 								$template_file = locate_template( $widget_file );
 								if ( $template_file && is_readable( $template_file ) ) {
 									require_once $template_file;
@@ -78,7 +118,7 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 		}
 
 
-
+		
 
 
 	}
