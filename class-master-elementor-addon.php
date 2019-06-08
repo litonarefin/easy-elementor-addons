@@ -1,10 +1,10 @@
 <?php
-// namespace Master_Elementor_Addons_Class;
+// namespace MasterAddons;
 /*
  * Master Elementor Addons Constants
  */
 
-require_once "vendor/autoload.php";
+//require_once "vendor/autoload.php";
 
 if( !class_exists('Master_Elementor_Addons_Class') ){
 	
@@ -26,10 +26,14 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 
 		public function __construct(){
 
-			//$this->mela_include_files();
+			$this->include_files();
 
 		}
 
+
+		public function include_files(){
+			require Master_Elementor_Addons::mela_plugin_path() . '/inc/classes/addons-manager.php';
+		}
 
 
 		public function widgets_registered() {
