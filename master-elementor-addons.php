@@ -63,13 +63,16 @@ final class Master_Elementor_Addons{
         add_action( 'admin_menu', [ $this, 'mela_admin_menu' ]);
         // add_action( 'admin_enqueue_scripts', [ $this, 'mela_admin_enqueue_scripts' ]);
         
-        add_action( 'elementor/init', 'mela_category' );
+        add_action( 'elementor/init', [ $this, 'mela_category' ] );
+
+		add_filter( 'body_class', [ $this, 'mela_ea_body_class' ] );
+
 	}
 
 
     function mela_category() {
         \Elementor\Plugin::instance()->elements_manager->add_category(
-            'power-pack',
+            'master-addons',
             array(
                 'title' => 'Master Addons',
                 'icon'  => 'font',
@@ -227,6 +230,13 @@ final class Master_Elementor_Addons{
         );
 
         printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+    }
+
+    public function mela_ea_body_class(){
+	    if ( !\Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+		    $classes[] = 'master-addons-elementor';
+	    }
+	    return $classes;
     }
 
 }
