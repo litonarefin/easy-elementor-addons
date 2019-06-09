@@ -1,5 +1,5 @@
 <?php
-	namespace MasterAddons;
+	namespace MasterAddons\AddonsManager;
 
 	use MasterAddons\Inc\Base\Module_Base;
 
@@ -20,6 +20,7 @@
 			ksort($modules);
 
 			foreach ( $modules as $module_name ) {
+
 				$class_name = str_replace( '-', ' ', $module_name );
 
 				$class_name = str_replace( ' ', '', ucwords( $class_name ) );
@@ -51,7 +52,7 @@
 		}
 
 		private function require_files() {
-			require( Master_Elementor_Addons::mela_plugin_path() . '/inc/base/master-base.php' );
+			require( \Master_Elementor_Addons::mela_plugin_path() . '/inc/base/master-base.php' );
 		}
 
 		public function __construct() {

@@ -1,5 +1,6 @@
 <?php
-	namespace MasterAddons\Inc\Base;
+	namespace MasterAddons\Base;
+	use Elementor\Widget_Base;
 
 //	use MasterAddons\Classes\Master_Addons_Admin_Settings;
 
@@ -70,6 +71,8 @@
 		}
 
 		public function __construct() {
+
+			echo "lajhdf";
 			$this->reflection = new \ReflectionClass( $this );
 
 			add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
@@ -79,6 +82,8 @@
 			$widget_manager = \Elementor\Plugin::instance()->widgets_manager;
 
 			foreach ( $this->get_widgets() as $widget ) {
+				echo  $this->reflection->getNamespaceName();
+
 				$widget_name = strtolower( $widget );
 				$widget_filename = 'pp-' . str_replace( '_', '-', $widget_name );
 
@@ -90,7 +95,7 @@
 		}
 
 		static function is_widget_active( $widget = '' ) {
-			$enabled_modules = pp_elements_lite_get_enabled_modules();
+			$enabled_modules = master_get_enabled_addons();
 
 			if ( in_array( $widget, $enabled_modules ) ) {
 				return true;

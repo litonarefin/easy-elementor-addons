@@ -11,6 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 abstract class Master_Addons_Widget extends Widget_Base {
 
 	public function get_categories() {
-		return [ 'master-addons-elementor' ];
+		return [ 'master-addons' ];
 	}
 }

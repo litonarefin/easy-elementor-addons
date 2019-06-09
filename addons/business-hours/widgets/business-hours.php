@@ -1,7 +1,7 @@
 <?php
 namespace MasterAddons\Addons\BusinessHours\Widgets;
 
-use MasterAddons\Inc\Base\Master_Addons_Widget;
+use MasterAddons\Base\Master_Addons_Widget;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -27,7 +27,7 @@ class Business_Hours extends Master_Addons_Widget {
 	 * @return string Widget name.
 	 */
     public function get_name() {
-        return 'pp-business-hours';
+        return 'master-business-hours';
     }
 
     /**
@@ -51,7 +51,7 @@ class Business_Hours extends Master_Addons_Widget {
 	 * @return array Widget categories.
 	 */
     public function get_categories() {
-        return [ 'power-pack' ];
+        return [ 'master-addons' ];
     }
 
     /**

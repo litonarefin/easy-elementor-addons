@@ -71,6 +71,7 @@ final class Master_Elementor_Addons{
 
 
     function mela_category() {
+
 //	    $this->_modules_manager = new Modules_Manager();
 
         \Elementor\Plugin::instance()->elements_manager->add_category(

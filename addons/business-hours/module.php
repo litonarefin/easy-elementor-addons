@@ -1,7 +1,7 @@
 <?php
 namespace MasterAddons\Addons\BusinessHours;
 
-use MasterAddons\Inc\Base\Module_Base;
+use MasterAddons\Base\Module_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 

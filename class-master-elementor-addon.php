@@ -36,7 +36,8 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 		}
 
 		public function include_files(){
-			require \Master_Elementor_Addons::mela_plugin_path() . '/inc/classes/addons-manager.php';
+//			require \Master_Elementor_Addons::mela_plugin_path() . '/inc/classes/addons-manager.php';
+			require \Master_Elementor_Addons::mela_plugin_path() . '/addons/business-hours/module.php';
 		}
 
 		public function autoloader( $class ) {
