@@ -23,7 +23,7 @@ define( 'MELA_PLUGIN_URL', Master_Elementor_Addons::mela_plugin_url());
 define( 'MELA_PLUGIN_PATH', Master_Elementor_Addons::mela_plugin_path() );
 define( 'MELA_PLUGIN_PATH_URL', Master_Elementor_Addons::mela_plugin_dir_url());
 define( 'MELA_IMAGE_DIR', Master_Elementor_Addons::mela_plugin_dir_url() . '/assets/images/');
-define( 'MELA_TD', $mela->mela_load_textdomain());  // Ultimate Gutenberg Text Domain
+define( 'MELA_TD', $mela->mela_load_textdomain());  // Master Addons Text Domain
 define( 'MELA_FILE', __FILE__ );
 define( 'MELA_DIR', dirname( __FILE__ ) );
 
@@ -71,6 +71,8 @@ final class Master_Elementor_Addons{
 
 
     function mela_category() {
+//	    $this->_modules_manager = new Modules_Manager();
+
         \Elementor\Plugin::instance()->elements_manager->add_category(
             'master-addons',
             array(

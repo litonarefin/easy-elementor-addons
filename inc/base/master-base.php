@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 0.0.1
  */
-abstract class MasterAddons_Widget extends Widget_Base {
+abstract class Master_Addons_Widget extends Widget_Base {
 
 	/**
 	 * Get categories

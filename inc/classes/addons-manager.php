@@ -1,7 +1,7 @@
 <?php
 	namespace MasterAddons;
 
-	use MasterAddons\Inc\Base\Module_Base;
+	use MasterAddons\Base\Module_Base;
 
 	if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -51,7 +51,7 @@
 		}
 
 		private function require_files() {
-			require( MELA_PLUGIN_PATH . 'base/master-base.php' );
+			require( Master_Elementor_Addons::mela_plugin_path() . '/base/master-base.php' );
 		}
 
 		public function __construct() {
