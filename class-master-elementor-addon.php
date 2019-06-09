@@ -1,10 +1,13 @@
 <?php
-// namespace MasterAddons;
-/*
- * Master Elementor Addons Constants
- */
+	namespace MasterAddons;
 
-require_once "vendor/autoload.php";
+	use Elementor\Utils;
+
+	/*
+	 * Master Elementor Addons Constants
+	 */
+
+//require_once "vendor/autoload.php";
 
 if( !class_exists('Master_Elementor_Addons_Class') ){
 	
@@ -22,24 +25,26 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 
 		/* Initialize */
 		public function init(){		
-			add_action( 'elementor/init', array( $this, 'widgets_registered' ) );
+//			add_action( 'elementor/init', array( $this, 'widgets_registered' ) );
 		}
 
 		public function __construct(){
 
-//			spl_autoload_register( [ $this, 'autoloader' ] );
+			spl_autoload_register( [ $this, 'autoloader' ] );
 
 			$this->include_files();
 		}
 
 		public function include_files(){
-			require Master_Elementor_Addons::mela_plugin_path() . '/inc/classes/addons-manager.php';
+			require \Master_Elementor_Addons::mela_plugin_path() . '/inc/classes/addons-manager.php';
 		}
 
 		public function autoloader( $class ) {
-			if ( 0 !== strpos( $class, __NAMESPACE__ ) ) {
-				return;
-			}
+//			echo '<pre>' . $class . '</pre>';
+//			echo __NAMESPACE__;
+//			if ( 0 !== strpos( $class, __NAMESPACE__ ) ) {
+//				return;
+//			}
 
 			$filename = strtolower(
 				preg_replace(
@@ -48,7 +53,7 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 					$class
 				)
 			);
-			$filename = Master_Elementor_Addons::mela_plugin_path() . $filename . '.php';
+			$filename = \Master_Elementor_Addons::mela_plugin_path() . $filename . '.php';
 
 			if ( is_readable( $filename ) ) {
 				include( $filename );
@@ -119,9 +124,9 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 
 
 
-
-
 	}
+
 	Master_Elementor_Addons_Class::get_instance();
+
 }
 

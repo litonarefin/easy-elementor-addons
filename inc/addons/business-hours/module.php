@@ -1,14 +1,14 @@
 <?php
-namespace PowerpackElementsLite\Modules\BusinessHours;
+namespace MasterAddons\Addons\BusinessHours;
 
-use PowerpackElementsLite\Base\Module_Base;
+use MasterAddons\Inc\Base\Module_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Module extends Module_Base {
 
 	public function get_name() {
-		return 'pp-business-hours';
+		return 'master-business-hours';
 	}
 
 	public function get_widgets() {

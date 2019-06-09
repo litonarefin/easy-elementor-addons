@@ -1,7 +1,7 @@
 <?php
 	namespace MasterAddons;
 
-	use MasterAddons\Base\Module_Base;
+	use MasterAddons\Inc\Base\Module_Base;
 
 	if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -13,7 +13,7 @@
 
 		public function register_modules() {
 			$modules = [
-//				'advanced-accordion',
+
 				'business-hours',
 			];
 
@@ -24,7 +24,7 @@
 
 				$class_name = str_replace( ' ', '', ucwords( $class_name ) );
 
-				$class_name = __NAMESPACE__ . '\\Addons\\' . $class_name . '\Module';
+				$class_name = __NAMESPACE__ . '\\Addons\\' . $class_name . '\Addons';
 
 				/** @var Module_Base $class_name */
 				if ( $class_name::is_active() ) {
@@ -51,7 +51,7 @@
 		}
 
 		private function require_files() {
-			require( Master_Elementor_Addons::mela_plugin_path() . '/base/master-base.php' );
+			require( Master_Elementor_Addons::mela_plugin_path() . '/inc/base/master-base.php' );
 		}
 
 		public function __construct() {

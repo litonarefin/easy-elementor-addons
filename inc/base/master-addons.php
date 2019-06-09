@@ -1,5 +1,5 @@
 <?php
-	namespace MasterAddons\Base;
+	namespace MasterAddons\Inc\Base;
 
 //	use MasterAddons\Classes\Master_Addons_Admin_Settings;
 

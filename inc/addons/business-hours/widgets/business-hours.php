@@ -1,7 +1,7 @@
 <?php
-namespace PowerpackElementsLite\Modules\BusinessHours\Widgets;
+namespace MasterAddons\Addons\BusinessHours\Widgets;
 
-use PowerpackElementsLite\Base\Powerpack_Widget;
+use MasterAddons\Inc\Base\Master_Addons_Widget;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Business Hours Widget
  */
-class Business_Hours extends Powerpack_Widget {
+class Business_Hours extends Master_Addons_Widget {
     
     /**
 	 * Retrieve business hours widget name.
