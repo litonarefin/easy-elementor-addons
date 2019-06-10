@@ -25,9 +25,12 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 
 		public function __construct(){
 
-			spl_autoload_register( [ $this, 'autoloader' ] );
+//			spl_autoload_register( [ $this, 'autoloader' ] );
 
 			$this->include_files();
+
+			// Initialize Plugin
+			add_action('plugins_loaded', [$this, 'mela_init']);
 
 
 			// Elementor
@@ -38,9 +41,28 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 		}
 
 
-		/* Initialize */
-		public function init(){
-//			add_action( 'elementor/init', array( $this, 'widgets_registered' ) );
+
+		// Initialize
+		public function mela_init(){
+
+			// Check if Elementor installed and activated
+			if ( ! did_action( 'elementor/loaded' ) ) {
+				add_action( 'admin_notices', array( $this, 'mela_admin_notice_missing_main_plugin' ) );
+				return;
+			}
+
+			// Check for required Elementor version
+			if ( ! version_compare( ELEMENTOR_VERSION, self::MINIMUM_ELEMENTOR_VERSION, '>=' ) ) {
+				add_action( 'admin_notices', array( $this, 'mela_admin_notice_minimum_elementor_version' ) );
+				return;
+			}
+
+			// Check for required PHP version
+			if ( version_compare( PHP_VERSION, self::MINIMUM_PHP_VERSION, '<' ) ) {
+				add_action( 'admin_notices', array( $this, 'mela_admin_notice_minimum_php_version' ) );
+				return;
+			}
+
 		}
 
 
@@ -55,26 +77,6 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 			require \Master_Elementor_Addons::mela_plugin_path() . '/inc/classes/addons-manager.php';
 		}
 
-		public function autoloader( $class ) {
-//			echo '<pre>' . $class . '</pre>';
-//			echo __NAMESPACE__;
-			if ( 0 !== strpos( $class, __NAMESPACE__ ) ) {
-				return;
-			}
-
-			$filename = strtolower(
-				preg_replace(
-					[ '/^' . __NAMESPACE__ . '\\\/', '/([a-z])([A-Z])/', '/_/', '/\\\/' ],
-					[ '', '$1-$2', '-', DIRECTORY_SEPARATOR ],
-					$class
-				)
-			);
-			$filename = \Master_Elementor_Addons::mela_plugin_path() . $filename . '.php';
-
-			if ( is_readable( $filename ) ) {
-				include( $filename );
-			}
-		}
 
 
 		public function get_localize_settings() {
@@ -97,48 +99,55 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 			$this->_localize_settings[ $setting_key ] = array_replace_recursive( $this->_localize_settings[ $setting_key ], $setting_value );
 		}
 
-		public function widgets_registered() {
 
-			// We check if the Elementor plugin has been installed / activated.
-			if(defined('ELEMENTOR_PATH') && class_exists('Elementor\Widget_Base')){
-
-				// We look for any theme overrides for this custom Elementor element.
-				// If no theme overrides are found we use the default one in this plugin.
-
-				$widget_file = Master_Elementor_Addons::mela_plugin_path() . '/inc/addons/my-widgets.php';
-				$template_file = locate_template($widget_file);
-				if ( !$template_file || !is_readable( $template_file ) ) {
-					$template_file = Master_Elementor_Addons::mela_plugin_path() . '/inc/addons/my-widgets.php';
-				}
-				if ( $template_file && is_readable( $template_file ) ) {
-					require_once $template_file;
-				}
+		public function mela_admin_notice_missing_main_plugin() {
+			if ( isset( $_GET['activate'] ) ) {
+				unset( $_GET['activate'] );
 			}
-			if ( defined( 'ELEMENTOR_PATH' ) && class_exists( 'Elementor\Widget_Base' ) ) {
-				// get our own widgets up and running:
-				// copied from widgets-manager.php
 
-				if ( class_exists( 'Elementor\Plugin' ) ) {
-					if ( is_callable( 'Elementor\Plugin', 'instance' ) ) {
-						$elementor = Elementor\Plugin::instance();
-						if ( isset( $elementor->widgets_manager ) ) {
-							if ( method_exists( $elementor->widgets_manager, 'register_widget_type' ) ) {
+			$message = sprintf(
+			/* translators: 1: Plugin name 2: Elementor */
+				esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', MELA_TD ),
+				'<strong>' . esc_html__( 'Master Addons for Elementor', MELA_TD ) . '</strong>',
+				'<strong>' . esc_html__( 'Elementor', MELA_TD ) . '</strong>'
+			);
 
-								$widget_file   = Master_Elementor_Addons::mela_plugin_path() . '/inc/addons/my-widgets.php';
-								$template_file = locate_template( $widget_file );
-								if ( $template_file && is_readable( $template_file ) ) {
-									require_once $template_file;
-									Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Elementor\Widget_My_Custom_Elementor_Thing() );
-
-								}
-							}
-						}
-					}
-				}
-			}
+			printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
 		}
 
+		public function mela_admin_notice_minimum_elementor_version() {
+			if ( isset( $_GET['activate'] ) ) {
+				unset( $_GET['activate'] );
+			}
 
+			$message = sprintf(
+			/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
+				esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', MELA_TD ),
+				'<strong>' . esc_html__( 'Master Addons for Elementor', MELA_TD ) . '</strong>',
+				'<strong>' . esc_html__( 'Elementor', MELA_TD ) . '</strong>',
+				self::MINIMUM_ELEMENTOR_VERSION
+			);
+
+			printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+		}
+
+		public function mela_admin_notice_minimum_php_version() {
+			if ( isset( $_GET['activate'] ) ) {
+				unset( $_GET['activate'] );
+			}
+
+			$message = sprintf(
+			/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
+				esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', MELA_TD ),
+				'<strong>' . esc_html__( 'Master Addons for Elementor', MELA_TD ) . '</strong>',
+				'<strong>' . esc_html__( 'PHP', MELA_TD ) . '</strong>',
+				self::MINIMUM_PHP_VERSION
+			);
+
+			printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+		}
+
+		
 
 	}
 

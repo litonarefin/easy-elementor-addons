@@ -12,21 +12,6 @@
 
 if (!defined('ABSPATH')) { exit; } // No, Direct access Sir !!!
 
-// Instantiate 
-$mela = new Master_Elementor_Addons();
-//
-////Defined Constants
-//define( 'MELA', Master_Elementor_Addons::$plugin_name );
-//define( 'MELA_VERSION', Master_Elementor_Addons::version() );
-//define( 'MELA_BASE', plugin_basename( __FILE__ ) );
-//define( 'MELA_PLUGIN_URL', Master_Elementor_Addons::mela_plugin_url());
-//define( 'MELA_PLUGIN_PATH', Master_Elementor_Addons::mela_plugin_path() );
-//define( 'MELA_PLUGIN_PATH_URL', Master_Elementor_Addons::mela_plugin_dir_url());
-//define( 'MELA_IMAGE_DIR', Master_Elementor_Addons::mela_plugin_dir_url() . '/assets/images/');
-//define( 'MELA_TD', $mela->mela_load_textdomain());  // Master Addons Text Domain
-//define( 'MELA_FILE', __FILE__ );
-//define( 'MELA_DIR', dirname( __FILE__ ) );
-
 
 final class Master_Elementor_Addons{
 
@@ -39,6 +24,8 @@ final class Master_Elementor_Addons{
     private static $plugin_slug;
     public static $plugin_dir_url;
     public static $plugin_name = 'Master Addons for Elementor';
+
+	private static $instance = null;
 
 	public static $maad_el_default_widgets = [
 			'team-members',
@@ -66,6 +53,13 @@ final class Master_Elementor_Addons{
 	];
 
 
+	public static function get_instance() {
+		if ( ! self::$instance )
+			self::$instance = new self;
+		return self::$instance;
+	}
+
+
 	public function __construct(){
 
 		$this->constants();
@@ -80,9 +74,7 @@ final class Master_Elementor_Addons{
 		add_action('init', [$this, 'mela_load_textdomain']);
 
         add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'plugin_actions_links' ] );
-		
-		// Initialize Plugin
-		add_action('plugins_loaded', [$this, 'mela_init']);
+
 
 
         //Welcome Screen
@@ -350,76 +342,27 @@ final class Master_Elementor_Addons{
 
 
 
-	// Initialize
-	public function mela_init(){
-		
-		// Check if Elementor installed and activated
-        if ( ! did_action( 'elementor/loaded' ) ) {
-            add_action( 'admin_notices', array( $this, 'mela_admin_notice_missing_main_plugin' ) );
-            return;
-        }		
-
-        // Check for required Elementor version
-        if ( ! version_compare( ELEMENTOR_VERSION, self::MINIMUM_ELEMENTOR_VERSION, '>=' ) ) {
-            add_action( 'admin_notices', array( $this, 'mela_admin_notice_minimum_elementor_version' ) );
-            return;
-        }
-
-        // Check for required PHP version
-        if ( version_compare( PHP_VERSION, self::MINIMUM_PHP_VERSION, '<' ) ) {
-            add_action( 'admin_notices', array( $this, 'mela_admin_notice_minimum_php_version' ) );
-            return;
-        }        
-
-	}
-
-
-    public function mela_admin_notice_missing_main_plugin() {
-        if ( isset( $_GET['activate'] ) ) {
-            unset( $_GET['activate'] );
-        }
-
-        $message = sprintf(
-        /* translators: 1: Plugin name 2: Elementor */
-            esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', MELA_TD ),
-            '<strong>' . esc_html__( 'Master Addons for Elementor', MELA_TD ) . '</strong>',
-            '<strong>' . esc_html__( 'Elementor', MELA_TD ) . '</strong>'
-        );
-
-        printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
-    }	
-
-    public function mela_admin_notice_minimum_elementor_version() {
-        if ( isset( $_GET['activate'] ) ) {
-            unset( $_GET['activate'] );
-        }
-
-        $message = sprintf(
-        /* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', MELA_TD ),
-            '<strong>' . esc_html__( 'Master Addons for Elementor', MELA_TD ) . '</strong>',
-            '<strong>' . esc_html__( 'Elementor', MELA_TD ) . '</strong>',
-            self::MINIMUM_ELEMENTOR_VERSION
-        );
-
-        printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
-    }    
-
-    public function mela_admin_notice_minimum_php_version() {
-        if ( isset( $_GET['activate'] ) ) {
-            unset( $_GET['activate'] );
-        }
-
-        $message = sprintf(
-        /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', MELA_TD ),
-            '<strong>' . esc_html__( 'Master Addons for Elementor', MELA_TD ) . '</strong>',
-            '<strong>' . esc_html__( 'PHP', MELA_TD ) . '</strong>',
-            self::MINIMUM_PHP_VERSION
-        );
-
-        printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
-    }
-
 
 }
+
+
+
+
+/**
+ *
+ * Initilize Plugin Class
+ */
+function master_addons_el_init() {
+	return Master_Elementor_Addons::get_instance();
+}
+add_action( 'plugins_loaded', 'master_addons_el_init' );
+
+
+/**
+ * Plugin Redirect Option Added by register_activation_hook
+ *
+ */
+function master_addons_el_redirect() {
+	add_option( 'maad_el_update_redirect', true );
+}
+register_activation_hook( __FILE__ , 'master_addons_el_redirect' );
