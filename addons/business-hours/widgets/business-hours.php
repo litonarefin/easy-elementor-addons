@@ -51,7 +51,7 @@ class Business_Hours extends Master_Addons_Widget {
 	 * @return array Widget categories.
 	 */
     public function get_categories() {
-        return [ 'master-addons' ];
+        return [ 'master_addons' ];
     }
 
     /**

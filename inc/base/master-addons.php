@@ -1,6 +1,5 @@
 <?php
 	namespace MasterAddons\Base;
-	use Elementor\Widget_Base;
 
 //	use MasterAddons\Classes\Master_Addons_Admin_Settings;
 

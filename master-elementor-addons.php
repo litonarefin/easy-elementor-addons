@@ -64,6 +64,7 @@ final class Master_Elementor_Addons{
         // add_action( 'admin_enqueue_scripts', [ $this, 'mela_admin_enqueue_scripts' ]);
         
         add_action( 'elementor/init', [ $this, 'mela_category' ] );
+		add_action( 'elementor/widgets/widgets_registered', [ $this, 'mela_add_elementor_widgets' ]);
 
 		add_filter( 'body_class', [ $this, 'mela_ea_body_class' ] );
 
@@ -77,12 +78,16 @@ final class Master_Elementor_Addons{
         \Elementor\Plugin::instance()->elements_manager->add_category(
             'master-addons',
             array(
-                'title' => 'Master Addons',
+                'title' => esc_html__( 'Master Addons', MELA_TD ) ,
                 'icon'  => 'font',
             ),
             1 );
     }
 
+
+    public function mela_add_elementor_widgets(){
+	    require_once $this->mela_plugin_path() . '/addons/wpb-counter.php';
+    }
 
     public function mela_admin_menu(){
 
@@ -160,6 +165,7 @@ final class Master_Elementor_Addons{
 	// Include Files
 	public function mela_include_files(){
 		require_once $this->mela_plugin_path() . '/class-master-elementor-addon.php';
+//		require $this->mela_plugin_path() . '/addons/business-hours/module.php';
 	}
 
 

@@ -1,7 +1,7 @@
 <?php
 	namespace MasterAddons\AddonsManager;
 
-	use MasterAddons\Inc\Base\Module_Base;
+	use MasterAddons\Base\Module_Base;
 
 	if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -20,6 +20,7 @@
 			ksort($modules);
 
 			foreach ( $modules as $module_name ) {
+print_r($module_name);
 
 				$class_name = str_replace( '-', ' ', $module_name );
 
