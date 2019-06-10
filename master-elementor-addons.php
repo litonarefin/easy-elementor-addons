@@ -41,8 +41,10 @@ final class Master_Elementor_Addons{
     public static $plugin_name = 'Master Addons for Elementor';
 
 	public static $maad_el_default_widgets = [
-			'master-card',
-			'countdown-timer',
+			'team-members',
+			'business-hours',
+//			'master-cards',
+//			'countdown-timer',
 //			'contact-form-7',
 //			'master-accordion',
 //			'master-tabs',
@@ -91,11 +93,6 @@ final class Master_Elementor_Addons{
 		//Redirect Hook
 		add_action( 'admin_init', [ $this, 'mael_ad_redirect_hook' ] );
 
-		//Body Class
-		add_filter( 'body_class', [ $this, 'mela_ea_body_class' ] );
-
-
-
 
 
 		add_action( 'elementor/init', [ $this, 'mela_category' ] );
@@ -112,29 +109,44 @@ final class Master_Elementor_Addons{
 
 	}
 
+
 	public function constants(){
 
 		//Defined Constants
 		if ( ! defined( 'MELA' ) )
 			define( 'MELA', self::$plugin_name );
+
 		if ( ! defined( 'MELA_VERSION' ) )
 			define( 'MELA_VERSION', self::version() );
+
 		if ( ! defined( 'MELA_BASE' ) )
 			define( 'MELA_BASE', plugin_basename( __FILE__ ) );
+
 		if ( ! defined( 'MELA_PLUGIN_URL' ) )
 			define( 'MELA_PLUGIN_URL', self::mela_plugin_url());
+
 		if ( ! defined( 'MELA_PLUGIN_PATH' ) )
 			define( 'MELA_PLUGIN_PATH', self::mela_plugin_path() );
+
 		if ( ! defined( 'MELA_PLUGIN_PATH_URL' ) )
 			define( 'MELA_PLUGIN_PATH_URL', self::mela_plugin_dir_url());
+
 		if ( ! defined( 'MELA_IMAGE_DIR' ) )
 			define( 'MELA_IMAGE_DIR', self::mela_plugin_dir_url() . '/assets/images/');
+
+		if ( ! defined( 'MAAD_EL_ADDONS' ) )
+			define( 'MAAD_EL_ADDONS', plugin_dir_path( __FILE__ ) . 'addons/' );
+
 		if ( ! defined( 'MELA_TEMPLATES' ) )
 			define( 'MELA_TEMPLATES', plugin_dir_path( __FILE__ ) . 'inc/template-parts/' );
+
+		// Master Addons Text Domain
 		if ( ! defined( 'MELA_TD' ) )
-			define( 'MELA_TD', $this->mela_load_textdomain());  // Master Addons Text Domain
+			define( 'MELA_TD', $this->mela_load_textdomain());
+
 		if ( ! defined( 'MELA_FILE' ) )
 			define( 'MELA_FILE', __FILE__ );
+
 		if ( ! defined( 'MELA_DIR' ) )
 			define( 'MELA_DIR', dirname( __FILE__ ) );
 
@@ -169,10 +181,33 @@ final class Master_Elementor_Addons{
 
 
     public function maad_el_init_widgets(){
-	    require_once $this->mela_plugin_path() . '/addons/wpb-counter.php';
+//	    require_once $this->mela_plugin_path() . '/addons/wpb-counter.php';
+
+	    $activated_widgets = $this->activated_widgets();
+
+	    foreach( self::$maad_el_default_widgets as $widget ) {
+		    if ( $activated_widgets[$widget] == true ) {
+			    if ( $widget == 'contact-form-7' ) {
+				    if ( function_exists( 'wpcf7' ) ) {
+					    require_once MAAD_EL_ADDONS . $widget . '/' .$widget . '.php';
+				    }
+			    } else {
+				    require_once MAAD_EL_ADDONS . $widget . '/' .$widget . '.php';
+			    }
+		    }
+	    }
+
     }
 
 
+	/**
+	 *
+	 * Enqueue Elementor Editor Styles
+	 *
+	 */
+	public function maad_el_editor_styles() {
+		wp_enqueue_style( 'maad-el-frontend-editor', MELA_PLUGIN_URL . 'assets/css/exad-frontend-editor.css' );
+	}
 
 	/**
 	 * Enqueue Plugin Styles and Scripts
@@ -181,25 +216,18 @@ final class Master_Elementor_Addons{
 	public function maad_el_enqueue_scripts() {
 
 		$is_activated_widget = $this->activated_widgets();
-		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.css' );
-
-		if ( $is_activated_widget['progress-bar'] ) {
-			// Progress Bar Js
-			wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/loading-bar.js', array( 'jquery' ), '1.0', true );
-			// Waypoints Js
-			wp_enqueue_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), '1.0', true );
-		}
-		if ( $is_activated_widget['google-maps'] ) {
-			wp_enqueue_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('maad_el_google_map_api_option'), array('jquery'),'1.8', false );
-			// Gmap 3 Js
-			wp_enqueue_script( 'exad-gmap3', EXAD_URL . 'assets/js/vendor/gmap3.min.js', array( 'jquery' ), '1.0', true );
-		}
+		wp_enqueue_style( 'maad-el-main-style', MELA_PLUGIN_URL . '/assets/css/maad-el-styles.css' );
 
 		if ( $is_activated_widget['countdown-timer'] ) {
 			// jQuery Countdown Js
-			wp_enqueue_script( 'exad-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), '1.0', true );
+			wp_enqueue_script( 'maad-el-countdown', MELA_PLUGIN_URL . '/assets/js/vendor/jquery.countdown.min.js',
+				array( 'jquery' )
+				, self::VERSION, true );
 		}
-		wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/exad-scripts.js', array( 'jquery' ), '1.0', true );
+
+		wp_enqueue_script( 'maad-el-main-script', MELA_PLUGIN_URL . 'assets/js/maad-el-scripts.js', array( 'jquery' ),
+			self::VERSION,
+			true );
 
 	}
 
@@ -393,11 +421,5 @@ final class Master_Elementor_Addons{
         printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
     }
 
-    public function mela_ea_body_class(){
-	    if ( !\Elementor\Plugin::$instance->preview->is_preview_mode() ) {
-		    $classes[] = 'master-addons-elementor';
-	    }
-	    return $classes;
-    }
 
 }

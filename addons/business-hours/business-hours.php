@@ -1,23 +1,20 @@
 <?php
-namespace MasterAddons\Addons\BusinessHours\Widgets;
-
-use MasterAddons\Base\Master_Addons_Widget;
+namespace Elementor;
 
 // Elementor Classes
+use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+if ( ! defined( 'ABSPATH' ) ) { exit; // Exit if accessed directly. }
 
 /**
  * Business Hours Widget
  */
-class Business_Hours extends Master_Addons_Widget {
+class Business_Hours extends Widget_Base {
     
     /**
 	 * Retrieve business hours widget name.
@@ -38,7 +35,7 @@ class Business_Hours extends Master_Addons_Widget {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Business Hours', 'power-pack' );
+        return __( 'Business Hours', MELA_TD );
     }
 
     /**
@@ -51,7 +48,7 @@ class Business_Hours extends Master_Addons_Widget {
 	 * @return array Widget categories.
 	 */
     public function get_categories() {
-        return [ 'master_addons' ];
+        return [ 'master-addons' ];
     }
 
     /**
@@ -129,4 +126,5 @@ class Business_Hours extends Master_Addons_Widget {
     protected function _business_hours_custom_template() {}
 }
 
-//Plugin::instance()->widgets_manager->register_widget_type( new PP_Business_Hours_Widget() );
+//Plugin::instance()->widgets_manager->register_widget_type( new Business_Hours() );
+Plugin::instance()->widgets_manager->register_widget_type( new Business_Hours() );

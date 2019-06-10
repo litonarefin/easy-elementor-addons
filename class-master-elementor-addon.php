@@ -23,16 +23,32 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 			return self::$instance;			
 	   	}
 
-		/* Initialize */
-		public function init(){		
-//			add_action( 'elementor/init', array( $this, 'widgets_registered' ) );
-		}
-
 		public function __construct(){
 
 			spl_autoload_register( [ $this, 'autoloader' ] );
 
 			$this->include_files();
+
+
+			// Elementor
+
+			//Body Class
+			add_filter( 'body_class', [ $this, 'mela_ea_body_class' ] );
+
+		}
+
+
+		/* Initialize */
+		public function init(){
+//			add_action( 'elementor/init', array( $this, 'widgets_registered' ) );
+		}
+
+
+		public function mela_ea_body_class(){
+			if ( !\Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+				$classes[] = 'master-addons-elementor';
+			}
+			return $classes;
 		}
 
 		public function include_files(){
