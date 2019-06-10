@@ -147,7 +147,7 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 			printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
 		}
 
-		
+
 
 	}
 

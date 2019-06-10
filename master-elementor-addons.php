@@ -267,7 +267,7 @@ final class Master_Elementor_Addons{
 	    if ( get_option( 'maad_el_update_redirect', false ) ) {
 		    delete_option( 'maad_el_update_redirect' );
 		    if ( !isset($_GET['activate-multi'] ) && $this->is_elementor_activated() ) {
-			    wp_redirect( 'admin.php?page=mael-addons-settings' );
+			    wp_redirect( 'admin.php?page=master-addons-settings' );
 			    exit;
 		    }
 	    }
