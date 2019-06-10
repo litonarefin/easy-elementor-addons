@@ -14,18 +14,18 @@ if (!defined('ABSPATH')) { exit; } // No, Direct access Sir !!!
 
 // Instantiate 
 $mela = new Master_Elementor_Addons();
-
-//Defined Constants
-define( 'MELA', Master_Elementor_Addons::$plugin_name );
-define( 'MELA_VERSION', Master_Elementor_Addons::version() );
-define( 'MELA_BASE', plugin_basename( __FILE__ ) );
-define( 'MELA_PLUGIN_URL', Master_Elementor_Addons::mela_plugin_url());
-define( 'MELA_PLUGIN_PATH', Master_Elementor_Addons::mela_plugin_path() );
-define( 'MELA_PLUGIN_PATH_URL', Master_Elementor_Addons::mela_plugin_dir_url());
-define( 'MELA_IMAGE_DIR', Master_Elementor_Addons::mela_plugin_dir_url() . '/assets/images/');
-define( 'MELA_TD', $mela->mela_load_textdomain());  // Master Addons Text Domain
-define( 'MELA_FILE', __FILE__ );
-define( 'MELA_DIR', dirname( __FILE__ ) );
+//
+////Defined Constants
+//define( 'MELA', Master_Elementor_Addons::$plugin_name );
+//define( 'MELA_VERSION', Master_Elementor_Addons::version() );
+//define( 'MELA_BASE', plugin_basename( __FILE__ ) );
+//define( 'MELA_PLUGIN_URL', Master_Elementor_Addons::mela_plugin_url());
+//define( 'MELA_PLUGIN_PATH', Master_Elementor_Addons::mela_plugin_path() );
+//define( 'MELA_PLUGIN_PATH_URL', Master_Elementor_Addons::mela_plugin_dir_url());
+//define( 'MELA_IMAGE_DIR', Master_Elementor_Addons::mela_plugin_dir_url() . '/assets/images/');
+//define( 'MELA_TD', $mela->mela_load_textdomain());  // Master Addons Text Domain
+//define( 'MELA_FILE', __FILE__ );
+//define( 'MELA_DIR', dirname( __FILE__ ) );
 
 
 final class Master_Elementor_Addons{
@@ -38,10 +38,37 @@ final class Master_Elementor_Addons{
     private static $plugin_url;
     private static $plugin_slug;
     public static $plugin_dir_url;
-    public static $plugin_name = 'Master Addons for Elementor ';
+    public static $plugin_name = 'Master Addons for Elementor';
+
+	public static $maad_el_default_widgets = [
+			'master-card',
+			'countdown-timer',
+//			'contact-form-7',
+//			'master-accordion',
+//			'master-tabs',
+//			'master-button',
+//			'post-grid',
+//			'post-timeline',
+//			'team-member',
+//			'team-carousel',
+//			'testimonial-carousel',
+//			'flipbox',
+//			'infobox',
+//			'pricing-table',
+//			'progress-bar',
+//			'master-heading',
+//			'dual-heading',
+//			'post-carousel',
+//			'google-maps',
+//			'tooltip'
+	];
 
 
 	public function __construct(){
+
+		$this->constants();
+		$this->maad_el_include_files();
+		$this->mela_define_admin_hooks();
 
         self::$plugin_slug              = 'master-elementor-addons';
         self::$plugin_path              = untrailingslashit( plugin_dir_path( '/', __FILE__ ) );
@@ -55,25 +82,81 @@ final class Master_Elementor_Addons{
 		// Initialize Plugin
 		add_action('plugins_loaded', [$this, 'mela_init']);
 
-		$this->mela_include_files();
-
-        $this->mela_define_admin_hooks();
 
         //Welcome Screen
-        add_action( 'admin_menu', [ $this, 'mela_admin_menu' ]);
+//        add_action( 'admin_menu', [ $this, 'mela_admin_menu' ]);
         // add_action( 'admin_enqueue_scripts', [ $this, 'mela_admin_enqueue_scripts' ]);
-        
-        add_action( 'elementor/init', [ $this, 'mela_category' ] );
-		add_action( 'elementor/widgets/widgets_registered', [ $this, 'mela_add_elementor_widgets' ]);
 
+
+		//Redirect Hook
+		add_action( 'admin_init', [ $this, 'mael_ad_redirect_hook' ] );
+
+		//Body Class
 		add_filter( 'body_class', [ $this, 'mela_ea_body_class' ] );
+
+
+
+
+
+		add_action( 'elementor/init', [ $this, 'mela_category' ] );
+
+		// Enqueue Styles and Scripts
+		add_action( 'wp_enqueue_scripts', [ $this, 'maad_el_enqueue_scripts' ], 20 );
+
+		// Elementor Editor Styles
+		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'maad_el_editor_styles' ] );
+
+		// Add Elementor Widgets
+		add_action( 'elementor/widgets/widgets_registered', array( $this, 'maad_el_init_widgets' ) );
+
+
+	}
+
+	public function constants(){
+
+		//Defined Constants
+		if ( ! defined( 'MELA' ) )
+			define( 'MELA', self::$plugin_name );
+		if ( ! defined( 'MELA_VERSION' ) )
+			define( 'MELA_VERSION', self::version() );
+		if ( ! defined( 'MELA_BASE' ) )
+			define( 'MELA_BASE', plugin_basename( __FILE__ ) );
+		if ( ! defined( 'MELA_PLUGIN_URL' ) )
+			define( 'MELA_PLUGIN_URL', self::mela_plugin_url());
+		if ( ! defined( 'MELA_PLUGIN_PATH' ) )
+			define( 'MELA_PLUGIN_PATH', self::mela_plugin_path() );
+		if ( ! defined( 'MELA_PLUGIN_PATH_URL' ) )
+			define( 'MELA_PLUGIN_PATH_URL', self::mela_plugin_dir_url());
+		if ( ! defined( 'MELA_IMAGE_DIR' ) )
+			define( 'MELA_IMAGE_DIR', self::mela_plugin_dir_url() . '/assets/images/');
+		if ( ! defined( 'MELA_TEMPLATES' ) )
+			define( 'MELA_TEMPLATES', plugin_dir_path( __FILE__ ) . 'inc/template-parts/' );
+		if ( ! defined( 'MELA_TD' ) )
+			define( 'MELA_TD', $this->mela_load_textdomain());  // Master Addons Text Domain
+		if ( ! defined( 'MELA_FILE' ) )
+			define( 'MELA_FILE', __FILE__ );
+		if ( ! defined( 'MELA_DIR' ) )
+			define( 'MELA_DIR', dirname( __FILE__ ) );
+
+	}
+
+	public static function activated_widgets() {
+
+		$maad_el_default_settings  = array_fill_keys( self::$maad_el_default_widgets, true );
+		$maad_el_get_settings      = get_option( 'maad_el_save_settings', $maad_el_default_settings );
+		$maad_el_new_settings      = array_diff_key( $maad_el_default_settings, $maad_el_get_settings );
+
+		if( ! empty( $maad_el_new_settings ) ) {
+			$maad_el_updated_settings = array_merge( $maad_el_get_settings, $maad_el_new_settings );
+			update_option( 'maad_el_save_settings', $maad_el_updated_settings );
+		}
+
+		return $maad_el_get_settings = get_option( 'maad_el_save_settings', $maad_el_default_settings );
 
 	}
 
 
     function mela_category() {
-
-//	    $this->_modules_manager = new Modules_Manager();
 
         \Elementor\Plugin::instance()->elements_manager->add_category(
             'master-addons',
@@ -85,31 +168,90 @@ final class Master_Elementor_Addons{
     }
 
 
-    public function mela_add_elementor_widgets(){
+    public function maad_el_init_widgets(){
 	    require_once $this->mela_plugin_path() . '/addons/wpb-counter.php';
     }
+
+
+
+	/**
+	 * Enqueue Plugin Styles and Scripts
+	 *
+	 */
+	public function maad_el_enqueue_scripts() {
+
+		$is_activated_widget = $this->activated_widgets();
+		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.css' );
+
+		if ( $is_activated_widget['progress-bar'] ) {
+			// Progress Bar Js
+			wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/loading-bar.js', array( 'jquery' ), '1.0', true );
+			// Waypoints Js
+			wp_enqueue_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), '1.0', true );
+		}
+		if ( $is_activated_widget['google-maps'] ) {
+			wp_enqueue_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('maad_el_google_map_api_option'), array('jquery'),'1.8', false );
+			// Gmap 3 Js
+			wp_enqueue_script( 'exad-gmap3', EXAD_URL . 'assets/js/vendor/gmap3.min.js', array( 'jquery' ), '1.0', true );
+		}
+
+		if ( $is_activated_widget['countdown-timer'] ) {
+			// jQuery Countdown Js
+			wp_enqueue_script( 'exad-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), '1.0', true );
+		}
+		wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/exad-scripts.js', array( 'jquery' ), '1.0', true );
+
+	}
 
     public function mela_admin_menu(){
 
         // Add Menu Item.
-        add_menu_page(
-            esc_html__( 'Master Addons for Elementor', MELA_TD ), // Page Title
-            esc_html__( 'Master Addons', MELA_TD ),    // Menu Title
-            'edit_posts',   // Capability
-            'masteraddons-elementor', // Menu Slug
-            [ $this, 'mela_welcome_page_content' ],  // Callback Function
-            // $icon_svg,   // Icon 
-            MELA_PLUGIN_URL . '/assets/images/master-addons-icon.png',
-            87  // Positon
-        );
+//        add_menu_page(
+//            esc_html__( 'Master Addons for Elementor', MELA_TD ), // Page Title
+//            esc_html__( 'Master Addons', MELA_TD ),    // Menu Title
+//            'edit_posts',   // Capability
+//            'master-addons-elementor', // Menu Slug
+//            [ $this, 'mela_welcome_page_content' ],  // Callback Function
+//            // $icon_svg,   // Icon
+//            MELA_PLUGIN_URL . '/assets/images/master-addons-icon.png',
+//            87  // Positon
+//        );
+
+	    add_submenu_page(
+		    'elementor',
+		    esc_html__('Master Addons for Elementor', MELA_TD),
+		    esc_html__('Master Addons', MELA_TD),
+		    'manage_options',
+		    'mael-ad-settings',
+		    [ $this, 'mela_welcome_page_content' ]
+	    );
 
     }
 
 
     public function mela_welcome_page_content(){
-        include_once $this->mela_plugin_path() . '/inc/admin/welcome.php';
+//        include_once $this->mela_plugin_path() . '/inc/admin/welcome.php';
+	    echo '<h2>Liton Arefin</h2>';
     }
 
+	public function is_elementor_activated( $plugin_path = 'elementor/elementor.php' ){
+		$installed_plugins_list = get_plugins();
+		return isset( $installed_plugins_list[ $plugin_path ] );
+	}
+
+
+    /*
+     * Activation Plugin redirect hook
+     */
+    public function mael_ad_redirect_hook(){
+	    if ( get_option( 'maad_el_update_redirect', false ) ) {
+		    delete_option( 'maad_el_update_redirect' );
+		    if ( !isset($_GET['activate-multi'] ) && $this->is_elementor_activated() ) {
+			    wp_redirect( 'admin.php?page=mael-addons-settings' );
+			    exit;
+		    }
+	    }
+    }
 
 
     public static function version(){
@@ -119,7 +261,7 @@ final class Master_Elementor_Addons{
 
     // Text Domains
     public function mela_load_textdomain(){
-        load_plugin_textdomain( 'mela', false, dirname(plugin_basename(__FILE__)) . '/languages/' );
+        load_plugin_textdomain( 'mela' );
     }
 
 
@@ -155,17 +297,27 @@ final class Master_Elementor_Addons{
 
     public function plugin_actions_links( $links ){
         if( is_admin() ){
+            $links[] = sprintf( '<a href="admin.php?page=master-addons-settings">' . __( 'Settings', MELA_TD ) . '</a>' );
             $links[] = '<a href="https://jeweltheme.com/support/" target="_blank">'. esc_html__( 'Support', MELA_TD ) .'</a>';
             $links[] = '<a href="https://docs.jeweltheme.com/" target="_blank">'. esc_html__( 'Documentation', MELA_TD ) .'</a>';
         }
+
         return $links;          
     }
 
 
 	// Include Files
-	public function mela_include_files(){
+	public function maad_el_include_files(){
+
+    	// Master Addons Class
 		require_once $this->mela_plugin_path() . '/class-master-elementor-addon.php';
-//		require $this->mela_plugin_path() . '/addons/business-hours/module.php';
+
+		// Helper Class
+		include_once MELA_PLUGIN_PATH . '/inc/classes/helper-class.php';
+
+		// Dashboard Settings
+		include_once MELA_PLUGIN_PATH . '/inc/admin/dashboard-settings.php';
+
 	}
 
 

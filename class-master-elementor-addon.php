@@ -42,9 +42,9 @@ if( !class_exists('Master_Elementor_Addons_Class') ){
 		public function autoloader( $class ) {
 //			echo '<pre>' . $class . '</pre>';
 //			echo __NAMESPACE__;
-//			if ( 0 !== strpos( $class, __NAMESPACE__ ) ) {
-//				return;
-//			}
+			if ( 0 !== strpos( $class, __NAMESPACE__ ) ) {
+				return;
+			}
 
 			$filename = strtolower(
 				preg_replace(
