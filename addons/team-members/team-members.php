@@ -11,7 +11,7 @@
 		}
 
 		public function get_title() {
-			return esc_html__( 'Team Member', 'master-elementor-addons' );
+			return esc_html__( 'Team Member', 'master-addons' );
 		}
 
 		public function get_icon() {

@@ -29,7 +29,7 @@
 							<?php echo esc_html__('Installation:', MELA_TD);?>
 						</h4>
 						<div class='embed-container'>
-							<iframe src='https://www.youtube.com/embed/mu-heAQgUOk' frameborder='0' allowfullscreen></iframe>
+
 						</div>
 
 
@@ -37,7 +37,7 @@
 							<?php echo esc_html__('Row and Columns Tutorial:', MELA_TD);?>
 						</h4>
 						<div class='embed-container'>
-							<iframe src='https://www.youtube.com/embed/Ced4c_iFoDU' frameborder='0' allowfullscreen></iframe>
+
 						</div>
 
 
@@ -45,7 +45,7 @@
 							<?php echo esc_html__('Row and Columns Customizations Tutorial:', MELA_TD);?>
 						</h4>
 						<div class='embed-container'>
-							<iframe src='https://www.youtube.com/embed/bBXv5cXc4D0' frameborder='0' allowfullscreen></iframe>
+
 						</div>
 
 
@@ -81,7 +81,7 @@
 							<div>
 								<p>
 								<div class='embed-container'>
-									<iframe src='https://www.youtube.com/embed/mu-heAQgUOk' frameborder='0' allowfullscreen></iframe>
+
 								</div>
 								<br>
 								<?php echo esc_html__('Installation Process has been discussed on "Installation" Section. Video Tutorial will help you about Installation Process.', MELA_TD);?>

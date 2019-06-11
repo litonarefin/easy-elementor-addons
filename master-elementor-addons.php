@@ -66,7 +66,7 @@ final class Master_Elementor_Addons{
 		$this->maad_el_include_files();
 		$this->mela_define_admin_hooks();
 
-        self::$plugin_slug              = 'master-elementor-addons';
+        self::$plugin_slug              = 'master-addons';
         self::$plugin_path              = untrailingslashit( plugin_dir_path( '/', __FILE__ ) );
         self::$plugin_url               = untrailingslashit( plugins_url( '/', __FILE__ ) );
 

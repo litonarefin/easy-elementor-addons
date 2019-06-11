@@ -38,26 +38,6 @@ jQuery(document).ready(function($) {
     } );
 
 
-    $('.alert-testing').click(function(){
-
-        swal({
-            title: 'Are you sure?',
-            text: "It will permanently deleted !",
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then(function() {
-            swal(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-            );
-        })
-
-    })
-
 
 // Saving Data With Ajax Request
     $( '.master-addons-el-js-element-save-setting' ).on( 'click', function(e) {
@@ -72,21 +52,25 @@ jQuery(document).ready(function($) {
                     security: js_maad_el_settings.ajax_nonce,
                     fields: $( '#master-addons-el-settings' ).serialize(),
                 },
-                beforeSend: function() {
-                    $this.html('<svg id="master-addons-el-spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48' +
-                        ' 48"><circle' +
-                        ' cx="24" cy="4" r="4" fill="#fff"/><circle cx="12.19" cy="7.86" r="3.7" fill="#fffbf2"/><circle cx="5.02" cy="17.68" r="3.4" fill="#fef7e4"/><circle cx="5.02" cy="30.32" r="3.1" fill="#fef3d7"/><circle cx="12.19" cy="40.14" r="2.8" fill="#feefc9"/><circle cx="24" cy="44" r="2.5" fill="#feebbc"/><circle cx="35.81" cy="40.14" r="2.2" fill="#fde7af"/><circle cx="42.98" cy="30.32" r="1.9" fill="#fde3a1"/><circle cx="42.98" cy="17.68" r="1.6" fill="#fddf94"/><circle cx="35.81" cy="7.86" r="1.3" fill="#fcdb86"/></svg><span>Saving Data..</span>');
-                },
                 success: function( response ) {
 
-                    $this.html('Save Settings');
-                    $('.master-addons-el-dashboard-header-right').prepend('<span' +
-                        ' class="master-addons-el-settings-saved">Settings Saved</span>').fadeIn('slow');
+                    $('.master-addons-el-dashboard-header-right').prepend(
+                        swal({
+                            title: "Saved",
+                            text: "Your Settings has been saved",
+                            type: "success",
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonClass: 'btn-success',
+                            confirmButtonText: 'Okay'
+
+                        })
+                    ).fadeIn('slow');
 
                     saveHeaderAction.removeClass( 'master-addons-el-save-now' );
 
                     setTimeout(function(){
-                        $('.master-addons-el-settings-saved').fadeOut('slow');
+                        $('.swal2-container').fadeOut('slow');
                     }, 2000);
 
                 },
