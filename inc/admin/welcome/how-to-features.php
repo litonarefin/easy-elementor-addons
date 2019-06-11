@@ -36,12 +36,19 @@
 		</div>
 
 
-		<div class="master_addons_feature">
+		<div class="master_addons_feature four-col">
 			<div class="col">
 				<div class="feature_content">
 					<img src="<?php echo MELA_PLUGIN_URL .'/assets/images/feature/image.svg';?>"/>
 					<h3><?php _e( 'Image & Content Block', MELA_TD ); ?></h3>
 					<p><?php _e( 'Keeping both image and content in the same row is mandatory sometimes. There are two variations of alignment in this block. One is for the left image and another for right image.', MELA_TD ); ?></p>
+				</div>
+			</div>
+			<div class="col">
+				<div class="feature_content">
+					<img src="<?php echo MELA_PLUGIN_URL .'/assets/images/feature/quote.svg';?>" />
+					<h3><?php _e( 'Blockquote Block', MELA_TD ); ?></h3>
+					<p><?php _e( 'Highlighting any Quote or sentence with a name can be done from this block. It has different color variation. You can select the color for the Quote icon or for the text too. LTR and RTL makes unique difference.', MELA_TD ); ?></p>
 				</div>
 			</div>
 			<div class="col">

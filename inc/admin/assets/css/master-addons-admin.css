@@ -32,12 +32,36 @@
     right: 10%;
 }
 
+/* Columns */
+
 .four-col,.three-col {
+    display: flex;
     max-width: 100%;
+    width: 100%;
 }
-.three-col .col{
+.col{
+    flex: 1;
+    margin-right:2%;
+}
+
+.four-col .col{
     width: 23%;
 }
+.three-col .col{
+    width: 32%;
+}
+.three-col .col:last-child,
+.four-col .col:last-child {
+    flex: 1;
+    margin-right: 0 !important;
+}
+
+
+/** > :last-child { margin-bottom: 0 !important; margin-right: 0 !important; }*/
+
+/* End of Columns */
+
+
 .feature_content img {
     max-width: 120px;
 }
