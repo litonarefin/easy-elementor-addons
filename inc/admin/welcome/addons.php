@@ -8,10 +8,6 @@
 
 		<div class="master-addons-el-dashboard-header-wrapper">
 			<div class="master-addons-el-dashboard-header-right">
-				<button type="submit" class="alert-testing">
-					<?php _e('Alert Testing', MELA_TD ); ?>
-				</button>
-
 				<button type="submit" class="master-addons-el-btn master-addons-el-js-element-save-setting">
 					<?php _e('Save Settings', MELA_TD ); ?>
 				</button>
