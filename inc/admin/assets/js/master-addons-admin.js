@@ -1,13 +1,33 @@
 jQuery(document).ready(function($) {
     'use strict';
 
-    // $( '.exad-dashboard-tabs li a' ).on( 'click', function(e) {
+    $('.wp-tab-bar a').click(function(event){
+        event.preventDefault();
+
+        // Limit effect to the container element.
+        var context = $(this).closest('.wp-tab-bar').parent();
+        $('.wp-tab-bar li', context).removeClass('wp-tab-active');
+        $(this).closest('li').addClass('wp-tab-active');
+        $('.master_addons_contents .wp-tab-panel', context).hide();
+        $( $(this).attr('href'), context ).show();
+    });
+
+    // Make setting wp-tab-active optional.
+    $('.wp-tab-bar').each(function(){
+        if ( $('.wp-tab-active', this).length )
+            $('.wp-tab-active', this).click();
+        else
+            $('a', this).first().click();
+    });
+
+
+    // $( '.master-addons-dashboard-tabs li a' ).on( 'click', function(e) {
     //     e.preventDefault();
-    //     $( '.exad-dashboard-tabs li a' ).removeClass( 'active' );
+    //     $( '.master-addons-dashboard-tabs li a' ).removeClass( 'active' );
     //     $(this).addClass( 'active' );
     //     var tab = $(this).attr( 'href' );
-    //     $( '.exad-dashboard-tab' ).removeClass( 'active' );
-    //     $( '.exad-dashboard-tabs-wrapper' ).find( tab ).addClass( 'active' );
+    //     $( '.master-addons-dashboard-tab' ).removeClass( 'active' );
+    //     $( '.master-addons-dashboard-tabs-wrapper' ).find( tab ).addClass( 'active' );
     // });
 
     // Save Button reacting on any changes
