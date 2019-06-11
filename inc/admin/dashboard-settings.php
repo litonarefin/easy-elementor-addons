@@ -45,7 +45,10 @@ class Master_Addons_Admin_Settings{
 			wp_enqueue_style( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'css/master-addons-admin.css' );
 			wp_enqueue_script( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'js/master-addons-admin.js', array
             ('jquery'), '1.0', true );
-			wp_enqueue_script( 'master-addons-el-welcome-tabs', MELA_ADMIN_ASSETS .'js/welcome-tabs.js', array('jquery'), '1.0', true );
+			wp_enqueue_script( 'master-addons-el-welcome-tabs', MELA_ADMIN_ASSETS .'js/welcome-tabs.js', array('jquery'), MELA_VERSION, true );
+
+			//Accordion
+			wp_enqueue_script( 'jquery-ui-accordion' );
 
 		}
 

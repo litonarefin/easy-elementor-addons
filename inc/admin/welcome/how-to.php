@@ -6,7 +6,7 @@
 	</h1>
 
 	<h3 class="black textcenter sub-heading">
-		<?php _e( 'The Ultimate Gutenberg Blocks Builder for WordPress!', 'EGB' ); ?>
+		<?php _e( 'The Ultimate Gutenberg Blocks Builder for WordPress!', MELA_TD ); ?>
 	</h3>
 
 	<div class="parent">
@@ -22,8 +22,8 @@
 
 				</p>
 				<br>
-				<h3><?php _e( 'Easy Block Demos:', MELA_TD ); ?></h3>
-				<ul class="egb_demos">
+				<h3><?php _e( 'Master Addons Demos:', MELA_TD ); ?></h3>
+				<ul class="master_addons_demos">
 					<li>
 						<a
 							href="https://plugins.jeweltheme.com/easy-blocks/alert-notification/"
@@ -394,14 +394,14 @@
 
 
 
-	<div class="egb_features">
+	<div class="master_addons_features">
 		<h2>
 			<?php echo MELA;?>
 			</h3>
 			<p class="textcenter">
 				<?php _e( 'Listed Blocks are available not on Easy Blocks - Gutenberg Blocks Page Builder Plugin. Blocks are being added daily ...', MELA_TD ); ?>
 			</p>
-			<div class="egb_feature three-col">
+			<div class="master_addons_feature three-col">
 				<div class="col">
 					<div class="feature_content">
 						<img src="<?php echo MELA_PLUGIN_URL .'/assets/images/feature/alert.svg';?>"/>
@@ -430,7 +430,7 @@
 			</div>
 
 
-			<div class="egb_feature three-col">
+			<div class="master_addons_feature three-col">
 				<div class="col">
 					<div class="feature_content">
 						<img src="<?php echo MELA_PLUGIN_URL .'/assets/images/feature/image.svg';?>"/>
