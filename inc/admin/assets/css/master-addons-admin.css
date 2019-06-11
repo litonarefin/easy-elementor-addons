@@ -569,3 +569,47 @@ pre {
 .ui-accordion-header-active:before {
     content: "\f347";
 }
+
+
+/* Addons */
+.master-addons-dashboard-checkbox{
+    padding:5px 15px;
+}
+.master-addons-dashboard-checkbox .master-addons-el-title{
+    float: left;
+}
+.master-addons-dashboard-checkbox .switch.switch-text {
+    float: right;
+    margin-left: 20px;
+    margin-top: 16px;
+}
+
+.master-addons-el-btn {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    width: auto;
+    padding: 8px 24px;
+    text-align: center;
+    background: #F56640;
+    box-shadow: 0 4px 6px rgba(50,50,93,0.11), 0 1px 3px rgba(0,0,0,0.08);
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: -0.08px;
+    font-weight: bold;
+    border-radius: 4px;
+    color: #fff !important;
+    white-space: nowrap;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: all 200ms ease-out;
+    -webkit-transition: all 200ms ease-out;
+    font-size: .8125rem;
+    line-height: 1.53846;
+}
+
+.master-addons-el-btn:hover, .master-addons-el-btn:focus {
+    color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(50,50,93,0.25), 0 3px 6px rgba(0,0,0,0.2);
+}

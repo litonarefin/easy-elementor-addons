@@ -43,9 +43,12 @@ class Master_Addons_Admin_Settings{
 
 		if( isset( $hook ) && $hook == 'elementor_page_master-addons-settings' ) {
 			wp_enqueue_style( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'css/master-addons-admin.css' );
+			wp_enqueue_style( 'master-addons-el-switch', MELA_ADMIN_ASSETS .'css/switch.css');
+
 			wp_enqueue_script( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'js/master-addons-admin.js', array
             ('jquery'), '1.0', true );
 			wp_enqueue_script( 'master-addons-el-welcome-tabs', MELA_ADMIN_ASSETS .'js/welcome-tabs.js', array('jquery'), MELA_VERSION, true );
+
 
 			//Accordion
 			wp_enqueue_script( 'jquery-ui-accordion' );
@@ -57,7 +60,6 @@ class Master_Addons_Admin_Settings{
 
 
 	public function master_addons_el_page_content(){
-        include_once MELA_PLUGIN_PATH . '/inc/admin/welcome.php';
 
 		$js_info = array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
@@ -76,10 +78,7 @@ class Master_Addons_Admin_Settings{
 		}
 		$this->maad_el_get_settings = get_option( 'maad_el_save_settings', $this->maad_el_default_settings );
 
-		?>
-
-	<?php
-
+		include MELA_PLUGIN_PATH . '/inc/admin/welcome.php';
 
 	}
 
