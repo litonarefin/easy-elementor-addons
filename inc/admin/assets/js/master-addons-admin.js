@@ -37,6 +37,28 @@ jQuery(document).ready(function($) {
         saveHeaderAction.removeAttr('disabled').css('cursor', 'pointer');
     } );
 
+
+    $('.alert-testing').click(function(){
+
+        swal({
+            title: 'Are you sure?',
+            text: "It will permanently deleted !",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(function() {
+            swal(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            );
+        })
+
+    })
+
+
 // Saving Data With Ajax Request
     $( '.master-addons-el-js-element-save-setting' ).on( 'click', function(e) {
         e.preventDefault();
