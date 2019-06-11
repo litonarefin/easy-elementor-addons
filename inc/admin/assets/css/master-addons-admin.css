@@ -573,7 +573,20 @@ pre {
 
 /* Addons */
 .master-addons-dashboard-checkbox{
+
+    position: relative;
+    min-width: 300px;
+    font-size: 24px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    border: 1px solid #E8E9EF;
+    padding: 10px;
+
     padding:5px 15px;
+    margin-bottom: 20px !important;
+
 }
 .master-addons-dashboard-checkbox .master-addons-el-title{
     float: left;
@@ -612,4 +625,11 @@ pre {
     color: #fff !important;
     transform: translateY(-2px);
     box-shadow: 0 7px 14px rgba(50,50,93,0.25), 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.master-addons-el-dashboard-tabs-wrapper .master_addons_feature{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-bottom: 50px;
 }
