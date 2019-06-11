@@ -25,13 +25,14 @@
     padding: 20px;
 }
 .wp-tab-bar.master_addons_navbar {
-    margin-top: 40px;
+    margin-top: 50px;
+    margin-left: -20px;
 }
 .master_addons .about-wrap .wp-badge{
     right: 10%;
 }
 
-.about-wrap .four-col, .about-wrap .three-col {
+.four-col,.three-col {
     max-width: 100%;
 }
 .feature_content img {
@@ -73,7 +74,7 @@
 
 /* Logo */
 .svg .wp-badge.welcome__logo {
-    background: url('../images/logo-256x256.png') center 24px no-repeat;
+    background: url('../../images/logo-256x256.png') center 24px no-repeat;
     background-size: contain;
     color: #fff;
     box-shadow: none;
@@ -211,7 +212,7 @@ pre {
     text-decoration: none;
     color: #fff;
 }
-.egb .wp-tab-panel{
+.master_addons .wp-tab-panel{
     border: none;
     background-color: inherit;
     max-height: inherit;
@@ -220,9 +221,9 @@ pre {
     padding:0;
 }
 
-.egb .wp-tab-bar .wp-tab-active a,
-.egb .wp-tab-bar .wp-tab-active a:active,
-.egb .wp-tab-bar .wp-tab-active a:focus{
+.master_addons .wp-tab-bar .wp-tab-active a,
+.master_addons .wp-tab-bar .wp-tab-active a:active,
+.master_addons .wp-tab-bar .wp-tab-active a:focus{
     color:#fff;
 }
 .wp-tab-bar.master_addons_navbar li.wp-tab-active {
@@ -400,11 +401,11 @@ pre {
     float: right;
     width: 50%;
 }
-.egb p{
+.master_addons p{
     font-size: 18px;
     line-height: 1.5;
 }
-/* .egb #changelogs pre{
+/* .master_addons #changelogs pre{
     overflow-x:hidden;
 } */
 
