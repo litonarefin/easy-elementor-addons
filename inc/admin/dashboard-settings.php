@@ -28,8 +28,8 @@ class Master_Addons_Admin_Settings{
 		add_submenu_page(
 			'elementor',
 			esc_html__( 'Master Addons for Elementor', MELA_TD ), // Page Title
-//			esc_html__( 'Master Addons', MELA_TD ),    // Menu Title
-			'<span class="dashicons dashicons-admin-page" style="font-size: 18px"></span> ' . esc_html__( 'Master Addons', MELA_TD ),
+			esc_html__( 'Master Addons', MELA_TD ),    // Menu Title
+//			'<span class="dashicons dashicons-admin-page" style="font-size: 18px"></span> ' . esc_html__( 'Master Addons', MELA_TD ),
 			'manage_options', 'master-addons-settings',
 			[ $this, 'master_addons_el_page_content' ]
 		);

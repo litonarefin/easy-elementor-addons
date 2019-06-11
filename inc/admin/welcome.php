@@ -43,7 +43,9 @@
 
 			<?php
                 require MELA_PLUGIN_PATH . '/inc/admin/welcome/how-to.php';
+			    require ( MELA_PLUGIN_PATH . '/inc/admin/welcome/addons.php' );
 			    require ( MELA_PLUGIN_PATH . '/inc/admin/welcome/docs.php' );
+			    require ( MELA_PLUGIN_PATH . '/inc/admin/welcome/supports.php' );
 			    require MELA_PLUGIN_PATH . '/inc/admin/welcome/free-themes.php';
 			    require MELA_PLUGIN_PATH . '/inc/admin/welcome/changelogs.php';
 			?>

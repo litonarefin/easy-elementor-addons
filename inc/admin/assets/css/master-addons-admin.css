@@ -336,7 +336,7 @@ pre {
 
 .sidebar_title{
     background: #274ad8;
-    padding: 20px 40px;
+    padding: 20px;
     color: #fff;
     text-align: center;
     margin:0 !important;
@@ -366,7 +366,7 @@ pre {
     margin-top: 10px;
     background: #b54bd8;
     color: #fff;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     border: 1px solid mediumaquamarine;
     box-shadow: none;
@@ -407,8 +407,8 @@ pre {
 .master_addons_features .master_addons_feature .col{
     display: inline-block;
     background: #fff;
-    box-shadow: 0 2px rgba(38, 30, 65, 0.1);
-    border-radius: 5px;
+    box-shadow: 0px 7px 11px 0px #e0e0e0;
+    border-radius: 2px;
     vertical-align: top;
     float: left;
     margin-bottom: 4%;
@@ -432,9 +432,10 @@ pre {
     font-size: 18px;
     line-height: 1.5;
 }
-/* .master_addons #changelogs pre{
+
+.master_addons #changelogs pre{
     overflow-x:hidden;
-} */
+}
 
 /* Animation */
 @keyframes move_wave {

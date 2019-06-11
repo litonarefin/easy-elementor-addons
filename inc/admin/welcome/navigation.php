@@ -6,6 +6,11 @@
 			<?php _e( 'How to Use', MELA_TD ); ?>
 		</a>
 	</li>
+    <li>
+        <a href="#addons">
+			<?php _e( 'Addons', MELA_TD ); ?>
+        </a>
+    </li>
 	<li>
 		<a href="#docs">
 			<?php _e( 'Docs', MELA_TD ); ?>

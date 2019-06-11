@@ -10,13 +10,13 @@
                         <?php echo esc_html__('Free Theme Download', MELA_TD);?>
                     </h3>
                     <div class="inner_content">
-                        <a class="egb_theme_link" href="<?php echo esc_url( 'https://wordpress.org/themes/polmo-lite/' ); ?>" target="_blank">
+                        <a class="master_addons_theme_link" href="<?php echo esc_url( 'https://wordpress.org/themes/polmo-lite/' ); ?>" target="_blank">
                             <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/polmo-lite.png' ); ?>" alt="Essential Blocks Theme">
                         </a>
                         <p>
                             <?php echo esc_html__('Download FREE "Polmo Lite" WordPress Theme now to get started with "Essential Blocks for Gutenberg" Plugin.', MELA_TD);?>
                         </p>
-                        <a class="button button-primary egb_button" href="<?php echo esc_url( 'https://wordpress.org/themes/polmo-lite/' ); ?>" target="_blank">
+                        <a class="button button-primary master_addons_button" href="<?php echo esc_url( 'https://wordpress.org/themes/polmo-lite/' ); ?>" target="_blank">
                             <?php _e( 'Download' ); ?>
                         </a>
                     </div>
@@ -31,7 +31,7 @@
                         <p>
                             <?php echo esc_html__('Get Updates and Stay Connected with Essential Blocks Plugin. We\'ll notify you when new Blocks/Updates will be released.', MELA_TD);?>
                         </p>
-                        <a class="button button-primary egb_button" href="<?php echo esc_url( 'https://jeweltheme.com/newsletters/' ); ?>" target="_blank">
+                        <a class="button button-primary master_addons_button" href="<?php echo esc_url( 'https://jeweltheme.com/newsletters/' ); ?>" target="_blank">
                             <?php _e( 'Subscribe' ); ?>
                         </a>
                     </div>
@@ -45,7 +45,7 @@
                         <p>
                             <?php echo esc_html__('Check out Latest Tips and Tricks on Gutenberg Editor. It will help you with some hack on Gutenberg Editor.', MELA_TD);?>
                         </p>
-                        <a class="button button-primary egb_button" href="<?php echo esc_url( 'https://jeweltheme.com/category/tutorials/gutenberg/' ); ?>" target="_blank">
+                        <a class="button button-primary master_addons_button" href="<?php echo esc_url( 'https://jeweltheme.com/category/tutorials/gutenberg/' ); ?>" target="_blank">
                             <?php _e( 'Gutenberg Tutorials' ); ?>
                         </a>
                     </div>
@@ -59,7 +59,7 @@
                         <p>
                             <?php echo esc_html__('Gutenberg is changing every day. We always try to be updated. If you find some kind of bug as well as suggestions, please notify us.', MELA_TD);?>
                         </p>
-                        <a class="button button-primary egb_button" href="<?php echo esc_url( 'https://jeweltheme.com/category/tutorials/gutenberg/' ); ?>" target="_blank">
+                        <a class="button button-primary master_addons_button" href="<?php echo esc_url( 'https://jeweltheme.com/category/tutorials/gutenberg/' ); ?>" target="_blank">
                             <?php _e( 'Support Forum' ); ?>
                         </a>
                     </div>
