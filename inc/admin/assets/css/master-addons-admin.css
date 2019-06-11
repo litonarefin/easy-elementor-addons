@@ -633,3 +633,14 @@ pre {
     align-items: center;
     margin-bottom: 50px;
 }
+
+.master-addons-el-dashboard-header-right{
+    text-align: right;
+    padding-right: 26px;
+    margin-top: -45px;
+    position: relative;
+    margin-bottom: 30px;
+}
+#addons .sub-heading{
+    padding-left:10px;
+}

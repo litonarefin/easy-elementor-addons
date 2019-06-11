@@ -1,18 +1,17 @@
 <div class="wp-tab-panel" id="addons" style="display: none;">
 	<div class="master_addons_features">
 
-		<h3 class="black textcenter sub-heading">
+		<h3 class="black sub-heading">
 			<?php _e( 'Active/Deactivate elements for better Performance', MELA_TD ); ?>
 		</h3>
-		<p class="textcenter master-addons-dashboard-section-title-p-tag">
-			<?php _e( 'You can deactivate those elements that you do not intend to use to avoid loading scripts 
-							and files related to those elements.', MELA_TD ); ?>
-		</p>
 
 
-		<div class="master-addons-el-dashboard-header-left">
-
-
+		<div class="master-addons-el-dashboard-header-wrapper">
+			<div class="master-addons-el-dashboard-header-right">
+				<button type="submit" class="master-addons-el-btn master-addons-el-js-element-save-setting">
+					<?php _e('Save Settings', MELA_TD ); ?>
+				</button>
+			</div>
 		</div>
 
 
@@ -21,21 +20,13 @@
 
 				<?php wp_nonce_field( 'maad_el_settings_nonce_action' ); ?>
 
-				<div class="master-addons-el-dashboard-header-wrapper">
-
-
-					<div class="master-addons-el-dashboard-header-right">
-						<button type="submit" class="master-addons-el-btn master-addons-el-js-element-save-setting">
-							<?php _e('Save Settings', MELA_TD ); ?>
-						</button>
-					</div>
-				</div>
-
-
-<!--				.master_addons_features .master_addons_feature .col-->
 
 				<div class="master-addons-el-dashboard-tabs-wrapper">
-					<div id="elements" class="master-addons-dashboard-tab master_addons_features">
+
+
+
+					<div id="elements" class="master-addons-el-dashboard-header-left master-addons-dashboard-tab
+					master_addons_features">
 						<div class="master_addons_feature">
 
 							<?php foreach( Master_Elementor_Addons::$maad_el_default_widgets as $widget ) : ?>

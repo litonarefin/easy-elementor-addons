@@ -17,7 +17,7 @@
 					<?php printf( __( "Ultimate and Easy Gutenberg Blocks Page Builder for WordPress.", MELA_TD ),
                         MELA_VERSION ); ?>
 				</div>
-				<a href="https://wordpress.org/plugins/ultimate-blocks-for-gutenberg">
+				<a href="https://wordpress.org/plugins/master-addons">
 					<div class="wp-badge welcome__logo"></div>
 				</a>
 			</header>
