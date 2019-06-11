@@ -9,13 +9,14 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 
-if ( ! defined( 'ABSPATH' ) ) { exit; // Exit if accessed directly. }
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /**
  * Business Hours Widget
  */
 class Business_Hours extends Widget_Base {
-    
+
     /**
 	 * Retrieve business hours widget name.
 	 *
@@ -48,7 +49,7 @@ class Business_Hours extends Widget_Base {
 	 * @return array Widget categories.
 	 */
     public function get_categories() {
-        return [ 'master-addons' ];
+	    return [ 'master-addons' ];
     }
 
     /**
@@ -59,7 +60,7 @@ class Business_Hours extends Widget_Base {
 	 * @return string Widget icon.
 	 */
     public function get_icon() {
-        return 'ppicon-business-hours power-pack-admin-icon';
+	    return 'eicon-person';
     }
 
     /**
@@ -78,53 +79,11 @@ class Business_Hours extends Widget_Base {
 	 *
 	 * @access protected
 	 */
-    protected function render() {}
+    protected function render() {
+    	echo "Business Hours";
+    }
 
-    /**
-	 * Render predefined business hours widget output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @access protected
-	 */
-    protected function render_business_hours_predefined() {}
 
-    /**
-	 * Render custom business hours widget output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @access protected
-	 */
-    protected function render_business_hours_custom() {}
-
-    /**
-	 * Render business hours widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @access protected
-	 */
-    protected function _content_template() {}
-
-    /**
-	 * Render predefined business hours widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @access protected
-	 */
-    protected function _business_hours_predefined_template() {}
-
-    /**
-	 * Render custom business hours widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @access protected
-	 */
-    protected function _business_hours_custom_template() {}
 }
 
-//Plugin::instance()->widgets_manager->register_widget_type( new Business_Hours() );
 Plugin::instance()->widgets_manager->register_widget_type( new Business_Hours() );

@@ -119,6 +119,9 @@ final class Master_Elementor_Addons{
 		if ( ! defined( 'MELA_IMAGE_DIR' ) )
 			define( 'MELA_IMAGE_DIR', self::mela_plugin_dir_url() . '/assets/images/');
 
+		if ( ! defined( 'MELA_ADMIN_ASSETS' ) )
+			define( 'MELA_ADMIN_ASSETS', self::mela_plugin_dir_url() . '/inc/admin/assets/');
+
 		if ( ! defined( 'MAAD_EL_ADDONS' ) )
 			define( 'MAAD_EL_ADDONS', plugin_dir_path( __FILE__ ) . 'addons/' );
 
@@ -137,6 +140,18 @@ final class Master_Elementor_Addons{
 
 	}
 
+    function mela_category() {
+
+        \Elementor\Plugin::instance()->elements_manager->add_category(
+            'master-addons',
+            array(
+                'title' => esc_html__( 'Master Addons', MELA_TD ) ,
+                'icon'  => 'font',
+            ),
+            1 );
+    }
+
+
 	public static function activated_widgets() {
 
 		$maad_el_default_settings  = array_fill_keys( self::$maad_el_default_widgets, true );
@@ -153,19 +168,7 @@ final class Master_Elementor_Addons{
 	}
 
 
-    function mela_category() {
-
-        \Elementor\Plugin::instance()->elements_manager->add_category(
-            'master-addons',
-            array(
-                'title' => esc_html__( 'Master Addons', MELA_TD ) ,
-                'icon'  => 'font',
-            ),
-            1 );
-    }
-
-
-    public function maad_el_init_widgets(){
+	public function maad_el_init_widgets(){
 
 	    $activated_widgets = $this->activated_widgets();
 

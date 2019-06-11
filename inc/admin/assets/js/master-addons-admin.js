@@ -1,6 +1,22 @@
 jQuery(document).ready(function($) {
     'use strict';
 
+    // $( '.exad-dashboard-tabs li a' ).on( 'click', function(e) {
+    //     e.preventDefault();
+    //     $( '.exad-dashboard-tabs li a' ).removeClass( 'active' );
+    //     $(this).addClass( 'active' );
+    //     var tab = $(this).attr( 'href' );
+    //     $( '.exad-dashboard-tab' ).removeClass( 'active' );
+    //     $( '.exad-dashboard-tabs-wrapper' ).find( tab ).addClass( 'active' );
+    // });
+
+    // Save Button reacting on any changes
+    var saveHeaderAction = $( '.master-addons-el-dashboard-header-wrapper .master-addons-el-btn' );
+    $('.master-addons-dashboard-tab input').on( 'click', function() {
+        saveHeaderAction.addClass( 'master-addons-el-save-now' );
+        saveHeaderAction.removeAttr('disabled').css('cursor', 'pointer');
+    } );
+
 // Saving Data With Ajax Request
     $( '.master-addons-el-js-element-save-setting' ).on( 'click', function(e) {
         e.preventDefault();
@@ -12,7 +28,7 @@ jQuery(document).ready(function($) {
                 data: {
                     action: 'master_addons_save_elements_settings',
                     security: js_maad_el_settings.ajax_nonce,
-                    fields: $( '#master-addons-el-elements-settings' ).serialize(),
+                    fields: $( '#master-addons-el-settings' ).serialize(),
                 },
                 beforeSend: function() {
                     $this.html('<svg id="master-addons-el-spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48' +
