@@ -1,6 +1,6 @@
 <div class="wp-tab-panel" id="free-themes" style="display: none;">
-    <div class="egb_features">
-        <div class="egb_feature">
+    <div class="master_addons_features">
+        <div class="master_addons_feature">
             <h2>
               <?php esc_html_e( 'Recommended Free WordPress Themes', MELA_TD ); ?>
             </h3>
