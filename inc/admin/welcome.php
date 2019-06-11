@@ -41,18 +41,14 @@
 
 		<div class="master_addons_contents">
 
-			<?php require MELA_PLUGIN_PATH . '/inc/admin/welcome/how-to.php'; ?>
-
-            <div class="wp-tab-panel" id="docs" style="display: none;">
-			    <?php require ( MELA_PLUGIN_PATH . '/inc/admin/welcome/docs.php' ); ?>
-            </div>
-
-            <?php require MELA_PLUGIN_PATH . '/inc/admin/welcome/free-themes.php'; ?>
-
-            <?php require MELA_PLUGIN_PATH . '/inc/admin/welcome/changelogs.php'; ?>
+			<?php
+                require MELA_PLUGIN_PATH . '/inc/admin/welcome/how-to.php';
+			    require ( MELA_PLUGIN_PATH . '/inc/admin/welcome/docs.php' );
+			    require MELA_PLUGIN_PATH . '/inc/admin/welcome/free-themes.php';
+			    require MELA_PLUGIN_PATH . '/inc/admin/welcome/changelogs.php';
+			?>
 
 		</div>
-
 
 	</div>
 </div>
@@ -62,5 +58,4 @@
 	jQuery(document).ready(function(){
 		jQuery( "#accordion" ).accordion();
 	});
-	
 </script>

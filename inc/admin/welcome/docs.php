@@ -1,4 +1,4 @@
-
+<div class="wp-tab-panel" id="docs" style="display: none;">
 	<div class="master_addons_features">
 		<div class="master_addons_feature">
 			<h2>
@@ -146,4 +146,4 @@
 			</div>
 		</div>
 	</div>
-
+</div>
