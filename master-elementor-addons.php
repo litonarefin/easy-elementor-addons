@@ -76,15 +76,8 @@ final class Master_Elementor_Addons{
         add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'plugin_actions_links' ] );
 
 
-
-        //Welcome Screen
-//        add_action( 'admin_menu', [ $this, 'mela_admin_menu' ]);
-        // add_action( 'admin_enqueue_scripts', [ $this, 'mela_admin_enqueue_scripts' ]);
-
-
 		//Redirect Hook
 		add_action( 'admin_init', [ $this, 'mael_ad_redirect_hook' ] );
-
 
 
 		add_action( 'elementor/init', [ $this, 'mela_category' ] );
@@ -173,7 +166,6 @@ final class Master_Elementor_Addons{
 
 
     public function maad_el_init_widgets(){
-//	    require_once $this->mela_plugin_path() . '/addons/wpb-counter.php';
 
 	    $activated_widgets = $this->activated_widgets();
 
@@ -198,7 +190,7 @@ final class Master_Elementor_Addons{
 	 *
 	 */
 	public function maad_el_editor_styles() {
-		wp_enqueue_style( 'maad-el-frontend-editor', MELA_PLUGIN_URL . 'assets/css/exad-frontend-editor.css' );
+		wp_enqueue_style( 'master-addons-frontend-editor', MELA_PLUGIN_URL . 'assets/css/master-addons-frontend-editor.css' );
 	}
 
 	/**
@@ -208,51 +200,22 @@ final class Master_Elementor_Addons{
 	public function maad_el_enqueue_scripts() {
 
 		$is_activated_widget = $this->activated_widgets();
-		wp_enqueue_style( 'maad-el-main-style', MELA_PLUGIN_URL . '/assets/css/maad-el-styles.css' );
+		wp_enqueue_style( 'master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css' );
 
 		if ( $is_activated_widget['countdown-timer'] ) {
 			// jQuery Countdown Js
-			wp_enqueue_script( 'maad-el-countdown', MELA_PLUGIN_URL . '/assets/js/vendor/jquery.countdown.min.js',
+			wp_enqueue_script( 'master-addons-countdown', MELA_PLUGIN_URL . '/assets/js/vendor/jquery.countdown.min.js',
 				array( 'jquery' )
 				, self::VERSION, true );
 		}
 
-		wp_enqueue_script( 'maad-el-main-script', MELA_PLUGIN_URL . 'assets/js/maad-el-scripts.js', array( 'jquery' ),
+		wp_enqueue_script( 'master-addons-main-script', MELA_PLUGIN_URL . 'assets/js/master-addons-scripts.js', array(
+			'jquery' ),
 			self::VERSION,
 			true );
 
 	}
 
-    public function mela_admin_menu(){
-
-        // Add Menu Item.
-//        add_menu_page(
-//            esc_html__( 'Master Addons for Elementor', MELA_TD ), // Page Title
-//            esc_html__( 'Master Addons', MELA_TD ),    // Menu Title
-//            'edit_posts',   // Capability
-//            'master-addons-elementor', // Menu Slug
-//            [ $this, 'mela_welcome_page_content' ],  // Callback Function
-//            // $icon_svg,   // Icon
-//            MELA_PLUGIN_URL . '/assets/images/master-addons-icon.png',
-//            87  // Positon
-//        );
-
-	    add_submenu_page(
-		    'elementor',
-		    esc_html__('Master Addons for Elementor', MELA_TD),
-		    esc_html__('Master Addons', MELA_TD),
-		    'manage_options',
-		    'mael-ad-settings',
-		    [ $this, 'mela_welcome_page_content' ]
-	    );
-
-    }
-
-
-    public function mela_welcome_page_content(){
-//        include_once $this->mela_plugin_path() . '/inc/admin/welcome.php';
-	    echo '<h2>Liton Arefin</h2>';
-    }
 
 	public function is_elementor_activated( $plugin_path = 'elementor/elementor.php' ){
 		$installed_plugins_list = get_plugins();
