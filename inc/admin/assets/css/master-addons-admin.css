@@ -35,6 +35,9 @@
 .four-col,.three-col {
     max-width: 100%;
 }
+.three-col .col{
+    width: 23%;
+}
 .feature_content img {
     max-width: 120px;
 }
