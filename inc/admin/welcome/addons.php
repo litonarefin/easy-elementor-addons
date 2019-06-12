@@ -35,8 +35,13 @@
 									<div class="master-addons-dashboard-checkbox col">
 
 											<p class="master-addons-el-title">
-												<?php echo esc_html( ucwords(
-													str_replace( "-", " ", $widget ) ) ); ?>
+												<?php
+//													$li = ['ma-'];
+//													$lit = ['-'];
+//													$liton=  str_replace( $li, $lit, $widget );
+//													$replace_sep = str_replace( "-", " ", $widget);
+//													echo $replace_sep;
+                                                    echo esc_html( ucwords( str_replace( "-", " ", $widget) ) ); ?>
 											</p>
 
 											<label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text

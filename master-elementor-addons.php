@@ -28,6 +28,7 @@ final class Master_Elementor_Addons{
 	private static $instance = null;
 
 	public static $maad_el_default_widgets = [
+//			'divider_title',
 			'contact-form-7',
 			'ma-team-members',
 //			'ma-business-hours',
