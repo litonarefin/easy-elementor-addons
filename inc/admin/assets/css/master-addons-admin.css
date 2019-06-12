@@ -649,3 +649,7 @@ pre {
 #addons .sub-heading{
     padding-left:10px;
 }
+.master-addons-dashboard-tab .master_addons_feature h3{
+    width: 100%;
+    padding-left: 10px;
+}

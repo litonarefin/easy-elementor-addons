@@ -27,15 +27,26 @@ final class Master_Elementor_Addons{
 
 	private static $instance = null;
 
-	public static $maad_el_default_widgets = [
-//			'divider_title',
-			'contact-form-7',
+	public static $maad_el_default_widgets;
+	public static $maad_el_default_form_widgets;
+
+
+	public static function get_instance() {
+		if ( ! self::$instance )
+			self::$instance = new self;
+		return self::$instance;
+	}
+
+
+	public function __construct(){
+		self::$maad_el_default_widgets = [
+			'ma-accordion',
 			'ma-team-members',
 //			'ma-business-hours',
 //			'master-cards',
 //			'countdown-timer',
 
-//			'master-accordion',
+,
 //			'master-tabs',
 //			'master-button',
 //			'post-grid',
@@ -52,17 +63,11 @@ final class Master_Elementor_Addons{
 //			'post-carousel',
 //			'google-maps',
 //			'tooltip'
-	];
+		];
 
-
-	public static function get_instance() {
-		if ( ! self::$instance )
-			self::$instance = new self;
-		return self::$instance;
-	}
-
-
-	public function __construct(){
+		self::$maad_el_default_form_widgets = [
+			'contact-form-7'
+		];
 
 		$this->constants();
 		$this->maad_el_include_files();

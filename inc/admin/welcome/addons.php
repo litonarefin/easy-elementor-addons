@@ -29,9 +29,12 @@
 					master_addons_features">
 						<div class="master_addons_feature">
 
-							<?php foreach( Master_Elementor_Addons::$maad_el_default_widgets as $widget ) : ?>
+                            <h3><?php echo esc_html__('Master Addons', MELA_TD);?></h3>
+
+							<?php foreach( Master_Elementor_Addons::$maad_el_default_widgets as $key=>$widget ) : ?>
 
 								<?php if ( isset( $widget ) ) : ?>
+
 									<div class="master-addons-dashboard-checkbox col">
 
 											<p class="master-addons-el-title">
@@ -41,7 +44,9 @@
 //													$liton=  str_replace( $li, $lit, $widget );
 //													$replace_sep = str_replace( "-", " ", $widget);
 //													echo $replace_sep;
-                                                    echo esc_html( ucwords( str_replace( "-", " ", $widget) ) ); ?>
+                                                    echo esc_html( ucwords( str_replace( "-", " ", $widget) ) );
+//                                                echo $widget;
+                                                ?>
 											</p>
 
 											<label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text
@@ -54,6 +59,38 @@
 									</div>
 								<?php endif; ?>
 							<?php endforeach; ?>
+
+                        </div>
+
+                        <div class="master_addons_feature">
+
+
+                            <h3><?php echo esc_html__('Form Addons', MELA_TD);?></h3>
+
+							<?php foreach( Master_Elementor_Addons::$maad_el_default_form_widgets as $widget ) : ?>
+
+								<?php if ( isset( $widget ) ) : ?>
+
+									<div class="master-addons-dashboard-checkbox col">
+
+											<p class="master-addons-el-title">
+												<?php echo esc_html( ucwords( str_replace( "-", " ", $widget) ) );?>
+											</p>
+
+											<label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text
+											 switch-primary switch-pill">
+												<input type="checkbox" id="<?php echo esc_attr( $widget ); ?>" class="switch-input" name="<?php echo esc_attr( $widget ); ?>" <?php checked( 1, $this->maad_el_get_settings[$widget], true ); ?>>
+												<span data-on="On" data-off="Off" class="switch-label"></span>
+												<span class="switch-handle"></span>
+											</label>
+
+									</div>
+								<?php endif; ?>
+							<?php endforeach; ?>
+
+
+
+
 						</div>
 
 					</div>
