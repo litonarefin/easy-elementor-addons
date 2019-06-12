@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Business Hours Widget
  */
-class Business_Hours extends Widget_Base {
+class Master_Addons_Business_Hours extends Widget_Base {
 
     /**
 	 * Retrieve business hours widget name.
@@ -25,7 +25,7 @@ class Business_Hours extends Widget_Base {
 	 * @return string Widget name.
 	 */
     public function get_name() {
-        return 'master-business-hours';
+        return 'ma-business-hours';
     }
 
     /**
@@ -36,7 +36,7 @@ class Business_Hours extends Widget_Base {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Business Hours', MELA_TD );
+        return esc_html__( 'Business Hours', MELA_TD );
     }
 
     /**
@@ -86,4 +86,4 @@ class Business_Hours extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Business_Hours() );
+Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Business_Hours() );

@@ -4,10 +4,10 @@
 
 	if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
-	class Master_Widget_Team_Member extends Widget_Base {
+	class Master_Addons_Team_Members extends Widget_Base {
 
 		public function get_name() {
-			return 'master-team-members';
+			return 'ma-team-members';
 		}
 
 		public function get_title() {
@@ -36,4 +36,4 @@
 		}
 	}
 
-	Plugin::instance()->widgets_manager->register_widget_type( new Master_Widget_Team_Member() );
+	Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Team_Membesr() );
