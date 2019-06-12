@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
         else
             $('a', this).first().click();
     });
-    
+
 
     // Save Button reacting on any changes
     var saveHeaderAction = $( '.master-addons-el-dashboard-header-wrapper .master-addons-el-btn' );

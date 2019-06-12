@@ -28,11 +28,12 @@ final class Master_Elementor_Addons{
 	private static $instance = null;
 
 	public static $maad_el_default_widgets = [
-			'team-members',
-			'business-hours',
+			'contact-form-7',
+//			'ma-team-members',
+//			'ma-business-hours',
 //			'master-cards',
 //			'countdown-timer',
-//			'contact-form-7',
+
 //			'master-accordion',
 //			'master-tabs',
 //			'master-button',
