@@ -49,13 +49,16 @@ class Master_Addons_CF7 extends Widget_Base {
 		);
 
 		$this->add_control(
-			'ma_cf7_id',
+			'ma_cf7_list',
 			[
-				'label' => __( 'Contact Form 7', MELA_TD ),
-				'type' => Controls_Manager::SELECT,
-				'options' => Master_Addons_Helper::maad_el_retrive_cf7(),
+				'label'                 => esc_html__( 'Select Contact Form', MELA_TD ),
+				'type'                  => Controls_Manager::SELECT,
+				'label_block'           => true,
+				'options'               => Master_Addons_Helper::maad_el_retrive_cf7(),
+				'default'               => '0',
 			]
 		);
+
 		$this->end_controls_section();
 
 
@@ -174,7 +177,7 @@ class Master_Addons_CF7 extends Widget_Base {
 			[
 				'label'                 => esc_html__( 'Border Top Color', MELA_TD ),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#724cff',
+				'default'               => '#6e00e9',
 				'selectors'             => [
 					'{{WRAPPER}} .master-addons-cf7::before' => 'background: {{VALUE}}',
 				],
@@ -208,7 +211,7 @@ class Master_Addons_CF7 extends Widget_Base {
 		);
 
 		$this->add_control(
-			'ma_cf7_contact_form_padding',
+			'ma_cf7_padding',
 			[
 				'label' => esc_html__( 'Form Padding', MELA_TD ),
 				'type' => Controls_Manager::DIMENSIONS,
@@ -470,7 +473,7 @@ class Master_Addons_CF7 extends Widget_Base {
 			[
 				'label'                 => esc_html__( 'Background Color', MELA_TD ),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#724cff',
+				'default'               => '#6e00e9',
 				'selectors'             => [
 					'{{WRAPPER}} .master-addons-cf7 .wpcf7-form input[type="submit"]' => 'background-color: {{VALUE}}',
 				],
@@ -533,10 +536,23 @@ class Master_Addons_CF7 extends Widget_Base {
 			[
 				'label'                 => esc_html__( 'Text Color', MELA_TD ),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#724cff',
+				'default'               => '#6e00e9',
 				'selectors'             => [
 					'{{WRAPPER}} .master-addons-cf7 .wpcf7-form input[type="submit"]:hover' => 'color: {{VALUE}}',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'                  => 'ma_cf7_button_border_width',
+				'label'                 => esc_html__( 'Border', MELA_TD ),
+				'placeholder'           => '1px',
+				'default'               => '1px',
+//				'selector'              => '{{WRAPPER}} .master-addons-cf7 .wpcf7-validation-errors',
+				'selectors'             => '{{WRAPPER}} .master-addons-cf7 .wpcf7-form input[type="submit"]:hover',
+				'separator'             => 'before',
 			]
 		);
 
@@ -545,9 +561,9 @@ class Master_Addons_CF7 extends Widget_Base {
 			[
 				'label'                 => esc_html__( 'Border Color', MELA_TD ),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#724cff',
+				'default'               => '#6e00e9',
 				'selectors'             => [
-					'{{WRAPPER}} .master-addons-cf7 .wpcf7-form input[type="submit"]:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .master-addons-cf7 .wpcf7-form input[type="submit"]:hover' => 'border-color:{{VALUE}}',
 				],
 			]
 		);
@@ -557,6 +573,26 @@ class Master_Addons_CF7 extends Widget_Base {
 
 		$this->end_controls_tabs();
 
+//
+//		$this->add_control(
+//			'ma_cf7_button_border_width',
+//			[
+//				'label'                 => esc_html__( 'Border Width', MELA_TD ),
+//				'type'                  => Controls_Manager::DIMENSIONS,
+//				'size_units'            => [ 'px', 'em', '%' ],
+//				'separator'             => 'before',
+//				'selectors'             => [
+//					'{{WRAPPER}} .master-addons-cf7 .wpcf7-form input[type="submit"]' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+//				],
+//				'default' => [
+//					'top' => 0,
+//					'right' => 0,
+//					'bottom' => 0,
+//					'left' => 0,
+//					'unit' => 'px'
+//				]
+//			]
+//		);
 
 		$this->add_control(
 			'ma_cf7_button_border_radius',
@@ -736,13 +772,37 @@ class Master_Addons_CF7 extends Widget_Base {
 
 	}
 
-	// render image function
-	private function render_image( $item, $settings ) {
+	protected function render() {
+		$settings = $this->get_settings();
+
+		$this->add_render_attribute( 'master-addons-cf7', 'class', [
+				'master-addons-cf7',
+				'master-addons-cf7-'.$settings['ma_cf7_layout_style'],
+				'master-addons-cf7-'.esc_attr($this->get_id())
+			]
+		);
+
+		if ( function_exists( 'wpcf7' ) ) {
+			if ( ! empty( $settings['ma_cf7_list'] ) ) { ?>
+				<div <?php echo $this->get_render_attribute_string( 'master-addons-cf7' ); ?>>
+
+					<?php if ( $settings['ma_cf7_title'] != '' ) { ?>
+						<h3 class="master-addons-cf7-title master-addons-cf7-title">
+							<?php echo esc_html( $settings['ma_cf7_title'] ); ?>
+						</h3>
+					<?php } ?>
+
+					<?php echo do_shortcode( '[contact-form-7 id="' . $settings['ma_cf7_list'] . '" ]' ); ?>
+				</div>
+
+				<?php
+			}
+		}
+
 	}
 
-	protected function render() {
-		echo "Rendered";
-	}
+	protected function _content_template() {}
+
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_CF7() );
