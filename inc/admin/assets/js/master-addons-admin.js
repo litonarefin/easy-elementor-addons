@@ -19,16 +19,7 @@ jQuery(document).ready(function($) {
         else
             $('a', this).first().click();
     });
-
-
-    // $( '.master-addons-dashboard-tabs li a' ).on( 'click', function(e) {
-    //     e.preventDefault();
-    //     $( '.master-addons-dashboard-tabs li a' ).removeClass( 'active' );
-    //     $(this).addClass( 'active' );
-    //     var tab = $(this).attr( 'href' );
-    //     $( '.master-addons-dashboard-tab' ).removeClass( 'active' );
-    //     $( '.master-addons-dashboard-tabs-wrapper' ).find( tab ).addClass( 'active' );
-    // });
+    
 
     // Save Button reacting on any changes
     var saveHeaderAction = $( '.master-addons-el-dashboard-header-wrapper .master-addons-el-btn' );
@@ -54,24 +45,35 @@ jQuery(document).ready(function($) {
                 },
                 success: function( response ) {
 
-                    $('.master-addons-el-dashboard-header-right').prepend(
-                        swal({
-                            title: "Saved",
-                            text: "Your Settings has been saved",
-                            type: "success",
-                            showCancelButton: false,
-                            confirmButtonColor: '#3085d6',
-                            confirmButtonClass: 'btn-success',
-                            confirmButtonText: 'Okay'
 
-                        })
-                    ).fadeIn('slow');
+                    swal({
+                        title: "Saved",
+                        text: "Your Changes has been Saved",
+                        type: "success",
+                        showLoaderOnConfirm: true,
+                        showCancelButton: false,
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonClass: 'btn-success',
+                        confirmButtonText: 'Okay'
+
+                    });
+
+                    // setTimeout(function(){
+                    //     $('.swal2-container').fadeOut('slow');
+                    // }, 2000);
+
+
+                    $this.html('Save Settings');
+                    $('.master-addons-el-dashboard-header-right').prepend('<span' +
+                        ' class="master-addons-el-settings-saved"></span>').fadeIn('slow');
 
                     saveHeaderAction.removeClass( 'master-addons-el-save-now' );
 
                     setTimeout(function(){
-                        $('.swal2-container').fadeOut('slow');
+                        $('.master-addons-el-settings-saved').fadeOut('slow');
                     }, 2000);
+
+
 
                 },
                 error: function() {
