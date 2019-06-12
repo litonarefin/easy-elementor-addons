@@ -45,8 +45,6 @@ final class Master_Elementor_Addons{
 //			'ma-business-hours',
 //			'master-cards',
 //			'countdown-timer',
-
-,
 //			'master-tabs',
 //			'master-button',
 //			'post-grid',
