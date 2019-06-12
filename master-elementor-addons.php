@@ -29,7 +29,7 @@ final class Master_Elementor_Addons{
 
 	public static $maad_el_default_widgets = [
 			'contact-form-7',
-//			'ma-team-members',
+			'ma-team-members',
 //			'ma-business-hours',
 //			'master-cards',
 //			'countdown-timer',

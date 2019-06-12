@@ -11,7 +11,7 @@
 		}
 
 		public function get_title() {
-			return esc_html__( 'Team Member', 'master-addons' );
+			return esc_html__( 'Team Member', MELA_TD);
 		}
 
 		public function get_icon() {
@@ -36,4 +36,4 @@
 		}
 	}
 
-	Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Team_Membesr() );
+	Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Team_Members() );
