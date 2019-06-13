@@ -45,7 +45,7 @@ final class Master_Elementor_Addons{
 		self::$maad_el_default_widgets = [
 			'ma-accordion',
 			'ma-tabs',
-//			'ma-progress-bar',
+			'ma-progressbar',
 			'ma-tooltip',
 			'ma-team-members',
 			'contact-form-7',
@@ -232,12 +232,30 @@ final class Master_Elementor_Addons{
 		wp_enqueue_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', array( 'jquery' ), self::VERSION, true );
 
 
+
+		// Master Addons Dependencies
+		//Progressbar
+		if ( $is_activated_widget['ma-progressbar'] ) {
+			wp_enqueue_script( 'ma-el-progressbar', MELA_PLUGIN_URL . '/assets/js/loading-bar.js', array( 'jquery' ),
+				self::VERSION, true );
+			wp_enqueue_script( 'ma-el-waypoints', MELA_PLUGIN_URL . '/assets/js/jquery.waypoints.min.js', array( 'jquery' ), self::VERSION, true );
+		}
+
+		//Google Maps
+//		if ( $is_activated_widget['google-maps'] ) {
+//			wp_enqueue_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array('jquery'),'1.8', false );
+//			// Gmap 3 Js
+//			wp_enqueue_script( 'exad-gmap3', MELA_PLUGIN_URL . 'assets/js/vendor/gmap3.min.js', array( 'jquery' ), self::VERSION, true );
+//		}
+
+
 //		if ( $is_activated_widget['countdown-timer'] ) {
 //			// jQuery Countdown Js
 //			wp_enqueue_script( 'master-addons-countdown', MELA_PLUGIN_URL . '/assets/js/vendor/jquery.countdown.min.js',
 //				array( 'jquery' )
 //				, self::VERSION, true );
 //		}
+
 
 
 	}
