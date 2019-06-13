@@ -38,8 +38,13 @@
 
     };
 
-    $(document).ready(function() {
-        "use strict";
+    // $(document).ready(function() {
+    //     "use strict";
+
+    $(window).on('elementor/frontend/init', function () {
+        if( elementorFrontend.isEditMode() ) {
+            editMode = true;
+        }
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-accordion.default', Master_Addons.MA_Accordion);
     });
 

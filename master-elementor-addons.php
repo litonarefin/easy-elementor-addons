@@ -217,7 +217,7 @@ final class Master_Elementor_Addons{
 				, self::VERSION, true );
 		}
 
-		wp_enqueue_script( 'master-addons-scripts', MELA_PLUGIN_URL . 'assets/js/master-addons-scripts.js', array(
+		wp_enqueue_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', array(
 			'jquery' ),
 			self::VERSION,
 			true );
