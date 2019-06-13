@@ -39,9 +39,11 @@ final class Master_Elementor_Addons{
 
 
 	public function __construct(){
+
 		self::$maad_el_default_widgets = [
 			'ma-accordion',
 			'ma-team-members',
+			'contact-form-7',
 //			'ma-business-hours',
 //			'master-cards',
 //			'countdown-timer',
@@ -64,7 +66,7 @@ final class Master_Elementor_Addons{
 		];
 
 		self::$maad_el_default_form_widgets = [
-			'contact-form-7'
+//			'contact-form-7'
 		];
 
 		$this->constants();
@@ -179,12 +181,19 @@ final class Master_Elementor_Addons{
 
 	    foreach( self::$maad_el_default_widgets as $widget ) {
 		    if ( $activated_widgets[$widget] == true ) {
-			    if ( $widget == 'contact-form-7' ) {
+		    	require_once MAAD_EL_ADDONS . $widget . '/' .$widget . '.php';
+		    }
+	    }
+
+	    foreach( self::$maad_el_default_form_widgets as $form_widgets ) {
+	    	print_r($form_widgets);
+		    if ( $activated_widgets[$form_widgets] == true ) {
+			    if ( $form_widgets == 'contact-form-7' ) {
 				    if ( function_exists( 'wpcf7' ) ) {
-					    require_once MAAD_EL_ADDONS . $widget . '/' .$widget . '.php';
+					    require_once MAAD_EL_ADDONS . $form_widgets . '/' .$form_widgets . '.php';
 				    }
 			    } else {
-				    require_once MAAD_EL_ADDONS . $widget . '/' .$widget . '.php';
+				    require_once MAAD_EL_ADDONS . $form_widgets . '/' .$form_widgets . '.php';
 			    }
 		    }
 	    }
@@ -210,17 +219,16 @@ final class Master_Elementor_Addons{
 		$is_activated_widget = $this->activated_widgets();
 		wp_enqueue_style( 'master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css' );
 
-		if ( $is_activated_widget['countdown-timer'] ) {
-			// jQuery Countdown Js
-			wp_enqueue_script( 'master-addons-countdown', MELA_PLUGIN_URL . '/assets/js/vendor/jquery.countdown.min.js',
-				array( 'jquery' )
-				, self::VERSION, true );
-		}
+		wp_enqueue_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', array( 'jquery' ), self::VERSION, true );
 
-		wp_enqueue_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', array(
-			'jquery' ),
-			self::VERSION,
-			true );
+
+//		if ( $is_activated_widget['countdown-timer'] ) {
+//			// jQuery Countdown Js
+//			wp_enqueue_script( 'master-addons-countdown', MELA_PLUGIN_URL . '/assets/js/vendor/jquery.countdown.min.js',
+//				array( 'jquery' )
+//				, self::VERSION, true );
+//		}
+
 
 	}
 

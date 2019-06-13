@@ -34,25 +34,28 @@
 			return [ 'master-addons' ];
 		}
 
-
 		protected function _register_controls() {
+
+			/*-----------------------------------------------------------------------------------*/
+			/*	CONTENT TAB
+			/*-----------------------------------------------------------------------------------*/
 
 			/**
 			 * Content Tab: Tabs
 			 */
 			$this->start_controls_section(
-				'ma_section_accordion_tabs',
+				'section_accordion_tabs',
 				[
-					'label'                 => esc_html__( 'Tabs', MELA_TD )
+					'label'                 => esc_html__( 'Tabs', 'power-pack' )
 				]
 			);
 
 			$repeater = new Repeater();
 
 			$repeater->add_control(
-				'ma_accordion_tab_default_active',
+				'accordion_tab_default_active',
 				[
-					'label'                 => esc_html__( 'Active as Default', MELA_TD ),
+					'label'                 => esc_html__( 'Active as Default', 'power-pack' ),
 					'type'                  => Controls_Manager::SWITCHER,
 					'default'               => 'no',
 					'return_value'          => 'yes',
@@ -60,9 +63,9 @@
 			);
 
 			$repeater->add_control(
-				'ma_accordion_tab_icon_show',
+				'accordion_tab_icon_show',
 				[
-					'label'                 => esc_html__( 'Enable Tab Icon', MELA_TD ),
+					'label'                 => esc_html__( 'Enable Tab Icon', 'power-pack' ),
 					'type'                  => Controls_Manager::SWITCHER,
 					'default'               => 'yes',
 					'return_value'          => 'yes',
@@ -70,24 +73,23 @@
 			);
 
 			$repeater->add_control(
-				'ma_accordion_tab_title_icon',
+				'accordion_tab_title_icon',
 				[
-					'label'                 => esc_html__( 'Icon', MELA_TD ),
+					'label'                 => esc_html__( 'Icon', 'power-pack' ),
 					'type'                  => Controls_Manager::ICON,
 					'default'               => 'fa fa-plus',
 					'condition'             => [
-						'ma_accordion_tab_icon_show' => 'yes'
+						'accordion_tab_icon_show' => 'yes'
 					]
 				]
 			);
 
-
 			$repeater->add_control(
 				'tab_title',
 				[
-					'label'                 => __( 'Title', MELA_TD ),
+					'label'                 => __( 'Title', 'power-pack' ),
 					'type'                  => Controls_Manager::TEXT,
-					'default'               => __( 'Accordion Title', MELA_TD ),
+					'default'               => __( 'Accordion Title', 'power-pack' ),
 					'dynamic'               => [
 						'active'   => true,
 					],
@@ -97,27 +99,27 @@
 			$repeater->add_control(
 				'content_type',
 				[
-					'label'                 => esc_html__( 'Content Type', MELA_TD ),
+					'label'                 => esc_html__( 'Content Type', 'power-pack' ),
 					'type'                  => Controls_Manager::SELECT,
 					'label_block'           => false,
 					'options'               => [
-						'content'   => __( 'Content', MELA_TD ),
-						'image'     => __( 'Image', MELA_TD ),
-						'video' 	=> __( 'Video', MELA_TD ),
-						'section'   => __( 'Saved Section', MELA_TD ),
-						'widget'    => __( 'Saved Widget', MELA_TD ),
-						'template'  => __( 'Saved Page Template', MELA_TD ),
+						'content'   => __( 'Content', 'power-pack' ),
+						'image'     => __( 'Image', 'power-pack' ),
+						'video' 	=> __( 'Video', 'power-pack' ),
+						'section'   => __( 'Saved Section', 'power-pack' ),
+						'widget'    => __( 'Saved Widget', 'power-pack' ),
+						'template'  => __( 'Saved Page Template', 'power-pack' ),
 					],
 					'default'               => 'content',
 				]
 			);
 
 			$repeater->add_control(
-				'ma_accordion_content',
+				'accordion_content',
 				[
-					'label'                 => esc_html__( 'Content', MELA_TD ),
+					'label'                 => esc_html__( 'Content', 'power-pack' ),
 					'type'                  => Controls_Manager::WYSIWYG,
-					'default'               => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', MELA_TD ),
+					'default'               => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'power-pack' ),
 					'dynamic'               => [ 'active' => true ],
 					'condition'             => [
 						'content_type'	=> 'content',
@@ -128,7 +130,7 @@
 			$repeater->add_control(
 				'image',
 				[
-					'label'                 => __( 'Image', MELA_TD ),
+					'label'                 => __( 'Image', 'power-pack' ),
 					'type'                  => Controls_Manager::MEDIA,
 					'dynamic'               => [
 						'active'   => true,
@@ -151,7 +153,7 @@
 			$repeater->add_control(
 				'saved_widget',
 				[
-					'label'                 => __( 'Choose Widget', MELA_TD ),
+					'label'                 => __( 'Choose Widget', 'power-pack' ),
 					'type'                  => Controls_Manager::SELECT,
 					'options'               => $this->get_page_template_options( 'widget' ),
 					'default'               => '-1',
@@ -173,7 +175,7 @@
 			$repeater->add_control(
 				'saved_section',
 				[
-					'label'                 => __( 'Choose Section', MELA_TD ),
+					'label'                 => __( 'Choose Section', 'power-pack' ),
 					'type'                  => Controls_Manager::SELECT,
 					'options'               => $this->get_page_template_options( 'section' ),
 					'default'               => '-1',
@@ -192,7 +194,7 @@
 			$repeater->add_control(
 				'templates',
 				[
-					'label'                 => __( 'Choose Template', MELA_TD ),
+					'label'                 => __( 'Choose Template', 'power-pack' ),
 					'type'                  => Controls_Manager::SELECT,
 					'options'               => $this->get_page_template_options( 'page' ),
 					'default'               => '-1',
@@ -213,9 +215,9 @@
 				[
 					'type'                  => Controls_Manager::REPEATER,
 					'default'               => [
-						[ 'tab_title' => esc_html__( 'Accordion Tab Title 1', MELA_TD ) ],
-						[ 'tab_title' => esc_html__( 'Accordion Tab Title 2', MELA_TD ) ],
-						[ 'tab_title' => esc_html__( 'Accordion Tab Title 3', MELA_TD ) ],
+						[ 'tab_title' => esc_html__( 'Accordion Tab Title 1', 'power-pack' ) ],
+						[ 'tab_title' => esc_html__( 'Accordion Tab Title 2', 'power-pack' ) ],
+						[ 'tab_title' => esc_html__( 'Accordion Tab Title 3', 'power-pack' ) ],
 					],
 					'fields'                => array_values( $repeater->get_controls() ),
 					'title_field'           => '{{tab_title}}',
@@ -224,25 +226,21 @@
 
 			$this->end_controls_section();
 
-
-			/*
-			 * Tabs: Toggle Icon
-			 */
 			$this->start_controls_section(
 				'section_accordion_toggle_icon',
 				[
-					'label'                 => esc_html__( 'Toggle Icon', MELA_TD )
+					'label'                 => esc_html__( 'Toggle Icon', 'power-pack' )
 				]
 			);
 
 			$this->add_control(
 				'toggle_icon_show',
 				[
-					'label'                 => esc_html__( 'Toggle Icon', MELA_TD ),
+					'label'                 => esc_html__( 'Toggle Icon', 'power-pack' ),
 					'type'                  => Controls_Manager::SWITCHER,
 					'default'               => 'yes',
-					'label_on'              => __( 'Show', MELA_TD ),
-					'label_off'             => __( 'Hide', MELA_TD ),
+					'label_on'              => __( 'Show', 'power-pack' ),
+					'label_off'             => __( 'Hide', 'power-pack' ),
 					'return_value'          => 'yes',
 				]
 			);
@@ -250,7 +248,7 @@
 			$this->add_control(
 				'toggle_icon',
 				[
-					'label'                 => esc_html__( 'Icon', MELA_TD ),
+					'label'                 => esc_html__( 'Icon', 'power-pack' ),
 					'type'                  => Controls_Manager::ICON,
 					'default'               => 'fa fa-angle-right',
 					'include'               => [
@@ -269,29 +267,23 @@
 
 			$this->end_controls_section();
 
-
-
-			/*
-			 * Settings
-			 */
-
 			$this->start_controls_section(
 				'section_accordion_settings',
 				[
-					'label'                 => esc_html__( 'Settings', MELA_TD )
+					'label'                 => esc_html__( 'Settings', 'power-pack' )
 				]
 			);
 
 			$this->add_control(
 				'accordion_type',
 				[
-					'label'                 => esc_html__( 'Accordion Type', MELA_TD ),
+					'label'                 => esc_html__( 'Accordion Type', 'power-pack' ),
 					'type'                  => Controls_Manager::SELECT,
 					'default'               => 'accordion',
 					'label_block'           => false,
 					'options'               => [
-						'accordion' 	=> esc_html__( 'Accordion', MELA_TD ),
-						'toggle' 		=> esc_html__( 'Toggle', MELA_TD ),
+						'accordion' 	=> esc_html__( 'Accordion', 'power-pack' ),
+						'toggle' 		=> esc_html__( 'Toggle', 'power-pack' ),
 					],
 					'frontend_available'    => true,
 				]
@@ -300,7 +292,7 @@
 			$this->add_control(
 				'toggle_speed',
 				[
-					'label'                 => esc_html__( 'Toggle Speed (ms)', MELA_TD ),
+					'label'                 => esc_html__( 'Toggle Speed (ms)', 'power-pack' ),
 					'type'                  => Controls_Manager::NUMBER,
 					'label_block'           => false,
 					'default'               => 300,
@@ -309,16 +301,13 @@
 			);
 			$this->end_controls_section();
 
-
-
-
 			/**
 			 * Style Tab: Items
 			 */
 			$this->start_controls_section(
 				'section_accordion_items_style',
 				[
-					'label'                 => esc_html__( 'Items', MELA_TD ),
+					'label'                 => esc_html__( 'Items', 'power-pack' ),
 					'tab'                   => Controls_Manager::TAB_STYLE,
 				]
 			);
@@ -326,7 +315,7 @@
 			$this->add_responsive_control(
 				'accordion_items_spacing',
 				[
-					'label'                 => __( 'Spacing', MELA_TD ),
+					'label'                 => __( 'Spacing', 'power-pack' ),
 					'type'                  => Controls_Manager::SLIDER,
 					'range'                 => [
 						'px' 	=> [
@@ -338,7 +327,7 @@
 						'size' 	=> '',
 					],
 					'selectors'             => [
-						'{{WRAPPER}} .ma-accordion-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .pp-accordion-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
@@ -347,19 +336,19 @@
 				Group_Control_Border::get_type(),
 				[
 					'name'                  => 'accordion_items_border',
-					'label'                 => esc_html__( 'Border', MELA_TD ),
-					'selector'              => '{{WRAPPER}} .ma-accordion-item',
+					'label'                 => esc_html__( 'Border', 'power-pack' ),
+					'selector'              => '{{WRAPPER}} .pp-accordion-item',
 				]
 			);
 
 			$this->add_responsive_control(
 				'accordion_items_border_radius',
 				[
-					'label'                 => esc_html__( 'Border Radius', MELA_TD ),
+					'label'                 => esc_html__( 'Border Radius', 'power-pack' ),
 					'type'                  => Controls_Manager::DIMENSIONS,
 					'size_units'            => [ 'px', 'em', '%' ],
 					'selectors'             => [
-						'{{WRAPPER}} .ma-accordion-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .pp-accordion-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 				]
 			);
@@ -368,12 +357,11 @@
 				Group_Control_Box_Shadow::get_type(),
 				[
 					'name'                  => 'accordion_items_box_shadow',
-					'selector'              => '{{WRAPPER}} .ma-accordion-item',
+					'selector'              => '{{WRAPPER}} .pp-accordion-item',
 				]
 			);
 
 			$this->end_controls_section();
-
 
 			/**
 			 * Style Tab: Title
@@ -381,7 +369,7 @@
 			$this->start_controls_section(
 				'section_title_style',
 				[
-					'label'                 => esc_html__( 'Title', MELA_TD ),
+					'label'                 => esc_html__( 'Title', 'power-pack' ),
 					'tab'                   => Controls_Manager::TAB_STYLE,
 				]
 			);
@@ -391,18 +379,18 @@
 			$this->start_controls_tab(
 				'accordion_tab_normal',
 				[
-					'label'                 => __( 'Normal', MELA_TD ),
+					'label'                 => __( 'Normal', 'power-pack' ),
 				]
 			);
 
 			$this->add_control(
 				'tab_title_bg_color',
 				[
-					'label'                 => esc_html__( 'Background Color', MELA_TD ),
+					'label'                 => esc_html__( 'Background Color', 'power-pack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#f1f1f1',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title' => 'background-color: {{VALUE}};',
 					],
 				]
 			);
@@ -410,11 +398,11 @@
 			$this->add_control(
 				'tab_title_text_color',
 				[
-					'label'                 => esc_html__( 'Color', MELA_TD ),
+					'label'                 => esc_html__( 'Color', 'power-pack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#333333',
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -423,7 +411,7 @@
 				Group_Control_Typography::get_type(),
 				[
 					'name'                  => 'tab_title_typography',
-					'selector'              => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title',
+					'selector'              => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title',
 				]
 			);
 
@@ -431,8 +419,8 @@
 				Group_Control_Border::get_type(),
 				[
 					'name'                  => 'tab_title_border',
-					'label'                 => esc_html__( 'Border', MELA_TD ),
-					'selector'              => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title',
+					'label'                 => esc_html__( 'Border', 'power-pack' ),
+					'selector'              => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title',
 				]
 			);
 
@@ -441,18 +429,18 @@
 			$this->start_controls_tab(
 				'accordion_tab_hover',
 				[
-					'label'                 => __( 'Hover', MELA_TD ),
+					'label'                 => __( 'Hover', 'power-pack' ),
 				]
 			);
 
 			$this->add_control(
 				'tab_title_bg_color_hover',
 				[
-					'label'                 => esc_html__( 'Background Color', MELA_TD ),
+					'label'                 => esc_html__( 'Background Color', 'power-pack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#414141',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title:hover' => 'background-color: {{VALUE}};',
 					],
 				]
 			);
@@ -460,11 +448,11 @@
 			$this->add_control(
 				'tab_title_text_color_hover',
 				[
-					'label'                 => esc_html__( 'Color', MELA_TD ),
+					'label'                 => esc_html__( 'Color', 'power-pack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#ffffff',
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title:hover' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -472,11 +460,11 @@
 			$this->add_control(
 				'tab_title_border_color_hover',
 				[
-					'label'                 => esc_html__( 'Border Color', MELA_TD ),
+					'label'                 => esc_html__( 'Border Color', 'power-pack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#ffffff',
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title:hover' => 'border-color: {{VALUE}};',
 					],
 				]
 			);
@@ -486,18 +474,18 @@
 			$this->start_controls_tab(
 				'accordion_tab_active',
 				[
-					'label'                 => __( 'Active', MELA_TD ),
+					'label'                 => __( 'Active', 'power-pack' ),
 				]
 			);
 
 			$this->add_control(
 				'tab_title_bg_color_active',
 				[
-					'label'                 => esc_html__( 'Background Color', MELA_TD ),
+					'label'                 => esc_html__( 'Background Color', 'power-pack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#414141',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title.pp-accordion-tab-active' => 'background-color: {{VALUE}};',
 					],
 				]
 			);
@@ -505,11 +493,11 @@
 			$this->add_control(
 				'tab_title_text_color_active',
 				[
-					'label'                 => esc_html__( 'Color', MELA_TD ),
+					'label'                 => esc_html__( 'Color', 'power-pack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#ffffff',
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title.pp-accordion-tab-active' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -517,11 +505,11 @@
 			$this->add_control(
 				'tab_title_border_color_active',
 				[
-					'label'                 => esc_html__( 'Border Color', MELA_TD ),
+					'label'                 => esc_html__( 'Border Color', 'power-pack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#ffffff',
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active' => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title.pp-accordion-tab-active' => 'border-color: {{VALUE}};',
 					],
 				]
 			);
@@ -533,7 +521,7 @@
 			$this->add_control(
 				'tab_icon_heading',
 				[
-					'label'                 => __( 'Icon', MELA_TD ),
+					'label'                 => __( 'Icon', 'power-pack' ),
 					'type'                  => Controls_Manager::HEADING,
 					'separator'             => 'before',
 				]
@@ -542,7 +530,7 @@
 			$this->add_responsive_control(
 				'tab_icon_size',
 				[
-					'label'                 => __( 'Icon Size', MELA_TD ),
+					'label'                 => __( 'Icon Size', 'power-pack' ),
 					'type'                  => Controls_Manager::SLIDER,
 					'default'               => [
 						'size'	=> 16,
@@ -557,14 +545,14 @@
 						]
 					],
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title .fa' => 'font-size: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .fa' => 'font-size: {{SIZE}}{{UNIT}};',
 					]
 				]
 			);
 			$this->add_responsive_control(
 				'tab_icon_spacing',
 				[
-					'label'                 => __( 'Icon Spacing', MELA_TD ),
+					'label'                 => __( 'Icon Spacing', 'power-pack' ),
 					'type'                  => Controls_Manager::SLIDER,
 					'default'               => [
 						'size'	=> 10,
@@ -579,7 +567,7 @@
 						]
 					],
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title .fa' => 'margin-right: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .fa' => 'margin-right: {{SIZE}}{{UNIT}};',
 					]
 				]
 			);
@@ -592,7 +580,7 @@
 			$this->start_controls_section(
 				'section_content_style',
 				[
-					'label'                 => esc_html__( 'Content', MELA_TD ),
+					'label'                 => esc_html__( 'Content', 'power-pack' ),
 					'tab'                   => Controls_Manager::TAB_STYLE,
 				]
 			);
@@ -600,11 +588,11 @@
 			$this->add_control(
 				'tab_content_bg_color',
 				[
-					'label'                 => esc_html__( 'Background Color', MELA_TD ),
+					'label'                 => esc_html__( 'Background Color', 'power-pack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-item .pp-accordion-tab-content' => 'background-color: {{VALUE}};',
 					],
 				]
 			);
@@ -612,11 +600,11 @@
 			$this->add_control(
 				'tab_content_text_color',
 				[
-					'label'                 => esc_html__( 'Text Color', MELA_TD ),
+					'label'                 => esc_html__( 'Text Color', 'power-pack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#333',
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-item .pp-accordion-tab-content' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -625,18 +613,18 @@
 				Group_Control_Typography::get_type(),
 				[
 					'name'                  => 'tab_content_typography',
-					'selector'              => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content',
+					'selector'              => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-item .pp-accordion-tab-content',
 				]
 			);
 
 			$this->add_responsive_control(
 				'tab_content_padding',
 				[
-					'label'                 => esc_html__( 'Padding', MELA_TD ),
+					'label'                 => esc_html__( 'Padding', 'power-pack' ),
 					'type'                  => Controls_Manager::DIMENSIONS,
 					'size_units'            => [ 'px', 'em', '%' ],
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-item .pp-accordion-tab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 				]
 			);
@@ -649,7 +637,7 @@
 			$this->start_controls_section(
 				'section_toggle_icon_style',
 				[
-					'label'                 => esc_html__( 'Toggle icon', MELA_TD ),
+					'label'                 => esc_html__( 'Toggle icon', 'power-pack' ),
 					'tab'                   => Controls_Manager::TAB_STYLE,
 				]
 			);
@@ -657,11 +645,11 @@
 			$this->add_control(
 				'toggle_icon_color',
 				[
-					'label'                 => esc_html__( 'Color', MELA_TD ),
+					'label'                 => esc_html__( 'Color', 'power-pack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#444',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .pp-accordion-toggle-icon' => 'color: {{VALUE}};',
 					],
 					'condition'	=> [
 						'toggle_icon_show' => 'yes'
@@ -672,12 +660,12 @@
 			$this->add_control(
 				'toggle_icon_active_color',
 				[
-					'label'                 => esc_html__( 'Active Color', MELA_TD ),
+					'label'                 => esc_html__( 'Active Color', 'power-pack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#fff',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active .ma-accordion-toggle-icon' => 'color: {{VALUE}};',
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title.pp-accordion-tab-active .pp-accordion-toggle-icon' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-item:hover .pp-accordion-tab-title .pp-accordion-toggle-icon' => 'color: {{VALUE}};',
 					],
 					'condition'             => [
 						'toggle_icon_show' => 'yes'
@@ -688,7 +676,7 @@
 			$this->add_responsive_control(
 				'toggle_icon_size',
 				[
-					'label'                 => __( 'Size', MELA_TD ),
+					'label'                 => __( 'Size', 'power-pack' ),
 					'type'                  => Controls_Manager::SLIDER,
 					'default'               => [
 						'size'	=> 16,
@@ -703,7 +691,7 @@
 						]
 					],
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .pp-accordion-toggle-icon' => 'font-size: {{SIZE}}{{UNIT}};',
 					],
 					'condition'             => [
 						'toggle_icon_show' => 'yes'
@@ -720,12 +708,12 @@
 			$id_int		= substr( $this->get_id_int(), 0, 3 );
 
 			$this->add_render_attribute( 'accordion', [
-				'class'                 => 'ma-advanced-accordion',
-				'id'                    => 'ma-advanced-accordion-'.esc_attr( $this->get_id() ),
+				'class'                 => 'pp-advanced-accordion',
+				'id'                    => 'pp-advanced-accordion-'.esc_attr( $this->get_id() ),
 				'data-accordion-id'     => esc_attr( $this->get_id() )
 			] );
 			?>
-			<div <?php echo $this->get_render_attribute_string('accordion'); ?>>
+            <div <?php echo $this->get_render_attribute_string('accordion'); ?>>
 				<?php
 					foreach( $settings['tabs'] as $index => $tab ) {
 
@@ -733,21 +721,21 @@
 						$tab_title_setting_key = $this->get_repeater_setting_key('tab_title', 'tabs', $index);
 						$tab_content_setting_key = $this->get_repeater_setting_key('accordion_content', 'tabs', $index);
 
-						$tab_title_class 	= ['ma-accordion-tab-title'];
-						$tab_content_class 	= ['ma-accordion-tab-content'];
+						$tab_title_class 	= ['pp-accordion-tab-title'];
+						$tab_content_class 	= ['pp-accordion-tab-content'];
 
 						if ( $tab['accordion_tab_default_active'] == 'yes' ) {
-							$tab_title_class[] 		= 'ma-accordion-tab-active-default';
-							$tab_content_class[] 	= 'ma-accordion-tab-active-default';
+							$tab_title_class[] 		= 'pp-accordion-tab-active-default';
+							$tab_content_class[] 	= 'pp-accordion-tab-active-default';
 						}
 
 						$this->add_render_attribute( $tab_title_setting_key, [
-							'id'                => 'ma-accordion-tab-title-' . $id_int . $tab_count,
+							'id'                => 'pp-accordion-tab-title-' . $id_int . $tab_count,
 							'class'             => $tab_title_class,
 							'tabindex'          => $id_int . $tab_count,
 							'data-tab'          => $tab_count,
 							'role'              => 'tab',
-							'aria-controls'     => 'ma-accordion-tab-content-' . $id_int . $tab_count,
+							'aria-controls'     => 'pp-accordion-tab-content-' . $id_int . $tab_count,
 						]);
 
 						$this->add_render_attribute( $tab_content_setting_key, [
@@ -755,60 +743,54 @@
 							'class'             => $tab_content_class,
 							'data-tab'          => $tab_count,
 							'role'              => 'tabpanel',
-							'aria-labelledby'   => 'ma-accordion-tab-title-' . $id_int . $tab_count,
+							'aria-labelledby'   => 'pp-accordion-tab-title-' . $id_int . $tab_count,
 						] );
 						?>
-						<div class="ma-accordion-item">
+                        <div class="pp-accordion-item">
 
-							<div <?php echo $this->get_render_attribute_string($tab_title_setting_key); ?>>
-                                <span class="ma-accordion-title-icon">
-                                    <span class="ma-accordion-tab-icon">
-                                        <?php if ( $tab['accordion_tab_icon_show'] === 'yes' ) { ?>
-                                            <i class="<?php echo esc_attr( $tab['accordion_tab_title_icon'] ); ?> fa-accordion-icon"></i>
-                                        <?php } ?>
-                                    </span>
-                                    <span class="ma-accordion-title-text">
-                                        <?php echo $tab['tab_title']; ?>
-                                    </span>
-                                </span>
+                            <div <?php echo $this->get_render_attribute_string($tab_title_setting_key); ?>>
+                    <span class="pp-accordion-title-icon">
+                        <span class="pp-accordion-tab-icon">
+                            <?php if ( $tab['accordion_tab_icon_show'] === 'yes' ) { ?>
+                                <i class="<?php echo esc_attr( $tab['accordion_tab_title_icon'] ); ?> fa-accordion-icon"></i>
+                            <?php } ?>
+                        </span>
+                        <span class="pp-accordion-title-text">
+                            <?php echo $tab['tab_title']; ?>
+                        </span>
+                    </span>
 								<?php if ( $settings['toggle_icon_show'] === 'yes' ) { ?>
-									<span class="ma-accordion-toggle-icon <?php echo esc_attr( $settings['toggle_icon']
-                                    ); ?>"></span>
+                                    <span class="pp-accordion-toggle-icon <?php echo esc_attr( $settings['toggle_icon'] ); ?>"></span>
 								<?php } ?>
-							</div>
-
-                            <div class="ma-accordion-content">
-                                <div class="ma-accordion-content-wrapper">
-                                    <div <?php echo $this->get_render_attribute_string($tab_content_setting_key); ?>>
-                                        <?php
-                                            if( $tab['content_type'] == 'content' ) {
-
-                                                echo do_shortcode( $tab['accordion_content'] );
-
-                                            } elseif ( $tab['content_type'] == 'section' && !empty( $tab['saved_section'] ) ) {
-
-                                                echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_section'] );
-
-                                            } elseif ( $tab['content_type'] == 'template' && !empty( $tab['templates'] ) ) {
-
-                                                echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['templates'] );
-
-                                            } elseif ( $tab['content_type'] == 'widget' && !empty( $tab['saved_widget'] ) ) {
-
-                                                echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_widget'] );
-
-                                            }
-                                        ?>
-                                    </div>
-                                </div>
                             </div>
 
-						</div>
+                            <div <?php echo $this->get_render_attribute_string($tab_content_setting_key); ?>>
+								<?php
+									if( $tab['content_type'] == 'content' ) {
+
+										echo do_shortcode( $tab['accordion_content'] );
+
+									} elseif ( $tab['content_type'] == 'section' && !empty( $tab['saved_section'] ) ) {
+
+										echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_section'] );
+
+									} elseif ( $tab['content_type'] == 'template' && !empty( $tab['templates'] ) ) {
+
+										echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['templates'] );
+
+									} elseif ( $tab['content_type'] == 'widget' && !empty( $tab['saved_widget'] ) ) {
+
+										echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_widget'] );
+
+									}
+								?>
+                            </div>
+
+                        </div>
 					<?php } ?>
-			</div>
+            </div>
 			<?php
 		}
-
 
 		public function get_page_template_options( $type = '' ) {
 

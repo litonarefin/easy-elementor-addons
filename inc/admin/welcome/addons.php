@@ -65,21 +65,23 @@
                         <div class="master_addons_feature">
 
 
-                            <h3><?php echo esc_html__('Form Addons', MELA_TD);?></h3>
+                            <h3><?php echo esc_html__('Form Elements', MELA_TD);?></h3>
 
-							<?php foreach( Master_Elementor_Addons::$maad_el_default_form_widgets as $widget ) : ?>
+							<?php foreach( Master_Elementor_Addons::$maad_el_default_form_widgets as $form_widgets ) : ?>
 
-								<?php if ( isset( $widget ) ) : ?>
+								<?php if ( isset( $form_widgets ) ) : ?>
 
 									<div class="master-addons-dashboard-checkbox col">
 
 											<p class="master-addons-el-title">
-												<?php echo esc_html( ucwords( str_replace( "-", " ", $widget) ) );?>
+												<?php echo esc_html( ucwords( str_replace( "-", " ", $form_widgets) ) );?>
 											</p>
 
-											<label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text
+											<label for="<?php echo esc_attr( $form_widgets ); ?>" class="switch switch-text
 											 switch-primary switch-pill">
-												<input type="checkbox" id="<?php echo esc_attr( $widget ); ?>" class="switch-input" name="<?php echo esc_attr( $widget ); ?>" <?php checked( 1, $this->maad_el_get_settings[$widget], true ); ?>>
+
+                                                <input type="checkbox" id="<?php echo esc_attr( $form_widgets ); ?>" class="switch-input" name="<?php echo esc_attr( $form_widgets ); ?>" <?php checked( 1, $this->maad_el_get_settings[$form_widgets], true ); ?>>
+
 												<span data-on="On" data-off="Off" class="switch-label"></span>
 												<span class="switch-handle"></span>
 											</label>
