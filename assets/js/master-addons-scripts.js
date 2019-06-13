@@ -53,7 +53,40 @@
                 }
             });
 
+        },
+
+        // Exclusive Tabs script
+        MA_Tabs:function($scope, $) {
+            var $tabsWrapper = $scope.find('[data-tabs]').eq(0);
+            $tabsWrapper.each( function() {
+                var tab = $(this);
+                var isTabActive = false;
+                var isContentActive = false;
+                tab.find('[data-tab]').each( function (){
+                    if($(this).hasClass('active')){
+                        isTabActive = true;
+                    }
+                });
+                tab.find('.ma-el-advance-tab-content').each( function (){
+                    if($(this).hasClass('active')){
+                        isContentActive = true;
+                    }
+                });
+                if(!isContentActive){
+                    tab.find('.ma-el-advance-tab-content').eq(0).addClass('active');
+                }
+                if(!isTabActive){
+                    tab.find('[data-tab]').eq(0).addClass('active');
+                }
+                tab.find('[data-tab]').click(function() {
+                    tab.find('[data-tab]').removeClass('active');
+                    tab.find('.ma-el-advance-tab-content').removeClass('active');
+                    $(this).addClass('active');
+                    tab.find('.ma-el-advance-tab-content').eq($(this).index()).addClass('active');
+                });
+            });
         }
+
 
 
     };
@@ -66,6 +99,7 @@
             editMode = true;
         }
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-advanced-accordion.default', Master_Addons.MA_Accordion);
+        elementorFrontend.hooks.addAction('frontend/element_ready/ma-tabs.default', Master_Addons.MA_Tabs);
     });
 
 })(jQuery);
