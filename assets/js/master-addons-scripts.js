@@ -15,10 +15,10 @@
     var MA_Accordion= function($scope, $) {
 
         var $advanced_accordion         = $scope.find(".ma-advanced-accordion").eq(0),
-            elementSettings             = getElementSettings( $scope ),
+            // elementSettings             = getElementSettings( $scope ),
             $accordion_title            = $scope.find(".ma-accordion-tab-title"),
-            $accordion_type             = elementSettings.accordion_type,
-            $accordion_speed            = elementSettings.toggle_speed;
+            $accordion_type             = 'accordion',
+            $accordion_speed            = '3000';
 
         // Open default actived tab
         $accordion_title.each(function(){
@@ -65,7 +65,7 @@
         if( elementorFrontend.isEditMode() ) {
             editMode = true;
         }
-        elementorFrontend.hooks.addAction('frontend/element_ready/ma-accordion.default', MA_Accordion);
+        elementorFrontend.hooks.addAction('frontend/element_ready/ma-advanced-accordion.default', MA_Accordion);
     });
 
 })(jQuery);

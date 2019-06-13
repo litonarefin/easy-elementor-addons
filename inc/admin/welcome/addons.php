@@ -31,7 +31,25 @@
 
                             <h3><?php echo esc_html__('Master Addons', MELA_TD);?></h3>
 
-							<?php foreach( Master_Elementor_Addons::$maad_el_default_widgets as $key=>$widget ) : ?>
+							<?php foreach( Master_Elementor_Addons::$maad_el_default_widgets as $key=>$widget ) :
+////                                print_r($widget);
+//
+//								if (!is_array($widget)) {
+//
+////							        echo $key ." => ". $widget ."\r\n" ;
+//
+//								} else {
+////									echo $key ." => array( \r\n";
+//
+//									foreach ($widget as $key2 => $value2) {
+////										echo "\t". $key2 ." => ". $value2 ."\r\n";
+//										print_r($key2[1]);
+////                                        echo $key2[0];
+//									}
+//
+////									echo ")";
+//								}
+							?>
 
 								<?php if ( isset( $widget ) ) : ?>
 

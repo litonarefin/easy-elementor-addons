@@ -27,6 +27,8 @@ final class Master_Elementor_Addons{
 
 	private static $instance = null;
 
+	public $pro_enabled;
+
 	public static $maad_el_default_widgets;
 	public static $maad_el_default_form_widgets;
 
@@ -44,6 +46,7 @@ final class Master_Elementor_Addons{
 			'ma-accordion',
 			'ma-team-members',
 			'contact-form-7',
+//			['contact-form-7','pro'],
 //			'ma-business-hours',
 //			'master-cards',
 //			'countdown-timer',
@@ -68,6 +71,9 @@ final class Master_Elementor_Addons{
 		self::$maad_el_default_form_widgets = [
 //			'contact-form-7'
 		];
+
+		// search for pro version
+		$this->pro_enabled = apply_filters('maad_el/pro_enabled', false);
 
 		$this->constants();
 		$this->maad_el_include_files();
