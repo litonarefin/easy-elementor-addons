@@ -44,8 +44,12 @@ final class Master_Elementor_Addons{
 
 		self::$maad_el_default_widgets = [
 			'ma-accordion',
+//			'ma-tabs',
+//			'ma-progress-bar',
+			'ma-tooltip',
 			'ma-team-members',
 			'contact-form-7',
+//			'ninja-forms',
 //			['contact-form-7','pro'],
 //			'ma-business-hours',
 //			'master-cards',
@@ -60,7 +64,7 @@ final class Master_Elementor_Addons{
 //			'flipbox',
 //			'infobox',
 //			'pricing-table',
-//			'progress-bar',
+
 //			'master-heading',
 //			'dual-heading',
 //			'post-carousel',

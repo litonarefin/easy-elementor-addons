@@ -27,9 +27,6 @@
 
 		}
 
-		// render image function
-		private function render_image( $item, $settings ) {
-		}
 
 		protected function render() {
 			echo "Rendered";
