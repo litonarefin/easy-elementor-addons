@@ -48,9 +48,10 @@ final class Master_Elementor_Addons{
 			'ma-progressbar',
 			'ma-tooltip',
 			'ma-team-members',
-			'contact-form-7',
+			['contact-form-7','pro'],
+//			'contact-form-7',
 //			'ninja-forms',
-//			['contact-form-7','pro'],
+
 //			'ma-business-hours',
 //			'master-cards',
 //			'countdown-timer',

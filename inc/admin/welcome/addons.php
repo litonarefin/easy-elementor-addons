@@ -53,6 +53,15 @@
 
 								<?php if ( isset( $widget ) ) : ?>
 
+                                <?php if(is_array( $widget)){
+									$is_pro = $widget[1];
+                                    $widget = $widget[0];
+                                } ?>
+
+                                <?php if(isset($is_pro)){
+                                    echo $is_pro;
+                                }?>
+
 									<div class="master-addons-dashboard-checkbox col">
 
 											<p class="master-addons-el-title">
@@ -62,6 +71,7 @@
 //													$liton=  str_replace( $li, $lit, $widget );
 //													$replace_sep = str_replace( "-", " ", $widget);
 //													echo $replace_sep;
+//                                                    echo esc_html( ucwords( str_replace( "-", " ", $widget) ) );
                                                     echo esc_html( ucwords( str_replace( "-", " ", $widget) ) );
 //                                                echo $widget;
                                                 ?>
