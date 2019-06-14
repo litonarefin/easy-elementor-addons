@@ -163,27 +163,36 @@
         },
 
         TeamSlider: function ($scope, $){
-            var teamSlider = $("#ma-el-team-member-slider");
+            try {
+                (function($) {
 
-            teamSlider.owlCarousel({
-                autoPlay : 3000,
-                stopOnHover : true,
-                pagination : true,
-                paginationNumbers: false,
+                    var teamSlider = $("#ma-el-team-member-slider");
 
-                itemsCustom : [
-                    [0, 1],
-                    [450, 1],
-                    [600, 1],
-                    [700, 2],
-                    [1000, 3],
-                    [1200, 4],
-                ],
-                // Responsive
-                responsive: true,
-                responsiveRefreshRate : 200,
-                responsiveBaseWidth: window
-            });
+                    teamSlider.owlCarousel({
+                        autoPlay : 3000,
+                        stopOnHover : true,
+                        pagination : true,
+                        paginationNumbers: false,
+
+                        itemsCustom : [
+                            [0, 1],
+                            [450, 1],
+                            [600, 1],
+                            [700, 2],
+                            [1000, 3],
+                            [1200, 4],
+                        ],
+                        // Responsive
+                        responsive: true,
+                        responsiveRefreshRate : 200,
+                        responsiveBaseWidth: window
+                    });
+
+                })(jQuery);
+            } catch(e) {  //We can also throw from try block and catch it here
+                // No Error Show
+            }
+
         }
 
 

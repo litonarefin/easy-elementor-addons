@@ -27,7 +27,7 @@
 		}
 
 		public function get_icon() {
-			return 'eicon-accordion';
+			return 'ma-el-icon eicon-accordion';
 		}
 
 		public function get_categories() {

@@ -1,5 +1,5 @@
-=== Easy Blocks – Gutenberg Blocks Page Builder ===
-Contributors: litonice13, jwthemeltd, gutenberg18
+=== Master Addons - Elementor Packs ===
+Contributors: jwthemeltd, litonice13
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jwthemeltd@gmail.com&lc=US&item_name=Donate&currency_code=USD&bn=PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest
 Tags: easy blocks, block editor, gutenberg blocks, gutenberg builder, gutenberg block page builder, instagram block, card image text, translation block, blocks, gutenberg block, gutenberg blocks, guten blocks, essential blocks, gutenberg blocks, gutenberg widget, gutenberg addon, gutenberg addons, gutenberg page builder, gutenberg page builder, visual editor, gutenberg visual editor, wordpress page builder, esential guten blocks, essential guten blocks, ultimate guten blocks
 Requires at least: 5.0
@@ -12,12 +12,25 @@ Requires PHP: 5.6
 Easy Blocks Gutenberg Blocks Plugin has 20+ Blocks. Insert multiple columns within a single row with Easy Blocks. Gutenberg Page builder because of its customization possibilities.
 
 == Description ==
-**Gutenberg** is now a reality. Easy Blocks is a growing Gutenberg Block Plugin. It's easy to create multiple columns variations within a single row. Drag and Drop columns size variations gives you more controls over your website. We're calling it as a [Gutenberg Page Builder](https://jeweltheme.com/shop/easy-gutenberg-blocks/). If you are using Gutenberg Editor, then you can try this plugin to get maximum customization possibilities. 
 
-This plugin has mostly all type of necessary blocks. No matter which type of website or landing page you are going to create, Easy Blocks is the perfect solution. There are blocks for Marketing Perspective (Call to action, Buttons, Testimonial, Counter Up, Logo Slider), Services (Feature box, Feature Grid, Pricing Table), Social (Social Share, Instagram Grid), Customizable Header (Hero Image), Content layout (Title & Subtitle, Image & Content, Card, Author Profile), etc. 
+Master Addons comes with some necessary widget, which helps your webpage to bring life. It's easy to enable and disable any widget from the plugin add-ons section. If you enable your necessary widget, then it will load the exact script of each widget. It will make your website faster. Make sure you have installed Elementor Page builder plugin. Otherwise, it will not work. We are working on its Development every day and trying to cover the essential widgets.
 
-[Gutenberg Page Builder](https://jeweltheme.com/shop/easy-gutenberg-blocks/)
-[Easy Blocks Demo's](https://plugins.jeweltheme.com/easy-blocks)
+Each add-on is 100% customizable. You can customize font size, color, margin, padding, and background color, effect too.
+
+While working with the live page builder, you able to see every customization. That means you don't need to update a page or post to check the output.
+
+Ma Accordion: Arrange and customize Accordion as required. It's easy to create faq page with this accordion addon.
+Ma Tabs: Tabs generally used to focus on showcasing products features. Changing color for both text and background is easy with the plugin.
+Ma Progressbar: Mention your progress with this addon. Define the percentage, and you are done.
+Ma Tooltip: When you need to explain any word, you can use tooltip. When someone hovers on your text, it will show a beautiful text box describing the meaning as you have set.
+Ma Team Members New
+Contact Form 7: contact form 7 the most necessary plugin used to create a contact form for any WordPress website. We have developed an addon, especially for this plugin too.
+
+
+
+
+[Master Addons](https://jeweltheme.com/shop/master-addons-elementor/)
+[Master Addons Demos](https://plugins.jeweltheme.com/master-addons)
 
 Multiple Columns style helps you to design any kind of landing page from scratch. You to insert a maximum six columns in a row. If you need more column within a single row, then try the inner row block. 
 

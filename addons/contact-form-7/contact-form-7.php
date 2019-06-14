@@ -16,7 +16,7 @@ class Master_Addons_CF7 extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-mail';
+		return 'ma-el-icon eicon-mail';
 	}
 
 	public function get_categories() {

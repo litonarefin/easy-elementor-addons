@@ -2,8 +2,8 @@
 	/**
  * Plugin Name: Master Addons for Elementor
  * Description: Master Addons is easy and must have Elementor Addons for WordPress Page Builder. Clean, Modern, Hand crafted designed Addons blocks.
- * Plugin URI: https://jeweltheme.com
- * Author: Liton Arefin
+ * Plugin URI: https://jeweltheme.com/shop/master-addons-elementor/
+ * Author: Jewel Theme
  * Version: 1.0.0	
  * Author URI: https://twitter.com/Litonice11
  * Text Domain: mela
@@ -103,12 +103,16 @@ final class Master_Elementor_Addons{
 		// Enqueue Styles and Scripts
 		add_action( 'wp_enqueue_scripts', [ $this, 'maad_el_enqueue_scripts' ], 20 );
 
-		// Elementor Editor Styles
-		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'maad_el_editor_styles' ] );
 
+
+		// Elementor Dependencies
+
+		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'maad_el_editor_styles' ] );
 		// Add Elementor Widgets
 		add_action( 'elementor/widgets/widgets_registered', array( $this, 'maad_el_init_widgets' ) );
 
+//		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'ma_el_enqueue_frontend_scripts' ] );
+//		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'ma_el_enqueue_frontend_styles' ] );
 
 	}
 
@@ -227,7 +231,7 @@ final class Master_Elementor_Addons{
 	 *
 	 */
 	public function maad_el_editor_styles() {
-		wp_enqueue_style( 'master-addons-frontend-editor', MELA_PLUGIN_URL . 'assets/css/master-addons-frontend-editor.css' );
+		wp_enqueue_style( 'master-addons-editor', MELA_PLUGIN_URL . '/assets/css/master-addons-editor.css' );
 	}
 
 	/**
