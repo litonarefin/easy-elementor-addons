@@ -7,7 +7,7 @@
 	class Master_Addons_Headlines extends Widget_Base {
 
 		public function get_name() {
-			return 'ma-team-members';
+			return 'ma-headlines';
 		}
 
 		public function get_title() {
@@ -333,7 +333,7 @@
 			<?php
 		}
 
-		
+
 	}
 
 	Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Headlines() );
