@@ -639,7 +639,7 @@
 .ma-el-member-container {
     text-align: center;
     width: 245px;
-    height: 410px;
+    min-height: 410px;
     margin: 10px auto;
     position: relative;
     z-index: 0;

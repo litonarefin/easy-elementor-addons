@@ -53,14 +53,16 @@
 
 								<?php if ( isset( $widget ) ) : ?>
 
-                                <?php if(is_array( $widget)){
-									$is_pro = $widget[1];
-                                    $widget = $widget[0];
-                                } ?>
+                                <?php
+//                                if(is_array( $widget)){
+//									$is_pro = $widget[1];
+//                                    $widget = $widget[0];
+//                                } ?>
 
-                                <?php if(isset($is_pro)){
-                                    echo $is_pro;
-                                }?>
+                                <?php
+//                                if(isset($is_pro)){
+//                                  //  echo $is_pro;
+//                                }?>
 
 									<div class="master-addons-dashboard-checkbox col">
 

@@ -48,8 +48,8 @@ final class Master_Elementor_Addons{
 			'ma-progressbar',
 			'ma-tooltip',
 			'ma-team-members',
-			['contact-form-7','pro'],
-//			'contact-form-7',
+//			['contact-form-7','pro'],
+			'contact-form-7',
 //			'ninja-forms',
 
 //			'ma-business-hours',
@@ -88,8 +88,8 @@ final class Master_Elementor_Addons{
         self::$plugin_path              = untrailingslashit( plugin_dir_path( '/', __FILE__ ) );
         self::$plugin_url               = untrailingslashit( plugins_url( '/', __FILE__ ) );
 
-		//Translations
-		add_action('init', [$this, 'mela_load_textdomain']);
+		//Init Function
+		add_action('init', [$this, 'ma_el_init']);
 
         add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'plugin_actions_links' ] );
 
@@ -112,6 +112,11 @@ final class Master_Elementor_Addons{
 
 	}
 
+
+	public function ma_el_init(){
+		$this->mela_load_textdomain();
+		$this->ma_el_image_size();
+	}
 
 	public function constants(){
 
@@ -167,6 +172,10 @@ final class Master_Elementor_Addons{
                 'icon'  => 'font',
             ),
             1 );
+    }
+
+    public function ma_el_image_size(){
+	    add_image_size( 'master_addons_team_thumb', 250, 330, true );
     }
 
 

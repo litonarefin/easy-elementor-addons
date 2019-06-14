@@ -431,7 +431,7 @@
 		protected function render() {
 			$settings = $this->get_settings_for_display();
 			$team_member_image = $this->get_settings_for_display( 'ma_el_team_member_image' );
-			$team_member_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $team_member_image['id'], 'thumbnail', $settings );
+			$team_member_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $team_member_image['id'], 'master_addons_team_thumb', $settings );
 			if( empty( $team_member_image_url_src ) ) {
 				$team_member_image_url = $team_member_image['url'];
 			} else {
@@ -442,7 +442,6 @@
 
             <div id="ma-el-team-member-slider" class="ma-el-team-member-slider owl-carousel owl-theme">
 
-                <div class="item">
                     <div class="ma-el-member-container">
                         <div class="ma-el-inner-container">
                             <img src="<?php echo esc_url($team_member_image_url); ?>" alt="<?php echo $settings['ma_el_team_member_name']; ?>">
@@ -475,8 +474,6 @@
                             </div><!-- /.member-details -->
                         </div><!-- /.inner-container -->
                     </div><!-- /.member-container -->
-                </div><!-- /.item -->
-
             </div><!-- /.ma-el-team-member-slider -->
 
 
