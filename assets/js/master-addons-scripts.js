@@ -196,6 +196,7 @@
                         offset: 'bottom-in-view'
                     });
                 })(jQuery);
+                
             } catch(e) {
                 //We can also throw from try block and catch it here
                 // No Error Show
