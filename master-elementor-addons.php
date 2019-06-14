@@ -43,6 +43,8 @@ final class Master_Elementor_Addons{
 	public function __construct(){
 
 		self::$maad_el_default_widgets = [
+			'ma-headlines',
+			'ma-dual-heading',
 			'ma-accordion',
 			'ma-tabs',
 			'ma-progressbar',
