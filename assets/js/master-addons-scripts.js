@@ -162,9 +162,34 @@
             });
         },
 
+        TeamSlider: function ($scope, $){
+            var teamSlider = $("#ma-el-team-member-slider");
+
+            teamSlider.owlCarousel({
+                autoPlay : 3000,
+                stopOnHover : true,
+                pagination : true,
+                paginationNumbers: false,
+
+                itemsCustom : [
+                    [0, 1],
+                    [450, 1],
+                    [600, 1],
+                    [700, 2],
+                    [1000, 3],
+                    [1200, 4],
+                ],
+                // Responsive
+                responsive: true,
+                responsiveRefreshRate : 200,
+                responsiveBaseWidth: window
+            });
+        }
 
 
-    };
+
+
+};
 
 
 
@@ -176,6 +201,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-advanced-accordion.default', Master_Addons.MA_Accordion);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-tabs.default', Master_Addons.MA_Tabs);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbar.default', Master_Addons.ProgressBar);
+        elementorFrontend.hooks.addAction('frontend/element_ready/ma-team-members.default', Master_Addons.TeamSlider);
     });
 
 })(jQuery);

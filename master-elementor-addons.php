@@ -241,6 +241,12 @@ final class Master_Elementor_Addons{
 			wp_enqueue_script( 'ma-el-waypoints', MELA_PLUGIN_URL . '/assets/js/jquery.waypoints.min.js', array( 'jquery' ), self::VERSION, true );
 		}
 
+		//Team Members
+		if ( $is_activated_widget['ma-team-members'] ) {
+			wp_enqueue_script( 'ma-el-team-members', MELA_PLUGIN_URL . '/assets/vendor/owlcarousel/owl.carousel.min.js', array( 'jquery' ),
+				self::VERSION, true );
+		}
+
 		//Google Maps
 //		if ( $is_activated_widget['google-maps'] ) {
 //			wp_enqueue_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array('jquery'),'1.8', false );
