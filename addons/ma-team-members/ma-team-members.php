@@ -431,11 +431,11 @@
 		protected function render() {
 			$settings = $this->get_settings_for_display();
 			$team_member_image = $this->get_settings_for_display( 'ma_el_team_member_image' );
-			$team_member_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $team_member_image['id'], 'master_addons_team_thumb', $settings );
+			$team_member_image_url_src = wp_get_attachment_image_src( $team_member_image['id'], 'master_addons_team_thumb', $settings );
 			if( empty( $team_member_image_url_src ) ) {
 				$team_member_image_url = $team_member_image['url'];
 			} else {
-				$team_member_image_url = $team_member_image_url_src;
+				$team_member_image_url = $team_member_image_url_src[0];
 			}
 
 			?>
