@@ -191,6 +191,38 @@
 			$this->end_controls_section();
 
 
+
+//
+//			if(!apply_filters('maad_el/pro_enabled', false)) {
+//
+//				$this->start_controls_section(
+//					'maad_el_section_pro',
+//					[
+//						'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD )
+//					]
+//				);
+//
+//				$this->add_control(
+//					'maad_el_control_get_pro',
+//					[
+//						'label' => esc_html__( 'Unlock more possibilities', MELA_TD ),
+//						'type' => Controls_Manager::CHOOSE,
+//						'options' => [
+//							'1' => [
+//								'title' => esc_html__( '', MELA_TD ),
+//								'icon' => 'fa fa-unlock-alt',
+//							],
+//						],
+//						'default' => '1',
+//						'description' => '<span class="pro-feature"> Upgrade to  <a href="https://jeweltheme.com/shop/master-addons-elementor/" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+//					]
+//				);
+//
+//				$this->end_controls_section();
+//			}
+//
+
+
 			/*
 			* Team Members Styling Section
 			*/
@@ -213,6 +245,7 @@
 						'-social-left' => esc_html__( 'Social Left on Hover', MELA_TD ),
 						'-rounded' => esc_html__( 'Rounded', MELA_TD ),
 						'-content-hover' => esc_html__( 'Content on Hover', MELA_TD ),
+						'-style6' => esc_html__( 'Style 6', MELA_TD ),
 					],
 				]
 			);
@@ -440,8 +473,9 @@
 
 			?>
 
-            <div id="ma-el-team-member-slider" class="ma-el-team-member-slider owl-carousel owl-theme">
+			<?php if( $settings['ma_el_team_members_preset'] == '-style6' ) { ?>
 
+                <div id="ma-el-team-member-slider" class="ma-el-team-member-slider owl-carousel owl-theme">
                     <div class="ma-el-member-container">
                         <div class="ma-el-inner-container">
                             <img src="<?php echo esc_url($team_member_image_url); ?>" alt="<?php echo $settings['ma_el_team_member_name']; ?>">
@@ -455,26 +489,69 @@
                                 <p>
                                     <?php echo $settings['ma_el_team_member_description']; ?>
                                 </p>
+
                                 <div class="member-social-link">
 
                                     <?php if ( $settings['ma_el_team_member_enable_social_profiles'] == 'yes' ): ?>
-
-                                            <?php foreach ( $settings['ma_el_team_member_social_profile_links'] as $item ) : ?>
-                                                <?php $target = $item['link']['is_external'] ? ' target="_blank"' : ''; ?>
-                                                    <a href="<?php echo esc_attr( $item['link']['url'] ); ?>"
-                                                        <?php echo $target; ?>>
-                                                        <i class="<?php echo esc_attr($item['social'] ); ?>"></i>
-                                                    </a>
-
-                                            <?php endforeach; ?>
-
+                                        <?php foreach ( $settings['ma_el_team_member_social_profile_links'] as $item ) : ?>
+                                            <?php $target = $item['link']['is_external'] ? ' target="_blank"' : ''; ?>
+                                                <a href="<?php echo esc_attr( $item['link']['url'] ); ?>"
+                                                    <?php echo $target; ?>>
+                                                    <i class="<?php echo esc_attr($item['social'] ); ?>"></i>
+                                                </a>
+                                        <?php endforeach; ?>
                                     <?php endif; ?>
 
                                 </div>
                             </div><!-- /.member-details -->
                         </div><!-- /.inner-container -->
                     </div><!-- /.member-container -->
-            </div><!-- /.ma-el-team-member-slider -->
+                </div><!-- /.ma-el-team-member-slider -->
+
+            <?php } else{ ?>
+
+
+                <div id="ma-el-team-member-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-team-item">
+                    <div class="ma-el-team-member<?php echo $settings['ma_el_team_members_preset']; ?>">
+                        <div class="ma-el-team-member-thumb">
+                            <?php if( $settings['ma_el_team_members_preset'] == '-circle' ) : ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+                                    <path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+                                    <path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+                                    <path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+                                </svg>
+                            <?php endif; ?>
+                            <img src="<?php echo esc_url($team_member_image_url); ?>" class="circled" alt="<?php echo
+                            $settings['ma_el_team_member_name']; ?>">
+                        </div>
+                        <div class="ma-el-team-member-content">
+                            <h2 class="ma-el-team-member-name"><?php echo $settings['ma_el_team_member_name']; ?></h2>
+                            <span class="ma-el-team-member-designation"><?php echo $settings['ma_el_team_member_designation'];
+                                ?></span>
+                            <p class="ma-el-team-member-about">
+                                <?php echo $settings['ma_el_team_member_description']; ?>
+                            </p>
+                            <?php if ( $settings['ma_el_team_member_enable_social_profiles'] == 'yes' ): ?>
+                                <ul class="list-inline ma-el-team-member-social">
+                                    <?php foreach ( $settings['ma_el_team_member_social_profile_links'] as $item ) : ?>
+
+                                        <?php $target = $item['link']['is_external'] ? ' target="_blank"' : ''; ?>
+                                        <li>
+                                            <a href="<?php echo esc_attr( $item['link']['url'] ); ?>"<?php echo $target; ?>><i class="<?php echo esc_attr($item['social'] ); ?>"></i></a>
+                                        </li>
+
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+
+            <?php } ?>
 
 
 			<?php
@@ -482,44 +559,89 @@
 
 		protected function _content_template() { ?>
 
-            <div id="ma-el-team-member-slider" class="ma-el-team-member-slider owl-carousel owl-theme">
+            <# if ( '-style6' == settings.ma_el_team_members_preset ) { #>
 
-                <div class="item">
-                    <div class="member-container">
-                        <div class="inner-container">
-                            <img src="{{ settings.ma_el_team_member_image.url }}" alt="{{ settings.ma_el_team_member_name }}">
-                            <div class="member-details">
-                                <h4 class="name">
-                                    {{ settings.ma_el_team_member_name }}
-                                </h4>
-                                <p class="designation">
-                                    {{ settings.ma_el_team_member_designation }}
-                                </p>
-                                <p>
-                                    {{ settings.ma_el_team_member_description }}
-                                </p>
-                                <div class="member-social-link">
+                <div id="ma-el-team-member-slider" class="ma-el-team-member-slider owl-carousel owl-theme">
 
-                                    <# if ( 'yes' == settings.ma_el_team_member_enable_social_profiles ) { #>
+                    <div class="item">
+                        <div class="member-container">
+                            <div class="inner-container">
+                                <img src="{{ settings.ma_el_team_member_image.url }}" alt="{{ settings.ma_el_team_member_name }}">
+                                <div class="member-details">
+                                    <h4 class="name">
+                                        {{ settings.ma_el_team_member_name }}
+                                    </h4>
+                                    <p class="designation">
+                                        {{ settings.ma_el_team_member_designation }}
+                                    </p>
+                                    <p>
+                                        {{ settings.ma_el_team_member_description }}
+                                    </p>
+                                    <div class="member-social-link">
 
-                                        <# _.each( settings.ma_el_team_member_social_profile_links, function( item, index ) { #>
+                                        <# if ( 'yes' == settings.ma_el_team_member_enable_social_profiles ) { #>
 
-                                        <# var target = item.link.is_external ? ' target="_blank"' : '' #>
+                                            <# _.each( settings.ma_el_team_member_social_profile_links, function( item, index ) { #>
 
-                                            <a href="{{ item.link.url }}" {{{ target }}}><i class="{{ item.social }}"></i></a>
+                                            <# var target = item.link.is_external ? ' target="_blank"' : '' #>
 
-                                        <# }); #>
+                                                <a href="{{ item.link.url }}" {{{ target }}}><i class="{{ item.social }}"></i></a>
 
-                                    <# } #>
+                                            <# }); #>
+
+                                        <# } #>
 
 
-                                </div>
-                            </div><!-- /.member-details -->
-                        </div><!-- /.inner-container -->
-                    </div><!-- /.member-container -->
-                </div><!-- /.item -->
+                                    </div>
+                                </div><!-- /.member-details -->
+                            </div><!-- /.inner-container -->
+                        </div><!-- /.member-container -->
+                    </div><!-- /.item -->
 
-            </div><!-- /.ma-el-team-member-slider -->
+                </div><!-- /.ma-el-team-member-slider -->
+
+            <# } else{ #>
+
+
+                    <div id="ma-el-team-member" class="ma-el-team-item">
+                        <div class="ma-el-team-member{{ settings.ma_el_team_members_preset }}">
+                            <div class="ma-el-team-member-thumb">
+                                <# if ( '-circle' == settings.ma_el_team_members_preset ) { #>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+                                    <path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+                                    <path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+                                    <path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+                                </svg>
+                                <# } #>
+                                <img src="{{ settings.ma_el_team_member_image.url }}" class="circled" alt="{{ settings
+                                .ma_el_team_member_name }}">
+                            </div>
+                            <div class="ma-el-team-member-content">
+                                <h2 class="ma-el-team-member-name">{{{ settings.ma_el_team_member_name }}}</h2>
+                                <span class="ma-el-team-member-designation">{{{ settings.ma_el_team_member_designation
+                                    }}}</span>
+                                <p class="ma-el-team-member-about">{{{ settings.ma_el_team_member_description }}}</p>
+                                <# if ( 'yes' == settings.ma_el_team_member_enable_social_profiles ) { #>
+                                <ul class="list-inline ma-el-team-member-social">
+                                    <# _.each( settings.ma_el_team_member_social_profile_links, function( item, index ) { #>
+
+                                    <# var target = item.link.is_external ? ' target="_blank"' : '' #>
+                                    <li>
+                                        <a href="{{ item.link.url }}" {{{ target }}}><i class="{{ item.social }}"></i></a>
+                                    </li>
+
+                                    <# }); #>
+                                </ul>
+                                <# } #>
+                            </div>
+                        </div>
+                    </div>
+
+            <# } #>
 
 
 
