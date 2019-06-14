@@ -175,7 +175,8 @@
                     <a class="button button-primary theme-install" href="<?php echo esc_url( 'https://wordpress.org/themes/videomag/' ); ?>" target="_blank">
                       <?php _e( 'Details' ); ?>
                     </a>
-                    <a class="button" href="<?php echo esc_url( 'https://demo.prowptheme.com/videomag/' ); ?>" target="_blank">
+                    <a class="button" href="<?php //echo esc_url( 'https://demo.prowptheme.com/videomag/' ); ?>"
+                       target="_blank">
                       <?php _e( 'View Demo' ); ?>
                     </a>
                  </div>

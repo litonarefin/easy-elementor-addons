@@ -48,6 +48,7 @@ final class Master_Elementor_Addons{
 			'ma-progressbar',
 			'ma-tooltip',
 			'ma-team-members',
+			'ma-team-members-slider',
 //			['contact-form-7','pro'],
 			'contact-form-7',
 //			'ninja-forms',
