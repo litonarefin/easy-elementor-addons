@@ -11,7 +11,7 @@
  */
 
 
-register_deactivation_hook( __FILE__, 'master_addons_el_welcome_deactivate' );
+
 
 
 	if (!defined('ABSPATH')) { exit; } // No, Direct access Sir !!!
@@ -536,28 +536,18 @@ register_deactivation_hook( __FILE__, 'master_addons_el_welcome_deactivate' );
 	}
 
 
-//return Master_Elementor_Addons::get_instance();
-
-/**
- *
- * Initilize Plugin Class
- */
-//function master_addons_el_init() {
-//	return Master_Elementor_Addons::get_instance();
-//}
-//add_action( 'init', 'master_addons_el_init' );
+	/**
+	 * Plugin Redirect Option Added by register_activation_hook
+	 *
+	 */
+	function master_addons_el_redirect() {
+		add_option( 'maad_el_update_redirect', true );
+	}
+	register_activation_hook( __FILE__ , 'master_addons_el_redirect' );
 
 
-
-/**
- * Plugin Redirect Option Added by register_activation_hook
- *
- */
-function master_addons_el_redirect() {
-	add_option( 'maad_el_update_redirect', true );
-}
-register_activation_hook( __FILE__ , 'master_addons_el_redirect' );
-
-function master_addons_el_welcome_deactivate() {
-	delete_transient( 'maad_el_update_redirect' );
-}
+	// Deactivation Hook
+	function master_addons_el_welcome_deactivate() {
+		delete_transient( 'maad_el_update_redirect' );
+	}
+	register_deactivation_hook( __FILE__, 'master_addons_el_welcome_deactivate' );
