@@ -1,6 +1,6 @@
 <?php
 	/**
- * Plugin Name: AAA
+ * Plugin Name: Master Addons
  * Description: Master Addons is easy and must have Elementor Addons for WordPress Page Builder. Clean, Modern, Hand crafted designed Addons blocks.
  * Plugin URI: https://jeweltheme.com/shop/master-addons-elementor/
  * Author: Jewel Theme
@@ -480,18 +480,33 @@
 
 
 			public function mela_admin_notice_missing_main_plugin() {
-				if ( isset( $_GET['activate'] ) ) {
-					unset( $_GET['activate'] );
-				}
+				$plugin = 'elementor/elementor.php';
 
-				$message = sprintf(
-				/* translators: 1: Plugin name 2: Elementor */
-					esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', MELA_TD ),
-					'<strong>' . esc_html__( 'Master Addons for Elementor', MELA_TD ) . '</strong>',
-					'<strong>' . esc_html__( 'Elementor', MELA_TD ) . '</strong>'
-				);
+				if ( $this->is_elementor_activated() ) {
+					if ( ! current_user_can( 'activate_plugins' ) ) {
+						return;
+					}
+						$activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
+						$message = __( 'Master Addons requires Elementor plugin to be active. Please activate Elementor to continue.', MELA_TD );
+						$button_text = __( 'Activate Elementor', MELA_TD );
 
-				printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+					} else {
+						if ( ! current_user_can( 'install_plugins' ) ) {
+							return;
+						}
+
+						$activation_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
+						$message = sprintf( __( 'Master Addons requires %1$s"Elementor"%2$s plugin to be installed and activated. Please install Elementor to continue.', MELA_TD ), '<strong>', '</strong>' );
+						$button_text = __( 'Install Elementor', MELA_TD );
+					}
+
+
+
+
+				$button = '<p><a href="' . $activation_url . '" class="button-primary">' . $button_text . '</a></p>';
+
+				printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p>%2$s</div>', esc_html( $message ), $button );
+
 			}
 
 			public function mela_admin_notice_minimum_elementor_version() {
