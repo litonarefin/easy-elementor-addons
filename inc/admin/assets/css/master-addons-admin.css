@@ -28,7 +28,7 @@
     padding: 20px;
 }
 .wp-tab-bar.master_addons_navbar {
-    margin-top: 50px;
+    margin-top: 40px;
     margin-left: -20px;
 }
 .master_addons .about-wrap .wp-badge{
@@ -87,7 +87,7 @@
 }
 .master_addons .header .about-text {
     color: #fff;
-    margin: -10px 0px -60px 0;
+    margin: 0px 0px -60px 0;
 }
 .about-wrap .about-text {
     color: #fff;

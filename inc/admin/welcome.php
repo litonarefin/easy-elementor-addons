@@ -14,7 +14,8 @@
 					<?php printf( __( '%s <small>v %s</small>', MELA_TD ), MELA, MELA_VERSION ); ?>
 				</h1>
 				<div class="about-text">
-					<?php printf( __( "Ultimate and Easy Gutenberg Blocks Page Builder for WordPress.", MELA_TD ),
+					<?php printf( __( "Ultimate and Essential Addons for Elementor Page Builder.", MELA ,
+                        MELA_TD ),
                         MELA_VERSION ); ?>
 				</div>
 				<a href="https://wordpress.org/plugins/master-addons">

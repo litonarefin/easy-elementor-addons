@@ -1,6 +1,6 @@
 <?php
 	/**
- * Plugin Name: Master Addons for Elementor
+ * Plugin Name: Master Addons
  * Description: Master Addons is easy and must have Elementor Addons for WordPress Page Builder. Clean, Modern, Hand crafted designed Addons blocks.
  * Plugin URI: https://jeweltheme.com/shop/master-addons-elementor/
  * Author: Jewel Theme

@@ -1,19 +1,38 @@
 <ul class="master_addons_demos">
     <li>
         <a
-                href="https://plugins.jeweltheme.com/easy-blocks/alert-notification/"
+                href="#"
                 target="_blank">
             <strong>
-				<?php _e( 'Alert/Notification', MELA_TD ); ?>
+				<?php _e( 'MA Headlines', MELA_TD ); ?>
             </strong>
         </a>
     </li>
     <li>
         <a
-                href="https://plugins.jeweltheme.com/easy-blocks/blockquote/"
+                href="#"
                 target="_blank">
             <strong>
-				<?php _e( 'Blockquotes', MELA_TD ); ?>
+				<?php _e( 'MA Dual Headings', MELA_TD ); ?>
+            </strong>
+        </a>
+    </li>
+    <li>
+        <a
+                href="#"
+                target="_blank">
+            <strong>
+				<?php _e( 'MA Accordion', MELA_TD ); ?>
+            </strong>
+        </a>
+    </li>
+
+    <li>
+        <a
+                href="#"
+                target="_blank">
+            <strong>
+				<?php _e( 'MA Tabs', MELA_TD ); ?>
             </strong>
             <span class="ribbon hot">
 												<?php _e( 'Hot', MELA_TD ); ?>
@@ -22,28 +41,28 @@
     </li>
     <li>
         <a
-                href="https://plugins.jeweltheme.com/easy-blocks/call-to-action/"
+                href="#"
                 target="_blank">
             <strong>
-				<?php _e( 'Call to Action', MELA_TD ); ?>
+				<?php _e( 'MA Progressbar', MELA_TD ); ?>
             </strong>
         </a>
     </li>
     <li>
         <a
-                href="https://plugins.jeweltheme.com/easy-blocks/cards/"
+                href="#"
                 target="_blank">
             <strong>
-				<?php _e( 'Cards', MELA_TD ); ?>
+				<?php _e( 'MA Tooltip', MELA_TD ); ?>
             </strong>
         </a>
     </li>
     <li>
         <a
-                href="https://plugins.jeweltheme.com/easy-blocks/image-content/"
+                href="#"
                 target="_blank">
             <strong>
-				<?php _e( 'Image & Content', MELA_TD ); ?>
+				<?php _e( 'MA Team Members', MELA_TD ); ?>
             </strong>
         </a>
         <span class="ribbon new">
@@ -52,15 +71,27 @@
     </li>
     <li>
         <a
-                href="https://plugins.jeweltheme.com/easy-blocks/testimonial/"
+                href="#"
                 target="_blank">
             <strong>
-				<?php _e( 'Testimonials', MELA_TD ); ?>
+				<?php _e( 'MA Team Members Slider', MELA_TD ); ?>
+            </strong>
+        </a>
+        <span class="ribbon new">
+											<?php _e( 'New', MELA_TD ); ?>
+										</span>
+    </li>
+    <li>
+        <a
+                href="#/"
+                target="_blank">
+            <strong>
+				<?php _e( 'Contact Form 7', MELA_TD ); ?>
             </strong>
         </a>
         <span class="ribbon trending">Trending</span>
     </li>
-
+    <!--
     <li>
         <a
                 href="https://plugins.jeweltheme.com/easy-blocks/title-subtitle/"
@@ -355,6 +386,6 @@
         <span class="ribbon coming">
 											<?php _e( 'Upcoming', MELA_TD ); ?>
 										</span>
-    </li>
+    </li> -->
 
 </ul>
