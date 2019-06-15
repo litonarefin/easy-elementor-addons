@@ -1388,11 +1388,15 @@
 
 
 /* Dual heading Start */
-
+.ma-el-dual-heading-wrapper{
+    text-align: center;
+}
 .ma-el-dual-heading .ma-el-dual-heading-wrapper {
     padding: 5px;
 }
-
+.ma-el-dual-heading .ma-el-dual-heading-wrapper .cd-headline{
+    font-family: "Abel", sans-serif;
+}
 .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-description{
     font-family: "Roboto", sans-serif;
     font-size: 15px;
@@ -1409,8 +1413,9 @@
     font-size: 36px;
     margin-top: 10px;
 }
-
-.ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title  a{
+.ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title  a,
+.ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title
+{
     font-size: 30px;
     color: #132c47;
     font-family: "Roboto", sans-serif;
@@ -1419,8 +1424,14 @@
     text-decoration: none;
 }
 
+.ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title{
+    text-transform: capitalize;
+}
+
 .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title  a .first-heading,
-.ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title  a .second-heading{
+.ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .first-heading,
+.ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title  a .second-heading,
+.ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .second-heading{
     padding: 15px 10px;
 }
 
