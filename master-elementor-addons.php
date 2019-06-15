@@ -5,7 +5,7 @@
  * Plugin URI: https://jeweltheme.com/shop/master-addons-elementor/
  * Author: Jewel Theme
  * Version: 1.0.0	
- * Author URI: https://jeweltheme.com/shop/master-addons-elementor/
+ * Author URI: https://twitter.com/Litonice11
  * Text Domain: mela
  * Domain Path: /languages
  */
