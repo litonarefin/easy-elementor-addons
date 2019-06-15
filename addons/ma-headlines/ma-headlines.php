@@ -43,15 +43,50 @@
 					'default' => esc_html__( 'First', MELA_TD ),
 				]
 			);
-			$this->add_control(
+//			$this->add_control(
+//				'ma_el_dual_second_heading',
+//				[
+//					'label' => esc_html__( 'Second Heading', MELA_TD ),
+//					'type' => Controls_Manager::TEXT,
+//					'label_block' => true,
+//					'default' => esc_html__( 'Second', MELA_TD ),
+//				]
+//			);
+
+
+			$repeater = new Repeater();
+
+
+			$repeater->add_control(
 				'ma_el_dual_second_heading',
 				[
-					'label' => esc_html__( 'Second Heading', MELA_TD ),
-					'type' => Controls_Manager::TEXT,
-					'label_block' => true,
-					'default' => esc_html__( 'Second', MELA_TD ),
+					'label'                 => __( 'More Titles', MELA_TD ),
+					'type'                  => Controls_Manager::TEXT,
+					'default'               => __( 'Minimal Template', MELA_TD ),
+					'dynamic'               => [
+						'active'   => true,
+					],
 				]
 			);
+
+
+
+			$this->add_control(
+				'tabs',
+				[
+					'type'                  => Controls_Manager::REPEATER,
+					'default'               => [
+						[ 'ma_el_dual_second_heading' => esc_html__( 'Minimal Design', MELA_TD ) ],
+						[ 'ma_el_dual_second_heading' => esc_html__( 'Unique Design', MELA_TD ) ],
+						[ 'ma_el_dual_second_heading' => esc_html__( 'Portfolio Template', MELA_TD ) ],
+						[ 'ma_el_dual_second_heading' => esc_html__( 'Modern Design', MELA_TD ) ],
+						[ 'ma_el_dual_second_heading' => esc_html__( 'HTML5 Template', MELA_TD ) ],
+					],
+					'fields'                => array_values( $repeater->get_controls() ),
+					'title_field'           => '{{ma_el_dual_second_heading}}',
+				]
+			);
+
 
 			$this->add_control(
 				'ma_el_dual_heading_title_link',
@@ -291,6 +326,34 @@
 		protected function render() {
 			$settings = $this->get_settings_for_display();
 
+			foreach( $settings['tabs'] as $index => $tab ) {
+
+//
+//				$tab_count = $index+1;
+//				$tab_title_setting_key = $this->get_repeater_setting_key('ma_el_dual_second_heading', 'tabs', $index);
+////				$tab_content_setting_key = $this->get_repeater_setting_key('accordion_content', 'tabs', $index);
+//
+//				$tab_title_class 	= ['ma-accordion-tab-title'];
+//				$tab_content_class 	= ['ma-accordion-tab-content'];
+//
+//				if ( $tab['accordion_tab_default_active'] == 'yes' ) {
+//					$tab_title_class[] 		= 'ma-accordion-tab-active-default';
+//					$tab_content_class[] 	= 'ma-accordion-tab-active-default';
+//				}
+?>
+
+				<h1 class="cd-headline rotate-1 main-title">
+					<span>Mama - The Best</span>
+						<span class="cd-words-wrapper">
+				        <b class="is-visible">Minimal Template</b>
+				        <b><?php echo $tab['tab_title']; ?></b>
+				    </span>
+				</h1>
+<?php
+
+
+			}
+
 			?>
 
 			<div id="ma-el-heading-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-dual-heading">
@@ -301,7 +364,8 @@
 					<h1 class="ma-el-dual-heading-title">
 						<a href="<?php echo esc_url( $settings['ma_el_dual_heading_title_link']['url'] ); ?>">
 							<span class="first-heading"><?php echo esc_html( $settings['ma_el_dual_first_heading'] );
-								?></span><span class="second-heading"><?php echo esc_html( $settings['ma_el_dual_second_heading'] ); ?></span>
+								?></span><span class="second-heading"><?php //echo esc_html(
+									// $settings['ma_el_dual_second_heading'] ); ?></span>
 						</a>
 					</h1>
 					<?php if ( $settings['ma_el_dual_heading_description'] != "" ) : ?>

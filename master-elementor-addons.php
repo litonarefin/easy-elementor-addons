@@ -264,6 +264,11 @@ final class Master_Elementor_Addons{
 				self::VERSION, true );
 		}
 
+		//Animated Headlines
+		if ( $is_activated_widget['ma-headlines'] ) {
+			wp_enqueue_style( 'ma-el-headlines', MELA_PLUGIN_URL . '/assets/css/headlines.css' );
+		}
+
 		//Google Maps
 //		if ( $is_activated_widget['google-maps'] ) {
 //			wp_enqueue_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array('jquery'),'1.8', false );

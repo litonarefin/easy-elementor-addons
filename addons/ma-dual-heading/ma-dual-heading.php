@@ -43,6 +43,7 @@
 					'default' => esc_html__( 'First', MELA_TD ),
 				]
 			);
+
 			$this->add_control(
 				'ma_el_dual_second_heading',
 				[
@@ -52,6 +53,9 @@
 					'default' => esc_html__( 'Second', MELA_TD ),
 				]
 			);
+
+
+
 
 			$this->add_control(
 				'ma_el_dual_heading_title_link',
