@@ -1439,4 +1439,64 @@
     color: #132c47;
 }
 
+/* Topclass Style */
+.ma-el-sec-head-container {
+    overflow: hidden;
+}
+.ma-el-sec-head-container .ma-el-sec-head-style {
+    max-width: 1170px;
+    display: table;
+    margin: auto;
+    padding: 0 15px;
+}
+.ma-el-sec-head-container .ma-el-sec-head-style:after {
+    content: "";
+    height: 140px;
+    width: 200%;
+    background-color: #1fb5ac;
+    position: absolute;
+    top: 0;
+    left: -200%;
+    margin-left: -15px;
+}
+
+.ma-el-section-title {
+    color: #1a1a1a !important;
+    font-size: 5.25em !important;
+    font-weight: 900;
+    text-align: right;
+    text-transform: uppercase !important;
+    line-height: .9em !important;
+    -webkit-text-stroke: 0.3px;
+    padding: 0;
+    margin: 0;
+    float: left;
+    width: 300px;
+}
+.content-title {
+    margin-top: 0;
+    padding-top: 0;
+}
+.ma-el-section-title span {
+    color: #1fb5ac;
+}
+.plx-ma-el-section-title {
+    color: #ffffff;
+    font-size: 2.1875em;
+    -webkit-text-stroke: 0.2px;
+}
+.ma-el-section-description {
+    color: #404040;
+    font-size: 1.375em;
+    font-weight: 300;
+    line-height: 40px;
+    margin:0;
+    margin-left: 360px;
+    padding-top: 35px;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke: 0.2px;
+}
+.parallax-style .subscribe-description {
+    color: #ffffff;
+}
 /* Dual heading End */

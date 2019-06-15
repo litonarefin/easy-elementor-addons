@@ -11,7 +11,7 @@
 		}
 
 		public function get_title() {
-			return esc_html__( 'MA Dual Heading', MELA_TD );
+			return esc_html__( 'MA Master Addons: Dual Heading', MELA_TD );
 		}
 
 		public function get_icon() {
@@ -25,7 +25,33 @@
 		protected function _register_controls() {
 
 			/**
-			 * Dual Heading Content Section
+			 * Master Addons: Dual Heading Content Section
+			 */
+			$this->start_controls_section(
+				'ma_el_dual_heading_style',
+				[
+					'label' => esc_html__( 'Style Preset', MELA_TD ),
+				]
+			);
+			$this->add_control(
+				'ma_el_dual_heading_styles_preset',
+				[
+					'label' => esc_html__( 'Style Preset', MELA_TD ),
+					'type' => Controls_Manager::SELECT,
+					'default' => '-style2',
+					'options' => [
+						'-style1' => esc_html__( 'Style 1', MELA_TD ),
+						'-style2' => esc_html__( 'Style 2', MELA_TD ),
+					],
+				]
+			);
+			$this->end_controls_section();
+
+
+
+
+			/**
+			 * Master Addons: Dual Heading Content Section
 			 */
 			$this->start_controls_section(
 				'ma_el_dual_heading_content',
@@ -78,7 +104,7 @@
 					'type'        => Controls_Manager::TEXTAREA,
 					'label_block' => true,
 					'dynamic'     => [ 'active' => true ],
-					'default'     => __( 'Add your sub heading here.', MELA_TD ),
+					'default'     => __( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto modi vel repudiandae reiciendis, cupiditate quod voluptatibus, placeat ad assumenda molestiae alias quisquam', MELA_TD ),
 				]
 			);
 
@@ -89,6 +115,9 @@
 					'type' => Controls_Manager::SWITCHER,
 					'default' => 'yes',
 					'return_value' => 'yes',
+					'condition' => [
+						'ma_el_dual_heading_styles_preset' => '-style1',
+					],
 				]
 			);
 
@@ -109,7 +138,7 @@
 
 
 			/*
-			* Dual Heading Styling Section
+			* Master Addons: Dual Heading Styling Section
 			*/
 			$this->start_controls_section(
 				'ma_el_dual_heading_styles_general',
@@ -119,6 +148,7 @@
 				]
 			);
 
+
 			$this->add_control(
 				'ma_el_dual_heading_icon_color',
 				[
@@ -127,6 +157,9 @@
 					'default' => '#132C47',
 					'selectors'	=> [
 						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-icon' => 'color: {{VALUE}};',
+					],
+					'condition' => [
+						'ma_el_dual_heading_styles_preset' => '-style1',
 					],
 				]
 			);
@@ -162,7 +195,7 @@
 			$this->end_controls_section();
 
 			/*
-				* Dual Heading First Part Styling Section
+				* Master Addons: Dual Heading First Part Styling Section
 				*/
 			$this->start_controls_section(
 				'ma_el_dual_first_heading_styles',
@@ -203,14 +236,14 @@
 				[
 					'name' => 'ma_el_dual_first_heading_typography',
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title a .first-heading',
+					'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title a .first-heading,{{WRAPPER}} .ma-el-section-title',
 				]
 			);
 
 			$this->end_controls_section();
 
 			/*
-			* Dual Heading Second Part Styling Section
+			* Master Addons: Dual Heading Second Part Styling Section
 			*/
 			$this->start_controls_section(
 				'ma_el_dual_second_heading_styles',
@@ -250,7 +283,7 @@
 				[
 					'name' => 'ma_el_dual_second_heading_typography',
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title a .second-heading',
+					'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title a .second-heading,{{WRAPPER}} .ma-el-section-description',
 				]
 			);
 
@@ -258,7 +291,7 @@
 			$this->end_controls_section();
 
 			/*
-				* Dual Heading description Styling Section
+				* Master Addons: Dual Heading description Styling Section
 			*/
 			$this->start_controls_section(
 				'ma_el_dual_heading_description_styles',
@@ -297,43 +330,82 @@
 
 			?>
 
-			<div id="ma-el-heading-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-dual-heading">
-				<div class="ma-el-dual-heading-wrapper">
-					<?php if ( $settings['ma_el_dual_heading_icon_show'] == 'yes' ) : ?>
-						<span class="ma-el-dual-heading-icon"><i class="<?php echo esc_attr( $settings['ma_el_dual_heading_icon'] ); ?>"></i></span>
-					<?php endif; ?>
-					<h1 class="ma-el-dual-heading-title">
-						<a href="<?php echo esc_url( $settings['ma_el_dual_heading_title_link']['url'] ); ?>">
+
+			<?php if( $settings['ma_el_dual_heading_styles_preset'] == '-style1' ) { ?>
+
+                <div class="ma-el-sec-head-container">
+                    <div class="ma-el-sec-head-style">
+                        <h2 class="ma-el-section-title">
+                            <span><?php echo esc_html( $settings['ma_el_dual_first_heading'] );
+	                            ?></span> <?php echo esc_html( $settings['ma_el_dual_second_heading'] ); ?>
+                        </h2><!-- /.section-title -->
+
+                        <div class="ma-el-section-description">
+	                        <?php echo esc_html( $settings['ma_el_dual_heading_description'] ); ?>
+                        </div><!-- /.section-description -->
+                    </div><!-- /.sec-head-style -->
+                </div><!-- /.sec-head-container -->
+
+            <?php } else { ?>
+
+                <div id="ma-el-heading-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-dual-heading">
+                    <div class="ma-el-dual-heading-wrapper">
+						<?php if ( $settings['ma_el_dual_heading_icon_show'] == 'yes' ) : ?>
+                            <span class="ma-el-dual-heading-icon"><i class="<?php echo esc_attr( $settings['ma_el_dual_heading_icon'] ); ?>"></i></span>
+						<?php endif; ?>
+                        <h1 class="ma-el-dual-heading-title">
+                            <a href="<?php echo esc_url( $settings['ma_el_dual_heading_title_link']['url'] ); ?>">
 							<span class="first-heading"><?php echo esc_html( $settings['ma_el_dual_first_heading'] );
-							?></span><span class="second-heading"><?php echo esc_html( $settings['ma_el_dual_second_heading'] ); ?></span>
-						</a>
-					</h1>
-					<?php if ( $settings['ma_el_dual_heading_description'] != "" ) : ?>
-						<p class="ma-el-dual-heading-description"><?php echo esc_html( $settings['ma_el_dual_heading_description'] ); ?></p>
-					<?php endif; ?>
-				</div>
-			</div>
+								?></span><span class="second-heading"><?php echo esc_html( $settings['ma_el_dual_second_heading'] ); ?></span>
+                            </a>
+                        </h1>
+						<?php if ( $settings['ma_el_dual_heading_description'] != "" ) : ?>
+                            <p class="ma-el-dual-heading-description"><?php echo esc_html( $settings['ma_el_dual_heading_description'] ); ?></p>
+						<?php endif; ?>
+                    </div>
+                </div>
+            <?php } ?>
+
+
 			<?php
 		}
 
-		protected function _content_template() {
-			?>
-			<div id="ma-el-heading" class="ma-el-dual-heading">
-				<div class="ma-el-dual-heading-wrapper">
-					<# if ( settings.ma_el_dual_heading_icon_show == 'yes' ) { #>
-					<span class="ma-el-dual-heading-icon"><i class="{{ settings.ma_el_dual_heading_icon }}"></i></span>
-					<# } #>
-					<h1 class="ma-el-dual-heading-title">
-						<a href="{{{ settings.ma_el_dual_heading_title_link }}}">
-							<span class="first-heading">{{{ settings.ma_el_dual_first_heading }}}</span><span
-								class="second-heading">{{{ settings.ma_el_dual_second_heading }}}</span>
-						</a>
-					</h1>
-					<# if ( settings.ma_el_dual_heading_description != "" ) { #>
-					<p class="ma-el-dual-heading-description">{{{ settings.ma_el_dual_heading_description }}}</p>
-					<# } #>
-				</div>
-			</div>
+		protected function _content_template() { ?>
+
+            <# if ( '-style1' == settings.ma_el_dual_heading_styles_preset ) { #>
+
+                <div class="ma-el-sec-head-container">
+                    <div class="ma-el-sec-head-style">
+                        <h2 class="ma-el-section-title">
+                            <span>{{{ settings.ma_el_dual_first_heading }}}</span> {{{ settings.ma_el_dual_second_heading }}}
+                        </h2><!-- /.section-title -->
+
+                        <div class="ma-el-section-description">
+                            {{{ settings.ma_el_dual_heading_description }}}
+                        </div><!-- /.section-description -->
+                    </div><!-- /.sec-head-style -->
+                </div><!-- /.sec-head-container -->
+
+            <# } else{ #>
+
+                <div id="ma-el-heading" class="ma-el-dual-heading">
+                    <div class="ma-el-dual-heading-wrapper">
+                        <# if ( settings.ma_el_dual_heading_icon_show == 'yes' ) { #>
+                        <span class="ma-el-dual-heading-icon"><i class="{{ settings.ma_el_dual_heading_icon }}"></i></span>
+                        <# } #>
+                        <h1 class="ma-el-dual-heading-title">
+                            <a href="{{{ settings.ma_el_dual_heading_title_link }}}">
+                                <span class="first-heading">{{{ settings.ma_el_dual_first_heading }}}</span><span
+                                    class="second-heading">{{{ settings.ma_el_dual_second_heading }}}</span>
+                            </a>
+                        </h1>
+                        <# if ( settings.ma_el_dual_heading_description != "" ) { #>
+                        <p class="ma-el-dual-heading-description">{{{ settings.ma_el_dual_heading_description }}}</p>
+                        <# } #>
+                    </div>
+                </div>
+            <# } #>
+
 			<?php
 		}
 
