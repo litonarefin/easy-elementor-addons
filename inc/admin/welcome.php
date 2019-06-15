@@ -58,7 +58,7 @@
 
 
 <script>
-	jQuery(document).ready(function(){
-		jQuery( "#accordion" ).accordion();
-	});
+	// jQuery(document).ready(function(){
+	// 	jQuery( "#accordion" ).accordion();
+	// });
 </script>
