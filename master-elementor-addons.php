@@ -451,7 +451,7 @@
 
 
 
-			public function mela_ea_body_class(){
+			public function mela_ea_body_class($classes){
 				if ( !\Elementor\Plugin::$instance->preview->is_preview_mode() ) {
 					$classes[] = 'master-addons-elementor';
 				}

@@ -22,7 +22,7 @@
                                 <li>
                                     <h4>
                                         <a href="https://www.facebook.com/groups/jeweltheme/" target="_blank">
-											<?php echo esc_html__('Facebook Group', MELA_TD);?>
+											<?php echo esc_html__('Facebook Community', MELA_TD);?>
                                         </a>
                                     </h4>
                                 </li>
