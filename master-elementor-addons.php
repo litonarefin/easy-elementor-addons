@@ -309,27 +309,31 @@
 				// Master Addons Dependencies
 				//Progressbar
 				if ( $is_activated_widget['ma-progressbar'] ) {
-					wp_enqueue_script( 'ma-el-progressbar', MELA_PLUGIN_URL . '/assets/js/loading-bar.js', [ 'jquery' ],
+					wp_enqueue_script( 'master-addons-progressbar', MELA_PLUGIN_URL . '/assets/js/loading-bar.js', [ 'jquery' ],
 						self::VERSION, true );
-					wp_enqueue_script( 'ma-el-waypoints', MELA_PLUGIN_URL . '/assets/js/jquery.waypoints.min.js', [ 'jquery' ], self::VERSION, true );
+					wp_enqueue_script( 'master-addons-waypoints', MELA_PLUGIN_URL . '/assets/js/jquery.waypoints.min.js', [ 'jquery' ], self::VERSION, true );
 				}
 
 				//Team Members
 				if ( $is_activated_widget['ma-team-members'] ) {
-					wp_enqueue_script( 'ma-el-team-members', MELA_PLUGIN_URL . '/assets/vendor/owlcarousel/owl.carousel.min.js', [ 'jquery' ],
+					wp_enqueue_script( 'master-addons-team-members', MELA_PLUGIN_URL . '/assets/vendor/owlcarousel/owl.carousel.min.js', [ 'jquery' ],
 						self::VERSION, true );
 				}
 
 				//Animated Headlines
 				if ( $is_activated_widget['ma-headlines'] ) {
-					wp_enqueue_style( 'ma-el-headlines', MELA_PLUGIN_URL . '/assets/css/headlines.css' );
+					wp_enqueue_style( 'master-addons-headlines', MELA_PLUGIN_URL . '/assets/css/headlines.css' );
 				}
 
 				//Google Maps
 		//		if ( $is_activated_widget['google-maps'] ) {
-		//			wp_enqueue_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array('jquery'),'1.8', false );
+		//			wp_enqueue_script( 'master-addons-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='
+				//.get_option
+				//('exad_google_map_api_option'), array('jquery'),'1.8', false );
 		//			// Gmap 3 Js
-		//			wp_enqueue_script( 'exad-gmap3', MELA_PLUGIN_URL . 'assets/js/vendor/gmap3.min.js', array( 'jquery' ), self::VERSION, true );
+		//			wp_enqueue_script( 'master-addons-gmap3', MELA_PLUGIN_URL . 'assets/js/vendor/gmap3.min.js', array(
+				// 'jquery' )
+				//, self::VERSION, true );
 		//		}
 
 
