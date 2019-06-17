@@ -11,7 +11,7 @@
 		}
 
 		public function get_title() {
-			return esc_html__( 'MA Master Addons: Dual Heading', MELA_TD );
+			return esc_html__( 'MA Dual Heading', MELA_TD );
 		}
 
 		public function get_icon() {

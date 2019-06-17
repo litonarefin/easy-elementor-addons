@@ -40,7 +40,7 @@
 					'label' => esc_html__( 'First Heading', MELA_TD ),
 					'type' => Controls_Manager::TEXT,
 					'label_block' => true,
-					'default' => esc_html__( 'First', MELA_TD ),
+					'default' => esc_html__( 'Master Addons', MELA_TD ),
 				]
 			);
 

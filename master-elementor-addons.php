@@ -2,15 +2,13 @@
 	/**
  * Plugin Name: Master Addons
  * Description: Master Addons is easy and must have Elementor Addons for WordPress Page Builder. Clean, Modern, Hand crafted designed Addons blocks.
- * Plugin URI: https://jeweltheme.com/shop/master-addons-elementor/
+ * Plugin URI: https://wordpress.org/plugins/master-addons
  * Author: Jewel Theme
  * Version: 1.0.0	
  * Author URI: https://twitter.com/Litonice11
  * Text Domain: mela
  * Domain Path: /languages
  */
-
-
 
 
 
@@ -63,6 +61,7 @@
 					'ma-tooltip',
 					'ma-team-members',
 					'ma-team-members-slider',
+					'ma-particles',
 		//			['contact-form-7','pro'],
 					'contact-form-7',
 		//			'ninja-forms',
@@ -439,6 +438,9 @@
 
 				// Dashboard Settings
 				include_once MELA_PLUGIN_PATH . '/inc/admin/dashboard-settings.php';
+
+				//Utils
+				include_once MELA_PLUGIN_PATH . '/inc/classes/utils.php';
 
 			}
 

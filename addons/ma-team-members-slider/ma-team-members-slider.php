@@ -7,7 +7,7 @@
 	class Master_Addons_Team_Members_Carousel extends Widget_Base {
 
 		public function get_name() {
-			return 'ma-team-members';
+			return 'ma-team-members-carousel';
 		}
 
 		public function get_title() {
