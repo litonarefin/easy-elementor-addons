@@ -1,4 +1,4 @@
-=== Master Addons ===
+=== Master Addons for Elementor ===
 Contributors: jwthemeltd, litonice13
 Tags: addons, elementor, elementor addon, elementor widget, elements, elementor elements
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jwthemeltd@gmail.com&lc=US&item_name=Donate&currency_code=USD&bn=PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest

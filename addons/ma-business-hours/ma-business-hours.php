@@ -17,24 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  */
 class Master_Addons_Business_Hours extends Widget_Base {
 
-    /**
-	 * Retrieve business hours widget name.
-	 *
-	 * @access public
-	 *
-	 * @return string Widget name.
-	 */
     public function get_name() {
         return 'ma-business-hours';
     }
-
-    /**
-	 * Retrieve business hours widget title.
-	 *
-	 * @access public
-	 *
-	 * @return string Widget title.
-	 */
     public function get_title() {
         return esc_html__( 'Business Hours', MELA_TD );
     }
@@ -52,15 +37,8 @@ class Master_Addons_Business_Hours extends Widget_Base {
 	    return [ 'master-addons' ];
     }
 
-    /**
-	 * Retrieve business hours widget icon.
-	 *
-	 * @access public
-	 *
-	 * @return string Widget icon.
-	 */
     public function get_icon() {
-	    return 'eicon-person';
+	    return 'ma-el-icon eicon-lock-user';
     }
 
     /**
