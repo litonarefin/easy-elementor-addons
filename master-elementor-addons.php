@@ -270,7 +270,7 @@
 				}
 
 				foreach ( self::$maad_el_default_form_widgets as $form_widgets ) {
-					print_r( $form_widgets );
+//					print_r( $form_widgets );
 					if ( $activated_widgets[ $form_widgets ] == true ) {
 						if ( $form_widgets == 'contact-form-7' ) {
 							if ( function_exists( 'wpcf7' ) ) {
