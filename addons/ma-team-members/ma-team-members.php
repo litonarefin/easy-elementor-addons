@@ -192,35 +192,35 @@
 
 
 
-//
-//			if(!apply_filters('maad_el/pro_enabled', false)) {
-//
-//				$this->start_controls_section(
-//					'maad_el_section_pro',
-//					[
-//						'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD )
-//					]
-//				);
-//
-//				$this->add_control(
-//					'maad_el_control_get_pro',
-//					[
-//						'label' => esc_html__( 'Unlock more possibilities', MELA_TD ),
-//						'type' => Controls_Manager::CHOOSE,
-//						'options' => [
-//							'1' => [
-//								'title' => esc_html__( '', MELA_TD ),
-//								'icon' => 'fa fa-unlock-alt',
-//							],
-//						],
-//						'default' => '1',
-//						'description' => '<span class="pro-feature"> Upgrade to  <a href="https://jeweltheme.com/shop/master-addons-elementor/" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
-//					]
-//				);
-//
-//				$this->end_controls_section();
-//			}
-//
+
+			if(!apply_filters('maad_el/pro_enabled', false)) {
+
+				$this->start_controls_section(
+					'maad_el_section_pro',
+					[
+						'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD )
+					]
+				);
+
+				$this->add_control(
+					'maad_el_control_get_pro',
+					[
+						'label' => esc_html__( 'Unlock more possibilities', MELA_TD ),
+						'type' => Controls_Manager::CHOOSE,
+						'options' => [
+							'1' => [
+								'title' => esc_html__( '', MELA_TD ),
+								'icon' => 'fa fa-unlock-alt',
+							],
+						],
+						'default' => '1',
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="https://jeweltheme.com/shop/master-addons-elementor/" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+					]
+				);
+
+				$this->end_controls_section();
+			}
+
 
 
 			/*
@@ -650,4 +650,5 @@
 
 	}
 
-	Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Team_Members() );
+	$team_members = new Master_Addons_Team_Members();
+	Plugin::instance()->widgets_manager->register_widget_type( $team_members );
