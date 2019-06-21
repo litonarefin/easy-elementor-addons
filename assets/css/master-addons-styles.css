@@ -82,6 +82,8 @@
 .elementor-widget-container p {
     margin: 0;
 }
+
+/* Accordion 01 */
 .ma-accordion-one,
 .ma-accordion-item {
     margin-bottom: 10px;
@@ -99,6 +101,7 @@
 }
 .ma-advanced-accordion .ma-accordion-tab-title:hover,
 .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active,
+.ma-advanced-accordion .ma-accordion-tab-active .ma-accordion-toggle-icon,
 .ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-toggle-icon {
     background-color: #fff !important;
     color: inherit !important;
