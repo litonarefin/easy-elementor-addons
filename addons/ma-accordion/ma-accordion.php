@@ -355,7 +355,7 @@
 						'one' => esc_html__( 'Style 1', MELA_TD ),
 						'two' => esc_html__( 'Style 2', MELA_TD ),
 						'three' => esc_html__( 'Style 3', MELA_TD ),
-						'six' => esc_html__( 'Style 4', MELA_TD ),
+						'four' => esc_html__( 'Style 4', MELA_TD ),
 					],
 				]
 			);
