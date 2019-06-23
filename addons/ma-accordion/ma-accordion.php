@@ -780,7 +780,7 @@
 				'data-accordion-id'     => esc_attr( $this->get_id() )
 			] );
 			?>
-            <div <?php echo $this->get_render_attribute_string('accordion'); ?>
+            <div <?php echo $this->get_render_attribute_string('accordion'); ?>>
                 <div class="ma-accordion-<?php echo esc_attr( $settings['ma_advanced_accordion_style'] ); ?>">
 				<?php
 					foreach( $settings['tabs'] as $index => $tab ) {
