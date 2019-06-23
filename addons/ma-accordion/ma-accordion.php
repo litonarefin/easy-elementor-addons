@@ -457,7 +457,7 @@
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#f1f1f1',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'background-color: {{VALUE}} !important;',
 					],
 				]
 			);
@@ -507,7 +507,7 @@
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#414141',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'background-color: {{VALUE}} !important;',
 					],
 				]
 			);
@@ -552,7 +552,7 @@
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#414141',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active' => 'background-color: {{VALUE}} !important;',
 					],
 				]
 			);
@@ -659,7 +659,7 @@
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content' => 'background-color: {{VALUE}} !important;',
 					],
 				]
 			);
