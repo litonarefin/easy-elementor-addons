@@ -12,7 +12,6 @@
 
 .ma-advanced-accordion .ma-accordion-tab-title {
     padding: .875em 1.25em;
-    border: 1px solid rgba(0, 0, 0, 0.02);
     font-size: 1rem;
     font-weight: 600;
     line-height: 1;
@@ -90,34 +89,52 @@
     margin-bottom: 10px;
 }
 .ma-accordion-one .ma-accordion-tab-title,
-.ma-accordion-two .ma-accordion-tab-title,
-.ma-accordion-item .ma-accordion-tab-title {
+.ma-accordion-two .ma-accordion-tab-title {
     background-color: #fff !important;
     border: none;
     border-radius: 5px;
     box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
 }
 .ma-accordion-one .ma-accordion-tab-icon,
-.ma-accordion-item.one .ma-accordion-tab-icon,
-.ma-accordion-two .ma-accordion-tab-icon
-.ma-accordion-item.two .ma-accordion-tab-icon {
+.ma-accordion-two .ma-accordion-tab-icon {
     display: none;
 }
-.ma-advanced-accordion .ma-accordion-tab-title:hover,
-.ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active,
-.ma-advanced-accordion .ma-accordion-tab-active .ma-accordion-toggle-icon,
-.ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-toggle-icon {
+.ma-accordion-one .ma-accordion-tab-title:hover,
+.ma-accordion-one .ma-accordion-tab-title.ma-accordion-tab-active,
+.ma-accordion-one .ma-accordion-tab-active .ma-accordion-toggle-icon,
+.ma-accordion-one .ma-accordion-item:hover .ma-accordion-toggle-icon,
+.ma-accordion-two .ma-accordion-tab-title:hover,
+.ma-accordion-two .ma-accordion-tab-title.ma-accordion-tab-active,
+.ma-accordion-two .ma-accordion-tab-active .ma-accordion-toggle-icon,
+.ma-accordion-two .ma-accordion-item:hover .ma-accordion-toggle-icon {
     background-color: #fff !important;
     color: inherit !important;
 }
-.ma-accordion-two .ma-accordion-tab-title,
-.ma-accordion-item.two .ma-accordion-tab-title {
+.ma-accordion-two .ma-accordion-tab-title {
     border-radius: 1.5em;
 }
 
-.ma-accordion-three .ma-accordion-tab-title,
-.ma-accordion-item.three .ma-accordion-tab-title {
-    color: #4b00e7;
+/* Accordion 03 */
+.ma-accordion-three .ma-accordion-tab-title {
+    background-color: #fff !important;
+    border-radius: 10px;
+}
+.ma-accordion-item.three {
+    border-radius: 10px;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+}
+.ma-accordion-three .ma-accordion-tab-content {
+    border-top: 1px solid #eeedf0;
+}
+
+/* Accordion 04 */
+
+.ma-accordion-four .ma-accordion-tab-title {
+    border-radius: 10px;
+}
+.ma-accordion-four .ma-accordion-tab-content {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 /* Tooltip Start */
