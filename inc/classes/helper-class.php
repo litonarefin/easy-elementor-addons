@@ -55,6 +55,31 @@
 		}
 
 
+		// Get all forms of Ninja Forms plugin
+		public static function ma_el_get_ninja_forms() {
+			if ( class_exists( 'Ninja_Forms' ) ) {
+				$options = array();
+
+				$contact_forms = Ninja_Forms()->form()->get_forms();
+
+				if ( ! empty( $contact_forms ) && ! is_wp_error( $contact_forms ) ) {
+
+					$i = 0;
+
+					foreach ( $contact_forms as $form ) {
+						if ( $i == 0 ) {
+							$options[0] = esc_html__( 'Select a Contact form', MELA_TD );
+						}
+						$options[ $form->get_id() ] = $form->get_setting( 'title' );
+						$i++;
+					}
+				}
+			} else {
+				$options = array();
+			}
+
+			return $options;
+		}
 
 
 	}

@@ -349,20 +349,22 @@
 				[
 					'label'       	=> esc_html__( 'Style Preset', MELA_TD ),
 					'type' 			=> Controls_Manager::SELECT,
-					'default' 		=> 'six',
+					'default' 		=> 'three',
 					'label_block' 	=> false,
 					'options' 		=> [
 						'one' => esc_html__( 'Style 1', MELA_TD ),
 						'two' => esc_html__( 'Style 2', MELA_TD ),
 						'three' => esc_html__( 'Style 3', MELA_TD ),
 						'four' => esc_html__( 'Style 4', MELA_TD ),
+						'five' => esc_html__( 'Style 5', MELA_TD ),
+						'six' => esc_html__( 'Style 6', MELA_TD ),
+						'seven' => esc_html__( 'Style 7', MELA_TD ),
+						'eight' => esc_html__( 'Style 8', MELA_TD ),
 					],
 				]
 			);
 
 			$this->end_controls_section();
-
-
 
 
 
@@ -455,7 +457,7 @@
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#f1f1f1',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'background-color: {{VALUE}} !important;',
 					],
 				]
 			);
@@ -505,7 +507,7 @@
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#414141',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'background-color: {{VALUE}} !important;',
 					],
 				]
 			);
@@ -550,7 +552,7 @@
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#414141',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active' => 'background-color: {{VALUE}} !important;',
 					],
 				]
 			);
@@ -657,7 +659,7 @@
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content' => 'background-color: {{VALUE}} !important;',
 					],
 				]
 			);
@@ -779,7 +781,7 @@
 			] );
 			?>
             <div <?php echo $this->get_render_attribute_string('accordion'); ?>>
-                <div class="ma-accordion-<?php echo esc_attr( $settings['ma_advanced_accordion_style'] ); ?>"
+                <div class="ma-accordion-<?php echo esc_attr( $settings['ma_advanced_accordion_style'] ); ?>">
 				<?php
 					foreach( $settings['tabs'] as $index => $tab ) {
 
