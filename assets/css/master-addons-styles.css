@@ -11,8 +11,7 @@
     transition: all 0.3s ease-in-out; }
 
 .ma-advanced-accordion .ma-accordion-tab-title {
-    padding: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    padding: .875em 1.25em;
     font-size: 1rem;
     font-weight: 600;
     line-height: 1;
@@ -57,12 +56,13 @@
 
 .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content {
     display: none;
-    border: 1px solid #eee;
-    padding: 15px;
+    padding: 1.25em 1.5em 1em;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    font-size: 1rem;
-    line-height: 1.7; }
+}
+.ma-advanced-accordion .ma-accordion-tab-content {
+    padding: 1.25em 1.25em 1em;
+}
 
 .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content p {
     margin: 0; }
@@ -70,6 +70,168 @@
 .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content.ma-accordion-tab-active {
     display: block; }
 
+
+/* Accordion styles */
+.ma-accordion-tab-title:hover,
+.ma-accordion-tab-title:focus,
+.ma-accordion-tab-title:active,
+.ma-accordion-tab-title:visited {
+    outline: 0 !important;
+}
+.elementor-widget-container p {
+    margin: 0;
+}
+
+/* Accordion 01 & 02 */
+.ma-accordion-one,
+.ma-accordion-two,
+.ma-accordion-item {
+    margin-bottom: 10px;
+}
+.ma-accordion-one .ma-accordion-tab-title,
+.ma-accordion-two .ma-accordion-tab-title {
+    background-color: #fff !important;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+}
+.ma-accordion-one .ma-accordion-tab-icon,
+.ma-accordion-two .ma-accordion-tab-icon {
+    display: none;
+}
+.ma-accordion-one .ma-accordion-tab-title:hover,
+.ma-accordion-one .ma-accordion-tab-title.ma-accordion-tab-active,
+.ma-accordion-one .ma-accordion-tab-active .ma-accordion-toggle-icon,
+.ma-accordion-one .ma-accordion-item:hover .ma-accordion-toggle-icon,
+.ma-accordion-two .ma-accordion-tab-title:hover,
+.ma-accordion-two .ma-accordion-tab-title.ma-accordion-tab-active,
+.ma-accordion-two .ma-accordion-tab-active .ma-accordion-toggle-icon,
+.ma-accordion-two .ma-accordion-item:hover .ma-accordion-toggle-icon {
+    background-color: #fff !important;
+    color: inherit !important;
+}
+.ma-accordion-two .ma-accordion-tab-title {
+    border-radius: 1.5em;
+}
+
+/* Accordion 03 */
+.ma-accordion-three .ma-accordion-tab-title {
+    background-color: #fff !important;
+    border-radius: 10px;
+}
+.ma-accordion-item.three {
+    border-radius: 10px;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+}
+.ma-accordion-three .ma-accordion-tab-content,
+.ma-accordion-five .ma-accordion-tab-content {
+    border-top: 1px solid #eeedf0;
+}
+
+/* Accordion 04 */
+
+.ma-accordion-item.four {
+    border-radius: 10px;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+}
+.ma-accordion-four .ma-accordion-tab-title {
+    background-color: #fff !important;
+    border-radius: 10px;
+}
+.ma-accordion-four .ma-accordion-tab-active .ma-accordion-tab-icon,
+.ma-accordion-four .ma-accordion-tab-active .ma-accordion-title-text,
+.ma-accordion-four .ma-accordion-tab-active .ma-accordion-toggle-icon {
+    color: #fff !important;
+}
+.ma-accordion-four .ma-accordion-tab-content {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Accordion 05 & 06 */
+
+.ma-accordion-item.five,
+.ma-accordion-item.six {
+    border-radius: 10px;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+}
+.ma-accordion-five .ma-accordion-tab-title {
+    background-color: #fff !important;
+    border-radius: 10px;
+}
+.ma-accordion-six .ma-accordion-tab-active {
+    background-color: transparent !important;
+    background-image: -moz-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+    background-image: -webkit-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+    background-image: -ms-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+}
+.ma-accordion-six .ma-accordion-tab-title {
+    border-radius: 10px;
+}
+
+/* Accordion 07 */
+
+.ma-accordion-item.seven {
+    border-radius: 5px;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+}
+.ma-accordion-seven .ma-accordion-tab-title {
+    padding: 0 !important;
+}
+.ma-accordion-seven .ma-accordion-toggle-icon {
+    background-color: #4b00e7;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: #fff;
+    height: 60px;
+    float: left;
+    line-height: 60px;
+    margin-right: 12px !important;
+    width: 60px;
+    text-align: center;
+
+    transform: none !important;
+}
+.ma-accordion-seven .ma-accordion-tab-active .ma-accordion-toggle-icon:before {
+    content: "\f107";
+}
+.ma-accordion-seven .ma-accordion-tab-icon {
+    float: right;
+    margin-right: 1em;
+}
+.ma-accordion-seven .ma-accordion-title-icon {
+    float: right;
+    order: 2;
+    text-align: left;
+    width: calc(100% - 60px);
+}
+.ma-accordion-seven .ma-accordion-tab-icon i {
+    margin: 0 !important;
+}
+.ma-accordion-seven .ma-accordion-tab-content {
+    background-color: #f8f8f8;
+}
+
+/* Accordion 08 */
+
+.ma-accordion-item.eight {
+    border-radius: 5px;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+}
+.ma-accordion-eight .ma-accordion-tab-title {
+    background-color: #fff !important;
+    border-radius: 5px;
+}
+.ma-accordion-eight .ma-accordion-tab-active {
+    background-color: transparent !important;
+    background-image: -moz-linear-gradient( 0deg, rgb(213,0,137) 0%, rgb(10,57,252) 100%);
+    background-image: -webkit-linear-gradient( 0deg, rgb(213,0,137) 0%, rgb(10,57,252) 100%);
+    background-image: -ms-linear-gradient( 0deg, rgb(213,0,137) 0%, rgb(10,57,252) 100%);
+}
+.ma-accordion-eight .ma-accordion-tab-title {
+    border-radius: 5px;
+}
 
 
 
@@ -1501,74 +1663,3 @@
     color: #ffffff;
 }
 /* Dual heading End */
-
-
-
-.ma-el-ninja-form .nf-form-title {
-    display: none; }
-.ma-el-ninja-form-title-yes .nf-form-title {
-    display: block; }
-.ma-el-ninja-form .title-description-hide .nf-form-title {
-    display: none; }
-.ma-el-ninja-form.title-description-hide .nf-form-title {
-    display: none; }
-.ma-el-ninja-form .nf-field-label {
-    display: none; }
-.ma-el-ninja-form-labels-yes .nf-field-label {
-    display: block; }
-.ma-el-ninja-form .submit-container input[type="button"] {
-    border: 0;
-    border-radius: 0; }
-
-.ma-el-ninja-form-button-full-width .submit-container input[type="button"] {
-    width: 100%; }
-
-.ma-el-caldera-form .control-label {
-    display: none; }
-.ma-el-caldera-form-labels-yes .control-label {
-    display: block; }
-.ma-el-caldera-form-button-center .form-group input[type="button"],
-.ma-el-caldera-form-button-center .form-group input[type="submit"] {
-    display: block;
-    margin: 0 auto; }
-.ma-el-caldera-form-button-right .form-group input[type="button"],
-.ma-el-caldera-form-button-right .form-group input[type="submit"] {
-    float: right; }
-.ma-el-caldera-form .intl-tel-input {
-    display: inherit; }
-
-.ma-el-custom-radio-checkbox .caldera-grid input[type="checkbox"],
-.ma-el-custom-radio-checkbox .caldera-grid input[type="radio"] {
-    border-style: solid;
-    border-width: 0;
-    padding: 3px;
-    -webkit-appearance: none; }
-
-.ma-el-caldera-form-button-full-width .form-group input[type="submit"],
-.ma-el-caldera-form-button-full-width .form-group input[type="button"] {
-    width: 100%; }
-
-.ma-el-wpforms .wpforms-container .wpforms-form input[type="submit"],
-.ma-el-wpforms .wpforms-container .wpforms-form button[type="submit"],
-.ma-el-wpforms .wpforms-container .wpforms-form .wpforms-page-button {
-    border: 0; }
-.ma-el-wpforms .wpforms-container .wpforms-form input[type="submit"]:hover,
-.ma-el-wpforms .wpforms-container .wpforms-form button[type="submit"]:hover,
-.ma-el-wpforms .wpforms-container .wpforms-form .wpforms-page-button:hover {
-    border: 0; }
-.ma-el-wpforms .wpforms-container .wpforms-form input[type="checkbox"],
-.ma-el-wpforms .wpforms-container .wpforms-form input[type="radio"] {
-    padding: 3px; }
-.ma-el-wpforms .wpforms-container .wpforms-form .wpforms-field-label {
-    display: none; }
-.ma-el-wpforms .wpforms-container .wpforms-form .wpforms-field-name .wpforms-field-row {
-    max-width: 100%; }
-.ma-el-wpforms .wpforms-container .wpforms-field input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
-.ma-el-wpforms .wpforms-container .wpforms-field textarea,
-.ma-el-wpforms .wpforms-container .wpforms-field select {
-    max-width: 100% !important; }
-.ma-el-wpforms-labels-yes .wpforms-container .wpforms-form .wpforms-field-label {
-    display: block; }
-
-.ma-el-wpforms-form-button-full-width .wpforms-submit-container .wpforms-submit {
-    width: 100%; }
