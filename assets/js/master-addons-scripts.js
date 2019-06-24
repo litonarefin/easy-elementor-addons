@@ -243,8 +243,9 @@
             try {
                 (function($) {
 
+
                     var $advanced_accordion         = $scope.find(".ma-advanced-accordion").eq(0),
-                        // elementSettings             = getElementSettings( $scope ),
+                        elementSettings             = getElementSettings( $scope ),
                         $accordion_title            = $scope.find(".ma-accordion-tab-title"),
                         $accordion_type             = 'accordion',
                         $accordion_speed            = '3000';
