@@ -81,7 +81,9 @@ Yes of course it's competable with any WordPress Theme.
 
  = 1.0.3 (26-6-19) =
  * [added] Ninja Forms Added with unlimited customization possibilities
-
+ * [added] Caldera Forms Added
+ * [added] WP Forms Added
+ * [added] weForms Added
 
  = 1.0.2 (24-6-19) =
  * [fix] Advanced Accordion JS issue fixed

@@ -82,4 +82,58 @@
 		}
 
 
+		// Get all forms of WPForms plugin
+		public static function ma_el_get_wpforms_forms() {
+			if ( class_exists( 'WPForms' ) ) {
+				$options = array();
+
+				$args = array(
+					'post_type'         => 'wpforms',
+					'posts_per_page'    => -1
+				);
+
+				$contact_forms = get_posts( $args );
+
+				if ( ! empty( $contact_forms ) && ! is_wp_error( $contact_forms ) ) {
+
+					$i = 0;
+
+					foreach ( $contact_forms as $post ) {
+						if ( $i == 0 ) {
+							$options[0] = esc_html__( 'Select a Contact form', 'power-pack' );
+						}
+						$options[ $post->ID ] = $post->post_title;
+						$i++;
+					}
+				}
+			} else {
+				$options = array();
+			}
+
+			return $options;
+		}
+
+
+		public static function ma_el_get_weforms() {
+			$wpuf_form_list = get_posts(array(
+				'post_type' => 'wpuf_contact_form',
+				'showposts' => 999,
+			));
+
+			$options = array();
+
+			if (!empty($wpuf_form_list) && !is_wp_error($wpuf_form_list)) {
+				$options[0] = esc_html__('Select weForm', 'essential-addons-elementor');
+				foreach ($wpuf_form_list as $post) {
+					$options[$post->ID] = $post->post_title;
+				}
+			} else {
+				$options[0] = esc_html__('Create a Form First', 'essential-addons-elementor');
+			}
+
+			return $options;
+		}
+
+
+
 	}
