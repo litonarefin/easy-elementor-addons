@@ -455,46 +455,60 @@
         },
 
 
-        ParticlesBG : function ($scope, $) {
+        ParticlesBG: function ($scope, $) {
 
-            if ($scope.hasClass('eae-particle-yes')) {
-                id = $scope.data('id');
-                //console.lgo(id);
-                element_type = $scope.data('element_type');
-                pdata = $scope.data('eae-particle');
-                pdata_wrapper = $scope.find('.eae-particle-wrapper').data('eae-pdata');
-                if (typeof pdata != 'undefined' && pdata != '') {
-                    if ($scope.find('.eae-section-bs').length > 0) {
-                        $scope.find('.eae-section-bs').after('<div class="eae-particle-wrapper" id="eae-particle-' + id + '"></div>');
-                        particlesJS('eae-particle-' + id, pdata);
-                    } else {
+            // try {
+            //     (function($scope, $) {
 
-                        if (element_type == 'column') {
+                    if ($scope.hasClass('ma-el-particle-yes')) {
+                        var id = $scope.data('id');
+                        //console.lgo(id);
+                        var element_type = $scope.data('element_type');
+                        var pdata = $scope.data('ma-el-particle');
+                        var pdata_wrapper = $scope.find('.ma-el-particle-wrapper').data('ma-el-pdata');
+                        if (typeof pdata != 'undefined' && pdata != '') {
+                            if ($scope.find('.ma-el-section-bs').length > 0) {
+                                $scope.find('.ma-el-section-bs').after('<div class="ma-el-particle-wrapper"' +
+                                    ' id="ma-el-particle-' + id + '"></div>');
+                                particlesJS('ma-el-particle-' + id, pdata);
+                            } else {
 
-                            $scope.find('.elementor-column-wrap').prepend('<div class="eae-particle-wrapper" id="eae-particle-' + id + '"></div>');
-                        } else {
-                            $scope.prepend('<div class="eae-particle-wrapper" id="eae-particle-' + id + '"></div>');
+                                if (element_type == 'column') {
+
+                                    $scope.find('.elementor-column-wrap').prepend('<div class="ma-el-particle-wrapper"' +
+                                        ' id="ma-el-particle-' + id + '"></div>');
+                                } else {
+                                    $scope.prepend('<div class="ma-el-particle-wrapper" id="ma-el-particle-' + id + '"></div>');
+                                }
+
+                                particlesJS('ma-el-particle-' + id, pdata);
+                            }
+
+
+                        } else if (typeof pdata_wrapper != 'undefined' && pdata_wrapper != '') {
+
+                            // $scope.prepend('<div class="ma-el-particle-wrapper" id="ma-el-particle-'+ id +'"></div>');
+                            //console.log('calling particle js else', JSON.parse(pdata_wrapper));
+                            if (element_type == 'column') {
+                                $scope.find('.elementor-column-wrap').prepend('<div class="ma-el-particle-wrapper"' +
+                                    ' id="ma-el-particle-' + id + '"></div>');
+                            }
+                            else{
+                                $scope.prepend('<div class="ma-el-particle-wrapper" id="ma-el-particle-' + id + '"></div>');
+                            }
+
+                            particlesJS('ma-el-particle-' + id, JSON.parse(pdata_wrapper));
                         }
 
-                        particlesJS('eae-particle-' + id, pdata);
                     }
+            //
+            //     })(jQuery);
+            // } catch(e) {
+            //     //We can also throw from try block and catch it here
+            //     // No Error Show
+            // }
 
 
-                } else if (typeof pdata_wrapper != 'undefined' && pdata_wrapper != '') {
-
-                    // $scope.prepend('<div class="eae-particle-wrapper" id="eae-particle-'+ id +'"></div>');
-                    //console.log('calling particle js else', JSON.parse(pdata_wrapper));
-                    if (element_type == 'column') {
-                        $scope.find('.elementor-column-wrap').prepend('<div class="eae-particle-wrapper" id="eae-particle-' + id + '"></div>');
-                    }
-                    else{
-                        $scope.prepend('<div class="eae-particle-wrapper" id="eae-particle-' + id + '"></div>');
-                    }
-
-                    particlesJS('eae-particle-' + id, JSON.parse(pdata_wrapper));
-                }
-
-            }
 
         }
 
@@ -515,7 +529,9 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-tabs.default', Master_Addons.MA_Tabs);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbar.default', Master_Addons.ProgressBar);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-team-members.default', Master_Addons.TeamSlider);
-        elementorFrontend.hooks.addAction('frontend/element_ready/ma-particles.default', Master_Addons.ParticlesBG);
+        elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.ParticlesBG);
+        // elementorFrontend.hooks.addAction('frontend/element_ready/ma-particles.default', Master_Addons.ParticlesBG);
+
     });
 
 })(jQuery);

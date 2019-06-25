@@ -1,4 +1,5 @@
 <?php
+//	namespace Master_Addons;
 	/**
  * Plugin Name: Master Addons for Elementor
  * Description: Master Addons is easy and must have Elementor Addons for WordPress Page Builder. Clean, Modern, Hand crafted designed Addons blocks.
@@ -62,7 +63,7 @@
 					'ma-tooltip',
 					'ma-team-members',
 					'ma-team-members-slider',
-					'ma-particles',
+//					'ma-particles',
 		//			['contact-form-7','pro'],
 					'contact-form-7',
 					'ninja-forms',
@@ -179,6 +180,10 @@
 
 				if ( ! defined( 'MELA_VERSION' ) ) {
 					define( 'MELA_VERSION', self::version() );
+				}
+
+				if ( ! defined( 'MA_EL_SCRIPT_SUFFIX' ) ) {
+					define( 'MA_EL_SCRIPT_SUFFIX', defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' );
 				}
 
 				if ( ! defined( 'MELA_BASE' ) ) {
@@ -302,7 +307,22 @@
 			public function maad_el_enqueue_scripts() {
 
 				$is_activated_widget = $this->activated_widgets();
+
+
+				/*
+				 * Register Styles
+				 */
+				wp_register_style( 'vegas-css', MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas'. MA_EL_SCRIPT_SUFFIX.'.css' );
+				wp_register_script( 'ma-el-swiper-style', MELA_PLUGIN_URL . '/assets/vendor/swiper/swiper'.MA_EL_SCRIPT_SUFFIX.'.css' );
 				wp_enqueue_style( 'master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css' );
+//				wp_register_script( 'animated-main', MELA_PLUGIN_URL . '/assets/js/animated-main'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), '1.0', true );
+
+				/*
+				 * Register Scripts
+				 */
+				wp_register_script( 'vegas', MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), self::VERSION, true );
+				wp_register_script( 'ma-el-swiper-script', MELA_PLUGIN_URL . '/assets/vendor/swiper/swiper'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), self::VERSION, true );
+
 
 				wp_enqueue_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', [ 'jquery' ], self::VERSION, true );
 
@@ -310,8 +330,7 @@
 				// Master Addons Dependencies
 				//Progressbar
 				if ( $is_activated_widget['ma-progressbar'] ) {
-					wp_enqueue_script( 'master-addons-progressbar', MELA_PLUGIN_URL . '/assets/js/loading-bar.js', [ 'jquery' ],
-						self::VERSION, true );
+					wp_enqueue_script( 'master-addons-progressbar', MELA_PLUGIN_URL . '/assets/js/loading-bar.js', [ 'jquery' ], self::VERSION, true );
 					wp_enqueue_script( 'master-addons-waypoints', MELA_PLUGIN_URL . '/assets/js/jquery.waypoints.min.js', [ 'jquery' ], self::VERSION, true );
 				}
 
@@ -321,11 +340,8 @@
 						self::VERSION, true );
 				}
 
-				//Particles
-				if ( $is_activated_widget['ma-particles'] ) {
-					wp_enqueue_script( 'master-addons-particles', MELA_PLUGIN_URL . '/assets/js/particles.min.js', [ 'jquery' ],
-						self::VERSION, true );
-				}
+
+
 
 				//Animated Headlines
 				if ( $is_activated_widget['ma-headlines'] ) {
@@ -439,6 +455,11 @@
 							MELA_TD ) . '</a>';
 				}
 
+				// go pro
+				if (!$this->pro_enabled) {
+					$links[] = sprintf('<a href="https://jeweltheme.com/shop/master-addons-elementor/" target="_blank" style="color: #39b54a; font-weight: bold;">' . __('Go Pro') . '</a>');
+				}
+
 				return $links;
 			}
 
@@ -457,6 +478,10 @@
 
 				//Utils
 				include_once MELA_PLUGIN_PATH . '/inc/classes/utils.php';
+
+				require_once MELA_PLUGIN_PATH . '/inc/modules/animated-gradient/animated-gradient.php';
+				require_once MELA_PLUGIN_PATH . '/inc/modules/particles/particles.php';
+				require_once MELA_PLUGIN_PATH . '/inc/modules/bg-slider/bg-slider.php';
 
 			}
 

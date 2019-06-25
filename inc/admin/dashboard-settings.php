@@ -6,6 +6,7 @@
 
 	// Exit if accessed directly
 	if( ! defined( 'ABSPATH' ) ) { exit(); }
+
 class Master_Addons_Admin_Settings{
 
 	private $maad_el_default_settings;
