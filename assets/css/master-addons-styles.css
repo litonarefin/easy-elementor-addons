@@ -1822,3 +1822,49 @@
 
 
 
+/* Creative Buttons */
+.ma-el-creative-button-align-center {
+    text-align: center;
+}
+
+.ma-el-creative-button-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.ma-el-creative-button {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    min-width: 150px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    padding: 20px 30px;
+    font-size: 16px;
+    line-height: 1;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ma-el-creative-button-align-center .ma-el-creative-button {
+    float: none;
+    display: inline-block;
+}
+
+.ma-el-creative-button:focus {
+    outline: none;
+}
+
+.ma-el-creative-button > span {
+    vertical-align: middle;
+}
+
+/* Creative Buttons */

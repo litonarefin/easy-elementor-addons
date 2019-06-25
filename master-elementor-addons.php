@@ -66,14 +66,13 @@
 		//			['contact-form-7','pro'],
 					'contact-form-7',
 					'ninja-forms',
-					'caldera-forms',
 					'wpforms',
+					'caldera-forms',
 					'weforms',
 		//			'ma-business-hours',
 		//			'master-cards',
 		//			'countdown-timer',
-		//			'master-tabs',
-		//			'master-button',
+					'ma-creative-buttons',
 		//			'post-grid',
 		//			'post-timeline',
 		//			'team-member',
@@ -82,8 +81,6 @@
 		//			'flipbox',
 		//			'infobox',
 		//			'pricing-table',
-		//			'master-heading',
-		//			'dual-heading',
 		//			'post-carousel',
 		//			'google-maps',
 		//			'tooltip'
@@ -327,6 +324,11 @@
 				//Animated Headlines
 				if ( $is_activated_widget['ma-headlines'] ) {
 					wp_enqueue_style( 'master-addons-headlines', MELA_PLUGIN_URL . '/assets/css/headlines.css' );
+				}
+
+				//Creative Buttons
+				if ( $is_activated_widget['ma-creative-buttons'] ) {
+					wp_enqueue_style( 'ma-creative-buttons', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons.css' );
 				}
 
 				//Google Maps
