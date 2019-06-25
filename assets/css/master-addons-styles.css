@@ -1868,3 +1868,27 @@
 }
 
 /* Creative Buttons */
+
+
+/* Particles Start */
+
+
+.divTest{
+    display: inline-block;
+    background-color: #00a0d2;
+    padding: 20px;
+}
+
+
+.eae-particle-wrapper{
+    width:100%;
+    height:100%;
+    position: absolute;
+    left:0;
+    top:0;
+}
+
+
+.particles-js-canvas-el{ height:100%; position:absolute; }
+
+/* Particles End */

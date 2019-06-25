@@ -62,7 +62,7 @@
 					'ma-tooltip',
 					'ma-team-members',
 					'ma-team-members-slider',
-//					'ma-particles',
+					'ma-particles',
 		//			['contact-form-7','pro'],
 					'contact-form-7',
 					'ninja-forms',
@@ -318,6 +318,12 @@
 				//Team Members
 				if ( $is_activated_widget['ma-team-members'] ) {
 					wp_enqueue_script( 'master-addons-team-members', MELA_PLUGIN_URL . '/assets/vendor/owlcarousel/owl.carousel.min.js', [ 'jquery' ],
+						self::VERSION, true );
+				}
+
+				//Particles
+				if ( $is_activated_widget['ma-particles'] ) {
+					wp_enqueue_script( 'master-addons-particles', MELA_PLUGIN_URL . '/assets/js/particles.min.js', [ 'jquery' ],
 						self::VERSION, true );
 				}
 
