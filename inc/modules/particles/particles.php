@@ -20,6 +20,7 @@ class Particles{
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'ma_el_add_particles' ] );
 		add_action( 'elementor/editor/wp_head', [ $this, 'ma_el_add_particles_admin' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'ma_el_add_particles_admin' ] );
 	}
 
 	function ma_el_add_particles(){
