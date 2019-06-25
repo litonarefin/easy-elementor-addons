@@ -1,9 +1,8 @@
 <?php
+	namespace Elementor;
 
-namespace Master_Addons\Modules\AnimatedGradient;
-
-use Elementor\Controls_Manager;
-use Elementor\Repeater;
+    use \Elementor\Controls_Manager;
+    use \Elementor\Repeater;
 
 class AnimatedGradientBackground  {
     private static $_instance = null;

@@ -1,5 +1,4 @@
 <?php
-//	namespace Master_Addons;
 	/**
  * Plugin Name: Master Addons for Elementor
  * Description: Master Addons is easy and must have Elementor Addons for WordPress Page Builder. Clean, Modern, Hand crafted designed Addons blocks.
@@ -306,7 +305,7 @@
 			 */
 			public function maad_el_enqueue_scripts() {
 
-				$is_activated_widget = $this->activated_widgets();
+
 
 
 				/*
@@ -317,30 +316,30 @@
 				wp_enqueue_style( 'master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css' );
 //				wp_register_script( 'animated-main', MELA_PLUGIN_URL . '/assets/js/animated-main'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), '1.0', true );
 
+
 				/*
 				 * Register Scripts
 				 */
-				wp_register_script( 'vegas', MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), self::VERSION, true );
-				wp_register_script( 'ma-el-swiper-script', MELA_PLUGIN_URL . '/assets/vendor/swiper/swiper'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), self::VERSION, true );
+				wp_register_script( 'vegas', MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), MELA_VERSION, true );
+				wp_register_script( 'ma-el-swiper-script', MELA_PLUGIN_URL . '/assets/vendor/swiper/swiper'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), MELA_VERSION, true );
 
 
-				wp_enqueue_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', [ 'jquery' ], self::VERSION, true );
+				wp_enqueue_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', [ 'jquery' ], MELA_VERSION, true );
 
+
+				$is_activated_widget = $this->activated_widgets();
 
 				// Master Addons Dependencies
 				//Progressbar
 				if ( $is_activated_widget['ma-progressbar'] ) {
-					wp_enqueue_script( 'master-addons-progressbar', MELA_PLUGIN_URL . '/assets/js/loading-bar.js', [ 'jquery' ], self::VERSION, true );
-					wp_enqueue_script( 'master-addons-waypoints', MELA_PLUGIN_URL . '/assets/js/jquery.waypoints.min.js', [ 'jquery' ], self::VERSION, true );
+					wp_enqueue_script( 'master-addons-progressbar', MELA_PLUGIN_URL . '/assets/js/loading-bar.js', [ 'jquery' ], MELA_VERSION, true );
+					wp_enqueue_script( 'master-addons-waypoints', MELA_PLUGIN_URL . '/assets/js/jquery.waypoints.min.js', [ 'jquery' ], MELA_VERSION, true );
 				}
 
 				//Team Members
 				if ( $is_activated_widget['ma-team-members'] ) {
-					wp_enqueue_script( 'master-addons-team-members', MELA_PLUGIN_URL . '/assets/vendor/owlcarousel/owl.carousel.min.js', [ 'jquery' ],
-						self::VERSION, true );
+					wp_enqueue_script( 'master-addons-team-members', MELA_PLUGIN_URL . '/assets/vendor/owlcarousel/owl.carousel.min.js', [ 'jquery' ], MELA_VERSION, true );
 				}
-
-
 
 
 				//Animated Headlines

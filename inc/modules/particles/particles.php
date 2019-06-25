@@ -1,7 +1,7 @@
 <?php
-namespace Master_Addons\Modules\Particles;
+	namespace Elementor;
 
-use Elementor\Controls_Manager;
+    use \Elementor\Controls_Manager;
 
 class Particles{
 
