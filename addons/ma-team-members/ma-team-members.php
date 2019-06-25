@@ -650,5 +650,4 @@
 
 	}
 
-	$team_members = new Master_Addons_Team_Members();
-	Plugin::instance()->widgets_manager->register_widget_type( $team_members );
+	Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Team_Members() );

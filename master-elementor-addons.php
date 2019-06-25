@@ -54,6 +54,7 @@
 
 				self::$maad_el_default_widgets = [
 					'ma-headlines',
+					'ma-call-to-action',
 					'ma-dual-heading',
 					'ma-accordion',
 					'ma-tabs',
