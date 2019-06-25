@@ -51,6 +51,20 @@
 				]
 			);
 
+
+			$this->add_control(
+				'ma_el_call_to_action_content_desc',
+				[
+					'label' => esc_html__( 'Description', MELA_TD ),
+					'type' => Controls_Manager::TEXTAREA,
+					'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', MELA_TD ),
+
+					'condition' => [
+						'ma_el_call_to_action_style_preset' => 'style2',
+					],
+				]
+			);
+
 			$this->add_control(
 				'ma_el_call_to_action_button_text',
 				[
@@ -268,24 +282,62 @@
 			$settings = $this->get_settings_for_display();
 			?>
 
-			<section class="section-content ma-el-alice-green-bg">
+			<section class="section-content <?php echo ( $settings['ma_el_call_to_action_style_preset'] == 'style3'
+			 )? "gradient-bg": "ma-el-alice-green-bg";?>">
 
-                        <div class="content">
-                            <div class="ma-el-action-content">
-                                <div class="row">
-                                    <div class="col-lg-9">
-                                        <h3>
-	                                        <?php echo esc_html( $settings['ma_el_call_to_action_content'] ); ?>
-                                        </h3>
-                                    </div>
-                                    <div class="col-lg-3 text-right">
-                                        <a href="<?php echo esc_url( $settings['ma_el_call_to_action_button_link']['url'] ); ?>" class="btn">
-	                                        <?php echo esc_html( $settings['ma_el_call_to_action_button_text'] ); ?>
-                                        </a>
-                                    </div>
+				<?php if( $settings['ma_el_call_to_action_style_preset'] == 'style1' ) { ?>
+                    <div class="content">
+                        <div class="ma-el-action-content">
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <h3>
+                                        <?php echo esc_html( $settings['ma_el_call_to_action_content'] ); ?>
+                                    </h3>
+                                </div>
+                                <div class="col-lg-3 text-right">
+                                    <a href="<?php echo esc_url( $settings['ma_el_call_to_action_button_link']['url'] ); ?>" class="btn">
+                                        <?php echo esc_html( $settings['ma_el_call_to_action_button_text'] ); ?>
+                                    </a>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+				<?php } else if( $settings['ma_el_call_to_action_style_preset'] == 'style2' ) { ?>
+					<div class="content">
+						<div class="ma-el-action-content style-02">
+							<h3>
+								<?php echo esc_html( $settings['ma_el_call_to_action_content'] ); ?>
+							</h3>
+							<p>
+								<?php echo esc_html( $settings['ma_el_call_to_action_content'] ); ?>
+							</p>
+							<a href="<?php echo esc_url( $settings['ma_el_call_to_action_button_link']['url'] ); ?>" class="btn">
+								<?php echo esc_html( $settings['ma_el_call_to_action_button_text'] ); ?>
+							</a>
+						</div>
+					</div>
+
+				<?php } else if( $settings['ma_el_call_to_action_style_preset'] == 'style3' ) { ?>
+
+						<div class="content">
+							<div class="ma-el-action-content">
+								<div class="row">
+									<div class="col-lg-8">
+										<h3>
+											<?php echo esc_html( $settings['ma_el_call_to_action_content'] ); ?>
+										</h3>
+									</div>
+									<div class="col-lg-4 text-right">
+										<a href="<?php echo esc_url( $settings['ma_el_call_to_action_button_link']['url'] ); ?>" class="btn">
+											<?php echo esc_html( $settings['ma_el_call_to_action_button_text'] ); ?>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+				<?php } ?>
+
 			</section>
 	        <?php
 		}

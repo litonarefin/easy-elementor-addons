@@ -1804,6 +1804,19 @@
 .alice-green-bg .cta-content {
     margin: 0;
 }
+.gradient-bg {
+    /*background-image: -webkit-gradient(linear, right top, left top, from(#e4f1f9), to(#e1f9f1));*/
+    /*background-image: linear-gradient(to left, #e4f1f9 0%, #e1f9f1 100%);*/
+    background: #000046;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #000046, #1CB5E0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #000046, #1CB5E0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.ma-el-action-content.style-02 {
+    max-width: 650px;
+    margin: 1.25em auto;
+    text-align: center;
+}
 
 /* Call to Action End */
 
