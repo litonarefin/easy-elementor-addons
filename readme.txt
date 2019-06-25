@@ -84,6 +84,7 @@ Yes of course it's competable with any WordPress Theme.
  * [added] Caldera Forms Added
  * [added] WP Forms Added
  * [added] weForms Added
+ * [added] Call to Action Elementor Element / Widget added
 
  = 1.0.2 (24-6-19) =
  * [fix] Advanced Accordion JS issue fixed
