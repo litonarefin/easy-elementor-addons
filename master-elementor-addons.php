@@ -479,9 +479,9 @@
 				//Utils
 				include_once MELA_PLUGIN_PATH . '/inc/classes/utils.php';
 
-				require_once MELA_PLUGIN_PATH . '/inc/modules/animated-gradient/animated-gradient.php';
-				require_once MELA_PLUGIN_PATH . '/inc/modules/particles/particles.php';
-				require_once MELA_PLUGIN_PATH . '/inc/modules/bg-slider/bg-slider.php';
+//				include_once MELA_PLUGIN_PATH . '/inc/modules/animated-gradient/animated-gradient.php';
+//				include_once MELA_PLUGIN_PATH . '/inc/modules/particles/particles.php';
+//				include_once MELA_PLUGIN_PATH . '/inc/modules/bg-slider/bg-slider.php';
 
 			}
 
