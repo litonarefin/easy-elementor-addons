@@ -40,17 +40,28 @@ Yes. You must use Elementor Page builder plugin to work with this master Addons.
 Yes of course it's competable with any WordPress Theme.
 
 == Screenshots ==
-1. Master Addons Headlines
-2. Master Addons Dual Heading
-3. Master Addons Accordion
-4. Master Addons Tabs
-5. Master Addons Progressbar
+1. Master Addons Dual Heading
+2. Master Addons Progressbar
+3. Master Addons Advanced Accordion
+4. Master Addons Avanced Tabs
+5. Master Addons Headlines
 6. Master Addons Tooltips
 7. Master Addons Team Members
 8. Master Addons Team Members Slider
 9. Master Addons Contact Form 7
 
 == Changelog ==
+ * [fix] Advanced Accordion JS issue fixed
+ * [fix] Animated Heading CSS issue fixed
+ * [fix]
+
+
+= 1.0.1 =
+Version Bump
+
+
+= 1.0.1 =
+Version Bump
 
 = 1.0.0 =
 Initial Release

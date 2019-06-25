@@ -210,9 +210,9 @@
 				[
 					'label'		=> esc_html__( 'Text Color', MELA_TD ),
 					'type'		=> Controls_Manager::COLOR,
-					'default' => '#ffffff',
+					'default' => '#1fb5ac',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title a .first-heading'
+						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title a .first-heading, {{WRAPPER}} .ma-el-section-title span'
 						=> 'color: {{VALUE}};',
 					],
 				]
@@ -225,7 +225,7 @@
 					'type' => Controls_Manager::COLOR,
 					'default' => '#704aff',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title a .first-heading'
+						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title a .first-heading, {{WRAPPER}} .ma-el-sec-head-container .ma-el-sec-head-style:after'
 						=> 'background-color: {{VALUE}};',
 					],
 				]

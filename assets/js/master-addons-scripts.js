@@ -54,6 +54,26 @@
         }
     };
 
+    var getElementSettings = function( $element ) {
+        var elementSettings = {},
+            modelCID 		= $element.data( 'model-cid' );
+
+        if ( elementorFrontend.isEditMode && modelCID ) {
+            var settings 		= elementorFrontend.config.elements.data[ modelCID ],
+                settingsKeys 	= elementorFrontend.config.elements.keys[ settings.attributes.widgetType || settings.attributes.elType ];
+
+            jQuery.each( settings.getActiveControls(), function( controlKey ) {
+                if ( -1 !== settingsKeys.indexOf( controlKey ) ) {
+                    elementSettings[ controlKey ] = settings.attributes[ controlKey ];
+                }
+            } );
+        } else {
+            elementSettings = $element.data('settings') || {};
+        }
+
+        return elementSettings;
+    };
+
 
     var Master_Addons = {
 
@@ -239,16 +259,14 @@
 
         // Master Addons: Accordion
         MA_Accordion:function($scope, $) {
-
-            try {
-                (function($) {
-
-
+            //
+            // try {
+            //     (function() {
                     var $advanced_accordion         = $scope.find(".ma-advanced-accordion").eq(0),
                         elementSettings             = getElementSettings( $scope ),
                         $accordion_title            = $scope.find(".ma-accordion-tab-title"),
-                        $accordion_type             = 'accordion',
-                        $accordion_speed            = '3000';
+                        $accordion_type             = elementSettings.accordion_type,
+                        $accordion_speed            = elementSettings.toggle_speed;
 
                     // Open default actived tab
                     $accordion_title.each(function(){
@@ -271,8 +289,7 @@
                                 $this.removeClass("ma-accordion-tab-show ma-accordion-tab-active");
                                 $this.next().slideUp($accordion_speed);
                             } else {
-                                $this.parent().parent().find(".ma-accordion-tab-title").removeClass("ma-accordion-tab-show" +
-                                    " ma-accordion-tab-active");
+                                $this.parent().parent().find(".ma-accordion-tab-title").removeClass("ma-accordion-tab-show ma-accordion-tab-active");
                                 $this.parent().parent().find(".ma-accordion-tab-content").slideUp($accordion_speed);
                                 $this.toggleClass("ma-accordion-tab-show ma-accordion-tab-active");
                                 $this.next().slideToggle($accordion_speed);
@@ -289,11 +306,12 @@
                         }
                     });
 
-                })(jQuery);
-            } catch(e) {
-                //We can also throw from try block and catch it here
-                // No Error Show
-            }
+            //
+            //     })(jQuery);
+            // } catch(e) {
+            //     //We can also throw from try block and catch it here
+            //     // No Error Show
+            // }
 
 
         },
