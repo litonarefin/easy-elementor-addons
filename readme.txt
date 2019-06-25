@@ -32,6 +32,33 @@ List of Addons:
 9. **Contact Form 7**: contact form 7 the most necessary plugin used to create a contact form for any WordPress website. We have developed an addon, especially for this plugin too.
 
 
+
+= Some Features Of Master Addons Plugins - =
+
+
+### COMPLETELY CUSTOMIZABLE
+The plugin is customizable by providing every element with lots of option to control every possible thing. You have the power to customize the blocks as per your choice.
+
+### LIGHTWEIGHT & INSTANT LOADING
+The plugin does not allow messy code or extra asset which slow down your internet speed. It offers deactivation of unnecessary widgets to keep your site work smoothly.
+
+### EXPERT SUPPORT
+We have an excellent and friendly support team for your assistance. Put your question in the support forum or you can contact us directly via live chat and contact form.
+
+
+### Liked Master Addons Plugins?
+Rate us on [WordPress Forum 🙂](https://wordpress.org/support/plugin/master-addons/reviews/#new-post)
+
+
+== Support ==
+Join our [Facebook Group](https://www.facebook.com/groups/jeweltheme/).
+Learn from our Tutorials on [Youtube Channel](https://www.youtube.com/channel/UCAPfTXvzbNebKsB322Iz6HQ).
+Like on our [Facebook Fan Page](https://www.facebook.com/jwthemeltd)
+Get Faster Support from [Dedicated Support Forum](https://jeweltheme.com/support/forum/wordpress-plugins/master-addons/)
+
+
+
+
 == Frequently Asked Questions ==
 = Is is necessry to use Elementor Page Builder? =
 Yes. You must use Elementor Page builder plugin to work with this master Addons.
@@ -51,17 +78,17 @@ Yes of course it's competable with any WordPress Theme.
 9. Master Addons Contact Form 7
 
 == Changelog ==
+
+ = 1.0.3 (26-6-19) =
+ * [added] Ninja Forms Added with unlimited customization possibilities
+
+
+ = 1.0.2 (24-6-19) =
  * [fix] Advanced Accordion JS issue fixed
  * [fix] Animated Heading CSS issue fixed
- * [fix]
 
+ = 1.0.1 =
+ * Version Bump
 
-= 1.0.1 =
-Version Bump
-
-
-= 1.0.1 =
-Version Bump
-
-= 1.0.0 =
-Initial Release
+ = 1.0.0 =
+ * Initial Release
