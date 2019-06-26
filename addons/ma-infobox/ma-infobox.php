@@ -279,17 +279,21 @@
 			<div id="ma-el-infobox-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-infobox <?php echo esc_attr
 			($settings['ma_el_infobox_preset']); ?>">
 				<div class="ma-el-infobox-item">
-					<div class="ma-el-infobox-icon">
 
-						<?php if( 'icon' == $settings['ma_el_infobox_img_or_icon'] ) : ?>
-							<i class="<?php echo esc_attr( $settings['ma_el_infobox_icon'] ); ?>"></i>
-						<?php endif; ?>
+					<?php if( $settings['ma_el_infobox_img_or_icon'] != 'none' ) : ?>
+						<div class="ma-el-infobox-icon">
 
-						<?php if( 'img' == $settings['ma_el_infobox_img_or_icon'] ) : ?>
-							<img src="<?php echo esc_url( $infobox_image_url ); ?>" alt="Icon Image">
-						<?php endif; ?>
+							<?php if( 'icon' == $settings['ma_el_infobox_img_or_icon'] ) : ?>
+								<i class="<?php echo esc_attr( $settings['ma_el_infobox_icon'] ); ?>"></i>
+							<?php endif; ?>
 
-					</div>
+							<?php if( 'img' == $settings['ma_el_infobox_img_or_icon'] ) : ?>
+								<img src="<?php echo esc_url( $infobox_image_url ); ?>" alt="Icon Image">
+							<?php endif; ?>
+
+						</div>
+					<?php endif; ?>
+
 					<div class="ma-el-infobox-content">
 						<h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
 						<p class="ma-el-infobox-content-description">
@@ -302,21 +306,25 @@
 			<?php
 		}
 
-		protected function _content_template() {
-			?>
+		protected function _content_template() { ?>
+			
 			<div id="ma-el-infobox" class="ma-el-infobox {{ settings.ma_el_infobox_preset }}">
 				<div class="ma-el-infobox-item">
-					<div class="ma-el-infobox-icon">
 
-						<# if( 'icon' == settings.ma_el_infobox_img_or_icon ) { #>
-						<i class="{{{ settings.ma_el_infobox_icon }}}"></i>
-						<# } #>
+					<# if( settings.ma_el_infobox_img_or_icon != 'none') { #>
+						<div class="ma-el-infobox-icon">
 
-						<# if( 'img' == settings.ma_el_infobox_img_or_icon ) { #>
-						<img src="{{{ settings.ma_el_infobox_image.url }}}" alt="Icon Image">
-						<# } #>
+							<# if( 'icon' == settings.ma_el_infobox_img_or_icon ) { #>
+							<i class="{{{ settings.ma_el_infobox_icon }}}"></i>
+							<# } #>
 
-					</div>
+							<# if( 'img' == settings.ma_el_infobox_img_or_icon ) { #>
+							<img src="{{{ settings.ma_el_infobox_image.url }}}" alt="Icon Image">
+							<# } #>
+
+						</div>
+					<# } #>
+
 					<div class="ma-el-infobox-content">
 						<h3 class="ma-el-infobox-content-title">{{{ settings.ma_el_infobox_title }}}</h3>
 						<p class="ma-el-infobox-content-description">{{{ settings.ma_el_infobox_description }}}
