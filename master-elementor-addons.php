@@ -68,17 +68,17 @@
 					'caldera-forms',
 					'weforms',
 					'ma-creative-buttons',
+					'ma-piechart',
+					'ma-infobox',
 		//			'ma-business-hours',
 		//			'master-cards',
 		//			'countdown-timer',
-
 		//			'post-grid',
 		//			'post-timeline',
 		//			'team-member',
 		//			'team-carousel',
 		//			'testimonial-carousel',
 		//			'flipbox',
-		//			'infobox',
 		//			'pricing-table',
 		//			'post-carousel',
 		//			'google-maps',
@@ -323,6 +323,13 @@
 
 				wp_register_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', [ 'jquery' ], MELA_VERSION, true );
 
+				wp_register_script(
+					'jquery-stats',
+					MELA_PLUGIN_URL . '/assets/js/jquery.stats' . MA_EL_SCRIPT_SUFFIX . '.js',
+					[ 'jquery' ],
+					MELA_VERSION,
+					true
+				);
 
 
 
@@ -330,7 +337,7 @@
 				//Progressbar
 				if ( $is_activated_widget['ma-progressbar'] ) {
 					wp_enqueue_script( 'master-addons-progressbar', MELA_PLUGIN_URL . '/assets/js/loading-bar.js', [ 'jquery' ], MELA_VERSION, true );
-					wp_enqueue_script( 'master-addons-waypoints', MELA_PLUGIN_URL . '/assets/js/jquery.waypoints.min.js', [ 'jquery' ], MELA_VERSION, true );
+					wp_enqueue_script( 'master-addons-waypoints', MELA_PLUGIN_URL . '/assets/js/jquery.waypoints.js', [ 'jquery' ], MELA_VERSION, true );
 				}
 
 				//Team Members

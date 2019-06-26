@@ -86,6 +86,7 @@ Yes of course it's competable with any WordPress Theme.
  * [added] weForms Added
  * [added] Call to Action Elementor Element / Widget added
  * [added] Creative Buttons Added
+ * [added] Section Particles Added: BG Slider, Animated Background etc
 
  = 1.0.2 (24-6-19) =
  * [fix] Advanced Accordion JS issue fixed

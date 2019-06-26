@@ -1899,3 +1899,459 @@
 **/
 .ma-el-section-bs{ position: absolute; width: 100%; height: 100%; top:0;}
 .ma-el-section-bs-inner{ width: 100%; height: 100% !important; }
+
+
+
+/* MA InfoBox Start */
+
+.ma-el-infobox.one .ma-el-infobox-item {
+    padding: 30px 0 0 0;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.ma-el-infobox.one .ma-el-infobox-item .ma-el-infobox-icon {
+    height: 90px;
+    width: 90px;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: 0px 22px 59px 0px rgba(18, 34, 66, 0.2);
+    position: relative;
+    z-index: 1;
+    transition: all .3s ease;
+}
+
+.ma-el-infobox.one .ma-el-infobox-item .ma-el-infobox-icon::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    transition: .3s ease;
+}
+
+.ma-el-infobox.one .ma-el-infobox-item .ma-el-infobox-icon i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: all .3s ease;
+    font-size: 40px;
+}
+
+.ma-el-infobox.one .ma-el-infobox-item .ma-el-infobox-icon img, .ma-el-infobox.two .ma-el-infobox-item .ma-el-infobox-icon img, .ma-el-infobox.four .ma-el-infobox-item .ma-el-infobox-icon img, .ma-el-infobox.five .ma-el-infobox-item .ma-el-infobox-icon img {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.ma-el-infobox.one .ma-el-infobox-item .ma-el-infobox-content {
+    padding: 30px 20px;
+}
+
+.ma-el-infobox-content-title {
+    font-size: 24px;
+    line-height: 1.5;
+    margin: 0 0 10px 0;
+    font-family: "Roboto", sans-serif;
+}
+.ma-el-infobox-content-description {
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    margin: 10px auto;
+}
+
+.ma-el-infobox.one .ma-el-infobox-item .ma-el-infobox-content .ma-el-infobox-content-description {
+    line-height: 1.5;
+}
+
+.ma-el-infobox.one .ma-el-infobox-item:hover .ma-el-infobox-icon::before {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.ma-el-infobox.two .ma-el-infobox-item {
+    box-shadow: 0px 22px 59px 0px rgba(18, 34, 66, 0.1);
+    padding: 30px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+.ma-el-infobox.two .ma-el-infobox-item:hover .ma-el-infobox-icon {
+    background: #fff;
+    border: 1px solid #ff8672;
+}
+
+.ma-el-infobox.two .ma-el-infobox-item:hover .ma-el-infobox-icon i {
+    color: #ff8672;
+}
+
+.ma-el-infobox.two .ma-el-infobox-item .ma-el-infobox-icon {
+    position: relative;
+    height: 80px;
+    width: 80px;
+    border-radius: 6px;
+    margin-bottom: 50px;
+    background-color: #ff8672;
+    border: 1px solid transparent;
+    transition: all .3s ease;
+}
+
+.ma-el-infobox.two .ma-el-infobox-item .ma-el-infobox-icon i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: #fff;
+}
+
+.ma-el-infobox.three .ma-el-infobox-item {
+    text-align: center;
+    padding: 30px;
+    border-radius: 4px;
+}
+
+.ma-el-infobox.three .ma-el-infobox-item .ma-el-infobox-icon {
+    margin-bottom: 60px;
+    font-size: 50px;
+}
+
+.ma-el-infobox.three .ma-el-infobox-item .ma-el-infobox-icon i {
+    transition: all .3s ease;
+    /* color: rgba(255, 255, 255, 0.5); */
+    opacity: 0.5;
+}
+
+.ma-el-infobox.three .ma-el-infobox-item .ma-el-infobox-icon img {
+    height: 45px;
+    width: 45px;
+}
+
+.ma-el-infobox.three .ma-el-infobox-item:hover .ma-el-infobox-icon {
+    color: #fff;
+}
+.ma-el-infobox.three .ma-el-infobox-item:hover .ma-el-infobox-icon i{
+    opacity: 1;
+}
+
+.ma-el-infobox.four .ma-el-infobox-item {
+    display: flex;
+    align-items: center;
+    transition: .3s ease;
+}
+
+.ma-el-infobox.four .ma-el-infobox-item .ma-el-infobox-icon {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    position: relative;
+    transition: .3s ease;
+}
+
+.ma-el-infobox.four .ma-el-infobox-item .ma-el-infobox-icon i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 30px;
+}
+
+.ma-el-infobox.four .ma-el-infobox-item .ma-el-infobox-content {
+    flex-basis: calc(100% - 70px);
+    margin-left: 15px;
+}
+
+.ma-el-infobox.four .ma-el-infobox-item .ma-el-infobox-content .ma-el-infobox-content-title {
+    margin: 0;
+}
+
+.ma-el-infobox.four .ma-el-infobox-item .ma-el-infobox-content .ma-el-infobox-content-description {
+    margin: 0;
+}
+
+.ma-el-infobox.four .ma-el-infobox-item:hover .ma-el-infobox-icon {
+    background: #fff;
+    border: 1px solid #826EFF;
+}
+
+.ma-el-infobox.four .ma-el-infobox-item:hover .ma-el-infobox-icon i {
+    color: #826EFF;
+}
+
+.ma-el-infobox.five {
+    margin-top: 50px;
+}
+
+.ma-el-infobox.five .ma-el-infobox-item {
+    border: 1px solid #e0e2e5;
+    text-align: center;
+}
+
+.ma-el-infobox.five .ma-el-infobox-item .ma-el-infobox-icon {
+    position: relative;
+    height: 90px;
+    width: 90px;
+    border: 1px solid transparent;
+    margin: -45px auto 0 auto;
+    border-radius: 50%;
+    box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
+    transition: all .3s ease;
+}
+
+.ma-el-infobox.five .ma-el-infobox-item .ma-el-infobox-icon i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: #fff;
+}
+
+.ma-el-infobox.five .ma-el-infobox-item .ma-el-infobox-content {
+    padding: 35px 20px;
+}
+
+.ma-el-infobox.five .ma-el-infobox-item .ma-el-infobox-content .ma-el-infobox-content-description {
+    line-height: 2;
+}
+
+.ma-el-infobox.five .ma-el-infobox-item {
+    border-bottom: 3px solid #8774ff;
+}
+
+.ma-el-infobox.five .ma-el-infobox-item .ma-el-infobox-icon {
+    background: #8774ff;
+}
+
+
+.ma-el-infobox.five .ma-el-infobox-item:hover .ma-el-infobox-icon {
+    background: #ffffff;
+    border: 1px solid #8774ff;
+}
+
+.ma-el-infobox.five .ma-el-infobox-item:hover .ma-el-infobox-icon i {
+    color: #8774ff;
+}
+
+/* MA InfoBox End */
+
+
+.lae-piecharts {
+    clear: both; }
+
+.lae-piechart {
+    position: relative;
+    text-align: center;
+    float: left;
+    overflow: hidden;
+    float: left;
+    padding: 10px; }
+.lae-piechart canvas {
+    position: relative;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    margin: 0 auto; }
+.lae-piechart .lae-label {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 55%;
+    max-width: 65%;
+    color: #888; }
+.lae-dark-bg .lae-piechart .lae-label {
+    color: #909090; }
+.lae-piechart .lae-percentage span {
+    position: absolute;
+    top: 25%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: 300;
+    text-align: center;
+    color: #333;
+    font-weight: bolder; }
+.lae-dark-bg .lae-piechart .lae-percentage span {
+    color: #e5e5e5; }
+.lae-piechart .lae-percentage sup {
+    font-size: 18px;
+    vertical-align: middle; }
+.lae-piechart.dark-bg .lae-label {
+    color: #fff; }
+.lae-piechart.dark-bg .lae-percentage span {
+    color: #eee; }
+
+@media only screen and (max-width: 479px) {
+    .lae-piechart canvas {
+        margin-bottom: 15px; } }
+/* ---------------------------------- Odometers/Counters ---------------------------------- */
+.odometer.odometer-auto-theme, .odometer.odometer-theme-default {
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *zoom: 1;
+    *display: inline;
+    position: relative; }
+
+.odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-default .odometer-digit {
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *zoom: 1;
+    *display: inline;
+    position: relative; }
+
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer, .odometer.odometer-theme-default .odometer-digit .odometer-digit-spacer {
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *zoom: 1;
+    *display: inline;
+    visibility: hidden; }
+
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-default .odometer-digit .odometer-digit-inner {
+    text-align: left;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden; }
+
+.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon, .odometer.odometer-theme-default .odometer-digit .odometer-ribbon {
+    display: block; }
+
+.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon-inner, .odometer.odometer-theme-default .odometer-digit .odometer-ribbon-inner {
+    display: block;
+    -webkit-backface-visibility: hidden; }
+
+.odometer.odometer-auto-theme .odometer-digit .odometer-value, .odometer.odometer-theme-default .odometer-digit .odometer-value {
+    display: block;
+    -webkit-transform: translateZ(0); }
+
+.odometer.odometer-auto-theme .odometer-digit .odometer-value.odometer-last-value, .odometer.odometer-theme-default .odometer-digit .odometer-value.odometer-last-value {
+    position: absolute; }
+
+.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner {
+    -webkit-transition: -webkit-transform 2s;
+    transition: -webkit-transform 2s;
+    transition: transform 2s;
+    transition: transform 2s, -webkit-transform 2s; }
+
+.odometer.odometer-auto-theme.odometer-animating-up.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up.odometer-animating .odometer-ribbon-inner {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%); }
+
+.odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down .odometer-ribbon-inner {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%); }
+
+.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
+    -webkit-transition: -webkit-transform 2s;
+    transition: -webkit-transform 2s;
+    transition: transform 2s;
+    transition: transform 2s, -webkit-transform 2s;
+    -webkit-transform: translateY(0);
+    transform: translateY(0); }
+
+.odometer.odometer-auto-theme, .odometer.odometer-theme-default {
+    font-family: "Helvetica Neue", sans-serif;
+    line-height: 1.1em; }
+
+.odometer.odometer-auto-theme .odometer-value, .odometer.odometer-theme-default .odometer-value {
+    text-align: center; }
+
+/* --- Animate Numbers ---- */
+.lae-odometers {
+    clear: both;
+    font-size: 0;
+    /* inline-block hack */ }
+.lae-odometers .lae-odometer {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    position: relative;
+    margin-bottom: 50px; }
+.lae-odometers .lae-odometer:last-child:after {
+    border: none; }
+.lae-odometers .lae-odometer .lae-prefix, .lae-odometers .lae-odometer .lae-suffix {
+    display: inline;
+    font-size: 36px;
+    line-height: 48px;
+    color: #333;
+    vertical-align: middle; }
+.lae-dark-bg .lae-odometers .lae-odometer .lae-prefix, .lae-dark-bg .lae-odometers .lae-odometer .lae-suffix {
+    color: #e5e5e5; }
+.lae-odometers .lae-odometer .lae-prefix {
+    margin-right: 5px;
+    margin-left: 5px; }
+.lae-odometers .lae-odometer .lae-suffix {
+    margin-left: 5px; }
+.lae-odometers .lae-odometer .lae-number {
+    font-size: 60px;
+    line-height: 72px;
+    font-style: normal;
+    text-transform: none;
+    letter-spacing: 2px;
+    font-weight: 900;
+    color: #333;
+    margin-bottom: 10px; }
+.lae-odometers .lae-odometer .lae-number span {
+    font-size: 60px; }
+.lae-dark-bg .lae-odometers .lae-odometer .lae-number {
+    color: #e5e5e5; }
+.lae-odometers .lae-odometer .lae-stats-title {
+    font-size: 18px;
+    line-height: 28px;
+    display: inline-block;
+    color: #888; }
+.lae-dark-bg .lae-odometers .lae-odometer .lae-stats-title {
+    color: #909090; }
+.lae-odometers .lae-odometer .lae-stats-title span {
+    float: left;
+    margin-right: 15px; }
+.lae-odometers .lae-odometer .lae-stats-title .lae-icon-wrapper {
+    font-size: 32px;
+    margin-right: 10px;
+    vertical-align: middle;
+    color: #ccc; }
+
+@media only screen and (max-width: 960px) {
+    .lae-odometers .lae-odometer .lae-number {
+        font-size: 48px;
+        line-height: 56px;
+        margin-bottom: 0; }
+    .lae-odometers .lae-odometer .lae-number span {
+        font-size: 48px; }
+    .lae-odometers .lae-odometer .lae-stats-title {
+        font-size: 15px;
+        line-height: 26px; } }
+@media only screen and (max-width: 479px) {
+    .lae-odometers .lae-odometer {
+        text-align: center; } }

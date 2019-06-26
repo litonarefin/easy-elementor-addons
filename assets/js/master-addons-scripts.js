@@ -571,7 +571,41 @@
 
                 }
             }
-        }
+        },
+
+        WidgetLAEPiechartsHandlerOnScroll: function ($scope, $) {
+
+            $scope.MasterAddonsWaypoint(function (direction) {
+
+                WidgetLAEPiechartsHandler($(this.element), $);
+
+            }, {
+                offset: (window.innerHeight || document.documentElement.clientHeight) - 100,
+                triggerOnce: true
+            });
+        },
+
+        WidgetLAEPiechartsHandler: function ($scope, $) {
+
+            $scope.find('.lae-piechart .lae-percentage').each(function () {
+
+                var track_color = $(this).data('track-color');
+                var bar_color = $(this).data('bar-color');
+
+                $(this).easyPieChart({
+                    animate: 2000,
+                    lineWidth: 10,
+                    barColor: bar_color,
+                    trackColor: track_color,
+                    scaleColor: false,
+                    lineCap: 'square',
+                    size: 220
+
+                });
+
+            });
+
+        };
 
 
 
@@ -590,9 +624,22 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-tabs.default', Master_Addons.MA_Tabs);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbar.default', Master_Addons.ProgressBar);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-team-members.default', Master_Addons.TeamSlider);
+
+
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.BgSlider);
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.ParticlesBG);
         // elementorFrontend.hooks.addAction('frontend/element_ready/ma-particles.default', Master_Addons.ParticlesBG);
+
+
+        if (elementorFrontend.isEditMode()) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.WidgetLAEPiechartsHandler);
+
+        } else{
+            elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.WidgetLAEPiechartsHandlerOnScroll);
+        }
+
+
+
 
     });
 
