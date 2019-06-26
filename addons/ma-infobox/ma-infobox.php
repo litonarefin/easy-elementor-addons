@@ -307,7 +307,7 @@
 		}
 
 		protected function _content_template() { ?>
-			
+
 			<div id="ma-el-infobox" class="ma-el-infobox {{ settings.ma_el_infobox_preset }}">
 				<div class="ma-el-infobox-item">
 

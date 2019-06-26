@@ -573,11 +573,39 @@
             }
         },
 
+        /*Master Addons Animated Gradient Background*/
+        AnimatedGradient: function ($scope, $) {
+
+            if ($scope.hasClass('ma-el-animated-gradient-yes')) {
+                id = $scope.data('id');
+                //editMode    = elementorFrontend.isEditMode();
+                //console.log(settings);
+                color = $scope.data('color');
+                angle = $scope.data('angle');
+                var gradient_color = 'linear-gradient(' + angle + ',' + color + ')';
+                heading = $scope.find('.elementor-heading-title');
+                $scope.css('background-image', gradient_color);
+                if($scope.hasClass('elementor-element-edit-mode'))
+                {
+
+                    color = $scope.find('.animated-gradient').data('color');
+                    angle = $scope.find('.animated-gradient').data('angle');
+                    gradient_color_editor = 'linear-gradient(' + angle + ',' + color + ')';
+                    $scope.prepend('<div class="animated-gradient" style="background-image : ' + gradient_color_editor + ' "></div>');
+                    //$scope.find('.animated-gradient').css('background-image', gradient_color_editor);
+                    //$scope.find('.animated-gradient').css('background-color', 'red');
+                }
+                //$scope.css('position', 'relative');
+                //$scope.css('background-color', 'black');
+
+            }
+        },
+
         WidgetLAEPiechartsHandlerOnScroll: function ($scope, $) {
 
             $scope.MasterAddonsWaypoint(function (direction) {
 
-                WidgetLAEPiechartsHandler($(this.element), $);
+                Master_Addons.WidgetLAEPiechartsHandler($(this.element), $);
 
             }, {
                 offset: (window.innerHeight || document.documentElement.clientHeight) - 100,
@@ -585,9 +613,9 @@
             });
         },
 
-        WidgetLAEPiechartsHandler: function ($scope, $) {
+        WidgetLAEPiechartsHandler : function ($scope, $) {
 
-            $scope.find('.lae-piechart .lae-percentage').each(function () {
+            $scope.find('.ma-el-piechart .ma-el-percentage').each(function () {
 
                 var track_color = $(this).data('track-color');
                 var bar_color = $(this).data('bar-color');
@@ -605,7 +633,7 @@
 
             });
 
-        };
+        }
 
 
 
@@ -618,20 +646,20 @@
     $(window).on('elementor/frontend/init', function () {
         if( elementorFrontend.isEditMode() ) {
             editMode = true;
-        }
+        // }
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-headlines.default', Master_Addons.MA_Headlines);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-advanced-accordion.default', Master_Addons.MA_Accordion);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-tabs.default', Master_Addons.MA_Tabs);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbar.default', Master_Addons.ProgressBar);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-team-members.default', Master_Addons.TeamSlider);
 
-
+        elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.AnimatedGradient);
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.BgSlider);
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.ParticlesBG);
-        // elementorFrontend.hooks.addAction('frontend/element_ready/ma-particles.default', Master_Addons.ParticlesBG);
 
 
-        if (elementorFrontend.isEditMode()) {
+
+        // if (elementorFrontend.isEditMode()) {
             elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.WidgetLAEPiechartsHandler);
 
         } else{

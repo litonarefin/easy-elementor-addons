@@ -32,8 +32,8 @@
 			return [
 				'elementor-waypoints',
 
-//				'lae-widgets-scripts',
-//				'lae-frontend-scripts',
+//				'ma-el-widgets-scripts',
+//				'ma-el-frontend-scripts',
 				'master-addons-waypoints',
 				'jquery-stats'
 			];
@@ -79,19 +79,19 @@
 					'default' => [
 						[
 							'stats_title' => __('Web Design', MELA_TD),
-							'percentage_value' => 87,
+							'percentage_value' => 89,
 						],
 						[
 							'stats_title' => __('SEO Services', MELA_TD),
-							'percentage_value' => 76,
+							'percentage_value' => 77,
 						],
 						[
 							'stats_title' => __('WordPress Development', MELA_TD),
-							'percentage_value' => 90,
+							'percentage_value' => 95,
 						],
 						[
 							'stats_title' => __('Brand Marketing', MELA_TD),
-							'percentage_value' => 40,
+							'percentage_value' => 45,
 						],
 					],
 					'fields' => [
@@ -136,7 +136,7 @@
 				[
 					'label' => __('Bar color', MELA_TD),
 					'type' => Controls_Manager::COLOR,
-					'default' => '#f94213',
+					'default' => '#704aff',
 				]
 			);
 
@@ -168,7 +168,7 @@
 					'label' => __('Color', MELA_TD),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .lae-piechart .lae-label' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-piechart .ma-el-label' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -177,7 +177,7 @@
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'stats_title_typography',
-					'selector' => '{{WRAPPER}} .lae-piechart .lae-label',
+					'selector' => '{{WRAPPER}} .ma-el-piechart .ma-el-label',
 				]
 			);
 
@@ -197,7 +197,7 @@
 					'label' => __('Color', MELA_TD),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .lae-piechart .lae-percentage span' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-piechart .ma-el-percentage span' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -206,7 +206,7 @@
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'stats_percentage_typography',
-					'selector' => '{{WRAPPER}} .lae-piechart .lae-percentage span',
+					'selector' => '{{WRAPPER}} .ma-el-piechart .ma-el-percentage span',
 				]
 			);
 
@@ -226,7 +226,7 @@
 					'label' => __('Color', MELA_TD),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .lae-piechart .lae-percentage sup' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-piechart .ma-el-percentage sup' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -235,7 +235,7 @@
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'stats_percentage_symbol_typography',
-					'selector' => '{{WRAPPER}} .lae-piechart .lae-percentage sup',
+					'selector' => '{{WRAPPER}} .ma-el-piechart .ma-el-percentage sup',
 				]
 			);
 
@@ -251,29 +251,30 @@
 			$bar_color = ' data-bar-color="' . esc_attr($settings['bar_color']) . '"';
 			$track_color = ' data-track-color="' . esc_attr($settings['track_color']) . '"';
 
-			$output = '<div class="lae-piecharts lae-grid-container ' . lae_get_grid_classes($settings) . '">';
+			$output = '<div class="ma-el-piecharts ma-el-grid-container ' . lae_get_grid_classes($settings) . '">';
 
 			foreach ($settings['piecharts'] as $piechart):
 
-				$child_output = '<div class="lae-grid-item lae-piechart">';
+				$child_output = '<div class="ma-el-grid-item ma-el-piechart">';
 
-				$child_output .= '<div class="lae-percentage"' . $bar_color . $track_color . ' data-percent="' . round($piechart['percentage_value']) . '">';
+				$child_output .= '<div class="ma-el-percentage"' . $bar_color . $track_color . ' data-percent="' . round
+					($piechart['percentage_value']) . '">';
 
 				$child_output .= '<span>' . round($piechart['percentage_value']) . '<sup>%</sup>' . '</span>';
 
 				$child_output .= '</div>';
 
-				$child_output .= '<div class="lae-label">' . esc_html($piechart['stats_title']) . '</div>';
+				$child_output .= '<div class="ma-el-label">' . esc_html($piechart['stats_title']) . '</div>';
 
-				$child_output .= '</div><!-- .lae-piechart -->';
+				$child_output .= '</div><!-- .ma-el-piechart -->';
 
 				$output .= apply_filters('lae_piechart_output', $child_output, $piechart, $settings);
 
 			endforeach;
 
-			$output .= '</div><!-- .lae-piecharts -->';
+			$output .= '</div><!-- .ma-el-piecharts -->';
 
-			$output .= '<div class="lae-clear"></div>';
+			$output .= '<div class="ma-el-clear"></div>';
 
 			echo apply_filters('lae_piecharts_output', $output, $settings);
 
