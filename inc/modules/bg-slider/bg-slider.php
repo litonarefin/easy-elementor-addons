@@ -31,23 +31,30 @@ class EAE_Bg_Slider {
 	}
 
 	function ma_el_add_js_css(){
-		wp_register_script( 'vegas', MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), MELA_VERSION, true );
-		wp_register_script( 'ma-el-swiper-script', MELA_PLUGIN_URL . '/assets/vendor/swiper/js/swiper'
-                                                   .MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), MELA_VERSION, true );
+
+	    wp_enqueue_style(
+	        'vegas-css',
+            MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas'. MA_EL_SCRIPT_SUFFIX.'.css'
+        );
+		wp_enqueue_style( 'ma-el-swiper-style',
+            MELA_PLUGIN_URL . '/assets/vendor/swiper/swiper'.MA_EL_SCRIPT_SUFFIX.'.css'
+        );
 
 
 
-		wp_register_style( 'vegas-css', MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas'. MA_EL_SCRIPT_SUFFIX.'.css' );
-		wp_register_script( 'ma-el-swiper-style', MELA_PLUGIN_URL . '/assets/vendor/swiper/swiper'.MA_EL_SCRIPT_SUFFIX.'.css' );
+		wp_enqueue_script(
+		    'vegas',
+            MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas' . MA_EL_SCRIPT_SUFFIX.'.js',
+            [ 'jquery' ],
+            MELA_VERSION, true
+        );
+		wp_enqueue_script(
+		    'ma-el-swiper-script',
+            MELA_PLUGIN_URL . '/assets/vendor/swiper/js/swiper' .MA_EL_SCRIPT_SUFFIX.'.js',
+            ['jquery' ],
+            MELA_VERSION, true
+        );
 
-
-
-
-
-	    wp_enqueue_style('vegas-css');
-	    wp_enqueue_script('vegas');
-	    wp_enqueue_script('ma-el-swiper-script');
-	    wp_enqueue_style('ma-el-swiper-style');
     }
 
 	public function _add_controls( $element, $section_id, $args ) {

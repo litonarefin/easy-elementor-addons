@@ -310,9 +310,8 @@
 				/*
 				 * Register Styles
 				 */
-				wp_register_style( 'vegas-css', MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas'. MA_EL_SCRIPT_SUFFIX.'.css' );
-				wp_register_script( 'ma-el-swiper-style', MELA_PLUGIN_URL . '/assets/vendor/swiper/js/swiper'.MA_EL_SCRIPT_SUFFIX.'.css' );
-				wp_register_script( 'master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css' );
+
+				wp_register_style( 'master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css' );
 //				wp_register_script( 'animated-main', MELA_PLUGIN_URL . '/assets/js/animated-main'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), '1.0', true );
 
 
@@ -321,8 +320,7 @@
 				/*
 				 * Register Scripts
 				 */
-				wp_register_script( 'vegas', MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), MELA_VERSION, true );
-				wp_register_script( 'ma-el-swiper-script', MELA_PLUGIN_URL . '/assets/vendor/swiper/swiper'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), MELA_VERSION, true );
+
 				wp_register_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', [ 'jquery' ], MELA_VERSION, true );
 
 
