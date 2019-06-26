@@ -601,11 +601,11 @@
             }
         },
 
-        WidgetLAEPiechartsHandlerOnScroll: function ($scope, $) {
+        PiechartsHandlerOnScroll: function ($scope, $) {
 
             $scope.MasterAddonsWaypoint(function (direction) {
 
-                Master_Addons.WidgetLAEPiechartsHandler($(this.element), $);
+                Master_Addons.PiechartsHandler($(this.element), $);
 
             }, {
                 offset: (window.innerHeight || document.documentElement.clientHeight) - 100,
@@ -613,7 +613,7 @@
             });
         },
 
-        WidgetLAEPiechartsHandler : function ($scope, $) {
+        PiechartsHandler : function ($scope, $) {
 
             $scope.find('.ma-el-piechart .ma-el-percentage').each(function () {
 
@@ -633,9 +633,32 @@
 
             });
 
+        },
+
+        StatsBarHandler: function ($scope, $) {
+
+            $scope.find('.ma-el-stats-bar-content').each(function () {
+
+                var dataperc = $(this).data('perc');
+
+                $(this).animate({"width": dataperc + "%"}, dataperc * 20);
+
+            });
+
+        },
+
+        StatsBarHandlerOnScroll: function ($scope, $) {
+
+            $scope.MasterAddonsWaypoint(function (direction) {
+
+                Master_Addons.StatsBarHandler($(this.element), $);
+
+            }, {
+                offset: (window.innerHeight || document.documentElement.clientHeight) - 150,
+                triggerOnce: true
+            });
+
         }
-
-
 
 
 };
@@ -660,10 +683,12 @@
 
 
         // if (elementorFrontend.isEditMode()) {
-            elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.WidgetLAEPiechartsHandler);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.PiechartsHandler);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.StatsBarHandler);
 
         } else{
-            elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.WidgetLAEPiechartsHandlerOnScroll);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.PiechartsHandlerOnScroll);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbars.default', Master_Addons.StatsBarHandlerOnScroll);
         }
 
 

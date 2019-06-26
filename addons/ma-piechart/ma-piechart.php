@@ -31,9 +31,7 @@
 		public function get_script_depends() {
 			return [
 				'elementor-waypoints',
-
-//				'ma-el-widgets-scripts',
-//				'ma-el-frontend-scripts',
+				'master-addons-scripts',
 				'master-addons-waypoints',
 				'jquery-stats'
 			];
@@ -246,12 +244,12 @@
 
 			$settings = $this->get_settings_for_display();
 
-			$settings = apply_filters('lae_piecharts_' . $this->get_id() . '_settings', $settings);
+			$settings = apply_filters('ma_el_piecharts_' . $this->get_id() . '_settings', $settings);
 
 			$bar_color = ' data-bar-color="' . esc_attr($settings['bar_color']) . '"';
 			$track_color = ' data-track-color="' . esc_attr($settings['track_color']) . '"';
 
-			$output = '<div class="ma-el-piecharts ma-el-grid-container ' . lae_get_grid_classes($settings) . '">';
+			$output = '<div class="ma-el-piecharts ma-el-grid-container ' . ma_el_get_grid_classes($settings) . '">';
 
 			foreach ($settings['piecharts'] as $piechart):
 
@@ -268,7 +266,7 @@
 
 				$child_output .= '</div><!-- .ma-el-piechart -->';
 
-				$output .= apply_filters('lae_piechart_output', $child_output, $piechart, $settings);
+				$output .= apply_filters('ma_el_piechart_output', $child_output, $piechart, $settings);
 
 			endforeach;
 
@@ -276,7 +274,7 @@
 
 			$output .= '<div class="ma-el-clear"></div>';
 
-			echo apply_filters('lae_piecharts_output', $output, $settings);
+			echo apply_filters('ma_el_piecharts_output', $output, $settings);
 
 		}
 

@@ -458,9 +458,7 @@
 			<?php
 		}
 
-		protected function _content_template() {
-
-		}
+		protected function _content_template() {}
 	}
 
 	Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Creative_Buttons() );

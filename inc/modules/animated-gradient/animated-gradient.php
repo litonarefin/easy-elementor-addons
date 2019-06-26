@@ -40,7 +40,7 @@ class AnimatedGradientBackground  {
                 ]
             );
             $element->add_control(
-                'gradient_background_angle',
+                'ma_el_gradient_background_angle',
                 [
                     'label' => __( 'Angle', MELA_TD  ),
                     'type' => Controls_Manager::SLIDER,
@@ -75,7 +75,7 @@ class AnimatedGradientBackground  {
             );
 
             $element->add_control(
-                'gradient_color_list',
+                'ma_el_gradient_color_list',
                 [
                     'label' =>  __('Color' , MELA_TD ),
                     'type'  => Controls_Manager::REPEATER,
@@ -96,7 +96,8 @@ class AnimatedGradientBackground  {
                     ],
 
                     /*'selectors' => [
-                        '{{WRAPPER}}' => 'background : linear-gradient({{gradient_background_angle.SIZE}}{{gradient_background_angle.UNIT}} );',
+                        '{{WRAPPER}}' => 'background : linear-gradient({{ma_el_gradient_background_angle
+                    .SIZE}}{{ma_el_gradient_background_angle.UNIT}} );',
                     ],*/
 
                     'condition' =>  [
@@ -120,10 +121,11 @@ class AnimatedGradientBackground  {
         $settings = $element->get_settings();
         //echo '<pre>'; print_r($settings); echo '</pre>';
         if($settings['ma_el_animated_gradient_enable'] == 'yes') {
-            $angle = $settings['gradient_background_angle']['size'];
-            $element->add_render_attribute('_wrapper' , 'data-angle' , $settings['gradient_background_angle']['size'].'deg');
-            $gradient_color_list = $settings['gradient_color_list'];
-            foreach ($gradient_color_list as $gradient_color) {
+            $angle = $settings['ma_el_gradient_background_angle']['size'];
+            $element->add_render_attribute('_wrapper' , 'data-angle' ,
+                $settings['ma_el_gradient_background_angle']['size'].'deg');
+            $ma_el_gradient_color_list = $settings['ma_el_gradient_color_list'];
+            foreach ($ma_el_gradient_color_list as $gradient_color) {
                 $color[] = $gradient_color['ma_el_animated_gradient_color'];
             };
             $colors = implode(',', $color);
@@ -151,8 +153,8 @@ class AnimatedGradientBackground  {
         ob_start();
         ?>
         <#
-            color_list = settings.gradient_color_list;
-            angle = settings.gradient_background_angle.size;
+            color_list = settings.ma_el_gradient_color_list;
+            angle = settings.ma_el_gradient_background_angle.size;
             var color = [];
             var i = 0;
             _.each(color_list , function(color_list){
