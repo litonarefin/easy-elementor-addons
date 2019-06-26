@@ -114,6 +114,7 @@
 		}
 
 
+		// get weForms
 		public static function ma_el_get_weforms() {
 			$wpuf_form_list = get_posts(array(
 				'post_type' => 'wpuf_contact_form',
@@ -134,6 +135,31 @@
 			return $options;
 		}
 
+		// Get all forms of Caldera plugin
+		public static function ma_el_get_caldera_forms() {
+			if ( class_exists( 'Caldera_Forms' ) ) {
+				$options = array();
+
+				$contact_forms = Caldera_Forms_Forms::get_forms( true, true );
+
+				if ( ! empty( $contact_forms ) && ! is_wp_error( $contact_forms ) ) {
+
+					$i = 0;
+
+					foreach ( $contact_forms as $form ) {
+						if ( $i == 0 ) {
+							$options[0] = esc_html__( 'Select a Contact form', 'power-pack' );
+						}
+						$options[ $form['ID'] ] = $form['name'];
+						$i++;
+					}
+				}
+			} else {
+				$options = array();
+			}
+
+			return $options;
+		}
 
 
 	}

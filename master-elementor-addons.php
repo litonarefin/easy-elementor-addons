@@ -62,17 +62,16 @@
 					'ma-tooltip',
 					'ma-team-members',
 					'ma-team-members-slider',
-//					'ma-particles',
-		//			['contact-form-7','pro'],
 					'contact-form-7',
 					'ninja-forms',
 					'wpforms',
 					'caldera-forms',
 					'weforms',
+					'ma-creative-buttons',
 		//			'ma-business-hours',
 		//			'master-cards',
 		//			'countdown-timer',
-					'ma-creative-buttons',
+
 		//			'post-grid',
 		//			'post-timeline',
 		//			'team-member',
@@ -83,7 +82,8 @@
 		//			'pricing-table',
 		//			'post-carousel',
 		//			'google-maps',
-		//			'tooltip'
+		//			'tooltip',
+		//			['contact-form-7','pro'],
 				];
 
 				self::$maad_el_default_form_widgets = [
@@ -305,16 +305,17 @@
 			 */
 			public function maad_el_enqueue_scripts() {
 
-
-
+				$is_activated_widget = $this->activated_widgets();
 
 				/*
 				 * Register Styles
 				 */
 				wp_register_style( 'vegas-css', MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas'. MA_EL_SCRIPT_SUFFIX.'.css' );
 				wp_register_script( 'ma-el-swiper-style', MELA_PLUGIN_URL . '/assets/vendor/swiper/swiper'.MA_EL_SCRIPT_SUFFIX.'.css' );
-				wp_enqueue_style( 'master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css' );
+				wp_register_script( 'master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css' );
 //				wp_register_script( 'animated-main', MELA_PLUGIN_URL . '/assets/js/animated-main'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), '1.0', true );
+
+
 
 
 				/*
@@ -322,12 +323,10 @@
 				 */
 				wp_register_script( 'vegas', MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), MELA_VERSION, true );
 				wp_register_script( 'ma-el-swiper-script', MELA_PLUGIN_URL . '/assets/vendor/swiper/swiper'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), MELA_VERSION, true );
+				wp_register_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', [ 'jquery' ], MELA_VERSION, true );
+				
 
 
-				wp_enqueue_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', [ 'jquery' ], MELA_VERSION, true );
-
-
-				$is_activated_widget = $this->activated_widgets();
 
 				// Master Addons Dependencies
 				//Progressbar
@@ -370,6 +369,21 @@
 		//				array( 'jquery' )
 		//				, self::VERSION, true );
 		//		}
+
+
+
+				/*
+				 * Enqueue Styles
+				 */
+				wp_enqueue_style('master-addons-main-style');
+
+
+				/*
+				 * Enqueue Scripts
+				 */
+				wp_enqueue_script('master-addons-scripts');
+
+
 
 
 			}
@@ -478,9 +492,9 @@
 				//Utils
 				include_once MELA_PLUGIN_PATH . '/inc/classes/utils.php';
 
-//				include_once MELA_PLUGIN_PATH . '/inc/modules/animated-gradient/animated-gradient.php';
-//				include_once MELA_PLUGIN_PATH . '/inc/modules/particles/particles.php';
-//				include_once MELA_PLUGIN_PATH . '/inc/modules/bg-slider/bg-slider.php';
+				include_once MELA_PLUGIN_PATH . '/inc/modules/animated-gradient/animated-gradient.php';
+				include_once MELA_PLUGIN_PATH . '/inc/modules/particles/particles.php';
+				include_once MELA_PLUGIN_PATH . '/inc/modules/bg-slider/bg-slider.php';
 
 			}
 

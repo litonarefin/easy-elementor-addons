@@ -44,7 +44,7 @@
 			$this->start_controls_section(
 				'section_info_box',
 				[
-					'label'                 => __( 'Caldera Forms', MELA_TD ),
+					'label'                 => esc_html__( 'Caldera Forms', MELA_TD ),
 				]
 			);
 
@@ -54,7 +54,7 @@
 					'label'                 => esc_html__( 'Contact Form', MELA_TD ),
 					'type'                  => Controls_Manager::SELECT,
 					'label_block'           => true,
-					'options'               => pp_elements_lite_get_caldera_forms(),
+					'options'               => Master_Addons_Helper::ma_el_get_caldera_forms(),
 					'default'               => '0',
 				]
 			);

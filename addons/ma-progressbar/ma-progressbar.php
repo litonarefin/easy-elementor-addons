@@ -23,7 +23,7 @@
 		}
 
 		public function get_script_depends() {
-			return [ 'elementor-waypoints', 'ma-el-progress-bar' ];
+			return [ 'elementor-waypoints', 'master-addons-progressbar' ];
 		}
 
 
