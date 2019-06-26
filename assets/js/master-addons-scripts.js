@@ -510,6 +510,67 @@
 
 
 
+        },
+
+        BgSlider: function ($scope, $){
+            var ma_el_slides = [];
+            var ma_el_slides_json = [];
+            var ma_el_transition;
+            var ma_el_animation;
+            var ma_el_custom_overlay;
+            var ma_el_overlay;
+            var ma_el_cover;
+            var ma_el_delay;
+            var ma_el_timer;
+            var slider_wrapper = $scope.children('.ma-el-section-bs').children('.ma-el-section-bs-inner');
+
+            if (slider_wrapper && slider_wrapper.data('ma-el-bg-slider')) {
+
+                var slider_images = slider_wrapper.data('ma-el-bg-slider');
+                ma_el_transition = slider_wrapper.data('ma-el-bg-slider-transition');
+                ma_el_animation = slider_wrapper.data('ma-el-bg-slider-animation');
+                ma_el_custom_overlay = slider_wrapper.data('ma-el-bg-custom-overlay');
+                if (ma_el_custom_overlay == 'yes') {
+                    ma_el_overlay = ma_el_editor.plugin_url + 'assets/lib/vegas/overlays/' + slider_wrapper.data('ma-el-bg-slider-overlay');
+                } else {
+                    if (slider_wrapper.data('ma-el-bg-slider-overlay')) {
+                        ma_el_overlay = ma_el_editor.plugin_url + 'assets/lib/vegas/overlays/' + slider_wrapper.data('ma-el-bg-slider-overlay');
+                    } else {
+                        ma_el_overlay = ma_el_editor.plugin_url + 'assets/lib/vegas/overlays/' + slider_wrapper.data('ma-el-bg-slider-overlay');
+                    }
+                }
+
+                ma_el_cover = slider_wrapper.data('ma-el-bg-slider-cover');
+                ma_el_delay = slider_wrapper.data('ma-el-bs-slider-delay');
+                ma_el_timer = slider_wrapper.data('ma-el-bs-slider-timer');
+
+                if (typeof slider_images != 'undefined') {
+                    ma_el_slides = slider_images.split(",");
+
+                    jQuery.each(ma_el_slides, function (key, value) {
+                        var slide = [];
+                        slide.src = value;
+                        ma_el_slides_json.push(slide);
+                    });
+
+                    slider_wrapper.vegas({
+                        slides: ma_el_slides_json,
+                        transition: ma_el_transition,
+                        animation: ma_el_animation,
+                        overlay: ma_el_overlay,
+                        cover: ma_el_cover,
+                        delay: ma_el_delay,
+                        timer: ma_el_timer,
+                        init: function () {
+                            if (ma_el_custom_overlay == 'yes') {
+                                var ob_vegas_overlay = slider_wrapper.children('.vegas-overlay');
+                                ob_vegas_overlay.css('background-image', '');
+                            }
+                        }
+                    });
+
+                }
+            }
         }
 
 
@@ -529,6 +590,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-tabs.default', Master_Addons.MA_Tabs);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbar.default', Master_Addons.ProgressBar);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-team-members.default', Master_Addons.TeamSlider);
+        elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.BgSlider);
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.ParticlesBG);
         // elementorFrontend.hooks.addAction('frontend/element_ready/ma-particles.default', Master_Addons.ParticlesBG);
 

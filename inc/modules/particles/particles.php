@@ -72,7 +72,7 @@ class Particles{
 				'ma_el_particle_json',
 				[
 					'type'    => Controls_Manager::CODE,
-					'label'   => __('Add Particle Json'),
+					'label'   => __('Add Particle Json', MELA_TD),
 					'default' => '{
                               "particles": {
                                 "number": {

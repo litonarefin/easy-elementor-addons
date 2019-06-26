@@ -31,6 +31,19 @@ class EAE_Bg_Slider {
 	}
 
 	function ma_el_add_js_css(){
+		wp_register_script( 'vegas', MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), MELA_VERSION, true );
+		wp_register_script( 'ma-el-swiper-script', MELA_PLUGIN_URL . '/assets/vendor/swiper/js/swiper'
+                                                   .MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), MELA_VERSION, true );
+
+
+
+		wp_register_style( 'vegas-css', MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas'. MA_EL_SCRIPT_SUFFIX.'.css' );
+		wp_register_script( 'ma-el-swiper-style', MELA_PLUGIN_URL . '/assets/vendor/swiper/swiper'.MA_EL_SCRIPT_SUFFIX.'.css' );
+
+
+
+
+
 	    wp_enqueue_style('vegas-css');
 	    wp_enqueue_script('vegas');
 	    wp_enqueue_script('ma-el-swiper-script');
@@ -282,13 +295,13 @@ class EAE_Bg_Slider {
                     //if(bgimage == ''){
                     //    var bgoverlay = '<?php echo $settings["ma_el_slider_custom_overlay_image"]['url']; ?>';
                     //}else{
-                    var bgoverlay = '<?php echo EAE_URL . "/assets/lib/vegas/overlays/00.png"; ?>';
+                    var bgoverlay = '<?php echo MELA_PLUGIN_URL . "/assets/vendor/vegas/overlays/00.png"; ?>';
                     // }
                 } else {
                     if ('<?php echo $settings["ma_el_slider_overlay"]; ?>') {
-                        var bgoverlay = '<?php echo EAE_URL . "assets/lib/vegas/overlays/" . $settings["ma_el_slider_overlay"] . ".png"; ?>';
+                        var bgoverlay = '<?php echo MELA_PLUGIN_URL . "/assets/vendor/vegas/overlays/" . $settings["ma_el_slider_overlay"] . ".png"; ?>';
                     } else {
-                        var bgoverlay = '<?php echo EAE_URL . "assets/lib/vegas/overlays/00.png"; ?>';
+                        var bgoverlay = '<?php echo MELA_PLUGIN_URL . "/assets/vendor/vegas/overlays/00.png"; ?>';
                     }
                 }
 
