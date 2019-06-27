@@ -19,15 +19,15 @@
 	class Master_Addons_Creative_Links extends Widget_Base {
 
 		public function get_name() {
-			return 'ma-creative-buttons';
+			return 'ma-creative-links';
 		}
 
 		public function get_title() {
-			return esc_html__( 'MA Creative Buttons', MELA_TD );
+			return esc_html__( 'MA Creative Links', MELA_TD );
 		}
 
 		public function get_icon() {
-			return 'ma-el-icon eicon-button';
+			return 'ma-el-icon eicon-link';
 		}
 
 		public function get_categories() {

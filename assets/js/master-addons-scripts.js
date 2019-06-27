@@ -658,7 +658,40 @@
                 triggerOnce: true
             });
 
+        },
+
+
+
+        // Master Addons: Countdown Timer
+        CountdownTimer:function ($scope, $) {
+            var $countdownTimerWrapper = $scope.find('[data-countdown]').eq(0);
+
+            if (typeof $countdownTimerWrapper !== 'undefined' && $countdownTimerWrapper !== null) {
+                var $this = $countdownTimerWrapper,
+                    finalDate = $this.data('countdown'),
+                    day = $this.data('day'),
+                    hours = $this.data('hours'),
+                    minutes = $this.data('minutes'),
+                    seconds = $this.data('seconds');
+
+                $this.countdown(finalDate, function (event) {
+                    $(this).html(event.strftime(' ' +
+                        '<div class="ma-el-countdown-container"><span class="ma-el-countdown-count">%-D </span><span' +
+                        ' class="ma-el-countdown-title">' + day + '</span></div>' +
+                        '<div class="ma-el-countdown-container"><span class="ma-el-countdown-count">%H </span><span' +
+                        ' class="ma-el-countdown-title">' + hours + '</span></div>' +
+                        '<div class="ma-el-countdown-container"><span class="ma-el-countdown-count">%M </span><span' +
+                        ' class="ma-el-countdown-title">' + minutes + '</span></div>' +
+                        '<div class="ma-el-countdown-container"><span class="ma-el-countdown-count">%S </span><span' +
+                        ' class="ma-el-countdown-title">' + seconds + '</span></div>'));
+                }).on('finish.countdown', function (event) {
+                    $(this).html("<p class='message'>Hurrey! This is event day</p>");
+                });
+            }
+
+
         }
+
 
 
 };
@@ -675,6 +708,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-tabs.default', Master_Addons.MA_Tabs);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbar.default', Master_Addons.ProgressBar);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-team-members.default', Master_Addons.TeamSlider);
+        elementorFrontend.hooks.addAction('frontend/element_ready/ma-el-countdown-timer.default', Master_Addons.CountdownTimer);
 
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.AnimatedGradient);
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.BgSlider);

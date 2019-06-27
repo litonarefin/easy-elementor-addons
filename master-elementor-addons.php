@@ -74,8 +74,11 @@
 					'ma-piechart',
 					'ma-infobox',
 					'ma-flipbox',
+					'ma-cards',
+					'ma-counter-up',
+					'ma-countdown-timer',
 		//			'ma-business-hours',
-		//			'master-cards',
+
 		//			'countdown-timer',
 		//			'post-grid',
 		//			'post-timeline',
@@ -300,6 +303,8 @@
 				wp_enqueue_style( 'master-addons-editor', MELA_PLUGIN_URL . '/assets/css/master-addons-editor.css' );
 			}
 
+
+
 			/**
 			 * Enqueue Plugin Styles and Scripts
 			 *
@@ -356,6 +361,19 @@
 				if ( $is_activated_widget['ma-creative-buttons'] ) {
 					wp_enqueue_style( 'ma-creative-buttons', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons.css' );
 				}
+
+
+				//Creative Links
+				if ( $is_activated_widget['ma-creative-links'] ) {
+					wp_enqueue_style( 'ma-creative-links', MELA_PLUGIN_URL . '/assets/vendor/creative-links/creative-links.css' );
+				}
+
+
+				//Counter Up
+				if ( $is_activated_widget['ma-counter-up'] ) {
+					wp_register_script( 'ma-counter-up', MELA_PLUGIN_URL . '/assets/js/counterup.min.js' );
+				}
+
 
 				//Google Maps
 		//		if ( $is_activated_widget['google-maps'] ) {

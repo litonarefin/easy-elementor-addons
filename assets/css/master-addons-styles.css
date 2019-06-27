@@ -1728,8 +1728,6 @@
 /* Ninja Forms End */
 
 
-
-
 /* Caldera Forms Start */
 
 .ma-el-caldera-form .control-label {
@@ -1862,6 +1860,7 @@
 
 
 
+
 /* Creative Buttons */
 .ma-el-creative-button-align-center {
     text-align: center;
@@ -1939,6 +1938,316 @@
 **/
 .ma-el-section-bs{ position: absolute; width: 100%; height: 100%; top:0;}
 .ma-el-section-bs-inner{ width: 100%; height: 100% !important; }
+
+
+
+/* Master Addons: Card Style Start */
+
+.ma-el-card {
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 35px;
+}
+.ma-el-card-description {
+    font-size: 16px;
+    color: #8a8d91;
+    margin: 0 auto;
+}
+.ma-el-card-tag {
+    font-size: 15px;
+    color: #8a8d91;
+    margin: 10px 0 0 0;
+}
+
+.ma-el-card.one {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e5e5e5;
+    border-radius: 4px;
+    background-color: white;
+    position: relative;
+}
+
+.ma-el-card.one .ma-el-card-thumb {
+    border-radius: 4px 4px 0 0;
+}
+
+.ma-el-card.one .ma-el-card-thumb img {
+    width: 100%;
+    display: block;
+}
+
+.ma-el-card.one .ma-el-card-body {
+    padding: 30px 30px;
+}
+
+.ma-el-card.one .ma-el-card-body .ma-el-card-title {
+    display: block;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    color: #132c47;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    transition: all .4s ease;
+    line-height: 100%;
+}
+
+.ma-el-card.one .ma-el-card-body .ma-el-card-title::before {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 3px;
+    top: 0;
+    left: -30px;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: bottom center;
+    transform-origin: bottom center;
+    background: #ff4a4a;
+    transition: all .2s ease;
+}
+
+.ma-el-card.one .ma-el-card-body .ma-el-card-title:hover::before {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+}
+
+.ma-el-card.one .ma-el-card-body .ma-el-card-description {
+    margin: 20px 0;
+    font-size: 15px;
+    line-height: 26px;
+}
+
+.ma-el-card.one .ma-el-card-body .ma-el-card-action {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 118px;
+    -webkit-transform: translate(-50%, 50%);
+    transform: translate(-50%, 50%);
+    box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
+    background: #fff;
+    font-family: "Roboto", sans-serif;
+    padding: 15px 35px;
+    border-radius: 4px;
+    transition: all .4s ease;
+    color: #132c47;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.ma-el-card.one .ma-el-card-body .ma-el-card-action:hover {
+    background: #ff4a4a;
+    color: #fff;
+}
+
+.ma-el-card.two {
+    background-color: white;
+    box-shadow: 0px 15px 39px 0px rgba(9, 24, 33, 0.06);
+    border-radius: 4px;
+    position: relative;
+
+}
+
+.ma-el-card.two:hover .ma-el-card-body .ma-el-card-title {
+    margin-left: 30px;
+}
+
+.ma-el-card.two:hover .ma-el-card-body .ma-el-card-title::before {
+    opacity: 1;
+}
+
+.ma-el-card.two .ma-el-card-thumb img {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    display: block;
+}
+
+.ma-el-card.two .ma-el-card-body {
+    padding: 30px 30px;
+}
+
+.ma-el-card.two .ma-el-card-body .ma-el-card-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    color: #132c47;
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+    transition: all .3s ease;
+    display: block;
+}
+
+.ma-el-card.two .ma-el-card-body .ma-el-card-title::before {
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 20px;
+    background: #5031ef;
+    top: 50%;
+    left: -30px;
+    transform: translateY(-50%);
+    transition: all .3s ease;
+    opacity: 0;
+}
+
+.ma-el-card.two .ma-el-card-body .ma-el-card-tag {
+    font-size: 15px;
+    line-height: 26px;
+    margin-bottom: 15px;
+}
+
+.ma-el-card.two .ma-el-card-body .ma-el-card-action {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    right: 0;
+    height: 50px;
+    text-align: center;
+    line-height: 52px;
+    width: 50px;
+    -webkit-transform: translate(-50%, 50%);
+    transform: translate(-50%, 50%);
+    box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
+    background: #fff;
+    border-radius: 50%;
+    transition: all .4s ease;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    display: block;
+}
+
+.ma-el-card.two .ma-el-card-body .ma-el-card-action i {
+    color: #c6c6c6;
+    font-size: 22px;
+}
+
+.ma-el-card.two .ma-el-card-body .ma-el-card-action svg {
+    fill: #c6c6c6;
+}
+
+.ma-el-card.two .ma-el-card-body .ma-el-card-action:hover {
+    -webkit-transform: translate(-50%, 50%) scale(1.2);
+    transform: translate(-50%, 50%) scale(1.2);
+    background: #5031ef;
+}
+
+.ma-el-card.two .ma-el-card-body .ma-el-card-action:hover i {
+    color: #fff;
+}
+
+.ma-el-card.three {
+    position: relative;
+}
+
+.ma-el-card.three::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #ff4a4a;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: left center;
+    transform-origin: left center;
+    transition: all .2s ease;
+    z-index: 1;
+}
+
+.ma-el-card.three:hover::before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.ma-el-card.three:hover .ma-el-card-body .ma-el-card-tag {
+    margin-left: 30px;
+}
+
+.ma-el-card.three:hover .ma-el-card-body .ma-el-card-tag::before {
+    opacity: 1;
+}
+
+.ma-el-card.three .ma-el-card-thumb {
+    position: relative;
+}
+
+.ma-el-card.three .ma-el-card-thumb img {
+    width: 100%;
+}
+
+.ma-el-card.three .ma-el-card-thumb::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.99) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+.ma-el-card.three .ma-el-card-body .ma-el-card-description {
+    position: absolute;
+    bottom: 105px;
+    left: 40px;
+    font-size: 15px;
+}
+
+.ma-el-card.three .ma-el-card-body .ma-el-card-tag {
+    position: absolute;
+    bottom: 72px;
+    left: 40px;
+    font-size: 15px;
+    transition: all .2s ease;
+}
+
+.ma-el-card.three .ma-el-card-body .ma-el-card-tag::before {
+    content: '';
+    height: 2px;
+    width: 20px;
+    background: #ff4a4a;
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    transform: translateY(-50%);
+    opacity: 0;
+}
+
+.ma-el-card.three .ma-el-card-body .ma-el-card-title {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    display: block;
+}
+
+.ma-el-card.three .ma-el-card-body .ma-el-card-action {
+    position: absolute;
+    bottom: 40px;
+    right: 25px;
+    background: rgba(95, 90, 84, 0.7);
+    text-decoration: none;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    color: #fff;
+    padding: 14px 48px;
+    border-radius: 25px;
+    transition: all .3s ease;
+    display: block;
+}
+
+.ma-el-card.three .ma-el-card-body .ma-el-card-action:hover {
+    background: #ff4a4a;
+}
+
+/* Master Addons: Card Style End */
 
 
 
@@ -2239,6 +2548,394 @@
     background: rgba(255, 255, 255, 0.1); }
 
 /* Progressbars End */
+
+
+
+/* Master Addons: Countdown Timer Start */
+.ma-el-countdown-timer-area {
+    background-color: #724cff;
+}
+
+.ma-el-countdown-timer-area.transparent-version {
+    background-color: transparent;
+}
+
+.ma-el-countdown-timer-area.image-version {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.ma-el-countdown-description {
+    text-align: center;
+    margin-bottom: 90px;
+    position: relative;
+    z-index: 2;
+}
+
+.ma-el-countdown-description h2 {
+    font-size: 40px;
+    color: #0a1724;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    margin-bottom: 23px;
+    position: relative;
+}
+
+.ma-el-countdown-description p {
+    margin-bottom: 0;
+    padding: 0 300px;
+}
+
+.ma-el-countdown-description.style-1 {
+    color: #fff;
+}
+
+.ma-el-countdown-description.style-1 h2 {
+    color: #fff;
+}
+
+.ma-el-countdown-description.two {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.ma-el-countdown-description.two h2 {
+    padding-bottom: 23px;
+}
+
+.ma-el-countdown-description.two h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 143px;
+    box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
+    background: #ff704e;
+    background: linear-gradient(90deg, #ff704e 1%, #fb5d86 100%);
+}
+
+.ma-el-countdown-description.two p {
+    padding: 0;
+    color: #000;
+    padding-right: 120px;
+}
+
+.ma-el-countdown {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.ma-el-countdown.style-1 .ma-el-countdown-container {
+    background: #5031ef;
+    width: calc((100% / 4) - 23px);
+    padding: 17px 10px;
+    margin-right: 30px;
+    text-align: center;
+}
+
+.ma-el-countdown .ma-el-countdown-container:last-child {
+    margin-right: 0px;
+}
+
+.ma-el-countdown .ma-el-countdown-container > span {
+    display: block;
+    line-height: 1;
+}
+
+.ma-el-countdown .ma-el-countdown-count {
+    margin-bottom: 16px;
+}
+
+.ma-el-countdown.style-1 .ma-el-countdown-count,
+.ma-el-countdown.style-1 .ma-el-countdown-title {
+    color: #fff;
+}
+
+.ma-el-countdown.style-2 {
+    padding: 20px;
+}
+
+.ma-el-countdown.style-2 .ma-el-countdown-container {
+    background-color: transparent;
+    margin-right: 0px;
+    width: 25%;
+    padding: 0px;
+}
+
+.ma-el-countdown.style-2 .ma-el-countdown-container:last-child .ma-el-countdown-count::after {
+    display: none;
+}
+
+.ma-el-countdown.style-2 .ma-el-countdown-count {
+    position: relative;
+}
+
+.ma-el-countdown.style-2 .ma-el-countdown-count::after {
+    content: ":";
+    font-family: "Roboto", sans-serif;
+    font-size: 80px;
+    font-weight: 100;
+    position: absolute;
+    right: 0;
+    top: 0;
+    line-height: 70px;
+}
+
+.ma-el-countdown .ma-el-countdown-count {
+    font-family: "Roboto", sans-serif;
+    font-size: 80px;
+    color: #000;
+    text-align: center;
+}
+
+.ma-el-countdown .ma-el-countdown-title {
+    font-family: "Roboto", sans-serif;
+    color: #0a1724;
+    text-align: center;
+}
+
+.ma-el-countdown-content-container.gradient-version {
+    background: #ff876b;
+    background: linear-gradient(-120deg, #ff876b 1%, #ff7e9f 100%);
+    text-align: center;
+    position: relative;
+    padding-top: 104px;
+    padding-bottom: 74px;
+    padding-left: 55px;
+    padding-right: 55px;
+    color: #fff;
+}
+
+.ma-el-countdown-content-container.gradient-version .ma-el-countdown-description {
+    margin-bottom: 116px;
+}
+
+.ma-el-countdown-content-container.gradient-version .ma-el-countdown-description h2 {
+    font-size: 100px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.ma-el-countdown-content-container.gradient-version .ma-el-countdown-description h2 > sup,
+.ma-el-countdown-content-container.gradient-version .ma-el-countdown-description h2 > sub {
+    font-size: 30px;
+}
+
+.ma-el-countdown-content-container.gradient-version .ma-el-countdown-description h2 > sub {
+    bottom: -45px;
+    left: -30px;
+}
+
+.ma-el-countdown-content-container.gradient-version .ma-el-countdown-description h2 > sup {
+    vertical-align: top;
+    left: 42px;
+}
+
+.ma-el-countdown-content-container.gradient-version .ma-el-countdoen-watermark {
+    opacity: .1;
+    top: -51px;
+}
+
+.ma-el-countdown-content-container.gradient-version .ma-el-countdown-offer-limitation-title {
+    margin-bottom: 11px;
+}
+
+.ma-el-coundown-bg > svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ma-el-coundown-bg > svg > path {
+    fill: rgba(255, 255, 255, 0.078);
+}
+
+.ma-el-countdoen-watermark {
+    font-size: 200px;
+    color: inherit;
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    font-weight: 700;
+}
+
+.ma-el-countdown-offer-limitation-title {
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 38px;
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    z-index: 2;
+}
+
+.message {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.ma-el-countdown-banner {
+    padding: 194px 0;
+}
+
+.ma-el-countdown-banner .ma-el-countdown-description {
+    margin-bottom: 117px;
+}
+
+
+@media (max-width: 1200px) {
+    .ma-el-countdown-description p {
+        padding: 0 150px;
+    }
+    .ma-el-countdown-content-container.modern {
+        padding: 15px 15px;
+    }
+    .ma-el-countdown-content-container.image-version {
+        padding: 15px;
+    }
+    .ma-el-countdown-content-container.image-version .ma-el-countdown-description {
+        margin-bottom: 70px;
+    }
+    .ma-el-countdown-content-container.gradient-version {
+        padding-top: 78px;
+        padding-bottom: 34px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .ma-el-countdown-content-container.gradient-version .ma-el-countdown-description {
+        margin-bottom: 54px;
+    }
+    .ma-el-countdown-content-container.gradient-version .ma-el-countdown-description h2 {
+        font-size: 70px;
+    }
+    .ma-el-countdown.three .ma-el-countdown-container .ma-el-countdown-count, .ma-el-countdown.four .ma-el-countdown-container .ma-el-countdown-count {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 991px) {
+    .ma-el-countdown-description p {
+        padding: 0 20px;
+    }
+    .ma-el-countdown-description.two {
+        margin-bottom: 30px;
+    }
+    .ma-el-countdown.style-2 {
+        padding: 0px;
+    }
+    .ma-el-countdown-content-container.image-version {
+        margin-bottom: 30px;
+    }
+    .ma-el-coundown-bg > svg,
+    .ma-el-countdoen-watermark {
+        display: none;
+    }
+    .ma-el-countdown.style-3 .label {
+        margin-top: 0;
+        top: 0;
+        color: white;
+        z-index: 10;
+    }
+}
+
+@media (max-width: 767px) {
+    .ma-el-countdown .ma-el-countdown-container {
+        width: calc((100% / 2) - 20px);
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 20px;
+        padding: 23px 10px;
+    }
+    .ma-el-countdown .ma-el-countdown-container.gradient-version, .ma-el-countdown .ma-el-countdown-container.image-version, .ma-el-countdown .ma-el-countdown-container.modern {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .ma-el-countdown.style-2 .ma-el-countdown-count::after {
+        display: none;
+    }
+    .ma-el-countdown.style-2 .ma-el-countdown-container, .ma-el-countdown.three .ma-el-countdown-container, .ma-el-countdown.four .ma-el-countdown-container, .ma-el-countdown.five .ma-el-countdown-container {
+        width: calc((100% / 2) - 20px);
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .ma-el-countdown .ma-el-countdown-count {
+        font-family: "Roboto", sans-serif;
+        font-size: 40px;
+    }
+    .ma-el-countdown.style-3 .time {
+        margin-left: 0;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 400px) {
+    .ma-el-countdown-banner {
+        padding: 97px 0;
+    }
+    .ma-el-countdown-banner .ma-el-countdown-description {
+        margin-bottom: 58.5px;
+    }
+    .ma-el-countdown-description.two p {
+        padding-right: 0px;
+    }
+    .ma-el-countdown-content-container.gradient-version {
+        padding-top: 52px;
+        padding-bottom: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .ma-el-countdown-content-container.gradient-version .ma-el-countdown-description {
+        margin-bottom: 30px;
+    }
+    .ma-el-countdown-content-container.gradient-version .ma-el-countdown-description h2 {
+        font-size: 20px;
+    }
+    .ma-el-countdown-content-container.gradient-version .ma-el-countdown-description h2 > sup {
+        vertical-align: baseline;
+        left: 0;
+        top: 0;
+    }
+    .ma-el-countdown-content-container.gradient-version .ma-el-countdown-description h2 > sub {
+        bottom: 0;
+        left: 0;
+    }
+    .ma-el-countdown-content-container.gradient-version .ma-el-countdown-description h2 > sub,
+    .ma-el-countdown-content-container.gradient-version .ma-el-countdown-description h2 > sup {
+        font-size: inherit;
+    }
+    .ma-el-countdown-content-container.image-version {
+        padding: 15px;
+    }
+    .ma-el-countdown-content-container.image-version .ma-el-countdown-description {
+        margin-bottom: 30px;
+    }
+    .ma-el-countdown-content-container.image-version .ma-el-countdown-description p {
+        padding: 0px;
+    }
+    .ma-el-countdown-content-container.modern {
+        padding: 15px;
+    }
+}
+
+/* Master Addons: Countdown Timer End
+
+
 
 
 
