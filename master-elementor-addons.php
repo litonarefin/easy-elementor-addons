@@ -65,6 +65,7 @@
 					'ma-team-members-slider',
 					'contact-form-7',
 					'ninja-forms',
+					'gravity-forms',
 					'wpforms',
 					'caldera-forms',
 					'weforms',

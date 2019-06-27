@@ -22,7 +22,7 @@
 		}
 
 		public function get_icon() {
-			return 'ma-el-icon eicon-lock-user';
+			return 'ma-el-icon fa fa-envelope-o';
 		}
 
 		protected function _register_controls() {

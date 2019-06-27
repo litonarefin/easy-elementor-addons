@@ -100,7 +100,7 @@
 
 					foreach ( $contact_forms as $post ) {
 						if ( $i == 0 ) {
-							$options[0] = esc_html__( 'Select a Contact form', 'power-pack' );
+							$options[0] = esc_html__( 'Select a Contact form', MELA_TD );
 						}
 						$options[ $post->ID ] = $post->post_title;
 						$i++;
@@ -124,18 +124,18 @@
 			$options = array();
 
 			if (!empty($wpuf_form_list) && !is_wp_error($wpuf_form_list)) {
-				$options[0] = esc_html__('Select weForm', 'essential-addons-elementor');
+				$options[0] = esc_html__('Select weForm', MELA_TD);
 				foreach ($wpuf_form_list as $post) {
 					$options[$post->ID] = $post->post_title;
 				}
 			} else {
-				$options[0] = esc_html__('Create a Form First', 'essential-addons-elementor');
+				$options[0] = esc_html__('Create a Form First', MELA_TD);
 			}
 
 			return $options;
 		}
 
-		// Get all forms of Caldera plugin
+		// Get forms of Caldera plugin
 		public static function ma_el_get_caldera_forms() {
 			if ( class_exists( 'Caldera_Forms' ) ) {
 				$options = array();
@@ -148,7 +148,7 @@
 
 					foreach ( $contact_forms as $form ) {
 						if ( $i == 0 ) {
-							$options[0] = esc_html__( 'Select a Contact form', 'power-pack' );
+							$options[0] = esc_html__( 'Select a Contact form', MELA_TD );
 						}
 						$options[ $form['ID'] ] = $form['name'];
 						$i++;
@@ -160,6 +160,34 @@
 
 			return $options;
 		}
+
+
+		// Get forms of Gravity Forms plugin
+		public static function ma_el_get_gravity_forms() {
+			if ( class_exists( 'GFCommon' ) ) {
+				$options = array();
+
+				$contact_forms = RGFormsModel::get_forms( null, 'title' );
+
+				if ( ! empty( $contact_forms ) && ! is_wp_error( $contact_forms ) ) {
+
+					$i = 0;
+
+					foreach ( $contact_forms as $form ) {
+						if ( $i == 0 ) {
+							$options[0] = esc_html__( 'Select a Contact form', MELA_TD );
+						}
+						$options[ $form->id ] = $form->title;
+						$i++;
+					}
+				}
+			} else {
+				$options = array();
+			}
+
+			return $options;
+		}
+
 
 
 	}
