@@ -91,7 +91,7 @@
 				];
 
 				// search for pro version
-				$this->pro_enabled = apply_filters( 'maad_el/pro_enabled', false );
+				$this->pro_enabled = apply_filters( 'ma_el/pro_enabled', false );
 
 				$this->constants();
 				$this->maad_el_include_files();
