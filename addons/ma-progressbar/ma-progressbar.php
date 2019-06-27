@@ -23,7 +23,7 @@
 		}
 
 		public function get_script_depends() {
-			return [ 'elementor-waypoints', 'ma-el-progress-bar' ];
+			return [ 'elementor-waypoints', 'master-addons-progressbar' ];
 		}
 
 
@@ -63,7 +63,7 @@
 			$this->end_controls_section();
 
 //
-//			if(!apply_filters('maad_el/pro_enabled', false)) {
+//			if(!apply_filters('ma_el/pro_enabled', false)) {
 //
 //				$this->start_controls_section(
 //					'maad_el_section_pro',

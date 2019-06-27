@@ -4,7 +4,7 @@
  * Description: Master Addons is easy and must have Elementor Addons for WordPress Page Builder. Clean, Modern, Hand crafted designed Addons blocks.
  * Plugin URI: https://wordpress.org/plugins/master-addons
  * Author: Jewel Theme
- * Version: 1.0.1
+ * Version: 1.0.3
  * Author URI: https://twitter.com/Litonice11
  * Text Domain: mela
  * Domain Path: /languages
@@ -17,7 +17,7 @@
 	if( !class_exists('Master_Elementor_Addons') ){
 		final class Master_Elementor_Addons {
 
-			const VERSION = "1.0.0";
+			const VERSION = "1.0.3";
 
 			const MINIMUM_PHP_VERSION = '5.4';
 
@@ -54,36 +54,40 @@
 
 				self::$maad_el_default_widgets = [
 					'ma-headlines',
+					'ma-call-to-action',
 					'ma-dual-heading',
+					'ma-creative-links',
 					'ma-accordion',
 					'ma-tabs',
 					'ma-progressbar',
+					'ma-progressbars',
 					'ma-tooltip',
 					'ma-team-members',
 					'ma-team-members-slider',
-//					'ma-particles',
-		//			['contact-form-7','pro'],
 					'contact-form-7',
-//					'ninja-forms',
-		//			'ninja-forms',
+					'ninja-forms',
+					'gravity-forms',
+					'wpforms',
+					'caldera-forms',
+					'weforms',
+					'ma-creative-buttons',
+					'ma-piechart',
+					'ma-infobox',
+					'ma-flipbox',
+					'ma-cards',
+					'ma-counter-up',
+					'ma-countdown-timer',
 		//			'ma-business-hours',
-		//			'master-cards',
+
 		//			'countdown-timer',
-		//			'master-tabs',
-		//			'master-button',
 		//			'post-grid',
 		//			'post-timeline',
-		//			'team-member',
-		//			'team-carousel',
 		//			'testimonial-carousel',
-		//			'flipbox',
-		//			'infobox',
 		//			'pricing-table',
-		//			'master-heading',
-		//			'dual-heading',
 		//			'post-carousel',
 		//			'google-maps',
-		//			'tooltip'
+		//			'tooltip',
+		//			['contact-form-7','pro'],
 				];
 
 				self::$maad_el_default_form_widgets = [
@@ -91,7 +95,7 @@
 				];
 
 				// search for pro version
-				$this->pro_enabled = apply_filters( 'maad_el/pro_enabled', false );
+				$this->pro_enabled = apply_filters( 'ma_el/pro_enabled', false );
 
 				$this->constants();
 				$this->maad_el_include_files();
@@ -179,6 +183,10 @@
 
 				if ( ! defined( 'MELA_VERSION' ) ) {
 					define( 'MELA_VERSION', self::version() );
+				}
+
+				if ( ! defined( 'MA_EL_SCRIPT_SUFFIX' ) ) {
+					define( 'MA_EL_SCRIPT_SUFFIX', defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' );
 				}
 
 				if ( ! defined( 'MELA_BASE' ) ) {
@@ -295,6 +303,8 @@
 				wp_enqueue_style( 'master-addons-editor', MELA_PLUGIN_URL . '/assets/css/master-addons-editor.css' );
 			}
 
+
+
 			/**
 			 * Enqueue Plugin Styles and Scripts
 			 *
@@ -302,29 +312,68 @@
 			public function maad_el_enqueue_scripts() {
 
 				$is_activated_widget = $this->activated_widgets();
-				wp_enqueue_style( 'master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css' );
 
-				wp_enqueue_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', [ 'jquery' ], self::VERSION, true );
+				/*
+				 * Register Styles
+				 */
+
+				wp_register_style( 'master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css' );
+//				wp_register_script( 'animated-main', MELA_PLUGIN_URL . '/assets/js/animated-main'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), '1.0', true );
+
+
+
+
+				/*
+				 * Register Scripts
+				 */
+
+				wp_register_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', [ 'jquery' ], MELA_VERSION, true );
+
+				wp_register_script(
+					'jquery-stats',
+					MELA_PLUGIN_URL . '/assets/js/jquery.stats' . MA_EL_SCRIPT_SUFFIX . '.js',
+					[ 'jquery' ],
+					MELA_VERSION,
+					true
+				);
+
 
 
 				// Master Addons Dependencies
 				//Progressbar
 				if ( $is_activated_widget['ma-progressbar'] ) {
-					wp_enqueue_script( 'master-addons-progressbar', MELA_PLUGIN_URL . '/assets/js/loading-bar.js', [ 'jquery' ],
-						self::VERSION, true );
-					wp_enqueue_script( 'master-addons-waypoints', MELA_PLUGIN_URL . '/assets/js/jquery.waypoints.min.js', [ 'jquery' ], self::VERSION, true );
+					wp_enqueue_script( 'master-addons-progressbar', MELA_PLUGIN_URL . '/assets/js/loading-bar.js', [ 'jquery' ], MELA_VERSION, true );
+					wp_enqueue_script( 'master-addons-waypoints', MELA_PLUGIN_URL . '/assets/js/jquery.waypoints.js', [ 'jquery' ], MELA_VERSION, true );
 				}
 
 				//Team Members
 				if ( $is_activated_widget['ma-team-members'] ) {
-					wp_enqueue_script( 'master-addons-team-members', MELA_PLUGIN_URL . '/assets/vendor/owlcarousel/owl.carousel.min.js', [ 'jquery' ],
-						self::VERSION, true );
+					wp_enqueue_script( 'master-addons-team-members', MELA_PLUGIN_URL . '/assets/vendor/owlcarousel/owl.carousel.min.js', [ 'jquery' ], MELA_VERSION, true );
 				}
+
 
 				//Animated Headlines
 				if ( $is_activated_widget['ma-headlines'] ) {
 					wp_enqueue_style( 'master-addons-headlines', MELA_PLUGIN_URL . '/assets/css/headlines.css' );
 				}
+
+				//Creative Buttons
+				if ( $is_activated_widget['ma-creative-buttons'] ) {
+					wp_enqueue_style( 'ma-creative-buttons', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons.css' );
+				}
+
+
+				//Creative Links
+				if ( $is_activated_widget['ma-creative-links'] ) {
+					wp_enqueue_style( 'ma-creative-links', MELA_PLUGIN_URL . '/assets/vendor/creative-links/creative-links.css' );
+				}
+
+
+				//Counter Up
+				if ( $is_activated_widget['ma-counter-up'] ) {
+					wp_register_script( 'ma-counter-up', MELA_PLUGIN_URL . '/assets/js/counterup.min.js' );
+				}
+
 
 				//Google Maps
 		//		if ( $is_activated_widget['google-maps'] ) {
@@ -344,6 +393,25 @@
 		//				array( 'jquery' )
 		//				, self::VERSION, true );
 		//		}
+
+
+
+				/*
+				 * Enqueue Styles
+				 */
+				wp_enqueue_style('master-addons-main-style');
+
+
+				/*
+				 * Enqueue Scripts
+				 */
+				wp_enqueue_script('master-addons-scripts');
+
+				$localize_data = array(
+					'plugin_url' => MELA_PLUGIN_URL
+				);
+				wp_localize_script( 'master-addons-scripts', 'ma_el_editor', $localize_data );
+
 
 
 			}
@@ -428,6 +496,11 @@
 							MELA_TD ) . '</a>';
 				}
 
+				// go pro
+				if (!$this->pro_enabled) {
+					$links[] = sprintf('<a href="https://jeweltheme.com/shop/master-addons-elementor/" target="_blank" style="color: #39b54a; font-weight: bold;">' . __('Go Pro') . '</a>');
+				}
+
 				return $links;
 			}
 
@@ -446,6 +519,10 @@
 
 				//Utils
 				include_once MELA_PLUGIN_PATH . '/inc/classes/utils.php';
+
+				include_once MELA_PLUGIN_PATH . '/inc/modules/animated-gradient/animated-gradient.php';
+				include_once MELA_PLUGIN_PATH . '/inc/modules/particles/particles.php';
+				include_once MELA_PLUGIN_PATH . '/inc/modules/bg-slider/bg-slider.php';
 
 			}
 
@@ -494,7 +571,7 @@
 						return;
 					}
 						$activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
-						$message = __( 'Master Addons requires Elementor plugin to be active. Please activate Elementor to continue.', MELA_TD );
+						$message = __( 'Master Addons requires <b>Elementor plugin to be active. Please activate Elementor to continue.', MELA_TD );
 						$button_text = __( 'Activate Elementor', MELA_TD );
 
 					} else {
@@ -512,7 +589,7 @@
 
 				$button = '<p><a href="' . $activation_url . '" class="button-primary">' . $button_text . '</a></p>';
 
-				printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p>%2$s</div>', esc_html( $message ), $button );
+				printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p>%2$s</div>', $message , $button );
 
 			}
 

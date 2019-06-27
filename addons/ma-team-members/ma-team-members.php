@@ -193,7 +193,7 @@
 
 
 
-			if(!apply_filters('maad_el/pro_enabled', false)) {
+			if(!apply_filters('ma_el/pro_enabled', false)) {
 
 				$this->start_controls_section(
 					'maad_el_section_pro',
@@ -461,6 +461,7 @@
 
 
 		}
+
 		protected function render() {
 			$settings = $this->get_settings_for_display();
 			$team_member_image = $this->get_settings_for_display( 'ma_el_team_member_image' );
@@ -471,9 +472,11 @@
 				$team_member_image_url = $team_member_image_url_src[0];
 			}
 
-			?>
+			if(!apply_filters('ma_el/pro_enabled', true)) {
+			    echo "Pro Feature enabled";
+			}
 
-			<?php if( $settings['ma_el_team_members_preset'] == '-style6' ) { ?>
+			if( $settings['ma_el_team_members_preset'] == '-style6' ) { ?>
 
                 <div id="ma-el-team-member-slider" class="ma-el-team-member-slider owl-carousel owl-theme">
                     <div class="ma-el-member-container">
@@ -650,5 +653,4 @@
 
 	}
 
-	$team_members = new Master_Addons_Team_Members();
-	Plugin::instance()->widgets_manager->register_widget_type( $team_members );
+	Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Team_Members() );
