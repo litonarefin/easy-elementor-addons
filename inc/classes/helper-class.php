@@ -167,7 +167,7 @@
 			if ( class_exists( 'GFCommon' ) ) {
 				$options = array();
 
-				$contact_forms = RGFormsModel::get_forms( null, 'title' );
+				$contact_forms = \RGFormsModel::get_forms( null, 'title' );
 
 				if ( ! empty( $contact_forms ) && ! is_wp_error( $contact_forms ) ) {
 

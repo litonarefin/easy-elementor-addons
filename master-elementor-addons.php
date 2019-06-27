@@ -78,10 +78,7 @@
 		//			'countdown-timer',
 		//			'post-grid',
 		//			'post-timeline',
-		//			'team-member',
-		//			'team-carousel',
 		//			'testimonial-carousel',
-
 		//			'pricing-table',
 		//			'post-carousel',
 		//			'google-maps',
