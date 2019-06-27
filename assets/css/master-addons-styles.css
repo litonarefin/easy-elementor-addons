@@ -2631,7 +2631,8 @@
 }
 
 .ma-el-countdown.style-1 .ma-el-countdown-container {
-    background: #5031ef;
+    background: #5031ef
+;
     width: calc((100% / 4) - 23px);
     padding: 17px 10px;
     margin-right: 30px;

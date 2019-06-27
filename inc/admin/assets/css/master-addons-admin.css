@@ -656,3 +656,13 @@ pre {
     width: 100%;
     padding-left: 10px;
 }
+
+
+/*
+ Freemius Styles
+ */
+display: block !important;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 111;
