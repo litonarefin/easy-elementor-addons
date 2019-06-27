@@ -317,6 +317,7 @@
         },
 
 
+
         // Master Addons: Tabs
 
         MA_Tabs:function($scope, $) {
