@@ -56,6 +56,7 @@
 					'ma-headlines',
 					'ma-call-to-action',
 					'ma-dual-heading',
+					'ma-creative-links',
 					'ma-accordion',
 					'ma-tabs',
 					'ma-progressbar',
@@ -552,7 +553,7 @@
 						return;
 					}
 						$activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
-						$message = __( 'Master Addons requires Elementor plugin to be active. Please activate Elementor to continue.', MELA_TD );
+						$message = __( 'Master Addons requires <b>Elementor plugin to be active. Please activate Elementor to continue.', MELA_TD );
 						$button_text = __( 'Activate Elementor', MELA_TD );
 
 					} else {
@@ -570,7 +571,7 @@
 
 				$button = '<p><a href="' . $activation_url . '" class="button-primary">' . $button_text . '</a></p>';
 
-				printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p>%2$s</div>', esc_html( $message ), $button );
+				printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p>%2$s</div>', $message , $button );
 
 			}
 

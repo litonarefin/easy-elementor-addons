@@ -77,20 +77,33 @@ Yes of course it's competable with any WordPress Theme.
 8. Master Addons Team Members Slider
 9. Master Addons Contact Form 7
 
+
+== Installation ==
+1. Upload the Downloaded "master-addons.zip" Folder to the `/wp-content/plugins/` directory
+2. Or, UNZIP "master-addons.zip" folder and Upload master-addons on "wp-content/plugins/" folder via FTP or Copy and
+Paste on your Local Computer
+3. Activate the "Master Addons for Elementor" Plugin through the 'Plugins' menu in WordPress
+
+
+
+
 == Changelog ==
 
  = 1.0.3 (26-6-19) =
- * [added] Ninja Forms Added with unlimited customization possibilities
- * [added] Caldera Forms Added
- * [added] WP Forms Added
- * [added] weForms Added
- * [added] Call to Action Elementor Element / Widget added
- * [added] Creative Buttons Added
- * [added] Section Particles Added: BG Slider, Animated Background etc
+ * Fixed: Cleanup Unnecessary Codes
+ * Fixed: Free and Pro Creative Buttons CSS fixed
+ * Fixed: Dependencies and Checked Free and Pro Version Apply Filter.
+ * Added: Ninja Forms Added with unlimited customization possibilities
+ * Added: Caldera Forms Added
+ * Added: WP Forms Added
+ * Added: weForms Added
+ * Added: Call to Action Elementor Element / Widget added
+ * Added: Creative Buttons Added
+ * Added: Section Particles Added: BG Slider, Animated Background etc
 
  = 1.0.2 (24-6-19) =
- * [fix] Advanced Accordion JS issue fixed
- * [fix] Animated Heading CSS issue fixed
+ * Fixed: Advanced Accordion JS issue fixed
+ * Fixed: Animated Heading CSS issue fixed
 
  = 1.0.1 =
  * Version Bump
