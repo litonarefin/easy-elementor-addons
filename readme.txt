@@ -90,6 +90,7 @@ Paste on your Local Computer
 == Changelog ==
 
  = 1.0.3 (26-6-19) =
+ * Added: Added Dashboard News feed for Master Addons
  * Fixed: Cleanup Unnecessary Codes
  * Fixed: Free and Pro Creative Buttons CSS fixed
  * Fixed: Dependencies and Checked Free and Pro Version Apply Filter.
