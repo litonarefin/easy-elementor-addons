@@ -12,7 +12,7 @@
 	if( !class_exists('Master_Elementor_Addons') ){
 		final class Master_Elementor_Addons {
 
-			const VERSION = "1.0.3";
+			const VERSION = "1.0.4";
 
 			const MINIMUM_PHP_VERSION = '5.4';
 
@@ -72,17 +72,18 @@
 					'ma-cards',
 					'ma-counter-up',
 					'ma-countdown-timer',
-					//			'ma-business-hours',
 
-					//			'countdown-timer',
-					//			'post-grid',
-					//			'post-timeline',
-					//			'testimonial-carousel',
-					//			'pricing-table',
-					//			'post-carousel',
-					//			'google-maps',
-					//			'tooltip',
-					//			['contact-form-7','pro'],
+					//			'ma-image-comparison',
+		//			'ma-business-hours',
+		//			'countdown-timer',
+		//			'post-grid',
+		//			'post-timeline',
+		//			'testimonial-carousel',
+		//			'pricing-table',
+		//			'post-carousel',
+		//			'google-maps',
+		//			'tooltip',
+		//			['contact-form-7','pro'],
 				];
 
 				self::$maad_el_default_form_widgets = [
