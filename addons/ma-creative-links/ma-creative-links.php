@@ -37,6 +37,8 @@
 		protected function _register_controls() {
 
 		}
+
+		protected function render() {}
 	}
 
 	Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Creative_Links() );
