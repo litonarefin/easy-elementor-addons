@@ -157,6 +157,13 @@
 						'three' => esc_html__( 'Style 3', MELA_TD ),
 						'four' => esc_html__( 'Style 4', MELA_TD ),
 						'five' => esc_html__( 'Style 5', MELA_TD ),
+						'six' => esc_html__( 'Style 6', MELA_TD ),
+						'seven' => esc_html__( 'Style 7', MELA_TD ),
+						'eight' => esc_html__( 'Style 8', MELA_TD ),
+						'nine' => esc_html__( 'Style 9', MELA_TD ),
+						'ten' => esc_html__( 'Style 10', MELA_TD ),
+						'eleven' => esc_html__( 'Style 11', MELA_TD ),
+						'twelve' => esc_html__( 'Style 12', MELA_TD ),
 					],
 				]
 			);
@@ -276,62 +283,78 @@
 
 			?>
 
-			<div id="ma-el-infobox-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-infobox <?php echo esc_attr
+            <div id="ma-el-infobox-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-infobox <?php echo esc_attr
 			($settings['ma_el_infobox_preset']); ?>">
-				<div class="ma-el-infobox-item">
+                <div class="ma-el-infobox-item">
 
 					<?php if( $settings['ma_el_infobox_img_or_icon'] != 'none' ) : ?>
-						<div class="ma-el-infobox-icon">
+                        <div class="ma-el-infobox-icon">
+                            <div class="inner-content">
 
-							<?php if( 'icon' == $settings['ma_el_infobox_img_or_icon'] ) : ?>
-								<i class="<?php echo esc_attr( $settings['ma_el_infobox_icon'] ); ?>"></i>
-							<?php endif; ?>
+								<?php if( 'icon' == $settings['ma_el_infobox_img_or_icon'] ) : ?>
+                                    <i class="<?php echo esc_attr( $settings['ma_el_infobox_icon'] ); ?>"></i>
+								<?php endif; ?>
 
-							<?php if( 'img' == $settings['ma_el_infobox_img_or_icon'] ) : ?>
-								<img src="<?php echo esc_url( $infobox_image_url ); ?>" alt="Icon Image">
-							<?php endif; ?>
+								<?php if( 'img' == $settings['ma_el_infobox_img_or_icon'] ) : ?>
+                                    <img src="<?php echo esc_url( $infobox_image_url ); ?>" alt="Icon Image">
+								<?php endif; ?>
 
-						</div>
+								<?php if($settings['ma_el_infobox_preset']=="ten"){ ?>
+                                    <h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+								<?php }?>
+                            </div><!-- /.inner-content -->
+                        </div>
 					<?php endif; ?>
 
-					<div class="ma-el-infobox-content">
-						<h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
-						<p class="ma-el-infobox-content-description">
-							<?php echo $settings['ma_el_infobox_description']; ?>
-						</p>
-					</div>
-				</div>
-			</div>
+                    <div class="ma-el-infobox-content">
+                        <div class="inner-content">
+							<?php if($settings['ma_el_infobox_preset']!=="ten"){ ?>
+                                <h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+							<?php }?>
+                            <p class="ma-el-infobox-content-description">
+								<?php echo $settings['ma_el_infobox_description']; ?>
+                            </p>
+                        </div><!-- /.inner-content -->
+                    </div>
+                </div>
+            </div>
 
 			<?php
 		}
 
 		protected function _content_template() { ?>
 
-			<div id="ma-el-infobox" class="ma-el-infobox {{ settings.ma_el_infobox_preset }}">
-				<div class="ma-el-infobox-item">
+            <div id="ma-el-infobox" class="ma-el-infobox {{ settings.ma_el_infobox_preset }}">
+                <div class="ma-el-infobox-item">
 
-					<# if( settings.ma_el_infobox_img_or_icon != 'none') { #>
-						<div class="ma-el-infobox-icon">
+                    <# if( settings.ma_el_infobox_img_or_icon != 'none') { #>
+                    <div class="ma-el-infobox-icon">
 
-							<# if( 'icon' == settings.ma_el_infobox_img_or_icon ) { #>
-							<i class="{{{ settings.ma_el_infobox_icon }}}"></i>
-							<# } #>
+                        <# if( 'icon' == settings.ma_el_infobox_img_or_icon ) { #>
+                        <i class="{{{ settings.ma_el_infobox_icon }}}"></i>
+                        <# } #>
 
-							<# if( 'img' == settings.ma_el_infobox_img_or_icon ) { #>
-							<img src="{{{ settings.ma_el_infobox_image.url }}}" alt="Icon Image">
-							<# } #>
+                        <# if( 'img' == settings.ma_el_infobox_img_or_icon ) { #>
+                        <img src="{{{ settings.ma_el_infobox_image.url }}}" alt="Icon Image">
+                        <# } #>
 
-						</div>
-					<# } #>
+                        <# if( 'ten' == settings.ma_el_infobox_preset ) { #>
+                            <h3 class="ma-el-infobox-content-title">{{{ settings.ma_el_infobox_title }}}</h3>
+                        <# } #>
 
-					<div class="ma-el-infobox-content">
-						<h3 class="ma-el-infobox-content-title">{{{ settings.ma_el_infobox_title }}}</h3>
-						<p class="ma-el-infobox-content-description">{{{ settings.ma_el_infobox_description }}}
-						</p>
-					</div>
-				</div>
-			</div>
+
+                    </div>
+                    <# } #>
+
+                    <div class="ma-el-infobox-content">
+                        <# if( 'ten' !== settings.ma_el_infobox_preset ) { #>
+                            <h3 class="ma-el-infobox-content-title">{{{ settings.ma_el_infobox_title }}}</h3>
+                        <# } #>
+                        <p class="ma-el-infobox-content-description">{{{ settings.ma_el_infobox_description }}}
+                        </p>
+                    </div>
+                </div>
+            </div>
 			<?php
 		}
 	}
