@@ -19,7 +19,7 @@ class Master_Addons_Admin_Settings{
 
 
 	public function __construct() {
-		add_action( 'admin_menu', [ $this, 'master_addons_admin_menu' ], 206 );
+		add_action( 'admin_menu', [ $this, 'master_addons_admin_menu' ],  '', 10);
 		add_action( 'admin_enqueue_scripts', [ $this, 'master_addons_el_admin_scripts' ] );
 		add_action( 'wp_ajax_master_addons_save_elements_settings', [ $this, 'master_addons_save_elements_settings' ] );
 		add_action( 'wp_ajax_nopriv_master_addons_save_elements_settings', [ $this, 'master_addons_save_elements_settings' ] );
@@ -42,7 +42,8 @@ class Master_Addons_Admin_Settings{
 			'manage_options',
 			'master-addons-settings',
 			[ $this, 'master_addons_el_page_content' ],
-			plugins_url( 'master-addons/assets/images/icon.png' )
+			plugins_url( 'master-addons/assets/images/icon.png' ),
+			59
 		);
 
 	}
