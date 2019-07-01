@@ -88,8 +88,12 @@ Paste on your Local Computer
 
 
 == Changelog ==
+ = 1.0.4 (1-7-2019) =
+ * Fixed: Move Master Addons Main menu from Sub Menu
+ * Added: Info Service Icons
 
- = 1.0.3 (26-6-19) =
+
+ = 1.0.3 (26-6-2019) =
  * Fixed: Ninja Forms not found issue fixed
  * Added: Added Dashboard News feed for Master Addons
  * Fixed: Cleanup Unnecessary Codes
@@ -103,12 +107,12 @@ Paste on your Local Computer
  * Added: Creative Buttons Added
  * Added: Section Particles Added: BG Slider, Animated Background etc
 
- = 1.0.2 (24-6-19) =
+ = 1.0.2 (24-6-2019) =
  * Fixed: Advanced Accordion JS issue fixed
  * Fixed: Animated Heading CSS issue fixed
 
  = 1.0.1 =
  * Version Bump
 
- = 1.0.0 =
+ = 1.0.0 (17-6-2019)=
  * Initial Release

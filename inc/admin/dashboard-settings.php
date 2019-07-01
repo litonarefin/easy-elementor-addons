@@ -9,6 +9,8 @@
 
 class Master_Addons_Admin_Settings{
 
+	public $menu_title;
+
 	private $maad_el_default_settings;
 
 	private $maad_el_settings;
@@ -17,22 +19,30 @@ class Master_Addons_Admin_Settings{
 
 
 	public function __construct() {
-		add_action( 'admin_menu', [ $this, 'master_addons_admin_menu' ], 590 );
+		add_action( 'admin_menu', [ $this, 'master_addons_admin_menu' ], 206 );
 		add_action( 'admin_enqueue_scripts', [ $this, 'master_addons_el_admin_scripts' ] );
 		add_action( 'wp_ajax_master_addons_save_elements_settings', [ $this, 'master_addons_save_elements_settings' ] );
 		add_action( 'wp_ajax_nopriv_master_addons_save_elements_settings', [ $this, 'master_addons_save_elements_settings' ] );
 	}
 
+	public function get_menu_title() {
+		return ( $this->menu_title ) ? $this->menu_title : $this->get_page_title();
+	}
+
+	protected function get_page_title() {
+		return __( 'Master Addons', MELA_TD );
+	}
 
 	public function master_addons_admin_menu(){
 
-		add_submenu_page(
-			'elementor',
+		add_menu_page(
 			esc_html__( 'Master Addons for Elementor', MELA_TD ), // Page Title
 			esc_html__( 'Master Addons', MELA_TD ),    // Menu Title
 //			'<span class="dashicons dashicons-admin-page" style="font-size: 18px"></span> ' . esc_html__( 'Master Addons', MELA_TD ),
-			'manage_options', 'master-addons-settings',
-			[ $this, 'master_addons_el_page_content' ]
+			'manage_options',
+			'master-addons-settings',
+			[ $this, 'master_addons_el_page_content' ],
+			plugins_url( 'master-addons/assets/images/icon.png' )
 		);
 
 	}
@@ -42,7 +52,6 @@ class Master_Addons_Admin_Settings{
 
 		wp_enqueue_style( 'master-addons-notice', MELA_ADMIN_ASSETS . 'css/master-addons-notice.css' );
 
-		if( isset( $hook ) && $hook == 'elementor_page_master-addons-settings' ) {
 			wp_enqueue_style( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'css/master-addons-admin.css' );
 			wp_enqueue_style( 'master-addons-sweetalert2', MELA_ADMIN_ASSETS .'css/sweetalert2.min.css');
 			wp_enqueue_style( 'master-addons-el-switch', MELA_ADMIN_ASSETS .'css/switch.css');
@@ -57,8 +66,6 @@ class Master_Addons_Admin_Settings{
 
 			//Accordion
 			wp_enqueue_script( 'jquery-ui-accordion' );
-
-		}
 
 
 	}
