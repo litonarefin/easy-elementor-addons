@@ -90,9 +90,11 @@ Paste on your Local Computer
 == Changelog ==
  = 1.0.4 (1-7-2019) =
  * Fixed: Move Master Addons Main menu from Sub Menu
+ * Fixed: Menu Position Changed just under "Elementor" and "Templates" Menu
  * Added: Info Service Icons
  * Fixed: BG Slider swiper.min.css file not found issue
  * Fixed: Creative Links Conflict with website Nav Class/ID's
+ * Fixed: Admin Docs content typo fixed
 
 
  = 1.0.3 (26-6-2019) =
