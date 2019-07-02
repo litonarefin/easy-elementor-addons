@@ -21,7 +21,7 @@
 }
 .master_addons .wrap.about-wrap .master_addons_contents{
     display:flex;
-    padding: 30px;
+    padding: 0 30px;
 }
 .master_addons header,
 .master_addons .wp-tab-bar {
@@ -644,10 +644,10 @@ pre {
 
 .master-addons-el-dashboard-header-right{
     text-align: right;
+    right: 35px;
     padding-right: 26px;
-    margin-top: -45px;
-    position: relative;
-    margin-bottom: 30px;
+    margin-top: -20px;
+    position: absolute;
 }
 #addons .sub-heading{
     padding-left:10px;
@@ -661,8 +661,10 @@ pre {
 /*
  Freemius Styles
  */
-display: block !important;
-position: absolute;
-top: 0;
-left: 0;
-z-index: 111;
+div.fs-notice.updated, div.fs-notice.success, div.fs-notice.promotion {
+    display: block !important;
+    position: absolute;
+    top: 11%;
+    left: 0;
+    right: 10px;
+}

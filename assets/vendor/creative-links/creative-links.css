@@ -7,7 +7,7 @@
 }
 
 
-nav a {
+#ma-el-creative links nav a {
     position: relative;
     display: inline-block;
     margin: 15px 25px;
@@ -21,8 +21,8 @@ nav a {
     font-size: 1.35em;
 }
 
-nav a:hover,
-nav a:focus {
+#ma-el-creative links nav a:hover,
+#ma-el-creative links nav a:focus {
     outline: none;
 }
 

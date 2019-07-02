@@ -27,7 +27,7 @@
 		}
 
 		public function get_icon() {
-			return 'ma-el-icon eicon-link';
+			return 'ma-el-icon eicon-editor-external-link';
 		}
 
 		public function get_categories() {

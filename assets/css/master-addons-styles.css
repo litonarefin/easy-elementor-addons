@@ -2253,6 +2253,10 @@
 
 /* MA InfoBox Start */
 
+.ma-el-infobox-item {
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
 .ma-el-infobox.one .ma-el-infobox-item {
     padding: 30px 0 0 0;
     text-align: center;
@@ -2353,7 +2357,7 @@
     height: 80px;
     width: 80px;
     border-radius: 6px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     background-color: #ff8672;
     border: 1px solid transparent;
     transition: all .3s ease;
@@ -2374,25 +2378,23 @@
     padding: 30px;
     border-radius: 4px;
 }
-
 .ma-el-infobox.three .ma-el-infobox-item .ma-el-infobox-icon {
-    margin-bottom: 60px;
+    border-radius: 50%;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);
+    height: 90px;
+    width: 90px;
+    line-height: 90px;
+    margin: 0 auto 20px;
     font-size: 50px;
 }
-
 .ma-el-infobox.three .ma-el-infobox-item .ma-el-infobox-icon i {
     transition: all .3s ease;
     /* color: rgba(255, 255, 255, 0.5); */
     opacity: 0.5;
 }
-
 .ma-el-infobox.three .ma-el-infobox-item .ma-el-infobox-icon img {
     height: 45px;
     width: 45px;
-}
-
-.ma-el-infobox.three .ma-el-infobox-item:hover .ma-el-infobox-icon {
-    color: #fff;
 }
 .ma-el-infobox.three .ma-el-infobox-item:hover .ma-el-infobox-icon i{
     opacity: 1;
@@ -2401,6 +2403,7 @@
 .ma-el-infobox.four .ma-el-infobox-item {
     display: flex;
     align-items: center;
+    padding: 1.5em;
     transition: .3s ease;
 }
 
@@ -2500,6 +2503,231 @@
 .ma-el-infobox.five .ma-el-infobox-item:hover .ma-el-infobox-icon i {
     color: #8774ff;
 }
+
+.ma-el-infobox.six .ma-el-infobox-icon {
+    background-color: #4b00e7;
+    border-top-left-radius: 5px;
+    color: #fff;
+    display: inline-block;
+    padding: .5em 1.25em;
+}
+.ma-el-infobox.six .ma-el-infobox-content {
+    padding: 1.5em;
+}
+
+
+.ma-el-infobox.seven .ma-el-infobox-item {
+    padding: 1.5em;
+    text-align: center;
+    transition: all .25s ease;
+}
+.ma-el-infobox.seven .ma-el-infobox-item:hover {
+    background-image: -moz-linear-gradient( 90deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+}
+.ma-el-infobox.seven .ma-el-infobox-icon {
+    background-color: #4b00e7;
+    border-radius: 50%;
+    color: #fff;
+    display: inline-block;
+    height: 90px;
+    line-height: 90px;
+    margin-bottom: .75em;
+    width: 90px;
+}
+.ma-el-infobox.seven .ma-el-infobox-item:hover .ma-el-infobox-content-title,
+.ma-el-infobox.seven .ma-el-infobox-item:hover p {
+    color: #fff;
+}
+
+.ma-el-infobox.eight .ma-el-infobox-item {
+    display: table;
+    padding: 1.5em;
+
+    transition: all .25s ease;
+}
+.ma-el-infobox.eight .ma-el-infobox-item:hover {
+    background-color: #4b00e7;
+}
+.ma-el-infobox.eight .ma-el-infobox-icon {
+    background: #4b00e7;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    height: 45px;
+    width: 90px;
+    margin: 1em 1em 1em 0;
+    position: relative;
+    text-align: center;
+    transition: all .25s ease;
+}
+.ma-el-infobox.eight .ma-el-infobox-item:hover  .ma-el-infobox-icon {
+    background-color: #fff;
+    color: #4b00e7;
+}
+.ma-el-infobox.eight .ma-el-infobox-item:hover .ma-el-infobox-content-title,
+.ma-el-infobox.eight .ma-el-infobox-item:hover p {
+    color:  #fff;
+}
+.ma-el-infobox.eight .ma-el-infobox-icon:before,
+.ma-el-infobox.eight .ma-el-infobox-icon:after {
+    content: '';
+    left: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+    transition: all .25s ease;
+}
+.ma-el-infobox.eight .ma-el-infobox-icon:before {
+    top: -25px;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 25px solid #4b00e7;
+}
+.ma-el-infobox.eight .ma-el-infobox-icon:after {
+    bottom: -25px;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 25px solid #4b00e7;
+}
+.ma-el-infobox.eight .ma-el-infobox-content {
+    display: table-cell;
+    vertical-align: middle
+}
+.ma-el-infobox.eight .ma-el-infobox-item:hover .ma-el-infobox-icon:before {
+    border-bottom-color: #fff;
+}
+.ma-el-infobox.eight .ma-el-infobox-item:hover .ma-el-infobox-icon:after {
+    border-top-color: #fff;
+}
+
+.ma-el-infobox.nine .ma-el-infobox-item {
+    padding: 1.5em;
+    text-align: center;
+}
+.ma-el-infobox.nine .ma-el-infobox-icon {
+    background-image: -webkit-linear-gradient(bottom left, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+    background-image: -o-linear-gradient(bottom left, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+    background-image: linear-gradient(to top right, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+    border-radius: 5px;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    height: 90px;
+    line-height: 90px;
+    width: 90px;
+    margin: 0 auto 1em;
+}
+
+
+.ma-el-infobox.ten .ma-el-infobox-item {
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    padding: 1em;
+}
+div[class*="col"]:nth-child(1) .ma-el-infobox.ten .ma-el-infobox-item {
+    background-image: -moz-linear-gradient( 45deg, rgb(61,159,243) 0%, rgb(63,213,204) 100%);
+    background-image: -webkit-linear-gradient( 45deg, rgb(61,159,243) 0%, rgb(63,213,204) 100%);
+    background-image: -ms-linear-gradient( 45deg, rgb(61,159,243) 0%, rgb(63,213,204) 100%);
+}
+div[class*="col"]:nth-child(2) .ma-el-infobox.ten .ma-el-infobox-item {
+    background-image: -moz-linear-gradient( 45deg, rgb(100,61,243) 0%, rgb(155,63,213) 100%);
+    background-image: -webkit-linear-gradient( 45deg, rgb(100,61,243) 0%, rgb(155,63,213) 100%);
+    background-image: -ms-linear-gradient( 45deg, rgb(100,61,243) 0%, rgb(155,63,213) 100%);
+}
+div[class*="col"]:nth-child(3) .ma-el-infobox.ten .ma-el-infobox-item {
+    background-image: -moz-linear-gradient( 45deg, rgb(243,61,130) 0%, rgb(213,180,63) 100%);
+    background-image: -webkit-linear-gradient( 45deg, rgb(243,61,130) 0%, rgb(213,180,63) 100%);
+    background-image: -ms-linear-gradient( 45deg, rgb(243,61,130) 0%, rgb(213,180,63) 100%);
+}
+.ma-el-infobox.ten .ma-el-infobox-icon {
+    display: table;
+}
+.ma-el-infobox.ten .ma-el-infobox-icon i {
+    margin-right: 10px;
+}
+.ma-el-infobox.ten .ma-el-infobox-content-title {
+    display: table-cell;
+}
+.ma-el-infobox.ten .ma-el-infobox-content {
+    display: inline-block;
+    width: 100%;
+}
+
+
+.ma-el-infobox.eleven .ma-el-infobox-item {
+    padding: 1em;
+    text-align: center;
+}
+.ma-el-infobox.eleven .ma-el-infobox-icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: #fff;
+    height: 145px;
+    line-height: 145px;
+    margin-bottom: 1em;
+}
+div[class*="col"]:nth-child(1) .ma-el-infobox.eleven .ma-el-infobox-icon {
+    background-image: url(.././images/1.png);
+}
+div[class*="col"]:nth-child(2) .ma-el-infobox.eleven .ma-el-infobox-icon {
+    background-image: url(.././images/2.png);
+}
+div[class*="col"]:nth-child(3) .ma-el-infobox.eleven .ma-el-infobox-icon {
+    background-image: url(.././images/3.png);
+}
+
+.ma-el-infobox.twelve .ma-el-infobox-item {
+    border:  1px solid #e2e7ea;
+    padding: 15px;
+    text-align: center;
+}
+.ma-el-infobox.twelve .ma-el-infobox-icon {
+    background: #fff;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    border-top-color: #e2e7ea;
+    border-bottom-color: #e2e7ea;
+    height: 100px;
+    width: 65px;
+    margin: -65px auto 0;
+    position: relative;
+
+    transform: rotate(30deg);
+}
+.ma-el-infobox.twelve .ma-el-infobox-icon:before,
+.ma-el-infobox.twelve .ma-el-infobox-icon:after {
+    content: "";
+    border: inherit;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    background: inherit;
+    border-radius: inherit;
+    height: 100%;
+    width: 100%;
+    box-sizing: content-box;
+}
+.ma-el-infobox.twelve .ma-el-infobox-icon:before {
+    transform: rotate(60deg);
+}
+.ma-el-infobox.twelve .ma-el-infobox-icon:after {
+    transform: rotate(-60deg);
+}
+.ma-el-infobox.twelve .ma-el-infobox-icon i {
+    height: 100%;
+    width: 100%;
+    line-height: 100px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 1;
+
+    transform: rotate(-30deg);
+}
+
+
 
 /* MA InfoBox End */
 
@@ -2631,8 +2859,7 @@
 }
 
 .ma-el-countdown.style-1 .ma-el-countdown-container {
-    background: #5031ef
-;
+    background: #5031ef;
     width: calc((100% / 4) - 23px);
     padding: 17px 10px;
     margin-right: 30px;

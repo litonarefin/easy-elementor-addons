@@ -103,11 +103,12 @@
                             </div>
 
                             <h3>
-								<?php echo esc_html__('I need Custom Blocks, can you Customize or Create for me?', MELA_TD);?>
+								<?php echo esc_html__('If I need Custom Elements/Widgets, do you Provide Customization Service?',
+                                    MELA_TD);?>
                             </h3>
                             <div>
                                 <p>
-									<?php echo esc_html__('We don\'t provide Customization Support for Free Products. But, If you need to Create one we do Offer Customization Service.', MELA_TD);?>
+									<?php echo esc_html__('Yes, We provide Paid Customization Support for our Free Products. If you need to Create one we do Offer Customization Service.', MELA_TD);?>
                                     <a href="https://jeweltheme.com/order-service/" target="_blank">
 										<?php echo esc_html__('Order Service', MELA_TD);?>
                                     </a>
@@ -120,7 +121,8 @@
                 </div>
 
                 <div class="right_column">
-                    <img class="tab-banner" src="<?php echo MELA_PLUGIN_URL .'/assets/images/docs.png';?>" alt="Master Addons for Elementor page builder">
+                    <img class="tab-banner" src="<?php echo MELA_PLUGIN_URL .'/assets/images/docs.png';?>"
+                         alt="Master Addons for Elementor Page Builder">
                 </div>
             </div>
         </div>

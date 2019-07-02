@@ -2,7 +2,7 @@
 	<div class="master_addons_features">
 
 		<h3 class="black sub-heading">
-			<?php _e( 'Active/Deactivate elements for better Performance', MELA_TD ); ?>
+			<?php //_e( 'Active/Deactivate elements for better Performance', MELA_TD ); ?>
 		</h3>
 
 

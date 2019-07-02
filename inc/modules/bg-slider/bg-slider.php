@@ -37,7 +37,7 @@ class EAE_Bg_Slider {
             MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas'. MA_EL_SCRIPT_SUFFIX.'.css'
         );
 		wp_enqueue_style( 'ma-el-swiper-style',
-            MELA_PLUGIN_URL . '/assets/vendor/swiper/swiper'.MA_EL_SCRIPT_SUFFIX.'.css'
+            MELA_PLUGIN_URL . '/assets/vendor/swiper/css/swiper'.MA_EL_SCRIPT_SUFFIX.'.css'
         );
 
 
