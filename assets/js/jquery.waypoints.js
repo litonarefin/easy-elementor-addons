@@ -624,9 +624,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
     Waypoint.Adapter = JQueryAdapter
 }())
 ;(function() {
-    'use strict'
+    'use strict';
 
-    var Waypoint = window.Waypoint
+    var Waypoint = window.Waypoint;
 
     function createExtension(framework) {
         return function() {

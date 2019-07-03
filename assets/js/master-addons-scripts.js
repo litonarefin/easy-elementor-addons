@@ -4,7 +4,8 @@
 
     var editMode		= false;
 
-    function animatedProgressbar(id, type, value, strokeColor, trailColor, strokeWidth, strokeTrailWidth){
+
+    var animatedProgressbar = function(id, type, value, strokeColor, trailColor, strokeWidth, strokeTrailWidth){
         var triggerClass = '.ma-el-progress-bar-'+id;
         if("line" == type) {
             new ldBar(triggerClass, {
@@ -53,6 +54,7 @@
             }).set(value);
         }
     };
+
 
     var getElementSettings = function( $element ) {
         var elementSettings = {},
@@ -251,8 +253,8 @@
 
                 })(jQuery);
             } catch(e) {
-                        //We can also throw from try block and catch it here
-                        // No Error Show
+                //We can also throw from try block and catch it here
+                // No Error Show
             }
 
         },
@@ -262,49 +264,49 @@
             //
             // try {
             //     (function() {
-                    var $advanced_accordion         = $scope.find(".ma-advanced-accordion").eq(0),
-                        elementSettings             = getElementSettings( $scope ),
-                        $accordion_title            = $scope.find(".ma-accordion-tab-title"),
-                        $accordion_type             = elementSettings.accordion_type,
-                        $accordion_speed            = elementSettings.toggle_speed;
+            var $advanced_accordion         = $scope.find(".ma-advanced-accordion").eq(0),
+                elementSettings             = getElementSettings( $scope ),
+                $accordion_title            = $scope.find(".ma-accordion-tab-title"),
+                $accordion_type             = elementSettings.accordion_type,
+                $accordion_speed            = elementSettings.toggle_speed;
 
-                    // Open default actived tab
-                    $accordion_title.each(function(){
-                        if ( $(this).hasClass('ma-accordion-tab-active-default') ) {
-                            $(this).addClass('ma-accordion-tab-show ma-accordion-tab-active');
-                            $(this).next().slideDown($accordion_speed)
-                        }
-                    });
+            // Open default actived tab
+            $accordion_title.each(function(){
+                if ( $(this).hasClass('ma-accordion-tab-active-default') ) {
+                    $(this).addClass('ma-accordion-tab-show ma-accordion-tab-active');
+                    $(this).next().slideDown($accordion_speed)
+                }
+            });
 
-                    // Remove multiple click event for nested accordion
-                    $accordion_title.unbind("click");
+            // Remove multiple click event for nested accordion
+            $accordion_title.unbind("click");
 
-                    $accordion_title.click(function(e) {
-                        e.preventDefault();
+            $accordion_title.click(function(e) {
+                e.preventDefault();
 
-                        var $this = $(this);
+                var $this = $(this);
 
-                        if ( $accordion_type === 'accordion' ) {
-                            if ( $this.hasClass("ma-accordion-tab-show") ) {
-                                $this.removeClass("ma-accordion-tab-show ma-accordion-tab-active");
-                                $this.next().slideUp($accordion_speed);
-                            } else {
-                                $this.parent().parent().find(".ma-accordion-tab-title").removeClass("ma-accordion-tab-show ma-accordion-tab-active");
-                                $this.parent().parent().find(".ma-accordion-tab-content").slideUp($accordion_speed);
-                                $this.toggleClass("ma-accordion-tab-show ma-accordion-tab-active");
-                                $this.next().slideToggle($accordion_speed);
-                            }
-                        } else {
-                            // For acccordion type 'toggle'
-                            if ( $this.hasClass("ma-accordion-tab-show") ) {
-                                $this.removeClass("ma-accordion-tab-show ma-accordion-tab-active");
-                                $this.next().slideUp($accordion_speed);
-                            } else {
-                                $this.addClass("ma-accordion-tab-show ma-accordion-tab-active");
-                                $this.next().slideDown($accordion_speed);
-                            }
-                        }
-                    });
+                if ( $accordion_type === 'accordion' ) {
+                    if ( $this.hasClass("ma-accordion-tab-show") ) {
+                        $this.removeClass("ma-accordion-tab-show ma-accordion-tab-active");
+                        $this.next().slideUp($accordion_speed);
+                    } else {
+                        $this.parent().parent().find(".ma-accordion-tab-title").removeClass("ma-accordion-tab-show ma-accordion-tab-active");
+                        $this.parent().parent().find(".ma-accordion-tab-content").slideUp($accordion_speed);
+                        $this.toggleClass("ma-accordion-tab-show ma-accordion-tab-active");
+                        $this.next().slideToggle($accordion_speed);
+                    }
+                } else {
+                    // For acccordion type 'toggle'
+                    if ( $this.hasClass("ma-accordion-tab-show") ) {
+                        $this.removeClass("ma-accordion-tab-show ma-accordion-tab-active");
+                        $this.next().slideUp($accordion_speed);
+                    } else {
+                        $this.addClass("ma-accordion-tab-show ma-accordion-tab-active");
+                        $this.next().slideDown($accordion_speed);
+                    }
+                }
+            });
 
             //
             //     })(jQuery);
@@ -355,8 +357,8 @@
 
                 })(jQuery);
             } catch(e) {
-                    //We can also throw from try block and catch it here
-                    // No Error Show
+                //We can also throw from try block and catch it here
+                // No Error Show
             }
 
 
@@ -364,11 +366,12 @@
 
 
         //Master Addons: Progressbar
-        ProgressBar: function ($scope, $){
+        MA_ProgressBar: function ($scope, $){
 
             try {
                 (function($) {
-                    var $progressBarWrapper = $scope.find('[data-progress-bar]').eq(0);
+
+                    const $progressBarWrapper = $scope.find('[data-progress-bar]').eq(0);
                     $progressBarWrapper.waypoint(function () {
                         var element = $(this.element);
                         var id = element.data('id');
@@ -383,8 +386,8 @@
                     }, {
                         offset: 'bottom-in-view'
                     });
-                })(jQuery);
 
+                })(jQuery);
             } catch(e) {
                 //We can also throw from try block and catch it here
                 // No Error Show
@@ -393,7 +396,7 @@
 
         },
 
-        TeamSlider: function ($scope, $){
+        MA_TeamSlider: function ($scope, $){
             try {
                 (function($) {
 
@@ -455,52 +458,52 @@
         },
 
 
-        ParticlesBG: function ($scope, $) {
+        MA_ParticlesBG: function ($scope, $) {
 
             // try {
             //     (function($scope, $) {
 
-                    if ($scope.hasClass('ma-el-particle-yes')) {
-                        var id = $scope.data('id');
-                        //console.lgo(id);
-                        var element_type = $scope.data('element_type');
-                        var pdata = $scope.data('ma-el-particle');
-                        var pdata_wrapper = $scope.find('.ma-el-particle-wrapper').data('ma-el-pdata');
-                        if (typeof pdata != 'undefined' && pdata != '') {
-                            if ($scope.find('.ma-el-section-bs').length > 0) {
-                                $scope.find('.ma-el-section-bs').after('<div class="ma-el-particle-wrapper"' +
-                                    ' id="ma-el-particle-' + id + '"></div>');
-                                particlesJS('ma-el-particle-' + id, pdata);
-                            } else {
+            if ($scope.hasClass('ma-el-particle-yes')) {
+                var id = $scope.data('id');
+                //console.lgo(id);
+                var element_type = $scope.data('element_type');
+                var pdata = $scope.data('ma-el-particle');
+                var pdata_wrapper = $scope.find('.ma-el-particle-wrapper').data('ma-el-pdata');
+                if (typeof pdata != 'undefined' && pdata != '') {
+                    if ($scope.find('.ma-el-section-bs').length > 0) {
+                        $scope.find('.ma-el-section-bs').after('<div class="ma-el-particle-wrapper"' +
+                            ' id="ma-el-particle-' + id + '"></div>');
+                        particlesJS('ma-el-particle-' + id, pdata);
+                    } else {
 
-                                if (element_type == 'column') {
+                        if (element_type == 'column') {
 
-                                    $scope.find('.elementor-column-wrap').prepend('<div class="ma-el-particle-wrapper"' +
-                                        ' id="ma-el-particle-' + id + '"></div>');
-                                } else {
-                                    $scope.prepend('<div class="ma-el-particle-wrapper" id="ma-el-particle-' + id + '"></div>');
-                                }
-
-                                particlesJS('ma-el-particle-' + id, pdata);
-                            }
-
-
-                        } else if (typeof pdata_wrapper != 'undefined' && pdata_wrapper != '') {
-
-                            // $scope.prepend('<div class="ma-el-particle-wrapper" id="ma-el-particle-'+ id +'"></div>');
-                            //console.log('calling particle js else', JSON.parse(pdata_wrapper));
-                            if (element_type == 'column') {
-                                $scope.find('.elementor-column-wrap').prepend('<div class="ma-el-particle-wrapper"' +
-                                    ' id="ma-el-particle-' + id + '"></div>');
-                            }
-                            else{
-                                $scope.prepend('<div class="ma-el-particle-wrapper" id="ma-el-particle-' + id + '"></div>');
-                            }
-
-                            particlesJS('ma-el-particle-' + id, JSON.parse(pdata_wrapper));
+                            $scope.find('.elementor-column-wrap').prepend('<div class="ma-el-particle-wrapper"' +
+                                ' id="ma-el-particle-' + id + '"></div>');
+                        } else {
+                            $scope.prepend('<div class="ma-el-particle-wrapper" id="ma-el-particle-' + id + '"></div>');
                         }
 
+                        particlesJS('ma-el-particle-' + id, pdata);
                     }
+
+
+                } else if (typeof pdata_wrapper != 'undefined' && pdata_wrapper != '') {
+
+                    // $scope.prepend('<div class="ma-el-particle-wrapper" id="ma-el-particle-'+ id +'"></div>');
+                    //console.log('calling particle js else', JSON.parse(pdata_wrapper));
+                    if (element_type == 'column') {
+                        $scope.find('.elementor-column-wrap').prepend('<div class="ma-el-particle-wrapper"' +
+                            ' id="ma-el-particle-' + id + '"></div>');
+                    }
+                    else{
+                        $scope.prepend('<div class="ma-el-particle-wrapper" id="ma-el-particle-' + id + '"></div>');
+                    }
+
+                    particlesJS('ma-el-particle-' + id, JSON.parse(pdata_wrapper));
+                }
+
+            }
             //
             //     })(jQuery);
             // } catch(e) {
@@ -512,7 +515,7 @@
 
         },
 
-        BgSlider: function ($scope, $){
+        MA_BgSlider: function ($scope, $){
             var ma_el_slides = [];
             var ma_el_slides_json = [];
             var ma_el_transition;
@@ -601,11 +604,11 @@
             }
         },
 
-        PiechartsHandlerOnScroll: function ($scope, $) {
+        MA_PiechartsHandlerOnScroll: function ($scope, $) {
 
-            $scope.MasterAddonsWaypoint(function (direction) {
+            $scope.waypoint(function (direction) {
 
-                Master_Addons.PiechartsHandler($(this.element), $);
+                Master_Addons.MA_PiechartsHandler($(this.element), $);
 
             }, {
                 offset: (window.innerHeight || document.documentElement.clientHeight) - 100,
@@ -613,7 +616,7 @@
             });
         },
 
-        PiechartsHandler : function ($scope, $) {
+        MA_PiechartsHandler : function ($scope, $) {
 
             $scope.find('.ma-el-piechart .ma-el-percentage').each(function () {
 
@@ -649,7 +652,7 @@
 
         StatsBarHandlerOnScroll: function ($scope, $) {
 
-            $scope.MasterAddonsWaypoint(function (direction) {
+            $scope.waypoint(function (direction) {
 
                 Master_Addons.StatsBarHandler($(this.element), $);
 
@@ -663,65 +666,78 @@
 
 
         // Master Addons: Countdown Timer
-        CountdownTimer:function ($scope, $) {
-            var $countdownTimerWrapper = $scope.find('[data-countdown]').eq(0);
+        MA_CountdownTimer:function ($scope, $) {
 
-            if (typeof $countdownTimerWrapper !== 'undefined' && $countdownTimerWrapper !== null) {
-                var $this = $countdownTimerWrapper,
-                    finalDate = $this.data('countdown'),
-                    day = $this.data('day'),
-                    hours = $this.data('hours'),
-                    minutes = $this.data('minutes'),
-                    seconds = $this.data('seconds');
+            try {
+                (function($) {
 
-                $this.countdown(finalDate, function (event) {
-                    $(this).html(event.strftime(' ' +
-                        '<div class="ma-el-countdown-container"><span class="ma-el-countdown-count">%-D </span><span' +
-                        ' class="ma-el-countdown-title">' + day + '</span></div>' +
-                        '<div class="ma-el-countdown-container"><span class="ma-el-countdown-count">%H </span><span' +
-                        ' class="ma-el-countdown-title">' + hours + '</span></div>' +
-                        '<div class="ma-el-countdown-container"><span class="ma-el-countdown-count">%M </span><span' +
-                        ' class="ma-el-countdown-title">' + minutes + '</span></div>' +
-                        '<div class="ma-el-countdown-container"><span class="ma-el-countdown-count">%S </span><span' +
-                        ' class="ma-el-countdown-title">' + seconds + '</span></div>'));
-                }).on('finish.countdown', function (event) {
-                    $(this).html("<p class='message'>Hurrey! This is event day</p>");
-                });
+
+                    var $countdownTimerWrapper = $scope.find('[data-countdown]').eq(0);
+
+                    if (typeof $countdownTimerWrapper !== 'undefined' && $countdownTimerWrapper !== null) {
+                        var $this = $countdownTimerWrapper,
+                            finalDate = $this.data('countdown'),
+                            day = $this.data('day'),
+                            hours = $this.data('hours'),
+                            minutes = $this.data('minutes'),
+                            seconds = $this.data('seconds');
+
+                        $this.countdown(finalDate, function (event) {
+                            $(this).html(event.strftime(' ' +
+                                '<div class="ma-el-countdown-container"><span class="ma-el-countdown-count">%-D </span><span' +
+                                ' class="ma-el-countdown-title">' + day + '</span></div>' +
+                                '<div class="ma-el-countdown-container"><span class="ma-el-countdown-count">%H </span><span' +
+                                ' class="ma-el-countdown-title">' + hours + '</span></div>' +
+                                '<div class="ma-el-countdown-container"><span class="ma-el-countdown-count">%M </span><span' +
+                                ' class="ma-el-countdown-title">' + minutes + '</span></div>' +
+                                '<div class="ma-el-countdown-container"><span class="ma-el-countdown-count">%S </span><span' +
+                                ' class="ma-el-countdown-title">' + seconds + '</span></div>'));
+                        }).on('finish.countdown', function (event) {
+                            $(this).html("<p class='message'>Hurrey! This is event day</p>");
+                        });
+                    }
+
+                })(jQuery);
+            } catch(e) {
+                //We can also throw from try block and catch it here
+                // No Error Show
             }
 
-
-        }
-
+        },
 
 
-};
 
+
+    };
 
 
 
     $(window).on('elementor/frontend/init', function () {
         if( elementorFrontend.isEditMode() ) {
             editMode = true;
-        // }
+        }
+
+        //Global Scripts
+        elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.AnimatedGradient);
+        elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_BgSlider);
+        elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_ParticlesBG);
+
+        //Element Scripts
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-headlines.default', Master_Addons.MA_Headlines);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-advanced-accordion.default', Master_Addons.MA_Accordion);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-tabs.default', Master_Addons.MA_Tabs);
-        elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbar.default', Master_Addons.ProgressBar);
-        elementorFrontend.hooks.addAction('frontend/element_ready/ma-team-members.default', Master_Addons.TeamSlider);
-        elementorFrontend.hooks.addAction('frontend/element_ready/ma-el-countdown-timer.default', Master_Addons.CountdownTimer);
-
-        elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.AnimatedGradient);
-        elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.BgSlider);
-        elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.ParticlesBG);
+        elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbar.default', Master_Addons.MA_ProgressBar);
+        elementorFrontend.hooks.addAction('frontend/element_ready/ma-team-members.default', Master_Addons.MA_TeamSlider);
+        elementorFrontend.hooks.addAction('frontend/element_ready/ma-el-countdown-timer.default', Master_Addons.MA_CountdownTimer);
+        elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.MA_PiechartsHandler);
 
 
-
-        // if (elementorFrontend.isEditMode()) {
-            elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.PiechartsHandler);
-            elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.StatsBarHandler);
+        if (elementorFrontend.isEditMode()) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.MA_PiechartsHandler);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbars.default', Master_Addons.StatsBarHandler);
 
         } else{
-            elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.PiechartsHandlerOnScroll);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.MA_PiechartsHandlerOnScroll);
             elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbars.default', Master_Addons.StatsBarHandlerOnScroll);
         }
 
