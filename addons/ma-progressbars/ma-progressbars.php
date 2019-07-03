@@ -97,7 +97,7 @@
 							'name' => 'bar_color',
 							'label' => __('Bar Color', MELA_TD),
 							'type' => Controls_Manager::COLOR,
-							'default' => '#f94213',
+							'default' => '#704aff',
 						],
 
 					],

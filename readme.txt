@@ -90,6 +90,9 @@ Paste on your Local Computer
 == Changelog ==
  = 1.0.4 (3-7-2019) =
  * Added: Freemius SDK for Master Addons for Elementor
+ * Added: Call to Action Element/Widget
+ * Added: Call to Action Progressbars Element
+
  * Fixed: Move Master Addons Main menu from Sub Menu
  * Fixed: Menu Position Changed just under "Elementor" and "Templates" Menu
  * Added: Info Service Icons
