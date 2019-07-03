@@ -6,8 +6,6 @@
 	 */
 
 
-
-
 	if (!defined('ABSPATH')) { exit; } // No, Direct access Sir !!!
 
 	if( !class_exists('Master_Elementor_Addons') ){
