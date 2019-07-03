@@ -373,19 +373,19 @@
 				}
 
 				//Creative Buttons
-				if ( $is_activated_widget['ma-creative-buttons'] ) {
+				if ( isset( $is_activated_widget['ma-creative-buttons'] ) ) {
 					wp_enqueue_style( 'ma-creative-buttons', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons.css' );
 				}
 
 
 				//Creative Links
-				if ( $is_activated_widget['ma-creative-links'] ) {
+				if (isset( $is_activated_widget['ma-creative-links'] )) {
 					wp_enqueue_style( 'ma-creative-links', MELA_PLUGIN_URL . '/assets/vendor/creative-links/creative-links.css' );
 				}
 
 
 				//Counter Up
-				if ( $is_activated_widget['ma-counter-up'] ) {
+				if ( isset($is_activated_widget['ma-counter-up'] )) {
 					wp_register_script( 'ma-counter-up', MELA_PLUGIN_URL . '/assets/js/counterup.min.js' );
 					wp_enqueue_script( 'ma-counter-up' );
 				}
@@ -403,7 +403,7 @@
 				//		}
 
 
-				if ( $is_activated_widget['ma-countdown-timer'] ) {
+				if ( isset($is_activated_widget['ma-countdown-timer'] )) {
 					// jQuery Countdown Js
 					wp_register_script( 'master-addons-countdown', MELA_PLUGIN_URL . '/assets/vendor/countdown/jquery.countdown.js',
 						array( 'jquery' )
