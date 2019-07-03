@@ -60,7 +60,6 @@
 					'ma-team-members',
 					'ma-team-members-slider',
 //					'ma-creative-links',
-
 					'contact-form-7',
 //					'ninja-forms',
 //					'gravity-forms',
@@ -77,7 +76,7 @@
 
 
 
-				
+
 
 					//			'ma-image-comparison',
 					//			'ma-business-hours',
