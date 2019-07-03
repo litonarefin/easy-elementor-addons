@@ -1,5 +1,5 @@
 <?php
-	/**
+ /**
  * Plugin Name: Master Addons for Elementor
  * Description: Master Addons is easy and must have Elementor Addons for WordPress Page Builder. Clean, Modern, Hand crafted designed Addons blocks.
  * Plugin URI: https://wordpress.org/plugins/master-addons
@@ -10,6 +10,9 @@
  * Domain Path: /languages
  */
 
+	if (!defined('ABSPATH')) { exit; } // No, Direct access Sir !!!
+
+    
 	if ( ! function_exists( 'ma_el_fs' ) ) {
 		// Create a helper function for easy SDK access.
 		function ma_el_fs() {
