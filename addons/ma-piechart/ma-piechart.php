@@ -31,8 +31,8 @@
 		public function get_script_depends() {
 			return [
 				'elementor-waypoints',
-				'master-addons-scripts',
-				'master-addons-waypoints',
+//				'master-addons-scripts',
+//				'master-addons-waypoints',
 				'jquery-stats'
 			];
 		}
@@ -240,6 +240,22 @@
 
 		}
 
+		function ma_el_get_grid_classes( $settings, $columns_field = 'per_line' ){
+			$grid_classes = ' ma-el-grid-desktop-';
+			$grid_classes .= $settings[$columns_field];
+			$grid_classes .= ' ma-el-grid-tablet-';
+			$grid_classes .= $settings[$columns_field . '_tablet'];
+			$grid_classes .= ' ma-el-grid-mobile-';
+			$grid_classes .= $settings[$columns_field . '_mobile'];
+			return apply_filters(
+				'ma_el_grid_classes',
+				$grid_classes,
+				$settings,
+				$columns_field
+			);
+		}
+
+
 		protected function render() {
 
 			$settings = $this->get_settings_for_display();
@@ -249,7 +265,8 @@
 			$bar_color = ' data-bar-color="' . esc_attr($settings['bar_color']) . '"';
 			$track_color = ' data-track-color="' . esc_attr($settings['track_color']) . '"';
 
-			$output = '<div class="ma-el-piecharts ma-el-grid-container ' . ma_el_get_grid_classes($settings) . '">';
+			$output = '<div class="ma-el-piecharts ma-el-grid-container ' . $this->ma_el_get_grid_classes($settings) .
+			          '">';
 
 			foreach ($settings['piecharts'] as $piechart):
 

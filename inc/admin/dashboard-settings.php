@@ -53,6 +53,7 @@ class Master_Addons_Admin_Settings{
 
 		wp_enqueue_style( 'master-addons-notice', MELA_ADMIN_ASSETS . 'css/master-addons-notice.css' );
 
+//		if( isset( $hook ) && $hook == 'elementor_page_master-addons-settings' ) {
 			wp_enqueue_style( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'css/master-addons-admin.css' );
 			wp_enqueue_style( 'master-addons-sweetalert2', MELA_ADMIN_ASSETS .'css/sweetalert2.min.css');
 			wp_enqueue_style( 'master-addons-el-switch', MELA_ADMIN_ASSETS .'css/switch.css');
@@ -67,7 +68,7 @@ class Master_Addons_Admin_Settings{
 
 			//Accordion
 			wp_enqueue_script( 'jquery-ui-accordion' );
-
+//		}
 
 	}
 

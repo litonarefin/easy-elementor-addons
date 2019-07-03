@@ -33,13 +33,13 @@
 			return [ 'master-addons' ];
 		}
 
-		public function get_script_depends() {
-			return [
-				'elementor-waypoints',
-				'master-addons-scripts',
-				'master-addons-waypoints'
-			];
-		}
+//		public function get_script_depends() {
+//			return [
+//				'elementor-waypoints',
+//				'master-addons-scripts',
+//				'master-addons-waypoints'
+//			];
+//		}
 
 		protected function _register_controls() {
 
@@ -97,7 +97,7 @@
 							'name' => 'bar_color',
 							'label' => __('Bar Color', MELA_TD),
 							'type' => Controls_Manager::COLOR,
-							'default' => '#f94213',
+							'default' => '#704aff',
 						],
 
 					],
@@ -275,7 +275,7 @@
 
 			$settings = $this->get_settings_for_display();
 
-			$settings = apply_filters('lae_stats_bars_' . $this->get_id() . '_settings', $settings);
+			$settings = apply_filters('ma_el_stats_bars_' . $this->get_id() . '_settings', $settings);
 
 			$output = '<div class="ma-el-stats-bars">';
 
@@ -307,13 +307,13 @@
 
 				$child_output .= '</div><!-- .ma-el-stats-bar -->';
 
-				$output .= apply_filters('lae_stats_bar_output', $child_output, $stats_bar, $settings);
+				$output .= apply_filters('ma_el_stats_bar_output', $child_output, $stats_bar, $settings);
 
 			endforeach;
 
 			$output .= '</div><!-- .ma-el-stats-bars -->';
 
-			echo apply_filters('lae_stats_bars_output', $output, $settings);
+			echo apply_filters('ma_el_stats_bars_output', $output, $settings);
 
 		}
 

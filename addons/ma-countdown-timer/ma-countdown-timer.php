@@ -26,6 +26,9 @@
 			return [ 'master-addons' ];
 		}
 
+		public function get_script_depends() {
+			return [ 'master-addons-countdown' ];
+		}
 
 		protected function _register_controls() {
 

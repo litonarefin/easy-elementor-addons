@@ -88,13 +88,22 @@ Paste on your Local Computer
 
 
 == Changelog ==
- = 1.0.4 (1-7-2019) =
+ = 1.0.4 (3-7-2019) =
+ * Added: Freemius SDK for Master Addons for Elementor
+ * Added: Call to Action Element/Widget
+ * Added: Call to Action Progressbars Element
+ * Fixed: Addons Tabs Style fixed
  * Fixed: Move Master Addons Main menu from Sub Menu
  * Fixed: Menu Position Changed just under "Elementor" and "Templates" Menu
  * Added: Info Service Icons
  * Fixed: BG Slider swiper.min.css file not found issue
  * Fixed: Creative Links Conflict with website Nav Class/ID's
  * Fixed: Admin Docs content typo fixed
+ * Fixed: Script not working issue fixed- progressbars, tabs, accordion, team slider was not working. Fixed the issue.
+ * Fixed: Countdown Script issue fixed
+ * Fixed: Progressbar, Piechart, Progressbars, Team Slider, Counterup, Countdown, Custom waypoint Script issue fixed
+ * Fixed: Dashboard Settings not working issue fixed
+ * Updated: Master Addons Class CSS and JS files re-arranged with wp_register_style and wp_register_script methods
 
 
  = 1.0.3 (26-6-2019) =

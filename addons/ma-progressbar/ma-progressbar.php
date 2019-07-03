@@ -23,7 +23,11 @@
 		}
 
 		public function get_script_depends() {
-			return [ 'elementor-waypoints', 'master-addons-progressbar' ];
+			return [
+			        'elementor-waypoints',
+                    'master-addons-progressbar',
+                    'master-addons-scripts',
+            ];
 		}
 
 
@@ -260,6 +264,9 @@
 			$this->end_controls_section();
 
 		}
+
+
+
 		protected function render() {
 			$settings = $this->get_settings_for_display();
 
