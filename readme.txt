@@ -134,3 +134,9 @@ Paste on your Local Computer
 
  = 1.0.0 (17-6-2019)=
  * Initial Release
+
+
+ == Upgrade Notice ==
+[//]: # fs_premium_only_begin
+Enter the license key you received after the purchase and activate "Master Addons" for Premium Version.
+[//]: # fs_premium_only_end

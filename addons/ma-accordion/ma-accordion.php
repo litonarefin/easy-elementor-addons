@@ -305,6 +305,21 @@
 
 			if(!apply_filters('ma_el/pro_enabled', false)) {
 
+
+			    // This IF block will be auto removed from the Free version.
+				if ( ma_el_fs()->is__premium_only() ) {
+					// This IF will be executed only if the user in a trial mode or have a valid license.
+					if ( ma_el_fs()->can_use_premium_code() ) {
+						// ... premium only logic ...
+					}
+				}
+
+                // This "if" block will be auto removed from the Free version.
+				if ( ma_el_fs()->is_plan__premium_only('starter') ) {
+					// ... logic related to starter plan and higher plans ...
+				}
+
+
 				$this->start_controls_section(
 					'maad_el_section_pro',
 					[
