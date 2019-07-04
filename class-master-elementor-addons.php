@@ -1,17 +1,11 @@
 <?php
-	/**
-	 * Author Name: Liton Arefin
-	 * Author URL: https://jeweltheme.com
-	 * Date: 6/27/19
-	 */
-
 
 	if (!defined('ABSPATH')) { exit; } // No, Direct access Sir !!!
 
 	if( !class_exists('Master_Elementor_Addons') ){
 		final class Master_Elementor_Addons {
 
-			const VERSION = "1.0.4";
+			const VERSION = "1.0.5";
 
 			const MINIMUM_PHP_VERSION = '5.4';
 
@@ -638,23 +632,6 @@
 
 		}
 
-		Master_Elementor_Addons::get_instance();
 
 	}
 
-
-	/**
-	 * Plugin Redirect Option Added by register_activation_hook
-	 *
-	 */
-	function master_addons_el_redirect() {
-		add_option( 'maad_el_update_redirect', true );
-	}
-	register_activation_hook( __FILE__ , 'master_addons_el_redirect' );
-
-
-	// Deactivation Hook
-	function master_addons_el_welcome_deactivate() {
-		delete_transient( 'maad_el_update_redirect' );
-	}
-	register_deactivation_hook( __FILE__, 'master_addons_el_welcome_deactivate' );

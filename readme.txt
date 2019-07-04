@@ -88,6 +88,11 @@ Paste on your Local Computer
 
 
 == Changelog ==
+ = 1.0.5 (4-7-2019) =
+ * Fixed: Plugin activation Error “The plugin does not have a valid header” fixed
+ * Update: Version bump
+
+
  = 1.0.4 (3-7-2019) =
  * Added: Freemius SDK for Master Addons for Elementor
  * Added: Call to Action Element/Widget
