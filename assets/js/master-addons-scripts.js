@@ -578,23 +578,52 @@
         },
 
         /*Master Addons Animated Gradient Background*/
-        AnimatedGradient: function ($scope, $) {
+        // MA_AnimatedGradient: function ($scope, $) {
+        //
+        //     if ($scope.hasClass('ma-el-animated-gradient-yes')) {
+        //         id = $scope.data('id');
+        //         //editMode    = elementorFrontend.isEditMode();
+        //         //console.log(settings);
+        //         color = $scope.data('color');
+        //         angle = $scope.data('angle');
+        //         var gradient_color = 'linear-gradient(' + angle + ',' + color + ')';
+        //         heading = $scope.find('.elementor-heading-title');
+        //         $scope.css('background-image', gradient_color);
+        //         if($scope.hasClass('elementor-element-edit-mode'))
+        //         {
+        //
+        //             color = $scope.find('.animated-gradient').data('color');
+        //             angle = $scope.find('.animated-gradient').data('angle');
+        //             gradient_color_editor = 'linear-gradient(' + angle + ',' + color + ')';
+        //             $scope.prepend('<div class="animated-gradient" style="background-image : ' + gradient_color_editor + ' "></div>');
+        //             //$scope.find('.animated-gradient').css('background-image', gradient_color_editor);
+        //             //$scope.find('.animated-gradient').css('background-color', 'red');
+        //         }
+        //         //$scope.css('position', 'relative');
+        //         //$scope.css('background-color', 'black');
+        //
+        //     }
+        // },
+
+
+        MA_AnimatedGradient: function ($scope, $) {
+
 
             if ($scope.hasClass('ma-el-animated-gradient-yes')) {
-                id = $scope.data('id');
+                var id = $scope.data('id');
                 //editMode    = elementorFrontend.isEditMode();
                 //console.log(settings);
-                color = $scope.data('color');
-                angle = $scope.data('angle');
+                var color = $scope.data('color');
+                var angle = $scope.data('angle');
                 var gradient_color = 'linear-gradient(' + angle + ',' + color + ')';
-                heading = $scope.find('.elementor-heading-title');
+                var heading = $scope.find('.elementor-heading-title');
                 $scope.css('background-image', gradient_color);
-                if($scope.hasClass('elementor-element-edit-mode'))
-                {
+
+                if($scope.hasClass('elementor-element-edit-mode')) {
 
                     color = $scope.find('.animated-gradient').data('color');
                     angle = $scope.find('.animated-gradient').data('angle');
-                    gradient_color_editor = 'linear-gradient(' + angle + ',' + color + ')';
+                    var gradient_color_editor = 'linear-gradient(' + angle + ',' + color + ')';
                     $scope.prepend('<div class="animated-gradient" style="background-image : ' + gradient_color_editor + ' "></div>');
                     //$scope.find('.animated-gradient').css('background-image', gradient_color_editor);
                     //$scope.find('.animated-gradient').css('background-color', 'red');
@@ -604,6 +633,7 @@
 
             }
         },
+
 
         MA_PiechartsHandlerOnScroll: function ($scope, $) {
 
@@ -719,7 +749,7 @@
         }
 
         //Global Scripts
-        elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.AnimatedGradient);
+        elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_AnimatedGradient);
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_BgSlider);
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_ParticlesBG);
 

@@ -78,14 +78,14 @@
 	 * Plugin Redirect Option Added by register_activation_hook
 	 *
 	 */
-//	function master_addons_el_redirect() {
-//		add_option( 'maad_el_update_redirect', true );
-//	}
-//	register_activation_hook( __FILE__ , 'master_addons_el_redirect' );
-//
-//
-//	// Deactivation Hook
-//	function master_addons_el_welcome_deactivate() {
-//		delete_transient( 'maad_el_update_redirect' );
-//	}
-//	register_deactivation_hook( __FILE__, 'master_addons_el_welcome_deactivate' );
+	function master_addons_el_redirect() {
+		add_option( 'maad_el_update_redirect', true );
+	}
+	register_activation_hook( __FILE__ , 'master_addons_el_redirect' );
+
+
+	// Deactivation Hook
+	function master_addons_el_welcome_deactivate() {
+		delete_transient( 'maad_el_update_redirect' );
+	}
+	register_deactivation_hook( __FILE__, 'master_addons_el_welcome_deactivate' );

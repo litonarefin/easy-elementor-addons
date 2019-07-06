@@ -1,16 +1,4 @@
 <?php
-#
-# Markdown  -  A text-to-HTML conversion tool for web writers
-#
-# PHP Markdown  
-# Copyright (c) 2004-2013 Michel Fortin  
-# <http://michelf.ca/projects/php-markdown/>
-#
-# Original Markdown  
-# Copyright (c) 2004-2006 John Gruber  
-# <http://daringfireball.net/projects/markdown/>
-#
-
 
 define( 'MARKDOWN_VERSION',  "1.0.2" ); # 29 Nov 2013
 
