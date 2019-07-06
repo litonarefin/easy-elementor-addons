@@ -85,9 +85,14 @@ class Master_Addons_CF7 extends Widget_Base {
 					'1'   => __( 'Style One', MELA_TD ),
 					'2'   => __( 'Style Two', MELA_TD ),
 					'3'   => __( 'Style Three', MELA_TD ),
-//					'4'   => __( 'Style Four', MELA_TD ),
-//					'5'   => __( 'Style Five', MELA_TD ),
-//					'6'   => __( 'Style Six', MELA_TD ),
+					'4'   => __( 'Style Four', MELA_TD ),
+					'5'   => __( 'Style Five', MELA_TD ),
+					'6'   => __( 'Style Six', MELA_TD ),
+					'7'   => __( 'Style Seven', MELA_TD ),
+					'8'   => __( 'Style Eight', MELA_TD ),
+					'9'   => __( 'Style Nine', MELA_TD ),
+					'10'   => __( 'Style Ten', MELA_TD ),
+					'11'   => __( 'Style Eleven', MELA_TD ),
 				],
 			]
 		);

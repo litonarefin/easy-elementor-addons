@@ -3618,3 +3618,132 @@ div[class*="col"]:nth-child(3) .ma-el-infobox.eleven .ma-el-infobox-icon {
 
 
 
+
+/* CONTACT FORM STYLES */
+
+.master-addons-cf7 input {
+    font-size: 14px;
+}
+.master-addons-cf7 .wpcf7-form-control:focus {
+    border-color: inherit;
+    outline: 0 !important;
+}
+.master-addons-cf7 textarea {
+    min-height: 150px;
+    max-height: 150px;
+}
+.master-addons-cf7 {
+    padding: 0;
+}
+.master-addons-cf7-1 input {
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.master-addons-cf7 input[type="submit"] {
+    margin-top: 2.5em;
+    text-transform: uppercase;
+}
+
+.master-addons-cf7-2 input[type="submit"],
+.master-addons-cf7-4 input[type="submit"] {
+    float: right;
+}
+.master-addons-cf7-2 label .text,
+.master-addons-cf7-4 label .text,
+.master-addons-cf7-9 label .text,
+.master-addons-cf7-10 label .text,
+.master-addons-cf7-11 label .text,
+.master-addons-cf7-12 label .text {
+    display: none;
+}
+
+.master-addons-cf7-3 input,
+.master-addons-cf7-3 textarea,
+.master-addons-cf7-4 input,
+.master-addons-cf7-4 textarea {
+    background-color: #27262e;
+    color: #fff;
+}
+
+.master-addons-cf7-5 label,
+.master-addons-cf7-6 label {
+    position: relative;
+}
+.master-addons-cf7-5 label .text,
+.master-addons-cf7-6 label .text {
+    background-color: #fff;
+    color: #78909c;
+    left: 3em;
+    top: 9px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+}
+.master-addons-cf7-5 form .wpcf7-form-control,
+.master-addons-cf7-6 form .wpcf7-form-control{
+    padding: 15px !important;
+}
+.master-addons-cf7-6 input[type="submit"],
+.master-addons-cf7-8 input[type="submit"] {
+    width: 100%;
+}
+
+.master-addons-cf7-7 label .text,
+.master-addons-cf7-8 label .text {
+    display: none;
+}
+.master-addons-cf7-7 .wpcf7-form-control,
+.master-addons-cf7-8 .wpcf7-form-control {
+    border: none;
+    border-radius: 0 !important;
+    border-bottom: 3px solid #e2e7ea;
+}
+
+.master-addons-cf7-9 .wpcf7-form-control,
+.master-addons-cf7-10 .wpcf7-form-control,
+.master-addons-cf7-11 .wpcf7-form-control {
+    border-radius: 2em !important;
+}
+.master-addons-cf7-9 .wpcf7-form-control-wrap,
+.master-addons-cf7-10 .wpcf7-form-control-wrap,
+.master-addons-cf7-11 .wpcf7-form-control-wrap {
+    position: relative;
+}
+
+.master-addons-cf7-10 {
+    background-image: -moz-linear-gradient( -45deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+    background-image: -webkit-linear-gradient( -45deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+    background-image: -ms-linear-gradient( -45deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+}
+.master-addons-cf7-10 input[type="submit"] {
+    background-image: -moz-linear-gradient( 0deg, rgb(243,61,130) 0%, rgb(213,180,63) 100%);
+    background-image: -webkit-linear-gradient( 0deg, rgb(243,61,130) 0%, rgb(213,180,63) 100%);
+    background-image: -ms-linear-gradient( 0deg, rgb(243,61,130) 0%, rgb(213,180,63) 100%);
+    width: 100%;
+}
+
+.master-addons-cf7-11 {
+    background-image: url('.././images/cf-bg.jpg')
+}
+.master-addons-cf7-11 .wpcf7-form-control {
+    background-color: transparent;
+    border:  2px solid #fff;
+    color: #fff;
+}
+.master-addons-cf7-11 input[type="submit"] {
+    background-image: -moz-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+    background-image: -webkit-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+    background-image: -ms-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+    border: none !important;
+    width: 100%;
+}
+.master-addons-cf7-11 .wpcf7-form-control::-webkit-input-placeholder,
+.master-addons-cf7-11 .wpcf7-form-control::-moz-placeholder,
+.master-addons-cf7-11 .wpcf7-form-control:-ms-input-placeholder,
+.master-addons-cf7-11 .wpcf7-form-control:-moz-placeholder {
+    color: #fff;
+}
+
+
+
