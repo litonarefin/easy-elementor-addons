@@ -88,6 +88,13 @@ Paste on your Local Computer
 
 
 == Changelog ==
+ = 1.0.6 (6-7-2019) =
+ * Fixed: Markdown Library Error - Plugin activation Error “The plugin does not have a valid header” fixed
+ * Added: Contact Form 7, Ninja Forms, Gravity Forms, WPForms, Caldera Forms, weForms added
+ * Updated: 12 Style Presets added for Contact Form 7
+ * Update: Schedule Plugin Check
+
+
  = 1.0.5 (4-7-2019) =
  * Fixed: Plugin activation Error “The plugin does not have a valid header” fixed
  * Update: Version bump
