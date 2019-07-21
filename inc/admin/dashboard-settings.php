@@ -20,7 +20,7 @@ class Master_Addons_Admin_Settings{
 
 	public function __construct() {
 		add_action( 'admin_menu', [ $this, 'master_addons_admin_menu' ],  '', 10);
-		add_action( 'admin_enqueue_scripts', [ $this, 'master_addons_el_admin_scripts' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'master_addons_el_admin_scripts' ], 99 );
 		add_action( 'wp_ajax_master_addons_save_elements_settings', [ $this, 'master_addons_save_elements_settings' ] );
 		add_action( 'wp_ajax_nopriv_master_addons_save_elements_settings', [ $this, 'master_addons_save_elements_settings' ] );
 	}
@@ -55,14 +55,14 @@ class Master_Addons_Admin_Settings{
 
 //		if( isset( $hook ) && $hook == 'elementor_page_master-addons-settings' ) {
 			wp_enqueue_style( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'css/master-addons-admin.css' );
-			wp_enqueue_style( 'master-addons-sweetalert2', MELA_ADMIN_ASSETS .'css/sweetalert2.min.css');
+			wp_enqueue_style( 'sweetalert', MELA_ADMIN_ASSETS .'css/sweetalert2.min.css');
 			wp_enqueue_style( 'master-addons-el-switch', MELA_ADMIN_ASSETS .'css/switch.css');
 
 			wp_enqueue_script( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'js/master-addons-admin.js', array
             ('jquery'), '1.0', true );
 			wp_enqueue_script( 'master-addons-el-welcome-tabs', MELA_ADMIN_ASSETS .'js/welcome-tabs.js', array('jquery'), MELA_VERSION, true );
 
-			wp_enqueue_script( 'master-addons-sweetalert', MELA_ADMIN_ASSETS .'js/sweetalert2.min.js', array('jquery'),
+			wp_enqueue_script( 'sweetalert', MELA_ADMIN_ASSETS .'js/sweetalert2.min.js', array('jquery'),
 				MELA_VERSION, true );
 
 

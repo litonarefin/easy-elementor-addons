@@ -1,4 +1,7 @@
-jQuery(document).ready(function($) {
+(function($){
+    "use strict";
+
+    jQuery(document).ready(function($) {
     'use strict';
 
     $('.wp-tab-bar a').click(function(event){
@@ -86,3 +89,5 @@ jQuery(document).ready(function($) {
     } );
 
 });
+
+})(jQuery);
