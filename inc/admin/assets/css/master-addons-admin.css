@@ -667,6 +667,7 @@ div.fs-notice.updated, div.fs-notice.success, div.fs-notice.promotion, .fs-notic
     top: 11%;
     left: 0;
     right: 10px;
+<<<<<<< HEAD
 }
 .fs-modal .fs-modal-header{
     background: #4a33f1 !important;
@@ -678,3 +679,6 @@ div.fs-notice.updated, div.fs-notice.success, div.fs-notice.promotion, .fs-notic
 
 
 
+=======
+}
+>>>>>>> parent of e0b27a4... finalized freemius codes
