@@ -226,6 +226,15 @@
 				if ( ! defined( 'MELA_DIR' ) ) {
 					define( 'MELA_DIR', dirname( __FILE__ ) );
 				}
+				if ( ! defined( 'MA_EL_FREEMIUS_ID' ) ) {
+					define( 'MA_EL_FREEMIUS_ID', '4015' );
+				}
+				if ( ! defined( 'MA_EL_FREEMIUS_PUBLIC_KEY' ) ) {
+					define( 'MA_EL_FREEMIUS_PUBLIC_KEY', 'pk_3c9b5b4e47a06288e3500c7bf812e' );
+				}
+				if ( ! defined( 'MA_EL_FREEMIUS_SECRET_KEY' ) ) {
+					define( 'MA_EL_FREEMIUS_SECRET_KEY', 'sk_3AARVId*C!kTXIUeYO0Cq>w%Vl?d@' );
+				}
 
 			}
 
@@ -635,3 +644,22 @@
 
 	}
 
+	Master_Elementor_Addons::get_instance();
+
+
+
+	/**
+	 * Plugin Redirect Option Added by register_activation_hook
+	 *
+	 */
+	function master_addons_el_redirect() {
+		add_option( 'maad_el_update_redirect', true );
+	}
+	register_activation_hook( __FILE__ , 'master_addons_el_redirect' );
+
+
+	// Deactivation Hook
+	function master_addons_el_welcome_deactivate() {
+		delete_transient( 'maad_el_update_redirect' );
+	}
+	register_deactivation_hook( __FILE__, 'master_addons_el_welcome_deactivate' );
