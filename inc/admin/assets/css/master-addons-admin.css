@@ -661,10 +661,11 @@ pre {
 /*
  Freemius Styles
  */
-div.fs-notice.updated, div.fs-notice.success, div.fs-notice.promotion {
+div.fs-notice.updated, div.fs-notice.success, div.fs-notice.promotion, .fs-notice-body {
     display: block !important;
     position: absolute;
     top: 11%;
     left: 0;
     right: 10px;
 }
+

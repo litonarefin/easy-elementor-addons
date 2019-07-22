@@ -33,7 +33,53 @@
 
 
 
-// Saving Data With Ajax Request
+    //Tracking purchases with Google Analytics and Facebook for Freemius Checkout
+    var purchaseCompleted = function( response ) {
+        var trial = response.purchase.trial_ends !== null,
+            total = trial ? 0 : response.purchase.initial_amount.toString(),
+            productName = 'Product Name',
+            storeUrl = 'https://master-addons.com',
+            storeName = 'Master Addons';
+
+        if ( typeof fbq !== "undefined" ) {
+            fbq( 'track', 'Purchase', { currency: 'USD', value: response.purchase.initial_amount } );
+        }
+
+        if ( typeof ga !== "undefined" ) {
+            ga( 'send', 'event', 'plugin', 'purchase', productName, response.purchase.initial_amount.toString()         );
+
+            ga( 'require', 'ecommerce' );
+
+            ga( 'ecommerce:addTransaction', {
+                'id': response.purchase.id.toString(), // Transaction ID. Required.
+                'affiliation': storeName, // Affiliation or store name.
+                'revenue': total, // Grand Total.
+                'shipping': '0', // Shipping.
+                'tax': '0' // Tax.
+            } );
+
+            ga( 'ecommerce:addItem', {
+                'id': response.purchase.id.toString(), // Transaction ID. Required.
+                'name': productName, // Product name. Required.
+                'sku': response.purchase.plan_id.toString(), // SKU/code.
+                'category': 'Plugin', // Category or variation.
+                'price': response.purchase.initial_amount.toString(), // Unit price.
+                'quantity': '1' // Quantity.
+            } );
+
+            ga( 'ecommerce:send' );
+
+            ga( 'send', {
+                hitType: 'pageview',
+                page: '/purchase-completed/',
+                location: storeUrl + '/purchase-completed/'
+            } );
+        }
+    };
+
+
+
+    // Saving Data With Ajax Request
     $( '.master-addons-el-js-element-save-setting' ).on( 'click', function(e) {
         e.preventDefault();
         var $this = $(this);

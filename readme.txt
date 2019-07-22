@@ -88,6 +88,14 @@ Paste on your Local Computer
 
 
 == Changelog ==
+
+ = 1.0.7 (22-7-2019) =
+ * Fixed: Added Pricing Table for premium version
+ * Added: Accordion issue fixed
+ * Updated: Checked Free vs Pro version of Master Addons Comparisons
+ * Update: Schedule Plugin Check
+
+
  = 1.0.6 (6-7-2019) =
  * Fixed: Markdown Library Error - Plugin activation Error “The plugin does not have a valid header” fixed
  * Added: Contact Form 7, Ninja Forms, Gravity Forms, WPForms, Caldera Forms, weForms added
