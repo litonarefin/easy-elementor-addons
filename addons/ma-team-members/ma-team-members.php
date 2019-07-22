@@ -193,7 +193,7 @@
 
 
 
-			if(!apply_filters('ma_el/pro_enabled', false)) {
+			if ( !ma_el_fs()->is_premium() ) {
 
 				$this->start_controls_section(
 					'maad_el_section_pro',
@@ -472,9 +472,6 @@
 				$team_member_image_url = $team_member_image_url_src[0];
 			}
 
-			if(!apply_filters('ma_el/pro_enabled', true)) {
-			    echo "Pro Feature enabled";
-			}
 
 			if( $settings['ma_el_team_members_preset'] == '-style6' ) { ?>
 

@@ -12,6 +12,10 @@
 
 	if (!defined('ABSPATH')) { exit; } // No, Direct access Sir !!!
 
+	//Instantiate Master Addons Class
+	require_once dirname( __FILE__ ) . '/class-master-elementor-addons.php';
+
+
 	if ( ! function_exists( 'ma_el_fs' ) ) {
 		// Create a helper function for easy SDK access.
 		function ma_el_fs() {
@@ -72,10 +76,6 @@
 	}
 
 	add_action( 'wp_head', 'ma_el_fs_add_licensing_helper' );
-
-
-	//Instantiate Master Addons Class
-	require_once dirname( __FILE__ ) . '/class-master-elementor-addons.php';
 
 
 

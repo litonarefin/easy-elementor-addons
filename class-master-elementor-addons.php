@@ -5,7 +5,7 @@
 	if( !class_exists('Master_Elementor_Addons') ){
 		final class Master_Elementor_Addons {
 
-			const VERSION = "1.0.5";
+			const VERSION = "1.0.7";
 
 			const MINIMUM_PHP_VERSION = '5.4';
 
@@ -58,7 +58,7 @@
 					'wpforms',
 					'caldera-forms',
 					'weforms',
-//					'ma-creative-buttons',
+					'ma-creative-buttons',
 //					'ma-piechart',
 //					'ma-infobox',
 //					'ma-flipbox',
@@ -88,7 +88,7 @@
 				];
 
 				// search for pro version
-				$this->pro_enabled = apply_filters( 'ma_el/pro_enabled', false );
+//				$this->pro_enabled = apply_filters( 'ma_el/pro_enabled', false );
 
 				$this->constants();
 				$this->maad_el_include_files();

@@ -65,7 +65,7 @@
 			$this->end_controls_section();
 
 
-			if(!apply_filters('ma_el/pro_enabled', false)) {
+			if ( !ma_el_fs()->is_premium() ) {
 
 				$this->start_controls_section(
 					'maad_el_section_pro',

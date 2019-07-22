@@ -538,33 +538,33 @@
 
 
 
-//			if(!apply_filters('ma_el/pro_enabled', false)) {
-//
-//				$this->start_controls_section(
-//					'maad_el_section_pro',
-//					[
-//						'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD )
-//					]
-//				);
-//
-//				$this->add_control(
-//					'maad_el_control_get_pro',
-//					[
-//						'label' => esc_html__( 'Unlock more possibilities', MELA_TD ),
-//						'type' => Controls_Manager::CHOOSE,
-//						'options' => [
-//							'1' => [
-//								'title' => esc_html__( '', MELA_TD ),
-//								'icon' => 'fa fa-unlock-alt',
-//							],
-//						],
-//						'default' => '1',
-//						'description' => '<span class="pro-feature"> Upgrade to  <a href="https://jeweltheme.com/shop/master-addons-elementor/" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
-//					]
-//				);
-//
-//				$this->end_controls_section();
-//			}
+			if ( !ma_el_fs()->is_premium() ) {
+
+				$this->start_controls_section(
+					'maad_el_section_pro',
+					[
+						'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD )
+					]
+				);
+
+				$this->add_control(
+					'maad_el_control_get_pro',
+					[
+						'label' => esc_html__( 'Unlock more possibilities', MELA_TD ),
+						'type' => Controls_Manager::CHOOSE,
+						'options' => [
+							'1' => [
+								'title' => esc_html__( '', MELA_TD ),
+								'icon' => 'fa fa-unlock-alt',
+							],
+						],
+						'default' => '1',
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="https://jeweltheme.com/shop/master-addons-elementor/" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+					]
+				);
+
+				$this->end_controls_section();
+			}
 
 
 
