@@ -131,6 +131,8 @@
 				]
 			);
 
+
+
 			$this->end_controls_section();
 
 
@@ -155,7 +157,7 @@
                             ],
                         ],
                         'default'     => '1',
-                        'description' => '<span class="pro-feature"> Upgrade to  <a href="https://master-addons.com/" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+                        'description' => '<span class="pro-feature"> Upgrade to  <a href="' . admin_url('admin.php?page=master-addons-settings-pricing') . '">Pro Version</a> for more Elements with Customization Options.</span>'
                     ]
                 );
 
@@ -210,11 +212,29 @@
 						'ma-el-creative-button--shikoba' 	=> esc_html__( 'Shikoba (Pro)', MELA_TD ),
 					],
 
+
 					'description' => sprintf( '15+ more effects on <a href="%s" target="_blank">%s</a>',
 						esc_url_raw('https://master-addons.com/'),
 						__( 'Upgrade Now', MELA_TD ) )
 				]
 			);
+
+
+			if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+
+				$this->add_control(
+					'creative_alternative_button_textsss',
+					[
+						'label'       => esc_html__( 'Alternative Butsssston Text', MELA_TD ),
+						'type'        => Controls_Manager::TEXT,
+						'label_block' => true,
+						'default'     => 'Gosss!',
+						'placeholder' => esc_html__( 'Enter Alternatissve Button text', MELA_TD ),
+						'title'       => esc_html__( 'Enter Alternatissve Button text here', MELA_TD ),
+					]
+				);
+
+			}
 
 
 			$this->add_responsive_control(

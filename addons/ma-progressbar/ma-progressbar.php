@@ -88,12 +88,14 @@
 							],
 						],
 						'default' => '1',
-						'description' => '<span class="pro-feature"> Upgrade to  <a href="https://master-addons.com/" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+//						wp_redirect( '' )
+						'description' => '<span class="pro-feature"> Upgrade to <a href="' . admin_url('admin.php?page=master-addons-settings-pricing') . '">Pro Version</a> for more Elements with Customization Options.</span>'
 					]
 				);
 
 				$this->end_controls_section();
 			}
+
 
 
 			// Progressbar Style Section

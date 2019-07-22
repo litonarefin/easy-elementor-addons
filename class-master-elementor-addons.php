@@ -134,8 +134,11 @@
 
 			public function ma_el_init() {
 
-				$this->mela_load_textdomain();
+//				$this->mela_load_textdomain();
 				$this->ma_el_image_size();
+
+				//Premium Addons
+//				$this->ma_el_premium_addons();
 
 				//Redirect Hook
 				add_action( 'admin_init', [ $this, 'mael_ad_redirect_hook' ]);
