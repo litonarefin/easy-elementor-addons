@@ -509,7 +509,7 @@
 
 				// go pro
 				if (!$this->pro_enabled) {
-					$links[] = sprintf('<a href="https://jeweltheme.com/shop/master-addons-elementor/" target="_blank" style="color: #39b54a; font-weight: bold;">' . __('Go Pro') . '</a>');
+					$links[] = sprintf('<a href="https://master-addons.com/" target="_blank" style="color: #39b54a; font-weight: bold;">' . __('Go Pro') . '</a>');
 				}
 
 				return $links;

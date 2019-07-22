@@ -17,7 +17,7 @@ Each add-on is 100% customizable. You can customize font size, color, margin, pa
 
 While working with the live page builder, you able to see every customization. That means you don't need to update a page or post to check the output.
 
-[Master Addons](https://jeweltheme.com/shop/master-addons-elementor/)
+[Master Addons](https://master-addons.com/)
 [Master Addons Demos](https://plugins.jeweltheme.com/master-addons)
 
 List of Addons:

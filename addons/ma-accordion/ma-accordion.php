@@ -325,7 +325,7 @@
 							],
 						],
 						'default' => '1',
-						'description' => '<span class="pro-feature"> Upgrade to  <a href="https://jeweltheme.com/shop/master-addons-elementor/" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="https://master-addons.com/" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 					]
 				);
 
