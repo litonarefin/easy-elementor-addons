@@ -157,7 +157,7 @@
                             ],
                         ],
                         'default'     => '1',
-                        'description' => '<span class="pro-feature"> Upgrade to  <a href="' . admin_url('admin.php?page=master-addons-settings-pricing') . '">Pro Version</a> for more Elements with Customization Options.</span>'
+                        'description' => '<span class="pro-feature"> Upgrade to  <a href="' . admin_url('admin.php?page=master-addons-settings-pricing') . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
                     ]
                 );
 
@@ -214,7 +214,7 @@
 
 
 					'description' => sprintf( '15+ more effects on <a href="%s" target="_blank">%s</a>',
-						esc_url_raw('https://master-addons.com/'),
+						esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
 						__( 'Upgrade Now', MELA_TD ) )
 				]
 			);

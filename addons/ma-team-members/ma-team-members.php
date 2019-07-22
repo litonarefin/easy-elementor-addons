@@ -214,7 +214,7 @@
 							],
 						],
 						'default' => '1',
-						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . admin_url('admin.php?page=master-addons-settings-pricing') . '">Pro Version</a> for more Elements with Customization Options.</span>'
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . admin_url('admin.php?page=master-addons-settings-pricing') . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 					]
 				);
 
