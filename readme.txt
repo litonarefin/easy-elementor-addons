@@ -88,6 +88,13 @@ Paste on your Local Computer
 
 
 == Changelog ==
+[//]: # fs_free_only_begin
+
+[//]: # fs_free_only_end
+
+[//]: # fs_premium_only_begin
+
+[//]: # fs_premium_only_end
 
  = 1.0.7 (22-7-2019) =
  * Fixed: Added Pricing Table for premium version

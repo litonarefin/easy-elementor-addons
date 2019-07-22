@@ -20,6 +20,7 @@
 			'News from siteXY',
 			'dashboard_custom_feed_output' );
 	}
+
 	function dashboard_custom_feed_output() {
 		echo '<div class="rss-widget">';
 		wp_widget_rss_output(array(
