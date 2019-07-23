@@ -90,16 +90,19 @@ Paste on your Local Computer
 == Changelog ==
 
 
- = 1.0.7 (22-7-2019) =
+ = 1.0.7 (24-7-2019) =
  [//]: # fs_free_only_begin
     * Fixed: Accordion issue fixed
+    * Fixed: weDocs sweet alert conflicting issue fixed
     * Updated: Checked Free vs Pro version of Master Addons Comparisons
+    * Update: Pro Ribbon added on Gravity Forms, functioned frontend and backend also
     * Update: Schedule Plugin Check
  [//]: # fs_free_only_end
 
  [//]: # fs_premium_only_begin
    * Added: Added Pricing Table for premium version
-   * Fixed: MA Creative Buttons Styles seperated and tested Free and Pro Version
+   * Fixed: MA Creative Buttons Styles separated and tested Free and Pro Version
+   * Fixed: Gravity Forms blocked Free and Premium Versions
  [//]: # fs_premium_only_end
 
 

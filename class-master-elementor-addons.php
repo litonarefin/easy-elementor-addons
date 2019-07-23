@@ -51,14 +51,17 @@
 					'ma-progressbars',
 					'ma-team-members',
 					'ma-team-members-slider',
+					'ma-creative-buttons',
+
 //					'ma-creative-links',
+
 					'contact-form-7',
 					'ninja-forms',
-					'gravity-forms',
+					['gravity-forms','pro'],
 					'wpforms',
 					'caldera-forms',
 					'weforms',
-					'ma-creative-buttons',
+
 //					'ma-piechart',
 //					'ma-infobox',
 //					'ma-flipbox',
@@ -66,26 +69,24 @@
 //					'ma-counter-up',
 //					'ma-countdown-timer',
 
-
-
-
-
-					//			'ma-image-comparison',
-					//			'ma-business-hours',
-					//			'countdown-timer',
-					//			'post-grid',
-					//			'post-timeline',
-					//			'testimonial-carousel',
-					//			'pricing-table',
-					//			'post-carousel',
-					//			'google-maps',
-					//			'tooltip',
-					//			['contact-form-7','pro'],
+		//			'ma-image-comparison',
+		//			'ma-business-hours',
+		//			'countdown-timer',
+		//			'post-grid',
+		//			'post-timeline',
+		//			'testimonial-carousel',
+		//			'pricing-table',
+		//			'post-carousel',
+		//			'google-maps',
+		//			'tooltip',
+		//			['contact-form-7','pro'],
 				];
 
 				self::$maad_el_default_form_widgets = [
 					//			'contact-form-7'
+
 				];
+
 
 				// search for pro version
 //				$this->pro_enabled = apply_filters( 'ma_el/pro_enabled', false );
@@ -258,8 +259,8 @@
 
 
 			public static function activated_widgets() {
-
-				$maad_el_default_settings = array_fill_keys( self::$maad_el_default_widgets, true );
+				$maad_el_default_settings = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),
+					true );
 				$maad_el_get_settings     = get_option( 'maad_el_save_settings', $maad_el_default_settings );
 				$maad_el_new_settings     = array_diff_key( $maad_el_default_settings, $maad_el_get_settings );
 
@@ -277,7 +278,7 @@
 
 				$activated_widgets = $this->activated_widgets();
 
-				foreach ( self::$maad_el_default_widgets as $widget ) {
+				foreach ( ma_el_array_flatten( self::$maad_el_default_widgets ) as $widget ) {
 					if ( $activated_widgets[ $widget ] == true ) {
 						require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
 					}
@@ -650,10 +651,9 @@
 		}
 
 
+		Master_Elementor_Addons::get_instance();
+
 	}
-
-	Master_Elementor_Addons::get_instance();
-
 
 
 	/**

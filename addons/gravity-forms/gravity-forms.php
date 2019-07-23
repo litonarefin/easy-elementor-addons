@@ -30,17 +30,50 @@
 
 		protected function _register_controls() {
 
+			if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+
+
+				$this->start_controls_section(
+					'maad_el_section_pro',
+					[
+						'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD )
+					]
+				);
+
+				$this->add_control(
+					'maad_el_control_get_pro',
+					[
+						'label' => esc_html__( 'Unlock more possibilities', MELA_TD ),
+						'type' => Controls_Manager::CHOOSE,
+						'options' => [
+							'1' => [
+								'title' => esc_html__( '', MELA_TD ),
+								'icon' => 'fa fa-unlock-alt',
+							],
+						],
+						'default' => '1',
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . admin_url('admin.php?page=master-addons-settings-pricing') . '" target="_blank">Pro Version</a> for more Elements with 
+Customization Options.</span>'
+					]
+				);
+
+				$this->end_controls_section();
+			} else{
+
+
 
 			/**
-			 * Master Addons: Contact Form
+			 * Master Addons: Gravity Form
 			 * -------------------------------------------------
 			 */
 			$this->start_controls_section(
-				'section_info_box',
+				'section_gravity_form',
 				[
 					'label'                 => __( 'Gravity Forms', MELA_TD ),
 				]
 			);
+
+
 
 			$this->add_control(
 				'contact_form_list',
@@ -1898,6 +1931,8 @@
 			);
 
 			$this->end_controls_section();
+
+			} //Premium Code use block end
 		}
 
 		protected function _content_template() {}

@@ -408,6 +408,7 @@ pre {
     margin-bottom: 70px;
 }
 .master_addons_features .master_addons_feature .col{
+    overflow: hidden;
     display: inline-block;
     background: #fff;
     box-shadow: 0px 7px 11px 0px #e0e0e0;
@@ -575,8 +576,8 @@ pre {
 
 
 /* Addons */
-.master-addons-dashboard-checkbox{
 
+.master-addons-dashboard-checkbox{
     position: relative;
     min-width: 300px;
     font-size: 24px;
@@ -586,14 +587,36 @@ pre {
     margin: 10px;
     border: 1px solid #E8E9EF;
     padding: 10px;
-
     padding:5px 15px;
     margin-bottom: 20px !important;
 
 }
+
+.pro-ribbon {
+    font-size: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    position: absolute;
+    width: 80px;
+    top: 10px;
+    left: -23px;
+    z-index: 2;
+    overflow: hidden;
+    box-shadow:0 0 0 3px #4734f1,  0px 21px 5px -18px rgba(0,0,0,0.6);
+    background: #4734f1;
+}
+
+
 .master-addons-dashboard-checkbox .master-addons-el-title{
     float: left;
+    margin-left: 20px;
 }
+
 .master-addons-dashboard-checkbox .switch.switch-text {
     float: right;
     margin-left: 20px;
@@ -667,7 +690,6 @@ div.fs-notice.updated, div.fs-notice.success, div.fs-notice.promotion, .fs-notic
     top: 11%;
     left: 0;
     right: 10px;
-<<<<<<< HEAD
 }
 .fs-modal .fs-modal-header{
     background: #4a33f1 !important;
@@ -675,10 +697,3 @@ div.fs-notice.updated, div.fs-notice.success, div.fs-notice.promotion, .fs-notic
 .fs-modal .fs-modal-header h4{
     color: #fff !important;
 }
-
-
-
-
-=======
-}
->>>>>>> parent of e0b27a4... finalized freemius codes

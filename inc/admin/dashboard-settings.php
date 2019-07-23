@@ -73,6 +73,7 @@ class Master_Addons_Admin_Settings{
 	}
 
 
+
 	public function master_addons_el_page_content(){
 
 		$js_info = array(
@@ -82,7 +83,11 @@ class Master_Addons_Admin_Settings{
 		wp_localize_script( 'master-addons-el-admin', 'js_maad_el_settings', $js_info );
 
 
-		$this->maad_el_default_settings = array_fill_keys( Master_Elementor_Addons::$maad_el_default_widgets, true );
+
+		$this->maad_el_default_settings = array_fill_keys( ma_el_array_flatten(
+			Master_Elementor_Addons::$maad_el_default_widgets ), true );
+
+
 		$this->maad_el_get_settings = get_option( 'maad_el_save_settings', $this->maad_el_default_settings );
 		$maad_el_new_settings = array_diff_key( $this->maad_el_default_settings, $this->maad_el_get_settings );
 
@@ -111,7 +116,7 @@ class Master_Addons_Admin_Settings{
 
 		$this->maad_el_settings = [];
 
-		foreach( Master_Elementor_Addons::$maad_el_default_widgets as $value ){
+		foreach( ma_el_array_flatten( Master_Elementor_Addons::$maad_el_default_widgets ) as $value ){
 			if( isset( $settings[ $value ] ) ) {
 				$this->maad_el_settings[ $value ] = 1;
 			} else {

@@ -303,7 +303,7 @@
 			$this->end_controls_section();
 
 
-			if ( !ma_el_fs()->is_premium() ) {
+			if ( !ma_el_fs()->can_use_premium_code__premium_only() ) {
 
 
 				$this->start_controls_section(

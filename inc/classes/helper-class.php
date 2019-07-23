@@ -3,6 +3,7 @@
 
 	class Master_Addons_Helper{
 
+
 		/**
 		 * Retrive the list of Contact Form 7 Forms [ if plugin activated ]
 		 */
