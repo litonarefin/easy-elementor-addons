@@ -18,7 +18,7 @@ Each add-on is 100% customizable. You can customize font size, color, margin, pa
 While working with the live page builder, you able to see every customization. That means you don't need to update a page or post to check the output.
 
 [Master Addons](https://master-addons.com/)
-[Master Addons Demos](https://plugins.jeweltheme.com/master-addons)
+[Master Addons Demos](https://master-addons.com/)
 
 List of Addons:
 1. **MA Headlines** : Animated Multiple Headlines with Color, Background Customization Options.
@@ -88,19 +88,19 @@ Paste on your Local Computer
 
 
 == Changelog ==
-[//]: # fs_free_only_begin
 
-[//]: # fs_free_only_end
-
-[//]: # fs_premium_only_begin
-
-[//]: # fs_premium_only_end
 
  = 1.0.7 (22-7-2019) =
- * Fixed: Added Pricing Table for premium version
- * Added: Accordion issue fixed
- * Updated: Checked Free vs Pro version of Master Addons Comparisons
- * Update: Schedule Plugin Check
+ [//]: # fs_free_only_begin
+    * Fixed: Accordion issue fixed
+    * Updated: Checked Free vs Pro version of Master Addons Comparisons
+    * Update: Schedule Plugin Check
+ [//]: # fs_free_only_end
+
+ [//]: # fs_premium_only_begin
+   * Added: Added Pricing Table for premium version
+   * Fixed: MA Creative Buttons Styles seperated and tested Free and Pro Version
+ [//]: # fs_premium_only_end
 
 
  = 1.0.6 (6-7-2019) =

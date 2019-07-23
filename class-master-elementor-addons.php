@@ -381,6 +381,11 @@
 				//Creative Buttons
 				if ( isset( $is_activated_widget['ma-creative-buttons'] ) ) {
 					wp_enqueue_style( 'ma-creative-buttons', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons.css' );
+
+					if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+						wp_enqueue_style( 'ma-creative-buttons-pro', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons-pro.css' );
+					}
+
 				}
 
 

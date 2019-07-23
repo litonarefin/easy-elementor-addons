@@ -177,64 +177,108 @@
 				]
 			);
 
-			$this->add_control(
-				'creative_button_effect',
-				[
-					'label'       => esc_html__( 'Set Button Effect', MELA_TD ),
-					'type'        => Controls_Manager::SELECT,
-					'default'     => 'ma-el-creative-button--default',
-					'options'     => [
-						'ma-el-creative-button--default' 	=> esc_html__( 'Default', 	    MELA_TD ),
-						'ma-el-creative-button--winona' 	=> esc_html__( 'Winona', 	    MELA_TD ),
-						'ma-el-creative-button--ujarak' 	=> esc_html__( 'Ujarak', 	    MELA_TD ),
-						'ma-el-creative-button--wayra' 		=> esc_html__( 'Wayra', 	    MELA_TD ),
-						'ma-el-creative-button--tamaya' 	=> esc_html__( 'Tamaya', 	    MELA_TD ),
-						'ma-el-creative-button--rayen' 		=> esc_html__( 'Rayen', 	    MELA_TD ),
-						'ma-el-creative-button--puck' 		=> esc_html__( 'Puck ( Pro )', 	    MELA_TD ),
-						'ma-el-creative-button--titania' 	=> esc_html__( 'Titania ( Pro )', 	    MELA_TD ),
-						'ma-el-creative-button--bagot' 	    => esc_html__( 'Bagot ( Pro )', 	    MELA_TD ),
-						'ma-el-creative-button--shylock'    => esc_html__( 'Shylock ( Pro )', 	    MELA_TD ),
-						'ma-el-creative-button--cordelia'   => esc_html__( 'Cordelia ( Pro )', 	    MELA_TD ),
-						'ma-el-creative-button--horatio'    => esc_html__( 'Horatio ( Pro )', 	    MELA_TD ),
-						'ma-el-creative-button--luce'       => esc_html__( 'Luce ( Pro )', 	    MELA_TD ),
-						'ma-el-creative-button--juliet'     => esc_html__( 'Juliet ( Pro )', 	    MELA_TD ),
-						'ma-el-creative-button--invulner'   => esc_html__( 'Invulner ( Pro )', 	    MELA_TD ),
-						'ma-el-creative-button--tantalid'   => esc_html__( 'Tantalid ( Pro )', 	    MELA_TD ),
-						'ma-el-creative-button--pipaluk' 	=> esc_html__( 'Pipaluk (Pro)', MELA_TD ),
-						'ma-el-creative-button--moema' 		=> esc_html__( 'Moema (Pro)', 	MELA_TD ),
-//						'ma-el-creative-button--wave' 		=> esc_html__( 'Wave (Pro)', 	MELA_TD ),
-						'ma-el-creative-button--aylen' 		=> esc_html__( 'Aylen (Pro)', 	MELA_TD ),
-						'ma-el-creative-button--saqui' 		=> esc_html__( 'Saqui (Pro)', 	MELA_TD ),
-						'ma-el-creative-button--wapasha' 	=> esc_html__( 'Wapasha (Pro)', MELA_TD ),
-						'ma-el-creative-button--nuka' 		=> esc_html__( 'Nuka (Pro)', 	MELA_TD ),
-						'ma-el-creative-button--antiman' 	=> esc_html__( 'Antiman (Pro)', MELA_TD ),
-						'ma-el-creative-button--quidel' 	=> esc_html__( 'Quidel (Pro)', 	MELA_TD ),
-						'ma-el-creative-button--shikoba' 	=> esc_html__( 'Shikoba (Pro)', MELA_TD ),
-					],
 
+			//Free Version Codes
+			if ( !ma_el_fs()->can_use_premium_code__premium_only() ) {
 
-					'description' => sprintf( '15+ more effects on <a href="%s" target="_blank">%s</a>',
-						esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
-						__( 'Upgrade Now', MELA_TD ) )
-				]
-			);
-
-
-			if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
 
 				$this->add_control(
-					'creative_alternative_button_textsss',
+					'creative_button_effect',
 					[
-						'label'       => esc_html__( 'Alternative Butsssston Text', MELA_TD ),
-						'type'        => Controls_Manager::TEXT,
-						'label_block' => true,
-						'default'     => 'Gosss!',
-						'placeholder' => esc_html__( 'Enter Alternatissve Button text', MELA_TD ),
-						'title'       => esc_html__( 'Enter Alternatissve Button text here', MELA_TD ),
+						'label'       => esc_html__( 'Set Button Effect', MELA_TD ),
+						'type'        => Controls_Manager::SELECT,
+						'default'     => 'ma-el-creative-button--default',
+						'options'     => [
+							'ma-el-creative-button--default' 	=> esc_html__( 'Default', 	    MELA_TD ),
+							'ma-el-creative-button--winona' 	=> esc_html__( 'Winona', 	    MELA_TD ),
+							'ma-el-creative-button--ujarak' 	=> esc_html__( 'Ujarak', 	    MELA_TD ),
+							'ma-el-creative-button--wayra' 		=> esc_html__( 'Wayra', 	    MELA_TD ),
+							'ma-el-creative-button--tamaya' 	=> esc_html__( 'Tamaya', 	    MELA_TD ),
+							'ma-el-creative-button--rayen' 		=> esc_html__( 'Rayen', 	    MELA_TD ),
+//							'ma-el-creative-button--puck' 		=> esc_html__( 'Puck ( Pro )', 	    MELA_TD ),
+//							'ma-el-creative-button--titania' 	=> esc_html__( 'Titania ( Pro )', 	    MELA_TD ),
+//							'ma-el-creative-button--bagot' 	    => esc_html__( 'Bagot ( Pro )', 	    MELA_TD ),
+//							'ma-el-creative-button--shylock'    => esc_html__( 'Shylock ( Pro )', 	    MELA_TD ),
+//							'ma-el-creative-button--cordelia'   => esc_html__( 'Cordelia ( Pro )', 	    MELA_TD ),
+//							'ma-el-creative-button--horatio'    => esc_html__( 'Horatio ( Pro )', 	    MELA_TD ),
+//							'ma-el-creative-button--luce'       => esc_html__( 'Luce ( Pro )', 	        MELA_TD ),
+//							'ma-el-creative-button--juliet'     => esc_html__( 'Juliet ( Pro )', 	    MELA_TD ),
+//							'ma-el-creative-button--invulner'   => esc_html__( 'Invulner ( Pro )', 	    MELA_TD ),
+//							'ma-el-creative-button--tantalid'   => esc_html__( 'Tantalid ( Pro )', 	    MELA_TD ),
+//						    'ma-el-creative-button--wave' 		=> esc_html__( 'Wave (Pro)', 	MELA_TD ),
+							'ma-el-creative-button--pipaluk' 	=> esc_html__( 'Pipaluk (Pro)', MELA_TD ),
+							'ma-el-creative-button--moema' 		=> esc_html__( 'Moema (Pro)', 	MELA_TD ),
+							'ma-el-creative-button--isi' 		=> esc_html__( 'Isi (Pro)', 	MELA_TD ),
+							'ma-el-creative-button--aylen' 		=> esc_html__( 'Aylen (Pro)', 	MELA_TD ),
+							'ma-el-creative-button--saqui' 		=> esc_html__( 'Saqui (Pro)', 	MELA_TD ),
+							'ma-el-creative-button--wapasha' 	=> esc_html__( 'Wapasha (Pro)', MELA_TD ),
+							'ma-el-creative-button--nina' 		=> esc_html__( 'Nina (Pro)', 	MELA_TD ),
+							'ma-el-creative-button--nanuk' 		=> esc_html__( 'Nanuk (Pro)', 	MELA_TD ),
+							'ma-el-creative-button--nuka' 		=> esc_html__( 'Nuka (Pro)', 	MELA_TD ),
+							'ma-el-creative-button--antiman' 	=> esc_html__( 'Antiman (Pro)', MELA_TD ),
+							'ma-el-creative-button--itzel' 	    => esc_html__( 'Itzel (Pro)',   MELA_TD ),
+							'ma-el-creative-button--naira' 	    => esc_html__( 'Naira (Pro)',   MELA_TD ),
+							'ma-el-creative-button--quidel' 	=> esc_html__( 'Quidel (Pro)', 	MELA_TD ),
+							'ma-el-creative-button--sacnite' 	=> esc_html__( 'Sacnite (Pro)', MELA_TD ),
+							'ma-el-creative-button--shikoba' 	=> esc_html__( 'Shikoba (Pro)', MELA_TD ),
+						],
+
+
+						'description' => sprintf( '15+ more effects on <a href="%s" target="_blank">%s</a>',
+							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
+							__( 'Upgrade Now', MELA_TD ) )
 					]
 				);
 
-			}
+
+			} else {
+
+			    // Premium Version Codes
+
+				$this->add_control(
+					'creative_button_effect',
+					[
+						'label'       => esc_html__( 'Set Button Effect', MELA_TD ),
+						'type'        => Controls_Manager::SELECT,
+						'default'     => 'ma-el-creative-button--default',
+						'options'     => [
+							'ma-el-creative-button--default' 	=> esc_html__( 'Default', 	    MELA_TD ),
+							'ma-el-creative-button--winona' 	=> esc_html__( 'Winona', 	    MELA_TD ),
+							'ma-el-creative-button--ujarak' 	=> esc_html__( 'Ujarak', 	    MELA_TD ),
+							'ma-el-creative-button--wayra' 		=> esc_html__( 'Wayra', 	    MELA_TD ),
+							'ma-el-creative-button--tamaya' 	=> esc_html__( 'Tamaya', 	    MELA_TD ),
+							'ma-el-creative-button--rayen' 		=> esc_html__( 'Rayen', 	    MELA_TD ),
+//							'ma-el-creative-button--puck' 		=> esc_html__( 'Puck', 	        MELA_TD ),
+//							'ma-el-creative-button--titania' 	=> esc_html__( 'Titania', 	    MELA_TD ),
+//							'ma-el-creative-button--bagot' 	    => esc_html__( 'Bagot', 	    MELA_TD ),
+//							'ma-el-creative-button--shylock'    => esc_html__( 'Shylock', 	    MELA_TD ),
+//							'ma-el-creative-button--cordelia'   => esc_html__( 'Cordelia', 	    MELA_TD ),
+//							'ma-el-creative-button--horatio'    => esc_html__( 'Horatio.', 	    MELA_TD ),
+//							'ma-el-creative-button--luce'       => esc_html__( 'Luce', 	        MELA_TD ),
+//							'ma-el-creative-button--juliet'     => esc_html__( 'Juliet', 	    MELA_TD ),
+//							'ma-el-creative-button--invulner'   => esc_html__( 'Invulner', 	    MELA_TD ),
+//							'ma-el-creative-button--tantalid'   => esc_html__( 'Tantalid', 	    MELA_TD ),
+//							'ma-el-creative-button--wave' 		=> esc_html__( 'Wave', 	        MELA_TD ),
+							'ma-el-creative-button--pipaluk' 	=> esc_html__( 'Pipaluk',       MELA_TD ),
+							'ma-el-creative-button--moema' 		=> esc_html__( 'Moema', 	    MELA_TD ),
+							'ma-el-creative-button--isi' 		=> esc_html__( 'Isi', 	        MELA_TD ),
+							'ma-el-creative-button--aylen' 		=> esc_html__( 'Aylen', 	    MELA_TD ),
+							'ma-el-creative-button--saqui' 		=> esc_html__( 'Saqui', 	    MELA_TD ),
+							'ma-el-creative-button--wapasha' 	=> esc_html__( 'Wapasha',       MELA_TD ),
+							'ma-el-creative-button--nina' 		=> esc_html__( 'Nina', 	        MELA_TD ),
+							'ma-el-creative-button--nanuk' 		=> esc_html__( 'Nanuk', 	    MELA_TD ),
+							'ma-el-creative-button--nuka' 		=> esc_html__( 'Nuka', 	        MELA_TD ),
+							'ma-el-creative-button--antiman' 	=> esc_html__( 'Antiman',       MELA_TD ),
+							'ma-el-creative-button--itzel' 	    => esc_html__( 'Itzel',         MELA_TD ),
+							'ma-el-creative-button--naira' 	    => esc_html__( 'Naira',         MELA_TD ),
+							'ma-el-creative-button--quidel' 	=> esc_html__( 'Quidel', 	    MELA_TD ),
+							'ma-el-creative-button--sacnite' 	=> esc_html__( 'Sacnite', 	    MELA_TD ),
+							'ma-el-creative-button--shikoba' 	=> esc_html__( 'Shikoba',       MELA_TD ),
+						],
+
+					]
+				);
+            }
 
 
 			$this->add_responsive_control(
@@ -453,7 +497,7 @@
 			$settings = $this->get_settings();
 
 			$this->add_render_attribute( 'ma_el_creative_button', [
-				'class'	=> [ 'ma-el-creative-button', esc_attr($settings['creative_button_effect'] ) ],
+				'class'	=> [ 'button ma-el-creative-button', esc_attr($settings['creative_button_effect'] ) ],
 				'href'	=> esc_attr($settings['creative_button_link_url']['url'] ),
 			]);
 
