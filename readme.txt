@@ -60,11 +60,15 @@ Get Faster Support from [Dedicated Support Forum](https://jeweltheme.com/support
 
 
 == Frequently Asked Questions ==
-= Is is necessry to use Elementor Page Builder? =
-Yes. You must use Elementor Page builder plugin to work with this master Addons.
+= Is it necessary to use Elementor Page Builder? =
+Yes. You must have to use Elementor Page builder plugin to work with this Master Addons.
 
-= Is it competable with any Theme? =
-Yes of course it's competable with any WordPress Theme.
+= Is it compatible with any Theme? =
+Yes, it's compatible with any WordPress Theme.
+
+= Is there any way to test Premium Features without Purchasing Master Addons?
+Yes, we're offering 14 Day Free Trial ( No Payment, No Credit Card, No Paypal account required) for testing all Premium
+Features. Even you'll get regular Updates also !
 
 == Screenshots ==
 1. Master Addons Dual Heading

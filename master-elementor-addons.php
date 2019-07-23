@@ -37,7 +37,7 @@
 					'type'                => 'plugin',
 					'public_key'          => MA_EL_FREEMIUS_PUBLIC_KEY,
 					'is_premium'          => true,
-					'is_premium_only'     => true,
+					'is_premium_only'     => false,
 					'has_addons'          => false,
 					'has_paid_plans'      => true,
 					'trial'               => array(
