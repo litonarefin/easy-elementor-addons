@@ -99,7 +99,7 @@
                         <div class="master_addons_feature">
 
 
-                            <h3><?php echo esc_html__('Form Elements', MELA_TD);?></h3>
+                            <h3><?php echo esc_html__('Form Addons', MELA_TD);?></h3>
 
 	                        <?php foreach( array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 11, 6) as
 		                        $key=>$widget ) :
@@ -130,16 +130,20 @@
 
                                     <p class="master-addons-el-title">
 
-                                        <?php if ( isset( $widget ) ){
-                                            if(is_array( $widget)){
-                                                echo '<span class="pro-ribbon">';
-                                                $is_pro = $widget[1];
-                                                $widget = $widget[0];
-                                                echo ucwords($is_pro);
-                                                echo '</span>';
-                                            } }
-
-                                            echo esc_html( ucwords( str_replace( "-", " ", $widget) ) ); ?>
+                        <?php
+//                            if( !ma_el_fs()->can_use_premium_code__premium_only ()) {
+	                            if ( isset( $widget ) ) {
+		                            if ( is_array( $widget ) ) {
+			                            echo '<span class="pro-ribbon">';
+			                            $is_pro = $widget[1];
+			                            $widget = $widget[0];
+			                            echo ucwords( $is_pro );
+			                            echo '</span>';
+		                            }
+		                            echo esc_html( ucwords( str_replace( "-", " ", $widget ) ) );
+	                            }
+//                            }
+                        ?>
                                     </p>
 
                                     <label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text

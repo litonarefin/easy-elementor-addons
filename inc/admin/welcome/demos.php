@@ -1,109 +1,123 @@
 <ul class="master_addons_demos">
+
     <li>
-        <a
-                href="#"
-                target="_blank">
-            <strong>
-				<?php _e( 'MA Headlines', MELA_TD ); ?>
-            </strong>
+        <a href="#" target="_blank">
+            <strong><?php _e( 'MA Headlines', MELA_TD ); ?></strong>
         </a>
     </li>
+
     <li>
-        <a
-                href="#"
-                target="_blank">
-            <strong>
-				<?php _e( 'MA Dual Headings', MELA_TD ); ?>
-            </strong>
+        <a href="#" target="_blank">
+            <strong><?php _e( 'MA Dual Headings', MELA_TD ); ?></strong>
         </a>
     </li>
+
     <li>
-        <a
-                href="#"
-                target="_blank">
+        <a href="#" target="_blank">
             <strong>
-				<?php _e( 'MA Accordion', MELA_TD ); ?>
+				<?php _e( 'MA Advanced Accordion', MELA_TD ); ?>
             </strong>
         </a>
     </li>
 
     <li>
-        <a
-                href="#"
-                target="_blank">
+        <a href="#" target="_blank">
             <strong>
-				<?php _e( 'MA Tabs', MELA_TD ); ?>
+				<?php _e( 'MA Advanced Tabs', MELA_TD ); ?>
             </strong>
             <span class="ribbon hot">
-												<?php _e( 'Hot', MELA_TD ); ?>
-											</span>
+                <?php _e( 'Hot', MELA_TD ); ?>
+            </span>
         </a>
     </li>
+
     <li>
-        <a
-                href="#"
-                target="_blank">
+        <a href="#" target="_blank">
+            <strong><?php _e( 'MA Tooltip', MELA_TD ); ?></strong>
+        </a>
+    </li>
+
+    <li>
+        <a href="#" target="_blank">
             <strong>
 				<?php _e( 'MA Progressbar', MELA_TD ); ?>
             </strong>
         </a>
     </li>
+
     <li>
-        <a
-                href="#"
-                target="_blank">
+        <a href="#" target="_blank">
             <strong>
-				<?php _e( 'MA Tooltip', MELA_TD ); ?>
+				<?php _e( 'MA Progressbars', MELA_TD ); ?>
             </strong>
         </a>
     </li>
+
+
     <li>
-        <a
-                href="#"
-                target="_blank">
+        <a href="#" target="_blank">
             <strong>
 				<?php _e( 'MA Team Members', MELA_TD ); ?>
             </strong>
         </a>
         <span class="ribbon new">
-											<?php _e( 'New', MELA_TD ); ?>
-										</span>
+            <?php _e( 'New', MELA_TD ); ?>
+        </span>
     </li>
+
+
     <li>
-        <a
-                href="#"
-                target="_blank">
+        <a href="#" target="_blank">
             <strong>
 				<?php _e( 'MA Team Members Slider', MELA_TD ); ?>
             </strong>
         </a>
         <span class="ribbon new">
-											<?php _e( 'New', MELA_TD ); ?>
-										</span>
+            <?php _e( 'New', MELA_TD ); ?>
+        </span>
     </li>
+
     <li>
-        <a
-                href="#/"
-                target="_blank">
-            <strong>
-				<?php _e( 'Contact Form 7', MELA_TD ); ?>
-            </strong>
+        <a href="#" target="_blank">
+            <strong><?php _e( 'MA Creative Buttons', MELA_TD ); ?></strong>
         </a>
-        <span class="ribbon trending">Trending</span>
+        <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
     </li>
+
+
+    <li>
+        <a href="#" target="_blank"><strong><?php _e( 'Contact Form 7', MELA_TD ); ?></strong></a>
+        <span class="ribbon trending"><?php _e( 'Trending', MELA_TD ); ?></span>
+    </li>
+
+    <li>
+        <a href="#" target="_blank"><strong><?php _e( 'Ninja Forms', MELA_TD ); ?></strong></a>
+        <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+    </li>
+
+    <li>
+        <a href="#" target="_blank"><strong><?php _e( 'Gravity Forms', MELA_TD ); ?></strong></a>
+        <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+    </li>
+
+    <li>
+        <a href="#" target="_blank"><strong><?php _e( 'WP Forms', MELA_TD ); ?></strong></a>
+        <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+    </li>
+
+    <li>
+        <a href="#" target="_blank"><strong><?php _e( 'Caldera Forms', MELA_TD ); ?></strong></a>
+        <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+    </li>
+
+    <li>
+        <a href="#" target="_blank"><strong><?php _e( 'weForms', MELA_TD ); ?></strong></a>
+        <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+    </li>
+
+
     <!--
-    <li>
-        <a
-                href="https://plugins.jeweltheme.com/easy-blocks/title-subtitle/"
-                target="_blank">
-            <strong>
-				<?php _e( 'Heading & Sub Heading', MELA_TD ); ?>
-            </strong>
-        </a>
-        <span class="ribbon new">
-											<?php _e( 'New', MELA_TD ); ?>
-										</span>
-    </li>
+
 
     <li>
         <a
@@ -131,18 +145,7 @@
 										</span>
     </li>
 
-    <li>
-        <a
-                href="https://plugins.jeweltheme.com/easy-blocks/hero-image/"
-                target="_blank">
-            <strong>
-				<?php _e( 'Hero Image', MELA_TD ); ?>
-            </strong>
-            <span class="ribbon new">
-													<?php _e( 'New', MELA_TD ); ?>
-												</span>
-        </a>
-    </li>
+
 
     <li>
         <a
@@ -222,57 +225,7 @@
         </a>
     </li>
 
-    <li>
-        <a
-                href="https://plugins.jeweltheme.com/easy-blocks/counter-block/"
-                target="_blank">
-            <strong>
-				<?php _e( 'Animate Counter', MELA_TD ); ?>
-            </strong>
-            <span class="ribbon trending">
-													<?php _e( 'Trending', MELA_TD ); ?>
-												</span>
-        </a>
-    </li>
 
-    <li>
-        <a
-                href="https://plugins.jeweltheme.com/easy-blocks/multiple-column-in-a-row/"
-                target="_blank">
-            <strong>
-				<?php _e( 'Row and Column', MELA_TD ); ?>
-            </strong>
-            <span class="ribbon new">
-													<?php _e( 'New', MELA_TD ); ?>
-												</span>
-        </a>
-    </li>
-
-    <li>
-        <a
-                href="https://plugins.jeweltheme.com/easy-blocks/default-row-paragraph/"
-                target="_blank">
-            <strong>
-				<?php _e( 'Row and Column', MELA_TD ); ?>
-            </strong>
-            <span class="ribbon hot">
-													<?php _e( 'Hot', MELA_TD ); ?>
-												</span>
-        </a>
-    </li>
-
-    <li>
-        <a
-                href="https://plugins.jeweltheme.com/easy-blocks/logo-slider/"
-                target="_blank">
-            <strong>
-				<?php _e( 'Logo Slider', MELA_TD ); ?>
-            </strong>
-            <span class="ribbon trending">
-													<?php _e( 'New', MELA_TD ); ?>
-												</span>
-        </a>
-    </li>
 
     <li>
 
@@ -298,30 +251,7 @@
 										</span>
     </li>
 
-    <li>
-        <strong>
-			<?php _e( 'Accordion', MELA_TD ); ?>
-        </strong>
-        <span class="ribbon coming">
-											<?php _e( 'Upcoming', MELA_TD ); ?>
-										</span>
-    </li>
-    <li>
-        <strong>
-			<?php _e( 'Teams', MELA_TD ); ?>
-        </strong>
-        <span class="ribbon coming">
-											<?php _e( 'Upcoming', MELA_TD ); ?>
-										</span>
-    </li>
-    <li>
-        <strong>
-			<?php _e( 'Team Slider', MELA_TD ); ?>
-        </strong>
-        <span class="ribbon coming">
-											<?php _e( 'Upcoming', MELA_TD ); ?>
-										</span>
-    </li>
+
     <li>
         <strong>
 			<?php _e( 'Number Block', MELA_TD ); ?>
@@ -331,14 +261,7 @@
 										</span>
     </li>
 
-    <li>
-        <strong>
-			<?php _e( 'GDPR Conscent', MELA_TD ); ?>
-        </strong>
-        <span class="ribbon coming">
-											<?php _e( 'Upcoming', MELA_TD ); ?>
-										</span>
-    </li>
+
     <li>
         <strong>
 			<?php _e( 'Related Posts', MELA_TD ); ?>
@@ -355,14 +278,7 @@
 											<?php _e( 'Upcoming', MELA_TD ); ?>
 										</span>
     </li>
-    <li>
-        <strong>
-			<?php _e( 'Social Share', MELA_TD ); ?>
-        </strong>
-        <span class="ribbon coming">
-											<?php _e( 'Upcoming', MELA_TD ); ?>
-										</span>
-    </li>
+
     <li>
         <strong>
 			<?php _e( 'Google Maps(GMap)', MELA_TD ); ?>

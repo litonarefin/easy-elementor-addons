@@ -77,7 +77,7 @@ Features. Even you'll get regular Updates also !
 2. Master Addons Call to Action
 3. Master Addons Dual Heading
 4. Master Addons Advanced Accordion
-5. Master Addons Avanced Tabs
+5. Master Addons Advanced Tabs
 6. Master Addons Tooltips
 7. Master Addons Progressbar
 8. Master Addons Progressbars
