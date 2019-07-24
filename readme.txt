@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jwthe
 Requires at least: 4.0
 Tested up to: 5.2.1
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.0.7
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Master Addons is essential for Elementor page builder. It enhances the page or post customization speed.
@@ -70,16 +70,26 @@ Yes, it's compatible with any WordPress Theme.
 Yes, we're offering 14 Day Free Trial ( No Payment, No Credit Card, No Paypal account required) for testing all Premium
 Features. Even you'll get regular Updates also !
 
+
+
 == Screenshots ==
-1. Master Addons Dual Heading
-2. Master Addons Progressbar
-3. Master Addons Advanced Accordion
-4. Master Addons Avanced Tabs
-5. Master Addons Headlines
+1. Master Addons Headlines
+2. Master Addons Call to Action
+3. Master Addons Dual Heading
+4. Master Addons Advanced Accordion
+5. Master Addons Avanced Tabs
 6. Master Addons Tooltips
-7. Master Addons Team Members
-8. Master Addons Team Members Slider
-9. Master Addons Contact Form 7
+7. Master Addons Progressbar
+8. Master Addons Progressbars
+9. Master Addons Team Members
+10. Master Addons Team Members Slider
+11. Master Addons Creative Buttons
+12. Master Addons Contact Form 7
+13. Master Addons Ninja Forms
+14. Master Addons Gravity Forms
+15. Master Addons WP Forms
+16. Master Addons Caldera Forms
+17. Master Addons weForms
 
 
 == Installation ==
@@ -92,7 +102,10 @@ Paste on your Local Computer
 
 
 == Changelog ==
-
+ = 1.0.8 (25-7-2019) =
+ [//]: # fs_free_only_begin
+    * Fixed: Freemius Free Version Popup issue fixed
+ [//]: # fs_free_only_end
 
  = 1.0.7 (24-7-2019) =
  [//]: # fs_free_only_begin
