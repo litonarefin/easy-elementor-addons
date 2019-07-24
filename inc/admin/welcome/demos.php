@@ -14,20 +14,14 @@
 
     <li>
         <a href="#" target="_blank">
-            <strong>
-				<?php _e( 'MA Advanced Accordion', MELA_TD ); ?>
-            </strong>
+            <strong><?php _e( 'MA Advanced Accordion', MELA_TD ); ?></strong>
         </a>
     </li>
 
     <li>
         <a href="#" target="_blank">
-            <strong>
-				<?php _e( 'MA Advanced Tabs', MELA_TD ); ?>
-            </strong>
-            <span class="ribbon hot">
-                <?php _e( 'Hot', MELA_TD ); ?>
-            </span>
+            <strong><?php _e( 'MA Advanced Tabs', MELA_TD ); ?></strong>
+            <span class="ribbon hot"><?php _e( 'Hot', MELA_TD ); ?></span>
         </a>
     </li>
 
@@ -39,80 +33,80 @@
 
     <li>
         <a href="#" target="_blank">
-            <strong>
-				<?php _e( 'MA Progressbar', MELA_TD ); ?>
-            </strong>
+            <strong><?php _e( 'MA Progressbar', MELA_TD ); ?></strong>
         </a>
     </li>
 
     <li>
         <a href="#" target="_blank">
-            <strong>
-				<?php _e( 'MA Progressbars', MELA_TD ); ?>
-            </strong>
+            <strong><?php _e( 'MA Progressbars', MELA_TD ); ?></strong>
         </a>
     </li>
 
 
     <li>
         <a href="#" target="_blank">
-            <strong>
-				<?php _e( 'MA Team Members', MELA_TD ); ?>
-            </strong>
+            <strong><?php _e( 'MA Team Members', MELA_TD ); ?></strong>
+            <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
         </a>
-        <span class="ribbon new">
-            <?php _e( 'New', MELA_TD ); ?>
-        </span>
     </li>
 
 
     <li>
         <a href="#" target="_blank">
-            <strong>
-				<?php _e( 'MA Team Members Slider', MELA_TD ); ?>
-            </strong>
+            <strong><?php _e( 'MA Team Members Slider', MELA_TD ); ?></strong>
+            <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
         </a>
-        <span class="ribbon new">
-            <?php _e( 'New', MELA_TD ); ?>
-        </span>
     </li>
 
     <li>
         <a href="#" target="_blank">
             <strong><?php _e( 'MA Creative Buttons', MELA_TD ); ?></strong>
+            <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
         </a>
-        <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
     </li>
 
 
     <li>
-        <a href="#" target="_blank"><strong><?php _e( 'Contact Form 7', MELA_TD ); ?></strong></a>
-        <span class="ribbon trending"><?php _e( 'Trending', MELA_TD ); ?></span>
+        <a href="#" target="_blank">
+            <strong><?php _e( 'Contact Form 7', MELA_TD ); ?></strong>
+            <span class="ribbon trending"><?php _e( 'Trending', MELA_TD ); ?></span>
+        </a>
     </li>
 
     <li>
-        <a href="#" target="_blank"><strong><?php _e( 'Ninja Forms', MELA_TD ); ?></strong></a>
-        <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+        <a href="#" target="_blank">
+            <strong><?php _e( 'Ninja Forms', MELA_TD ); ?></strong>
+            <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+        </a>
     </li>
 
     <li>
-        <a href="#" target="_blank"><strong><?php _e( 'Gravity Forms', MELA_TD ); ?></strong></a>
-        <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+        <a href="#" target="_blank">
+            <strong><?php _e( 'Gravity Forms', MELA_TD ); ?></strong>
+            <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+        </a>
     </li>
 
     <li>
-        <a href="#" target="_blank"><strong><?php _e( 'WP Forms', MELA_TD ); ?></strong></a>
-        <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+        <a href="#" target="_blank">
+            <strong><?php _e( 'WP Forms', MELA_TD ); ?></strong>
+            <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+        </a>
     </li>
 
     <li>
-        <a href="#" target="_blank"><strong><?php _e( 'Caldera Forms', MELA_TD ); ?></strong></a>
-        <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+        <a href="#" target="_blank">
+            <strong><?php _e( 'Caldera Forms', MELA_TD ); ?></strong>
+            <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+        </a>
     </li>
 
     <li>
-        <a href="#" target="_blank"><strong><?php _e( 'weForms', MELA_TD ); ?></strong></a>
-        <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+        <a href="#" target="_blank">
+            <strong><?php _e( 'weForms', MELA_TD ); ?></strong>
+            <span class="ribbon new"><?php _e( 'New', MELA_TD ); ?></span>
+        </a>
     </li>
 
 
