@@ -22,14 +22,6 @@
 			return [ 'master-addons' ];
 		}
 
-		public function get_style_depends() {
-			return [ 'gridder' ];
-		}
-
-		public function get_script_depends() {
-			return [ 'gridder' ];
-		}
-
 		protected function _register_controls() {
 
 			/**
@@ -490,7 +482,7 @@
 
 			// $border_class = array()
 
-            
+
 			if( $settings['ma_el_team_members_preset'] == '-style6' ) { ?>
 
                 <div id="ma-el-team-member-slider" class="ma-el-team-member-slider owl-carousel owl-theme">

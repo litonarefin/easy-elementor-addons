@@ -23,9 +23,14 @@
 		}
 
 		public function get_script_depends() {
-			return [ 'jquery-slick' ];
+			return [ 'jquery-slick', 'gridder' ];
 		}
 
+		public function get_style_depends() {
+			return [ 'gridder' ];
+		}
+
+		
 		protected function _register_controls() {
 
 			$this->start_controls_section(
