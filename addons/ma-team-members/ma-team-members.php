@@ -22,6 +22,14 @@
 			return [ 'master-addons' ];
 		}
 
+		public function get_style_depends() {
+			return [ 'gridder' ];
+		}
+
+		public function get_script_depends() {
+			return [ 'gridder' ];
+		}
+
 		protected function _register_controls() {
 
 			/**

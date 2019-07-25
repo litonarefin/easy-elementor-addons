@@ -333,6 +333,7 @@
 //				wp_register_script( 'animated-main', MELA_PLUGIN_URL . '/assets/js/animated-main'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), '1.0', true );
 
 				wp_register_style( 'master-addons-headlines', MELA_PLUGIN_URL . '/assets/css/headlines.css' );
+				wp_register_style( 'gridder', MELA_PLUGIN_URL . '/assets/vendor/gridder/css/jquery.gridder.min.css' );
 
 
 
@@ -355,6 +356,9 @@
 				wp_register_script( 'master-addons-waypoints', MELA_PLUGIN_URL . '/assets/vendor/jquery.waypoints.min.js', [ 'jquery' ], self::VERSION, true );
 
 				wp_register_script( 'master-addons-team-members', MELA_PLUGIN_URL . '/assets/vendor/owlcarousel/owl.carousel.min.js', [ 'jquery' ], MELA_VERSION, true );
+
+				wp_register_script( 'gridder', MELA_PLUGIN_URL . '/assets/vendor/gridder/js/jquery.gridder.min.js', [ 'jquery'
+				], MELA_VERSION, true );
 
 
 
