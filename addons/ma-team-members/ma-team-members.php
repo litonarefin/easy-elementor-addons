@@ -201,7 +201,7 @@
 
 
 
-			if ( !ma_el_fs()->is_premium() ) {
+			if(!apply_filters('ma_el/pro_enabled', false)) {
 
 				$this->start_controls_section(
 					'maad_el_section_pro',
@@ -222,7 +222,7 @@
 							],
 						],
 						'default' => '1',
-						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . admin_url('admin.php?page=master-addons-settings-pricing') . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="https://jeweltheme.com/shop/master-addons-elementor/" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 					]
 				);
 
@@ -249,11 +249,17 @@
 					'default' => '-basic',
 					'options' => [
 						'-basic' => esc_html__( 'Basic', MELA_TD ),
+						'-basic-2' => esc_html__( 'Basic Style 2', MELA_TD ),
+						'-basic-3' => esc_html__( 'Basic Style 3', MELA_TD ),
+						'-basic-4' => esc_html__( 'Basic Style 4', MELA_TD ),
+						'-basic-5' => esc_html__( 'Basic Style 5', MELA_TD ),
 						'-circle' => esc_html__( 'Circle Gradient', MELA_TD ),
+						'-circle-2' => esc_html__( 'Circle No Gradient', MELA_TD ),
 						'-social-left' => esc_html__( 'Social Left on Hover', MELA_TD ),
+						'-social-right' => esc_html__( 'Social Right on Hover', MELA_TD ),
 						'-rounded' => esc_html__( 'Rounded', MELA_TD ),
 						'-content-hover' => esc_html__( 'Content on Hover', MELA_TD ),
-						'-style6' => esc_html__( 'Style 6', MELA_TD ),
+						'-content-drawer' => esc_html__( 'Content Drawer', MELA_TD ),
 					],
 				]
 			);
@@ -473,20 +479,27 @@
 		protected function render() {
 			$settings = $this->get_settings_for_display();
 			$team_member_image = $this->get_settings_for_display( 'ma_el_team_member_image' );
-			$team_member_image_url_src = wp_get_attachment_image_src( $team_member_image['id'], 'master_addons_team_thumb', $settings );
+			// print_r($team_member_image);
+
+			$team_member_image_url_src = wp_get_attachment_image_src( $team_member_image['id'], 'full', $settings );
 			if( empty( $team_member_image_url_src ) ) {
 				$team_member_image_url = $team_member_image['url'];
 			} else {
 				$team_member_image_url = $team_member_image_url_src[0];
 			}
 
+			// $border_class = array()
+
+			if(!apply_filters('ma_el/pro_enabled', true)) {
+			    echo "Pro Feature enabled";
+			}
 
 			if( $settings['ma_el_team_members_preset'] == '-style6' ) { ?>
 
                 <div id="ma-el-team-member-slider" class="ma-el-team-member-slider owl-carousel owl-theme">
                     <div class="ma-el-member-container">
                         <div class="ma-el-inner-container">
-                            <img src="<?php echo esc_url($team_member_image_url); ?>" alt="<?php echo $settings['ma_el_team_member_name']; ?>">
+                            <img src="<?php echo esc_url($team_member_image['url']); ?>" alt="<?php echo $settings['ma_el_team_member_name']; ?>">
                             <div class="ma-el-member-details">
                                 <h4 class="name">
                                     <?php echo $settings['ma_el_team_member_name']; ?>
@@ -516,11 +529,40 @@
                     </div><!-- /.member-container -->
                 </div><!-- /.ma-el-team-member-slider -->
 
+			<?php } if( $settings['ma_el_team_members_preset'] == '-content-drawer' ) {?>
+
+            <!-- Gridder navigation -->
+            <ul class="gridder">
+
+            	<!-- You can load specify which content is loaded by specifying the #ID of the div where the content is  -->
+            	<li class="gridder-list" data-griddercontent="#content1">
+            		<img src="http://placehold.it/600x400" />
+            	</li>
+            	<li class="gridder-list" data-griddercontent="#content2">
+            		<img src="http://placehold.it/600x400" />
+            	</li>
+            	<li class="gridder-list" data-griddercontent="#content3">
+            		<img src="http://placehold.it/600x400" />
+            	</li>
+
+            	<!-- You can also load html/ajax pages by replacing the #ID with a URL -->
+            	<li class="gridder-list" data-griddercontent="/content.html">
+            		<img src="http://placehold.it/600x400" />
+            	</li>
+            </ul>
+
+            <!-- Gridder content -->
+            <div id="content1" class="gridder-content"> Content goes here... </div>
+            <div id="content2" class="gridder-content"> Content goes here... </div>
+            <div id="content3" class="gridder-content"> Content goes here... </div>
+
             <?php } else{ ?>
 
 
-                <div id="ma-el-team-member-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-team-item">
-                    <div class="ma-el-team-member<?php echo $settings['ma_el_team_members_preset']; ?>">
+
+
+                <div id="ma-el-team-member-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-team-item text-center">
+                    <div class="ma-el-team-member<?php echo $settings['ma_el_team_members_preset']; ?> <?php if( $settings['ma_el_team_members_preset'] == '-basic-4' ) echo "bb"; ?> <?php if( $settings['ma_el_team_members_preset'] == '-circle-2' ) echo "bg-transparent"; ?>">
                         <div class="ma-el-team-member-thumb">
                             <?php if( $settings['ma_el_team_members_preset'] == '-circle' ) : ?>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
@@ -533,16 +575,19 @@
                                     <path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
                                 </svg>
                             <?php endif; ?>
+
                             <img src="<?php echo esc_url($team_member_image_url); ?>" class="circled" alt="<?php echo
                             $settings['ma_el_team_member_name']; ?>">
                         </div>
                         <div class="ma-el-team-member-content">
                             <h2 class="ma-el-team-member-name"><?php echo $settings['ma_el_team_member_name']; ?></h2>
-                            <span class="ma-el-team-member-designation"><?php echo $settings['ma_el_team_member_designation'];
-                                ?></span>
+
+                            <span class="ma-el-team-member-designation"><?php echo $settings['ma_el_team_member_designation'];?></span>
+
                             <p class="ma-el-team-member-about">
                                 <?php echo $settings['ma_el_team_member_description']; ?>
                             </p>
+
                             <?php if ( $settings['ma_el_team_member_enable_social_profiles'] == 'yes' ): ?>
                                 <ul class="list-inline ma-el-team-member-social">
                                     <?php foreach ( $settings['ma_el_team_member_social_profile_links'] as $item ) : ?>
@@ -627,6 +672,7 @@
                                 <# } #>
                                 <img src="{{ settings.ma_el_team_member_image.url }}" class="circled" alt="{{ settings
                                 .ma_el_team_member_name }}">
+
                             </div>
                             <div class="ma-el-team-member-content">
                                 <h2 class="ma-el-team-member-name">{{{ settings.ma_el_team_member_name }}}</h2>
@@ -659,3 +705,5 @@
 	}
 
 	Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Team_Members() );
+
+

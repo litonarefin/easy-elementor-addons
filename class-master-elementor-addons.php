@@ -357,8 +357,7 @@
 
 				wp_register_script( 'master-addons-team-members', MELA_PLUGIN_URL . '/assets/vendor/owlcarousel/owl.carousel.min.js', [ 'jquery' ], MELA_VERSION, true );
 
-				wp_register_script( 'gridder', MELA_PLUGIN_URL . '/assets/vendor/gridder/js/jquery.gridder.min.js', [ 'jquery'
-				], MELA_VERSION, true );
+				wp_register_script( 'gridder', MELA_PLUGIN_URL . '/assets/vendor/gridder/js/jquery.gridder.min.js', ['jquery'], MELA_VERSION, true );
 
 
 
@@ -375,6 +374,8 @@
 				//Team Members
 				if ( $is_activated_widget['ma-team-members'] ) {
 					wp_enqueue_script( 'master-addons-team-members' );
+					wp_enqueue_style( 'gridder' );
+					wp_enqueue_script( 'gridder' );
 				}
 
 
