@@ -7,7 +7,7 @@
 	class Master_Addons_Team_Members_Carousel extends Widget_Base {
 
 		public function get_name() {
-			return 'ma-team-members-carousel';
+			return 'ma-team-members-slider';
 		}
 
 		public function get_title() {
@@ -236,6 +236,7 @@
 						'-circle' => esc_html__( 'Circle Gradient', MELA_TD ),
 						'-social-left' => esc_html__( 'Social Left on Hover', MELA_TD ),
 						'-content-hover' => esc_html__( 'Content on Hover', MELA_TD ),
+						'-content-drawer' => esc_html__( 'Content Drawer', MELA_TD ),
 					],
 				]
 			);
@@ -659,10 +660,46 @@
 			if ( $settings['ma_el_team_loop'] == 'yes' ) {
 				$this->add_render_attribute( 'ma-el-team-carousel', 'data-loop', "true");
 			}
-
-
 			?>
-            <div <?php echo $this->get_render_attribute_string( 'ma-el-team-carousel' ); ?>>
+
+
+
+		    <?php if( $team_preset == '-content-drawer' ) { ?>
+
+                <!-- Gridder navigation -->
+                <ul class="gridder">
+
+                    <?php foreach ( $settings['team_carousel_repeater'] as $key => $member ) {
+
+                        $team_carousel_image = $member['ma_el_team_carousel_image'];
+                        $team_carousel_image_url = Group_Control_Image_Size::get_attachment_image_src( $team_carousel_image['id'], 'thumbnail', $member );
+                        if( empty( $team_carousel_image_url ) ) :
+                            $team_carousel_image_url = $team_carousel_image['url'];
+                        else:
+                            $team_carousel_image_url = $team_carousel_image_url;
+                        endif;
+
+                        ?>
+
+                            <li class="gridder-list" data-griddercontent="#ma-el-team<?php echo $key+1;?>">
+                                <img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled"
+                                     alt="<?php echo $member['ma_el_team_carousel_name']; ?>">
+                            </li>
+
+					<?php } ?>
+                </ul>
+
+                <!-- Gridder content -->
+				<?php foreach ( $settings['team_carousel_repeater'] as $key => $member ) { ?>
+                    <div id="ma-el-team<?php echo $key+1;?>" class="gridder-content">
+	                    <?php echo $member['ma_el_team_carousel_description']; ?>
+                    </div>
+                <?php } ?>
+
+			<?php } else { ?>
+
+
+                <div <?php echo $this->get_render_attribute_string( 'ma-el-team-carousel' ); ?>>
 
 				<?php foreach ( $settings['team_carousel_repeater'] as $key => $member ) :
 
@@ -742,6 +779,10 @@
                     </div>
 				<?php endforeach; ?>
             </div>
+
+            <?php } ?>
+
+
 			<?php
 		}
 

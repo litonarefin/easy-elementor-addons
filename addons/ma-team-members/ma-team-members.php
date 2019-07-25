@@ -201,7 +201,7 @@
 
 
 
-			if(!apply_filters('ma_el/pro_enabled', false)) {
+			if ( !ma_el_fs()->can_use_premium_code__premium_only() ) {
 
 				$this->start_controls_section(
 					'maad_el_section_pro',
@@ -259,7 +259,7 @@
 						'-social-right' => esc_html__( 'Social Right on Hover', MELA_TD ),
 						'-rounded' => esc_html__( 'Rounded', MELA_TD ),
 						'-content-hover' => esc_html__( 'Content on Hover', MELA_TD ),
-						'-content-drawer' => esc_html__( 'Content Drawer', MELA_TD ),
+//						'-content-drawer' => esc_html__( 'Content Drawer', MELA_TD ),
 					],
 				]
 			);
@@ -490,10 +490,7 @@
 
 			// $border_class = array()
 
-			if(!apply_filters('ma_el/pro_enabled', true)) {
-			    echo "Pro Feature enabled";
-			}
-
+            
 			if( $settings['ma_el_team_members_preset'] == '-style6' ) { ?>
 
                 <div id="ma-el-team-member-slider" class="ma-el-team-member-slider owl-carousel owl-theme">
@@ -529,32 +526,6 @@
                     </div><!-- /.member-container -->
                 </div><!-- /.ma-el-team-member-slider -->
 
-			<?php } if( $settings['ma_el_team_members_preset'] == '-content-drawer' ) {?>
-
-            <!-- Gridder navigation -->
-            <ul class="gridder">
-
-            	<!-- You can load specify which content is loaded by specifying the #ID of the div where the content is  -->
-            	<li class="gridder-list" data-griddercontent="#content1">
-            		<img src="http://placehold.it/600x400" />
-            	</li>
-            	<li class="gridder-list" data-griddercontent="#content2">
-            		<img src="http://placehold.it/600x400" />
-            	</li>
-            	<li class="gridder-list" data-griddercontent="#content3">
-            		<img src="http://placehold.it/600x400" />
-            	</li>
-
-            	<!-- You can also load html/ajax pages by replacing the #ID with a URL -->
-            	<li class="gridder-list" data-griddercontent="/content.html">
-            		<img src="http://placehold.it/600x400" />
-            	</li>
-            </ul>
-
-            <!-- Gridder content -->
-            <div id="content1" class="gridder-content"> Content goes here... </div>
-            <div id="content2" class="gridder-content"> Content goes here... </div>
-            <div id="content3" class="gridder-content"> Content goes here... </div>
 
             <?php } else{ ?>
 
