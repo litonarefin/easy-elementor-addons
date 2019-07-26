@@ -11,7 +11,7 @@
 		}
 
 		public function get_title() {
-			return esc_html__( 'MA Team Member Carousel', MELA_TD);
+			return esc_html__( 'MA Team Members', MELA_TD);
 		}
 
 		public function get_icon() {
@@ -30,7 +30,7 @@
 			return [ 'gridder' ];
 		}
 
-		
+
 		protected function _register_controls() {
 
 			$this->start_controls_section(
