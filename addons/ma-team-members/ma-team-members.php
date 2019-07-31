@@ -488,7 +488,8 @@
                 <div id="ma-el-team-member-slider" class="ma-el-team-member-slider owl-carousel owl-theme">
                     <div class="ma-el-member-container">
                         <div class="ma-el-inner-container">
-                            <img src="<?php echo esc_url($team_member_image['url']); ?>" alt="<?php echo $settings['ma_el_team_member_name']; ?>">
+                            <img src="<?php echo esc_url_raw($team_member_image['url']); ?>" alt="<?php echo
+                            get_post_meta( $team_member_image['id'], '_wp_attachment_image_alt', true);?>">
                             <div class="ma-el-member-details">
                                 <h4 class="name">
                                     <?php echo $settings['ma_el_team_member_name']; ?>
