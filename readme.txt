@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jwthe
 Requires at least: 4.0
 Tested up to: 5.2.1
 Requires PHP: 5.6
-Stable tag: 1.0.7
+Stable tag: 1.0.9
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Master Addons is essential for Elementor page builder. It enhances the page or post customization speed.
@@ -102,6 +102,12 @@ Paste on your Local Computer
 
 
 == Changelog ==
+ = 1.0.9 (2-8-2019) =
+ * Fixed: Freemius SDK Live Update problem. It's fixed now.
+ * Updated: Team Section Full Size Image Replaced with backend Image size.
+ * Updated: Carousel Team Slider Updated fixed Image Size to backend Image size by user Inputs
+ * Updated: Forms Styles and other style issues
+
  = 1.0.8 (25-7-2019) =
  [//]: # fs_free_only_begin
     * Fixed: Freemius Free Version Popup issue fixed

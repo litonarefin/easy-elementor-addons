@@ -457,10 +457,10 @@
                         scrollTo: "panel",                  // panel or listitem
                         animationSpeed: 400,
                         animationEasing: "easeInOutExpo",
-                        showNav: true,                      // Show Navigation
-                        nextText: "Next",                   // Next button text
-                        prevText: "Previous",               // Previous button text
-                        closeText: "Close",                 // Close button text
+                        showNav: true, // Show Navigation
+                        nextText: "<span></span>", // Next button text
+                        prevText: "<span></span>", // Previous button text
+                        closeText: "", // Close button text
                         onStart: function(){
                             //Gridder Inititialized
                         },

@@ -416,7 +416,7 @@
 			$this->start_controls_tabs( 'ma_el_team_carousel_navigation_tabs' );
 
 			$this->start_controls_tab( 'ma_el_team_carousel_navigation_control', [ 'label' => esc_html__( 'Normal', MELA_TD
-            ) ] );
+			) ] );
 
 			$this->add_control(
 				'ma_el_team_carousel_arrow_color',
@@ -451,7 +451,7 @@
 			$this->end_controls_tab();
 
 			$this->start_controls_tab( 'ma_el_team_carousel_social_icon_hover', [ 'label' => esc_html__( 'Hover', MELA_TD )
-            ] );
+			] );
 
 			$this->add_control(
 				'ma_el_team_carousel_arrow_hover_color',
@@ -461,7 +461,7 @@
 					'default' => '#917cff',
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-team-carousel-prev:hover, {{WRAPPER}} .ma-el-team-carousel-next:hover' =>
-                            'background: {{VALUE}};',
+							'background: {{VALUE}};',
 					],
 					'condition' => [
 						'ma_el_team_carousel_nav' => 'arrows',
@@ -638,6 +638,7 @@
 			$settings = $this->get_settings_for_display();
 
 			$team_carousel_classes = $this->get_settings_for_display('ma_el_team_carousel_image_rounded');
+
 			$team_preset = $settings['ma_el_team_carousel_preset'];
 
 
@@ -669,27 +670,27 @@
 
 
 
-		    <?php if( $team_preset == '-content-drawer' ) { ?>
+			<?php if( $team_preset == '-content-drawer' ) { ?>
 
                 <!-- Gridder navigation -->
                 <ul class="gridder">
 
-                    <?php foreach ( $settings['team_carousel_repeater'] as $key => $member ) {
+					<?php foreach ( $settings['team_carousel_repeater'] as $key => $member ) {
 
-                        $team_carousel_image = $member['ma_el_team_carousel_image'];
-                        $team_carousel_image_url = Group_Control_Image_Size::get_attachment_image_src( $team_carousel_image['id'], 'thumbnail', $member );
-                        if( empty( $team_carousel_image_url ) ) :
-                            $team_carousel_image_url = $team_carousel_image['url'];
-                        else:
-                            $team_carousel_image_url = $team_carousel_image_url;
-                        endif;
+						$team_carousel_image = $member['ma_el_team_carousel_image'];
+						$team_carousel_image_url = Group_Control_Image_Size::get_attachment_image_src( $team_carousel_image['id'], 'thumbnail', $member );
+						if( empty( $team_carousel_image_url ) ) :
+							$team_carousel_image_url = $team_carousel_image['url'];
+						else:
+							$team_carousel_image_url = $team_carousel_image_url;
+						endif;
 
-                        ?>
+						?>
 
-                            <li class="gridder-list" data-griddercontent="#ma-el-team<?php echo $key+1;?>">
-                                <img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled"
-                                     alt="<?php echo $member['ma_el_team_carousel_name']; ?>">
-                            </li>
+                        <li class="gridder-list" data-griddercontent="#ma-el-team<?php echo $key+1;?>">
+                            <img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled"
+                                 alt="<?php echo $member['ma_el_team_carousel_name']; ?>">
+                        </li>
 
 					<?php } ?>
                 </ul>
@@ -697,95 +698,144 @@
                 <!-- Gridder content -->
 				<?php foreach ( $settings['team_carousel_repeater'] as $key => $member ) { ?>
                     <div id="ma-el-team<?php echo $key+1;?>" class="gridder-content">
-	                    <?php echo $member['ma_el_team_carousel_description']; ?>
+                        <div class="content-left">
+                            <span class="ma-el-team-member-designation"><?php echo $member['ma_el_team_carousel_designation']; ?></span>
+                            <h2 class="ma-el-team-member-name"><?php echo $member['ma_el_team_carousel_name'];?></h2>
+							<?php echo $member['ma_el_team_carousel_description']; ?>
+                        </div>
+
+                        <div class="content-right">
+							<?php if ( $member['ma_el_team_carousel_enable_social_profiles'] == 'yes' ): ?>
+                                <ul class="list-inline ma-el-team-member-social">
+
+									<?php if ( ! empty( $member['ma_el_team_carousel_facebook_link']['url'] ) ) : ?>
+										<?php $target = $member['ma_el_team_carousel_facebook_link']['is_external'] ? ' target="_blank"' : ''; ?>
+                                        <li>
+                                            <a href="<?php echo esc_url( $member['ma_el_team_carousel_facebook_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-facebook"></i></a>
+                                        </li>
+									<?php endif; ?>
+
+									<?php if ( ! empty( $member['ma_el_team_carousel_twitter_link']['url'] ) ) : ?>
+										<?php $target = $member['ma_el_team_carousel_twitter_link']['is_external'] ? ' target="_blank"' : ''; ?>
+                                        <li>
+                                            <a href="<?php echo esc_url( $member['ma_el_team_carousel_twitter_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-twitter"></i></a>
+                                        </li>
+									<?php endif; ?>
+
+									<?php if ( ! empty( $member['ma_el_team_carousel_instagram_link']['url'] ) ) : ?>
+										<?php $target = $member['ma_el_team_carousel_instagram_link']['is_external'] ?
+											' target="_blank"' : ''; ?>
+                                        <li>
+                                            <a href="<?php echo esc_url(
+												$member['ma_el_team_carousel_instagram_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-instagram"></i></a>
+                                        </li>
+									<?php endif; ?>
+
+									<?php if ( ! empty( $member['ma_el_team_carousel_linkedin_link']['url'] ) ) : ?>
+										<?php $target = $member['ma_el_team_carousel_linkedin_link']['is_external'] ? ' target="_blank"' : ''; ?>
+                                        <li>
+                                            <a href="<?php echo esc_url( $member['ma_el_team_carousel_linkedin_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-linkedin"></i></a>
+                                        </li>
+									<?php endif; ?>
+
+									<?php if ( ! empty( $member['ma_el_team_carousel_dribbble_link']['url'] ) ) : ?>
+										<?php $target = $member['ma_el_team_carousel_dribbble_link']['is_external'] ? ' target="_blank"' : ''; ?>
+                                        <li>
+                                            <a href="<?php echo esc_url( $member['ma_el_team_carousel_dribbble_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-dribbble"></i></a>
+                                        </li>
+									<?php endif; ?>
+
+                                </ul>
+							<?php endif; ?>
+                        </div>
                     </div>
-                <?php } ?>
+				<?php } ?>
 
 			<?php } else { ?>
 
 
                 <div <?php echo $this->get_render_attribute_string( 'ma-el-team-carousel' ); ?>>
 
-				<?php foreach ( $settings['team_carousel_repeater'] as $key => $member ) :
+					<?php foreach ( $settings['team_carousel_repeater'] as $key => $member ) :
 
-					$team_carousel_image = $member['ma_el_team_carousel_image'];
-					$team_carousel_image_url = Group_Control_Image_Size::get_attachment_image_src( $team_carousel_image['id'], 'thumbnail', $member );
-					if( empty( $team_carousel_image_url ) ) : $team_carousel_image_url = $team_carousel_image['url']; else: $team_carousel_image_url = $team_carousel_image_url; endif;
+						$team_carousel_image = $member['ma_el_team_carousel_image'];
+						$team_carousel_image_url = Group_Control_Image_Size::get_attachment_image_src( $team_carousel_image['id'], 'thumbnail', $member );
+						if( empty( $team_carousel_image_url ) ) : $team_carousel_image_url = $team_carousel_image['url']; else: $team_carousel_image_url = $team_carousel_image_url; endif;
 
-					?>
-                    <div class="ma-el-team-carousel<?php echo $team_preset; ?>-inner">
-                        <div class="ma-el-team-member<?php echo $team_preset; ?>">
-                            <div class="ma-el-team-member-thumb">
-								<?php if( $team_preset == '-circle' ) : ?>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-                                        <path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-                                        <path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-                                        <path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-                                    </svg>
-								<?php endif; ?>
-                                <img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled"
-                                     alt="<?php echo $member['ma_el_team_carousel_name']; ?>">
-                            </div>
-                            <div class="ma-el-team-member-content">
-                                <h2 class="ma-el-team-member-name"><?php echo $member['ma_el_team_carousel_name'];
-                                ?></h2>
-                                <span class="ma-el-team-member-designation"><?php echo $member['ma_el_team_carousel_designation']; ?></span>
-                                <p class="ma-el-team-member-about">
-									<?php echo $member['ma_el_team_carousel_description']; ?>
-                                </p>
-								<?php if ( $member['ma_el_team_carousel_enable_social_profiles'] == 'yes' ): ?>
-                                    <ul class="list-inline ma-el-team-member-social">
+						?>
+                        <div class="ma-el-team-carousel<?php echo $team_preset; ?>-inner">
+                            <div class="ma-el-team-member<?php echo $team_preset; ?>">
+                                <div class="ma-el-team-member-thumb">
+									<?php if( $team_preset == '-circle' ) : ?>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+                                            <path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+                                            <path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+                                            <path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+                                        </svg>
+									<?php endif; ?>
+                                    <img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled"
+                                         alt="<?php echo $member['ma_el_team_carousel_name']; ?>">
+                                </div>
+                                <div class="ma-el-team-member-content">
+                                    <h2 class="ma-el-team-member-name"><?php echo $member['ma_el_team_carousel_name'];
+										?></h2>
+                                    <span class="ma-el-team-member-designation"><?php echo $member['ma_el_team_carousel_designation']; ?></span>
+                                    <p class="ma-el-team-member-about">
+										<?php echo $member['ma_el_team_carousel_description']; ?>
+                                    </p>
+									<?php if ( $member['ma_el_team_carousel_enable_social_profiles'] == 'yes' ): ?>
+                                        <ul class="list-inline ma-el-team-member-social">
 
-										<?php if ( ! empty( $member['ma_el_team_carousel_facebook_link']['url'] ) ) : ?>
-											<?php $target = $member['ma_el_team_carousel_facebook_link']['is_external'] ? ' target="_blank"' : ''; ?>
-                                            <li>
-                                                <a href="<?php echo esc_url( $member['ma_el_team_carousel_facebook_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-facebook"></i></a>
-                                            </li>
-										<?php endif; ?>
+											<?php if ( ! empty( $member['ma_el_team_carousel_facebook_link']['url'] ) ) : ?>
+												<?php $target = $member['ma_el_team_carousel_facebook_link']['is_external'] ? ' target="_blank"' : ''; ?>
+                                                <li>
+                                                    <a href="<?php echo esc_url( $member['ma_el_team_carousel_facebook_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-facebook"></i></a>
+                                                </li>
+											<?php endif; ?>
 
-										<?php if ( ! empty( $member['ma_el_team_carousel_twitter_link']['url'] ) ) : ?>
-											<?php $target = $member['ma_el_team_carousel_twitter_link']['is_external'] ? ' target="_blank"' : ''; ?>
-                                            <li>
-                                                <a href="<?php echo esc_url( $member['ma_el_team_carousel_twitter_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-twitter"></i></a>
-                                            </li>
-										<?php endif; ?>
+											<?php if ( ! empty( $member['ma_el_team_carousel_twitter_link']['url'] ) ) : ?>
+												<?php $target = $member['ma_el_team_carousel_twitter_link']['is_external'] ? ' target="_blank"' : ''; ?>
+                                                <li>
+                                                    <a href="<?php echo esc_url( $member['ma_el_team_carousel_twitter_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-twitter"></i></a>
+                                                </li>
+											<?php endif; ?>
 
-										<?php if ( ! empty( $member['ma_el_team_carousel_instagram_link']['url'] ) ) : ?>
-											<?php $target = $member['ma_el_team_carousel_instagram_link']['is_external'] ?
-                                                ' target="_blank"' : ''; ?>
-                                            <li>
-                                                <a href="<?php echo esc_url(
-                                                        $member['ma_el_team_carousel_instagram_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-instagram"></i></a>
-                                            </li>
-										<?php endif; ?>
+											<?php if ( ! empty( $member['ma_el_team_carousel_instagram_link']['url'] ) ) : ?>
+												<?php $target = $member['ma_el_team_carousel_instagram_link']['is_external'] ?
+													' target="_blank"' : ''; ?>
+                                                <li>
+                                                    <a href="<?php echo esc_url(
+														$member['ma_el_team_carousel_instagram_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-instagram"></i></a>
+                                                </li>
+											<?php endif; ?>
 
-										<?php if ( ! empty( $member['ma_el_team_carousel_linkedin_link']['url'] ) ) : ?>
-											<?php $target = $member['ma_el_team_carousel_linkedin_link']['is_external'] ? ' target="_blank"' : ''; ?>
-                                            <li>
-                                                <a href="<?php echo esc_url( $member['ma_el_team_carousel_linkedin_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-linkedin"></i></a>
-                                            </li>
-										<?php endif; ?>
+											<?php if ( ! empty( $member['ma_el_team_carousel_linkedin_link']['url'] ) ) : ?>
+												<?php $target = $member['ma_el_team_carousel_linkedin_link']['is_external'] ? ' target="_blank"' : ''; ?>
+                                                <li>
+                                                    <a href="<?php echo esc_url( $member['ma_el_team_carousel_linkedin_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-linkedin"></i></a>
+                                                </li>
+											<?php endif; ?>
 
-										<?php if ( ! empty( $member['ma_el_team_carousel_dribbble_link']['url'] ) ) : ?>
-											<?php $target = $member['ma_el_team_carousel_dribbble_link']['is_external'] ? ' target="_blank"' : ''; ?>
-                                            <li>
-                                                <a href="<?php echo esc_url( $member['ma_el_team_carousel_dribbble_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-dribbble"></i></a>
-                                            </li>
-										<?php endif; ?>
+											<?php if ( ! empty( $member['ma_el_team_carousel_dribbble_link']['url'] ) ) : ?>
+												<?php $target = $member['ma_el_team_carousel_dribbble_link']['is_external'] ? ' target="_blank"' : ''; ?>
+                                                <li>
+                                                    <a href="<?php echo esc_url( $member['ma_el_team_carousel_dribbble_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-dribbble"></i></a>
+                                                </li>
+											<?php endif; ?>
 
-                                    </ul>
-								<?php endif; ?>
+                                        </ul>
+									<?php endif; ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-				<?php endforeach; ?>
-            </div>
+					<?php endforeach; ?>
+                </div>
 
-            <?php } ?>
+			<?php } ?>
 
 
 			<?php
