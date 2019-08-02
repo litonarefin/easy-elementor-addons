@@ -31,6 +31,8 @@
 			<?php _e( 'Changelogs', MELA_TD ); ?>
 		</a>
 	</li>
+
+
 </ul>
 <!-- End tabs -->
 

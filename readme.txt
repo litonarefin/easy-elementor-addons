@@ -98,6 +98,9 @@ Features. Even you'll get regular Updates also !
 Paste on your Local Computer
 3. Activate the "Master Addons for Elementor" Plugin through the 'Plugins' menu in WordPress
 
+[//]: # fs_premium_only_begin
+4. Enter the license key you received after the purchase and activate it.
+[//]: # fs_premium_only_end
 
 
 

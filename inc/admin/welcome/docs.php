@@ -53,12 +53,9 @@
                             <h3>
 								<?php echo esc_html__('How to Install this Plugin ?', MELA_TD);?>
                             </h3>
+
                             <div>
                                 <p>
-                                <div class='embed-container'>
-
-                                </div>
-                                <br>
 								<?php echo esc_html__('Installation Process has been discussed on "Installation" Section. Video Tutorial will help you about Installation Process.', MELA_TD);?>
                                 </p>
                             </div>
