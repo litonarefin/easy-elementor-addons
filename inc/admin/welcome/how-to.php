@@ -1,6 +1,6 @@
 <div class="wp-tab-panel" id="how-to">
     <h1 class="black textcenter main_heading">
-		<?php _e( 'Welcome to Master Addons for Elementor Page Builder', MELA_TD ); ?>
+		<?php _e( 'Welcome to Master Addons for Elementor', MELA_TD ); ?>
     </h1>
 
     <h3 class="black textcenter sub-heading">

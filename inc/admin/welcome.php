@@ -7,13 +7,39 @@
 <div class="master_addons">
 	<div class="wrappper about-wrap">
 
-        <a href="https://wordpress.org/plugins/master-addons">
-            <div class="wp-badge welcome__logo">
-				<?php printf( __( '<small>v %s</small>', MELA_TD ), MELA_VERSION ); ?>
+        <div class="intro_wrapper">
+
+
+            <header class="header">
+                <h1 class="master_addons">
+			        <?php printf( __( '%s <small>v %s</small>', MELA_TD ), MELA, MELA_VERSION ); ?>
+                </h1>
+                <div class="about-text">
+			        <?php printf( __( "Ultimate and Essential Addons for Elementor Page Builder.", MELA ,
+				        MELA_TD ),
+				        MELA_VERSION ); ?>
+                </div>
+                <a href="https://wordpress.org/plugins/master-addons">
+                    <div class="wp-badge welcome__logo"></div>
+                </a>
+            </header>
+
+            <div class="waveWrapper waveAnimation">
+                <div class="waveWrapperInner bgTop">
+                    <div class="wave waveTop" style="background-image: url('<?php echo MELA_IMAGE_DIR. "wave-top.png";?>')"></div>
+                </div>
+                <div class="waveWrapperInner bgMiddle">
+                    <div class="wave waveMiddle" style="background-image: url('<?php echo MELA_IMAGE_DIR. "wave-mid.png";?>')"></div>
+                </div>
+                <div class="waveWrapperInner bgBottom">
+                    <div class="wave waveBottom" style="background-image: url('<?php echo MELA_IMAGE_DIR. "wave-bot.png";?>')"></div>
+                </div>
             </div>
-        </a>
+
+        </div>
 
         <?php require_once MELA_PLUGIN_PATH . '/inc/admin/welcome/navigation.php';?>
+
 
 
 		<div class="master_addons_contents">

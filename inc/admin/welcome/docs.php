@@ -95,7 +95,11 @@
                                 <p>
 									<?php echo esc_html__("We've two ways to give Supports for \"Master Addons\" Plugin -", MELA_TD);?>
                                     <a href="https://wordpress.org/support/plugin/master-addons" target="_blank">
-										<?php echo esc_html__('Plugin Support Forum', MELA_TD);?></a> or <a href="https://jeweltheme.com/support/forum/wordpress-plugins/master-addons/" target="_blank"><?php echo esc_html__('Our Website Support', MELA_TD);?></a>. <?php echo esc_html__('Since, this is a Free Plugin, Support reply may delay for answer but we\'re Dedicated on our Website', MELA_TD);?> <a href="https://jeweltheme.com/support/forum/wordpress-plugins/master-addons/" target="_blank"><?php echo esc_html__('Support Forum', MELA_TD);?></a>.
+										<?php echo esc_html__('WordPress Support Forum', MELA_TD);?></a> or <a
+                                            href="https://jeweltheme
+                                            .com/support/forum/wordpress-plugins/master-addons/"
+                                            target="_blank"><?php echo esc_html__('Jewel Theme Support', MELA_TD);
+                                            ?></a>. <?php echo esc_html__('Since, this is a Free Plugin, Support reply may delay for answer but we\'re Dedicated on our Website', MELA_TD);?> <a href="https://jeweltheme.com/support/forum/wordpress-plugins/master-addons/" target="_blank"><?php echo esc_html__('Support Forum', MELA_TD);?></a>.
                                 </p>
                             </div>
 

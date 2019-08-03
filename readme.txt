@@ -60,15 +60,39 @@ Get Faster Support from [Dedicated Support Forum](https://jeweltheme.com/support
 
 
 == Frequently Asked Questions ==
-= Is it necessary to use Elementor Page Builder? =
-Yes. You must have to use Elementor Page builder plugin to work with this Master Addons.
+= Can I use "Master Addons" Plugin without Elementor Plugin ? =
+No, Elementor page builder plugin is required to use Master Addons Plugin. You must have Installed "Elementor" Page
+builder plugin to work with this Master Addons. If you forgot to Install or Active, you'll see a notice for
+Installing/Activate.
+
+= How to Install this Plugin ? =
+Installation Process has been discussed on "Installation" Section. Video Tutorial will help you about Installation Process.
+
+= How to Configure this Plugin ? =
+Basically, there's no Configuration required for using "Master Addons" Plugin. You can Turn On/Off Addons you like on "Addons" Section. It will make your website faster loading.
+
+= How to add Master Addons on Page/Post? =
+Navigate to any post or page which you want to Create/Edit with Elementor. Scroll down or search for "Master Addons" Category. Click on that option and you will all Master Addons Elements. Just add the element you like and Customize it as like yours own.
+
+= "Master Addons" Installed but Not Working !
+First, deactive Other "Addons" plugin and try again. If nothing works then post on our Support Form(Link Mentioned above).
 
 = Is it compatible with any Theme? =
 Yes, it's compatible with any WordPress Theme.
 
 = Is there any way to test Premium Features without Purchasing Master Addons?
 Yes, we're offering 14 Day Free Trial ( No Payment, No Credit Card, No Paypal account required) for testing all Premium
-Features. Even you'll get regular Updates also !
+
+= How can I get faster Support? =
+
+We've two ways to give Supports for "Master Addons" Plugin - 1. [WordPress Support Forum](https://wordpress
+.org/support/plugin/master-addons) and 2. [Jewel Theme Support](https://jeweltheme
+.com/support/forum/wordpress-plugins/master-addons). Since, this is a Free Plugin, Support reply may delay for answer
+but we're Dedicated on our Website [Support Forum](https://jeweltheme.com/support/forum/wordpress-plugins/master-addons).
+
+
+
+We're adding new Features everyday. You'll get regular Updates also !
 
 
 
@@ -105,6 +129,11 @@ Paste on your Local Computer
 
 
 == Changelog ==
+ = 1.1.0 (5-8-2019) =
+ * Fixed: Admin Notice not showing issue on Master Addons issue fixed
+ * Fixed: Contact Forms Style issues fixed
+
+
  = 1.0.9 (2-8-2019) =
  * Fixed: Freemius SDK Live Update problem. It's fixed now.
  * Updated: Team Section Full Size Image Replaced with backend Image size.
