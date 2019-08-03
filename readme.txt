@@ -131,6 +131,7 @@ Paste on your Local Computer
 == Changelog ==
  = 1.1.0 (5-8-2019) =
  * Fixed: Admin Notice not showing issue on Master Addons issue fixed
+ * Fixed: Plugin uri changed to Master Addons website
  * Fixed: Contact Forms Style issues fixed
 
 

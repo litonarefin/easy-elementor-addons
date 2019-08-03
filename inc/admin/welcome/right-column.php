@@ -10,13 +10,13 @@
 					<?php echo esc_html__('Free Theme Download', MELA_TD);?>
                 </h3>
                 <div class="inner_content">
-                    <a class="master_addons_theme_link" href="<?php echo esc_url( 'https://wordpress.org/themes/polmo-lite/' ); ?>" target="_blank">
-                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/polmo-lite.png' ); ?>" alt="Master
+                    <a class="master_addons_theme_link" href="<?php echo esc_url( 'https://wordpress.org/themes/osaka-light/' ); ?>" target="_blank">
+                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/osaka-light.png' ); ?>" alt="Master
                         Addons for Elementor
                         Theme">
                     </a>
                     <p>
-						<?php echo esc_html__('Download FREE "Polmo Lite" WordPress Theme now to get started with "Master Addons for Elementor" Plugin.', MELA_TD);?>
+						<?php echo esc_html__('Download FREE "Osaka Lite" WordPress Theme now to get started with "Master Addons for Elementor" Plugin.', MELA_TD);?>
                     </p>
                     <a class="button button-primary master_addons_button" href="<?php echo esc_url( 'https://wordpress.org/themes/polmo-lite/' ); ?>" target="_blank">
 						<?php _e( 'Download' ); ?>

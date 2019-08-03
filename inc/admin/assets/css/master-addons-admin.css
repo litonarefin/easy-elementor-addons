@@ -105,7 +105,7 @@
 
 /* Logo */
 .svg .wp-badge.welcome__logo {
-    background: url('../../images/logo-256x256.png') center 24px no-repeat;
+    background: url('../../../../assets/images/logo-256x256.png') center 24px no-repeat;
     background-size: contain;
     color: #fff;
     box-shadow: none;

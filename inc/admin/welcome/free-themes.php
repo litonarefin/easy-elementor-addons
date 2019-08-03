@@ -17,6 +17,54 @@
 
                 <div class="theme">
                     <div class="theme-screenshot">
+                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/osaka-light.png' ); ?>" alt="" />
+                    </div>
+                    <div class="theme-id-container">
+                        <h2 class="theme-name">
+							<?php _e( 'Osaka Lite', MELA_TD ); ?>
+                        </h2>
+                        <div class="theme-actions">
+                            <a class="button button-primary theme-install"
+                               href="<?php echo esc_url( 'https://wordpress.org/themes/osaka-light/' ); ?>"
+                               target="_blank">
+								<?php _e( 'Details', MELA_TD ); ?>
+                            </a>
+                            <a class="button"
+                               href="<?php echo esc_url( 'https://prowptheme.com/themes/osaka-gutenberg-wordpress-theme/' ); ?>"
+                               target="_blank">
+								<?php _e( 'View Demo', MELA_TD ); ?>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="theme">
+                    <div class="theme-screenshot">
+                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/ezra.png' ); ?>" alt="" />
+                    </div>
+                    <div class="theme-id-container">
+                        <h2 class="theme-name">
+							<?php _e( 'Polmo Lite', MELA_TD ); ?>
+                        </h2>
+                        <div class="theme-actions">
+                            <a class="button button-primary theme-install"
+                               href="<?php echo esc_url( 'https://wordpress.org/themes/ezra/' ); ?>"
+                               target="_blank">
+								<?php _e( 'Details', MELA_TD ); ?>
+                            </a>
+                            <a class="button"
+                               href="<?php echo esc_url( 'https://prowptheme.com/themes/ezra/' ); ?>"
+                               target="_blank">
+								<?php _e( 'View Demo', MELA_TD ); ?>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="theme">
+                    <div class="theme-screenshot">
                         <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/polmo-lite.png' ); ?>" alt="" />
                     </div>
                     <div class="theme-id-container">

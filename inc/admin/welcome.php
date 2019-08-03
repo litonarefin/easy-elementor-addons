@@ -9,7 +9,6 @@
 
         <div class="intro_wrapper">
 
-
             <header class="header">
                 <h1 class="master_addons">
 			        <?php printf( __( '%s <small>v %s</small>', MELA_TD ), MELA, MELA_VERSION ); ?>
@@ -23,6 +22,7 @@
                     <div class="wp-badge welcome__logo"></div>
                 </a>
             </header>
+
 
             <div class="waveWrapper waveAnimation">
                 <div class="waveWrapperInner bgTop">
