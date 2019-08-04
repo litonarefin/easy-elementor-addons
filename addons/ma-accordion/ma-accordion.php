@@ -509,7 +509,7 @@ Customization Options.</span>'
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#414141',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'background-color: {{VALUE}} !important;',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'background-color: {{VALUE}}',
 					],
 				]
 			);
@@ -554,7 +554,7 @@ Customization Options.</span>'
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#414141',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active' => 'background-color: {{VALUE}} !important;',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active' => 'background-color: {{VALUE}};',
 					],
 				]
 			);
@@ -776,13 +776,13 @@ Customization Options.</span>'
 			$settings	= $this->get_settings_for_display();
 			$id_int		= substr( $this->get_id_int(), 0, 3 );
 
-			$this->add_render_attribute( 'accordion', [
+			$this->add_render_attribute( 'ma_advance_accordion', [
 				'class'                 => 'ma-advanced-accordion',
 				'id'                    => 'ma-advanced-accordion-'.esc_attr( $this->get_id() ),
 				'data-accordion-id'     => esc_attr( $this->get_id() )
 			] );
 			?>
-            <div <?php echo $this->get_render_attribute_string('accordion'); ?>>
+            <div <?php echo $this->get_render_attribute_string('ma_advance_accordion'); ?>>
                 <div class="ma-accordion-<?php echo esc_attr( $settings['ma_advanced_accordion_style'] ); ?>">
 				<?php
 					foreach( $settings['tabs'] as $index => $tab ) {
