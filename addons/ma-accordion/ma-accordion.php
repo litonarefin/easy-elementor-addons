@@ -362,6 +362,8 @@ Customization Options.</span>'
 						'six' => esc_html__( 'Style 6', MELA_TD ),
 						'seven' => esc_html__( 'Style 7', MELA_TD ),
 						'eight' => esc_html__( 'Style 8', MELA_TD ),
+						'nine' => esc_html__( 'Style 9', MELA_TD ),
+						'ten' => esc_html__( 'Style 10', MELA_TD ),
 					],
 				]
 			);
@@ -783,7 +785,8 @@ Customization Options.</span>'
 			] );
 			?>
             <div <?php echo $this->get_render_attribute_string('ma_advance_accordion'); ?>>
-                <div class="ma-accordion-<?php echo esc_attr( $settings['ma_advanced_accordion_style'] ); ?>">
+                <div class="ma-accordion-<?php echo esc_attr( $settings['ma_advanced_accordion_style'] );?> <?php if( $settings['ma_advanced_accordion_style'] == 'three' ) echo "blue-color";?> <?php if( $settings['ma_advanced_accordion_style'] == 'four' ) echo "title-blue-bg";?><?php if( $settings['ma_advanced_accordion_style'] == 'five' ) echo "title-border"; ?><?php if( $settings['ma_advanced_accordion_style'] == 'six' ) echo "title-gradient-bg"; ?> <?php if( $settings['ma_advanced_accordion_style'] == 'seven' ) echo "title-icon-bg"; ?> <?php if( $settings['ma_advanced_accordion_style'] == 'eight' ) echo "active-bg"; ?> <?php if( $settings['ma_advanced_accordion_style'] == 'nine' ) echo "icon-round-bg"; ?> <?php if( $settings['ma_advanced_accordion_style'] == 'ten' ) echo "image-bg"; ?>">
+
 				<?php
 					foreach( $settings['tabs'] as $index => $tab ) {
 
