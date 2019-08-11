@@ -193,7 +193,7 @@
 
 
 
-			if ( !ma_el_fs()->can_use_premium_code__premium_only() ) {
+			if ( ma_el_fs()->is_not_paying() ) {
 
 				$this->start_controls_section(
 					'maad_el_section_pro',
@@ -214,7 +214,8 @@
 							],
 						],
 						'default' => '1',
-						'description' => '<span class="pro-feature"> Upgrade to  <a href="https://jeweltheme.com/shop/master-addons-elementor/" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with 
+Customization Options.</span>'
 					]
 				);
 

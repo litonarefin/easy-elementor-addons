@@ -131,7 +131,7 @@
                                     <p class="master-addons-el-title">
 
                         <?php
-//                            if( !ma_el_fs()->can_use_premium_code__premium_only ()) {
+//                            if( !ma_el_fs()->can_use_premium_code ()) {
 	                            if ( isset( $widget ) ) {
 		                            if ( is_array( $widget ) ) {
 			                            echo '<span class="pro-ribbon">';

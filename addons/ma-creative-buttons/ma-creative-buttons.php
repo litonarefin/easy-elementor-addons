@@ -136,7 +136,7 @@
 			$this->end_controls_section();
 
 
-            if ( !ma_el_fs()->is_premium() ) {
+            if ( ma_el_fs()->is_not_paying() ) {
 
                 $this->start_controls_section(
                     'maad_el_section_pro',
@@ -157,7 +157,7 @@
                             ],
                         ],
                         'default'     => '1',
-                        'description' => '<span class="pro-feature"> Upgrade to  <a href="' . admin_url('admin.php?page=master-addons-settings-pricing') . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+                        'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
                     ]
                 );
 
@@ -179,7 +179,59 @@
 
 
 			//Free Version Codes
-			if ( !ma_el_fs()->can_use_premium_code__premium_only() ) {
+			if ( ma_el_fs()->can_use_premium_code() ) {
+
+
+			    // Premium Version Codes
+
+				$this->add_control(
+					'creative_button_effect',
+					[
+						'label'       => esc_html__( 'Set Button Effect', MELA_TD ),
+						'type'        => Controls_Manager::SELECT,
+						'default'     => 'ma-el-creative-button--default',
+						'options'     => [
+							'ma-el-creative-button--default' 	=> esc_html__( 'Default', 	    MELA_TD ),
+							'ma-el-creative-button--winona' 	=> esc_html__( 'Winona', 	    MELA_TD ),
+							'ma-el-creative-button--ujarak' 	=> esc_html__( 'Ujarak', 	    MELA_TD ),
+							'ma-el-creative-button--wayra' 		=> esc_html__( 'Wayra', 	    MELA_TD ),
+							'ma-el-creative-button--tamaya' 	=> esc_html__( 'Tamaya', 	    MELA_TD ),
+							'ma-el-creative-button--rayen' 		=> esc_html__( 'Rayen', 	    MELA_TD ),
+//							'ma-el-creative-button--puck' 		=> esc_html__( 'Puck', 	        MELA_TD ),
+//							'ma-el-creative-button--titania' 	=> esc_html__( 'Titania', 	    MELA_TD ),
+//							'ma-el-creative-button--bagot' 	    => esc_html__( 'Bagot', 	    MELA_TD ),
+//							'ma-el-creative-button--shylock'    => esc_html__( 'Shylock', 	    MELA_TD ),
+//							'ma-el-creative-button--cordelia'   => esc_html__( 'Cordelia', 	    MELA_TD ),
+//							'ma-el-creative-button--horatio'    => esc_html__( 'Horatio.', 	    MELA_TD ),
+//							'ma-el-creative-button--luce'       => esc_html__( 'Luce', 	        MELA_TD ),
+//							'ma-el-creative-button--juliet'     => esc_html__( 'Juliet', 	    MELA_TD ),
+//							'ma-el-creative-button--invulner'   => esc_html__( 'Invulner', 	    MELA_TD ),
+//							'ma-el-creative-button--tantalid'   => esc_html__( 'Tantalid', 	    MELA_TD ),
+//							'ma-el-creative-button--wave' 		=> esc_html__( 'Wave', 	        MELA_TD ),
+							'ma-el-creative-button--pipaluk' 	=> esc_html__( 'Pipaluk',       MELA_TD ),
+							'ma-el-creative-button--moema' 		=> esc_html__( 'Moema', 	    MELA_TD ),
+							'ma-el-creative-button--isi' 		=> esc_html__( 'Isi', 	        MELA_TD ),
+							'ma-el-creative-button--aylen' 		=> esc_html__( 'Aylen', 	    MELA_TD ),
+							'ma-el-creative-button--saqui' 		=> esc_html__( 'Saqui', 	    MELA_TD ),
+							'ma-el-creative-button--wapasha' 	=> esc_html__( 'Wapasha',       MELA_TD ),
+							'ma-el-creative-button--nina' 		=> esc_html__( 'Nina', 	        MELA_TD ),
+							'ma-el-creative-button--nanuk' 		=> esc_html__( 'Nanuk', 	    MELA_TD ),
+							'ma-el-creative-button--nuka' 		=> esc_html__( 'Nuka', 	        MELA_TD ),
+							'ma-el-creative-button--antiman' 	=> esc_html__( 'Antiman',       MELA_TD ),
+							'ma-el-creative-button--itzel' 	    => esc_html__( 'Itzel',         MELA_TD ),
+							'ma-el-creative-button--naira' 	    => esc_html__( 'Naira',         MELA_TD ),
+							'ma-el-creative-button--quidel' 	=> esc_html__( 'Quidel', 	    MELA_TD ),
+							'ma-el-creative-button--sacnite' 	=> esc_html__( 'Sacnite', 	    MELA_TD ),
+							'ma-el-creative-button--shikoba' 	=> esc_html__( 'Shikoba',       MELA_TD ),
+						],
+
+					]
+				);
+
+
+
+			} else {
+
 
 
 				$this->add_control(
@@ -231,53 +283,7 @@
 				);
 
 
-			} else {
 
-			    // Premium Version Codes
-
-				$this->add_control(
-					'creative_button_effect',
-					[
-						'label'       => esc_html__( 'Set Button Effect', MELA_TD ),
-						'type'        => Controls_Manager::SELECT,
-						'default'     => 'ma-el-creative-button--default',
-						'options'     => [
-							'ma-el-creative-button--default' 	=> esc_html__( 'Default', 	    MELA_TD ),
-							'ma-el-creative-button--winona' 	=> esc_html__( 'Winona', 	    MELA_TD ),
-							'ma-el-creative-button--ujarak' 	=> esc_html__( 'Ujarak', 	    MELA_TD ),
-							'ma-el-creative-button--wayra' 		=> esc_html__( 'Wayra', 	    MELA_TD ),
-							'ma-el-creative-button--tamaya' 	=> esc_html__( 'Tamaya', 	    MELA_TD ),
-							'ma-el-creative-button--rayen' 		=> esc_html__( 'Rayen', 	    MELA_TD ),
-//							'ma-el-creative-button--puck' 		=> esc_html__( 'Puck', 	        MELA_TD ),
-//							'ma-el-creative-button--titania' 	=> esc_html__( 'Titania', 	    MELA_TD ),
-//							'ma-el-creative-button--bagot' 	    => esc_html__( 'Bagot', 	    MELA_TD ),
-//							'ma-el-creative-button--shylock'    => esc_html__( 'Shylock', 	    MELA_TD ),
-//							'ma-el-creative-button--cordelia'   => esc_html__( 'Cordelia', 	    MELA_TD ),
-//							'ma-el-creative-button--horatio'    => esc_html__( 'Horatio.', 	    MELA_TD ),
-//							'ma-el-creative-button--luce'       => esc_html__( 'Luce', 	        MELA_TD ),
-//							'ma-el-creative-button--juliet'     => esc_html__( 'Juliet', 	    MELA_TD ),
-//							'ma-el-creative-button--invulner'   => esc_html__( 'Invulner', 	    MELA_TD ),
-//							'ma-el-creative-button--tantalid'   => esc_html__( 'Tantalid', 	    MELA_TD ),
-//							'ma-el-creative-button--wave' 		=> esc_html__( 'Wave', 	        MELA_TD ),
-							'ma-el-creative-button--pipaluk' 	=> esc_html__( 'Pipaluk',       MELA_TD ),
-							'ma-el-creative-button--moema' 		=> esc_html__( 'Moema', 	    MELA_TD ),
-							'ma-el-creative-button--isi' 		=> esc_html__( 'Isi', 	        MELA_TD ),
-							'ma-el-creative-button--aylen' 		=> esc_html__( 'Aylen', 	    MELA_TD ),
-							'ma-el-creative-button--saqui' 		=> esc_html__( 'Saqui', 	    MELA_TD ),
-							'ma-el-creative-button--wapasha' 	=> esc_html__( 'Wapasha',       MELA_TD ),
-							'ma-el-creative-button--nina' 		=> esc_html__( 'Nina', 	        MELA_TD ),
-							'ma-el-creative-button--nanuk' 		=> esc_html__( 'Nanuk', 	    MELA_TD ),
-							'ma-el-creative-button--nuka' 		=> esc_html__( 'Nuka', 	        MELA_TD ),
-							'ma-el-creative-button--antiman' 	=> esc_html__( 'Antiman',       MELA_TD ),
-							'ma-el-creative-button--itzel' 	    => esc_html__( 'Itzel',         MELA_TD ),
-							'ma-el-creative-button--naira' 	    => esc_html__( 'Naira',         MELA_TD ),
-							'ma-el-creative-button--quidel' 	=> esc_html__( 'Quidel', 	    MELA_TD ),
-							'ma-el-creative-button--sacnite' 	=> esc_html__( 'Sacnite', 	    MELA_TD ),
-							'ma-el-creative-button--shikoba' 	=> esc_html__( 'Shikoba',       MELA_TD ),
-						],
-
-					]
-				);
             }
 
 

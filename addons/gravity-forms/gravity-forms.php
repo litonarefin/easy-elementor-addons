@@ -30,7 +30,9 @@
 
 		protected function _register_controls() {
 
-			if ( !ma_el_fs()->can_use_premium_code__premium_only() ) {
+
+
+			if ( ma_el_fs()->is_not_paying() ) {
 
 
 				$this->start_controls_section(
@@ -52,14 +54,15 @@
 							],
 						],
 						'default' => '1',
-						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . admin_url('admin.php?page=master-addons-settings-pricing') . '" target="_blank">Pro Version</a> for more Elements with 
-Customization Options.</span>'
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 					]
 				);
 
 				$this->end_controls_section();
-			} else{
+			} 
 
+   		
+   		if ( ma_el_fs()->can_use_premium_code() ) {
 
 
 			/**

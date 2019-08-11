@@ -4,7 +4,7 @@
  * Description: Master Addons is easy and must have Elementor Addons for WordPress Page Builder. Clean, Modern, Hand crafted designed Addons blocks.
  * Plugin URI: https://master-addons.com
  * Author: Jewel Theme
- * Version: 1.0.9
+ * Version: 1.1.0
  * Author URI: https://twitter.com/Litonice11
  * Text Domain: mela
  * Domain Path: /languages
@@ -33,16 +33,13 @@
 				$ma_el_fs = fs_dynamic_init( array(
 					'id'                  => MA_EL_FREEMIUS_ID,
 					'slug'                => 'master-addons',
-//					'premium_slug'        => 'master-addons',
-					'menu_slug'           => 'master-addons-settings',
 					'type'                => 'plugin',
-					'public_key'          => MA_EL_FREEMIUS_PUBLIC_KEY,
-					'is_live'             => true,
-					'is_premium'          => false,
-					'is_premium_only'     => false,
+					'public_key'          => 'pk_3c9b5b4e47a06288e3500c7bf812e',
+					'is_premium'          => true,
+					// If your plugin is a serviceware, set this option to false.
+					'has_premium_version' => true,
 					'has_addons'          => false,
 					'has_paid_plans'      => true,
-					'enable_anonymous'    => true,
 					'trial'               => array(
 						'days'               => 14,
 						'is_require_payment' => false,
@@ -54,12 +51,11 @@
 //						'account'        => false,
 					),
 
-//					'has_affiliation'  => 'selected',
 					// Set the SDK to work in a sandbox mode (for development & testing).
 					// IMPORTANT: MAKE SURE TO REMOVE SECRET KEY BEFORE DEPLOYMENT.
-//					'secret_key'          => MA_EL_FREEMIUS_SECRET_KEY,
-
+					'secret_key'          => MA_EL_FREEMIUS_SECRET_KEY,
 				) );
+
 			}
 
 			return $ma_el_fs;
