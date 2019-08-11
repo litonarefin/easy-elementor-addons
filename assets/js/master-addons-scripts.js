@@ -264,49 +264,108 @@
             //
             // try {
             //     (function() {
-            var $advanced_accordion         = $scope.find(".ma-advanced-accordion").eq(0),
-                elementSettings             = getElementSettings( $scope ),
-                $accordion_title            = $scope.find(".ma-accordion-tab-title"),
-                $accordion_type             = elementSettings.accordion_type,
-                $accordion_speed            = elementSettings.toggle_speed;
+
+
+            var $advanceAccordion = $scope.find(".ma-advanced-accordion"),
+                $accordionHeader = $scope.find(".ma-advanced-accordion-header"),
+                $accordionType = $advanceAccordion.data("accordion-type"),
+                $accordionSpeed = $advanceAccordion.data("toogle-speed");
 
             // Open default actived tab
-            $accordion_title.each(function(){
-                if ( $(this).hasClass('ma-accordion-tab-active-default') ) {
-                    $(this).addClass('ma-accordion-tab-show ma-accordion-tab-active');
-                    $(this).next().slideDown($accordion_speed)
+            $accordionHeader.each(function() {
+                if ($(this).hasClass("ma-accordion-tab-active-default")) {
+                    $(this).addClass("show active");
+                    $(this)
+                        .next()
+                        .slideDown($accordionSpeed);
                 }
             });
 
             // Remove multiple click event for nested accordion
-            $accordion_title.unbind("click");
+            $accordionHeader.unbind("click");
 
-            $accordion_title.click(function(e) {
+            $accordionHeader.click(function(e) {
                 e.preventDefault();
 
                 var $this = $(this);
 
-                if ( $accordion_type === 'accordion' ) {
-                    if ( $this.hasClass("ma-accordion-tab-show") ) {
-                        $this.removeClass("ma-accordion-tab-show ma-accordion-tab-active");
-                        $this.next().slideUp($accordion_speed);
+                if ($accordionType === "accordion") {
+                    if ($this.hasClass("show")) {
+                        $this.removeClass("show active");
+                        $this.next().slideUp($accordionSpeed);
                     } else {
-                        $this.parent().parent().find(".ma-accordion-tab-title").removeClass("ma-accordion-tab-show ma-accordion-tab-active");
-                        $this.parent().parent().find(".ma-accordion-tab-content").slideUp($accordion_speed);
-                        $this.toggleClass("ma-accordion-tab-show ma-accordion-tab-active");
-                        $this.next().slideToggle($accordion_speed);
+                        $this
+                            .parent()
+                            .parent()
+                            .find(".ma-advanced-accordion-header")
+                            .removeClass("show active");
+                        $this
+                            .parent()
+                            .parent()
+                            .find(".ma-accordion-tab-content")
+                            .slideUp($accordionSpeed);
+                        $this.toggleClass("show active");
+                        $this.next().slideToggle($accordionSpeed);
                     }
                 } else {
                     // For acccordion type 'toggle'
-                    if ( $this.hasClass("ma-accordion-tab-show") ) {
-                        $this.removeClass("ma-accordion-tab-show ma-accordion-tab-active");
-                        $this.next().slideUp($accordion_speed);
+                    if ($this.hasClass("show")) {
+                        $this.removeClass("show active");
+                        $this.next().slideUp($accordionSpeed);
                     } else {
-                        $this.addClass("ma-accordion-tab-show ma-accordion-tab-active");
-                        $this.next().slideDown($accordion_speed);
+                        $this.addClass("show active");
+                        $this.next().slideDown($accordionSpeed);
                     }
                 }
             });
+
+
+
+
+
+            // var $advanced_accordion         = $scope.find(".ma-advanced-accordion").eq(0),
+            //     elementSettings             = getElementSettings( $scope ),
+            //     $accordion_title            = $scope.find(".ma-accordion-tab-title"),
+            //     $accordion_type             = elementSettings.accordion_type,
+            //     $accordion_speed            = elementSettings.toggle_speed;
+            //
+            // // Open default actived tab
+            // $accordion_title.each(function(){
+            //     if ( $(this).hasClass('ma-accordion-tab-active-default') ) {
+            //         $(this).addClass('ma-accordion-tab-show ma-accordion-tab-active');
+            //         $(this).next().slideDown($accordion_speed)
+            //     }
+            // });
+            //
+            // // Remove multiple click event for nested accordion
+            // $accordion_title.unbind("click");
+            //
+            // $accordion_title.click(function(e) {
+            //     e.preventDefault();
+            //
+            //     var $this = $(this);
+            //
+            //     if ( $accordion_type === 'accordion' ) {
+            //         if ( $this.hasClass("ma-accordion-tab-show") ) {
+            //             $this.removeClass("ma-accordion-tab-show ma-accordion-tab-active");
+            //             $this.next().slideUp($accordion_speed);
+            //         } else {
+            //             $this.parent().parent().find(".ma-accordion-tab-title").removeClass("ma-accordion-tab-show ma-accordion-tab-active");
+            //             $this.parent().parent().find(".ma-accordion-tab-content").slideUp($accordion_speed);
+            //             $this.toggleClass("ma-accordion-tab-show ma-accordion-tab-active");
+            //             $this.next().slideToggle($accordion_speed);
+            //         }
+            //     } else {
+            //         // For acccordion type 'toggle'
+            //         if ( $this.hasClass("ma-accordion-tab-show") ) {
+            //             $this.removeClass("ma-accordion-tab-show ma-accordion-tab-active");
+            //             $this.next().slideUp($accordion_speed);
+            //         } else {
+            //             $this.addClass("ma-accordion-tab-show ma-accordion-tab-active");
+            //             $this.next().slideDown($accordion_speed);
+            //         }
+            //     }
+            // });
 
             //
             //     })(jQuery);

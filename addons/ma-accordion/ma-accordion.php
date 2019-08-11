@@ -784,7 +784,11 @@ Customization Options.</span>'
 				'data-accordion-id'     => esc_attr( $this->get_id() )
 			] );
 			?>
-            <div <?php echo $this->get_render_attribute_string('ma_advance_accordion'); ?>>
+            <div
+                <?php echo $this->get_render_attribute_string('ma_advance_accordion'); ?>
+	            <?php echo 'data-accordion-id="' . esc_attr($this->get_id()) . '"'; ?>
+	            <?php echo !empty($settings['accordion_type']) ? 'data-accordion-type="' . esc_attr($settings['accordion_type']) . '"' : 'accordion'; ?>
+            >
                 <div class="ma-accordion-<?php echo esc_attr( $settings['ma_advanced_accordion_style'] );?> <?php if( $settings['ma_advanced_accordion_style'] == 'three' ) echo "blue-color";?> <?php if( $settings['ma_advanced_accordion_style'] == 'four' ) echo "title-blue-bg";?><?php if( $settings['ma_advanced_accordion_style'] == 'five' ) echo "title-border"; ?><?php if( $settings['ma_advanced_accordion_style'] == 'six' ) echo "title-gradient-bg"; ?> <?php if( $settings['ma_advanced_accordion_style'] == 'seven' ) echo "title-icon-bg"; ?> <?php if( $settings['ma_advanced_accordion_style'] == 'eight' ) echo "active-bg"; ?> <?php if( $settings['ma_advanced_accordion_style'] == 'nine' ) echo "icon-round-bg"; ?> <?php if( $settings['ma_advanced_accordion_style'] == 'ten' ) echo "image-bg"; ?>">
 
 				<?php
@@ -794,7 +798,7 @@ Customization Options.</span>'
 						$tab_title_setting_key = $this->get_repeater_setting_key('tab_title', 'tabs', $index);
 						$tab_content_setting_key = $this->get_repeater_setting_key('accordion_content', 'tabs', $index);
 
-						$tab_title_class 	= ['ma-accordion-tab-title'];
+						$tab_title_class 	= ['ma-accordion-tab-title ma-advanced-accordion-header'];
 						$tab_content_class 	= ['ma-accordion-tab-content'];
 
 						if ( $tab['accordion_tab_default_active'] == 'yes' ) {
@@ -812,7 +816,7 @@ Customization Options.</span>'
 						]);
 
 						$this->add_render_attribute( $tab_content_setting_key, [
-							'id'                => 'elementor-tab-content-' . $id_int . $tab_count,
+							'id'                => 'ma-accordion-tab-content-' . $id_int . $tab_count,
 							'class'             => $tab_content_class,
 							'data-tab'          => $tab_count,
 							'role'              => 'tabpanel',
