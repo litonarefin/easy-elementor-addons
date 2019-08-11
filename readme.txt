@@ -129,10 +129,13 @@ Paste on your Local Computer
 
 
 == Changelog ==
- = 1.1.0 (5-8-2019) =
+ = 1.1.0 (11-8-2019) =
  * Fixed: Admin Notice not showing issue on Master Addons issue fixed
  * Fixed: Plugin uri changed to Master Addons website
  * Fixed: Contact Forms Style issues fixed
+ * Fixed: Accordion Style issues fixed, conflicting JS issue fixed
+ * Fixed: Team Member and Team Member Slider style issue fixed
+
 
 
  = 1.0.9 (2-8-2019) =
