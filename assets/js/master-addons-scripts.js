@@ -261,10 +261,6 @@
 
         // Master Addons: Accordion
         MA_Accordion:function($scope, $) {
-            //
-            // try {
-            //     (function() {
-
 
             var $advanceAccordion = $scope.find(".ma-advanced-accordion"),
                 $accordionHeader = $scope.find(".ma-advanced-accordion-header"),
@@ -273,7 +269,7 @@
 
             // Open default actived tab
             $accordionHeader.each(function() {
-                if ($(this).hasClass("ma-accordion-tab-active-default")) {
+                if ($(this).hasClass("active-default")) {
                     $(this).addClass("show active");
                     $(this)
                         .next()
@@ -305,9 +301,10 @@
                             .find(".ma-accordion-tab-content")
                             .slideUp($accordionSpeed);
                         $this.toggleClass("show active");
-                        $this.next().slideToggle($accordionSpeed);
+                        $this.next().slideDown($accordionSpeed);
                     }
                 } else {
+
                     // For acccordion type 'toggle'
                     if ($this.hasClass("show")) {
                         $this.removeClass("show active");
@@ -319,60 +316,6 @@
                 }
             });
 
-
-
-
-
-            // var $advanced_accordion         = $scope.find(".ma-advanced-accordion").eq(0),
-            //     elementSettings             = getElementSettings( $scope ),
-            //     $accordion_title            = $scope.find(".ma-accordion-tab-title"),
-            //     $accordion_type             = elementSettings.accordion_type,
-            //     $accordion_speed            = elementSettings.toggle_speed;
-            //
-            // // Open default actived tab
-            // $accordion_title.each(function(){
-            //     if ( $(this).hasClass('ma-accordion-tab-active-default') ) {
-            //         $(this).addClass('ma-accordion-tab-show ma-accordion-tab-active');
-            //         $(this).next().slideDown($accordion_speed)
-            //     }
-            // });
-            //
-            // // Remove multiple click event for nested accordion
-            // $accordion_title.unbind("click");
-            //
-            // $accordion_title.click(function(e) {
-            //     e.preventDefault();
-            //
-            //     var $this = $(this);
-            //
-            //     if ( $accordion_type === 'accordion' ) {
-            //         if ( $this.hasClass("ma-accordion-tab-show") ) {
-            //             $this.removeClass("ma-accordion-tab-show ma-accordion-tab-active");
-            //             $this.next().slideUp($accordion_speed);
-            //         } else {
-            //             $this.parent().parent().find(".ma-accordion-tab-title").removeClass("ma-accordion-tab-show ma-accordion-tab-active");
-            //             $this.parent().parent().find(".ma-accordion-tab-content").slideUp($accordion_speed);
-            //             $this.toggleClass("ma-accordion-tab-show ma-accordion-tab-active");
-            //             $this.next().slideToggle($accordion_speed);
-            //         }
-            //     } else {
-            //         // For acccordion type 'toggle'
-            //         if ( $this.hasClass("ma-accordion-tab-show") ) {
-            //             $this.removeClass("ma-accordion-tab-show ma-accordion-tab-active");
-            //             $this.next().slideUp($accordion_speed);
-            //         } else {
-            //             $this.addClass("ma-accordion-tab-show ma-accordion-tab-active");
-            //             $this.next().slideDown($accordion_speed);
-            //         }
-            //     }
-            // });
-
-            //
-            //     })(jQuery);
-            // } catch(e) {
-            //     //We can also throw from try block and catch it here
-            //     // No Error Show
-            // }
 
 
         },

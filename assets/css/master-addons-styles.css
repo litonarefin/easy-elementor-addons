@@ -43,12 +43,28 @@
     outline: 0;
 }
 .ma-accordion-tab-content {
+    display: none;
     padding: 1.5rem;
+    opacity: 0;
+
+    transform: translateY(-100%);
+}
+.ma-advanced-accordion .ma-accordion-tab-title.show.active + .ma-accordion-tab-content {
+
+    opacity: 1;
+    padding: 1.5rem;
+
+    transform: translateY(0);
 }
 .ma-accordion-tab-content p {
     color: #78909c;
     font-size: 14px;
     line-height: 23px;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+.ma-accordion-tab-title.show.active + .ma-accordion-tab-content p {
+    opacity: 1;
 }
 .ma-accordion-two .ma-accordion-tab-title {
     border-radius: 3rem;

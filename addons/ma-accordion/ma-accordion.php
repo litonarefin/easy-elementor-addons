@@ -40,13 +40,80 @@
 			/*	CONTENT TAB
 			/*-----------------------------------------------------------------------------------*/
 
+			$this->start_controls_section(
+				'section_accordion_settings',
+				[
+					'label'                 => esc_html__( 'Settings', MELA_TD )
+				]
+			);
+
+			$this->add_control(
+				'accordion_type',
+				[
+					'label'                 => esc_html__( 'Accordion Type', MELA_TD ),
+					'type'                  => Controls_Manager::SELECT,
+					'default'               => 'accordion',
+					'label_block'           => false,
+					'options'               => [
+						'accordion' 	=> esc_html__( 'Accordion', MELA_TD ),
+						'toggle' 		=> esc_html__( 'Toggle', MELA_TD ),
+					],
+					'frontend_available'    => true,
+				]
+			);
+			$this->add_control(
+				'toggle_icon_show',
+				[
+					'label'                 => esc_html__( 'Toggle Icon', MELA_TD ),
+					'type'                  => Controls_Manager::SWITCHER,
+					'default'               => 'yes',
+					'label_on'              => __( 'Show', MELA_TD ),
+					'label_off'             => __( 'Hide', MELA_TD ),
+					'return_value'          => 'yes',
+				]
+			);
+
+			$this->add_control(
+				'toggle_icon',
+				[
+					'label'                 => esc_html__( 'Icon', MELA_TD ),
+					'type'                  => Controls_Manager::ICON,
+					'default'               => 'fa fa-angle-right',
+					'include'               => [
+						'fa fa-angle-right',
+						'fa fa-angle-double-right',
+						'fa fa-chevron-right',
+						'fa fa-chevron-circle-right',
+						'fa fa-arrow-right',
+						'fa fa-long-arrow-right',
+					],
+					'condition'             => [
+						'toggle_icon_show' => 'yes'
+					]
+				]
+			);
+
+			$this->add_control(
+				'toggle_speed',
+				[
+					'label'                 => esc_html__( 'Toggle Speed (ms)', MELA_TD ),
+					'type'                  => Controls_Manager::NUMBER,
+					'label_block'           => false,
+					'default'               => 300,
+					'frontend_available'    => true,
+				]
+			);
+			$this->end_controls_section();
+
+
+
 			/**
 			 * Content Tab: Tabs
 			 */
 			$this->start_controls_section(
 				'section_accordion_tabs',
 				[
-					'label'                 => esc_html__( 'Tabs', MELA_TD )
+					'label'                 => esc_html__( 'Accordions', MELA_TD )
 				]
 			);
 
@@ -227,81 +294,6 @@
 			$this->end_controls_section();
 
 
-			$this->start_controls_section(
-				'section_accordion_toggle_icon',
-				[
-					'label'                 => esc_html__( 'Toggle Icon', MELA_TD )
-				]
-			);
-
-			$this->add_control(
-				'toggle_icon_show',
-				[
-					'label'                 => esc_html__( 'Toggle Icon', MELA_TD ),
-					'type'                  => Controls_Manager::SWITCHER,
-					'default'               => 'yes',
-					'label_on'              => __( 'Show', MELA_TD ),
-					'label_off'             => __( 'Hide', MELA_TD ),
-					'return_value'          => 'yes',
-				]
-			);
-
-			$this->add_control(
-				'toggle_icon',
-				[
-					'label'                 => esc_html__( 'Icon', MELA_TD ),
-					'type'                  => Controls_Manager::ICON,
-					'default'               => 'fa fa-angle-right',
-					'include'               => [
-						'fa fa-angle-right',
-						'fa fa-angle-double-right',
-						'fa fa-chevron-right',
-						'fa fa-chevron-circle-right',
-						'fa fa-arrow-right',
-						'fa fa-long-arrow-right',
-					],
-					'condition'             => [
-						'toggle_icon_show' => 'yes'
-					]
-				]
-			);
-
-			$this->end_controls_section();
-
-			$this->start_controls_section(
-				'section_accordion_settings',
-				[
-					'label'                 => esc_html__( 'Settings', MELA_TD )
-				]
-			);
-
-			$this->add_control(
-				'accordion_type',
-				[
-					'label'                 => esc_html__( 'Accordion Type', MELA_TD ),
-					'type'                  => Controls_Manager::SELECT,
-					'default'               => 'accordion',
-					'label_block'           => false,
-					'options'               => [
-						'accordion' 	=> esc_html__( 'Accordion', MELA_TD ),
-						'toggle' 		=> esc_html__( 'Toggle', MELA_TD ),
-					],
-					'frontend_available'    => true,
-				]
-			);
-
-			$this->add_control(
-				'toggle_speed',
-				[
-					'label'                 => esc_html__( 'Toggle Speed (ms)', MELA_TD ),
-					'type'                  => Controls_Manager::NUMBER,
-					'label_block'           => false,
-					'default'               => 300,
-					'frontend_available'    => true,
-				]
-			);
-			$this->end_controls_section();
-
 
 
 			if ( !ma_el_fs()->can_use_premium_code__premium_only() ) {
@@ -461,7 +453,7 @@ Customization Options.</span>'
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#f1f1f1',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'background-color: {{VALUE}} !important;',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'background-color: {{VALUE}};',
 					],
 				]
 			);
@@ -788,6 +780,7 @@ Customization Options.</span>'
                 <?php echo $this->get_render_attribute_string('ma_advance_accordion'); ?>
 	            <?php echo 'data-accordion-id="' . esc_attr($this->get_id()) . '"'; ?>
 	            <?php echo !empty($settings['accordion_type']) ? 'data-accordion-type="' . esc_attr($settings['accordion_type']) . '"' : 'accordion'; ?>
+	            <?php echo !empty($settings['toggle_speed']) ? 'data-toogle-speed="' . esc_attr($settings['toggle_speed']) . '"' : '300'; ?>
             >
                 <div class="ma-accordion-<?php echo esc_attr( $settings['ma_advanced_accordion_style'] );?> <?php if( $settings['ma_advanced_accordion_style'] == 'three' ) echo "blue-color";?> <?php if( $settings['ma_advanced_accordion_style'] == 'four' ) echo "title-blue-bg";?><?php if( $settings['ma_advanced_accordion_style'] == 'five' ) echo "title-border"; ?><?php if( $settings['ma_advanced_accordion_style'] == 'six' ) echo "title-gradient-bg"; ?> <?php if( $settings['ma_advanced_accordion_style'] == 'seven' ) echo "title-icon-bg"; ?> <?php if( $settings['ma_advanced_accordion_style'] == 'eight' ) echo "active-bg"; ?> <?php if( $settings['ma_advanced_accordion_style'] == 'nine' ) echo "icon-round-bg"; ?> <?php if( $settings['ma_advanced_accordion_style'] == 'ten' ) echo "image-bg"; ?>">
 
@@ -801,27 +794,30 @@ Customization Options.</span>'
 						$tab_title_class 	= ['ma-accordion-tab-title ma-advanced-accordion-header'];
 						$tab_content_class 	= ['ma-accordion-tab-content'];
 
-						if ( $tab['accordion_tab_default_active'] == 'yes' ) {
-							$tab_title_class[] 		= 'ma-accordion-tab-active-default';
-							$tab_content_class[] 	= 'ma-accordion-tab-active-default';
+
+						if ($tab['accordion_tab_default_active'] == 'yes') {
+							$tab_title_class[] = 'active-default';
+							$tab_content_class[] = 'active-default';
 						}
 
-						$this->add_render_attribute( $tab_title_setting_key, [
-							'id'                => 'ma-accordion-tab-title-' . $id_int . $tab_count,
-							'class'             => $tab_title_class,
-							'tabindex'          => $id_int . $tab_count,
-							'data-tab'          => $tab_count,
-							'role'              => 'tab',
-							'aria-controls'     => 'ma-accordion-tab-content-' . $id_int . $tab_count,
+						$this->add_render_attribute($tab_title_setting_key, [
+							'id' => 'ma-accordion-tab-title-' . $id_int . $tab_count,
+							'class' => $tab_title_class,
+							'tabindex' => $id_int . $tab_count,
+							'data-tab' => $tab_count,
+							'role' => 'tab',
+							'aria-controls' => 'ma-accordion-tab-content-' . $id_int . $tab_count,
 						]);
 
-						$this->add_render_attribute( $tab_content_setting_key, [
-							'id'                => 'ma-accordion-tab-content-' . $id_int . $tab_count,
-							'class'             => $tab_content_class,
-							'data-tab'          => $tab_count,
-							'role'              => 'tabpanel',
-							'aria-labelledby'   => 'ma-accordion-tab-title-' . $id_int . $tab_count,
-						] );
+						$this->add_render_attribute($tab_content_setting_key, [
+							'id' => 'ma-accordion-tab-content-' . $id_int . $tab_count,
+							'class' => $tab_content_class,
+							'data-tab' => $tab_count,
+							'role' => 'tabpanel',
+							'aria-labelledby' => 'ma-accordion-tab-title-' . $id_int . $tab_count,
+						]);
+
+
 						?>
                         <div class="ma-accordion-item <?php echo esc_attr( $settings['ma_advanced_accordion_style'] ); ?>">
                             <div <?php echo $this->get_render_attribute_string($tab_title_setting_key); ?>>
