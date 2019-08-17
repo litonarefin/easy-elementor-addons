@@ -78,8 +78,18 @@
 				[
 					'label'                 => esc_html__( 'Icon', MELA_TD ),
 					'type'                  => Controls_Manager::ICON,
-					'default'               => 'fa fa-angle-right',
+					'default'               => 'fa fa-minus',
 					'include'               => [
+						'fa fa-minus',
+						'fa fa-minus-circle',
+						'fa fa-minus-square-o',
+						'fa fa-minus-square',
+						'fa fa-search-minus',
+						'fa fa-plus',
+						'fa fa-plus-circle',
+						'fa fa-plus-square-o',
+						'fa fa-plus-square',
+						'fa fa-search-plus',
 						'fa fa-angle-right',
 						'fa fa-angle-double-right',
 						'fa fa-chevron-right',
@@ -451,7 +461,7 @@ Customization Options.</span>'
 				[
 					'label'                 => esc_html__( 'Background Color', MELA_TD ),
 					'type'                  => Controls_Manager::COLOR,
-					'default'               => '#f1f1f1',
+					'default'               => '#fff',
 					'selectors'	=> [
 						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'background-color: {{VALUE}};',
 					],
@@ -548,7 +558,7 @@ Customization Options.</span>'
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#414141',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active' => 'background-color: {{VALUE}};',
 					],
 				]
 			);
@@ -560,7 +570,7 @@ Customization Options.</span>'
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#ffffff',
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -572,7 +582,7 @@ Customization Options.</span>'
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#ffffff',
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active' => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active' => 'border-color: {{VALUE}};',
 					],
 				]
 			);
@@ -727,7 +737,8 @@ Customization Options.</span>'
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#fff',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.ma-accordion-tab-active .ma-accordion-toggle-icon' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active .ma-accordion-toggle-icon' =>
+                            'color: {{VALUE}};',
 						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'color: {{VALUE}};',
 					],
 					'condition'             => [

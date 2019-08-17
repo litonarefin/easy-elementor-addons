@@ -52,6 +52,7 @@
 					'ma-team-members',
 					'ma-team-members-slider',
 					'ma-creative-buttons',
+					'ma-changelog',
 
 //					'ma-creative-links',
 

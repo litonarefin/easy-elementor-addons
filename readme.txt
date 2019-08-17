@@ -3,9 +3,9 @@ Contributors: jwthemeltd, litonice13
 Tags: addons, elementor, elementor addon, elementor widget, elements, elementor elements
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jwthemeltd@gmail.com&lc=US&item_name=Donate&currency_code=USD&bn=PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest
 Requires at least: 4.0
-Tested up to: 5.2.1
+Tested up to: 5.2.2
 Requires PHP: 5.6
-Stable tag: 1.0.9
+Stable tag: 1.1.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Master Addons is essential for Elementor page builder. It enhances the page or post customization speed.
@@ -129,6 +129,11 @@ Paste on your Local Computer
 
 
 == Changelog ==
+ = 1.1.0 (18-8-2019) =
+ * Fixed: Accordion Style issue fixed.
+ * Fixed: Contact form style broken issue fixed
+ * Added: Changelogs Addon added
+
  = 1.1.0 (11-8-2019) =
  * Fixed: Admin Notice not showing issue on Master Addons issue fixed
  * Fixed: Plugin uri changed to Master Addons website
