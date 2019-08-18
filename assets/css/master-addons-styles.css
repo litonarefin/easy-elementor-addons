@@ -98,7 +98,9 @@
 .title-border .ma-accordion-item .ma-accordion-tab-content {
     border-top: 1px solid #eeedf0;
 }
-.title-gradient-bg .ma-accordion-item .ma-accordion-tab-title.active {
+.title-gradient-bg .ma-accordion-item .ma-accordion-tab-title.active,
+.title-gradient-bg .ma-accordion-item .ma-accordion-tab-title:focus,
+.title-gradient-bg .ma-accordion-item .ma-accordion-tab-title:hover {
   background-image: -moz-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
   background-image: -webkit-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
   background-image: -ms-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
@@ -151,7 +153,9 @@
     background: #fff;
 }
 .active-bg.ma-accordion-eight .ma-accordion-item .ma-accordion-tab-title.active,
-.image-bg.ma-accordion-ten .ma-accordion-item .ma-accordion-tab-title.active {
+.image-bg.ma-accordion-ten .ma-accordion-item .ma-accordion-tab-title.active,
+.active-bg.ma-accordion-eight .ma-accordion-item .ma-accordion-tab-title:hover,
+.image-bg.ma-accordion-ten .ma-accordion-item .ma-accordion-tab-title:hover {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   background-image: -moz-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);

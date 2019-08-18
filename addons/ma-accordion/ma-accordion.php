@@ -560,12 +560,20 @@ Customization Options.</span>'
 					'selectors'	=> [
 
 
-					        //Design 3
+					        //Design 3 & Design 7 & Design 9
 						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title.active, 
-						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title:hover' =>
+						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.seven .ma-accordion-tab-title.active, 
+						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title.active, 
+						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title:hover,
+						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.seven .ma-accordion-tab-title:hover,
+						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title:hover' =>
                             'background-color: #fff;',
                         '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title.active .ma-accordion-title-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title:hover .ma-accordion-title-icon' =>
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.seven .ma-accordion-tab-title.active .ma-accordion-title-icon,
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title.active .ma-accordion-title-icon,
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title:hover .ma-accordion-title-icon,
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.seven .ma-accordion-tab-title:hover .ma-accordion-title-icon,
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title:hover .ma-accordion-title-icon' =>
                             'color: #4b00e7;',
 
 					        //Design 4
@@ -580,8 +588,23 @@ Customization Options.</span>'
 						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.five .ma-accordion-tab-title:hover' =>
                             'background-image: -moz-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
                             background-image: -webkit-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
-                            background-image: -ms-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);',
+                            background-image: -ms-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+                            background-image: linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);',
                         '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.five .ma-accordion-tab-title.active .ma-accordion-title-icon' =>
+                            'color: #fff;',
+
+					        //Design 8
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.eight .ma-accordion-tab-title.active, 
+						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ten .ma-accordion-tab-title.active, 
+						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.eight .ma-accordion-tab-title:hover,
+						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ten .ma-accordion-tab-title:hover' =>
+                            'background-image: -moz-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+                            background-image: -webkit-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+                            background-image: -ms-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+                            background-image: linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);',
+                        '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.eight .ma-accordion-tab-title.active .ma-accordion-title-icon,
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ten .ma-accordion-tab-title.active 
+                                      .ma-accordion-title-icon' =>
                             'color: #fff;',
 
 
