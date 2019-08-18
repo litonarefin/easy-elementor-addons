@@ -490,11 +490,12 @@
             //     (function($scope, $) {
 
             if ($scope.hasClass('ma-el-particle-yes')) {
-                var id = $scope.data('id');
+                let id = $scope.data('id');
                 //console.lgo(id);
-                var element_type = $scope.data('element_type');
-                var pdata = $scope.data('ma-el-particle');
-                var pdata_wrapper = $scope.find('.ma-el-particle-wrapper').data('ma-el-pdata');
+                let element_type = $scope.data('element_type');
+                let pdata = $scope.data('ma-el-particle');
+                let pdata_wrapper = $scope.find('.ma-el-particle-wrapper').data('ma-el-pdata');
+
                 if (typeof pdata != 'undefined' && pdata != '') {
                     if ($scope.find('.ma-el-section-bs').length > 0) {
                         $scope.find('.ma-el-section-bs').after('<div class="ma-el-particle-wrapper"' +
@@ -602,53 +603,21 @@
             }
         },
 
-        /*Master Addons Animated Gradient Background*/
-        // MA_AnimatedGradient: function ($scope, $) {
-        //
-        //     if ($scope.hasClass('ma-el-animated-gradient-yes')) {
-        //         id = $scope.data('id');
-        //         //editMode    = elementorFrontend.isEditMode();
-        //         //console.log(settings);
-        //         color = $scope.data('color');
-        //         angle = $scope.data('angle');
-        //         var gradient_color = 'linear-gradient(' + angle + ',' + color + ')';
-        //         heading = $scope.find('.elementor-heading-title');
-        //         $scope.css('background-image', gradient_color);
-        //         if($scope.hasClass('elementor-element-edit-mode'))
-        //         {
-        //
-        //             color = $scope.find('.animated-gradient').data('color');
-        //             angle = $scope.find('.animated-gradient').data('angle');
-        //             gradient_color_editor = 'linear-gradient(' + angle + ',' + color + ')';
-        //             $scope.prepend('<div class="animated-gradient" style="background-image : ' + gradient_color_editor + ' "></div>');
-        //             //$scope.find('.animated-gradient').css('background-image', gradient_color_editor);
-        //             //$scope.find('.animated-gradient').css('background-color', 'red');
-        //         }
-        //         //$scope.css('position', 'relative');
-        //         //$scope.css('background-color', 'black');
-        //
-        //     }
-        // },
-
-
         MA_AnimatedGradient: function ($scope, $) {
 
-
             if ($scope.hasClass('ma-el-animated-gradient-yes')) {
-                var id = $scope.data('id');
-                //editMode    = elementorFrontend.isEditMode();
-                //console.log(settings);
-                var color = $scope.data('color');
-                var angle = $scope.data('angle');
-                var gradient_color = 'linear-gradient(' + angle + ',' + color + ')';
-                var heading = $scope.find('.elementor-heading-title');
+                let id = $scope.data('id');
+                let color = $scope.data('color');
+                let angle = $scope.data('angle');
+                let gradient_color = 'linear-gradient(' + angle + ',' + color + ')';
+                let heading = $scope.find('.elementor-heading-title');
                 $scope.css('background-image', gradient_color);
 
-                if($scope.hasClass('elementor-element-edit-mode')) {
-
+                if($scope.hasClass('elementor-element-edit-mode')){
                     color = $scope.find('.animated-gradient').data('color');
                     angle = $scope.find('.animated-gradient').data('angle');
-                    var gradient_color_editor = 'linear-gradient(' + angle + ',' + color + ')';
+                    let gradient_color_editor = 'linear-gradient(' + angle + ',' + color + ')';
+                    // console.log(gradient_color_editor);
                     $scope.prepend('<div class="animated-gradient" style="background-image : ' + gradient_color_editor + ' "></div>');
                     //$scope.find('.animated-gradient').css('background-image', gradient_color_editor);
                     //$scope.find('.animated-gradient').css('background-color', 'red');
@@ -657,6 +626,7 @@
                 //$scope.css('background-color', 'black');
 
             }
+
         },
 
 

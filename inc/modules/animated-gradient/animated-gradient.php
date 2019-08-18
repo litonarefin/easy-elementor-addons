@@ -1,14 +1,16 @@
 <?php
-	namespace Elementor;
+
+	namespace MA_EL\Addons\AnimatedGradient;
 
 	use Elementor\Controls_Manager;
 	use Elementor\Repeater;
 
-	class AnimatedGradientBackground  {
+	class AnimatedGradientBackgrounds  {
 
 		private static $_instance = null;
 
-		public function __construct() {
+		public function __construct()
+		{
 			add_action( 'elementor/element/after_section_end', [ $this, 'register_controls' ], 10, 3 );
 			add_action( 'elementor/element/print_template', [ $this, '_print_template'],10,2);
 			add_action( 'elementor/section/print_template', [ $this, '_print_template'],10,2);
@@ -23,17 +25,17 @@
 					'ma_el_animated_gradient',
 					[
 						'tab' => Controls_Manager::TAB_STYLE,
-						'label' => __('MA - Animated Gradient Background', MELA_TD )
+						'label' => __('MA - Animated Gradient Background', MELA_TD)
 					]
 				);
 				$element->add_control(
 					'ma_el_animated_gradient_enable',
 					[
 						'type'  => Controls_Manager::SWITCHER,
-						'label' => __('Enable', MELA_TD ),
+						'label' => __('Enable', MELA_TD),
 						'default' => '',
-						'label_on' => __( 'Yes', MELA_TD  ),
-						'label_off' => __( 'No', MELA_TD  ),
+						'label_on' => __( 'Yes', MELA_TD ),
+						'label_off' => __( 'No', MELA_TD ),
 						'return_value' => 'yes',
 						'prefix_class'  =>  'ma-el-animated-gradient-',
 						'render_type'   => 'template',
@@ -69,7 +71,7 @@
 				$repeater->add_control(
 					'ma_el_animated_gradient_color',
 					[
-						'label' => __('Add Color' , MELA_TD ),
+						'label' => __('Add Color' , MELA_TD),
 						'type'  =>  Controls_Manager::COLOR,
 					]
 				);
@@ -77,7 +79,7 @@
 				$element->add_control(
 					'gradient_color_list',
 					[
-						'label' =>  __('Color' , MELA_TD ),
+						'label' =>  __('Color' , MELA_TD),
 						'type'  => Controls_Manager::REPEATER,
 						'fields'    =>  array_values($repeater->get_controls()),
 						'title_field'   =>  'Color {{{ma_el_animated_gradient_color}}}',
@@ -178,4 +180,4 @@
 			return self::$_instance;
 		}
 	}
-AnimatedGradientBackground::instance();
+    AnimatedGradientBackgrounds::instance();

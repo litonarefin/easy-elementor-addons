@@ -5,7 +5,7 @@
     use \Elementor\Group_Control_Image_Size;
     use \Elementor\Group_Control_Background;
 
-class EAE_Bg_Slider {
+class MA_EL_Bg_Slider {
 	private static $_instance = null;
 
 	public static function instance() {
@@ -401,4 +401,4 @@ class EAE_Bg_Slider {
 
 }
 
-EAE_Bg_Slider::instance();
+MA_EL_Bg_Slider::instance();

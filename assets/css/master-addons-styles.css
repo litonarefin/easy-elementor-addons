@@ -4294,3 +4294,52 @@ div[class*="col"]:nth-child(3) .ma-el-infobox.eleven .ma-el-infobox-icon {
 /* Changelog End */
 
 
+
+
+
+.elementor-element.ma-el-animated-gradient-yes,.elementor-element.ma-el-animated-gradient-yes .animated-gradient {
+    background-size: 400% 400% !important;
+    -webkit-animation: AnimateGradient 15s ease-in-out infinite;
+    -moz-animation: AnimateGradient 15s ease-in-out infinite;
+    animation: AnimateGradient 15s ease-in-out infinite;
+}
+.animated-gradient{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+@-webkit-keyframes AnimateGradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+@-moz-keyframes AnimateGradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+@keyframes AnimateGradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
