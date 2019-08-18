@@ -64,7 +64,7 @@
 					'weforms',
 
 //					'ma-piechart',
-//					'ma-infobox',
+					'ma-infobox',
 //					'ma-flipbox',
 //					'ma-cards',
 //					'ma-counter-up',

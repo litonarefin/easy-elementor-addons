@@ -69,6 +69,11 @@
 .ma-accordion-two .ma-accordion-tab-title {
     border-radius: 3rem;
 }
+/*.blue-color .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title.active .ma-accordion-title-icon {*/
+    /*background-color: #4b00e7;*/
+    /*color:#fff !important;*/
+/*}*/
+
 .blue-color .ma-accordion-tab-title.active .ma-accordion-title-icon {
     color: #4b00e7;
 }
@@ -4238,17 +4243,6 @@ div[class*="col"]:nth-child(3) .ma-el-infobox.eleven .ma-el-infobox-icon {
     display: flex;
     font-weight: 300;
 }
-
-/*'Added'  => esc_html__( 'Added', MELA_TD ),*/
-/*'Fixed' => esc_html__( 'Fixed', MELA_TD ),*/
-/*'Updated' => esc_html__( 'Updated', MELA_TD ),*/
-/*'Removed' => esc_html__( 'Removed', MELA_TD ),*/
-/*'Changed' => esc_html__( 'Changed', MELA_TD ),*/
-/*'Note' => esc_html__( 'Note', MELA_TD ),*/
-/*'Info' => esc_html__( 'Info', MELA_TD ),*/
-/*'Language' => esc_html__( 'Language', MELA_TD ),*/
-
-
 .ma-el-changelog ul li .ma-el-label.ma-el-added{
     background-color: #2ed573;
 }

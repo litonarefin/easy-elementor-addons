@@ -558,7 +558,36 @@ Customization Options.</span>'
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#414141',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active' => 'background-color: {{VALUE}};',
+
+
+					        //Design 3
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title.active, 
+						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title:hover' =>
+                            'background-color: #fff;',
+                        '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title.active .ma-accordion-title-icon,
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title:hover .ma-accordion-title-icon' =>
+                            'color: #4b00e7;',
+
+					        //Design 4
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.four .ma-accordion-tab-title.active, 
+						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.four .ma-accordion-tab-title:hover' =>
+                            'background-color: #4b00e7;',
+                        '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.four .ma-accordion-tab-title.active .ma-accordion-title-icon' =>
+                            'color: #fff;',
+
+					        //Design 5
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.five .ma-accordion-tab-title.active, 
+						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.five .ma-accordion-tab-title:hover' =>
+                            'background-image: -moz-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+                            background-image: -webkit-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+                            background-image: -ms-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);',
+                        '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.five .ma-accordion-tab-title.active .ma-accordion-title-icon' =>
+                            'color: #fff;',
+
+
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active' =>
+							'background-color: {{VALUE}};',
+
 					],
 				]
 			);
@@ -665,7 +694,7 @@ Customization Options.</span>'
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content' => 'background-color: {{VALUE}} !important;',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content' => 'background-color: {{VALUE}};',
 					],
 				]
 			);
