@@ -118,7 +118,7 @@
 }
 .title-icon-bg.ma-accordion-seven .ma-accordion-item .ma-accordion-tab-title.active,
 .icon-round-bg.ma-accordion-nine .ma-accordion-item .ma-accordion-tab-title.active {
-    color: #4b00e7;
+    /*color: #4b00e7;*/
 }
 .title-icon-bg.ma-accordion-seven .ma-accordion-item .ma-accordion-tab-title .ma-accordion-tab-icon,
 .icon-round-bg.ma-accordion-nine .ma-accordion-item .ma-accordion-tab-title .ma-accordion-tab-icon {

@@ -61,6 +61,17 @@
 					'frontend_available'    => true,
 				]
 			);
+
+			$this->add_control(
+				'title_html_tag',
+				[
+					'label'   => __( 'Title HTML Tag', MELA_TD ),
+					'type'    => Controls_Manager::SELECT,
+					'options' => Master_Addons_Helper::ma_el_title_tags(),
+					'default' => 'div',
+				]
+			);
+
 			$this->add_control(
 				'toggle_icon_show',
 				[
@@ -79,6 +90,36 @@
 					'label'                 => esc_html__( 'Icon', MELA_TD ),
 					'type'                  => Controls_Manager::ICON,
 					'default'               => 'fa fa-minus',
+					'include'               => [
+						'fa fa-minus',
+						'fa fa-minus-circle',
+						'fa fa-minus-square-o',
+						'fa fa-minus-square',
+						'fa fa-search-minus',
+						'fa fa-plus',
+						'fa fa-plus-circle',
+						'fa fa-plus-square-o',
+						'fa fa-plus-square',
+						'fa fa-search-plus',
+						'fa fa-angle-right',
+						'fa fa-angle-double-right',
+						'fa fa-chevron-right',
+						'fa fa-chevron-circle-right',
+						'fa fa-arrow-right',
+						'fa fa-long-arrow-right',
+					],
+					'condition'             => [
+						'toggle_icon_show' => 'yes'
+					]
+				]
+			);
+
+			$this->add_control(
+				'active_icon',
+				[
+					'label'                 => esc_html__( 'Active Icon', MELA_TD ),
+					'type'                  => Controls_Manager::ICON,
+					'default'               => 'fa fa-plus',
 					'include'               => [
 						'fa fa-minus',
 						'fa fa-minus-circle',
@@ -161,6 +202,137 @@
 				]
 			);
 
+
+
+			/* Start of Single Accordion Tab Styles */
+			$repeater->add_control(
+				'single_tab_title_bg_color_show',
+				[
+					'label'                 => esc_html__( 'Enable Background Color', MELA_TD ),
+					'type'                  => Controls_Manager::SWITCHER,
+					'default'               => 'no',
+					'return_value'          => 'yes',
+				]
+			);
+
+			$repeater->start_controls_tabs( 'single_accordion_tabs_style' );
+
+			$repeater->start_controls_tab(
+				'single_accordion_tab_normal',
+				[
+					'label'                 => __( 'Normal', MELA_TD ),
+                    'condition'             => [
+						'single_tab_title_bg_color_show' => 'yes'
+					]
+				]
+			);
+
+			$repeater->add_control(
+				'single_tab_title_bg_color',
+				[
+					'label'                 => esc_html__( 'Background Color', MELA_TD ),
+					'type'                  => Controls_Manager::COLOR,
+					'default'               => '#fff',
+					'condition'             => [
+						'single_tab_title_bg_color_show' => 'yes'
+					]
+				]
+			);
+
+			$repeater->add_control(
+				'single_title_text_color',
+				[
+					'label'                 => esc_html__( 'Text Color', MELA_TD ),
+					'type'                  => Controls_Manager::COLOR,
+					'default'               => '#333333',
+					'condition'             => [
+						'single_tab_title_bg_color_show' => 'yes'
+					]
+				]
+			);
+
+			$repeater->end_controls_tab();
+
+			$repeater->start_controls_tab(
+				'single_accordion_tab_hover',
+				[
+					'label'                 => __( 'Hover', MELA_TD ),
+					'condition'             => [
+						'single_tab_title_bg_color_show' => 'yes'
+					]
+				]
+			);
+
+			$repeater->add_control(
+				'single_tab_title_bg_color_hover',
+				[
+					'label'                 => esc_html__( 'Background Color', MELA_TD ),
+					'type'                  => Controls_Manager::COLOR,
+					'default'               => '#414141',
+					'selectors'	=> [
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'background-color: {{VALUE}}',
+					],
+					'condition'             => [
+						'single_tab_title_bg_color_show' => 'yes'
+					]
+				]
+			);
+
+			$repeater->add_control(
+				'single_title_text_hover_color',
+				[
+					'label'                 => esc_html__( 'Text Color', MELA_TD ),
+					'type'                  => Controls_Manager::COLOR,
+					'default'               => '#333333',
+					'condition'             => [
+						'single_tab_title_bg_color_show' => 'yes'
+					]
+				]
+			);
+
+			$repeater->end_controls_tab();
+
+			$repeater->start_controls_tab(
+				'single_accordion_tab_active',
+				[
+					'label'                 => __( 'Active', MELA_TD ),
+					'condition'             => [
+						'single_tab_title_bg_color_show' => 'yes'
+					]
+				]
+			);
+
+			$repeater->add_control(
+				'single_tab_title_bg_color_active',
+				[
+					'label'                 => esc_html__( 'Background Color', MELA_TD ),
+					'type'                  => Controls_Manager::COLOR,
+					'default'               => '#414141',
+					'condition'             => [
+						'single_tab_title_bg_color_show' => 'yes'
+					]
+				]
+			);
+
+			$repeater->add_control(
+				'single_title_text_color_active',
+				[
+					'label'                 => esc_html__( 'Text Color', MELA_TD ),
+					'type'                  => Controls_Manager::COLOR,
+					'default'               => '#333333',
+					'condition'             => [
+						'single_tab_title_bg_color_show' => 'yes'
+					]
+				]
+			);
+			$repeater->end_controls_tab();
+
+			$repeater->end_controls_tabs();
+			/* End of Single Accordion Tab Styles */
+
+
+
+
 			$repeater->add_control(
 				'tab_title',
 				[
@@ -181,8 +353,8 @@
 					'label_block'           => false,
 					'options'               => [
 						'content'   => __( 'Content', MELA_TD ),
-						'image'     => __( 'Image', MELA_TD ),
-						'video' 	=> __( 'Video', MELA_TD ),
+//						'image'     => __( 'Image', MELA_TD ),
+//						'video' 	=> __( 'Video', MELA_TD ),
 						'section'   => __( 'Saved Section', MELA_TD ),
 						'widget'    => __( 'Saved Widget', MELA_TD ),
 						'template'  => __( 'Saved Page Template', MELA_TD ),
@@ -267,6 +439,7 @@
 					],
 				]
 			);
+
 
 			$repeater->add_control(
 				'templates',
@@ -573,7 +746,8 @@ Customization Options.</span>'
                         {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title.active .ma-accordion-title-icon,
                         {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title:hover .ma-accordion-title-icon,
                         {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.seven .ma-accordion-tab-title:hover .ma-accordion-title-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title:hover .ma-accordion-title-icon' =>
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title:hover .ma-accordion-title-icon,
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title .ma-accordion-toggle-icon:hover::before' =>
                             'color: #4b00e7;',
 
 					        //Design 4
@@ -757,7 +931,7 @@ Customization Options.</span>'
 			$this->end_controls_section();
 
 			/**
-			 * Style tab: Toggle Icon
+			 * Style Tab
 			 */
 			$this->start_controls_section(
 				'section_toggle_icon_style',
@@ -872,6 +1046,14 @@ Customization Options.</span>'
 							'aria-controls' => 'ma-accordion-tab-content-' . $id_int . $tab_count,
 						]);
 
+//			single_tab_title_bg_color
+//			single_title_text_color
+//			single_tab_title_bg_color_hover
+//			single_title_text_hover_color
+//			single_tab_title_bg_color_active
+//			single_title_text_color_active
+
+
 						$this->add_render_attribute($tab_content_setting_key, [
 							'id' => 'ma-accordion-tab-content-' . $id_int . $tab_count,
 							'class' => $tab_content_class,
@@ -883,13 +1065,26 @@ Customization Options.</span>'
 
 						?>
                         <div class="ma-accordion-item <?php echo esc_attr( $settings['ma_advanced_accordion_style'] ); ?>">
-                            <div <?php echo $this->get_render_attribute_string($tab_title_setting_key); ?>>
+                            <<?php echo $settings['title_html_tag']; ?> <?php echo $this->get_render_attribute_string
+                            ($tab_title_setting_key); ?>
+                            <?php if($tab['single_tab_title_bg_color_show']=='yes'){?>
+
+                                style="background-color:<?php echo $tab['single_tab_title_bg_color'];?>;
+                                color:<?php echo $tab['single_title_text_color'];?>"
+                            <?php } ?>>
                                 <span class="ma-accordion-title-icon">
-                                    <span class="ma-accordion-tab-icon">
-                                        <?php if ( $tab['accordion_tab_icon_show'] === 'yes' ) { ?>
+
+                                    <?php if ( $tab['accordion_tab_icon_show'] === 'yes' ) { ?>
+                                        <span class="ma-accordion-tab-icon">
                                             <i class="<?php echo esc_attr( $tab['accordion_tab_title_icon'] ); ?> fa-accordion-icon"></i>
-                                        <?php } ?>
-                                    </span>
+
+                                            <i class="ma-el-accordion-icon-closed <?php echo
+	                                        esc_attr( $settings['toggle_icon']
+	                                        ); ?>"></i>
+                                            <i class="ma-el-accordion-icon-opened <?php echo esc_attr( $settings['active_icon'] ); ?>"></i>
+                                        </span>
+                                    <?php } ?>
+
                                     <span class="ma-accordion-title-text">
                                         <?php echo $tab['tab_title']; ?>
                                     </span>
@@ -898,7 +1093,7 @@ Customization Options.</span>'
                                     <span class="ma-accordion-toggle-icon <?php echo esc_attr( $settings['toggle_icon']
                                     ); ?>"></span>
 								<?php } ?>
-                            </div>
+                            </<?php echo $settings['title_html_tag']; ?>>
 
                             <div <?php echo $this->get_render_attribute_string($tab_content_setting_key); ?>>
 								<?php

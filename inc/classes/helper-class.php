@@ -189,6 +189,22 @@
 			return $options;
 		}
 
+		// Title Tags
+		public static function ma_el_title_tags() {
+			$title_tags = [
+				'h1'   => esc_html__( 'H1', MELA_TD ),
+				'h2'   => esc_html__( 'H2', MELA_TD ),
+				'h3'   => esc_html__( 'H3', MELA_TD ),
+				'h4'   => esc_html__( 'H4', MELA_TD ),
+				'h5'   => esc_html__( 'H5', MELA_TD ),
+				'h6'   => esc_html__( 'H6', MELA_TD ),
+				'div'  => esc_html__( 'div', MELA_TD ),
+				'span' => esc_html__( 'span', MELA_TD ),
+				'p'    => esc_html__( 'p', MELA_TD ),
+			];
+
+			return $title_tags;
+		}
 
 
 	}
