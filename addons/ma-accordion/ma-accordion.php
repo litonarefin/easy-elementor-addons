@@ -215,18 +215,6 @@
 				]
 			);
 
-			$repeater->start_controls_tabs( 'single_accordion_tabs_style' );
-
-			$repeater->start_controls_tab(
-				'single_accordion_tab_normal',
-				[
-					'label'                 => __( 'Normal', MELA_TD ),
-                    'condition'             => [
-						'single_tab_title_bg_color_show' => 'yes'
-					]
-				]
-			);
-
 			$repeater->add_control(
 				'single_tab_title_bg_color',
 				[
@@ -250,85 +238,6 @@
 					]
 				]
 			);
-
-			$repeater->end_controls_tab();
-
-			$repeater->start_controls_tab(
-				'single_accordion_tab_hover',
-				[
-					'label'                 => __( 'Hover', MELA_TD ),
-					'condition'             => [
-						'single_tab_title_bg_color_show' => 'yes'
-					]
-				]
-			);
-
-			$repeater->add_control(
-				'single_tab_title_bg_color_hover',
-				[
-					'label'                 => esc_html__( 'Background Color', MELA_TD ),
-					'type'                  => Controls_Manager::COLOR,
-					'default'               => '#414141',
-					'selectors'	=> [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'background-color: {{VALUE}}',
-					],
-					'condition'             => [
-						'single_tab_title_bg_color_show' => 'yes'
-					]
-				]
-			);
-
-			$repeater->add_control(
-				'single_title_text_hover_color',
-				[
-					'label'                 => esc_html__( 'Text Color', MELA_TD ),
-					'type'                  => Controls_Manager::COLOR,
-					'default'               => '#333333',
-					'condition'             => [
-						'single_tab_title_bg_color_show' => 'yes'
-					]
-				]
-			);
-
-			$repeater->end_controls_tab();
-
-			$repeater->start_controls_tab(
-				'single_accordion_tab_active',
-				[
-					'label'                 => __( 'Active', MELA_TD ),
-					'condition'             => [
-						'single_tab_title_bg_color_show' => 'yes'
-					]
-				]
-			);
-
-			$repeater->add_control(
-				'single_tab_title_bg_color_active',
-				[
-					'label'                 => esc_html__( 'Background Color', MELA_TD ),
-					'type'                  => Controls_Manager::COLOR,
-					'default'               => '#414141',
-					'condition'             => [
-						'single_tab_title_bg_color_show' => 'yes'
-					]
-				]
-			);
-
-			$repeater->add_control(
-				'single_title_text_color_active',
-				[
-					'label'                 => esc_html__( 'Text Color', MELA_TD ),
-					'type'                  => Controls_Manager::COLOR,
-					'default'               => '#333333',
-					'condition'             => [
-						'single_tab_title_bg_color_show' => 'yes'
-					]
-				]
-			);
-			$repeater->end_controls_tab();
-
-			$repeater->end_controls_tabs();
-			/* End of Single Accordion Tab Styles */
 
 
 
