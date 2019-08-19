@@ -747,23 +747,30 @@ Customization Options.</span>'
                         {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title:hover .ma-accordion-title-icon,
                         {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.seven .ma-accordion-tab-title:hover .ma-accordion-title-icon,
                         {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title:hover .ma-accordion-title-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title .ma-accordion-toggle-icon:hover::before' =>
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title:hover .ma-accordion-toggle-icon,
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title.active .ma-accordion-toggle-icon,
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title.active .ma-accordion-toggle-icon,
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title:hover .ma-accordion-toggle-icon,
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.seven .ma-accordion-tab-title.active .ma-accordion-toggle-icon,
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.seven .ma-accordion-tab-title:hover .ma-accordion-toggle-icon'=>
                             'color: #4b00e7;',
 
 					        //Design 4
 						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.four .ma-accordion-tab-title.active, 
 						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.four .ma-accordion-tab-title:hover' =>
                             'background-color: #4b00e7;',
-                        '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.four .ma-accordion-tab-title.active .ma-accordion-title-icon' =>
+                        '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.four .ma-accordion-tab-title.active .ma-accordion-title-icon,
+                         {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.four .ma-accordion-tab-title.active .ma-accordion-toggle-icon,
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.four .ma-accordion-tab-title:hover .ma-accordion-toggle-icon'=>
                             'color: #fff;',
 
 					        //Design 5
 						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.five .ma-accordion-tab-title.active, 
 						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.five .ma-accordion-tab-title:hover' =>
-                            'background-image: -moz-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
-                            background-image: -webkit-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
-                            background-image: -ms-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
-                            background-image: linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);',
+                            'background-image: -webkit-gradient( linear, left bottom, left top, from(rgb(10,57,252)), to(rgb(213,0,137)));
+                            background-image: -o-linear-gradient( bottom, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+                            background-image: linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+                            background-image: -webkit-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);',
                         '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.five .ma-accordion-tab-title.active .ma-accordion-title-icon' =>
                             'color: #fff;',
 
@@ -772,13 +779,15 @@ Customization Options.</span>'
 						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ten .ma-accordion-tab-title.active, 
 						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.eight .ma-accordion-tab-title:hover,
 						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ten .ma-accordion-tab-title:hover' =>
-                            'background-image: -moz-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
-                            background-image: -webkit-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
-                            background-image: -ms-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
-                            background-image: linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);',
+                            'background-image: -webkit-gradient( linear, left bottom, left top, from(rgb(10,57,252)), to(rgb(213,0,137)));
+                            background-image: -o-linear-gradient( bottom, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+                            background-image: linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
+                            background-image: -webkit-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);',
                         '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.eight .ma-accordion-tab-title.active .ma-accordion-title-icon,
                         {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ten .ma-accordion-tab-title.active 
-                                      .ma-accordion-title-icon' =>
+                                      .ma-accordion-title-icon,
+                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.eight .ma-accordion-tab-content,
+			                         {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ten .ma-accordion-tab-content'=>
                             'color: #fff;',
 
 
@@ -1077,11 +1086,6 @@ Customization Options.</span>'
                                     <?php if ( $tab['accordion_tab_icon_show'] === 'yes' ) { ?>
                                         <span class="ma-accordion-tab-icon">
                                             <i class="<?php echo esc_attr( $tab['accordion_tab_title_icon'] ); ?> fa-accordion-icon"></i>
-
-                                            <i class="ma-el-accordion-icon-closed <?php echo
-	                                        esc_attr( $settings['toggle_icon']
-	                                        ); ?>"></i>
-                                            <i class="ma-el-accordion-icon-opened <?php echo esc_attr( $settings['active_icon'] ); ?>"></i>
                                         </span>
                                     <?php } ?>
 
@@ -1090,8 +1094,12 @@ Customization Options.</span>'
                                     </span>
                                 </span>
 								<?php if ( $settings['toggle_icon_show'] === 'yes' ) { ?>
-                                    <span class="ma-accordion-toggle-icon <?php echo esc_attr( $settings['toggle_icon']
-                                    ); ?>"></span>
+                                    <span class="ma-accordion-toggle-icon">
+                                        <i class="ma-el-accordion-icon-closed <?php echo esc_attr( $settings['toggle_icon'] ); ?>"></i>
+                                        <i class="ma-el-accordion-icon-opened <?php echo esc_attr( $settings['active_icon'] ); ?>"></i>
+                                    </span>
+
+
 								<?php } ?>
                             </<?php echo $settings['title_html_tag']; ?>>
 

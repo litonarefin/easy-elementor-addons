@@ -17,6 +17,7 @@
 .ma-advanced-accordion .ma-accordion-tab-title {
     border-radius: 5px;
     box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+    position: relative;
     padding: .875em 1.25em;
     font-size: 1rem;
     font-weight: 600;
@@ -42,6 +43,37 @@
 .ma-advanced-accordion .ma-accordion-tab-title:focus {
     outline: 0;
 }
+.ma-advanced-accordion .ma-accordion-tab-title .ma-accordion-toggle-icon {
+    position: relative;
+    text-align: center;
+}
+.ma-accordion-toggle-icon {
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+.ma-accordion-toggle-icon i {
+    line-height: 20px;
+    position: absolute;
+
+    transition: all 0.4s ease;
+}
+
+
+.ma-accordion-toggle-icon i.ma-el-accordion-icon-opened {
+    opacity: 1;
+}
+.ma-accordion-tab-title.active .ma-accordion-toggle-icon  i.ma-el-accordion-icon-opened {
+    opacity: 0;
+}
+.ma-accordion-toggle-icon i.ma-el-accordion-icon-closed {
+    opacity: 0;
+}
+.ma-accordion-tab-title.active .ma-accordion-toggle-icon i.ma-el-accordion-icon-closed {
+    opacity: 1;
+}
+
 .ma-accordion-tab-content {
     display: none;
     padding: 1.5rem;
@@ -3831,404 +3863,497 @@ div[class*="col"]:nth-child(3) .ma-el-infobox.eleven .ma-el-infobox-icon {
 
 /* CONTACT FORM STYLES */
 
-.master-addons-cf7 input {
+
+.ma-cf input {
     font-size: 14px;
 }
-.master-addons-cf7 .wpcf7-form-control:focus,
-.nf-form-cont .ninja-forms-field:focus,
-.ma-el-wpforms .wpforms-field-required:focus {
+.ma-cf input:focus,
+.ma-cf textarea:focus {
     border-color: inherit;
     outline: 0 !important;
 }
-.master-addons-cf7 textarea,
+.ma-cf textarea,
 .nf-form-cont textarea,
-.ma-el-gravity-form textarea,
-.ma-el-wpforms textarea,
-.ma-el-weforms textarea {
+.master-addons-gravity-form textarea,
+.master-addons-wpforms textarea,
+.master-addons-weforms textarea {
     min-height: 150px;
     max-height: 150px;
 }
-.master-addons-cf7,
+.ma-cf,
 .nf-form-cont {
     padding: 0;
 }
-.master-addons-cf7-1 input,
-.nf-form-cont input,
-.ma-el-wpforms input,
-.ma-el-wpforms textarea,
-.ma-el-weforms input,
-.ma-el-weforms textarea,
-.ma-el-caldera-form input,
-.ma-el-caldera-form textarea {
-    border-radius: 5px;
-    margin-bottom: 10px;
+.ma-cf form p {
+    position: relative;
 }
-.master-addons-cf7 input[type="submit"],
+.ma-cf form p br {
+    display: none;
+}
+.ma-cf label {
+    color: #78909c;
+    font-size: 13px;
+    font-weight: 400;
+}
+.ma-cf input,
+.ma-cf textarea,
+.nf-form-cont input,
+.master-addons-wpforms input,
+.master-addons-wpforms textarea,
+.master-addons-weforms input,
+.master-addons-weforms textarea,
+.master-addons-caldera-form input,
+.master-addons-caldera-form textarea {
+    border-color: #e2e7ea;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    min-height: 60px;
+}
+.ma-cf [type="submit"] {
+    background: #4b00e7;
+    border: 1px solid #4b00e7;
+    color: #fff;
+}
+.ma-cf [type="submit"]:hover {
+    background: #fff;
+    color: #4b00e7;
+}
+.ma-cf input::-webkit-input-placeholder,
+.ma-cf input::-moz-placeholder,
+.ma-cf input:-ms-input-placeholder,
+.ma-cf textarea::-webkit-input-placeholder,
+.ma-cf textarea::-moz-placeholder,
+.ma-cf textarea:-ms-input-placeholder {
+    color: #78909c;
+}
+.ma-cf input[type="submit"],
 .nf-form-cont input[value="Submit"],
-.ma-el-gravity-form input[type="button"],
-.ma-el-gravity-form input[type="submit"],
-.ma-el-wpforms button[type="submit"],
-.ma-el-weforms input[type="submit"],
-.ma-el-weforms button[type="submit"],
-.ma-el-caldera-form input[type="submit"],
-.ma-el-caldera-form button[type="submit"] {
+.master-addons-gravity-form input[type="button"],
+.master-addons-gravity-form input[type="submit"],
+.master-addons-wpforms button[type="submit"],
+.master-addons-weforms input[type="submit"],
+.master-addons-weforms button[type="submit"],
+.master-addons-caldera-form input[type="submit"],
+.master-addons-caldera-form button[type="submit"] {
     margin-top: 1.5em;
     text-transform: uppercase;
 }
-
-.master-addons-cf7-2 input[type="submit"],
-.master-addons-cf7-4 input[type="submit"],
-.ma-el-ninja-form-2 input[value="Submit"],
-.ma-el-ninja-form-4 input[value="Submit"],
-.ma-el-gravity-form-2 input[type="button"],
-.ma-el-gravity-form-2 input[type="submit"],
-.ma-el-gravity-form-4 input[type="button"],
-.ma-el-gravity-form-4 input[type="submit"],
-.ma-el-wpforms-2 button[type="submit"],
-.ma-el-wpforms-4 button[type="submit"],
-.ma-el-weforms-2 button[type="submit"],
-.ma-el-weforms-4 button[type="submit"],
-.ma-el-caldera-2 button[type="submit"],
-.ma-el-caldera-4 button[type="submit"] {
+.ma-cf-2 input[type="submit"],
+.ma-cf-4 input[type="submit"],
+.master-addons-ninja-form-2 input[value="Submit"],
+.master-addons-ninja-form-4 input[value="Submit"],
+.master-addons-gravity-form-2 input[type="button"],
+.master-addons-gravity-form-2 input[type="submit"],
+.master-addons-gravity-form-4 input[type="button"],
+.master-addons-gravity-form-4 input[type="submit"],
+.master-addons-wpforms-2 button[type="submit"],
+.master-addons-wpforms-4 button[type="submit"],
+.master-addons-weforms-2 button[type="submit"],
+.master-addons-weforms-4 button[type="submit"],
+.master-addons-caldera-2 button[type="submit"],
+.master-addons-caldera-4 button[type="submit"] {
     float: right;
 }
-.master-addons-cf7-2 label .text,
-.master-addons-cf7-4 label .text,
-.master-addons-cf7-9 label .text,
-.master-addons-cf7-10 label .text,
-.master-addons-cf7-11 label .text,
-.master-addons-cf7-12 label .text,
-.ma-el-ninja-form-2 label,
-.ma-el-ninja-form-4 label,
-.ma-el-ninja-form-9 label,
-.ma-el-ninja-form-10 label,
-.ma-el-ninja-form-11 label,
-.ma-el-ninja-form-12 label,
-.ma-el-gravity-form-2 label,
-.ma-el-gravity-form-4 label,
-.ma-el-gravity-form-9 label,
-.ma-el-gravity-form-10 label,
-.ma-el-gravity-form-11 label,
-.ma-el-gravity-form-12 label,
-.ma-el-wpforms-2 label,
-.ma-el-wpforms-4 label,
-.ma-el-wpforms-9 label,
-.ma-el-wpforms-10 label,
-.ma-el-wpforms-11 label,
-.ma-el-wpforms-12 label,
-.ma-el-weforms-2 label,
-.ma-el-weforms-4 label,
-.ma-el-weforms-9 label,
-.ma-el-weforms-10 label,
-.ma-el-weforms-11 label,
-.ma-el-weforms-12 label,
-.ma-el-caldera-2 label,
-.ma-el-caldera-4 label,
-.ma-el-caldera-9 label,
-.ma-el-caldera-10 label,
-.ma-el-caldera-11 label,
-.ma-el-caldera-12 label {
+.ma-cf-2 label,
+.ma-cf-4 label,
+.ma-cf-9 label,
+.ma-cf-10 label,
+.ma-cf-11 label,
+.ma-cf-12 label,
+.master-addons-ninja-form-2 label,
+.master-addons-ninja-form-4 label,
+.master-addons-ninja-form-9 label,
+.master-addons-ninja-form-10 label,
+.master-addons-ninja-form-11 label,
+.master-addons-ninja-form-12 label,
+.master-addons-gravity-form-2 label,
+.master-addons-gravity-form-4 label,
+.master-addons-gravity-form-9 label,
+.master-addons-gravity-form-10 label,
+.master-addons-gravity-form-11 label,
+.master-addons-gravity-form-12 label,
+.master-addons-wpforms-2 label,
+.master-addons-wpforms-4 label,
+.master-addons-wpforms-9 label,
+.master-addons-wpforms-10 label,
+.master-addons-wpforms-11 label,
+.master-addons-wpforms-12 label,
+.master-addons-weforms-2 label,
+.master-addons-weforms-4 label,
+.master-addons-weforms-9 label,
+.master-addons-weforms-10 label,
+.master-addons-weforms-11 label,
+.master-addons-weforms-12 label,
+.master-addons-caldera-2 label,
+.master-addons-caldera-4 label,
+.master-addons-caldera-9 label,
+.master-addons-caldera-10 label,
+.master-addons-caldera-11 label,
+.master-addons-caldera-12 label {
     display: none;
 }
 
-.master-addons-cf7-3 input,
-.master-addons-cf7-3 textarea,
-.master-addons-cf7-4 input,
-.master-addons-cf7-4 textarea,
-.ma-el-ninja-form-3 input,
-.ma-el-ninja-form-3 textarea,
-.ma-el-ninja-form-4 input,
-.ma-el-ninja-form-4 textarea,
-.ma-el-gravity-form-3 input,
-.ma-el-gravity-form-3 textarea,
-.ma-el-gravity-form-4 input,
-.ma-el-gravity-form-4 textarea,
-.ma-el-wpforms-3 input,
-.ma-el-wpforms-3 textarea,
-.ma-el-wpforms-4 input,
-.ma-el-wpforms-4 textarea,
-.ma-el-weforms-3 input,
-.ma-el-weforms-3 textarea,
-.ma-el-weforms-4 input,
-.ma-el-weforms-4 textarea,
-.ma-el-caldera-3 input,
-.ma-el-caldera-3 textarea,
-.ma-el-caldera-4 input,
-.ma-el-caldera-4 textarea {
+.ma-cf-3 input,
+.ma-cf-3 textarea,
+.ma-cf-4 input,
+.ma-cf-4 textarea,
+.ma-cf.ma-cf-3 .wpuf-form-add.wpuf-style .wpuf-form .wpuf-el .wpuf-fields input,
+.ma-cf.ma-cf-3 .wpuf-form-add.wpuf-style .wpuf-form .wpuf-el .wpuf-fields textarea,
+.ma-cf.ma-cf-4 .wpuf-form-add.wpuf-style .wpuf-form .wpuf-el .wpuf-fields input,
+.ma-cf.ma-cf-4 .wpuf-form-add.wpuf-style .wpuf-form .wpuf-el .wpuf-fields textarea,
+.master-addons-ninja-form-3 input,
+.master-addons-ninja-form-3 textarea,
+.master-addons-ninja-form-4 input,
+.master-addons-ninja-form-4 textarea,
+.master-addons-gravity-form-3 input,
+.master-addons-gravity-form-3 textarea,
+.master-addons-gravity-form-4 input,
+.master-addons-gravity-form-4 textarea,
+.master-addons-caldera-3 input,
+.master-addons-caldera-3 textarea,
+.master-addons-caldera-4 input,
+.master-addons-caldera-4 textarea {
     background-color: #27262e;
     color: #fff;
 }
 
-.master-addons-cf7-5 label,
-.master-addons-cf7-6 label,
-.ma-el-ninja-form-5 .nf-field,
-.ma-el-ninja-form-6 .nf-field,
-.ma-el-gravity-form-5 .gform_wrapper,
-.ma-el-gravity-form-6 .gform_wrapper,
-.ma-el-wpforms-5 .wpforms-field,
-.ma-el-wpforms-6 .wpforms-field,
-.ma-el-weforms-5 .weforms-field,
-.ma-el-weforms-6 .weforms-field,
-.ma-el-caldera-5 .caldera-field,
-.ma-el-caldera-6 .caldera-field {
+.ma-cf-5 label,
+.ma-cf-6 label,
+.master-addons-ninja-form-5 .nf-field,
+.master-addons-ninja-form-6 .nf-field,
+.master-addons-gravity-form-5 .gform_wrapper,
+.master-addons-gravity-form-6 .gform_wrapper,
+.master-addons-wpforms-5 .wpforms-field,
+.master-addons-wpforms-6 .wpforms-field,
+.master-addons-weforms-5 .weforms-field,
+.master-addons-weforms-6 .weforms-field,
+.master-addons-caldera-5 .caldera-field,
+.master-addons-caldera-6 .caldera-field {
     position: relative;
     padding: 15px 0;
 }
-.master-addons-cf7-5 label .text,
-.master-addons-cf7-6 label .text,
-.ma-el-ninja-form-5 .nf-field label,
-.ma-el-ninja-form-6 .nf-field label,
-.ma-el-gravity-form-5 label,
-.ma-el-gravity-form-6 label,
-.ma-el-wpforms-5 label,
-.ma-el-wpforms-6 label,
-.ma-el-weforms-5 label,
-.ma-el-weforms-6 label,
-.ma-el-caldera-5 label,
-.ma-el-caldera-6 label {
+.ma-cf-5 label,
+.ma-cf-6 label,
+.master-addons-ninja-form-5 .nf-field label,
+.master-addons-ninja-form-6 .nf-field label,
+.master-addons-gravity-form-5 label,
+.master-addons-gravity-form-6 label,
+.master-addons-wpforms-5 label,
+.master-addons-wpforms-6 label,
+.master-addons-weforms-5 label,
+.master-addons-weforms-6 label,
+.master-addons-caldera-5 label,
+.master-addons-caldera-6 label {
     background-color: #fff;
     color: #78909c;
     left: 3em;
-    top: 9px;
+    top: -18px;
     padding: 5px 10px;
     position: absolute;
     z-index: 1;
 }
-.master-addons-cf7-5 form .wpcf7-form-control,
-.master-addons-cf7-6 form .wpcf7-form-control,
-.ma-el-ninja-form-5 form .ninja-forms-field,
-.ma-el-ninja-form-6 form .ninja-forms-field,
-.ma-el-wpforms-5 .wpforms-field,
-.ma-el-wpforms-6 .wpforms-field,
-.ma-el-weforms-5 .wpforms-field,
-.ma-el-weforms-6 .wpforms-field,
-.ma-el-caldera-5 .caldera-field,
-.ma-el-caldera-6 .caldera-field {
+.ma-cf-5 form .wpcf7-form-control,
+.ma-cf-6 form .wpcf7-form-control,
+.master-addons-ninja-form-5 form .ninja-forms-field,
+.master-addons-ninja-form-6 form .ninja-forms-field,
+.master-addons-wpforms-5 .wpforms-field,
+.master-addons-wpforms-6 .wpforms-field,
+.master-addons-weforms-5 .wpforms-field,
+.master-addons-weforms-6 .wpforms-field,
+.master-addons-caldera-5 .caldera-field,
+.master-addons-caldera-6 .caldera-field {
     padding: 15px !important;
 }
-.master-addons-cf7-6 input[type="submit"],
-.master-addons-cf7-8 input[type="submit"],
-.ma-el-ninja-form-6 input[value="Submit"],
-.ma-el-ninja-form-8 input[value="Submit"],
-.ma-el-gravity-form-6 input[type="submit"],
-.ma-el-gravity-form-6 input[type="button"],
-.ma-el-gravity-form-8 input[type="submit"],
-.ma-el-gravity-form-8 input[type="button"],
-.ma-el-wpforms-6 button[type="submit"],
-.ma-el-wpforms-8 button[type="submit"],
-.ma-el-weforms-6 button[type="submit"],
-.ma-el-weforms-8 button[type="submit"],
-.ma-el-caldera-6 button[type="submit"],
-.ma-el-caldera-8 button[type="submit"] {
+.ma-cf-6 input[type="submit"],
+.ma-cf-8 input[type="submit"],
+.master-addons-ninja-form-6 input[value="Submit"],
+.master-addons-ninja-form-8 input[value="Submit"],
+.master-addons-gravity-form-6 input[type="submit"],
+.master-addons-gravity-form-6 input[type="button"],
+.master-addons-gravity-form-8 input[type="submit"],
+.master-addons-gravity-form-8 input[type="button"],
+.master-addons-wpforms-6 button[type="submit"],
+.master-addons-wpforms-8 button[type="submit"],
+.master-addons-weforms-6 button[type="submit"],
+.master-addons-weforms-8 button[type="submit"],
+.master-addons-caldera-6 button[type="submit"],
+.master-addons-caldera-8 button[type="submit"] {
     width: 100% !important;
 }
+.ma-cf.ma-cf-6 input:focus,
+.ma-cf.ma-cf-6 textarea:focus {
+    border-color: #4b00e7;
+}
+.ma-cf.ma-cf-6 input::-webkit-input-placeholder,
+.ma-cf.ma-cf-6 input::-moz-placeholder,
+.ma-cf.ma-cf-6 input:-ms-input-placeholder,
+.ma-cf.ma-cf-6 textarea::-webkit-input-placeholder,
+.ma-cf.ma-cf-6 textarea::-moz-placeholder,
+.ma-cf.ma-cf-6 textarea:-ms-input-placeholder {
+    color: red !important;
+}
+.ma-cf-6 form p {
+    position: relative;
+}
+.ma-cf-6 form label {
+    position: absolute;
+    left: 15px;
+    top: 14px;
+    transition: font-size 150ms ease-out, -webkit-transform 150ms ease-out;
+    transition: transform 150ms ease-out, font-size 150ms ease-out;
+    transition: transform 150ms ease-out, font-size 150ms ease-out, -webkit-transform 150ms ease-out;
+}
+.ma-cf-6 .focused label {
+    background-color: #fff;
+    top: 16px;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
 
-.master-addons-cf7-7 label .text,
-.master-addons-cf7-8 label .text,
-.ma-el-ninja-form-7 label,
-.ma-el-ninja-form-8 label,
-.ma-el-gravity-form-7 label,
-.ma-el-gravity-form-8 label,
-.ma-el-wpforms-7 label,
-.ma-el-wpforms-8 label,
-.ma-el-weforms-7 label,
-.ma-el-weforms-8 label,
-.ma-el-caldera-7 label,
-.ma-el-caldera-8 label {
+
+.ma-cf-7 label,
+.ma-cf-8 label,
+.master-addons-ninja-form-7 label,
+.master-addons-ninja-form-8 label,
+.master-addons-gravity-form-7 label,
+.master-addons-gravity-form-8 label,
+.master-addons-wpforms-7 label,
+.master-addons-wpforms-8 label,
+.master-addons-weforms-7 label,
+.master-addons-weforms-8 label,
+.master-addons-caldera-7 label,
+.master-addons-caldera-8 label {
     display: none;
 }
-.master-addons-cf7-7 .wpcf7-form-control,
-.master-addons-cf7-8 .wpcf7-form-control,
-.ma-el-ninja-form-7 .nf-form-cont .ninja-forms-field,
-.ma-el-ninja-form-8 .nf-form-cont .ninja-forms-field,
-.ma-el-gravity-form-7 input,
-.ma-el-gravity-form-7 textarea,
-.ma-el-gravity-form-8 input,
-.ma-el-gravity-form-8 textarea,
-.ma-el-wpforms-8 input,
-.ma-el-wpforms-8 textarea,
-.ma-el-weforms-8 input,
-.ma-el-weforms-8 textarea,
-.ma-el-caldera-8 input,
-.ma-el-caldera-8 textarea {
+.ma-cf-7 .wpcf7-form-control,
+.ma-cf-8 .wpcf7-form-control,
+.ma-cf-7 .wpuf-form-add.wpuf-style .wpuf-form .wpuf-el .wpuf-fields input,
+.ma-cf-7 .wpuf-form-add.wpuf-style .wpuf-form .wpuf-el .wpuf-fields textarea,
+.ma-cf-8 .wpuf-form-add.wpuf-style .wpuf-form .wpuf-el .wpuf-fields input,
+.ma-cf-8 .wpuf-form-add.wpuf-style .wpuf-form .wpuf-el .wpuf-fields textarea,
+.master-addons-ninja-form-7 .nf-form-cont .ninja-forms-field,
+.master-addons-ninja-form-8 .nf-form-cont .ninja-forms-field,
+.master-addons-gravity-form-7 input,
+.master-addons-gravity-form-7 textarea,
+.master-addons-gravity-form-8 input,
+.master-addons-gravity-form-8 textarea,
+.master-addons-caldera-8 input,
+.master-addons-caldera-8 textarea {
     border: none;
     border-radius: 0 !important;
     border-bottom: 3px solid #e2e7ea;
 }
-
-.master-addons-cf7-9 .wpcf7-form-control,
-.master-addons-cf7-10 .wpcf7-form-control,
-.master-addons-cf7-11 .wpcf7-form-control,
-.ma-el-ninja-form-9 .ninja-forms-field,
-.ma-el-ninja-form-10 .ninja-forms-field,
-.ma-el-ninja-form-11 .ninja-forms-field,
-.ma-el-gravity-form-9 input,
-.ma-el-gravity-form-9 textarea,
-.ma-el-gravity-form-10 input,
-.ma-el-gravity-form-10 textarea,
-.ma-el-gravity-form-11 input,
-.ma-el-gravity-form-11 textarea,
-.ma-el-wpforms-9 input,
-.ma-el-wpforms-9 textarea,
-.ma-el-wpforms-10 input,
-.ma-el-wpforms-10 textarea,
-.ma-el-wpforms-11 input,
-.ma-el-wpforms-11 textarea,
-.ma-el-weforms-9 input,
-.ma-el-weforms-9 textarea,
-.ma-el-weforms-10 input,
-.ma-el-weforms-10 textarea,
-.ma-el-weforms-11 input,
-.ma-el-weforms-11 textarea,
-.ma-el-caldera-9 input,
-.ma-el-caldera-9 textarea,
-.ma-el-caldera-10 input,
-.ma-el-caldera-10 textarea,
-.ma-el-caldera-11 input,
-.ma-el-caldera-11 textarea {
-    border-radius: 2em !important;
+.ma-cf.ma-cf-7 form [type="submit"],
+.ma-cf.ma-cf-8 form [type="submit"],
+.ma-cf.ma-cf-7 .wpuf-form-add.wpuf-style .wpuf-form .wpuf-submit [type="submit"],
+.ma-cf.ma-cf-8 .wpuf-form-add.wpuf-style .wpuf-form .wpuf-submit [type="submit"] {
+    background-color: transparent;
+    border: none;
+    color: #4b00e7;
 }
-.master-addons-cf7-9 .wpcf7-form-control-wrap,
-.master-addons-cf7-10 .wpcf7-form-control-wrap,
-.master-addons-cf7-11 .wpcf7-form-control-wrap,
-.ma-el-ninja-form-9 .ninja-forms-field,
-.ma-el-ninja-form-10 .ninja-forms-field,
-.ma-el-ninja-form-11 .ninja-forms-field,
-.ma-el-wpforms-9 .wpforms-field,
-.ma-el-wpforms-10 .wpforms-field,
-.ma-el-wpforms-11 .wpforms-field,
-.ma-el-weforms-9 .weforms-field,
-.ma-el-weforms-10 .weforms-field,
-.ma-el-weforms-11 .weforms-field,
-.ma-el-caldera-9 .caldera-field,
-.ma-el-caldera-10 .caldera-field,
-.ma-el-caldera-11 .caldera-field {
+
+/*.master-addons-ninja-form-9 .ninja-forms-field,*/
+/*.master-addons-ninja-form-10 .ninja-forms-field,*/
+/*.master-addons-ninja-form-11 .ninja-forms-field,*/
+/*.master-addons-gravity-form-9 input,*/
+/*.master-addons-gravity-form-9 textarea,*/
+/*.master-addons-gravity-form-10 input,*/
+/*.master-addons-gravity-form-10 textarea,*/
+/*.master-addons-gravity-form-11 input,*/
+/*.master-addons-gravity-form-11 textarea,*/
+/*.master-addons-wpforms-9 input,*/
+/*.master-addons-wpforms-9 textarea,*/
+/*.master-addons-wpforms-10 input,*/
+/*.master-addons-wpforms-10 textarea,*/
+/*.master-addons-wpforms-11 input,*/
+/*.master-addons-wpforms-11 textarea,*/
+/*.master-addons-weforms-9 input,*/
+/*.master-addons-weforms-9 textarea,*/
+/*.master-addons-weforms-10 input,*/
+/*.master-addons-weforms-10 textarea,*/
+/*.master-addons-weforms-11 input,*/
+/*.master-addons-weforms-11 textarea,*/
+.ma-cf-9 input,
+.ma-cf-9 textarea,
+.ma-cf-10 input,
+.ma-cf-10 textarea,
+.ma-cf-11 input,
+.ma-cf-11 textarea {
+    border-radius: 2em;
+    padding-left: 25px;
+}
+.ma-cf-9 .wpcf7-form-control-wrap,
+.ma-cf-10 .wpcf7-form-control-wrap,
+.ma-cf-11 .wpcf7-form-control-wrap,
+.master-addons-ninja-form-9 .ninja-forms-field,
+.master-addons-ninja-form-10 .ninja-forms-field,
+.master-addons-ninja-form-11 .ninja-forms-field,
+.master-addons-wpforms-9 .wpforms-field,
+.master-addons-wpforms-10 .wpforms-field,
+.master-addons-wpforms-11 .wpforms-field,
+.master-addons-weforms-9 .weforms-field,
+.master-addons-weforms-10 .weforms-field,
+.master-addons-weforms-11 .weforms-field,
+.master-addons-caldera-9 .caldera-field,
+.master-addons-caldera-10 .caldera-field,
+.master-addons-caldera-11 .caldera-field {
     position: relative;
 }
 
-.master-addons-cf7-10,
-.ma-el-ninja-form-10,
-.ma-el-gravity-form-10,
-.ma-el-wpforms-10,
-.ma-el-weforms-10,
-.ma-el-caldera-10 {
+.ma-cf-10,
+.master-addons-ninja-form-10,
+.master-addons-gravity-form-10,
+.master-addons-wpforms-10,
+.master-addons-weforms-10,
+.master-addons-caldera-10 {
     background-image: -moz-linear-gradient( -45deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
     background-image: -webkit-linear-gradient( -45deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
     background-image: -ms-linear-gradient( -45deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
     box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
 }
-.master-addons-cf7-10 input[type="submit"],
-.ma-el-ninja-form-10 input[value="Submit"],
-.ma-el-gravity-form-10 input[value="submit"],
-.ma-el-gravity-form-10 input[value="button"],
-.ma-el-wpforms-10 button[value="submit"],
-.ma-el-weforms-10 button[value="submit"],
-.ma-el-caldera-10 button[value="submit"] {
+.ma-cf-10 input[type="submit"],
+.master-addons-ninja-form-10 input[value="Submit"],
+.master-addons-gravity-form-10 input[value="submit"],
+.master-addons-gravity-form-10 input[value="button"],
+.master-addons-wpforms-10 button[value="submit"],
+.master-addons-weforms-10 button[value="submit"],
+.master-addons-caldera-10 button[value="submit"] {
     background-image: -moz-linear-gradient( 0deg, rgb(243,61,130) 0%, rgb(213,180,63) 100%);
     background-image: -webkit-linear-gradient( 0deg, rgb(243,61,130) 0%, rgb(213,180,63) 100%);
     background-image: -ms-linear-gradient( 0deg, rgb(243,61,130) 0%, rgb(213,180,63) 100%);
     width: 100%;
 }
 
-/* .master-addons-cf7-11,
-.ma-el-ninja-form-11 {
+/* .ma-cf-11,
+.master-addons-ninja-form-11 {
     background-image: url('.././images/cf-bg.jpg')
 } */
-.master-addons-cf7-11 .wpcf7-form-control,
-.ma-el-ninja-form-11 .ninja-forms-field,
-.ma-el-gravity-form-11 input,
-.ma-el-gravity-form-11 textarea,
-.ma-el-wpforms-11 input,
-.ma-el-wpforms-11 textarea,
-.ma-el-weforms-11 input,
-.ma-el-weforms-11 textarea,
-.ma-el-caldera-11 input,
-.ma-el-caldera-11 textarea {
+.ma-cf-11 .wpcf7-form-control,
+.master-addons-ninja-form-11 .ninja-forms-field,
+.master-addons-gravity-form-11 input,
+.master-addons-gravity-form-11 textarea,
+.master-addons-wpforms-11 input,
+.master-addons-wpforms-11 textarea,
+.master-addons-weforms-11 input,
+.master-addons-weforms-11 textarea,
+.master-addons-caldera-11 input,
+.master-addons-caldera-11 textarea {
     background-color: transparent;
     border:  2px solid #fff;
     color: #fff;
 }
-.master-addons-cf7-11 input[type="submit"],
-.ma-el-ninja-form-11 input[value="Submit"],
-.ma-el-gravity-form-11 input[value="submit"],
-.ma-el-gravity-form-11 input[value="button"],
-.ma-el-wpforms-11 button[value="submit"],
-.ma-el-weforms-11 button[value="submit"],
-.ma-el-caldera-11 button[value="submit"] {
+.ma-cf-11 input[type="submit"],
+.master-addons-ninja-form-11 input[value="Submit"],
+.master-addons-gravity-form-11 input[value="submit"],
+.master-addons-gravity-form-11 input[value="button"],
+.master-addons-wpforms-11 button[value="submit"],
+.master-addons-weforms-11 button[value="submit"],
+.master-addons-caldera-11 button[value="submit"] {
     background-image: -moz-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
     background-image: -webkit-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
     background-image: -ms-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
     border: none !important;
     width: 100%;
 }
-.master-addons-cf7-11 .wpcf7-form-control::-webkit-input-placeholder,
-.master-addons-cf7-11 .wpcf7-form-control::-moz-placeholder,
-.master-addons-cf7-11 .wpcf7-form-control:-ms-input-placeholder,
-.master-addons-cf7-11 .wpcf7-form-control:-moz-placeholder,
-.ma-el-ninja-form-11 .ninja-forms-field::-webkit-input-placeholder,
-.ma-el-ninja-form-11 .ninja-forms-field::-moz-placeholder,
-.ma-el-ninja-form-11 .ninja-forms-field:-ms-input-placeholder,
-.ma-el-ninja-form-11 .ninja-forms-field:-moz-placeholder,
-.ma-el-gravity-form-11 .ninja-forms-field::-webkit-input-placeholder,
-.ma-el-gravity-form-11 .ninja-forms-field::-moz-placeholder,
-.ma-el-gravity-form-11 .ninja-forms-field:-ms-input-placeholder,
-.ma-el-gravity-form-11 .ninja-forms-field:-moz-placeholder,
-.ma-el-wpforms-11 .ninja-forms-field::-webkit-input-placeholder,
-.ma-el-wpforms-11 .ninja-forms-field::-moz-placeholder,
-.ma-el-wpforms-11 .ninja-forms-field:-ms-input-placeholder,
-.ma-el-wpforms-11 .ninja-forms-field:-moz-placeholder,
-.ma-el-weforms-11 .ninja-forms-field::-webkit-input-placeholder,
-.ma-el-weforms-11 .ninja-forms-field::-moz-placeholder,
-.ma-el-weforms-11 .ninja-forms-field:-ms-input-placeholder,
-.ma-el-weforms-11 .ninja-forms-field:-moz-placeholder,
-.ma-el-caldera-11 .caldera-forms-field::-webkit-input-placeholder,
-.ma-el-caldera-11 .caldera-forms-field::-moz-placeholder,
-.ma-el-caldera-11 .caldera-forms-field:-ms-input-placeholder,
-.ma-el-caldera-11 .caldera-forms-field:-moz-placeholder {
+.ma-cf-11 input::-webkit-input-placeholder,
+.ma-cf-11 input::-moz-placeholder,
+.ma-cf-11 input:-ms-input-placeholder,
+.ma-cf-11 input:-moz-placeholder,
+.ma-cf-11 textarea::-webkit-input-placeholder,
+.ma-cf-11 textarea::-moz-placeholder,
+.ma-cf-11 textarea:-ms-input-placeholder,
+.ma-cf-11 textarea:-moz-placeholder {
     color: #fff;
 }
 
-.ma-el-ninja-form form .ninja-forms-field {
+.master-addons-ninja-form form .ninja-forms-field {
     border-radius: 5px;
     height: auto !important;
 }
-.ma-el-ninja-form-5 .nf-field label,
-.ma-el-ninja-form-6 .nf-field label {
+.master-addons-ninja-form-5 .nf-field label,
+.master-addons-ninja-form-6 .nf-field label {
     top: 1px;
 }
 
 /* Caldera Forms Start */
 
-.ma-el-caldera-form .control-label {
+.master-addons-caldera-form .control-label {
     display: none; }
-.ma-el-caldera-form-labels-yes .control-label {
+.master-addons-caldera-form-labels-yes .control-label {
     display: block; }
-.ma-el-caldera-form-button-center .form-group input[type="button"],
-.ma-el-caldera-form-button-center .form-group input[type="submit"] {
+.master-addons-caldera-form-button-center .form-group input[type="button"],
+.master-addons-caldera-form-button-center .form-group input[type="submit"] {
     display: block;
     margin: 0 auto; }
-.ma-el-caldera-form-button-right .form-group input[type="button"],
-.ma-el-caldera-form-button-right .form-group input[type="submit"] {
+.master-addons-caldera-form-button-right .form-group input[type="button"],
+.master-addons-caldera-form-button-right .form-group input[type="submit"] {
     float: right; }
-.ma-el-caldera-form .intl-tel-input {
+.master-addons-caldera-form .intl-tel-input {
     display: inherit; }
 
-.ma-el-custom-radio-checkbox .caldera-grid input[type="checkbox"],
-.ma-el-custom-radio-checkbox .caldera-grid input[type="radio"] {
+.master-addons-custom-radio-checkbox .caldera-grid input[type="checkbox"],
+.master-addons-custom-radio-checkbox .caldera-grid input[type="radio"] {
     border-style: solid;
     border-width: 0;
     padding: 3px;
     -webkit-appearance: none; }
 
-.ma-el-caldera-form-button-full-width .form-group input[type="submit"],
-.ma-el-caldera-form-button-full-width .form-group input[type="button"] {
+.master-addons-caldera-form-button-full-width .form-group input[type="submit"],
+.master-addons-caldera-form-button-full-width .form-group input[type="button"] {
     width: 100%; }
 /* Caldera Forms End */
 
-
-
-
 /* weForms Start */
+
+.ma-cf .wpuf-form-add.wpuf-style ul,
+.ma-cf .wpuf-form-add.wpuf-style ol {
+    margin: 0;
+    padding: 0;
+}
+.ma-cf .wpuf-form-add.wpuf-style li {
+    list-style: none;
+}
+.ma-cf .wpuf-form-add.wpuf-style .wpuf-form .wpuf-el .wpuf-fields input,
+.ma-cf .wpuf-form-add.wpuf-style .wpuf-form .wpuf-el .wpuf-fields textarea {
+    background: #fff;
+    border-color: #e2e7ea;
+    box-shadow: none;
+    color: #393c3f;
+    font-size: 16px;
+    padding: 15px 20px;
+    width: 100%;
+}
+.ma-cf .wpuf-form-add.wpuf-style .wpuf-form .wpuf-submit [type="submit"] {
+    border: 1px solid #4b00e7;
+    background-color: #4b00e7;
+    box-shadow: none;
+    color: #fff;
+    text-shadow: none;
+}
+.ma-cf.ma-cf-4 .wpuf-form-add.wpuf-style .wpuf-form .wpuf-submit [type="submit"] {
+    background-color: #fefefe;
+    border-color: #fefefe;
+    color: #27262f;
+}
+.wpuf-label {
+    position: relative;
+}
+.ma-cf.ma-cf-5 .wpuf-label label {
+    top: -5px;
+}
+.ma-cf-6 .wpuf-label label {
+    top: 24px;
+}
+.ma-cf-6 .focused label {
+    top: 28px;
+}
+.ma-cf.ma-cf-10 .wpuf-form-add.wpuf-style .wpuf-form .wpuf-submit [type="submit"],
+.ma-cf.ma-cf-11 .wpuf-form-add.wpuf-style .wpuf-form .wpuf-submit [type="submit"] {
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
 
 /* weForms End */
 
@@ -4343,3 +4468,5 @@ div[class*="col"]:nth-child(3) .ma-el-infobox.eleven .ma-el-infobox-icon {
         background-position: 0% 50%
     }
 }
+
+

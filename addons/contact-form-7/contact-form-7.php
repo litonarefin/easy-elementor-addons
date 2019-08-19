@@ -127,7 +127,7 @@ class Master_Addons_CF7 extends Widget_Base {
 					'hide'          => 'none',
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .master-addons-cf7 .wpcf7-not-valid-tip' => 'display: {{VALUE}} !important;',
+					'{{WRAPPER}} .master-addons-cf7 .wpcf7-not-valid-tip' => 'display: {{VALUE}}',
 				],
 			]
 		);
@@ -397,6 +397,10 @@ class Master_Addons_CF7 extends Widget_Base {
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .master-addons-cf7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .master-addons-cf7 .wpcf7-form-control.wpcf7-textarea' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .master-addons-cf7-9 .wpcf7-form-control,
+                    {{WRAPPER}} .master-addons-cf7-10 .wpcf7-form-control,
+                    {{WRAPPER}} .master-addons-cf7-11 .wpcf7-form-control' =>'border-radius:2em'
+
 				],
 			]
 		);

@@ -64,6 +64,37 @@
 
 			$this->end_controls_section();
 
+			$this->start_controls_section(
+				'ma_weform_section_style',
+				[
+					'label' => esc_html__( 'Design Layout', MELA_TD ),
+				]
+			);
+
+			$this->add_control(
+				'ma_weform_layout_style',
+				[
+					'label' => __( 'Style', MELA_TD ),
+					'type' => Controls_Manager::SELECT,
+					'default' => '1',
+					'options' => [
+						'1'   => __( 'Style One', MELA_TD ),
+						'2'   => __( 'Style Two', MELA_TD ),
+						'3'   => __( 'Style Three', MELA_TD ),
+						'4'   => __( 'Style Four', MELA_TD ),
+						'5'   => __( 'Style Five', MELA_TD ),
+						'6'   => __( 'Style Six', MELA_TD ),
+						'7'   => __( 'Style Seven', MELA_TD ),
+						'8'   => __( 'Style Eight', MELA_TD ),
+						'9'   => __( 'Style Nine', MELA_TD ),
+						'10'   => __( 'Style Ten', MELA_TD ),
+						'11'   => __( 'Style Eleven', MELA_TD ),
+					],
+				]
+			);
+
+			$this->end_controls_section();
+
 
 			if ( ma_el_fs()->is_not_paying() ) {
 
@@ -748,7 +779,8 @@
 
 
 			<?php if ( ! empty( $settings['wpuf_contact_form'] ) ) : ?>
-				<div class="eael-weform-container">
+				<div class="eael-weform-container ma-cf ma-cf-<?php echo
+                $settings['ma_weform_layout_style'];?> ">
 					<?php echo do_shortcode( '[weforms id="' . $settings['wpuf_contact_form'] . '" ]' ); ?>
 				</div>
 			<?php endif; ?>

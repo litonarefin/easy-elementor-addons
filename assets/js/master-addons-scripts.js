@@ -736,6 +736,19 @@
 
     };
 
+    // Form no 7's label changing position script
+
+    $(".ma-cf-6 input, .ma-cf-6 textarea").focus(function(){
+        $(this).parents('p, li').addClass('focused');
+    });
+
+    $(".ma-cf-6 input , .ma-cf-6 textarea").blur(function(){
+        var inputValue = jQuery(this).val();
+        if ( inputValue == "" ) {
+            $(this).parents('p, li').removeClass('focused');
+        }
+    });
+
 
 
     $(window).on('elementor/frontend/init', function () {
