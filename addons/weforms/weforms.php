@@ -780,7 +780,7 @@
 
 			<?php if ( ! empty( $settings['wpuf_contact_form'] ) ) : ?>
 				<div class="eael-weform-container ma-cf ma-cf-<?php echo
-                $settings['ma_weform_layout_style'];?> ">
+                $settings['ma_weform_layout_style'];?>">
 					<?php echo do_shortcode( '[weforms id="' . $settings['wpuf_contact_form'] . '" ]' ); ?>
 				</div>
 			<?php endif; ?>

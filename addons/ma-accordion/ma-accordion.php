@@ -240,6 +240,9 @@
 			);
 
 
+			/* End of Single Accordion Tab Styles */
+
+
 
 
 			$repeater->add_control(
