@@ -1308,7 +1308,7 @@
 			$settings = $this->get_settings();
 
 			$this->add_render_attribute( 'contact-form', 'class', [
-					'ma-el-contact-form',
+					'ma-cf',
 					'ma-el-caldera-form',
 				]
 			);

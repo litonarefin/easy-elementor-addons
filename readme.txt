@@ -129,10 +129,16 @@ Paste on your Local Computer
 
 
 == Changelog ==
- = 1.1.0 (18-8-2019) =
- * Fixed: Accordion Style issue fixed.
- * Fixed: Contact form style broken issue fixed
- * Added: Changelogs Addon added
+ = 1.1.1 (18-8-2019) =
+ * Fixed: MA Headlines renamed MA Animated Headlines.
+ * Fixed: Accordion Design Presets styles done.
+ * Added: Accordion Items can be designed individually. Every item can be set different background color, text color etc.
+ * Added: Nested Accordion feature added
+ * Removed: Image and Video feature removed from Accordions
+ * Fixed: Animated Gradient Background color issue fixed. Overlay color set issue also fixed.
+ * Fixed: Background Image Slider for sections issue fixed.
+ * Fixed: MA Animated Headlines page flipping issue fixed. Updated scripts and styles.
+
 
  = 1.1.0 (11-8-2019) =
  * Fixed: Admin Notice not showing issue on Master Addons issue fixed

@@ -22,6 +22,13 @@
 			return [ 'master-addons' ];
 		}
 
+		public function get_script_depends() {
+			return [
+				'ma-animated-headlines',
+				'master-addons-scripts',
+			];
+		}
+
 		protected function _register_controls() {
 
 			/**
@@ -82,9 +89,48 @@
 
 
 
+
 			/*
-				* Master Headlines First Part Styling Section
-				*/
+            * Style Presets
+            */
+			$this->start_controls_section(
+				'ma_el_headlines_style_preset_section',
+				[
+					'label' => esc_html__( 'Style Presets', MELA_TD ),
+					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			);
+
+
+
+			$this->add_control(
+				'ma_el_headlines_style_preset',
+				[
+					'label'       	=> esc_html__( 'Style Preset', MELA_TD ),
+					'type' 			=> Controls_Manager::SELECT,
+					'default' 		=> 'rotate-1',
+					'label_block' 	=> false,
+					'options' 		=> [
+						'rotate-1' => esc_html__( 'Rotate 1', MELA_TD ),
+						'rotate-2' => esc_html__( 'Rotate 2', MELA_TD ), //problem
+						'rotate-3' => esc_html__( 'Rotate 3', MELA_TD ),//problem
+						'type' => esc_html__( 'Typing', MELA_TD ),
+						'loading-bar' => esc_html__( 'Loading Bar', MELA_TD ),
+						'slide' => esc_html__( 'Slide', MELA_TD ),
+						'clip' => esc_html__( 'Clip', MELA_TD ),
+						'zoom' => esc_html__( 'Zoom', MELA_TD ),
+						'scale' => esc_html__( 'Scale', MELA_TD ),
+						'push' => esc_html__( 'Push', MELA_TD )
+					],
+				]
+			);
+
+			$this->end_controls_section();
+
+			/*
+            * Master Headlines First Part Styling Section
+            */
+
 			$this->start_controls_section(
 				'ma_el_headlines_first_heading_styles',
 				[
@@ -93,6 +139,7 @@
 				]
 			);
 
+
 			$this->add_control(
 				'ma_el_headlines_first_text_color',
 				[
@@ -100,7 +147,7 @@
 					'type'		=> Controls_Manager::COLOR,
 					'default' => '#ffffff',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .first-heading'
+						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading'
 						=> 'color: {{VALUE}};',
 					],
 				]
@@ -113,7 +160,7 @@
 					'type' => Controls_Manager::COLOR,
 					'default' => '#704aff',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .first-heading'
+						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading'
 						=> 'background-color: {{VALUE}};',
 					],
 				]
@@ -124,7 +171,7 @@
 				[
 					'name' => 'ma_el_headlines_first_heading_typography',
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .first-heading',
+					'selector' => '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading',
 				]
 			);
 
@@ -148,7 +195,7 @@
 					'type'		=> Controls_Manager::COLOR,
 					'default' => '#132C47',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .second-heading' =>
+						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' =>
 							'color: {{VALUE}};',
 					],
 				]
@@ -160,7 +207,7 @@
 					'label' => __( 'Background', MELA_TD ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .second-heading' =>
+						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' =>
 							'background-color: {{VALUE}};',
 					],
 				]
@@ -171,7 +218,7 @@
 				[
 					'name' => 'ma_el_headlines_second_heading_typography',
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .second-heading',
+					'selector' => '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading',
 				]
 			);
 
@@ -185,14 +232,14 @@
 			$settings = $this->get_settings_for_display();
 			?>
 
-                <div id="ma-el-heading-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-dual-heading">
-                    <div class="ma-el-dual-heading-wrapper">
+                <div id="ma-el-heading-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-animated-heading">
+                    <div class="ma-el-animated-heading-wrapper">
 
-                        <h1 class="ma-el-dual-heading-title cd-headline rotate-1 main-title">
+                        <h1 class="ma-el-animated-heading-title ma-el-animated-headline <?php echo esc_html( $settings['ma_el_headlines_style_preset'] ); ?> main-title">
                             <span class="first-heading">
                                 <?php echo esc_html( $settings['ma_el_headlines_first_heading'] ); ?>
                             </span>
-                            <span class="cd-words-wrapper">
+                            <span class="ma-el-words-wrapper">
                                 <?php foreach( $settings['tabs'] as $index => $tab ) { ?>
                                     <b class="second-heading <?php echo ($index==0) ? "is-visible": "";?>">
                                         <?php echo $tab['ma_el_headlines_second_heading']; ?>
@@ -207,23 +254,6 @@
 			<?php
 		}
 
-
-		protected function _content_template() { ?>
-
-			<div id="ma-el-heading" class="ma-el-dual-heading">
-				<div class="ma-el-dual-heading-wrapper">
-
-                    <h1 class="ma-el-dual-heading-title cd-headline rotate-1 main-title">
-                        <span class="first-heading">{{{ settings.ma_el_headlines_first_heading }}}</span>
-                        <# _.each( settings.ma_el_exclusive_tabs, function( tab, index ) { #>
-                            <span class="second-heading">{{{ settings.ma_el_headlines_second_heading }}}</span>
-                        <# }); #>
-					</h1>
-
-				</div>
-			</div>
-
-        <?php }
 
 	}
 

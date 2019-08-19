@@ -41,7 +41,7 @@
 			public function __construct() {
 
 				self::$maad_el_default_widgets = [
-					'ma-headlines',
+					'ma-animated-headlines',
 					'ma-call-to-action',
 					'ma-dual-heading',
 					'ma-accordion',
@@ -331,9 +331,10 @@
 				 */
 
 //				wp_register_style( 'master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css' );
-//				wp_register_script( 'animated-main', MELA_PLUGIN_URL . '/assets/js/animated-main'.MA_EL_SCRIPT_SUFFIX.'.js', array( 'jquery' ), '1.0', true );
+
 
 				wp_register_style( 'master-addons-headlines', MELA_PLUGIN_URL . '/assets/css/headlines.css' );
+
 				wp_register_style( 'gridder', MELA_PLUGIN_URL . '/assets/vendor/gridder/css/jquery.gridder.min.css' );
 
 
@@ -342,17 +343,11 @@
 				/*
 				 * Register Scripts
 				 */
+				wp_register_script( 'ma-animated-headlines', MELA_PLUGIN_URL . '/assets/js/animated-main.js', array( 'jquery' ),	'1.0', true );
 
-				wp_register_script( 'master-addons-progressbar', MELA_PLUGIN_URL . '/assets/js/loading-bar.js', [ 'jquery' ],
-					self::VERSION, true );
+				wp_register_script( 'master-addons-progressbar', MELA_PLUGIN_URL . '/assets/js/loading-bar.js', [ 'jquery' ], self::VERSION, true );
 
-				wp_register_script(
-					'jquery-stats',
-					MELA_PLUGIN_URL . '/assets/js/jquery.stats' . MA_EL_SCRIPT_SUFFIX . '.js',
-					[ 'jquery' ],
-					MELA_VERSION,
-					true
-				);
+				wp_register_script( 'jquery-stats', MELA_PLUGIN_URL . '/assets/js/jquery.stats.js', [ 'jquery' ], MELA_VERSION, true );
 
 				wp_register_script( 'master-addons-waypoints', MELA_PLUGIN_URL . '/assets/vendor/jquery.waypoints.min.js', [ 'jquery' ], self::VERSION, true );
 
@@ -381,8 +376,9 @@
 
 
 				//Animated Headlines
-				if ( $is_activated_widget['ma-headlines'] ) {
+				if ( $is_activated_widget['ma-animated-headlines'] ) {
 					wp_enqueue_style( 'master-addons-headlines' );
+					wp_enqueue_style( 'ma-animated-headlines' );
 				}
 
 				//Creative Buttons
