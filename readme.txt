@@ -140,7 +140,9 @@ Paste on your Local Computer
  * Fixed: MA Animated Headlines page flipping issue fixed. Updated scripts and styles.
  * Added: Nine Style Presets added for MA Animated Headlines.
  * Fixed: Icon not showing issue on Dual Heading fixed.
-
+ * Fixed: Added "Heading HTML Tags" Options on Dual Heading Elements. Fixed - Typography, Color and Background issue for
+  First Design Preset.
+  
 
  = 1.1.0 (11-8-2019) =
  * Fixed: Admin Notice not showing issue on Master Addons issue fixed
