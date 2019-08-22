@@ -33,7 +33,7 @@
 
 							<?php
 //								array_slice($input, 0, 3)
-                                foreach( array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 0, 11) as
+                                foreach( array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 0, 14) as
                                     $key=>$widget ) :
 //                                print_r( $widget );
 //                            echo '<pre>' . $key . '</pre>';

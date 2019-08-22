@@ -24,31 +24,6 @@
 
 		protected function _register_controls() {
 
-			/**
-			 * Master Addons: Dual Heading Content Section
-			 */
-			$this->start_controls_section(
-				'ma_el_dual_heading_style',
-				[
-					'label' => esc_html__( 'Style Preset', MELA_TD ),
-				]
-			);
-			$this->add_control(
-				'ma_el_dual_heading_styles_preset',
-				[
-					'label' => esc_html__( 'Style Preset', MELA_TD ),
-					'type' => Controls_Manager::SELECT,
-					'default' => '-style2',
-					'options' => [
-						'-style1' => esc_html__( 'Style 1', MELA_TD ),
-						'-style2' => esc_html__( 'Style 2', MELA_TD ),
-					],
-				]
-			);
-			$this->end_controls_section();
-
-
-
 
 			/**
 			 * Master Addons: Dual Heading Content Section
@@ -116,7 +91,7 @@
 					'default' => 'yes',
 					'return_value' => 'yes',
 					'condition' => [
-						'ma_el_dual_heading_styles_preset' => '-style1',
+						'ma_el_dual_heading_styles_preset' => '-style2',
 					],
 				]
 			);
@@ -148,6 +123,18 @@
 				]
 			);
 
+			$this->add_control(
+				'ma_el_dual_heading_styles_preset',
+				[
+					'label' => esc_html__( 'Style Preset', MELA_TD ),
+					'type' => Controls_Manager::SELECT,
+					'default' => '-style2',
+					'options' => [
+						'-style1' => esc_html__( 'Style 1', MELA_TD ),
+						'-style2' => esc_html__( 'Style 2', MELA_TD ),
+					],
+				]
+			);
 
 			$this->add_control(
 				'ma_el_dual_heading_icon_color',

@@ -53,7 +53,8 @@
 					'ma-team-members-slider',
 					'ma-creative-buttons',
 					'ma-changelog',
-
+					'ma-infobox',
+					'ma-flipbox',
 //					'ma-creative-links',
 
 					'contact-form-7',
@@ -64,8 +65,7 @@
 					'weforms',
 
 //					'ma-piechart',
-					'ma-infobox',
-//					'ma-flipbox',
+
 //					'ma-cards',
 //					'ma-counter-up',
 //					'ma-countdown-timer',

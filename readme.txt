@@ -139,6 +139,7 @@ Paste on your Local Computer
  * Fixed: Background Image Slider for sections issue fixed.
  * Fixed: MA Animated Headlines page flipping issue fixed. Updated scripts and styles.
  * Added: Nine Style Presets added for MA Animated Headlines.
+ * Fixed: Icon not showing issue on Dual Heading fixed.
 
 
  = 1.1.0 (11-8-2019) =
