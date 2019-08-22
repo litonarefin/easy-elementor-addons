@@ -24,126 +24,65 @@
 				<div class="master-addons-el-dashboard-tabs-wrapper">
 
 
-
-					<div id="elements" class="master-addons-el-dashboard-header-left master-addons-dashboard-tab
+					<div id="elements"
+                         class="master-addons-el-dashboard-header-left master-addons-dashboard-tab
 					master_addons_features">
+
 						<div class="master_addons_feature">
 
                             <h3><?php echo esc_html__('Master Addons', MELA_TD);?></h3>
 
-							<?php
-//								array_slice($input, 0, 3)
-                                foreach( array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 0, 14) as
-                                    $key=>$widget ) :
-//                                print_r( $widget );
-//                            echo '<pre>' . $key . '</pre>';
-//
-//								if (!is_array($widget)) {
-//
-////							        echo $key ." => ". $widget ."\r\n" ;
-//
-//								} else {
-////									echo $key ." => array( \r\n";
-//
-//									foreach ($widget as $key2 => $value2) {
-////										echo "\t". $key2 ." => ". $value2 ."\r\n";
-//										print_r($key2[1]);
-////                                        echo $key2[0];
-//									}
-//
-////									echo ")";
-//								}
-							?>
+							<?php foreach( array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 0, 14) as
+                                $key=>$widget ) : ?>
 
 								<?php if ( isset( $widget ) ) : ?>
 
-                                <?php
-//                                if(is_array( $widget)){
-//									$is_pro = $widget[1];
-//                                    $widget = $widget[0];
-//                                } ?>
-
-                                <?php
-//                                if(isset($is_pro)){
-//                                  //  echo $is_pro;
-//                                }?>
-
 									<div class="master-addons-dashboard-checkbox col">
 
-											<p class="master-addons-el-title">
-												<?php
-//													$li = ['ma-'];
-//													$lit = ['-'];
-//													$liton=  str_replace( $li, $lit, $widget );
-//													$replace_sep = str_replace( "-", " ", $widget);
-//													echo $replace_sep;
-//                                                    echo esc_html( ucwords( str_replace( "-", " ", $widget) ) );
-                                                    echo esc_html( ucwords( str_replace( "-", " ", $widget) ) );
-//                                                echo $widget;
-                                                ?>
-											</p>
+                                        <p class="master-addons-el-title">
+                                            <?php echo esc_html( ucwords( str_replace( "-", " ", $widget) ) );?>
+                                        </p>
 
-											<label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text
-											 switch-primary switch-pill">
-												<input type="checkbox" id="<?php echo esc_attr( $widget ); ?>" class="switch-input" name="<?php echo esc_attr( $widget ); ?>" <?php checked( 1, $this->maad_el_get_settings[$widget], true ); ?>>
-												<span data-on="On" data-off="Off" class="switch-label"></span>
-												<span class="switch-handle"></span>
-											</label>
+                                        <label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text
+                                         switch-primary switch-pill">
+                                            <input type="checkbox" id="<?php echo esc_attr( $widget ); ?>" class="switch-input"
+                                                   name="<?php echo esc_attr( $widget ); ?>" <?php checked( 1, $this->maad_el_get_settings[$widget], true ); ?>>
+                                            <span data-on="On" data-off="Off" class="switch-label"></span>
+                                            <span class="switch-handle"></span>
+                                        </label>
 
 									</div>
 								<?php endif; ?>
 							<?php endforeach; ?>
 
-                        </div>
+                        </div> <!--  .master_addons_feature-->
+
+
 
                         <div class="master_addons_feature">
 
-
                             <h3><?php echo esc_html__('Form Addons', MELA_TD);?></h3>
 
-	                        <?php foreach( array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 11, 6) as
-		                        $key=>$widget ) :
-//                                print_r( $widget );
-//		                        echo '<pre>' . $key . '</pre>';
-
-//								if (!is_array($widget)) {
-//
-//							        echo $key ." => ". $widget ."\r\n" ;
-//
-//								} else {
-//									echo $key ." => array( \r\n";
-//
-//									foreach ($widget as $key2 => $value2) {
-//										echo "\t". $key2 ." => ". $value2 ."\r\n";
-////										print_r($key2[1]);
-//                                        echo $key2[0];
-//									}
-//
-//									echo ")";
-//								}
-		                        ?>
-
-
-
+                            <?php foreach( array_slice( Master_Elementor_Addons::$maad_el_default_widgets, 14, 6 ) as
+                                $key=>$widget ) : ?>
 
                                 <div class="master-addons-dashboard-checkbox col">
 
                                     <p class="master-addons-el-title">
-
-                        <?php
-//                            if( !ma_el_fs()->can_use_premium_code ()) {
-	                            if ( isset( $widget ) ) {
-		                            if ( is_array( $widget ) ) {
-			                            echo '<span class="pro-ribbon">';
-			                            $is_pro = $widget[1];
-			                            $widget = $widget[0];
-			                            echo ucwords( $is_pro );
-			                            echo '</span>';
-		                            }
-		                            echo esc_html( ucwords( str_replace( "-", " ", $widget ) ) );
-	                            }
-//                            }
-                        ?>
+                                        <?php
+                //                            if( !ma_el_fs()->can_use_premium_code ()) {
+                                                if ( isset( $widget ) ) {
+                                                    if ( is_array( $widget ) ) {
+                                                        echo '<span class="pro-ribbon">';
+                                                        $is_pro = $widget[1];
+                                                        $widget = $widget[0];
+                                                        echo ucwords( $is_pro );
+                                                        echo '</span>';
+                                                    }
+                                                    echo esc_html( ucwords( str_replace( "-", " ", $widget ) ) );
+                                                }
+                //                            }
+                                        ?>
                                     </p>
 
                                     <label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text
@@ -157,8 +96,54 @@
 
 	                        <?php endforeach; ?>
 
+						</div> <!--  .master_addons_feature-->
 
-						</div>
+
+
+                        <div class="master_addons_feature">
+
+                            <h3><?php echo esc_html__('Extensions', MELA_TD);?></h3>
+
+                            <?php foreach( Master_Elementor_Addons::$ma_el_extensions as $key=>$extension ) : ?>
+
+                                <div class="master-addons-dashboard-checkbox col">
+
+                                    <p class="master-addons-el-title">
+
+                                        <?php
+                //                            if( !ma_el_fs()->can_use_premium_code ()) {
+                                                if ( isset( $extension ) ) {
+                                                    if ( is_array( $extension ) ) {
+                                                        echo '<span class="pro-ribbon">';
+                                                        $is_pro = $extension[1];
+                                                        $extension = $extension[0];
+                                                        echo ucwords( $is_pro );
+                                                        echo '</span>';
+                                                    }
+                                                    echo esc_html( ucwords( str_replace( "-", " ", $extension ) ) );
+                                                }
+                //                            }
+                                        ?>
+                                    </p>
+
+                                    <label for="<?php echo esc_attr( $extension ); ?>" class="switch switch-text
+											 switch-primary switch-pill">
+                                        <input type="checkbox" id="<?php echo esc_attr( $extension ); ?>"
+                                               class="switch-input"
+                                               name="<?php echo esc_attr( $extension ); ?>" <?php checked( 1,
+                                            $this->maad_el_get_settings[$extension], true ); ?>>
+                                        <span data-on="On" data-off="Off" class="switch-label"></span>
+                                        <span class="switch-handle"></span>
+                                    </label>
+
+                                </div>
+
+	                        <?php endforeach; ?>
+
+						</div> <!--  .master_addons_feature-->
+
+
+
 
 					</div>
 				</div> <!-- .master-addons-el-dashboard-tabs-wrapper-->

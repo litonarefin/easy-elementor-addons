@@ -36,6 +36,17 @@
 			);
 
 			$this->add_control(
+				'title_html_tag',
+				[
+					'label'   => __( 'Heading HTML Tag', MELA_TD ),
+					'type'    => Controls_Manager::SELECT,
+					'options' => Master_Addons_Helper::ma_el_title_tags(),
+					'default' => 'h1',
+				]
+			);
+
+
+			$this->add_control(
 				'ma_el_dual_first_heading',
 				[
 					'label' => esc_html__( 'First Heading', MELA_TD ),
@@ -68,6 +79,9 @@
 					'default' => [
 						'url' => '#',
 						'is_external' => true,
+					],
+					'condition' => [
+						'ma_el_dual_heading_styles_preset' => '-style1',
 					],
 				]
 			);
@@ -172,7 +186,6 @@
 						],
 					],
 					'default' => 'center',
-					'label_block' => true,
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper' => 'text-align: {{VALUE}};',
 					],
@@ -199,7 +212,7 @@
 					'type'		=> Controls_Manager::COLOR,
 					'default' => '#1fb5ac',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title a .first-heading, {{WRAPPER}} .ma-el-section-title span'
+						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .first-heading, {{WRAPPER}} .ma-el-section-title span'
 						=> 'color: {{VALUE}};',
 					],
 				]
@@ -212,7 +225,7 @@
 					'type' => Controls_Manager::COLOR,
 					'default' => '#704aff',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title a .first-heading, {{WRAPPER}} .ma-el-sec-head-container .ma-el-sec-head-style:after'
+						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .first-heading, {{WRAPPER}} .ma-el-sec-head-container .ma-el-sec-head-style:after'
 						=> 'background-color: {{VALUE}};',
 					],
 				]
@@ -223,7 +236,7 @@
 				[
 					'name' => 'ma_el_dual_first_heading_typography',
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title a .first-heading,{{WRAPPER}} .ma-el-section-title',
+					'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title  .first-heading,{{WRAPPER}} .ma-el-section-title span',
 				]
 			);
 
@@ -247,9 +260,11 @@
 					'type'		=> Controls_Manager::COLOR,
 					'default' => '#132C47',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title a .second-heading' =>
+						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .second-heading,
+						{{WRAPPER}} .ma-el-section-title' =>
 							'color: {{VALUE}};',
 					],
+
 				]
 			);
 
@@ -259,8 +274,12 @@
 					'label' => __( 'Background', MELA_TD ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title a .second-heading' =>
+						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .second-heading' =>
 							'background-color: {{VALUE}};',
+					],
+
+					'condition' => [
+						'ma_el_dual_heading_styles_preset' => '-style2',
 					],
 				]
 			);
@@ -270,7 +289,8 @@
 				[
 					'name' => 'ma_el_dual_second_heading_typography',
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title a .second-heading,{{WRAPPER}} .ma-el-section-description',
+					'selector' =>
+                        '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .second-heading,                          {{WRAPPER}} .ma-el-section-title',
 				]
 			);
 
@@ -283,7 +303,7 @@
 			$this->start_controls_section(
 				'ma_el_dual_heading_description_styles',
 				[
-					'label' => esc_html__( 'Sub Heading', MELA_TD ),
+					'label' => esc_html__( 'Description', MELA_TD ),
 					'tab' => Controls_Manager::TAB_STYLE
 				]
 			);
@@ -295,7 +315,8 @@
 					'type'		=> Controls_Manager::COLOR,
 					'default' => '#989B9E',
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-description' =>
+						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-description,
+						{{WRAPPER}} .ma-el-section-description' =>
 							'color: {{VALUE}};',
 					],
 				]
@@ -305,7 +326,8 @@
 				[
 					'name' => 'ma_el_dual_heading_description_typography',
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-description',
+					'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-description,
+					{{WRAPPER}} .ma-el-section-description',
 				]
 			);
 
@@ -322,10 +344,13 @@
 
                 <div class="ma-el-sec-head-container">
                     <div class="ma-el-sec-head-style">
-                        <h2 class="ma-el-section-title">
-                            <span><?php echo esc_html( $settings['ma_el_dual_first_heading'] );
-	                            ?></span> <?php echo esc_html( $settings['ma_el_dual_second_heading'] ); ?>
-                        </h2><!-- /.section-title -->
+                        <<?php echo $settings['title_html_tag']; ?> class="ma-el-section-title">
+                            <span>
+                                <?php echo esc_html( $settings['ma_el_dual_first_heading'] ); ?>
+                            </span>
+
+                            <?php echo esc_html( $settings['ma_el_dual_second_heading'] ); ?>
+                        </<?php echo $settings['title_html_tag']; ?>><!-- /.section-title -->
 
                         <div class="ma-el-section-description">
 	                        <?php echo esc_html( $settings['ma_el_dual_heading_description'] ); ?>
@@ -340,17 +365,31 @@
 						<?php if ( $settings['ma_el_dual_heading_icon_show'] == 'yes' ) : ?>
                             <span class="ma-el-dual-heading-icon"><i class="<?php echo esc_attr( $settings['ma_el_dual_heading_icon'] ); ?>"></i></span>
 						<?php endif; ?>
-                        <h1 class="ma-el-dual-heading-title">
-                            <a href="<?php echo esc_url( $settings['ma_el_dual_heading_title_link']['url'] ); ?>">
-							<span class="first-heading"><?php echo esc_html( $settings['ma_el_dual_first_heading'] );
-								?></span><span class="second-heading"><?php echo esc_html( $settings['ma_el_dual_second_heading'] ); ?></span>
-                            </a>
-                        </h1>
+                        <<?php echo $settings['title_html_tag']; ?> class="ma-el-dual-heading-title">
+
+                            <?php if( $settings['ma_el_dual_heading_title_link']['url'] ){ ?>
+                                <a href="<?php echo esc_url( $settings['ma_el_dual_heading_title_link']['url'] ); ?>">
+                            <?php } ?>
+
+                                <span class="first-heading">
+                                    <?php echo esc_html( $settings['ma_el_dual_first_heading'] ); ?>
+                                </span>
+
+                                <span class="second-heading">
+                                    <?php echo esc_html( $settings['ma_el_dual_second_heading'] ); ?>
+                                </span>
+
+                            <?php if( $settings['ma_el_dual_heading_title_link']['url'] ){ ?>
+                                </a>
+                            <?php } ?>
+
+                        </<?php echo $settings['title_html_tag']; ?>>
 						<?php if ( $settings['ma_el_dual_heading_description'] != "" ) : ?>
                             <p class="ma-el-dual-heading-description"><?php echo esc_html( $settings['ma_el_dual_heading_description'] ); ?></p>
 						<?php endif; ?>
                     </div>
                 </div>
+
             <?php } ?>
 
 

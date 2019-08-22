@@ -24,7 +24,7 @@
 			public $pro_enabled;
 
 			public static $maad_el_default_widgets;
-			public static $maad_el_default_form_widgets;
+			public static $ma_el_extensions;
 
 
 			public static function get_instance() {
@@ -41,28 +41,28 @@
 			public function __construct() {
 
 				self::$maad_el_default_widgets = [
-					'ma-animated-headlines',
-					'ma-call-to-action',
-					'ma-dual-heading',
-					'ma-accordion',
-					'ma-tabs',
-					'ma-tooltip',
-					'ma-progressbar',
-					'ma-progressbars',
-					'ma-team-members',
-					'ma-team-members-slider',
-					'ma-creative-buttons',
-					'ma-changelog',
-					'ma-infobox',
-					'ma-flipbox',
-//					'ma-creative-links',
+					'ma-animated-headlines',    // 0
+					'ma-call-to-action',        // 1
+					'ma-dual-heading',          // 2
+					'ma-accordion',             // 3
+					'ma-tabs',                  // 4
+					'ma-tooltip',               // 5
+					'ma-progressbar',           // 6
+					'ma-progressbars',          // 7
+					'ma-team-members',          // 8
+					'ma-team-members-slider',   // 9
+					'ma-creative-buttons',      // 10
+					'ma-changelog',             // 11
+					'ma-infobox',               // 12
+					'ma-flipbox',               // 13
+//					'ma-creative-links',        // 16
 
-					'contact-form-7',
-					'ninja-forms',
-					['gravity-forms','pro'],
-					'wpforms',
-					'caldera-forms',
-					'weforms',
+					'contact-form-7',           // 17
+					'ninja-forms',              // 18
+					['gravity-forms','pro'],    // 19
+					'wpforms',                  // 20
+					'caldera-forms',            // 21
+					'weforms',                  // 22
 
 //					'ma-piechart',
 
@@ -81,12 +81,16 @@
 		//			'google-maps',
 		//			'tooltip',
 		//			['contact-form-7','pro'],
-				];
-
-				self::$maad_el_default_form_widgets = [
-					//			'contact-form-7'
 
 				];
+
+
+				self::$ma_el_extensions = [
+					'ma-particles',
+					'ma-animated-gradient-background',
+					'ma-background-slider',
+				];
+
 
 
 				// search for pro version
@@ -260,8 +264,14 @@
 
 
 			public static function activated_widgets() {
-				$maad_el_default_settings = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),
+//				$maad_el_default_settings = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),
+				$li1 = array_fill_keys( ma_el_array_flatten( self::$ma_el_extensions ),
 					true );
+				$li2 = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),
+					true );
+
+				$maad_el_default_settings =  array_merge($li2, $li1);
+
 				$maad_el_get_settings     = get_option( 'maad_el_save_settings', $maad_el_default_settings );
 				$maad_el_new_settings     = array_diff_key( $maad_el_default_settings, $maad_el_get_settings );
 
@@ -281,22 +291,20 @@
 
 				foreach ( ma_el_array_flatten( self::$maad_el_default_widgets ) as $widget ) {
 					if ( $activated_widgets[ $widget ] == true ) {
-						require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+//						require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+
+						if ( $widget == 'contact-form-7' ) {
+							if ( function_exists( 'wpcf7' ) ) {
+								require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+							}
+						} else {
+							require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+						}
+
 					}
 				}
 
-				foreach ( self::$maad_el_default_form_widgets as $form_widgets ) {
-//					print_r( $form_widgets );
-					if ( $activated_widgets[ $form_widgets ] == true ) {
-						if ( $form_widgets == 'contact-form-7' ) {
-							if ( function_exists( 'wpcf7' ) ) {
-								require_once MAAD_EL_ADDONS . $form_widgets . '/' . $form_widgets . '.php';
-							}
-						} else {
-							require_once MAAD_EL_ADDONS . $form_widgets . '/' . $form_widgets . '.php';
-						}
-					}
-				}
+
 
 			}
 
@@ -542,6 +550,7 @@
 				//Utils
 				include_once MELA_PLUGIN_PATH . '/inc/classes/utils.php';
 
+				// Extension
 				include_once MELA_PLUGIN_PATH . '/inc/modules/animated-gradient/animated-gradient.php';
 				include_once MELA_PLUGIN_PATH . '/inc/modules/particles/particles.php';
 				include_once MELA_PLUGIN_PATH . '/inc/modules/bg-slider/bg-slider.php';
