@@ -63,7 +63,7 @@ class MA_EL_Bg_Slider {
 			$element->start_controls_section(
 				'_ma_el_section_bg_slider',
 				[
-					'label' => __( 'MA - Background Slider', MELA_TD ),
+					'label' => MA_EL_BADGE . __( ' Background Slider', MELA_TD ),
 					'tab'   => Controls_Manager::TAB_STYLE
 				]
 			);

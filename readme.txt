@@ -129,7 +129,7 @@ Paste on your Local Computer
 
 
 == Changelog ==
- = 1.1.1 (18-8-2019) =
+ = 1.1.1 (23-8-2019) =
  * Fixed: MA Headlines renamed MA Animated Headlines.
  * Fixed: Accordion Design Presets styles done.
  * Added: Accordion Items can be designed individually. Every item can be set different background color, text color etc.
@@ -142,7 +142,10 @@ Paste on your Local Computer
  * Fixed: Icon not showing issue on Dual Heading fixed.
  * Fixed: Added "Heading HTML Tags" Options on Dual Heading Elements. Fixed - Typography, Color and Background issue for
   First Design Preset.
-  
+ * Fixed: Particles not showing, Animated Gradient Background not working, Background Slider Image resize issues fixed
+ * Added: "Master Addons Widget Badge" added on Particles, Animated Gradient Background, Background Slider.
+ * Fixed: Caldera Form error and Styles.
+
 
  = 1.1.0 (11-8-2019) =
  * Fixed: Admin Notice not showing issue on Master Addons issue fixed

@@ -38,6 +38,47 @@
 
 		protected function _register_controls() {
 
+
+
+			/**
+			 * Style Tab: Form Title & Description
+			 * -------------------------------------------------
+			 */
+
+			$this->start_controls_section(
+				'ma_wpform_section_style',
+				[
+					'label' => esc_html__( 'Design Layout', MELA_TD ),
+				]
+			);
+
+			$this->add_control(
+				'ma_wpform_layout_style',
+				[
+					'label' => __( 'Style', MELA_TD ),
+					'type' => Controls_Manager::SELECT,
+					'default' => '1',
+					'options' => [
+						'1'   => __( 'Style One', MELA_TD ),
+						'2'   => __( 'Style Two', MELA_TD ),
+						'3'   => __( 'Style Three', MELA_TD ),
+						'4'   => __( 'Style Four', MELA_TD ),
+						'5'   => __( 'Style Five', MELA_TD ),
+						'6'   => __( 'Floating Label', MELA_TD ),
+						'7'   => __( 'Style Seven', MELA_TD ),
+						'8'   => __( 'Style Eight', MELA_TD ),
+						'9'   => __( 'Style Nine', MELA_TD ),
+						'10'   => __( 'Style Ten', MELA_TD ),
+						'11'   => __( 'Style Eleven', MELA_TD ),
+					],
+				]
+			);
+
+			$this->end_controls_section();
+
+
+
+
 			/*-----------------------------------------------------------------------------------*/
 			/*	Content Tab
 			/*-----------------------------------------------------------------------------------*/
@@ -190,10 +231,8 @@
 			/*	STYLE TAB
 			/*-----------------------------------------------------------------------------------*/
 
-			/**
-			 * Style Tab: Form Title & Description
-			 * -------------------------------------------------
-			 */
+
+
 			$this->start_controls_section(
 				'section_form_title_style',
 				[
@@ -1243,6 +1282,8 @@
 			$this->add_render_attribute( 'contact-form', 'class', [
 					'ma-el-contact-form',
 					'ma-el-wpforms',
+					'ma-cf',
+					'ma-cf-' . $settings['ma_wpform_layout_style'],
 				]
 			);
 

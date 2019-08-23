@@ -37,7 +37,7 @@ class Particles{
 				'ma_el_particles',
 				[
 					'tab' => Controls_Manager::TAB_STYLE,
-					'label' => __( 'MA - Particles', MELA_TD )
+					'label' => MA_EL_BADGE . __( ' Particles', MELA_TD )
 				]
 			);
 

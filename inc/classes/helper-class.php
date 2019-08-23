@@ -141,7 +141,7 @@
 			if ( class_exists( 'Caldera_Forms' ) ) {
 				$options = array();
 
-				$contact_forms = Caldera_Forms_Forms::get_forms( true, true );
+				$contact_forms = \Caldera_Forms_Forms::get_forms( true, true );
 
 				if ( ! empty( $contact_forms ) && ! is_wp_error( $contact_forms ) ) {
 

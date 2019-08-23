@@ -739,13 +739,13 @@
     // Form no 7's label changing position script
 
     $(".ma-cf-6 input, .ma-cf-6 textarea").focus(function(){
-        $(this).parents('p, li').addClass('focused');
+        $(this).parents('p, li, .wpforms-field, .form-group, .nf-field-element').addClass('focused');
     });
 
     $(".ma-cf-6 input , .ma-cf-6 textarea").blur(function(){
         var inputValue = jQuery(this).val();
         if ( inputValue == "" ) {
-            $(this).parents('p, li').removeClass('focused');
+            $(this).parents('p, li, .wpforms-field, .form-group, .nf-field-element').removeClass('focused');
         }
     });
 

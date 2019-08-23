@@ -178,11 +178,9 @@
 			);
 
 
-			//Free Version Codes
-			if ( ma_el_fs()->can_use_premium_code() ) {
 
-
-			    // Premium Version Codes
+			// Premium Version Codes
+			if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
 
 				$this->add_control(
 					'creative_button_effect',
@@ -229,10 +227,9 @@
 				);
 
 
+			//Free Version Codes
 
 			} else {
-
-
 
 				$this->add_control(
 					'creative_button_effect',

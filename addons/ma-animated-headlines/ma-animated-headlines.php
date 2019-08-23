@@ -230,12 +230,33 @@
 
 		protected function render() {
 			$settings = $this->get_settings_for_display();
+
+			switch ($settings['ma_el_headlines_style_preset']){
+				case "rotate-2":
+					$letters_class = "letters";
+					break;
+				case "rotate-3":
+					$letters_class = "letters";
+					break;
+				case "type":
+					$letters_class = "letters";
+					break;
+				case "scale":
+					$letters_class = "letters";
+					break;
+				default:
+					$letters_class = "";
+			}
+
+
 			?>
 
                 <div id="ma-el-heading-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-animated-heading">
                     <div class="ma-el-animated-heading-wrapper">
 
-                        <h1 class="ma-el-animated-heading-title ma-el-animated-headline <?php echo esc_html( $settings['ma_el_headlines_style_preset'] ); ?> main-title">
+                        <h1
+                            class="ma-el-animated-heading-title ma-el-animated-headline <?php echo esc_html(
+                                    $letters_class . ' ' . $settings['ma_el_headlines_style_preset'] ); ?> main-title">
                             <span class="first-heading">
                                 <?php echo esc_html( $settings['ma_el_headlines_first_heading'] ); ?>
                             </span>

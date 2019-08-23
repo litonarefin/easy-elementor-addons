@@ -25,7 +25,7 @@
 					'ma_el_animated_gradient',
 					[
 						'tab' => Controls_Manager::TAB_STYLE,
-						'label' => __('MA - Animated Gradient Background', MELA_TD)
+						'label' => MA_EL_BADGE . __(' Animated Gradient Background', MELA_TD)
 					]
 				);
 				$element->add_control(

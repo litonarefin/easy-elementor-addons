@@ -179,8 +179,13 @@
 			public function constants() {
 
 				//Defined Constants
+
 				if ( ! defined( 'MELA' ) ) {
 					define( 'MELA', self::$plugin_name );
+				}
+
+				if (!defined('MA_EL_BADGE')) {
+					define( 'MA_EL_BADGE', '<span class="ma-el-badge"></span>' );
 				}
 
 				if ( ! defined( 'MELA_VERSION' ) ) {
@@ -265,12 +270,13 @@
 
 			public static function activated_widgets() {
 //				$maad_el_default_settings = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),
-				$li1 = array_fill_keys( ma_el_array_flatten( self::$ma_el_extensions ),
+
+				$li1 = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),
 					true );
-				$li2 = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),
+				$li2 = array_fill_keys( ma_el_array_flatten( self::$ma_el_extensions ),
 					true );
 
-				$maad_el_default_settings =  array_merge($li2, $li1);
+				$maad_el_default_settings =  array_merge($li1, $li2);
 
 				$maad_el_get_settings     = get_option( 'maad_el_save_settings', $maad_el_default_settings );
 				$maad_el_new_settings     = array_diff_key( $maad_el_default_settings, $maad_el_get_settings );

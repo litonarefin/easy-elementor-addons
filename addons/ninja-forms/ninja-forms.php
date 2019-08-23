@@ -27,6 +27,46 @@
 
 		protected function _register_controls() {
 
+
+			/**
+			 * Style Tab: Form Title & Description
+			 * -------------------------------------------------
+			 */
+
+			$this->start_controls_section(
+				'ma_ninja_form_section_style',
+				[
+					'label' => esc_html__( 'Design Layout', MELA_TD ),
+				]
+			);
+
+			$this->add_control(
+				'ma_ninja_form_layout_style',
+				[
+					'label' => __( 'Style', MELA_TD ),
+					'type' => Controls_Manager::SELECT,
+					'default' => '1',
+					'options' => [
+						'1'   => __( 'Style One', MELA_TD ),
+						'2'   => __( 'Style Two', MELA_TD ),
+						'3'   => __( 'Style Three', MELA_TD ),
+						'4'   => __( 'Style Four', MELA_TD ),
+						'5'   => __( 'Style Five', MELA_TD ),
+						'6'   => __( 'Style Six', MELA_TD ),
+						'7'   => __( 'Style Seven', MELA_TD ),
+						'8'   => __( 'Style Eight', MELA_TD ),
+						'9'   => __( 'Style Nine', MELA_TD ),
+						'10'   => __( 'Style Ten', MELA_TD ),
+						'11'   => __( 'Style Eleven', MELA_TD ),
+					],
+				]
+			);
+
+			$this->end_controls_section();
+
+
+
+
 			/*
 			 * Master Addons: Content Tab
 			 */
@@ -1377,6 +1417,8 @@
 			$this->add_render_attribute( 'contact-form', 'class', [
 					'ma-el-contact-form',
 					'ma-el-ninja-form',
+					'ma-cf',
+					'ma-cf-' . $settings['ma_ninja_form_layout_style'],
 				]
 			);
 

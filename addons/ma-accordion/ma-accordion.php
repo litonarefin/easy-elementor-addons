@@ -204,43 +204,47 @@
 
 
 
-			/* Start of Single Accordion Tab Styles */
-			$repeater->add_control(
-				'single_tab_title_bg_color_show',
-				[
-					'label'                 => esc_html__( 'Enable Background Color', MELA_TD ),
-					'type'                  => Controls_Manager::SWITCHER,
-					'default'               => 'no',
-					'return_value'          => 'yes',
-				]
-			);
+			// Premium Version Codes
+			if ( ma_el_fs()->can_use_premium_code() ) {
 
-			$repeater->add_control(
-				'single_tab_title_bg_color',
-				[
-					'label'                 => esc_html__( 'Background Color', MELA_TD ),
-					'type'                  => Controls_Manager::COLOR,
-					'default'               => '#fff',
-					'condition'             => [
-						'single_tab_title_bg_color_show' => 'yes'
+				/* Start of Single Accordion Tab Styles */
+				$repeater->add_control(
+					'single_tab_title_bg_color_show',
+					[
+						'label'                 => esc_html__( 'Enable Background Color', MELA_TD ),
+						'type'                  => Controls_Manager::SWITCHER,
+						'default'               => 'no',
+						'return_value'          => 'yes',
 					]
-				]
-			);
+				);
 
-			$repeater->add_control(
-				'single_title_text_color',
-				[
-					'label'                 => esc_html__( 'Text Color', MELA_TD ),
-					'type'                  => Controls_Manager::COLOR,
-					'default'               => '#333333',
-					'condition'             => [
-						'single_tab_title_bg_color_show' => 'yes'
+				$repeater->add_control(
+					'single_tab_title_bg_color',
+					[
+						'label'                 => esc_html__( 'Background Color', MELA_TD ),
+						'type'                  => Controls_Manager::COLOR,
+						'default'               => '#fff',
+						'condition'             => [
+							'single_tab_title_bg_color_show' => 'yes'
+						]
 					]
-				]
-			);
+				);
 
+				$repeater->add_control(
+					'single_title_text_color',
+					[
+						'label'                 => esc_html__( 'Text Color', MELA_TD ),
+						'type'                  => Controls_Manager::COLOR,
+						'default'               => '#333333',
+						'condition'             => [
+							'single_tab_title_bg_color_show' => 'yes'
+						]
+					]
+				);
 
-			/* End of Single Accordion Tab Styles */
+				/* End of Single Accordion Tab Styles */
+
+			}
 
 
 
@@ -257,120 +261,126 @@
 				]
 			);
 
-			$repeater->add_control(
-				'content_type',
-				[
-					'label'                 => esc_html__( 'Content Type', MELA_TD ),
-					'type'                  => Controls_Manager::SELECT,
-					'label_block'           => false,
-					'options'               => [
-						'content'   => __( 'Content', MELA_TD ),
-//						'image'     => __( 'Image', MELA_TD ),
-//						'video' 	=> __( 'Video', MELA_TD ),
-						'section'   => __( 'Saved Section', MELA_TD ),
-						'widget'    => __( 'Saved Widget', MELA_TD ),
-						'template'  => __( 'Saved Page Template', MELA_TD ),
-					],
-					'default'               => 'content',
-				]
-			);
 
-			$repeater->add_control(
-				'accordion_content',
-				[
-					'label'                 => esc_html__( 'Content', MELA_TD ),
-					'type'                  => Controls_Manager::WYSIWYG,
-					'default'               => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', MELA_TD ),
-					'dynamic'               => [ 'active' => true ],
-					'condition'             => [
-						'content_type'	=> 'content',
-					],
-				]
-			);
+			// Premium Version Codes
+			if ( ma_el_fs()->can_use_premium_code() ) {
 
-			$repeater->add_control(
-				'image',
-				[
-					'label'                 => __( 'Image', MELA_TD ),
-					'type'                  => Controls_Manager::MEDIA,
-					'dynamic'               => [
-						'active'   => true,
-					],
-					'default'               => [
-						'url' => Utils::get_placeholder_image_src(),
-					],
-					'conditions'            => [
-						'terms' => [
-							[
-								'name'      => 'content_type',
-								'operator'  => '==',
-								'value'     => 'image',
+				$repeater->add_control(
+					'content_type',
+					[
+						'label'                 => esc_html__( 'Content Type', MELA_TD ),
+						'type'                  => Controls_Manager::SELECT,
+						'label_block'           => false,
+						'options'               => [
+							'content'   => __( 'Content', MELA_TD ),
+							//						'image'     => __( 'Image', MELA_TD ),
+							//						'video' 	=> __( 'Video', MELA_TD ),
+							'section'   => __( 'Saved Section', MELA_TD ),
+							'widget'    => __( 'Saved Widget', MELA_TD ),
+							'template'  => __( 'Saved Page Template', MELA_TD ),
+						],
+						'default'               => 'content',
+					]
+				);
+
+				$repeater->add_control(
+					'accordion_content',
+					[
+						'label'                 => esc_html__( 'Content', MELA_TD ),
+						'type'                  => Controls_Manager::WYSIWYG,
+						'default'               => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', MELA_TD ),
+						'dynamic'               => [ 'active' => true ],
+						'condition'             => [
+							'content_type'	=> 'content',
+						],
+					]
+				);
+
+				$repeater->add_control(
+					'image',
+					[
+						'label'                 => __( 'Image', MELA_TD ),
+						'type'                  => Controls_Manager::MEDIA,
+						'dynamic'               => [
+							'active'   => true,
+						],
+						'default'               => [
+							'url' => Utils::get_placeholder_image_src(),
+						],
+						'conditions'            => [
+							'terms' => [
+								[
+									'name'      => 'content_type',
+									'operator'  => '==',
+									'value'     => 'image',
+								],
 							],
 						],
-					],
-				]
-			);
+					]
+				);
 
-			$repeater->add_control(
-				'saved_widget',
-				[
-					'label'                 => __( 'Choose Widget', MELA_TD ),
-					'type'                  => Controls_Manager::SELECT,
-					'options'               => $this->get_page_template_options( 'widget' ),
-					'default'               => '-1',
-					'condition'             => [
-						'content_type'    => 'widget',
-					],
-					'conditions'        => [
-						'terms' => [
-							[
-								'name'      => 'content_type',
-								'operator'  => '==',
-								'value'     => 'widget',
+				$repeater->add_control(
+					'saved_widget',
+					[
+						'label'                 => __( 'Choose Widget', MELA_TD ),
+						'type'                  => Controls_Manager::SELECT,
+						'options'               => $this->get_page_template_options( 'widget' ),
+						'default'               => '-1',
+						'condition'             => [
+							'content_type'    => 'widget',
+						],
+						'conditions'        => [
+							'terms' => [
+								[
+									'name'      => 'content_type',
+									'operator'  => '==',
+									'value'     => 'widget',
+								],
 							],
 						],
-					],
-				]
-			);
+					]
+				);
 
-			$repeater->add_control(
-				'saved_section',
-				[
-					'label'                 => __( 'Choose Section', MELA_TD ),
-					'type'                  => Controls_Manager::SELECT,
-					'options'               => $this->get_page_template_options( 'section' ),
-					'default'               => '-1',
-					'conditions'        => [
-						'terms' => [
-							[
-								'name'      => 'content_type',
-								'operator'  => '==',
-								'value'     => 'section',
+				$repeater->add_control(
+					'saved_section',
+					[
+						'label'                 => __( 'Choose Section', MELA_TD ),
+						'type'                  => Controls_Manager::SELECT,
+						'options'               => $this->get_page_template_options( 'section' ),
+						'default'               => '-1',
+						'conditions'        => [
+							'terms' => [
+								[
+									'name'      => 'content_type',
+									'operator'  => '==',
+									'value'     => 'section',
+								],
 							],
 						],
-					],
-				]
-			);
+					]
+				);
 
-
-			$repeater->add_control(
-				'templates',
-				[
-					'label'                 => __( 'Choose Template', MELA_TD ),
-					'type'                  => Controls_Manager::SELECT,
-					'options'               => $this->get_page_template_options( 'page' ),
-					'default'               => '-1',
-					'conditions'        => [
-						'terms' => [
-							[
-								'name'      => 'content_type',
-								'operator'  => '==',
-								'value'     => 'template',
+				$repeater->add_control(
+					'templates',
+					[
+						'label'                 => __( 'Choose Template', MELA_TD ),
+						'type'                  => Controls_Manager::SELECT,
+						'options'               => $this->get_page_template_options( 'page' ),
+						'default'               => '-1',
+						'conditions'        => [
+							'terms' => [
+								[
+									'name'      => 'content_type',
+									'operator'  => '==',
+									'value'     => 'template',
+								],
 							],
 						],
-					],
-				]
-			);
+					]
+				);
+
+			}
+
 
 			$this->add_control(
 				'tabs',
@@ -988,11 +998,18 @@ Customization Options.</span>'
                         <div class="ma-accordion-item <?php echo esc_attr( $settings['ma_advanced_accordion_style'] ); ?>">
                             <<?php echo $settings['title_html_tag']; ?> <?php echo $this->get_render_attribute_string
                             ($tab_title_setting_key); ?>
-                            <?php if($tab['single_tab_title_bg_color_show']=='yes'){?>
+                            <?php
 
-                                style="background-color:<?php echo $tab['single_tab_title_bg_color'];?>;
-                                color:<?php echo $tab['single_title_text_color'];?>"
-                            <?php } ?>>
+						    // Premium Version Codes
+						    if ( ma_el_fs()->can_use_premium_code() ) {
+
+						        if($tab['single_tab_title_bg_color_show']=='yes'){ ?>
+                                    style="background-color:<?php echo $tab['single_tab_title_bg_color'];?>;
+                                    color:<?php echo $tab['single_title_text_color'];?>"
+
+                                <?php } // Premium Version Codes
+
+						} ?>>
                                 <span class="ma-accordion-title-icon">
 
                                     <?php if ( $tab['accordion_tab_icon_show'] === 'yes' ) { ?>

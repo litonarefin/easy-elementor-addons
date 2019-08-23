@@ -176,12 +176,20 @@
 					'default' => '#704aff',
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-infobox.one .ma-el-infobox-icon::before' => 'background: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-infobox.one .ma-el-infobox-icon i, {{WRAPPER}} .ma-el-infobox.two .ma-el-infobox-item:hover .ma-el-infobox-icon i, {{WRAPPER}} .ma-el-infobox.three .ma-el-infobox-item .ma-el-infobox-icon i, {{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover .ma-el-infobox-icon i, {{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item:hover .ma-el-infobox-icon i' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-infobox.one .ma-el-infobox-icon i, 
+						{{WRAPPER}} .ma-el-infobox.two .ma-el-infobox-item:hover .ma-el-infobox-icon i, 
+						{{WRAPPER}} .ma-el-infobox.three .ma-el-infobox-item .ma-el-infobox-icon i, 
+						{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover .ma-el-infobox-icon i, 
+						{{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item:hover .ma-el-infobox-icon i' => 'color: {{VALUE}};',
 						'{{WRAPPER}} .ma-el-infobox.one .ma-el-infobox-item:hover .ma-el-infobox-icon i' => 'color: #FFF',
 						'{{WRAPPER}} .ma-el-infobox.two .ma-el-infobox-icon' => 'background-color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-infobox.two .ma-el-infobox-item:hover .ma-el-infobox-icon, {{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover .ma-el-infobox-icon, {{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'background: #FFF; border: 1px solid {{VALUE}};',
+						'{{WRAPPER}} .ma-el-infobox.two .ma-el-infobox-item:hover .ma-el-infobox-icon, 
+						{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover .ma-el-infobox-icon, 
+						{{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'background: #FFF; border: 1px solid {{VALUE}};',
+
 						'{{WRAPPER}} .ma-el-infobox.three .ma-el-infobox-item:hover .ma-el-infobox-icon i' => 'color: #FFF',
 						/*new added line */
+
 						'{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-icon, {{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-icon' =>
 							'background: {{VALUE}};',
 						'{{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item' => 'border-bottom: 3px solid {{VALUE}};',

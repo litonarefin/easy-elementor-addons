@@ -64,6 +64,8 @@
 
 			$this->end_controls_section();
 
+
+
 			$this->start_controls_section(
 				'ma_weform_section_style',
 				[
