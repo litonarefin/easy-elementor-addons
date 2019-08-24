@@ -209,36 +209,27 @@
 					'type' => Controls_Manager::COLOR,
 					'default' => '#4b00e7',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-infobox.one .ma-el-infobox-icon::before' => 'background: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-infobox.one .ma-el-infobox-icon i,
-						{{WRAPPER}} .ma-el-infobox.two .ma-el-infobox-item:hover .ma-el-infobox-icon i,
-						{{WRAPPER}} .ma-el-infobox.three .ma-el-infobox-item .ma-el-infobox-icon i,
-						{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover .ma-el-infobox-icon i,
-						{{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item:hover .ma-el-infobox-icon i' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-icon,
+						{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'color: {{VALUE}};',
 
-                        '{{WRAPPER}} .ma-el-infobox.one .ma-el-infobox-item:hover .ma-el-infobox-icon i' => 'color: #FFF',
-						'{{WRAPPER}} .ma-el-infobox.two .ma-el-infobox-icon' => 'background-color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-infobox.two .ma-el-infobox-item:hover .ma-el-infobox-icon,
-						{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover .ma-el-infobox-icon,
-						{{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'background: #FFF; border: 1px solid {{VALUE}};',
-
-						'{{WRAPPER}} .ma-el-infobox.three .ma-el-infobox-item:hover .ma-el-infobox-icon i' => 'color: #FFF',
-
-						/*new added line */
-						'{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-icon, {{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-icon' =>
-							'background: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item' => 'border-bottom: 3px solid {{VALUE}};',
-						'{{WRAPPER}} .ma-el-infobox.six .ma-el-infobox-item' => 'text-align: center};',
-						'{{WRAPPER}} .ma-el-infobox.six .ma-el-infobox-content' => 'text-align: center};',
-						'{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover' => 'background-image: linear-gradient( rgb(10,57,252) 0%, rgb(213,0,137) 100%)};'
+                        '{{WRAPPER}} .ma-el-infobox.three .ma-el-infobox-icon,
+                        {{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-icon,
+                        {{WRAPPER}} .ma-el-infobox.seven .ma-el-infobox-item:hover .ma-el-infobox-icon,
+                        {{WRAPPER}} .ma-el-infobox.eight .ma-el-infobox-item:hover .ma-el-infobox-icon,
+                        {{WRAPPER}} .ma-el-infobox.ten .ma-el-infobox-item:hover .ma-el-infobox-icon,
+                        {{WRAPPER}} .ma-el-infobox.six .ma-el-infobox-icon' => 'color: #fff;',
 
 
+						'{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover' => 'background-color: #4b00e7;',
+                        '{{WRAPPER}} .ma-el-infobox.nine .ma-el-infobox-item .ma-el-infobox-content' => 'background-color: #474747;',
+
+                        '{{WRAPPER}} .ma-el-infobox.six .ma-el-infobox-icon' => 'color: {{VALUE}} !important;',
 
 					],
 				]
 			);
 
-
+//			implode(array_keys(hexToRgb($settings['ma_el_infobox_bg']))) . '(' . implode(', ', hexToRgb($settings['ma_el_infobox_bg'])) . ')';
 
 			$this->add_control(
 				'ma_el_infobox_bg_heading',
@@ -258,19 +249,41 @@
 				]
 			);
 
+
 			$this->add_group_control(
 				Group_Control_Background::get_type(),
 				[
-					'name' => 'ma_el_infobox_bg',
+					'name' => 'background',
 					'label' => __( 'Background Color', MELA_TD ),
-					'types' => [ 'classic', 'gradient' ],
-					'selector' => '{{WRAPPER}} .ma-el-infobox',
-//					'selectors'	=> [
-//						'{{WRAPPER}} .ma-el-infobox.one',
-//					],
-					'default' => '#FFFFFF',
+					'types' => [ 'gradient' ],
+					'selector' => '{{WRAPPER}} .ma-el-infobox.six .ma-el-infobox-item',
+					'condition' => [
+						'ma_el_infobox_preset' => 'six'
+					],
 				]
 			);
+
+			$this->add_control(
+				'ma_el_infobox_bg',
+				[
+					'label'                 => esc_html__( 'Background Color', MELA_TD ),
+					'type'                  => Controls_Manager::COLOR,
+					'selectors'	=> [
+						'{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item,
+						{{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item,
+						{{WRAPPER}} .ma-el-infobox.seven .ma-el-infobox-item,
+						{{WRAPPER}} .ma-el-infobox.eight .ma-el-infobox-item,
+						{{WRAPPER}} .ma-el-infobox.nine .ma-el-infobox-item .ma-el-infobox-content,
+						{{WRAPPER}} .ma-el-infobox.nine .ma-el-infobox-item .ma-el-infobox-icon'
+                        => 'background-color: {{VALUE}}'
+					],
+					'condition' => [
+						'ma_el_infobox_preset!' => 'six'
+					],
+                    'default' => '#fff',
+				]
+			);
+
 
 			$this->end_controls_tab();
 
@@ -282,18 +295,26 @@
 				]
 			);
 
-			$this->add_group_control(
-				Group_Control_Background::get_type(),
+
+			$this->add_control(
+				'ma_el_infobox_hover_bg',
 				[
-					'name' => 'ma_el_infobox_hover_bg',
-					'label' => __( 'Background Color', MELA_TD ),
-					'types' => [ 'classic', 'gradient' ],
+					'label'                 => esc_html__( 'Background Color', MELA_TD ),
+					'type'                  => Controls_Manager::COLOR,
 					'selectors'	=> [
-						'{{WRAPPER}} .ma-el-infobox.one .ma-el-infobox-item:hover',
+					        '{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover,
+					        {{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item:hover,
+					        {{WRAPPER}} .ma-el-infobox.seven .ma-el-infobox-item:hover,
+					        {{WRAPPER}} .ma-el-infobox.eight .ma-el-infobox-item:hover,
+					        {{WRAPPER}} .ma-el-infobox.nine .ma-el-infobox-item .ma-el-infobox-content,
+					        {{WRAPPER}} .ma-el-infobox.ten .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'background-color: {{VALUE}};',
+                        '{{WRAPPER}} .ma-el-infobox.ten .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'border-top-color:{{VALUE}};border-bottom-color:{{VALUE}};',
 					],
-					'default' => '#FFFFFF',
+					'default'               => '#4b00e7',
 				]
 			);
+
+
 			$this->end_controls_tab();
 
 			$this->end_controls_tabs();
@@ -306,7 +327,6 @@
 					'type' => Controls_Manager::HOVER_ANIMATION,
 					'separator' => 'before',
 					'prefix_class' => 'elementor-animation-',
-//					'selector'	=> '.ma-el-infobox-item',
 
 				]
 			);
@@ -318,12 +338,20 @@
 
 
 			// Title , Description Font Color and Typography
-
 			$this->start_controls_section(
 				'section_infobox_title',
 				[
 					'label' => __('Title', MELA_TD),
 					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			);
+
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'ma_el_title_typography',
+					'selector' => '{{WRAPPER}} .ma-el-infobox-content-title',
 				]
 			);
 
@@ -346,6 +374,7 @@
 					'default' => '#132c47',
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-infobox-content-title' => 'color: {{VALUE}};',
+
 					],
 				]
 			);
@@ -367,7 +396,13 @@
 					'type' => Controls_Manager::COLOR,
 					'default' => '#132c47',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-infobox-content-title:hover' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-title' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover .ma-el-infobox-content-title,
+                        {{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item:hover .ma-el-infobox-content-title,
+                        {{WRAPPER}} .ma-el-infobox.seven .ma-el-infobox-item:hover .ma-el-infobox-content-title,
+                        {{WRAPPER}} .ma-el-infobox.eight .ma-el-infobox-item:hover .ma-el-infobox-content-title,
+                        {{WRAPPER}} .ma-el-infobox.nine .ma-el-infobox-item:hover .ma-el-infobox-content-title' => 'color: #ffff;',
+
 					],
 				]
 			);
@@ -378,8 +413,6 @@
 
 
 			$this->end_controls_section();
-
-
 
 
 
@@ -401,7 +434,6 @@
 				]
 			);
 
-			
 			$this->start_controls_tabs( 'ma_el_infobox_desc_color_style' );
 
 			$this->start_controls_tab(
@@ -418,7 +450,7 @@
 					'type' => Controls_Manager::COLOR,
 					'default' => '#797c80',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-infobox-content-description' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-content-description' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -439,7 +471,13 @@
 					'type' => Controls_Manager::COLOR,
 					'default' => '#132c47',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-infobox-content-description:hover' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-description' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover .ma-el-infobox-content-description,
+						{{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item:hover .ma-el-infobox-content-description,
+						{{WRAPPER}} .ma-el-infobox.seven .ma-el-infobox-item:hover .ma-el-infobox-content-description,
+						{{WRAPPER}} .ma-el-infobox.eight .ma-el-infobox-item:hover .ma-el-infobox-content-description,
+						{{WRAPPER}} .ma-el-infobox.nine .ma-el-infobox-item:hover .ma-el-infobox-content-description' =>
+                            'color: #ffff;',
 					],
 				]
 			);
@@ -457,13 +495,23 @@
 			$settings = $this->get_settings_for_display();
 
 
-			// Demo Link
+			// Read more Link
 			if( $settings['ma_el_infobox_readmore_link']['is_external'] ) {
 				$this->add_render_attribute( 'ma_el_infobox_readmore', 'target', '_blank' );
 			}
 
 			if( $settings['ma_el_infobox_readmore_link']['nofollow'] ) {
 				$this->add_render_attribute( 'ma_el_infobox_readmore', 'rel', 'nofollow' );
+			}
+
+
+			// Infobox Link
+			if( $settings['ma_el_infobox_title_link']['is_external'] ) {
+				$this->add_render_attribute( 'ma_el_infobox_title_link_attr', 'target', '_blank' );
+			}
+
+			if( $settings['ma_el_infobox_title_link']['nofollow'] ) {
+				$this->add_render_attribute( 'ma_el_infobox_title_link_attr', 'rel', 'nofollow' );
 			}
 
 
@@ -475,6 +523,13 @@
 			}  else {
 				$infobox_image_url = $infobox_image_url;
 			}
+
+
+//			print_r( hexToRgb($settings['ma_el_infobox_bg']['r'] ));
+//			$li = hexToRgb($settings['ma_el_infobox_bg']);
+//			echo implode(array_keys(hexToRgb($settings['ma_el_infobox_bg']))) . '(' . implode(', ', hexToRgb($settings['ma_el_infobox_bg'])) . ')';
+//			print_r( ma_el_hex2rgb_array($settings['ma_el_infobox_bg'][1] ));
+//			print_r( ma_el_hex2rgb_array($settings['ma_el_infobox_bg'][2] ));
 
 			?>
 
@@ -515,11 +570,29 @@
 								<?php endif; ?>
 
 	                            <?php if( $settings['ma_el_infobox_preset']=="seven"){ ?>
-                                    <h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+
+		                            <?php if($settings['ma_el_infobox_title_link']['url']){ ?>
+                                        <a href="<?php echo esc_url_raw( $settings['ma_el_infobox_title_link']['url'] );?>"
+				                            <?php echo $this->get_render_attribute_string( 'ma_el_infobox_title_link_attr' ); ?>>
+                                            <h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+                                        </a>
+		                            <?php } else{ ?>
+                                        <h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+		                            <?php }?>
+
 	                            <?php } ?>
 
 	                            <?php if( $settings['ma_el_infobox_preset']=="nine"){ ?>
-                                    <h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+
+		                            <?php if($settings['ma_el_infobox_title_link']['url']){ ?>
+                                        <a href="<?php echo esc_url_raw( $settings['ma_el_infobox_title_link']['url'] );?>"
+				                            <?php echo $this->get_render_attribute_string( 'ma_el_infobox_title_link_attr' ); ?>>
+                                            <h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+                                        </a>
+		                            <?php } else{ ?>
+                                        <h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+		                            <?php }?>
+
 	                            <?php } ?>
 
 	                            <?php if($settings['ma_el_infobox_preset']=="five"){ ?>
@@ -532,7 +605,16 @@
                     <div class="ma-el-infobox-content">
                         <div class="inner-content">
 							<?php if($settings['ma_el_infobox_preset']!=="seven"){ ?>
-                                <h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+
+                                <?php if($settings['ma_el_infobox_title_link']['url']){ ?>
+                                    <a href="<?php echo esc_url_raw( $settings['ma_el_infobox_title_link']['url'] );?>"
+                                        <?php echo $this->get_render_attribute_string( 'ma_el_infobox_title_link_attr' ); ?>>
+                                        <h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+                                    </a>
+							    <?php } else{ ?>
+                                    <h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+							    <?php }?>
+
 							<?php }?>
                             <p class="ma-el-infobox-content-description">
 								<?php echo $settings['ma_el_infobox_description']; ?>

@@ -268,6 +268,16 @@
 			);
 
 			$this->add_control(
+				'entrance_animation',
+				[
+					'label' => __( 'Animation', 'plugin-domain' ),
+					'type' => \Elementor\Controls_Manager::ANIMATION,
+					'prefix_class' => 'animated ',
+				]
+			);
+
+
+			$this->add_control(
 				'animation_style',
 				[
 					'label' => __( 'Animation Style', MELA_TD ),
