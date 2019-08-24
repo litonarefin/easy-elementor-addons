@@ -202,6 +202,20 @@
 				]
 			);
 
+			$this->add_group_control(
+				Group_Control_Background::get_type(),
+				[
+					'name' => 'ma_el_infobox_gradient_color_scheme',
+					'label' => __( 'Background Color', MELA_TD ),
+					'types' => [ 'gradient' ],
+					'selector' => '{{WRAPPER}} .ma-el-infobox.six .ma-el-infobox-item .ma-el-infobox-icon',
+					'condition' => [
+						'ma_el_infobox_preset' => 'six'
+					],
+				]
+			);
+
+
 			$this->add_control(
 				'ma_el_infobox_color_scheme',
 				[
@@ -226,10 +240,13 @@
                         '{{WRAPPER}} .ma-el-infobox.six .ma-el-infobox-icon' => 'color: {{VALUE}} !important;',
 
 					],
+					'condition' => [
+						'ma_el_infobox_preset!' => 'six'
+					],
 				]
 			);
 
-//			implode(array_keys(hexToRgb($settings['ma_el_infobox_bg']))) . '(' . implode(', ', hexToRgb($settings['ma_el_infobox_bg'])) . ')';
+			
 
 			$this->add_control(
 				'ma_el_infobox_bg_heading',
@@ -253,7 +270,7 @@
 			$this->add_group_control(
 				Group_Control_Background::get_type(),
 				[
-					'name' => 'background',
+					'name' => 'ma_el_infobox_gradient_bg',
 					'label' => __( 'Background Color', MELA_TD ),
 					'types' => [ 'gradient' ],
 					'selector' => '{{WRAPPER}} .ma-el-infobox.six .ma-el-infobox-item',
@@ -524,12 +541,6 @@
 				$infobox_image_url = $infobox_image_url;
 			}
 
-
-//			print_r( hexToRgb($settings['ma_el_infobox_bg']['r'] ));
-//			$li = hexToRgb($settings['ma_el_infobox_bg']);
-//			echo implode(array_keys(hexToRgb($settings['ma_el_infobox_bg']))) . '(' . implode(', ', hexToRgb($settings['ma_el_infobox_bg'])) . ')';
-//			print_r( ma_el_hex2rgb_array($settings['ma_el_infobox_bg'][1] ));
-//			print_r( ma_el_hex2rgb_array($settings['ma_el_infobox_bg'][2] ));
 
 			?>
 

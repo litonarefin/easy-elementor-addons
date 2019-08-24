@@ -66,7 +66,8 @@
 	}
 
 
-	function hexToRgb($hex, $alpha = false) {
+	//reference https://stackoverflow.com/questions/15202079/convert-hex-color-to-rgb-values-in-php
+	function ma_el_hex2Rgb($hex, $alpha = false) {
 		$hex      = str_replace('#', '', $hex);
 		$length   = strlen($hex);
 		$rgb['r'] = hexdec($length == 6 ? substr($hex, 0, 2) : ($length == 3 ? str_repeat(substr($hex, 0, 1), 2) : 0));
