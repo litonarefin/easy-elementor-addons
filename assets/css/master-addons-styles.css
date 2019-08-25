@@ -3330,16 +3330,31 @@
 .ma-el-flip-box-wrapper{
     display: inline-block;
     width: 100%;
+
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
 }
-.ma-el-flip-box-inner{ width:100%; height:200px; position:relative;
+.ma-el-flip-box-inner{
+    width:100%;
+    height:200px;
+    position:relative;
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 
-.ma-el-flip-box-inner .ma-el-flip-box-front, .ma-el-flip-box-inner .ma-el-flip-box-back{
-    width:100%; height:100%; position: absolute; top:0; left:0; text-align:center; padding: 10px;
+
+
+.ma-el-flip-box-inner .ma-el-flip-box-front,
+.ma-el-flip-box-inner .ma-el-flip-box-back{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    left:0;
+    text-align:center;
+    padding: 10px;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
@@ -3369,6 +3384,9 @@
 .ma-el-fb-animate-horizontal .ma-el-flip-box-inner:hover .ma-el-flip-box-front{ -webkit-transform:perspective(1000px) rotateY(180deg); transform:perspective(1000px) rotateY(180deg); -ms-transform:perspective(1000px)  rotateY(180deg); }
 .ma-el-fb-animate-horizontal .ma-el-flip-box-inner:hover .ma-el-flip-box-back{ -webkit-transform:perspective(1000px) rotateY(0deg); transform:perspective(1000px) rotateY(0deg); -ms-transform:perspective(1000px)  rotateY(0deg); }
 
+.ma-el-fb-animate-flip.fade {
+    opacity: 1;
+}
 .ma-el-fb-animate-fade .ma-el-flip-box-inner .ma-el-flip-box-front{opacity:1;}
 .ma-el-fb-animate-fade .ma-el-flip-box-inner .ma-el-flip-box-back{opacity:0;}
 .ma-el-fb-animate-fade .ma-el-flip-box-inner:hover .ma-el-flip-box-front{opacity:0;}
@@ -3401,7 +3419,7 @@
 }
 
 .ma-el-fb-animate-flip .ma-el-flip-box-wrapper {
-    perspective: 800px;
+    perspective: 1000px;
 }
 .ma-el-fb-animate-flip .ma-el-flip-box-inner{
     transform-style: preserve-3d;
@@ -3455,11 +3473,11 @@
 
 /* Cube Animation */
 
-.ma-el-fb-animate-flipcard .ma-el-flip-box-front, .ma-el-fb-animate-flipcard .ma-el-flip-box-back{
-    transition: transform 0.4s ease;
-    transform-origin: center center -150px;
-    -webkit-transform-origin: center center -150px;
-}
+/*.ma-el-fb-animate-flipcard .ma-el-flip-box-front, .ma-el-fb-animate-flipcard .ma-el-flip-box-back{*/
+    /*transition: transform 0.4s ease;*/
+    /*transform-origin: center center -150px;*/
+    /*-webkit-transform-origin: center center -150px;*/
+/*}*/
 
 /* top to down */
 
@@ -3557,6 +3575,123 @@
         -webkit-transform-style: preserve-3d;
     }
 }
+
+
+/* New Styles */
+
+.ma-el-fb-animate-left-to-right .ma-el-flip-box-wrapper {
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+}
+.elementor-widget-ma-flipbox .ma-el-flip-box-wrapper .ma-el-flip-box-inner {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    transition: -webkit-transform 0.6s;
+    transition: transform 0.6s;
+}
+.elementor-widget-ma-flipbox .ma-el-flip-box-wrapper .ma-el-flip-box-front {
+    transition: all .6s ease;
+}
+
+/* Left to Right */
+
+.ma-el-fb-animate-left-to-right .ma-el-flip-box-wrapper .ma-el-flip-box-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+.ma-el-fb-animate-left-to-right .ma-el-flip-box-wrapper:hover .ma-el-flip-box-inner {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+/* Right to Left */
+
+.ma-el-fb-animate-right-to-left .ma-el-flip-box-wrapper .ma-el-flip-box-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+.ma-el-fb-animate-right-to-left .ma-el-flip-box-wrapper:hover .ma-el-flip-box-inner {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+/* Top to Bottom */
+
+.ma-el-fb-animate-top-to-bottom .ma-el-flip-box-wrapper .ma-el-flip-box-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+.ma-el-fb-animate-top-to-bottom .ma-el-flip-box-wrapper:hover .ma-el-flip-box-inner {
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+
+/* Bottom to Top */
+
+.ma-el-fb-animate-bottom-to-top .ma-el-flip-box-wrapper .ma-el-flip-box-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: rotateX(-180deg);
+    transform: rotateX(-180deg);
+}
+.ma-el-fb-animate-bottom-to-top .ma-el-flip-box-wrapper:hover .ma-el-flip-box-inner {
+    -webkit-transform: rotateX(-180deg);
+    transform: rotateX(-180deg);
+}
+
+/* Diagonal Top to Bottom */
+
+.ma-el-fb-animate-top-to-bottom-angle .ma-el-flip-box-wrapper .ma-el-flip-box-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: rotate3d(1, 1, 0, -180deg);
+    transform: rotate3d(1, 1, 0, -180deg);
+}
+
+.ma-el-fb-animate-top-to-bottom-angle .ma-el-flip-box-wrapper:hover .ma-el-flip-box-inner {
+    -webkit-transform: rotate3d(1, 1, 0, -180deg);
+    transform: rotate3d(1, 1, 0, -180deg);
+}
+
+/* Diagonal Bottom to Top */
+
+.ma-el-fb-animate-bottom-to-top-angle .ma-el-flip-box-wrapper .ma-el-flip-box-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: rotate3d(1, 1, 0, 180deg);
+    transform: rotate3d(1, 1, 0, 180deg);
+}
+
+.ma-el-fb-animate-bottom-to-top-angle .ma-el-flip-box-wrapper:hover .ma-el-flip-box-inner {
+    -webkit-transform: rotate3d(1, 1, 0, 180deg);
+    transform: rotate3d(1, 1, 0, 180deg);
+}
+
+/* Fade In Out */
+
+.ma-el-fb-animate-fade-in-out .ma-el-flip-box-wrapper:hover .ma-el-flip-box-front,
+.ma-el-fb-animate-fade-in-out .ma-el-flip-box-wrapper .ma-el-flip-box-back {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    z-index: 2;
+}
+
+.ma-el-fb-animate-fade-in-out .ma-el-flip-box-wrapper:hover .ma-el-flip-box-back {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    z-index: 3;
+}
+
+
 
 /* MA Flipbox end */
 

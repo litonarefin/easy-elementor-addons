@@ -261,16 +261,6 @@
 			);
 
 			$this->add_control(
-				'entrance_animation',
-				[
-					'label' => __( 'Animation', 'plugin-domain' ),
-					'type' => \Elementor\Controls_Manager::ANIMATION,
-					'prefix_class' => 'animated ',
-				]
-			);
-
-
-			$this->add_control(
 				'animation_style',
 				[
 					'label' => __( 'Animation Style', MELA_TD ),
@@ -284,22 +274,21 @@
 						'flipcard flipcard-rotate-left-right'   => esc_html__( 'Cube - Left Right', MELA_TD ),
 						'flipcard flipcard-rotate-right-left'   => esc_html__( 'Cube - Right Left', MELA_TD ),
 						'flip box'                              => esc_html__( 'Flip Box',MELA_TD),
-						'flip box fade'                         => esc_html__( 'Flip Box Fade',MELA_TD), //not working
-						'flip box fade up'                      => esc_html__( 'Fade Up',MELA_TD), //not working
-						'flip box fade hideback'                => esc_html__( 'Fade Hideback',MELA_TD), //not working
-						'flip box fade up hideback'             => esc_html__( 'Fade Up Hideback',MELA_TD), //not working
+						'flip box fade'                         => esc_html__( 'Flip Box Fade',MELA_TD),
+						'flip box fade up'                      => esc_html__( 'Fade Up',MELA_TD),
+						'flip box fade hideback'                => esc_html__( 'Fade Hideback',MELA_TD),
+						'flip box fade up hideback'             => esc_html__( 'Fade Up Hideback',MELA_TD),
 						'nananana'                              => esc_html__( 'Nananana',MELA_TD),
-						'rollover'                              => esc_html__( 'Rollover',MELA_TD),
+						'rollover'                              => esc_html__( 'Rollover',MELA_TD), //not working
 
 						// New Styles
-
-						'left-to-right'                         => esc_html__( 'Left to Right', MELA_TD ), //not working
-						'right-to-left'                         => esc_html__( 'Right to Left', MELA_TD ), //not working
-						'top-to-bottom'                         => esc_html__( 'Top to Bottom', MELA_TD ), //not working
-						'bottom-to-top'                         => esc_html__( 'Bottom to Top', MELA_TD ), //not working
-						'top-to-bottom-angle'                   => esc_html__( 'Diagonal (Top to Bottom)', MELA_TD ), //not working
-						'bottom-to-top-angle'                   => esc_html__( 'Diagonal (Bottom to Top)', MELA_TD ), //not working
-						'fade-in-out'                           => esc_html__( 'Fade In Out', MELA_TD ), //not working
+						'left-to-right'                         => esc_html__( 'Left to Right', MELA_TD ),
+						'right-to-left'                         => esc_html__( 'Right to Left', MELA_TD ),
+						'top-to-bottom'                         => esc_html__( 'Top to Bottom', MELA_TD ),
+						'bottom-to-top'                         => esc_html__( 'Bottom to Top', MELA_TD ),
+						'top-to-bottom-angle'                   => esc_html__( 'Diagonal (Top to Bottom)', MELA_TD ),
+						'bottom-to-top-angle'                   => esc_html__( 'Diagonal (Bottom to Top)', MELA_TD ),
+						'fade-in-out'                           => esc_html__( 'Fade In Out', MELA_TD ),
 
 
 					],
@@ -797,6 +786,12 @@
 		protected function render( ) {
 			$settings = $this->get_settings_for_display();
 
+			$this->add_render_attribute( 'ma_el_flipbox', 'class', [
+					'ma-el-flip-box'
+				]
+			);
+
+
 			$this->add_render_attribute('front-icon-wrapper','class','icon-wrapper');
 			$this->add_render_attribute('front-icon-wrapper','class','ma-el-fb-icon-view-'.$settings['front_icon_view']);
 			$this->add_render_attribute('front-icon-wrapper','class','ma-el-fb-icon-shape-'.$settings['front_icon_shape']);
@@ -818,65 +813,64 @@
 					$this->add_render_attribute( 'button', 'target', '_blank' );
 				}
 			}
-
 			?>
-			<div class="ma-el-flip-box-wrapper">
-				<div class="ma-el-flip-box-inner">
 
-					<div class="ma-el-flip-box-front">
-						<div class="flipbox-content">
-							<?php if(!empty($settings['front_icon'])){ ?>
-								<div <?php echo $this->get_render_attribute_string( 'front-icon-wrapper' ); ?>>
-									<i <?php echo $this->get_render_attribute_string( 'front-icon' ); ?>></i>
-								</div>
-							<?php } ?>
+                    <div class="ma-el-flip-box-wrapper">
 
-							<?php if(!empty($settings['front_title'])){ ?>
-							<<?php echo $settings['front_title_html_tag']; ?> <?php echo $this->get_render_attribute_string( 'front-icon-title' ); ?> >
-							<?php echo $settings['front_title']; ?>
-						</<?php echo $settings['front_title_html_tag']; ?>>
-						<?php } ?>
+                        <div class="ma-el-flip-box-inner">
+                            <div class="ma-el-flip-box-front">
+                                <div class="flipbox-content">
+                                    <?php if(!empty($settings['front_icon'])){ ?>
+                                        <div <?php echo $this->get_render_attribute_string( 'front-icon-wrapper' ); ?>>
+                                            <i <?php echo $this->get_render_attribute_string( 'front-icon' ); ?>></i>
+                                        </div>
+                                    <?php } ?>
 
-						<?php if(!empty($settings['front-text'])){ ?>
-							<p>
-								<?php echo $settings['front-text']; ?>
-							</p>
-						<?php } ?>
-					</div>
-				</div>
+                                    <?php if(!empty($settings['front_title'])){ ?>
+                                    <<?php echo $settings['front_title_html_tag']; ?> <?php echo $this->get_render_attribute_string( 'front-icon-title' ); ?> >
+                                        <?php echo $settings['front_title']; ?>
+                                    </<?php echo $settings['front_title_html_tag']; ?>>
+                                <?php } ?>
 
-				<div class="ma-el-flip-box-back">
-					<div class="flipbox-content">
-						<?php if(!empty($settings['back_icon'])){ ?>
-							<div <?php echo $this->get_render_attribute_string( 'back-icon-wrapper' ); ?>>
-								<i <?php echo $this->get_render_attribute_string( 'back-icon' ); ?>></i>
-							</div>
-						<?php } ?>
+                                <?php if(!empty($settings['front-text'])){ ?>
+                                    <p>
+                                        <?php echo $settings['front-text']; ?>
+                                    </p>
+                                <?php } ?>
+                            </div>
+                        </div>
 
-						<?php if(!empty($settings['back_title'])){ ?>
-						<<?php echo $settings['back_title_html_tag']; ?> <?php echo $this->get_render_attribute_string( 'back-icon-title' ); ?> >
-						<?php echo $settings['back_title']; ?>
-					</<?php echo $settings['back_title_html_tag']; ?>>
-					<?php } ?>
+                        <div class="ma-el-flip-box-back">
+                            <div class="flipbox-content">
+                                <?php if(!empty($settings['back_icon'])){ ?>
+                                    <div <?php echo $this->get_render_attribute_string( 'back-icon-wrapper' ); ?>>
+                                        <i <?php echo $this->get_render_attribute_string( 'back-icon' ); ?>></i>
+                                    </div>
+                                <?php } ?>
 
-					<?php if(!empty($settings['back_text'])){ ?>
-						<p>
-							<?php echo $settings['back_text']; ?>
-						</p>
-					<?php } ?>
+                                <?php if(!empty($settings['back_title'])){ ?>
+                                    <<?php echo $settings['back_title_html_tag']; ?> <?php echo $this->get_render_attribute_string( 'back-icon-title' ); ?> >
+                                        <?php echo $settings['back_title']; ?>
+                                    </<?php echo $settings['back_title_html_tag']; ?>>
+                                <?php } ?>
 
-					<?php if(!empty($settings['action_text'])){ ?>
-						<div class="ma-el-fb-button-wrapper">
-							<a <?php echo $this->get_render_attribute_string( 'button' ); ?>>
-								<span class="elementor-button-text"><?php echo $settings['action_text']; ?></span>
-							</a>
-						</div>
-					<?php  }  ?>
-				</div>
-			</div>
+                                <?php if(!empty($settings['back_text'])){ ?>
+                                    <p>
+                                        <?php echo $settings['back_text']; ?>
+                                    </p>
+                                <?php } ?>
 
-			</div>
-			</div>
+                                <?php if(!empty($settings['action_text'])){ ?>
+                                    <div class="ma-el-fb-button-wrapper">
+                                        <a <?php echo $this->get_render_attribute_string( 'button' ); ?>>
+                                            <span class="elementor-button-text"><?php echo $settings['action_text']; ?></span>
+                                        </a>
+                                    </div>
+                                <?php  }  ?>
+                            </div>
+                        </div>
+                    </div>
+			    </div>
 			<?php
 		}
 
