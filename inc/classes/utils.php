@@ -31,12 +31,12 @@
 
 		// add a custom dashboard widget
 		wp_add_dashboard_widget(
-			'dashboard_custom_feed',
-			'News from siteXY',
-			'dashboard_custom_feed_output' );
+			'master-addons-news-feed',
+			esc_html__('News from siteXY', MELA_TD),
+			'ma_el_dashboard_news_feed' );
 	}
 
-	function dashboard_custom_feed_output() {
+	function ma_el_dashboard_news_feed() {
 		echo '<div class="rss-widget">';
 		wp_widget_rss_output(array(
 			'url' => 'https://jeweltheme.com/feed',

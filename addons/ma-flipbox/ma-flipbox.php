@@ -103,16 +103,9 @@
 			$this->add_control(
 				'front_title_html_tag',
 				[
-					'label' => __( 'HTML Tag', MELA_TD ),
+					'label' => __( 'Title HTML Tag', MELA_TD ),
 					'type' => Controls_Manager::SELECT,
-					'options' => [
-						'h1' => __( 'H1', MELA_TD ),
-						'h2' => __( 'H2', MELA_TD ),
-						'h3' => __( 'H3', MELA_TD ),
-						'h4' => __( 'H4', MELA_TD ),
-						'h5' => __( 'H5', MELA_TD ),
-						'h6' => __( 'H6', MELA_TD )
-					],
+					'options' => Master_Addons_Helper::ma_el_title_tags(),
 					'default' => 'h3',
 				]
 			);
@@ -291,20 +284,22 @@
 						'flipcard flipcard-rotate-left-right'   => esc_html__( 'Cube - Left Right', MELA_TD ),
 						'flipcard flipcard-rotate-right-left'   => esc_html__( 'Cube - Right Left', MELA_TD ),
 						'flip box'                              => esc_html__( 'Flip Box',MELA_TD),
-						'flip box fade'                         => esc_html__( 'Flip Box Fade',MELA_TD),
-						'flip box fade up'                      => esc_html__( 'Fade Up',MELA_TD),
-						'flip box fade hideback'                => esc_html__( 'Fade Hideback',MELA_TD),
-						'flip box fade up hideback'             => esc_html__( 'Fade Up Hideback',MELA_TD),
+						'flip box fade'                         => esc_html__( 'Flip Box Fade',MELA_TD), //not working
+						'flip box fade up'                      => esc_html__( 'Fade Up',MELA_TD), //not working
+						'flip box fade hideback'                => esc_html__( 'Fade Hideback',MELA_TD), //not working
+						'flip box fade up hideback'             => esc_html__( 'Fade Up Hideback',MELA_TD), //not working
 						'nananana'                              => esc_html__( 'Nananana',MELA_TD),
 						'rollover'                              => esc_html__( 'Rollover',MELA_TD),
 
-						'left-to-right'                         => esc_html__( 'Left to Right', MELA_TD ), // New Styles
-						'right-to-left'                         => esc_html__( 'Right to Left', MELA_TD ),
-						'top-to-bottom'                         => esc_html__( 'Top to Bottom', MELA_TD ),
-						'bottom-to-top'                         => esc_html__( 'Bottom to Top', MELA_TD ),
-						'top-to-bottom-angle'                   => esc_html__( 'Diagonal (Top to Bottom)', MELA_TD ),
-						'bottom-to-top-angle'                   => esc_html__( 'Diagonal (Bottom to Top)', MELA_TD ),
-						'fade-in-out'                           => esc_html__( 'Fade In Out', MELA_TD ),
+						// New Styles
+
+						'left-to-right'                         => esc_html__( 'Left to Right', MELA_TD ), //not working
+						'right-to-left'                         => esc_html__( 'Right to Left', MELA_TD ), //not working
+						'top-to-bottom'                         => esc_html__( 'Top to Bottom', MELA_TD ), //not working
+						'bottom-to-top'                         => esc_html__( 'Bottom to Top', MELA_TD ), //not working
+						'top-to-bottom-angle'                   => esc_html__( 'Diagonal (Top to Bottom)', MELA_TD ), //not working
+						'bottom-to-top-angle'                   => esc_html__( 'Diagonal (Bottom to Top)', MELA_TD ), //not working
+						'fade-in-out'                           => esc_html__( 'Fade In Out', MELA_TD ), //not working
 
 
 					],

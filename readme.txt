@@ -145,6 +145,10 @@ Paste on your Local Computer
  * Fixed: Particles not showing, Animated Gradient Background not working, Background Slider Image resize issues fixed
  * Added: "Master Addons Widget Badge" added on Particles, Animated Gradient Background, Background Slider.
  * Fixed: Caldera Form error and Styles.
+ * Fixed: Infobox 10 Design Style Presets fixed.
+ * Added: Infobox gradient Color Style changer
+ * Removed: Custom Title and Description removed from Ninja Form
+ * Fixed: Ninja Form Label and Placeholder switcher and css fixings.
 
 
  = 1.1.0 (11-8-2019) =

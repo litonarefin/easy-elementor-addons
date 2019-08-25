@@ -3545,8 +3545,8 @@
 .flipbox-content p{ margin-bottom: 10px; }
 .ma-el-fb-button{ display:inline-block; padding: 5px 10px; }
 
-.ma-el-flip-box-front{ background:#A0CE4E; }
-.ma-el-flip-box-back{ background:#73B9DC; }
+.ma-el-flip-box-front{ background:#4b00e7; }
+.ma-el-flip-box-back{ background:#ae1348; }
 
 @media only screen and (max-width: 768px) {
 
@@ -4202,8 +4202,38 @@
     padding: 0;
 }
 
+/* Start of Common Form Conditions */
+.ma-cf.labels-hide label,
+.ma-cf.placeholder-hide label {
+    display: none;
+}
+
+.ma-cf.placeholder-hide input::-webkit-input-placeholder,
+.ma-cf.placeholder-hide textarea::-webkit-input-placeholder {
+    opacity: 0;
+    visibility: hidden; }
+.ma-cf.placeholder-hide input::-moz-placeholder,
+.ma-cf.placeholder-hide textarea::-moz-placeholder {
+    opacity: 0;
+    visibility: hidden; }
+.ma-cf.placeholder-hide input:-ms-input-placeholder,
+.ma-cf.placeholder-hide textarea:-ms-input-placeholder {
+    opacity: 0;
+    visibility: hidden; }
+.ma-cf.placeholder-hide input:-moz-placeholder,
+.ma-cf.placeholder-hide textarea:-moz-placeholder {
+    opacity: 0;
+    visibility: hidden; }
+/* End of Common Form Conditions */
+
+
 
 /* Ninja Form Starts */
+.nf-form-fields-required {
+    display: none;
+}
+
+
 
 .ma-el-ninja-form.ma-cf-3 .submit-container input[type="button"],
 .ma-el-ninja-form.ma-cf-4 .submit-container input[type="button"] {

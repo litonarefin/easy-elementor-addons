@@ -33,39 +33,6 @@
 			 * -------------------------------------------------
 			 */
 
-			$this->start_controls_section(
-				'ma_ninja_form_section_style',
-				[
-					'label' => esc_html__( 'Design Layout', MELA_TD ),
-				]
-			);
-
-			$this->add_control(
-				'ma_ninja_form_layout_style',
-				[
-					'label' => __( 'Style', MELA_TD ),
-					'type' => Controls_Manager::SELECT,
-					'default' => '1',
-					'options' => [
-						'1'   => __( 'Style One', MELA_TD ),
-						'2'   => __( 'Style Two', MELA_TD ),
-						'3'   => __( 'Style Three', MELA_TD ),
-						'4'   => __( 'Style Four', MELA_TD ),
-						'5'   => __( 'Style Five', MELA_TD ),
-						'6'   => __( 'Style Six', MELA_TD ),
-						'7'   => __( 'Style Seven', MELA_TD ),
-						'8'   => __( 'Style Eight', MELA_TD ),
-						'9'   => __( 'Style Nine', MELA_TD ),
-						'10'   => __( 'Style Ten', MELA_TD ),
-						'11'   => __( 'Style Eleven', MELA_TD ),
-					],
-				]
-			);
-
-			$this->end_controls_section();
-
-
-
 
 			/*
 			 * Master Addons: Content Tab
@@ -88,57 +55,6 @@
 				]
 			);
 
-			$this->add_control(
-				'custom_title_description',
-				[
-					'label'                 => __( 'Custom Title & Description', MELA_TD ),
-					'type'                  => Controls_Manager::SWITCHER,
-					'label_on'              => __( 'Yes', MELA_TD ),
-					'label_off'             => __( 'No', MELA_TD ),
-					'return_value'          => 'yes',
-				]
-			);
-
-			$this->add_control(
-				'form_title',
-				[
-					'label'                 => __( 'Title', MELA_TD ),
-					'type'                  => Controls_Manager::SWITCHER,
-					'default'               => 'yes',
-					'label_on'              => __( 'Show', MELA_TD ),
-					'label_off'             => __( 'Hide', MELA_TD ),
-					'return_value'          => 'yes',
-					'prefix_class'          => 'ma-el-ninja-form-title-',
-					'condition'             => [
-						'custom_title_description!'   => 'yes',
-					],
-				]
-			);
-
-			$this->add_control(
-				'form_title_custom',
-				[
-					'label'                 => esc_html__( 'Title', MELA_TD ),
-					'type'                  => Controls_Manager::TEXT,
-					'label_block'           => true,
-					'default'               => '',
-					'condition'             => [
-						'custom_title_description'   => 'yes',
-					],
-				]
-			);
-
-			$this->add_control(
-				'form_description_custom',
-				[
-					'label'                 => esc_html__( 'Description', MELA_TD ),
-					'type'                  => Controls_Manager::TEXTAREA,
-					'default'               => '',
-					'condition'             => [
-						'custom_title_description'   => 'yes',
-					],
-				]
-			);
 
 			$this->add_control(
 				'labels_switch',
@@ -225,6 +141,41 @@
 			/*-----------------------------------------------------------------------------------*/
 			/*	STYLE TAB
 			/*-----------------------------------------------------------------------------------*/
+
+
+			$this->start_controls_section(
+				'ma_ninja_form_section_style',
+				[
+					'label' => esc_html__( 'Design Layout', MELA_TD ),
+					'tab'                   => Controls_Manager::TAB_STYLE,
+				]
+			);
+
+			$this->add_control(
+				'ma_ninja_form_layout_style',
+				[
+					'label' => __( 'Design Variation', MELA_TD ),
+					'type' => Controls_Manager::SELECT,
+					'default' => '1',
+					'options' => [
+						'1'   => __( 'Style One', MELA_TD ),
+						'2'   => __( 'Style Two', MELA_TD ),
+						'3'   => __( 'Style Three', MELA_TD ),
+						'4'   => __( 'Style Four', MELA_TD ),
+						'5'   => __( 'Style Five', MELA_TD ),
+						'6'   => __( 'Style Six', MELA_TD ),
+						'7'   => __( 'Style Seven', MELA_TD ),
+						'8'   => __( 'Style Eight', MELA_TD ),
+						'9'   => __( 'Style Nine', MELA_TD ),
+						'10'   => __( 'Style Ten', MELA_TD ),
+						'11'   => __( 'Style Eleven', MELA_TD ),
+					],
+				]
+			);
+
+			$this->end_controls_section();
+
+
 
 			/**
 			 * Style Tab: Form Title & Description
@@ -1414,7 +1365,7 @@
 
 			$settings = $this->get_settings();
 
-			$this->add_render_attribute( 'contact-form', 'class', [
+			$this->add_render_attribute( 'ma-el-ninja-form', 'class', [
 					'ma-el-contact-form',
 					'ma-el-ninja-form',
 					'ma-cf',
@@ -1422,46 +1373,31 @@
 				]
 			);
 
-			$this->add_render_attribute( 'contact-form', 'id', [
+			$this->add_render_attribute( 'ma-el-ninja-form', 'id', [
 					'ma-el-ninja-form-' . get_the_ID(),
 				]
 			);
 
-			if ( $settings['placeholder_switch'] != 'yes' ) {
-				$this->add_render_attribute( 'contact-form', 'class', 'placeholder-hide' );
+			if ( $settings['labels_switch'] != 'yes' ) {
+				$this->add_render_attribute( 'ma-el-ninja-form', 'class', 'labels-hide' );
 			}
 
-			if ( $settings['custom_title_description'] == 'yes' ) {
-				$this->add_render_attribute( 'contact-form', 'class', 'title-description-hide' );
+			if ( $settings['placeholder_switch'] != 'yes' ) {
+				$this->add_render_attribute( 'ma-el-ninja-form', 'class', 'placeholder-hide' );
 			}
 
 			if ( $settings['custom_radio_checkbox'] == 'yes' ) {
-				$this->add_render_attribute( 'contact-form', 'class', 'ma-el-custom-radio-checkbox' );
+				$this->add_render_attribute( 'ma-el-ninja-form', 'class', 'ma-el-custom-radio-checkbox' );
 			}
 
 			if ( class_exists( 'Ninja_Forms' ) ) {
 				if ( ! empty( $settings['contact_form_list'] ) ) { ?>
-					<div <?php echo $this->get_render_attribute_string( 'contact-form' ); ?>>
-						<?php if ( $settings['custom_title_description'] == 'yes' ) { ?>
-							<div class="ma-el-ninja-form-heading">
-								<?php if ( $settings['form_title_custom'] != '' ) { ?>
-									<h3 class="ma-el-contact-form-title ma-el-ninja-form-title">
-										<?php echo esc_attr( $settings['form_title_custom'] ); ?>
-									</h3>
-								<?php } ?>
-								<?php if ( $settings['form_description_custom'] != '' ) { ?>
-									<div class="ma-el-contact-form-description ma-el-ninja-form-description">
-										<?php echo $this->parse_text_editor( $settings['form_description_custom'] ); ?>
-									</div>
-								<?php } ?>
-							</div>
-						<?php } ?>
-						<?php
-							$ma_el_form_id = $settings['contact_form_list'];
-
-							echo do_shortcode( '[ninja_form id="' . $ma_el_form_id . '" ]' );
-						?>
-					</div>
+                        <div <?php echo $this->get_render_attribute_string( 'ma-el-ninja-form' ); ?>>
+                            <?php
+                                $ma_el_form_id = $settings['contact_form_list'];
+                                echo do_shortcode( '[ninja_form id="' . $ma_el_form_id . '" ]' );
+                            ?>
+                        </div>
 					<?php
 				}
 			}
