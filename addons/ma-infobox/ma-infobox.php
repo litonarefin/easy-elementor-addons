@@ -202,6 +202,20 @@
 				]
 			);
 
+
+			$this->add_control(
+				'ma_el_infobox_gradient_bg_heading',
+				[
+					'label' => __( 'Icon Color', MELA_TD ),
+					'type' => Controls_Manager::HEADING,
+					'separator' => 'after',
+					'condition' => [
+						'ma_el_infobox_preset' => 'six'
+					],
+
+				]
+			);
+
 			$this->add_group_control(
 				Group_Control_Background::get_type(),
 				[
