@@ -4018,7 +4018,7 @@
 .ma-cf-10 label,
 .ma-cf-11 label,
 .ma-cf-12 label {
-    display: none;
+    /*display: none;*/
 }
 
 .ma-cf-3 input,
@@ -4101,7 +4101,7 @@
 .ma-cf-9.ma-el-wpforms .wpforms-form .wpforms-field-container label,
 .ma-cf-10.ma-el-wpforms .wpforms-form .wpforms-field-container label,
 .ma-cf-11.ma-el-wpforms .wpforms-form .wpforms-field-container label{
-    display: none;
+    /*display: none;*/
 }
 .ma-cf-7 .wpcf7-form-control,
 .ma-cf-8 .wpcf7-form-control,
