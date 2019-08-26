@@ -60,7 +60,7 @@ class Particles{
 				[
 					'type' => Controls_Manager::RAW_HTML,
 					'content_classes' => 'ma_el_enable_particles_alert elementor-control-field-description',
-					'raw' => __( '<a href="https://vincentgarreau.com/particles.js/" target="_blank">Click here</a> to generate JSON for the below field. </br><a href="https://goo.gl/pHziXj" target="_blank">Know more</a> about using this feature.', MELA_TD ),
+					'raw' => __( '<a href="https://vincentgarreau.com/particles.js/" target="_blank">Click here</a> to generate JSON for the below field. </br><a href="http://bit.ly/2Zoicet" target="_blank">Know more</a> about using this feature.', MELA_TD ),
 					'separator' => 'none',
 					'condition' => [
 						'ma_el_enable_particles' => 'yes',
