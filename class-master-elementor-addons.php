@@ -55,14 +55,14 @@
 					'ma-changelog',             // 11
 					'ma-infobox',               // 12
 					'ma-flipbox',               // 13
-//					'ma-creative-links',        // 16
+					'ma-creative-links',        // 14
 
-					'contact-form-7',           // 17
-					'ninja-forms',              // 18
-					['gravity-forms','pro'],    // 19
-					'wpforms',                  // 20
-					'caldera-forms',            // 21
-					'weforms',                  // 22
+					'contact-form-7',           // 15
+					'ninja-forms',              // 16
+					['gravity-forms','pro'],    // 17
+					'wpforms',                  // 18
+					'caldera-forms',            // 19
+					'weforms',                  // 20
 
 //					'ma-piechart',
 
