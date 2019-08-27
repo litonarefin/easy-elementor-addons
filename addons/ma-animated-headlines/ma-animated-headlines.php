@@ -42,6 +42,16 @@
 			);
 
 			$this->add_control(
+				'title_html_tag',
+				[
+					'label'   => __( 'HTML Tag', MELA_TD ),
+					'type'    => Controls_Manager::SELECT,
+					'options' => Master_Addons_Helper::ma_el_title_tags(),
+					'default' => 'div',
+				]
+			);
+
+			$this->add_control(
 				'ma_el_headlines_first_heading',
 				[
 					'label' => esc_html__( 'First Heading', MELA_TD ),
@@ -196,7 +206,7 @@
 					'default' => '#132C47',
 					'selectors'	=> [
 						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' =>
-							'color: {{VALUE}};',
+							'color: {{VALUE}}; font-style: normal; font-weight: normal;',
 					],
 				]
 			);
@@ -208,7 +218,7 @@
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' =>
-							'background-color: {{VALUE}};',
+							'background-color: {{VALUE}}; line-height:1.3;',
 					],
 				]
 			);
@@ -248,13 +258,11 @@
 					$letters_class = "";
 			}
 
-
 			?>
 
                 <div id="ma-el-heading-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-animated-heading">
                     <div class="ma-el-animated-heading-wrapper">
-
-                        <h1
+                        <<?php echo $settings['title_html_tag']; ?>
                             class="ma-el-animated-heading-title ma-el-animated-headline <?php echo esc_html(
                                     $letters_class . ' ' . $settings['ma_el_headlines_style_preset'] ); ?> main-title">
                             <span class="first-heading">
@@ -267,10 +275,10 @@
                                     </b>
                                 <?php } ?>
                             </span>
-                        </h1>
-
+                        </<?php echo $settings['title_html_tag']; ?>
                     </div>
                 </div>
+            </div>
 
 			<?php
 		}

@@ -3,15 +3,21 @@
 Primary style
 
 -------------------------------- */
+
 *, *::after, *::before {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+.ma-el-animated-headline {
+    display: flex;
+    flex-wrap: wrap;
+}
 .ma-el-words-wrapper {
-    display: inline-block;
+    display: inline-block;;
     position: relative;
     text-align: left;
+    margin-left: -.25em;
 }
 .ma-el-words-wrapper b {
     display: inline-block;
@@ -19,6 +25,8 @@ Primary style
     white-space: nowrap;
     left: 0;
     top: 0;
+    padding-left: .2em;
+    padding-right: .2em
 }
 .ma-el-words-wrapper b.is-visible {
     position: relative;
@@ -28,6 +36,10 @@ Primary style
 }
 .no-js .ma-el-words-wrapper b.is-visible {
     opacity: 1;
+}
+.ma-el-animated-headline .first-heading {
+    padding-left: .25rem;
+    padding-right: .25rem;
 }
 
 /* --------------------------------
@@ -207,7 +219,7 @@ xtype
 
 -------------------------------- */
 .ma-el-animated-headline.type .ma-el-words-wrapper {
-    vertical-align: top;
+    vertical-align: text-bottom;
     overflow: hidden;
 }
 .ma-el-animated-headline.type .ma-el-words-wrapper::after {
@@ -319,10 +331,10 @@ xrotate-2
     -moz-perspective: 300px;
     perspective: 300px;
 }
-.ma-el-animated-headline.rotate-2 i, .ma-el-animated-headline.rotate-2 span {
-    display: inline-block;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+.ma-el-animated-headline.rotate-2 i, .ma-el-animated-headline.rotate-2 em {
+    /*display: inline-block;*/
+    /*-webkit-backface-visibility: hidden;*/
+    /*backface-visibility: hidden;*/
 }
 .ma-el-animated-headline.rotate-2 b {
     opacity: 0;
@@ -496,11 +508,12 @@ xloading-bar
 -------------------------------- */
 .ma-el-animated-headline.loading-bar span {
     display: inline-block;
-    padding: .2em 0;
+    padding: 0 .25em;
 }
 .ma-el-animated-headline.loading-bar .ma-el-words-wrapper {
     overflow: hidden;
     vertical-align: top;
+    padding: 0;
 }
 .ma-el-animated-headline.loading-bar .ma-el-words-wrapper::after {
     /* loading bar */
@@ -541,11 +554,12 @@ xslide
 -------------------------------- */
 .ma-el-animated-headline.slide span {
     display: inline-block;
-    padding: .2em 0;
+    padding: 0 .25em;
 }
 .ma-el-animated-headline.slide .ma-el-words-wrapper {
     overflow: hidden;
     vertical-align: top;
+    padding: 0;
 }
 .ma-el-animated-headline.slide b {
     opacity: 0;
@@ -679,11 +693,12 @@ xclip
 -------------------------------- */
 .ma-el-animated-headline.clip span {
     display: inline-block;
-    padding: .2em 0;
+    padding: 0 .25em;
 }
 .ma-el-animated-headline.clip .ma-el-words-wrapper {
     overflow: hidden;
     vertical-align: top;
+    padding: 0;
 }
 .ma-el-animated-headline.clip .ma-el-words-wrapper::after {
     /* line */
@@ -926,6 +941,15 @@ xrotate-3
 xscale
 
 -------------------------------- */
+.ma-el-animated-headline.scale .first-heading,
+.ma-el-animated-headline.push .first-heading,
+.ma-el-animated-headline.rotate-3 .first-heading,
+.ma-el-animated-headline.rotate-1 .first-heading,
+.ma-el-animated-headline.rotate-2 .first-heading,
+.ma-el-animated-headline.zoom .first-heading,
+.ma-el-animated-headline.type .first-heading {
+    padding: 0 .25em;
+}
 .ma-el-animated-headline.scale b {
     opacity: 0;
 }
@@ -947,6 +971,7 @@ xscale
     animation: scale-up 0.6s forwards;
 }
 .ma-el-animated-headline.scale i.out {
+
     -webkit-animation: scale-down 0.6s forwards;
     -moz-animation: scale-down 0.6s forwards;
     animation: scale-down 0.6s forwards;
