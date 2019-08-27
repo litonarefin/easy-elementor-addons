@@ -149,6 +149,10 @@ Paste on your Local Computer
  * Added: Infobox gradient Color Style changer
  * Removed: Custom Title and Description removed from Ninja Form
  * Fixed: Ninja Form Label and Placeholder switcher and css fixings.
+ * Fixed: Dual Heading icon spacing issue fixed
+ * Added: HTML Tags added on Dual heading icon spacing issue fixed
+ * Fixed: MA Cards Image Alt content now showing fixed
+ * Added: Flipbox: Default, Image, Diagnoal style variations added
 
 
  = 1.1.0 (11-8-2019) =

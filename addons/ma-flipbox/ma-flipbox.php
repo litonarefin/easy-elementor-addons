@@ -252,11 +252,41 @@
 
 			$this->end_controls_section();
 
+
+
+
+			/*-----------------------------------------------------------------------------------*/
+			/*	STYLE TAB
+			/*-----------------------------------------------------------------------------------*/
+
 			$this->start_controls_section(
 				'section-general-style',
 				[
 					'label' => __( 'General', MELA_TD ),
 					'tab' => Controls_Manager::TAB_STYLE
+				]
+			);
+
+
+			$this->add_control(
+				'ma_flipbox_layout_style',
+				[
+					'label' => __( 'Design Variation', MELA_TD ),
+					'type' => Controls_Manager::SELECT,
+					'options' => [
+						'one'   => __( 'Default', MELA_TD ),
+						'two'   => __( 'Image', MELA_TD ),
+						'three'   => __( 'Diagnonal', MELA_TD ),
+//						'four'   => __( 'Style Four', MELA_TD ),
+//						'five'   => __( 'Style Five', MELA_TD ),
+//						'six'   => __( 'Style Six', MELA_TD ),
+//						'seven'   => __( 'Style Seven', MELA_TD ),
+//						'eight'   => __( 'Style Eight', MELA_TD ),
+//						'nine'   => __( 'Style Nine', MELA_TD ),
+//						'ten'   => __( 'Style Ten', MELA_TD ),
+//						'eleven'   => __( 'Style Eleven', MELA_TD ),
+					],
+					'default' => 'one',
 				]
 			);
 
@@ -326,7 +356,7 @@
 				'box_height',
 				[
 					'type' => Controls_Manager::TEXT,
-					'label' => __( 'Box Height', MELA_TD ),
+					'label' => __( 'Flip Box Height', MELA_TD ),
 					'placeholder' => __( '250', MELA_TD ),
 					'default' => __( '250', MELA_TD ),
 					'selectors' => [
@@ -347,15 +377,49 @@
 				]
 			);
 
-			$this->add_group_control(
-				Group_Control_Background::get_type(),
+
+			$this->add_control(
+				'front_box_bg_color',
 				[
-					'name' => 'front_box_background',
-					'label' => __( 'Front Box Background', MELA_TD ),
-					'types' => [ 'classic','gradient' ],
-					'selector' => '{{WRAPPER}} .ma-el-flip-box-front',
+					'label' => __( 'Background Color', MELA_TD ),
+					'type' => Controls_Manager::COLOR,
+					'scheme' => [
+						'type' => Scheme_Color::get_type(),
+						'value' => Scheme_Color::COLOR_1,
+					],
+					'default' => '#fff',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-flip-box-front' => 'background: {{VALUE}};',
+					],
+					'condition' => [
+						'ma_flipbox_layout_style' => 'one'
+					],
 				]
 			);
+
+			$this->add_control(
+				'front_box_image',
+				[
+					'label' => __( 'Image', MELA_TD ),
+					'type' => Controls_Manager::MEDIA,
+					'default' => [
+						'url' => Utils::get_placeholder_image_src(),
+					],
+					'condition' => [
+						'ma_flipbox_layout_style' => 'two',
+					],
+				]
+			);
+//
+//			$this->add_group_control(
+//				Group_Control_Background::get_type(),
+//				[
+//					'name' => 'front_box_background',
+//					'label' => __( 'Front Box Background', MELA_TD ),
+//					'types' => [ 'classic','gradient' ],
+//					'selector' => '{{WRAPPER}} .ma-el-flip-box-front',
+//				]
+//			);
 
 
 			$this->add_control(
@@ -367,7 +431,7 @@
 						'type' => Scheme_Color::get_type(),
 						'value' => Scheme_Color::COLOR_1,
 					],
-					'default' => '#FFF',
+					'default' => '#393c3f',
 					'selectors' => [
 						'{{WRAPPER}} .front-icon-title' => 'color: {{VALUE}};',
 					],
@@ -396,7 +460,7 @@
 						'type' => Scheme_Color::get_type(),
 						'value' => Scheme_Color::COLOR_1,
 					],
-					'default' => '#FFF',
+					'default' => '#78909c',
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-flip-box-front p' => 'color: {{VALUE}};',
 					],
@@ -427,7 +491,7 @@
 						'type' => Scheme_Color::get_type(),
 						'value' => Scheme_Color::COLOR_1,
 					],
-					'default' => '#FFF',
+					'default' => '#4b00e7',
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-flip-box-front .icon-wrapper i' => 'color: {{VALUE}};',
 					],
@@ -446,7 +510,7 @@
 						'type' => Scheme_Color::get_type(),
 						'value' => Scheme_Color::COLOR_1,
 					],
-					'default' => '#92BE43',
+					'default' => '#4b00e7',
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-fb-icon-view-stacked' => 'background-color: {{VALUE}};',
 					],
@@ -624,7 +688,7 @@
 						'type' => Scheme_Color::get_type(),
 						'value' => Scheme_Color::COLOR_1,
 					],
-					'default' => '#92BE43',
+					'default' => '#fff',
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-flip-box-back .ma-el-fb-icon-view-stacked' => 'background-color: {{VALUE}};',
 					],
@@ -732,7 +796,7 @@
 						'type' => Scheme_Color::get_type(),
 						'value' => Scheme_Color::COLOR_4,
 					],
-					'default' => '#93C64F',
+					'default' => 'transparent',
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-fb-button' => 'background-color: {{VALUE}};',
 					],
@@ -813,30 +877,61 @@
 					$this->add_render_attribute( 'button', 'target', '_blank' );
 				}
 			}
+
+
+
+            $flip_box = $this->get_settings_for_display( 'front_box_image' );
+			$flip_box_url_src = Group_Control_Image_Size::get_attachment_image_src( $flip_box['id'], 'full',
+                $settings );
+			if( empty( $flip_box_url_src ) ) {
+				$flip_box_url = $flip_box['url'];
+			} else {
+				$flip_box_url = $flip_box_url_src;
+			}
+
+
 			?>
 
-                    <div class="ma-el-flip-box-wrapper">
+
+
+
+
+                    <div class="ma-el-flip-box-wrapper <?php echo $settings['ma_flipbox_layout_style'] ?>">
 
                         <div class="ma-el-flip-box-inner">
                             <div class="ma-el-flip-box-front">
                                 <div class="flipbox-content">
-                                    <?php if(!empty($settings['front_icon'])){ ?>
-                                        <div <?php echo $this->get_render_attribute_string( 'front-icon-wrapper' ); ?>>
-                                            <i <?php echo $this->get_render_attribute_string( 'front-icon' ); ?>></i>
-                                        </div>
+
+                                    <?php if($settings['ma_flipbox_layout_style'] == "two") { ?>
+
+                                        <img src="<?php echo esc_url($flip_box_url); ?>" alt="<?php echo get_post_meta( $flip_box['id'], '_wp_attachment_image_alt', true);?>">
+
+                                    <?php } else if( ($settings['ma_flipbox_layout_style'] == "one" )|| ($settings['ma_flipbox_layout_style'] == "three") ){ ?>
+
+                                        <?php if(!empty($settings['front_icon'])){ ?>
+                                            <div <?php echo $this->get_render_attribute_string( 'front-icon-wrapper' ); ?>>
+                                                <i <?php echo $this->get_render_attribute_string( 'front-icon' ); ?>></i>
+                                            </div>
+                                        <?php } ?>
+
+                                        <?php if(!empty($settings['front_title'])){ ?>
+                                        <<?php echo $settings['front_title_html_tag']; ?> <?php echo $this->get_render_attribute_string( 'front-icon-title' ); ?> >
+                                            <?php echo $settings['front_title']; ?>
+                                        </<?php echo $settings['front_title_html_tag']; ?>>
                                     <?php } ?>
 
-                                    <?php if(!empty($settings['front_title'])){ ?>
-                                    <<?php echo $settings['front_title_html_tag']; ?> <?php echo $this->get_render_attribute_string( 'front-icon-title' ); ?> >
-                                        <?php echo $settings['front_title']; ?>
-                                    </<?php echo $settings['front_title_html_tag']; ?>>
-                                <?php } ?>
+                                    <?php if(!empty($settings['front-text'])){ ?>
+                                        <p>
+                                            <?php echo $settings['front-text']; ?>
+                                        </p>
+                                    <?php } ?>
 
-                                <?php if(!empty($settings['front-text'])){ ?>
-                                    <p>
-                                        <?php echo $settings['front-text']; ?>
-                                    </p>
-                                <?php } ?>
+                                <?php }
+                                //else if( $settings['ma_flipbox_layout_style'] == "three") { ?>
+
+
+                                <?php //} ?>
+
                             </div>
                         </div>
 

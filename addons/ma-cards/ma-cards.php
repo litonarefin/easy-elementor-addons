@@ -299,8 +299,7 @@
 			<div id="ma-el-card-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-card <?php echo esc_attr
 			($settings['ma_el_card_preset']); ?>">
 				<div class="ma-el-card-thumb">
-					<img src="<?php echo esc_url($card_image_url); ?>" alt="<?php echo $settings['ma_el_card_title'];
-					?>">
+					<img src="<?php echo esc_url($card_image_url); ?>" alt="<?php echo get_post_meta( $card_image['id'], '_wp_attachment_image_alt', true);?>">
 				</div>
 				<div class="ma-el-card-body">
 					<a href="<?php echo esc_url( $settings['ma_el_card_title_link']['url'] ); ?>"
