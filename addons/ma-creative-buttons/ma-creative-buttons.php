@@ -501,7 +501,7 @@
 
 			$this->add_render_attribute( 'ma_el_creative_button', [
 				'class'	=> [ 'button ma-el-creative-button', esc_attr($settings['creative_button_effect'] ) ],
-				'href'	=> esc_attr($settings['creative_button_link_url']['url'] ),
+				'href'	=> esc_url($settings['creative_button_link_url']['url'] ),
 			]);
 
 			if( $settings['creative_button_link_url']['is_external'] ) {

@@ -35,10 +35,530 @@
 		}
 
 		protected function _register_controls() {
+			/*
+			 * Master Addons: Creative Link Controls
+			 */
+			$this->start_controls_section(
+				'ma_el_creative_link_content',
+				[
+					'label' => esc_html__( 'Creative Link Controls', MELA_TD )
+				]
+			);
+
+
+			$this->add_control(
+				'creative_link_text',
+				[
+					'label'       => esc_html__( 'Link Text', MELA_TD ),
+					'type'        => Controls_Manager::TEXT,
+					'label_block' => true,
+					'default'     => 'Click Me!',
+					'placeholder' => esc_html__( 'Enter Link text', MELA_TD ),
+					'title'       => esc_html__( 'Enter Link text here', MELA_TD ),
+				]
+			);
+
+			$this->add_control(
+				'creative_alternative_link_text',
+				[
+					'label'       => esc_html__( 'Alternative Link Text', MELA_TD ),
+					'type'        => Controls_Manager::TEXT,
+					'label_block' => true,
+					'default'     => 'Go!',
+					'placeholder' => esc_html__( 'Enter Alternative Link text', MELA_TD ),
+					'title'       => esc_html__( 'Enter Alternative Link text here', MELA_TD ),
+				]
+			);
+
+
+			$this->add_control(
+				'creative_link_url',
+				[
+					'label'       => esc_html__( 'Link URL', MELA_TD ),
+					'type'        => Controls_Manager::URL,
+					'label_block' => true,
+					'default'     => [
+						'url'         => '#',
+						'is_external' => '',
+					],
+					'show_external' => true,
+				]
+			);
+
+			$this->add_control(
+				'ma_el_creative_link_icon',
+				[
+					'label' => esc_html__( 'Icon', MELA_TD ),
+					'type'  => Controls_Manager::ICON,
+				]
+			);
+
+			$this->add_control(
+				'ma_el_creative_link_icon_alignment',
+				[
+					'label'   => esc_html__( 'Icon Position', MELA_TD ),
+					'type'    => Controls_Manager::SELECT,
+					'default' => 'left',
+					'options' => [
+						'left'  => esc_html__( 'Before', MELA_TD ),
+						'right' => esc_html__( 'After', MELA_TD ),
+					],
+					'condition' => [
+						'ma_el_creative_link_icon!' => '',
+					],
+				]
+			);
+
+
+			$this->add_control(
+				'ma_el_creative_link_icon_indent',
+				[
+					'label' => esc_html__( 'Icon Spacing', MELA_TD ),
+					'type'  => Controls_Manager::SLIDER,
+					'range' => [
+						'px' => [
+							'max' => 60,
+						],
+					],
+					'condition' => [
+						'ma_el_creative_link_icon!' => '',
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-creative-link-icon-right' => 'margin-left: {{SIZE}}px;',
+						'{{WRAPPER}} .ma-el-creative-link-icon-left'  => 'margin-right: {{SIZE}}px;',
+						'{{WRAPPER}} .ma-el-creative-link i' => 'left: -{{SIZE}}px;',
+					],
+				]
+			);
+
+
+
+			$this->end_controls_section();
+
+
+			$this->end_controls_section();
+
+
+			if ( ma_el_fs()->is_not_paying() ) {
+
+				$this->start_controls_section(
+					'maad_el_section_pro',
+					[
+						'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD )
+					]
+				);
+
+				$this->add_control(
+					'maad_el_control_get_pro',
+					[
+						'label'       => esc_html__( 'Unlock more possibilities', MELA_TD ),
+						'type'        => Controls_Manager::CHOOSE,
+						'options'     => [
+							'1' => [
+								'title' => esc_html__( '', MELA_TD ),
+								'icon'  => 'fa fa-unlock-alt',
+							],
+						],
+						'default'     => '1',
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+					]
+				);
+
+				$this->end_controls_section();
+
+			}
+
+
+
+			/*
+			 *  Master Addons: Style Controls
+			 */
+			$this->start_controls_section(
+				'ma_el_creative_link_settings',
+				[
+					'label' => esc_html__( 'Link Effects &amp; Styles', MELA_TD ),
+					'tab'   => Controls_Manager::TAB_STYLE
+				]
+			);
+
+			// Premium Version Codes
+			if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+
+				$this->add_control(
+					'creative_link_effect',
+					[
+						'label'       => esc_html__( 'Set Link Effect', MELA_TD ),
+						'type'        => Controls_Manager::SELECT,
+						'default'     => 'cl-effect-1',
+						'options'     => [
+							'cl-effect-1' 	=> esc_html__( 'Effect 1', 	    MELA_TD ),
+							'cl-effect-2' 	=> esc_html__( 'Effect 2', 	    MELA_TD ),
+							'cl-effect-3' 	=> esc_html__( 'Effect 3', 	    MELA_TD ),
+							'cl-effect-4' 	=> esc_html__( 'Effect 4', 	    MELA_TD ),
+							'cl-effect-5' 	=> esc_html__( 'Effect 5', 	    MELA_TD ),
+						],
+
+					]
+				);
+
+
+			//Free Version Codes
+
+			} else {
+
+				$this->add_control(
+					'creative_link_effect',
+					[
+						'label'       => esc_html__( 'Set Link Effect', MELA_TD ),
+						'type'        => Controls_Manager::SELECT,
+						'default'     => 'cl-effect-1',
+						'options'     => [
+							'cl-effect-1' 	=> esc_html__( 'Effect 1', 	    MELA_TD ),
+							'cl-effect-2' 	=> esc_html__( 'Effect 2', 	    MELA_TD ),
+							'cl-effect-3' 	=> esc_html__( 'Effect 3', 	    MELA_TD ),
+							'cl-effect-4' 	=> esc_html__( 'Effect 4', 	    MELA_TD ),
+							'cl-effect-5' 	=> esc_html__( 'Effect 5', 	    MELA_TD ),
+							'cl-effect-6' 	=> esc_html__( 'Effect 6', 	    MELA_TD ),
+							'cl-effect-7' 	=> esc_html__( 'Effect 7', 	    MELA_TD ),
+							'cl-effect-8' 	=> esc_html__( 'Effect 8', 	    MELA_TD ),
+							'cl-effect-9' 	=> esc_html__( 'Effect 9', 	    MELA_TD ),
+							'cl-effect-10' 	=> esc_html__( 'Effect 10', 	    MELA_TD ),
+							'cl-effect-11' 	=> esc_html__( 'Effect 11', 	    MELA_TD ),
+							'cl-effect-12' 	=> esc_html__( 'Effect 12', 	    MELA_TD ),
+							'cl-effect-13' 	=> esc_html__( 'Effect 13', 	    MELA_TD ),
+							'cl-effect-14' 	=> esc_html__( 'Effect 14', 	    MELA_TD ),
+							'cl-effect-15' 	=> esc_html__( 'Effect 15', 	    MELA_TD ),
+							'cl-effect-16' 	=> esc_html__( 'Effect 16', 	    MELA_TD ),
+							'cl-effect-17' 	=> esc_html__( 'Effect 17', 	    MELA_TD ),
+							'cl-effect-18' 	=> esc_html__( 'Effect 18', 	    MELA_TD ),
+							'cl-effect-19' 	=> esc_html__( 'Effect 19', 	    MELA_TD ),
+							'cl-effect-20' 	=> esc_html__( 'Effect 20', 	    MELA_TD ),
+							'cl-effect-21' 	=> esc_html__( 'Effect 21', 	    MELA_TD ),
+							'cl-effect-22' 	=> esc_html__( 'Effect 22', 	    MELA_TD ),
+						],
+
+
+						'description' => sprintf( '20+ more effects on <a href="%s" target="_blank">%s</a>',
+							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
+							__( 'Upgrade Now', MELA_TD ) )
+					]
+				);
+
+
+
+			}
+
+
+
+
+			$this->add_responsive_control(
+				'ma_el_creative_link_alignment',
+				[
+					'label'       => esc_html__( 'Link Alignment', MELA_TD ),
+					'type'        => Controls_Manager::CHOOSE,
+					'label_block' => true,
+					'options'     => [
+						'flex-start' => [
+							'title' => esc_html__( 'Left', MELA_TD ),
+							'icon'  => 'fa fa-align-left',
+						],
+						'center' => [
+							'title' => esc_html__( 'Center', MELA_TD ),
+							'icon'  => 'fa fa-align-center',
+						],
+						'flex-end' => [
+							'title' => esc_html__( 'Right', MELA_TD ),
+							'icon'  => 'fa fa-align-right',
+						],
+					],
+					'default'   => '',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-creative-links' => 'justify-content: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'ma_el_creative_link_width',
+				[
+					'label'      => esc_html__( 'Width', MELA_TD ),
+					'type'       => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range'      => [
+						'px' => [
+							'min'  => 0,
+							'max'  => 500,
+							'step' => 1,
+						],
+						'%' => [
+							'min' => 0,
+							'max' => 100,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-creative-link' => 'width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Typography:: get_type(),
+				[
+					'name'     => 'ma_el_creative_link_typography',
+					'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+					'selector' => '{{WRAPPER}} .ma-el-creative-link',
+				]
+			);
+
+			$this->add_responsive_control(
+				'ma_el_creative_link_padding',
+				[
+					'label'      => esc_html__( 'Link Padding', MELA_TD ),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors'  => [
+						'{{WRAPPER}} .ma-el-creative-link'                                      => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--winona::after'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--winona > span'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--tamaya::before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--rayen::before'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--rayen > span'   => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+
+			$this->start_controls_tabs( 'ma_el_creative_link_tabs' );
+
+			$this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', MELA_TD ) ] );
+
+			$this->add_control(
+				'ma_el_creative_link_text_color',
+				[
+					'label'     => esc_html__( 'Text Color', MELA_TD ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '#ffffff',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-creative-link'                                      => 'color: {{VALUE}};',
+//						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--tamaya::before' => 'color: {{VALUE}};',
+//						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--tamaya::after'  => 'color: {{VALUE}};',
+					],
+				]
+			);
+
+
+
+			$this->add_control(
+				'ma_el_creative_link_background_color',
+				[
+					'label'     => esc_html__( 'Background Color', MELA_TD ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '#333333',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-creative-link'                                      => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-link:hover'   => 'background-color: {{VALUE}};',
+//						'{{WRAPPER}} .ma-el-creative-link a:hover'    => 'background-color: {{VALUE}};',
+//						'{{WRAPPER}} .ma-el-creative-link a::before' => 'background-color: {{VALUE}};',
+//						'{{WRAPPER}} .ma-el-creative-link a::after'  => 'background-color: {{VALUE}};',
+//						'{{WRAPPER}} .ma-el-creative-link a:hover'    => 'background-color: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Border:: get_type(),
+				[
+					'name'     => 'ma_el_creative_link_border',
+					'selector' => '{{WRAPPER}} .ma-el-creative-link',
+				]
+			);
+
+			$this->add_control(
+				'ma_el_creative_link_border_radius',
+				[
+					'label' => esc_html__( 'Border Radius', MELA_TD ),
+					'type'  => Controls_Manager::SLIDER,
+					'range' => [
+						'px' => [
+							'max' => 100,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-creative-link'         => 'border-radius: {{SIZE}}px;',
+						'{{WRAPPER}} .ma-el-creative-link::before' => 'border-radius: {{SIZE}}px;',
+						'{{WRAPPER}} .ma-el-creative-link::after'  => 'border-radius: {{SIZE}}px;',
+					],
+				]
+			);
+
+
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab( 'ma_el_creative_link_hover', [ 'label' => esc_html__( 'Hover', MELA_TD )
+			] );
+
+			$this->add_control(
+				'ma_el_creative_link_hover_text_color',
+				[
+					'label'     => esc_html__( 'Text Color', MELA_TD ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '#ffffff',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-creative-link:hover'                               => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--winona::after' => 'color: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_control(
+				'ma_el_creative_link_hover_background_color',
+				[
+					'label'     => esc_html__( 'Background Color', MELA_TD ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '#f54',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-creative-link:hover' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--ujarak::before' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--wayra:hover::before' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--tamaya:hover' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--rayen::before' => 'background-color: {{VALUE}};',
+					]
+				]
+			);
+
+			$this->add_control(
+				'ma_el_creative_link_hover_border_color',
+				[
+					'label'     => esc_html__( 'Border Color', MELA_TD ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-creative-link:hover'                                 => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--wapasha::before' => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--antiman::before' => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--pipaluk::before' => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--quidel::before'  => 'background-color: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->end_controls_tab();
+
+			$this->end_controls_tabs();
+
+			$this->add_group_control(
+				Group_Control_Box_Shadow:: get_type(),
+				[
+					'name'     => 'link_box_shadow',
+					'selector' => '{{WRAPPER}} .ma-el-creative-link',
+				]
+			);
+
+
+			$this->end_controls_section();
+
+
 
 		}
 
-		protected function render() {}
+		protected function render() {
+			$settings = $this->get_settings();
+			$link_id		= $this->get_id();
+
+
+			$this->add_render_attribute( 'ma_el_creative_links_wrapper', [
+				'class'	=> [
+					'ma-el-creative-links',
+					esc_attr($settings['creative_link_effect'] )
+				],
+				'id' => 'ma-creative-link-' . esc_attr($link_id)
+			]);
+
+			$this->add_render_attribute( 'ma_el_creative_link', [
+				'class'	=>  'ma-el-creative-link-item',
+				'href'	=> esc_url_raw($settings['creative_link_url']['url'] ),
+
+			]);
+
+
+			if( $settings['creative_link_url']['is_external'] ) {
+				$this->add_render_attribute( 'ma_el_creative_link', 'target', '_blank' );
+			}
+
+			if( $settings['creative_link_url']['nofollow'] ) {
+				$this->add_render_attribute( 'ma_el_creative_link', 'rel', 'nofollow' );
+			}
+
+			?>
+			<?php if( ($settings['creative_link_effect'] == "cl-effect-2" ) ||
+			($settings['creative_link_effect'] == "cl-effect-19" ) ||
+			($settings['creative_link_effect'] == "cl-effect-20" )){?>
+				<div class="csstransforms3d">
+			<?php } ?>
+
+				<div <?php echo $this->get_render_attribute_string( 'ma_el_creative_links_wrapper' ); ?>>
+					<div class="ma-el-creative-link">
+						<a <?php echo $this->get_render_attribute_string( 'ma_el_creative_link' ); ?>
+							<?php if( ($settings['creative_link_effect'] == "cl-effect-10" ) ||
+							          ($settings['creative_link_effect'] == "cl-effect-11" )||
+							          ($settings['creative_link_effect'] == "cl-effect-15" )||
+							          ($settings['creative_link_effect'] == "cl-effect-16" )||
+							          ($settings['creative_link_effect'] == "cl-effect-17" )||
+							          ($settings['creative_link_effect'] == "cl-effect-18" )||
+							          ($settings['creative_link_effect'] == "cl-effect-19" )||
+							          ($settings['creative_link_effect'] == "cl-effect-20" )
+							){?>
+								data-hover="<?php echo  $settings['creative_link_text'];?>"
+							<?php } ?>>
+
+
+
+							<?php if( ($settings['creative_link_effect'] == "cl-effect-2" ) ||
+							($settings['creative_link_effect'] == "cl-effect-19" ) ||
+							($settings['creative_link_effect'] == "cl-effect-20" )){?>
+								<span data-hover="<?php echo  $settings['creative_link_text'];?>">
+							<?php } ?>
+
+
+								<?php if ( ! empty( $settings['ma_el_creative_link_icon'] ) && $settings['ma_el_creative_link_icon_alignment'] == 'left' ) : ?>
+									<i class="<?php echo esc_attr($settings['ma_el_creative_link_icon'] ); ?>
+									ma-el-creative-link-icon-left" aria-hidden="true"></i>
+								<?php endif; ?>
+
+
+								<?php if( $settings['creative_link_effect'] == "cl-effect-10"  ){?>
+									<span><?php echo  $settings['creative_link_text'];?></span>
+								<?php } else{ echo $settings['creative_link_text']; }?>
+
+
+								<?php if( $settings['creative_link_effect'] == "cl-effect-9"  ){?>
+									<span><?php echo  $settings['creative_alternative_link_text'];?></span>
+								<?php } ?>
+
+
+
+								<?php if ( ! empty( $settings['ma_el_creative_link_icon'] ) && $settings['ma_el_creative_link_icon_alignment'] == 'right' ) : ?>
+									<i class="<?php echo esc_attr($settings['ma_el_creative_link_icon'] ); ?>
+									ma-el-creative-link-icon-right" aria-hidden="true"></i>
+								<?php endif; ?>
+
+							<?php if($settings['creative_link_effect'] == "cl-effect-2" ){?>
+								</span>
+							<?php } ?>
+
+						</a>
+					</div>
+				</div>
+
+			<?php if( ($settings['creative_link_effect'] == "cl-effect-2" ) ||
+			($settings['creative_link_effect'] == "cl-effect-19" ) ||
+			($settings['creative_link_effect'] == "cl-effect-20" ) ){?>
+				</div>
+			<?php } ?>
+
+			<?php
+		}
 	}
 
 	Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Creative_Links() );
