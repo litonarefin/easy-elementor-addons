@@ -191,11 +191,27 @@
 						'type'        => Controls_Manager::SELECT,
 						'default'     => 'cl-effect-1',
 						'options'     => [
-							'cl-effect-1' 	=> esc_html__( 'Effect 1', 	    MELA_TD ),
-							'cl-effect-2' 	=> esc_html__( 'Effect 2', 	    MELA_TD ),
-							'cl-effect-3' 	=> esc_html__( 'Effect 3', 	    MELA_TD ),
-							'cl-effect-4' 	=> esc_html__( 'Effect 4', 	    MELA_TD ),
-							'cl-effect-5' 	=> esc_html__( 'Effect 5', 	    MELA_TD ),
+							'cl-effect-1' 	=> esc_html__( 'Brackets', 	                                MELA_TD ),
+							'cl-effect-2' 	=> esc_html__( '3D Effect(Pro)', 	                        MELA_TD ),
+							'cl-effect-3' 	=> esc_html__( 'Bottom Line Slide', 	                    MELA_TD ),
+							'cl-effect-4' 	=> esc_html__( 'Bottom Border Enlarge', 	                MELA_TD ),
+							'cl-effect-5' 	=> esc_html__( 'Slide In(Pro)', 	                        MELA_TD ),
+							'cl-effect-6' 	=> esc_html__( 'Border Slide Down(Pro)', 	                MELA_TD ),
+							'cl-effect-7' 	=> esc_html__( '2nd Border Slide Up', 	                    MELA_TD ),
+							'cl-effect-8' 	=> esc_html__( 'Border Translate(Pro)', 	                MELA_TD ),
+							'cl-effect-9' 	=> esc_html__( '2nd Text and Border(Pro)', 	                MELA_TD ),
+							'cl-effect-10' 	=> esc_html__( 'Reveal Push Out(Pro)', 	                    MELA_TD ),
+							'cl-effect-11' 	=> esc_html__( 'Text Fill', 	                            MELA_TD ), //problem
+							'cl-effect-12' 	=> esc_html__( 'Circle (Pro)', 	                            MELA_TD ),
+							'cl-effect-13' 	=> esc_html__( 'Three Dots', 	                            MELA_TD ),
+							'cl-effect-14' 	=> esc_html__( 'Border Switch(Pro)', 	                    MELA_TD ),
+							'cl-effect-15' 	=> esc_html__( 'Scale Down', 	                            MELA_TD ),
+							'cl-effect-16' 	=> esc_html__( 'Fall Down(Pro)', 	                        MELA_TD ),
+							'cl-effect-17' 	=> esc_html__( 'Move Up', 	                                MELA_TD ),
+							'cl-effect-18' 	=> esc_html__( 'Cross(Pro)', 	                            MELA_TD ),
+							'cl-effect-19' 	=> esc_html__( '3D Slide(Pro)', 	                        MELA_TD ),
+							'cl-effect-20' 	=> esc_html__( '3D Slide Down(Pro)', 	                    MELA_TD ),
+							'cl-effect-21' 	=> esc_html__( 'Effect 21', 	                            MELA_TD )
 						],
 
 					]
@@ -213,28 +229,27 @@
 						'type'        => Controls_Manager::SELECT,
 						'default'     => 'cl-effect-1',
 						'options'     => [
-							'cl-effect-1' 	=> esc_html__( 'Effect 1', 	    MELA_TD ),
-							'cl-effect-2' 	=> esc_html__( 'Effect 2', 	    MELA_TD ),
-							'cl-effect-3' 	=> esc_html__( 'Effect 3', 	    MELA_TD ),
-							'cl-effect-4' 	=> esc_html__( 'Effect 4', 	    MELA_TD ),
-							'cl-effect-5' 	=> esc_html__( 'Effect 5', 	    MELA_TD ),
-							'cl-effect-6' 	=> esc_html__( 'Effect 6', 	    MELA_TD ),
-							'cl-effect-7' 	=> esc_html__( 'Effect 7', 	    MELA_TD ),
-							'cl-effect-8' 	=> esc_html__( 'Effect 8', 	    MELA_TD ),
-							'cl-effect-9' 	=> esc_html__( 'Effect 9', 	    MELA_TD ),
-							'cl-effect-10' 	=> esc_html__( 'Effect 10', 	    MELA_TD ),
-							'cl-effect-11' 	=> esc_html__( 'Effect 11', 	    MELA_TD ),
-							'cl-effect-12' 	=> esc_html__( 'Effect 12', 	    MELA_TD ),
-							'cl-effect-13' 	=> esc_html__( 'Effect 13', 	    MELA_TD ),
-							'cl-effect-14' 	=> esc_html__( 'Effect 14', 	    MELA_TD ),
-							'cl-effect-15' 	=> esc_html__( 'Effect 15', 	    MELA_TD ),
-							'cl-effect-16' 	=> esc_html__( 'Effect 16', 	    MELA_TD ),
-							'cl-effect-17' 	=> esc_html__( 'Effect 17', 	    MELA_TD ),
-							'cl-effect-18' 	=> esc_html__( 'Effect 18', 	    MELA_TD ),
-							'cl-effect-19' 	=> esc_html__( 'Effect 19', 	    MELA_TD ),
-							'cl-effect-20' 	=> esc_html__( 'Effect 20', 	    MELA_TD ),
-							'cl-effect-21' 	=> esc_html__( 'Effect 21', 	    MELA_TD ),
-							'cl-effect-22' 	=> esc_html__( 'Effect 22', 	    MELA_TD ),
+							'cl-effect-1' 	=> esc_html__( 'Brackets', 	                    MELA_TD ),
+							'' 	            => esc_html__( '3D Effect(Pro)', 	            MELA_TD ),
+							'cl-effect-3' 	=> esc_html__( 'Bottom Line Slide', 	        MELA_TD ),
+							'cl-effect-4' 	=> esc_html__( 'Bottom Border Enlarge', 	    MELA_TD ),
+							'' 	            => esc_html__( 'Slide In(Pro)', 	            MELA_TD ),
+							'' 	            => esc_html__( 'Border Slide Down(Pro)', 	    MELA_TD ),
+							'cl-effect-7' 	=> esc_html__( '2nd Border Slide Up', 	        MELA_TD ),
+							'' 	            => esc_html__( 'Border Translate(Pro)', 	    MELA_TD ),
+							'' 	            => esc_html__( '2nd Text and Border(Pro)', 	    MELA_TD ),
+							'' 	            => esc_html__( 'Reveal Push Out(Pro)', 	        MELA_TD ),
+							'cl-effect-11' 	=> esc_html__( 'Text Fill', 	                MELA_TD ), //problem
+							'' 	            => esc_html__( 'Circle (Pro)', 	                MELA_TD ),
+							'cl-effect-13' 	=> esc_html__( 'Three Dots', 	                MELA_TD ),
+							'' 	            => esc_html__( 'Border Switch(Pro)', 	        MELA_TD ),
+							'cl-effect-15' 	=> esc_html__( 'Scale Down', 	                MELA_TD ),
+							'' 	            => esc_html__( 'Fall Down(Pro)', 	            MELA_TD ),
+							'cl-effect-17' 	=> esc_html__( 'Move Up', 	                    MELA_TD ),
+							'' 	            => esc_html__( 'Cross(Pro)', 	                MELA_TD ),
+							'' 	            => esc_html__( '3D Slide(Pro)', 	            MELA_TD ),
+							'' 	            => esc_html__( '3D Slide Down(Pro)', 	        MELA_TD ),
+							'cl-effect-21' 	=> esc_html__( 'Effect 21', 	                MELA_TD )
 						],
 
 
@@ -373,8 +388,13 @@
                         =>  'background: {{VALUE}};',
 
 
+						'{{WRAPPER}} .ma-el-creative-links.cl-effect-20 a span' => 'box-shadow: inset 0 3px {{VALUE}};',
+
+
                         '{{WRAPPER}} .ma-el-creative-links.cl-effect-8 a::before,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-8 a::after' => 'border: 3px solid {{VALUE}};'
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-8 a::after' => 'border: 3px solid {{VALUE}};',
+
+
 
 
 //						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--tamaya::before' => 'color: {{VALUE}};',
@@ -394,7 +414,12 @@
 					'selectors' => [
 
 						'{{WRAPPER}} .ma-el-creative-links .ma-el-creative-link' => 'background-color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-creative-links.cl-effect-2 a span' => 'background: {{VALUE}};',
+
+                        '{{WRAPPER}} .ma-el-creative-links.cl-effect-2 a span,
+						{{WRAPPER}} .ma-el-creative-links.cl-effect-20 a span' => 'background: {{VALUE}};',
+
+						'{{WRAPPER}} .ma-el-creative-links.cl-effect-19 .ma-el-creative-link a span,
+						{{WRAPPER}} .csstransforms3d .ma-el-creative-links.cl-effect-19 a span::before' => 'background: {{VALUE}};',
 
 //						'{{WRAPPER}} .ma-el-creative-link'                                      => 'background-color: {{VALUE}};',
 //						'{{WRAPPER}} .ma-el-creative-link:hover'   => 'background-color: {{VALUE}};',
@@ -448,9 +473,23 @@
 					'default'   => '#333333',
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-creative-links .ma-el-creative-link a:hover,
-						{{WRAPPER}} .ma-el-creative-links.cl-effect-9 a span:last-child
-						' => 'color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-creative-links.cl-effect-8 .cl-effect-8 a::after' => 'border-color: {{VALUE}};'
+						{{WRAPPER}} .ma-el-creative-links.cl-effect-9 a span:last-child,
+						{{WRAPPER}} .ma-el-creative-links.cl-effect-20 a span::before' => 'color: {{VALUE}};',
+
+						'{{WRAPPER}} .ma-el-creative-links.cl-effect-8 .cl-effect-8 a::after' => 'border-color: {{VALUE}};',
+
+
+						'{{WRAPPER}} .ma-el-creative-links.cl-effect-13 a:hover::before,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-13 a:focus::before' => 'color: {{VALUE}}; text-shadow: 10px 0 {{VALUE}}, -10px 0 {{VALUE}};',
+
+
+						'{{WRAPPER}} .ma-el-creative-links.cl-effect-14 a::before,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-14 a::after,
+						{{WRAPPER}} .ma-el-creative-links.cl-effect-17 a::after,
+						{{WRAPPER}} .ma-el-creative-links.cl-effect-18 a::before,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-18 a::after' => 'background: {{VALUE}};',
+
+
 					],
 				]
 			);
@@ -463,7 +502,8 @@
 					'default'   => '',
 					'selectors' => [
 //						'{{WRAPPER}} .ma-el-creative-link:hover' => 'background-color: {{VALUE}};',
-						'{{WRAPPER}} .csstransforms3d .cl-effect-2 a span::before' => 'background: {{VALUE}};',
+						'{{WRAPPER}} .csstransforms3d .cl-effect-2 a span::before,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-20 a span::before' => 'background: {{VALUE}};',
 
 					]
 				]
@@ -476,11 +516,16 @@
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-creative-link:hover'                                 => 'border-color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--wapasha::before' => 'border-color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--antiman::before' => 'border-color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--pipaluk::before' => 'border-color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--quidel::before'  => 'background-color: {{VALUE}};',
+
+						'{{WRAPPER}} .ma-el-creative-links.cl-effect-12 a::before,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-12 a::after'
+						=> 'border: 2px solid {{VALUE}};',
+
+//						'{{WRAPPER}} .ma-el-creative-link:hover'                                 => 'border-color: {{VALUE}};',
+//						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--wapasha::before' => 'border-color: {{VALUE}};',
+//						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--antiman::before' => 'border-color: {{VALUE}};',
+//						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--pipaluk::before' => 'border-color: {{VALUE}};',
+//						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--quidel::before'  => 'background-color: {{VALUE}};',
 					],
 				]
 			);
