@@ -3734,7 +3734,6 @@
     position: relative;
     margin: 50px 0;
 
-    transform: rotate(-20deg) skew(-20deg);
 }
 
 .ma-el-flip-box-wrapper.three .ma-el-flip-box-front,
@@ -3743,21 +3742,20 @@
     -moz-border-radius: 0;
     border-radius: 0;
 }
-.ma-el-flip-box-wrapper.three .flipbox-content {
+.ma-el-flip-box-wrapper.three .ma-el-flip-box-front {
+    transform: rotate(-20deg) skewX(-20deg);
+}
+.ma-el-flip-box-wrapper.three .ma-el-flip-box-front .flipbox-content {
     transform: translateY(-50%) rotate(18deg) skewX(18deg);
 }
 
-
-.ma-el-flip-box-wrapper.three:hover {
-    position: relative;
-    margin: 50px 0;
-
-    transform: translateY(0) rotate(20deg) skew(20deg);
+.ma-el-flip-box-wrapper.three:hover .ma-el-flip-box-back {
+    padding: 1.875rem 15px;
+    transform: rotate(20deg) skewX(20deg);
 }
 
-
-.ma-el-flip-box-wrapper.three:hover .ma-el-flip-box-back .flipbox-content {
-    transform: translateY(-50%) rotate(18deg) skewX(18deg);
+.ma-el-flip-box-wrapper.three .ma-el-flip-box-back .flipbox-content {
+    transform: translateY(-50%) rotate(-18deg) skewX(-18deg);
 }
 
 /* MA Flipbox end */

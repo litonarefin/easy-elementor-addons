@@ -275,16 +275,12 @@
 					'type' => Controls_Manager::SELECT,
 					'options' => [
 						'one'   => __( 'Default', MELA_TD ),
-						'two'   => __( 'Image', MELA_TD ),
+						'two'   => __( 'Front Image', MELA_TD ),
 						'three'   => __( 'Diagnonal', MELA_TD ),
-//						'four'   => __( 'Style Four', MELA_TD ),
+						'four'   => __( 'Front Icon', MELA_TD ),
 //						'five'   => __( 'Style Five', MELA_TD ),
 //						'six'   => __( 'Style Six', MELA_TD ),
 //						'seven'   => __( 'Style Seven', MELA_TD ),
-//						'eight'   => __( 'Style Eight', MELA_TD ),
-//						'nine'   => __( 'Style Nine', MELA_TD ),
-//						'ten'   => __( 'Style Ten', MELA_TD ),
-//						'eleven'   => __( 'Style Eleven', MELA_TD ),
 					],
 					'default' => 'one',
 				]
@@ -410,6 +406,21 @@
 					],
 				]
 			);
+
+
+			$this->add_control(
+				'front_box_background_color',
+				[
+					'label' => esc_html__( 'Background Color', MELA_TD ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-flip-box-front' => 'background-color: {{VALUE}};',
+					],
+				]
+			);
+
+
 //
 //			$this->add_group_control(
 //				Group_Control_Background::get_type(),
@@ -932,11 +943,25 @@
 
                                 <?php //} ?>
 
+
+
+			                    <?php if($settings['ma_flipbox_layout_style'] == "four") { ?>
+
+				                    <?php if(!empty($settings['front_icon'])){ ?>
+                                        <div <?php echo $this->get_render_attribute_string( 'front-icon-wrapper' ); ?>>
+                                            <i <?php echo $this->get_render_attribute_string( 'front-icon' ); ?>></i>
+                                        </div>
+				                    <?php } ?>
+
+                                <?php } ?>
+
+
                             </div>
                         </div>
 
                         <div class="ma-el-flip-box-back">
                             <div class="flipbox-content">
+
                                 <?php if(!empty($settings['back_icon'])){ ?>
                                     <div <?php echo $this->get_render_attribute_string( 'back-icon-wrapper' ); ?>>
                                         <i <?php echo $this->get_render_attribute_string( 'back-icon' ); ?>></i>
@@ -962,6 +987,7 @@
                                         </a>
                                     </div>
                                 <?php  }  ?>
+
                             </div>
                         </div>
                     </div>

@@ -258,7 +258,7 @@
 					'type'        => Controls_Manager::CHOOSE,
 					'label_block' => true,
 					'options'     => [
-						'flex-start' => [
+						'left' => [
 							'title' => esc_html__( 'Left', MELA_TD ),
 							'icon'  => 'fa fa-align-left',
 						],
@@ -266,14 +266,34 @@
 							'title' => esc_html__( 'Center', MELA_TD ),
 							'icon'  => 'fa fa-align-center',
 						],
-						'flex-end' => [
+						'right' => [
 							'title' => esc_html__( 'Right', MELA_TD ),
 							'icon'  => 'fa fa-align-right',
 						],
 					],
-					'default'   => '',
+					'default'   => 'center',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-creative-links' => 'justify-content: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-links.cl-effect-1 .ma-el-creative-link .ma-el-creative-link-item,
+						{{WRAPPER}} .ma-el-creative-links.cl-effect-2 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-2 .ma-el-creative-link .ma-el-creative-link-item span,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-3 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-4 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-5 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-6 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-7 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-8 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-9 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-10 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-11 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-12 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-13 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-14 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-17 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-18 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-19 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-20 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-20 .ma-el-creative-link span,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-21 .ma-el-creative-link .ma-el-creative-link-item' => 'text-align: {{VALUE}};',
 					],
 				]
 			);
@@ -306,7 +326,7 @@
 				[
 					'name'     => 'ma_el_creative_link_typography',
 					'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .ma-el-creative-link',
+					'selector' => '{{WRAPPER}} .ma-el-creative-links .ma-el-creative-link .ma-el-creative-link-item',
 				]
 			);
 
@@ -337,9 +357,26 @@
 				[
 					'label'     => esc_html__( 'Text Color', MELA_TD ),
 					'type'      => Controls_Manager::COLOR,
-					'default'   => '#ffffff',
+					'default'   => '#333333',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-creative-link'                                      => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-links .ma-el-creative-link a'
+                        => 'color: {{VALUE}};',
+
+                        // Bar Colors
+                        '{{WRAPPER}} .ma-el-creative-links.cl-effect-4 a::after,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-3 a::after, 
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-6 a::before,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-6 a::after,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-7 a::before,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-7 a::after
+                        '
+                        =>  'background: {{VALUE}};',
+
+
+                        '{{WRAPPER}} .ma-el-creative-links.cl-effect-8 a::before,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-8 a::after' => 'border: 3px solid {{VALUE}};'
+
+
 //						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--tamaya::before' => 'color: {{VALUE}};',
 //						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--tamaya::after'  => 'color: {{VALUE}};',
 					],
@@ -353,10 +390,15 @@
 				[
 					'label'     => esc_html__( 'Background Color', MELA_TD ),
 					'type'      => Controls_Manager::COLOR,
-					'default'   => '#333333',
+					'default'   => '',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-creative-link'                                      => 'background-color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-creative-link:hover'   => 'background-color: {{VALUE}};',
+
+						'{{WRAPPER}} .ma-el-creative-links .ma-el-creative-link' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-links.cl-effect-2 a span' => 'background: {{VALUE}};',
+
+//						'{{WRAPPER}} .ma-el-creative-link'                                      => 'background-color: {{VALUE}};',
+//						'{{WRAPPER}} .ma-el-creative-link:hover'   => 'background-color: {{VALUE}};',
+
 //						'{{WRAPPER}} .ma-el-creative-link a:hover'    => 'background-color: {{VALUE}};',
 //						'{{WRAPPER}} .ma-el-creative-link a::before' => 'background-color: {{VALUE}};',
 //						'{{WRAPPER}} .ma-el-creative-link a::after'  => 'background-color: {{VALUE}};',
@@ -403,10 +445,12 @@
 				[
 					'label'     => esc_html__( 'Text Color', MELA_TD ),
 					'type'      => Controls_Manager::COLOR,
-					'default'   => '#ffffff',
+					'default'   => '#333333',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-creative-link:hover'                               => 'color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--winona::after' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-links .ma-el-creative-link a:hover,
+						{{WRAPPER}} .ma-el-creative-links.cl-effect-9 a span:last-child
+						' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-links.cl-effect-8 .cl-effect-8 a::after' => 'border-color: {{VALUE}};'
 					],
 				]
 			);
@@ -416,13 +460,11 @@
 				[
 					'label'     => esc_html__( 'Background Color', MELA_TD ),
 					'type'      => Controls_Manager::COLOR,
-					'default'   => '#f54',
+					'default'   => '',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-creative-link:hover' => 'background-color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--ujarak::before' => 'background-color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--wayra:hover::before' => 'background-color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--tamaya:hover' => 'background-color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--rayen::before' => 'background-color: {{VALUE}};',
+//						'{{WRAPPER}} .ma-el-creative-link:hover' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .csstransforms3d .cl-effect-2 a span::before' => 'background: {{VALUE}};',
+
 					]
 				]
 			);
@@ -509,16 +551,18 @@
 							          ($settings['creative_link_effect'] == "cl-effect-19" )||
 							          ($settings['creative_link_effect'] == "cl-effect-20" )
 							){?>
-								data-hover="<?php echo  $settings['creative_link_text'];?>"
+								data-hover="<?php echo ($settings['creative_alternative_link_text']) ? $settings['creative_alternative_link_text']: $settings['creative_link_text'];?>"
 							<?php } ?>>
 
 
 
 							<?php if( ($settings['creative_link_effect'] == "cl-effect-2" ) ||
+							($settings['creative_link_effect'] == "cl-effect-5" ) ||
 							($settings['creative_link_effect'] == "cl-effect-19" ) ||
 							($settings['creative_link_effect'] == "cl-effect-20" )){?>
-								<span data-hover="<?php echo  $settings['creative_link_text'];?>">
+								<span data-hover="<?php echo ($settings['creative_alternative_link_text']) ? $settings['creative_alternative_link_text']: $settings['creative_link_text'];?>">
 							<?php } ?>
+
 
 
 								<?php if ( ! empty( $settings['ma_el_creative_link_icon'] ) && $settings['ma_el_creative_link_icon_alignment'] == 'left' ) : ?>
@@ -533,7 +577,7 @@
 
 
 								<?php if( $settings['creative_link_effect'] == "cl-effect-9"  ){?>
-									<span><?php echo  $settings['creative_alternative_link_text'];?></span>
+									<span><?php echo ($settings['creative_alternative_link_text']) ? $settings['creative_alternative_link_text']: $settings['creative_link_text'];?></span>
 								<?php } ?>
 
 
@@ -543,7 +587,10 @@
 									ma-el-creative-link-icon-right" aria-hidden="true"></i>
 								<?php endif; ?>
 
-							<?php if($settings['creative_link_effect'] == "cl-effect-2" ){?>
+							<?php if(( $settings['creative_link_effect'] == "cl-effect-2")  ||
+							         ($settings['creative_link_effect'] == "cl-effect-5" ) ||
+							         ($settings['creative_link_effect'] == "cl-effect-19" ) ||
+							         ($settings['creative_link_effect'] == "cl-effect-20" ) ){?>
 								</span>
 							<?php } ?>
 
