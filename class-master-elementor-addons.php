@@ -409,7 +409,15 @@
 
 				//Creative Links
 				if (isset( $is_activated_widget['ma-creative-links'] )) {
-					wp_enqueue_style( 'ma-creative-links', MELA_PLUGIN_URL . '/assets/vendor/creative-links/creative-links.css' );
+
+					// Premium Version Codes
+					if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+						wp_enqueue_style( 'ma-creative-links-pro', MELA_PLUGIN_URL . '/assets/vendor/creative-links/creative-links-pro.css' );
+
+						//Free Version Codes
+					} else {
+						wp_enqueue_style( 'ma-creative-links', MELA_PLUGIN_URL . '/assets/vendor/creative-links/creative-links.css' );
+					}
 				}
 
 
