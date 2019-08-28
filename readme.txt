@@ -153,6 +153,9 @@ Paste on your Local Computer
  * Added: HTML Tags added on Dual heading icon spacing issue fixed
  * Fixed: MA Cards Image Alt content now showing fixed
  * Added: Flipbox: Default, Image, Diagnoal style variations added
+ * Added: New Addon Element added "Creative Links"
+ * Removed: Font Awesome 4, Font Awesome 5, Animate.css, wow.js removed from plugin. All are available on Elementor Core
+ .
 
 
  = 1.1.0 (11-8-2019) =
