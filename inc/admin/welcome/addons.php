@@ -99,48 +99,49 @@
 						</div> <!--  .master_addons_feature-->
 
 
-
-                        <div class="master_addons_feature">
-
-                            <h3><?php echo esc_html__('Extensions', MELA_TD);?></h3>
-
-                            <?php foreach( Master_Elementor_Addons::$ma_el_extensions as $key=>$extension ) : ?>
-
-                                <div class="master-addons-dashboard-checkbox col">
-
-                                    <p class="master-addons-el-title">
-
-                                        <?php
-                //                            if( !ma_el_fs()->can_use_premium_code ()) {
-                                                if ( isset( $extension ) ) {
-                                                    if ( is_array( $extension ) ) {
-                                                        echo '<span class="pro-ribbon">';
-                                                        $is_pro = $extension[1];
-                                                        $extension = $extension[0];
-                                                        echo ucwords( $is_pro );
-                                                        echo '</span>';
-                                                    }
-                                                    echo esc_html( ucwords( str_replace( "-", " ", $extension ) ) );
-                                                }
-                //                            }
-                                        ?>
-                                    </p>
-
-                                    <label for="<?php echo esc_attr( $extension ); ?>" class="switch switch-text
-											 switch-primary switch-pill">
-                                        <input type="checkbox" id="<?php echo esc_attr( $extension ); ?>"
-                                               class="switch-input"
-                                               name="<?php echo esc_attr( $extension ); ?>" <?php checked( 1,
-                                            $this->maad_el_get_settings[$extension], true ); ?>>
-                                        <span data-on="On" data-off="Off" class="switch-label"></span>
-                                        <span class="switch-handle"></span>
-                                    </label>
-
-                                </div>
-
-	                        <?php endforeach; ?>
-
-						</div> <!--  .master_addons_feature-->
+<!---->
+<!--                        <div class="master_addons_feature">-->
+<!---->
+<!--                            <h3>--><?php //echo esc_html__('Extensions', MELA_TD);?><!--</h3>-->
+<!---->
+<!--                            --><?php //foreach( Master_Elementor_Addons::$ma_el_extensions as $key=>$extension ) : ?>
+<!---->
+<!--                                <div class="master-addons-dashboard-checkbox col">-->
+<!---->
+<!--                                    <p class="master-addons-el-title">-->
+<!---->
+<!--                                        --><?php
+//                //                            if( !ma_el_fs()->can_use_premium_code ()) {
+//                                                if ( isset( $extension ) ) {
+//                                                    if ( is_array( $extension ) ) {
+//                                                        echo '<span class="pro-ribbon">';
+//                                                        $is_pro = $extension[1];
+//                                                        $extension = $extension[0];
+//                                                        echo ucwords( $is_pro );
+//                                                        echo '</span>';
+//                                                    }
+//                                                    echo esc_html( ucwords( str_replace( "-", " ", $extension ) ) );
+//                                                }
+//                //                            }
+//                                        ?>
+<!--                                    </p>-->
+<!---->
+<!--                                    <label for="--><?php //echo esc_attr( $extension ); ?><!--" class="switch switch-text-->
+<!--											 switch-primary switch-pill">-->
+<!--                                        <input type="checkbox" id="--><?php //echo esc_attr( $extension ); ?><!--"-->
+<!--                                               class="switch-input"-->
+<!--                                               name="--><?php //echo esc_attr( $extension ); ?><!--" --><?php //checked( 1,
+//                                            $this->maad_el_get_settings[$extension], true ); ?><!-->
+<!--                                        <span data-on="On" data-off="Off" class="switch-label"></span>-->
+<!--                                        <span class="switch-handle"></span>-->
+<!--                                    </label>-->
+<!---->
+<!--                                </div>-->
+<!---->
+<!--	                        --><?php //endforeach; ?>
+<!---->
+<!--						</div>
+                            <!--  .master_addons_extensions-->
 
 
 

@@ -85,12 +85,12 @@
 
 				];
 
-
-				self::$ma_el_extensions = [
-					'ma-particles',
-					'ma-animated-gradient-background',
-					'ma-background-slider',
-				];
+//
+//				self::$ma_el_extensions = [
+//					'ma-particles',
+//					'ma-animated-gradient-background',
+//					'ma-background-slider',
+//				];
 
 
 
@@ -270,14 +270,16 @@
 
 
 			public static function activated_widgets() {
-//				$maad_el_default_settings = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),
 
-				$li1 = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),
-					true );
-				$li2 = array_fill_keys( ma_el_array_flatten( self::$ma_el_extensions ),
+				$maad_el_default_settings = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),
 					true );
 
-				$maad_el_default_settings =  array_merge($li1, $li2);
+//				$li1 = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),
+//					true );
+//				$li2 = array_fill_keys( ma_el_array_flatten( self::$ma_el_extensions ),
+//					true );
+//
+//				$maad_el_default_settings =  array_merge($li1, $li2);
 
 				$maad_el_get_settings     = get_option( 'maad_el_save_settings', $maad_el_default_settings );
 				$maad_el_new_settings     = array_diff_key( $maad_el_default_settings, $maad_el_get_settings );
@@ -566,9 +568,11 @@
 				include_once MELA_PLUGIN_PATH . '/inc/classes/utils.php';
 
 				// Extension
-				include_once MELA_PLUGIN_PATH . '/inc/modules/animated-gradient/animated-gradient.php';
-				include_once MELA_PLUGIN_PATH . '/inc/modules/particles/particles.php';
-				include_once MELA_PLUGIN_PATH . '/inc/modules/bg-slider/bg-slider.php';
+//				if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+					include_once MELA_PLUGIN_PATH . '/inc/modules/animated-gradient/animated-gradient.php';
+					include_once MELA_PLUGIN_PATH . '/inc/modules/particles/particles.php';
+					include_once MELA_PLUGIN_PATH . '/inc/modules/bg-slider/bg-slider.php';
+//				}
 
 			}
 

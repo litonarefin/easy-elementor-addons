@@ -152,7 +152,7 @@ Paste on your Local Computer
  * Fixed: Dual Heading icon spacing issue fixed
  * Added: HTML Tags added on Dual heading icon spacing issue fixed
  * Fixed: MA Cards Image Alt content now showing fixed
- * Added: Flipbox: Default, Image, Diagnoal style variations added
+ * Added: Flipbox- Default, Image, Diagnoal style variations added
  * Added: New Addon Element added "Creative Links"
  * Removed: Font Awesome 4, Font Awesome 5, Animate.css, wow.js removed from plugin. All are available on Elementor Core
  * Added: Affiliation Added for any Plugin Users. Starting from 50% flat commissions for all Affiliates.
