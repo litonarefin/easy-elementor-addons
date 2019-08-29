@@ -379,7 +379,36 @@
 					]
 				);
 
-			}
+			} else {
+				$repeater->add_control(
+					'content_type',
+					[
+						'label'                 => esc_html__( 'Content Type', MELA_TD ),
+						'type'                  => Controls_Manager::SELECT,
+						'label_block'           => false,
+						'options'               => [
+							'content'   => __( 'Content', MELA_TD ),
+							'section'   => __( 'Saved Section', MELA_TD ),
+							'widget'    => __( 'Saved Widget', MELA_TD ),
+							'template'  => __( 'Saved Page Template', MELA_TD ),
+						],
+						'default'               => 'content',
+					]
+				);
+
+				$repeater->add_control(
+					'accordion_content',
+					[
+						'label'                 => esc_html__( 'Content', MELA_TD ),
+						'type'                  => Controls_Manager::WYSIWYG,
+						'default'               => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', MELA_TD ),
+						'dynamic'               => [ 'active' => true ],
+						'condition'             => [
+							'content_type'	=> 'content',
+						],
+					]
+				);
+            }
 
 
 			$this->add_control(
@@ -931,6 +960,40 @@ Customization Options.</span>'
 			);
 
 			$this->end_controls_section();
+
+
+
+			if ( ma_el_fs()->is_not_paying() ) {
+
+				$this->start_controls_section(
+					'ma_el_section_pro_style_section',
+					[
+						'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD ),
+						'tab' => Controls_Manager::TAB_STYLE
+					]
+				);
+
+				$this->add_control(
+					'ma_el_control_get_pro_style_tab',
+					[
+						'label' => esc_html__( 'Unlock more possibilities', MELA_TD ),
+						'type' => Controls_Manager::CHOOSE,
+						'options' => [
+							'1' => [
+								'title' => esc_html__( '', MELA_TD ),
+								'icon' => 'fa fa-unlock-alt',
+							],
+						],
+						'default' => '1',
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with 
+Customization Options.</span>'
+					]
+				);
+
+				$this->end_controls_section();
+			}
+
+
 		}
 
 		protected function render() {
@@ -976,14 +1039,6 @@ Customization Options.</span>'
 							'role' => 'tab',
 							'aria-controls' => 'ma-accordion-tab-content-' . $id_int . $tab_count,
 						]);
-
-//			single_tab_title_bg_color
-//			single_title_text_color
-//			single_tab_title_bg_color_hover
-//			single_title_text_hover_color
-//			single_tab_title_bg_color_active
-//			single_title_text_color_active
-
 
 						$this->add_render_attribute($tab_content_setting_key, [
 							'id' => 'ma-accordion-tab-content-' . $id_int . $tab_count,
@@ -1034,23 +1089,32 @@ Customization Options.</span>'
 
                             <div <?php echo $this->get_render_attribute_string($tab_content_setting_key); ?>>
 								<?php
-									if( $tab['content_type'] == 'content' ) {
 
-										echo do_shortcode( $tab['accordion_content'] );
+						            if ( ma_el_fs()->can_use_premium_code() ) {
+							            if ( $tab['content_type'] == 'content' ) {
 
-									} elseif ( $tab['content_type'] == 'section' && !empty( $tab['saved_section'] ) ) {
+								            echo do_shortcode( $tab['accordion_content'] );
 
-										echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_section'] );
+							            } else if ( $tab['content_type'] == 'section' && ! empty( $tab['saved_section'] ) ) {
 
-									} elseif ( $tab['content_type'] == 'template' && !empty( $tab['templates'] ) ) {
+								            echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_section'] );
 
-										echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['templates'] );
+							            } else if ( $tab['content_type'] == 'template' && ! empty( $tab['templates'] ) ) {
 
-									} elseif ( $tab['content_type'] == 'widget' && !empty( $tab['saved_widget'] ) ) {
+								            echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['templates'] );
 
-										echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_widget'] );
+							            } else if ( $tab['content_type'] == 'widget' && ! empty( $tab['saved_widget'] ) ) {
 
-									}
+								            echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_widget'] );
+
+							            }
+						            } else{
+							            if ( $tab['content_type'] == 'content' ) {
+
+								            echo do_shortcode( $tab['accordion_content'] );
+
+							            }
+                                    }
 								?>
                             </div>
 
