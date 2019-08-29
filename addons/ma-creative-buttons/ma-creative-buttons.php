@@ -271,7 +271,7 @@
 							'ma-el-creative-button--pro-14' 	=> esc_html__( 'Sacnite (Pro)', MELA_TD ),
 							'ma-el-creative-button--pro-15' 	=> esc_html__( 'Shikoba (Pro)', MELA_TD ),
 						],
-						'description' => sprintf( '15+ more effects on <a href="%s" target="_blank">%s</a>',
+						'description' => sprintf( '15+ more Variations on <a href="%s" target="_blank">%s</a>',
 							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
 							__( 'Upgrade Now', MELA_TD ) )
 					]

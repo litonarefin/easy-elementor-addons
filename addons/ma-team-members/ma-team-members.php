@@ -280,7 +280,7 @@ Customization Options.</span>'
 							'-pro-team-4'       => esc_html__( 'Social Right on Hover (Pro)', MELA_TD ),
 							'-pro-team-5'       => esc_html__( 'Content on Hover (Pro)', MELA_TD )
 						],
-						'description' => sprintf( '5+ more effects on <a href="%s" target="_blank">%s</a>',
+						'description' => sprintf( '5+ more Variations on <a href="%s" target="_blank">%s</a>',
 							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
 							__( 'Upgrade Now', MELA_TD ) )
 

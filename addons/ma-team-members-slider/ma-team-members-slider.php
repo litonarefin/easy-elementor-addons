@@ -231,20 +231,44 @@
 					'tab' => Controls_Manager::TAB_STYLE
 				]
 			);
-			$this->add_control(
-				'ma_el_team_carousel_preset',
-				[
-					'label' => esc_html__( 'Style Preset', MELA_TD ),
-					'type' => Controls_Manager::SELECT,
-					'default' => '-circle',
-					'options' => [
-						'-circle'               => esc_html__( 'Circle Gradient', MELA_TD ),
-						'-social-left'          => esc_html__( 'Social Left on Hover', MELA_TD ),
-						'-content-hover'        => esc_html__( 'Content on Hover', MELA_TD ),
-						'-content-drawer'       => esc_html__( 'Content Drawer', MELA_TD ),
-					],
-				]
-			);
+
+			// Premium Version Codes
+			if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+				$this->add_control(
+					'ma_el_team_carousel_preset',
+					[
+						'label' => esc_html__( 'Style Preset', MELA_TD ),
+						'type' => Controls_Manager::SELECT,
+						'default' => '-circle',
+						'options' => [
+							'-circle'               => esc_html__( 'Circle Gradient', MELA_TD ),
+							'-social-left'          => esc_html__( 'Social Left on Hover', MELA_TD ),
+							'-content-hover'        => esc_html__( 'Content on Hover', MELA_TD ),
+							'-content-drawer'       => esc_html__( 'Content Drawer', MELA_TD ),
+						],
+					]
+				);
+
+			} else{
+				$this->add_control(
+					'ma_el_team_carousel_preset',
+					[
+						'label' => esc_html__( 'Style Preset', MELA_TD ),
+						'type' => Controls_Manager::SELECT,
+						'default' => '-circle',
+						'options' => [
+							'-circle'                     => esc_html__( 'Circle Gradient', MELA_TD ),
+							'-content-hover'              => esc_html__( 'Content on Hover', MELA_TD ),
+							'-pro-team-slider-1'          => esc_html__( 'Social Left on Hover (Pro)', MELA_TD ),
+							'-pro-team-slider-2'          => esc_html__( 'Content Drawer (Pro)', MELA_TD ),
+						],
+						'description' => sprintf( '2+ more Variations on <a href="%s" target="_blank">%s</a>',
+							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
+							__( 'Upgrade Now', MELA_TD ) )
+					]
+				);
+
+			}
 
 			$this->add_control(
 				'ma_el_team_carousel_avatar_bg',
@@ -630,6 +654,38 @@
 			$this->end_controls_tabs();
 
 			$this->end_controls_section();
+
+
+			if ( ma_el_fs()->is_not_paying() ) {
+
+				$this->start_controls_section(
+					'ma_el_section_pro_style_section',
+					[
+						'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD ),
+						'tab' => Controls_Manager::TAB_STYLE
+					]
+				);
+
+				$this->add_control(
+					'ma_el_control_get_pro_style_tab',
+					[
+						'label' => esc_html__( 'Unlock more possibilities', MELA_TD ),
+						'type' => Controls_Manager::CHOOSE,
+						'options' => [
+							'1' => [
+								'title' => esc_html__( '', MELA_TD ),
+								'icon' => 'fa fa-unlock-alt',
+							],
+						],
+						'default' => '1',
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with 
+Customization Options.</span>'
+					]
+				);
+
+				$this->end_controls_section();
+			}
+
 
 		}
 
