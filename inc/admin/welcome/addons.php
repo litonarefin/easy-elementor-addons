@@ -32,7 +32,7 @@
 
                             <h3><?php echo esc_html__('Master Addons', MELA_TD);?></h3>
 
-							<?php foreach( array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 0, 16) as
+							<?php foreach( array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 0, 15) as
                                 $key=>$widget ) : ?>
 
 								<?php if ( isset( $widget ) ) : ?>
@@ -63,7 +63,7 @@
 
                             <h3><?php echo esc_html__('Form Addons', MELA_TD);?></h3>
 
-                            <?php foreach( array_slice( Master_Elementor_Addons::$maad_el_default_widgets, 17, 6 ) as
+                            <?php foreach( array_slice( Master_Elementor_Addons::$maad_el_default_widgets, 15, 6 ) as
                                 $key=>$widget ) : ?>
 
                                 <div class="master-addons-dashboard-checkbox col">
