@@ -374,7 +374,7 @@
 			$this->end_controls_section();
 
 
-			
+
 
 			if ( ma_el_fs()->is_not_paying() ) {
 

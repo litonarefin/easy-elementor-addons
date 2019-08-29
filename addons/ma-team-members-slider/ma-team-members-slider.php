@@ -238,10 +238,10 @@
 					'type' => Controls_Manager::SELECT,
 					'default' => '-circle',
 					'options' => [
-						'-circle' => esc_html__( 'Circle Gradient', MELA_TD ),
-						'-social-left' => esc_html__( 'Social Left on Hover', MELA_TD ),
-						'-content-hover' => esc_html__( 'Content on Hover', MELA_TD ),
-						'-content-drawer' => esc_html__( 'Content Drawer', MELA_TD ),
+						'-circle'               => esc_html__( 'Circle Gradient', MELA_TD ),
+						'-social-left'          => esc_html__( 'Social Left on Hover', MELA_TD ),
+						'-content-hover'        => esc_html__( 'Content on Hover', MELA_TD ),
+						'-content-drawer'       => esc_html__( 'Content Drawer', MELA_TD ),
 					],
 				]
 			);

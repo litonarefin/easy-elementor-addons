@@ -107,6 +107,38 @@
 
 			$this->end_controls_section();
 
+
+
+			if ( ma_el_fs()->is_not_paying() ) {
+
+				$this->start_controls_section(
+					'maad_el_section_pro_general_section',
+					[
+						'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD ),
+					]
+				);
+
+				$this->add_control(
+					'maad_el_control_get_pro_general_tab',
+					[
+						'label' => esc_html__( 'Unlock more possibilities', MELA_TD ),
+						'type' => Controls_Manager::CHOOSE,
+						'options' => [
+							'1' => [
+								'title' => esc_html__( '', MELA_TD ),
+								'icon' => 'fa fa-unlock-alt',
+							],
+						],
+						'default' => '1',
+//						wp_redirect( '' )
+						'description' => '<span class="pro-feature"> Upgrade to <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+					]
+				);
+
+				$this->end_controls_section();
+			}
+
+
 			$this->start_controls_section(
 				'section_stats_bar_styling',
 				[
@@ -269,6 +301,39 @@
 			);
 
 			$this->end_controls_section();
+
+
+
+			if ( ma_el_fs()->is_not_paying() ) {
+
+				$this->start_controls_section(
+					'maad_el_section_pro',
+					[
+						'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD ),
+						'tab' => Controls_Manager::TAB_STYLE
+					]
+				);
+
+				$this->add_control(
+					'maad_el_control_get_pro',
+					[
+						'label' => esc_html__( 'Unlock more possibilities', MELA_TD ),
+						'type' => Controls_Manager::CHOOSE,
+						'options' => [
+							'1' => [
+								'title' => esc_html__( '', MELA_TD ),
+								'icon' => 'fa fa-unlock-alt',
+							],
+						],
+						'default' => '1',
+//						wp_redirect( '' )
+						'description' => '<span class="pro-feature"> Upgrade to <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+					]
+				);
+
+				$this->end_controls_section();
+			}
+
 		}
 
 		protected function render() {
