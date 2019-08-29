@@ -268,60 +268,139 @@
 			);
 
 
-			$this->add_control(
-				'ma_flipbox_layout_style',
-				[
-					'label' => __( 'Design Variation', MELA_TD ),
-					'type' => Controls_Manager::SELECT,
-					'options' => [
-						'one'   => __( 'Default', MELA_TD ),
-						'two'   => __( 'Front Image', MELA_TD ),
-						'three'   => __( 'Diagnonal', MELA_TD ),
-						'four'   => __( 'Front Icon', MELA_TD ),
-//						'five'   => __( 'Style Five', MELA_TD ),
-//						'six'   => __( 'Style Six', MELA_TD ),
-//						'seven'   => __( 'Style Seven', MELA_TD ),
-					],
-					'default' => 'one',
-				]
-			);
+			// Premium Version Codes
+			if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
 
-			$this->add_control(
-				'animation_style',
-				[
-					'label' => __( 'Animation Style', MELA_TD ),
-					'type' => Controls_Manager::SELECT,
-					'options' => [
-						'horizontal'                            => esc_html__( 'Flip Horizontal', MELA_TD ),
-						'vertical'                              => esc_html__( 'Flip Vertical', MELA_TD ),
-						'fade'                                  => esc_html__( 'Fade',MELA_TD),
-						'flipcard flipcard-rotate-top-down'     => esc_html__( 'Cube - Top Down', MELA_TD ),
-						'flipcard flipcard-rotate-down-top'     => esc_html__( 'Cube - Down Top', MELA_TD ),
-						'flipcard flipcard-rotate-left-right'   => esc_html__( 'Cube - Left Right', MELA_TD ),
-						'flipcard flipcard-rotate-right-left'   => esc_html__( 'Cube - Right Left', MELA_TD ),
-						'flip box'                              => esc_html__( 'Flip Box',MELA_TD),
-						'flip box fade'                         => esc_html__( 'Flip Box Fade',MELA_TD),
-						'flip box fade up'                      => esc_html__( 'Fade Up',MELA_TD),
-						'flip box fade hideback'                => esc_html__( 'Fade Hideback',MELA_TD),
-						'flip box fade up hideback'             => esc_html__( 'Fade Up Hideback',MELA_TD),
-						'nananana'                              => esc_html__( 'Nananana',MELA_TD),
-						'rollover'                              => esc_html__( 'Rollover',MELA_TD), //not working
+				$this->add_control(
+					'ma_flipbox_layout_style',
+					[
+						'label' => __( 'Design Variation', MELA_TD ),
+						'type' => Controls_Manager::SELECT,
+						'options' => [
+							'one'           => __( 'Default', MELA_TD ),
+							'two'           => __( 'Front Image', MELA_TD ),
+							'three'         => __( 'Diagnonal', MELA_TD ),
+							'four'          => __( 'Front Icon', MELA_TD )
+						],
+						'default' => 'one',
+					]
+				);
 
-						// New Styles
-						'left-to-right'                         => esc_html__( 'Left to Right', MELA_TD ),
-						'right-to-left'                         => esc_html__( 'Right to Left', MELA_TD ),
-						'top-to-bottom'                         => esc_html__( 'Top to Bottom', MELA_TD ),
-						'bottom-to-top'                         => esc_html__( 'Bottom to Top', MELA_TD ),
-						'top-to-bottom-angle'                   => esc_html__( 'Diagonal (Top to Bottom)', MELA_TD ),
-						'bottom-to-top-angle'                   => esc_html__( 'Diagonal (Bottom to Top)', MELA_TD ),
-						'fade-in-out'                           => esc_html__( 'Fade In Out', MELA_TD ),
+			//Free Codes
+			} else{
+				$this->add_control(
+					'ma_flipbox_layout_style',
+					[
+						'label' => __( 'Design Variation', MELA_TD ),
+						'type' => Controls_Manager::SELECT,
+						'options' => [
+							'one'                   => __( 'Default', MELA_TD ),
+							'four'                  => __( 'Front Icon', MELA_TD ),
+							'flipbox-pro-1'         => __( 'Front Image (Pro)', MELA_TD ),
+							'flipbox-pro-2'         => __( 'Diagnonal (Pro)', MELA_TD ),
+
+						],
+						'default' => 'one',
+						'description' => sprintf( '2+ more Variations on <a href="%s" target="_blank">%s</a>',
+							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
+							__( 'Upgrade Now', MELA_TD ) )
+					]
+				);
+            }
 
 
-					],
-					'default' => 'vertical',
-					'prefix_class' => 'ma-el-fb-animate-'
-				]
-			);
+
+			// Premium Version Codes
+			if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+
+                $this->add_control(
+                    'animation_style',
+                    [
+                        'label' => __( 'Animation Style', MELA_TD ),
+                        'type' => Controls_Manager::SELECT,
+                        'options' => [
+                            'horizontal'                            => esc_html__( 'Flip Horizontal', MELA_TD ),
+                            'vertical'                              => esc_html__( 'Flip Vertical', MELA_TD ),
+                            'fade'                                  => esc_html__( 'Fade',MELA_TD),
+                            'flipcard flipcard-rotate-top-down'     => esc_html__( 'Cube - Top Down', MELA_TD ),
+                            'flipcard flipcard-rotate-down-top'     => esc_html__( 'Cube - Down Top', MELA_TD ),
+                            'flipcard flipcard-rotate-left-right'   => esc_html__( 'Cube - Left Right', MELA_TD ),
+                            'flipcard flipcard-rotate-right-left'   => esc_html__( 'Cube - Right Left', MELA_TD ),
+                            'flip box'                              => esc_html__( 'Flip Box',MELA_TD),
+                            'flip box fade'                         => esc_html__( 'Flip Box Fade',MELA_TD),
+                            'flip box fade up'                      => esc_html__( 'Fade Up',MELA_TD),
+                            'flip box fade hideback'                => esc_html__( 'Fade Hideback',MELA_TD),
+                            'flip box fade up hideback'             => esc_html__( 'Fade Up Hideback',MELA_TD),
+                            'nananana'                              => esc_html__( 'Nananana',MELA_TD),
+                            'rollover'                              => esc_html__( 'Rollover',MELA_TD), //not working
+
+                            // New Styles
+                            'left-to-right'                         => esc_html__( 'Left to Right', MELA_TD ),
+                            'right-to-left'                         => esc_html__( 'Right to Left', MELA_TD ),
+                            'top-to-bottom'                         => esc_html__( 'Top to Bottom', MELA_TD ),
+                            'bottom-to-top'                         => esc_html__( 'Bottom to Top', MELA_TD ),
+                            'top-to-bottom-angle'                   => esc_html__( 'Diagonal (Top to Bottom)', MELA_TD ),
+                            'bottom-to-top-angle'                   => esc_html__( 'Diagonal (Bottom to Top)', MELA_TD ),
+                            'fade-in-out'                           => esc_html__( 'Fade In Out', MELA_TD ),
+
+
+                        ],
+                        'default' => 'vertical',
+                        'prefix_class' => 'ma-el-fb-animate-'
+                    ]
+                );
+
+
+			//Free Codes
+
+			} else{
+
+				$this->add_control(
+					'animation_style',
+					[
+						'label' => __( 'Animation Style', MELA_TD ),
+						'type' => Controls_Manager::SELECT,
+						'options' => [
+							'horizontal'                            => esc_html__( 'Flip Horizontal', MELA_TD ),
+							'vertical'                              => esc_html__( 'Flip Vertical', MELA_TD ),
+							'fade'                                  => esc_html__( 'Fade',MELA_TD),
+							'flipbox-anim-1'                        => esc_html__( 'Cube - Top Down (Pro)', MELA_TD ),
+							'flipbox-anim-2'                        => esc_html__( 'Cube - Down Top (Pro)', MELA_TD ),
+							'flipbox-anim-3'                        => esc_html__( 'Cube - Left Right (Pro)', MELA_TD ),
+							'flipbox-anim-4'                        => esc_html__( 'Cube - Right Left (Pro)', MELA_TD ),
+							'flip box'                              => esc_html__( 'Flip Box',MELA_TD),
+							'flip box fade'                         => esc_html__( 'Flip Box Fade',MELA_TD),
+							'flip box fade up'                      => esc_html__( 'Fade Up',MELA_TD),
+							'flipbox-anim-5'                        => esc_html__( 'Fade Hideback (Pro)',MELA_TD),
+							'flipbox-anim-6'                        => esc_html__( 'Fade Up Hideback (Pro)',MELA_TD),
+							'nananana'                              => esc_html__( 'Nananana',MELA_TD),
+							'rollover'                              => esc_html__( 'Rollover',MELA_TD), //not working
+
+							// New Styles
+							'flipbox-anim-7'                        => esc_html__( 'Left to Right (Pro)', MELA_TD ),
+							'flipbox-anim-8'                        => esc_html__( 'Right to Left (Pro)', MELA_TD ),
+							'flipbox-anim-9'                        => esc_html__( 'Top to Bottom (Pro)', MELA_TD ),
+							'flipbox-anim-10'                       => esc_html__( 'Bottom to Top (Pro)', MELA_TD ),
+							'flipbox-anim-11'                       => esc_html__( 'Diagonal (Top to Bottom) (Pro)',
+                                MELA_TD ),
+							'flipbox-anim-12'                       => esc_html__( 'Diagonal (Bottom to Top) (Pro)',
+                                MELA_TD ),
+							'flipbox-anim-13'                       => esc_html__( 'Fade In Out (Pro)', MELA_TD ),
+
+
+						],
+						'default' => 'vertical',
+						'prefix_class' => 'ma-el-fb-animate-',
+						'description' => sprintf( '15+ more Variations on <a href="%s" target="_blank">%s</a>',
+							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
+							__( 'Upgrade Now', MELA_TD ) )
+					]
+				);
+
+
+			}
+
+
 
 
 			$this->add_group_control(
@@ -854,7 +933,37 @@
 
 
 
+			if ( ma_el_fs()->is_not_paying() ) {
 
+				$this->start_controls_section(
+					'ma_el_section_pro_style_section',
+					[
+						'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD ),
+						'tab' => Controls_Manager::TAB_STYLE
+					]
+				);
+
+				$this->add_control(
+					'ma_el_control_get_pro_style_tab',
+					[
+						'label' => esc_html__( 'Unlock more possibilities', MELA_TD ),
+						'type' => Controls_Manager::CHOOSE,
+						'options' => [
+							'1' => [
+								'title' => esc_html__( '', MELA_TD ),
+								'icon' => 'fa fa-unlock-alt',
+							],
+						],
+						'default' => '1',
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with 
+Customization Options.</span>'
+					]
+				);
+
+				$this->end_controls_section();
+			}
+
+			
 
 		}
 
