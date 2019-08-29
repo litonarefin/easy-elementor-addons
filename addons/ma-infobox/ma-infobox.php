@@ -255,6 +255,9 @@
 							'info-pro-4'    => esc_html__( 'Variation Nine (Pro)', MELA_TD ),
 							'info-pro-5'    => esc_html__( 'Variation Ten (Pro)', MELA_TD ),
 						],
+						'description' => sprintf( '5+ more Variations on <a href="%s" target="_blank">%s</a>',
+							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
+							__( 'Upgrade Now', MELA_TD ) )
 					]
 				);
 
@@ -281,7 +284,7 @@
 						'{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover' => 'background-color: #4b00e7;',
                         '{{WRAPPER}} .ma-el-infobox.nine .ma-el-infobox-item .ma-el-infobox-content' => 'background-color: #474747;',
 
-//                        '{{WRAPPER}} .ma-el-infobox.six .ma-el-infobox-icon' => 'color: {{VALUE}} !important;',
+                        '{{WRAPPER}} .ma-el-infobox.six .ma-el-infobox-icon' => 'color: {{VALUE}} !important;',
 
 					],
 					'condition' => [
