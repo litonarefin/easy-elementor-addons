@@ -68,27 +68,57 @@ class Master_Addons_CF7 extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'ma_cf7_layout_style',
-			[
-				'label' => __( 'Style', MELA_TD ),
-				'type' => Controls_Manager::SELECT,
-				'default' => '1',
-				'options' => [
-					'1'   => __( 'Style One', MELA_TD ),
-					'2'   => __( 'Style Two', MELA_TD ),
-					'3'   => __( 'Style Three', MELA_TD ),
-					'4'   => __( 'Style Four', MELA_TD ),
-					'5'   => __( 'Style Five', MELA_TD ),
-					'6'   => __( 'Style Six', MELA_TD ),
-					'7'   => __( 'Style Seven', MELA_TD ),
-					'8'   => __( 'Style Eight', MELA_TD ),
-					'9'   => __( 'Style Nine', MELA_TD ),
-					'10'   => __( 'Style Ten', MELA_TD ),
-					'11'   => __( 'Style Eleven', MELA_TD ),
-				],
-			]
-		);
+		// Premium Version Codes
+		if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+			$this->add_control(
+				'ma_cf7_layout_style',
+				[
+					'label' => __( 'Design Variations', MELA_TD ),
+					'type' => Controls_Manager::SELECT,
+					'default' => '1',
+					'options' => [
+						'1'   => __( 'Style One', MELA_TD ),
+						'2'   => __( 'Style Two', MELA_TD ),
+						'3'   => __( 'Style Three', MELA_TD ),
+						'4'   => __( 'Style Four', MELA_TD ),
+						'5'   => __( 'Style Five', MELA_TD ),
+						'6'   => __( 'Style Six', MELA_TD ),
+						'7'   => __( 'Style Seven', MELA_TD ),
+						'8'   => __( 'Style Eight', MELA_TD ),
+						'9'   => __( 'Style Nine', MELA_TD ),
+						'10'   => __( 'Style Ten', MELA_TD ),
+						'11'   => __( 'Style Eleven', MELA_TD ),
+					]
+				]
+			);
+
+		} else{
+			$this->add_control(
+				'ma_cf7_layout_style',
+				[
+					'label' => __( 'Design Variations', MELA_TD ),
+					'type' => Controls_Manager::SELECT,
+					'default' => '1',
+					'options' => [
+						'1'             => __( 'Style One', MELA_TD ),
+						'2'             => __( 'Style Two', MELA_TD ),
+						'3'             => __( 'Style Three', MELA_TD ),
+						'4'             => __( 'Style Four', MELA_TD ),
+						'cf7-pro-1'     => __( 'Style Five (Pro)', MELA_TD ),
+						'cf7-pro-2'     => __( 'Style Six (Pro)', MELA_TD ),
+						'cf7-pro-3'     => __( 'Style Seven (Pro)', MELA_TD ),
+						'cf7-pro-4'     => __( 'Style Eight (Pro)', MELA_TD ),
+						'cf7-pro-5'     => __( 'Style Nine (Pro)', MELA_TD ),
+						'cf7-pro-6'     => __( 'Style Ten (Pro)', MELA_TD ),
+						'cf7-pro-7'     => __( 'Style Eleven (Pro)', MELA_TD ),
+					],
+					'description' => sprintf( '10+ more Variations on <a href="%s" target="_blank">%s</a>',
+						esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
+						__( 'Upgrade Now', MELA_TD ) )
+				]
+			);
+		}
+
 
 		$this->end_controls_section();
 
@@ -775,6 +805,37 @@ class Master_Addons_CF7 extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+
+
+		if ( ma_el_fs()->is_not_paying() ) {
+
+			$this->start_controls_section(
+				'ma_el_section_pro_style_section',
+				[
+					'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD ),
+					'tab' => Controls_Manager::TAB_STYLE
+				]
+			);
+
+			$this->add_control(
+				'ma_el_control_get_pro_style_tab',
+				[
+					'label' => esc_html__( 'Unlock more possibilities', MELA_TD ),
+					'type' => Controls_Manager::CHOOSE,
+					'options' => [
+						'1' => [
+							'title' => esc_html__( '', MELA_TD ),
+							'icon' => 'fa fa-unlock-alt',
+						],
+					],
+					'default' => '1',
+					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with 
+Customization Options.</span>'
+				]
+			);
+
+			$this->end_controls_section();
+		}
 
 
 	}
