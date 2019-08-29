@@ -229,26 +229,26 @@
 						'default'     => 'cl-effect-1',
 						'options'     => [
 							'cl-effect-1' 	=> esc_html__( 'Brackets', 	                    MELA_TD ),
-							'cl-pro-link-1' => esc_html__( '3D Effect (Pro)', 	            MELA_TD ),
 							'cl-effect-3' 	=> esc_html__( 'Bottom Line Slide', 	        MELA_TD ),
 							'cl-effect-4' 	=> esc_html__( 'Bottom Border Enlarge', 	    MELA_TD ),
+							'cl-effect-13' 	=> esc_html__( 'Three Dots', 	                MELA_TD ),
+							'cl-effect-11' 	=> esc_html__( 'Text Fill', 	                MELA_TD ), //problem
+							'cl-effect-17' 	=> esc_html__( 'Move Up', 	                    MELA_TD ),
+							'cl-effect-15' 	=> esc_html__( 'Scale Down', 	                MELA_TD ),
+							'cl-effect-21' 	=> esc_html__( 'Basic Effect', 	                MELA_TD ),
+							'cl-pro-link-1' => esc_html__( '3D Effect (Pro)', 	            MELA_TD ),
 							'cl-pro-link-2' => esc_html__( 'Slide In (Pro)', 	            MELA_TD ),
 							'cl-pro-link-3' => esc_html__( 'Border Slide Down (Pro)', 	    MELA_TD ),
 							'cl-effect-7' 	=> esc_html__( '2nd Border Slide Up', 	        MELA_TD ),
 							'cl-pro-link-4' => esc_html__( 'Border Translate (Pro)', 	    MELA_TD ),
-							'cl-pro-link-5' => esc_html__( '2nd Text and Border (Pro)', 	    MELA_TD ),
-							'cl-pro-link-6' => esc_html__( 'Reveal Push Out (Pro)', 	        MELA_TD ),
-							'cl-effect-11' 	=> esc_html__( 'Text Fill', 	                MELA_TD ), //problem
+							'cl-pro-link-5' => esc_html__( '2nd Text and Border (Pro)', 	MELA_TD ),
+							'cl-pro-link-6' => esc_html__( 'Reveal Push Out (Pro)', 	    MELA_TD ),
 							'cl-pro-link-7' => esc_html__( 'Circle (Pro)', 	                MELA_TD ),
-							'cl-effect-13' 	=> esc_html__( 'Three Dots', 	                MELA_TD ),
 							'cl-pro-link' 	=> esc_html__( 'Border Switch (Pro)', 	        MELA_TD ),
-							'cl-effect-15' 	=> esc_html__( 'Scale Down', 	                MELA_TD ),
 							'cl-pro-link-8' => esc_html__( 'Fall Down (Pro)', 	            MELA_TD ),
-							'cl-effect-17' 	=> esc_html__( 'Move Up', 	                    MELA_TD ),
 							'cl-pro-link-9' => esc_html__( 'Cross (Pro)', 	                MELA_TD ),
 							'cl-pro-link-10'=> esc_html__( '3D Slide (Pro)', 	            MELA_TD ),
 							'cl-pro-link-11'=> esc_html__( '3D Slide Down (Pro)', 	        MELA_TD ),
-							'cl-effect-21' 	=> esc_html__( 'Effect 21', 	                MELA_TD )
 						],
 
 

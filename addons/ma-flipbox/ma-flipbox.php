@@ -963,7 +963,7 @@ Customization Options.</span>'
 				$this->end_controls_section();
 			}
 
-			
+
 
 		}
 
