@@ -11,30 +11,204 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Master Addons is essential for Elementor page builder. It enhances the page or post customization speed.
 
 == Description ==
+Have you been looking for the perfect addons for elementor  that can help you make a creative looking website ? Well, you don’t have to look too far. With master-addons for elementor, you get a wide range of elements that make your ordinary looking website into something interactable, visually appealing and a lot more reader-friendly.
+
 Master Addons comes with some necessary widget, which helps your webpage to bring life. It's easy to enable and disable any widget from the plugin add-ons section. If you enable your necessary widget, then it will load the exact script of each widget. It will make your website faster. Make sure you have installed Elementor Page builder plugin. Otherwise, it will not work. We are working on its Development every day and trying to cover the essential widgets.
 
-Each add-on is 100% customizable. You can customize font size, color, margin, padding, and background color, effect too.
-
-While working with the live page builder, you able to see every customization. That means you don't need to update a page or post to check the output.
+Each Addon can be fully customizable.
 
 [Master Addons](https://master-addons.com/)
 [Master Addons Demos](https://master-addons.com/)
 
-List of Addons:
-1. **MA Headlines** : Animated Multiple Headlines with Color, Background Customization Options.
-2. **Dual Heading** :  Left and right heading seperated by Background Colors makes Dual Heading beautiful.
-3. **MA Accordion** : Arrange and customize Accordion as required. It's easy to create faq (Frequently asked question) page with this accordion addon.
-4. **MA Tabs** : Tabs generally used to focus on showcasing products features. Changing color for both text and background is easy with the plugin.
-5. **MA Progressbar**: Mention your progress with this addon. Define the percentage, and you are done.
-6. **MA Tooltip**: When you need to explain any word, you can use tooltip. When someone hovers on your text, it will show a beautiful text box describing the meaning as you have set.
-7. **MA Team Members**: No matter if you own a small or large business website. It's always required to put team members. With this addon, you able to arrange your team members page.
-8. **MA Team Members Slider**: Master Team Members Slider can be defined with Carousel Team Sliders.
-9. **Contact Form 7**: contact form 7 the most necessary plugin used to create a contact form for any WordPress website. We have developed an addon, especially for this plugin too.
+* Currently we have 25+ elements that can help you build prettier pages. *
+
+
+** Free Themes **
+We have added  Eleven themes within the plugin dashboard you can choose from so that you don’t waste time looking for
+themes when you’re starting a project. All of our recommended themes work seamlessly with the elementor page builder and Master Addons plugin. We provide continuous updates to the themes so that you get the best experience using Master Addons plugin.
+
+Simply, put Master Addons is the most complete elementor add ons plugin that is on the market. We’re committed to make it the best addon plugin for elementor. To make it easier for the users we have added a docs section. And if you still need support, there is a support forum where you can reach us.
+
+To use master-addons you will have to activate Elementor plugin in your WordPress first.
+
+Here is the Download link for [Elementor](https://wordpress.org/plugins/elementor/) WordPress Plugin.
 
 
 
-= Some Features Of Master Addons Plugins - =
+### Master Addons All Widgets
+***Our plugin gives you access to the following widgets or elements***
 
+
+1. [MA Animated Headlines](https://master-addons.com/animated-headlines/)
+
+Our heading widget can help you create beautiful headings that attract people's attention. The heading of your website or blog for an online page is the most important aspect of the message you want to convey. Headlines are the first thing that catches a person’s eyes.
+
+If it's bland the reader will lose interest on the heading itself. We provide you with a great variety of stylish
+animated headings that are eye-catching and add extra value to your website. This add-on gives you the freedom to
+customise your own headline style. [Demo Link](https://master-addons.com/animated-headlines/)
+
+
+2. [MA Dual Heading](https://master-addons.com/ma-dual-heading/)
+
+Dual heading is advanced headline widget in addition to the animated headlines. Simply having a headline with a  nice font is sometimes not enough.
+
+What if you could customise it to look even better? This addon gives you options to choose interesting backgrounds with a dual-colored box that enhance your heading. You can use Dual fonts in a single heading to highlight certain words.
+
+Dual colours for words can be used as well it enhances a particular word. If you want a background image behind the heading, give it artistic look you can do so with this addon.
+
+You can also highlight a particular word with different thickness than the one used for the whole heading. Experiment
+with all the different styles available and see what works best for your website. [Demo Link](https://master-addons
+.com/ma-dual-heading/)
+
+
+3. [MA Advanced Accordion](https://master-addons.com/ma-accordion/)
+
+Accordion helps you to present your content in a user-friendly way. It is easier for the reader to simply see what the content is about before clicks to read the whole page.
+
+Advanced Accordion helps the reader to give a quick glance to the content that is under each Accordion bar. Accordion addon gives you the freedom to make your own style of accordion for easy sorting.
+
+You can customise the collapse animation, column color, size and position of the accordion. You can choose what will
+activate the drop-down, whether it would be a click or a Mouse hover. Choose from our wide range of colors and styles.
+[Demo Link](https://master-addons.com/ma-accordion/)
+
+
+
+4. [MA Tabs](https://master-addons.com/ma-tabs/)
+
+For a user-friendly website, having creative and informative tabs is very important. With the tabs addon, you can customise the visuals of the tabs in your website. You can choose from the wide range of theme colors, Positioning ( vertical or horizontal), font-size, icon image etc.
+
+You can make as many tabs as you like and include them on your homepage. It can include about us page, services page or
+any other page that you like. Tabs makes it easier for The Reader to navigate in your website. It also makes your
+website look more organised. [Demo Link](https://master-addons.com/ma-tabs/)
+
+
+5. [MA Progressbar](https://master-addons.com/ma-progress-bar/)
+
+A progress bar is an intelligent touch to your website. It allows you to add a stylish and animated progress bar to enrich your pages. You can use the progress bar to highlight expertise in a certain subject matter. You can also use it to showcase the different services you offer.
+
+MA Progressbar comes in different styles- Line style, bubble style as well as Circle style. [Demo Link]
+(https://master-addons.com/ma-progress-bar/)
+
+
+
+6. [Tooltip](https://master-addons.com/ma-tooltip/)
+
+Tooltip is a cool addon which makes your website is far more user-friendly than bland websites with too much information in it. The widget tooltips give the reader the option to hover their Mouse over a certain image, text or icons and know additional information about it without clicking on it.
+
+Tooltips make your content far more interactive than simply putting interruptive information in between your content. If you want to give information about certain words or images without filling up your website with text that is not very relevant to the message you want to convey, it can distract your readers from your content.
+
+An easy way to give added informative without being boring is by using tooltips. With this addon, you can customise your
+ tooltips in the Elementor plugin. [Demo Link](https://master-addons.com/ma-tooltip/)
+
+
+
+
+7. [MA Flip Box Elementor Addon](https://master-addons.com/ma-flipbox/)
+
+If you’re looking for a cool way to showcase your services or add a call to action section which differentiates from the rest of the page, then you should consider adding Flip Box.
+
+MA Flip Box comes with 3D effect and in a variety of options. There are Flip box, Flip vertical,Flipping Cubes, Fade and
+ Rollover options. [Demo Link](https://master-addons.com/ma-flipbox/)
+
+
+
+8. [MA Info Box Elementor Addon](https://master-addons.com/ma-infobox/)
+
+If you’re looking to highlight some important information on your website in a vibrant and lively style, you would love MA Infobox. Your viewers don’t have much time to read everything on your website, and they would appreciate if you can include important information in colorful info box. They can easily skim through the information in the info box.
+
+MA Infobox widget is shipped in a pack with dozen of different styles you can choose from. [Demo Link]
+(https://master-addons.com/ma-infobox/)
+
+
+
+
+9. [Team Members Page Elementor Addon](https://master-addons.com/team-members/)
+
+A website with a not complete without a beautifully customised team member page. Your audience should be able to see the team members that work for your business. It makes your website more authentic and gives your reader a sense of trust. They can know who are the people that are working behind the scenes. It also gives exposure to your team members which is an added benefit.
+
+With our MA Team Member addon, you can easily create Team Members page of your choice. There are many Team member
+options to choose from various templates we have in our library. Add the names, pictures, designation and social media
+information for each of your members and you’re done. [Demo Link](https://master-addons.com/team-members/)
+
+
+10. ### Team member sliders
+Team members sliders addon help you to easily create a display page for your team members on your site with beautifully customizable slider view. With the above-mentioned block team member view, all your team members will be shown at once on the page. However, with slider addon, the reader can click on the arrow at the side and navigate through each of the team members profile, with our "team members slider add-on".  You can customise the speed of the slide, background colour and other details to make it look perfect.
+
+
+
+11. [Contact forms 7](https://master-addons.com/contact-form-7/)
+
+The perfect kinds of websites are those websites which gives the reader the option to contact you personally. Add-on contact form 7 asks the reader to fill up a brief form which may contain their name, email id and the message they want to send you.
+
+With our contact form 7 addon, it is easy to set up the form questions that are available in our existing template, you
+don't need to write any HTML codes. You can change the color of background, field and do many other customization.
+[Demo Link](https://master-addons.com/contact-form-7/)
+
+
+
+
+12. [Ninja Form Addon](https://master-addons.com/ninja-form/)
+
+If you’re a ninja form user and looking for elementor addons that can help you customize it, don’t worry. With our Ninja
+ Form addon you can customize the design and more. [Demo Link](https://master-addons.com/ninja-form/)
+
+
+[WP Forms Addon](https://master-addons.com/wp-forms/)
+This addon will help you add elements specific to WP Forms. So, if you have designed a  form using WP Forms and is
+trying to display them in a page built using Elementor, you can do that using this widget. [Demo Link]
+(https://master-addons.com/wp-forms/)
+
+
+
+
+13. [Call to Action](https://master-addons.com/ma-call-to-action/)
+
+Call to action it is a powerful tool to make convert readers into two customers. No matter what kind of business you are “call to action” click button is the most important aspect of marketing.
+
+With our CTA widgets, you can customise the animation, write your own text in the “call to action” box that you think
+would be good, use text images or icons as the call to action button. [Demo Link](https://master-addons
+.com/ma-call-to-action/)
+
+
+
+14. ### Creative button
+
+There can be several clickable items on your website. Let it be tabs, call to action button or any other button. Creative button add-on gives you various animations on the buttons when the readers hover their mouse over the clickable area. The add-on animates the button creatively. You can choose from our templates and make your website more aesthetically pleasing.
+
+
+
+
+15. [Particles Background](http://master-addons.com/ma-particles-background/)
+
+Particles background is an animated background that has particles moving inside it. You can choose different shapes,
+sizes and colors of these particles. You can use them as backgrounds of rows and columns to make them interactive. With
+our MA Particle Background, you can also add the effect of color gradients to add more wow factor. [Demo Link]
+(http://master-addons.com/ma-particles-background/)
+
+
+16. [Gradient Background](https://master-addons.com/ma-gradient-background/)
+
+You can also create a section or row background with Gradient only using our Gradient Background addon. There are
+unlimited possibilities of customization using our custom color palette. [Demo Link](https://master-addons
+.com/ma-gradient-background/)
+
+
+17. [Slider background](http://master-addons.com/ma-slider-background/)
+
+This is a very simple background elementor addon that can generate beautiful image and video sliders. You can easily
+customize the height, width and padding. You can also background color overlay to make it look attractive. You can also
+change the alignment of the image within the slider as per your choice. [Demo Link](http://master-addons
+.com/ma-slider-background/)
+
+
+
+= Why Use Master Addons For Elementor? =
+
+### Easy To Implement
+At Master Addons, we believe that building interactive pages should be easy for elementor users. So, we have made adding any elements just a matter of click. You just need to toggle the element you want to add, and you’re all set for adding it wherever you want in your page.
+
+### Built For Speed
+We have created Master Addons with performance in mind. With Master Addons,you can load the exact elements you need on the page and not the entire script so the page load faster. We have taken extreme care to ensure there are no bloating of unnecessary codes which can slow down your website. And we’re continuously working on the development to ensure you get an awesome experience using our addon for elementor.
 
 ### COMPLETELY CUSTOMIZABLE
 The plugin is customizable by providing every element with lots of option to control every possible thing. You have the power to customize the blocks as per your choice.
