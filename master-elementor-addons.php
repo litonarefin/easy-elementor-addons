@@ -37,6 +37,7 @@
 					'public_key'          => 'pk_3c9b5b4e47a06288e3500c7bf812e',
 					'is_premium'          => true,
 					// If your plugin is a serviceware, set this option to false.
+					'has_affiliation'     => 'all',
 					'has_premium_version' => true,
 					'has_addons'          => false,
 					'has_paid_plans'      => true,

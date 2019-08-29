@@ -155,7 +155,7 @@ Paste on your Local Computer
  * Added: Flipbox: Default, Image, Diagnoal style variations added
  * Added: New Addon Element added "Creative Links"
  * Removed: Font Awesome 4, Font Awesome 5, Animate.css, wow.js removed from plugin. All are available on Elementor Core
- .
+ * Added: Affiliation Added for any Plugin Users. Starting from 50% flat commissions for all Affiliates.
 
 
  = 1.1.0 (11-8-2019) =
