@@ -219,7 +219,6 @@
 
 
 			//Free Version Codes
-
 			} else {
 
 				$this->add_control(

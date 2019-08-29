@@ -47,7 +47,7 @@
 					'label'   => __( 'HTML Tag', MELA_TD ),
 					'type'    => Controls_Manager::SELECT,
 					'options' => Master_Addons_Helper::ma_el_title_tags(),
-					'default' => 'div',
+					'default' => 'h3',
 				]
 			);
 
@@ -83,11 +83,11 @@
 				[
 					'type'                  => Controls_Manager::REPEATER,
 					'default'               => [
-						[ 'ma_el_headlines_second_heading' => esc_html__( 'Minimal Design', MELA_TD ) ],
+						[ 'ma_el_headlines_second_heading' => esc_html__( 'Ultimate Addons', MELA_TD ) ],
+						[ 'ma_el_headlines_second_heading' => esc_html__( 'Elementor Widgets', MELA_TD ) ],
 						[ 'ma_el_headlines_second_heading' => esc_html__( 'Unique Design', MELA_TD ) ],
-						[ 'ma_el_headlines_second_heading' => esc_html__( 'Portfolio Template', MELA_TD ) ],
-						[ 'ma_el_headlines_second_heading' => esc_html__( 'Modern Design', MELA_TD ) ],
-						[ 'ma_el_headlines_second_heading' => esc_html__( 'HTML5 Template', MELA_TD ) ],
+						[ 'ma_el_headlines_second_heading' => esc_html__( 'Unlimited Variations', MELA_TD ) ],
+						[ 'ma_el_headlines_second_heading' => esc_html__( 'Unlimited Possibilities', MELA_TD ) ],
 					],
 					'fields'                => array_values( $repeater->get_controls() ),
 					'title_field'           => '{{ma_el_headlines_second_heading}}',
@@ -112,28 +112,55 @@
 			);
 
 
+			// Premium Version Codes
+			if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
 
-			$this->add_control(
-				'ma_el_headlines_style_preset',
-				[
-					'label'       	=> esc_html__( 'Style Preset', MELA_TD ),
-					'type' 			=> Controls_Manager::SELECT,
-					'default' 		=> 'rotate-1',
-					'label_block' 	=> false,
-					'options' 		=> [
-						'rotate-1' => esc_html__( 'Rotate 1', MELA_TD ),
-						'rotate-2' => esc_html__( 'Rotate 2', MELA_TD ), //problem
-						'rotate-3' => esc_html__( 'Rotate 3', MELA_TD ),//problem
-						'type' => esc_html__( 'Typing', MELA_TD ),
-						'loading-bar' => esc_html__( 'Loading Bar', MELA_TD ),
-						'slide' => esc_html__( 'Slide', MELA_TD ),
-						'clip' => esc_html__( 'Clip', MELA_TD ),
-						'zoom' => esc_html__( 'Zoom', MELA_TD ),
-						'scale' => esc_html__( 'Scale', MELA_TD ),
-						'push' => esc_html__( 'Push', MELA_TD )
-					],
-				]
-			);
+				$this->add_control(
+					'ma_el_headlines_style_preset',
+					[
+						'label'       	=> esc_html__( 'Style Preset', MELA_TD ),
+						'type' 			=> Controls_Manager::SELECT,
+						'default' 		=> 'rotate-1',
+						'label_block' 	=> false,
+						'options' 		=> [
+                            'rotate-1'          => esc_html__( 'Rotate 1', MELA_TD ),
+                            'rotate-2'          => esc_html__( 'Rotate 2', MELA_TD ), //problem
+                            'rotate-3'          => esc_html__( 'Rotate 3', MELA_TD ),//problem
+                            'type'              => esc_html__( 'Typing', MELA_TD ),
+                            'loading-bar'       => esc_html__( 'Loading Bar', MELA_TD ),
+                            'slide'             => esc_html__( 'Slide', MELA_TD ),
+                            'clip'              => esc_html__( 'Clip', MELA_TD ),
+                            'zoom'              => esc_html__( 'Zoom', MELA_TD ),
+                            'scale'             => esc_html__( 'Scale', MELA_TD ),
+                            'push'              => esc_html__( 'Push', MELA_TD )
+						],
+					]
+				);
+
+			//Free Version Codes
+			} else {
+				$this->add_control(
+					'ma_el_headlines_style_preset',
+					[
+						'label'       	=> esc_html__( 'Style Preset', MELA_TD ),
+						'type' 			=> Controls_Manager::SELECT,
+						'default' 		=> 'rotate-1',
+						'label_block' 	=> false,
+						'options' 		=> [
+							'rotate-1'          => esc_html__( 'Rotate 1', MELA_TD ),
+							'rotate-2'          => esc_html__( 'Rotate 2', MELA_TD ), //problem
+							'rotate-3'          => esc_html__( 'Rotate 3', MELA_TD ),//problem
+							'ma-heading-pro-1'  => esc_html__( 'Typing (Pro)', MELA_TD ),
+							'loading-bar'       => esc_html__( 'Loading Bar', MELA_TD ),
+							'ma-heading-pro-2'  => esc_html__( 'Slide (Pro)', MELA_TD ),
+							'ma-heading-pro-3'  => esc_html__( 'Clip (Pro)', MELA_TD ),
+							'ma-heading-pro-4'  => esc_html__( 'Zoom', MELA_TD ),
+							'ma-heading-pro-5'  => esc_html__( 'Scale', MELA_TD ),
+							'ma-heading-pro-6'  => esc_html__( 'Push (Pro)', MELA_TD )
+						],
+					]
+				);
+			}
 
 			$this->end_controls_section();
 
