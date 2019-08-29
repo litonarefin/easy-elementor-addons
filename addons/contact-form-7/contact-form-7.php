@@ -94,7 +94,7 @@ class Master_Addons_CF7 extends Widget_Base {
 			);
 
 		} else{
-
+		    
 			$this->add_control(
 				'ma_cf7_layout_style',
 				[
