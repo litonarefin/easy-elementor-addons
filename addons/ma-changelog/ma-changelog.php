@@ -152,11 +152,11 @@
 
 			<div id="ma-el-changelog-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-changelog">
 				<?php if($settings['ma_el_changelog_heading']){ ?>
-					<h2><?php echo $settings['ma_el_changelog_heading']; ?></h2>
+					<h2 class="changelog-heading"><?php echo $settings['ma_el_changelog_heading']; ?></h2>
 				<?php } ?>
 
 				<?php if($settings['ma_el_changelog_main_title']) { ?>
-					<h2><?php echo $settings['ma_el_changelog_main_title'];?></h2>
+					<h3 class="changelog-title"><?php echo $settings['ma_el_changelog_main_title'];?></h3>
 				<?php } ?>
 
 				<?php foreach( $settings['changelog_tabs'] as $index => $tab ) { ?>

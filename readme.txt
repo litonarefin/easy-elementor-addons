@@ -227,7 +227,11 @@ Paste on your Local Computer
 
 
 == Changelog ==
- = 1.1.1 (23-8-2019) =
+ = 1.1.2 (30-8-2019) =
+ * Fixed: MA Team Members Carousel JS issue fixed
+ * Fixed: MA Changelog h2 tag overlap issue fixed
+
+ = 1.1.1 (30-8-2019) =
  * Fixed: MA Headlines renamed MA Animated Headlines.
  * Fixed: Accordion Design Presets styles done.
  * Added: Accordion Items can be designed individually. Every item can be set different background color, text color etc.

@@ -56,7 +56,7 @@
 					'ma-infobox',               // 12
 					'ma-flipbox',               // 13
 					'ma-creative-links',        // 14
-//					'ma-image-hover-effects',   // 14
+					'ma-image-hover-effects',   // 14
 
 					'contact-form-7',           // 15
 					'ninja-forms',              // 16

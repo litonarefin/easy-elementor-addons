@@ -400,8 +400,8 @@
         },
 
         MA_TeamSlider: function ($scope, $){
-            // try {
-            //     (function($) {
+            try {
+                (function($) {
 
                     let $teamCarouselWrapper = $scope.find('.ma-el-team-carousel-wrapper').eq(0),
                         $carousel_nav = $teamCarouselWrapper.data("carousel-nav"),
@@ -452,44 +452,44 @@
                     });
 
 
-            //
-            //     })(jQuery);
-            // } catch(e) {
-            //     //We can also throw from try block and catch it here
-            //     // No Error Show
-            // }
 
-            //
-            //
-            // try {
-            //     (function($) {
-            //
-            //         $('.gridder').gridderExpander({
-            //             scroll: true,
-            //             scrollOffset: 30,
-            //             scrollTo: "panel",                  // panel or listitem
-            //             animationSpeed: 400,
-            //             animationEasing: "easeInOutExpo",
-            //             showNav: true, // Show Navigation
-            //             nextText: "<span></span>", // Next button text
-            //             prevText: "<span></span>", // Previous button text
-            //             closeText: "", // Close button text
-            //             onStart: function(){
-            //                 //Gridder Inititialized
-            //             },
-            //             onContent: function(){
-            //                 //Gridder Content Loaded
-            //             },
-            //             onClosed: function(){
-            //                 //Gridder Closed
-            //             }
-            //         });
-            //
-            //     })(jQuery);
-            // } catch(e) {
-            //     //We can also throw from try block and catch it here
-            //     // No Error Show
-            // }
+                })(jQuery);
+            } catch(e) {
+                //We can also throw from try block and catch it here
+                // No Error Show
+            }
+
+
+
+            try {
+                (function($) {
+
+                    $('.gridder').gridderExpander({
+                        scroll: true,
+                        scrollOffset: 30,
+                        scrollTo: "panel",                  // panel or listitem
+                        animationSpeed: 400,
+                        animationEasing: "easeInOutExpo",
+                        showNav: true, // Show Navigation
+                        nextText: "<span></span>", // Next button text
+                        prevText: "<span></span>", // Previous button text
+                        closeText: "", // Close button text
+                        onStart: function(){
+                            //Gridder Inititialized
+                        },
+                        onContent: function(){
+                            //Gridder Content Loaded
+                        },
+                        onClosed: function(){
+                            //Gridder Closed
+                        }
+                    });
+
+                })(jQuery);
+            } catch(e) {
+                //We can also throw from try block and catch it here
+                // No Error Show
+            }
 
 
 

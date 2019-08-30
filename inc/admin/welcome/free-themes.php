@@ -17,7 +17,7 @@
 
                 <div class="theme">
                     <div class="theme-screenshot">
-                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/osaka-light.png' ); ?>" alt="" />
+                        <img src="https://master-addons.com/wp-content/uploads/2019/08/osaka-light.png" alt="" />
                     </div>
                     <div class="theme-id-container">
                         <h2 class="theme-name">
@@ -41,7 +41,7 @@
 
                 <div class="theme">
                     <div class="theme-screenshot">
-                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/ezra.png' ); ?>" alt="" />
+                        <img src="https://master-addons.com/wp-content/uploads/2019/08/ezra.png" alt="" />
                     </div>
                     <div class="theme-id-container">
                         <h2 class="theme-name">
@@ -65,7 +65,7 @@
 
                 <div class="theme">
                     <div class="theme-screenshot">
-                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/polmo-lite.png' ); ?>" alt="" />
+                        <img src="https://master-addons.com/wp-content/uploads/2019/08/polmo-lite.png" alt="" />
                     </div>
                     <div class="theme-id-container">
                         <h2 class="theme-name">
@@ -89,7 +89,7 @@
 
                 <div class="theme">
                     <div class="theme-screenshot">
-                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/jewel-blog.jpg' ); ?>" alt="" />
+                        <img src="https://master-addons.com/wp-content/uploads/2019/08//jewel-blog.jpg" alt="" />
                     </div>
 
                     <div class="theme-id-container">
@@ -113,7 +113,7 @@
 
                 <div class="theme">
                     <div class="theme-screenshot">
-                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/videostories.png' ); ?>" alt="" />
+                        <img src="https://master-addons.com/wp-content/uploads/2019/08/videostories.png" alt="" />
                     </div>
                     <div class="theme-id-container">
                         <h2 class="theme-name">
@@ -131,7 +131,7 @@
 
                 <div class="theme">
                     <div class="theme-screenshot">
-                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/reader-lite.png' ); ?>" alt="" />
+                        <img src="https://master-addons.com/wp-content/uploads/2019/08/reader-lite.png" alt="" />
                     </div>
                     <div class="theme-id-container">
                         <h2 class="theme-name">
@@ -151,7 +151,7 @@
 
                 <div class="theme">
                     <div class="theme-screenshot">
-                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/videofy.png' ); ?>" alt="" />
+                        <img src="https://master-addons.com/wp-content/uploads/2019/08/videofy.png" alt="" />
                     </div>
                     <div class="theme-id-container">
                         <h2 class="theme-name">
@@ -171,7 +171,7 @@
 
                 <div class="theme">
                     <div class="theme-screenshot">
-                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/revideo.png' ); ?>" alt="" />
+                        <img src="https://master-addons.com/wp-content/uploads/2019/08/revideo.png" alt="" />
                     </div>
                     <div class="theme-id-container">
                         <h2 class="theme-name">
@@ -192,7 +192,7 @@
 
                 <div class="theme">
                     <div class="theme-screenshot">
-                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/videofire.png' ); ?>" alt="" />
+                        <img src="https://master-addons.com/wp-content/uploads/2019/08/videofire.png" alt="" />
                     </div>
                     <div class="theme-id-container">
                         <h2 class="theme-name">
@@ -213,7 +213,7 @@
 
                 <div class="theme">
                     <div class="theme-screenshot">
-                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/videomag.png' ); ?>" alt="" />
+                        <img src="https://master-addons.com/wp-content/uploads/2019/08/videomag.png" alt="" />
                     </div>
                     <div class="theme-id-container">
                         <h2 class="theme-name">
@@ -233,7 +233,7 @@
 
                 <div class="theme">
                     <div class="theme-screenshot">
-                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/videofire.png' ); ?>" alt="" />
+                        <img src="https://master-addons.com/wp-content/uploads/2019/08/videofire.png" alt="" />
                     </div>
                     <div class="theme-id-container">
                         <h2 class="theme-name">
