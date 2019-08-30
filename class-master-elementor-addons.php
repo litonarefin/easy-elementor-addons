@@ -426,14 +426,14 @@
 				if (isset( $is_activated_widget['ma-image-hover-effects'] )) {
 
 					// Premium Version Codes
-					if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
-
-
-						//Free Version Codes
-					} else {
+//					if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+//
+//
+//						//Free Version Codes
+//					} else {
 						wp_enqueue_style( 'ma-image-hover-effects-set1', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/set1.css' );
-						wp_enqueue_style( 'ma-image-hover-effects-set2', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/set2.css' );
-					}
+//						wp_enqueue_style( 'ma-image-hover-effects-set2', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/set2.css' );
+//					}
 				}
 
 

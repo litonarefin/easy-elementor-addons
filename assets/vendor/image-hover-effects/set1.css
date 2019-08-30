@@ -1,5 +1,5 @@
 
-.grid {
+.ma-el-image-hover-effect {
 	position: relative;
 	margin: 0 auto;
 	padding: 1em 0 4em;
@@ -9,7 +9,7 @@
 }
 
 /* Common style */
-.grid figure {
+.ma-el-image-hover-effect figure {
 	position: relative;
 	float: left;
 	overflow: hidden;
@@ -23,7 +23,7 @@
 	cursor: pointer;
 }
 
-.grid figure img {
+.ma-el-image-hover-effect figure img {
 	position: relative;
 	display: block;
 	min-height: 100%;
@@ -31,7 +31,7 @@
 	opacity: 0.8;
 }
 
-.grid figure figcaption {
+.ma-el-image-hover-effect figure figcaption {
 	padding: 2em;
 	color: #fff;
 	text-transform: uppercase;
@@ -40,13 +40,13 @@
 	backface-visibility: hidden;
 }
 
-.grid figure figcaption::before,
-.grid figure figcaption::after {
+.ma-el-image-hover-effect figure figcaption::before,
+.ma-el-image-hover-effect figure figcaption::after {
 	pointer-events: none;
 }
 
-.grid figure figcaption,
-.grid figure figcaption > a {
+.ma-el-image-hover-effect figure figcaption,
+.ma-el-image-hover-effect figure figcaption > a {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -56,7 +56,7 @@
 
 /* Anchor will cover the whole item by default */
 /* For some effects it will show as a button */
-.grid figure figcaption > a {
+.ma-el-image-hover-effect figure figcaption > a {
 	z-index: 1000;
 	text-indent: 200%;
 	white-space: nowrap;
@@ -64,21 +64,21 @@
 	opacity: 0;
 }
 
-.grid figure h2 {
+.ma-el-image-hover-effect figure h2 {
 	word-spacing: -0.15em;
 	font-weight: 300;
 }
 
-.grid figure h2 span {
+.ma-el-image-hover-effect figure h2 span {
 	font-weight: 800;
 }
 
-.grid figure h2,
-.grid figure p {
+.ma-el-image-hover-effect figure h2,
+.ma-el-image-hover-effect figure p {
 	margin: 0;
 }
 
-.grid figure p {
+.ma-el-image-hover-effect figure p {
 	letter-spacing: 1px;
 	font-size: 68.5%;
 }
@@ -1137,7 +1137,7 @@ figure.effect-chico:hover p {
 		padding: 0 10px;
 		text-align: center;
 	}
-	.grid figure {
+	.ma-el-image-hover-effect figure {
 		display: inline-block;
 		float: none;
 		margin: 10px auto;

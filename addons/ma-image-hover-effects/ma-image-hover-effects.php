@@ -323,11 +323,21 @@
 						'type'        => Controls_Manager::SELECT,
 						'default'     => 'cl-effect-1',
 						'options'     => [
-							'cl-effect-1' 	=> esc_html__( 'Brackets', 	                    MELA_TD ),
-							'cl-effect-3' 	=> esc_html__( 'Bottom Line Slide', 	        MELA_TD ),
-							'cl-pro-link-9' => esc_html__( 'Cross (Pro)', 	                MELA_TD ),
-							'cl-pro-link-10'=> esc_html__( '3D Slide (Pro)', 	            MELA_TD ),
-							'cl-pro-link-11'=> esc_html__( '3D Slide Down (Pro)', 	        MELA_TD ),
+							'lily' 	            => __( 'Lily', 	                            MELA_TD ),
+							'sadie' 	        => __( 'Sadie', 	                        MELA_TD ),
+							'roxy'              => __( 'Roxy', 	                            MELA_TD ),
+							'bubba'             => __( 'Bubba', 	                        MELA_TD ),
+							'romeo'             => __( 'Romeo', 	                        MELA_TD ),
+							'layla'             => __( 'Layla', 	                        MELA_TD ),
+							'honey'             => __( 'Honey', 	                        MELA_TD ),
+							'oscar'             => __( 'Oscar', 	                        MELA_TD ),
+							'marley'            => __( 'Marley', 	                        MELA_TD ),
+							'ruby'              => __( 'Ruby', 	                            MELA_TD ),
+							'milo'              => __( 'Milo', 	                            MELA_TD ),
+							'dexter'            => __( 'Dexter', 	                        MELA_TD ),
+							'sarah'             => __( 'Sarah', 	                        MELA_TD ),
+							'zoe'               => __( 'Zoe', 	                            MELA_TD ),
+							'chico'             => __( 'Chico', 	                        MELA_TD ),
 						],
 
 
@@ -726,6 +736,18 @@
 		protected function render() {
 
 			$settings 	= $this->get_settings_for_display();
+			$ma_el_id		= $this->get_id();
+
+
+			$this->add_render_attribute( 'ma_el_image_hover_effect', [
+				'class'	=> [
+					'ma-el-image-hover-effect',
+					esc_attr($settings['ma_el_main_image_effect'] )
+				],
+				'id' => 'ma-el-image-hover-effect-' . esc_attr( $ma_el_id )
+			]);
+
+
 //
 //			$this->add_inline_editing_attributes('premium_banner_title');
 //			$this->add_inline_editing_attributes('premium_banner_description', 'advanced');
@@ -754,10 +776,29 @@
 //
 //			$alt = esc_attr( Control_Media::get_image_alt( $settings['premium_banner_image'] ) );
 
+
+
 			?>
 
+				<div <?php echo $this->get_render_attribute_string( 'ma_el_creative_links_wrapper' ); ?>>
 
-		<?php}
+					<figure class="effect-lily">
+						<img src="<?php echo esc_url($settings['ma_el_main_image']['url']); ?>" alt="<?php echo
+						get_post_meta( $settings['ma_el_main_image']['id'], '_wp_attachment_image_alt',
+							true);
+						?>">
+						<figcaption>
+							<div>
+								<h2>Nice <span>Lily</span></h2>
+								<p>Lily likes to play with crayons and pencils</p>
+							</div>
+							<a href="#">View more</a>
+						</figcaption>
+					</figure>
+
+				</div>
+		<?php
+		}
 
 		protected function _content_template() {}
 
