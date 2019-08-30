@@ -407,6 +407,7 @@ pre {
     margin-bottom: 70px;
 }
 .master_addons_features .master_addons_feature .col{
+    /*flex: 1;*/
     overflow: hidden;
     display: inline-block;
     background: #fff;

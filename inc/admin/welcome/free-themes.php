@@ -2,11 +2,11 @@
     <div class="master_addons_features">
         <div class="master_addons_feature">
             <h2>
-				<?php esc_html_e( 'Recommended Free WordPress Themes', MELA_TD ); ?>
-                </h3>
-                <p class="textcenter">
-					<?php echo sprintf( 'These themes are guaranteed to work seamlessly with <strong>Master Addons</strong> for Elementor Page Builder.', MELA_TD ); ?>
-                </p>
+				<?php esc_html_e( 'Recommended Free WordPress Themes for Master Addons', MELA_TD ); ?>
+            </h2>
+            <p class="textcenter">
+                <?php echo sprintf( 'These themes are guaranteed to work seamlessly with <strong>Master Addons</strong> for Elementor Page Builder.', MELA_TD ); ?>
+            </p>
         </div>
     </div>
 

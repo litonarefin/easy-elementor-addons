@@ -11,7 +11,7 @@
                 </h3>
                 <div class="inner_content">
                     <a class="master_addons_theme_link" href="<?php echo esc_url( 'https://wordpress.org/themes/osaka-light/' ); ?>" target="_blank">
-                        <img src="<?php echo esc_url( MELA_IMAGE_DIR . 'themes/osaka-light.png' ); ?>" alt="Master
+                        <img src="https://master-addons.com/wp-content/uploads/2019/08/osaka-light.png" alt="Master
                         Addons for Elementor
                         Theme">
                     </a>

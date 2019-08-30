@@ -1,4 +1,4 @@
-<div class="wp-tab-panel" id="addons" style="display: none;">
+<div class="wp-tab-panel" id="ma-addons">
 	<div class="master_addons_features">
 
 		<h3 class="black sub-heading">
