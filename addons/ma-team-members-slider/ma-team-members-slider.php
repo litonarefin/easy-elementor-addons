@@ -241,6 +241,7 @@
 						'type' => Controls_Manager::SELECT,
 						'default' => '-circle',
 						'options' => [
+							'-default'     => esc_html__( 'Team Carousel', MELA_TD ),
 							'-circle'               => esc_html__( 'Circle Gradient', MELA_TD ),
 							'-social-left'          => esc_html__( 'Social Left on Hover', MELA_TD ),
 							'-content-hover'        => esc_html__( 'Content on Hover', MELA_TD ),
@@ -257,6 +258,7 @@
 						'type' => Controls_Manager::SELECT,
 						'default' => '-circle',
 						'options' => [
+							'-default'           => esc_html__( 'Team Carousel', MELA_TD ),
 							'-circle'                     => esc_html__( 'Circle Gradient', MELA_TD ),
 							'-content-hover'              => esc_html__( 'Content on Hover', MELA_TD ),
 							'-pro-team-slider-1'          => esc_html__( 'Social Left on Hover (Pro)', MELA_TD ),
@@ -699,7 +701,7 @@ Customization Options.</span>'
 
 
 			$this->add_render_attribute(
-				'ma-el-team-carousel',
+				'ma_el_team_carousel',
 				[
 					'class' => [ 'ma-el-team-carousel-wrapper', 'ma-el-team-carousel' . $team_preset ],
 					'data-team-preset' => $team_preset,
@@ -711,16 +713,16 @@ Customization Options.</span>'
 			);
 
 			if ( $settings['ma_el_team_autoplay'] == 'yes' ) {
-				$this->add_render_attribute( 'ma-el-team-carousel', 'data-autoplay', "true");
-				$this->add_render_attribute( 'ma-el-team-carousel', 'data-autoplayspeed', $settings['ma_el_team_autoplay_speed'] );
+				$this->add_render_attribute( 'ma_el_team_carousel', 'data-autoplay', "true");
+				$this->add_render_attribute( 'ma_el_team_carousel', 'data-autoplayspeed', $settings['ma_el_team_autoplay_speed'] );
 			}
 
 			if ( $settings['ma_el_team_pause'] == 'yes' ) {
-				$this->add_render_attribute( 'ma-el-team-carousel', 'data-pauseonhover', "true" );
+				$this->add_render_attribute( 'ma_el_team_carousel', 'data-pauseonhover', "true" );
 			}
 
 			if ( $settings['ma_el_team_loop'] == 'yes' ) {
-				$this->add_render_attribute( 'ma-el-team-carousel', 'data-loop', "true");
+				$this->add_render_attribute( 'ma_el_team_carousel', 'data-loop', "true");
 			}
 			?>
 
@@ -763,6 +765,7 @@ Customization Options.</span>'
 
                 <!-- Gridder content -->
 				<?php foreach ( $settings['team_carousel_repeater'] as $key => $member ) { ?>
+
                     <div id="ma-el-team<?php echo $key+1;?>" class="gridder-content">
                         <div class="content-left">
                             <span class="ma-el-team-member-designation"><?php echo $member['ma_el_team_carousel_designation']; ?></span>
@@ -820,8 +823,8 @@ Customization Options.</span>'
 			<?php } else { ?>
 
 
-                <div <?php echo $this->get_render_attribute_string( 'ma-el-team-carousel' ); ?>>
-                    <div class="row">
+                <div <?php echo $this->get_render_attribute_string( 'ma_el_team_carousel' ); ?>>
+
                         <?php foreach ( $settings['team_carousel_repeater'] as $key => $member ) :
 
                             $team_carousel_image = $member['ma_el_team_carousel_image'];
@@ -829,8 +832,8 @@ Customization Options.</span>'
                             if( empty( $team_carousel_image_url ) ) : $team_carousel_image_url = $team_carousel_image['url']; else: $team_carousel_image_url = $team_carousel_image_url; endif;
 
                             ?>
-                            <div class="ma-el-team-carousel<?php echo $team_preset; ?>-inner col-md-3">
-                                <div class="ma-el-team-member<?php echo $team_preset; ?>">
+                            <div class="ma-el-team-carousel<?php echo $team_preset; ?>-inner">
+                                <div class="ma-el-team-member<?php echo $team_preset; ?> text-center">
                                     <div class="ma-el-team-member-thumb">
                                         <?php if( $team_preset == '-circle' ) : ?>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
@@ -899,7 +902,6 @@ Customization Options.</span>'
                                 </div>
                             </div>
                         <?php endforeach; ?>
-                    </div>
                 </div>
 
 			<?php } ?>
