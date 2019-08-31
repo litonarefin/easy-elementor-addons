@@ -180,7 +180,7 @@
 
 
 			// Premium Version Codes
-			if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+			if ( ma_el_fs()->can_use_premium_code() ) {
 
 				$this->add_control(
 					'creative_button_effect',

@@ -61,6 +61,17 @@
 					'show_external'	=> true
 				]
 			);
+			$this->add_group_control(
+				Group_Control_Image_Size::get_type(),
+				[
+					'name' => 'thumbnail',
+					'default' => 'full',
+					'condition' => [
+						'ma_el_main_image[url]!' => '',
+					],
+				]
+			);
+
 
 			$this->add_control('ma_el_image_link_url_switch',
 				[
@@ -161,7 +172,7 @@
 						'ma_el_main_image_height' => 'custom'
 					],
 					'selectors'		=> [
-						'{{WRAPPER}} .premium-banner-ib' => 'height: {{VALUE}}px;'
+						'{{WRAPPER}} .ma-el-image-hover-effect figure' => 'height: {{VALUE}}px;'
 					]
 				]
 			);
@@ -181,7 +192,7 @@
 					],
 					'default'       => 'flex-start',
 					'selectors'		=> [
-						'{{WRAPPER}} .premium-banner-img-wrap' => 'align-items: {{VALUE}}; -webkit-align-items: {{VALUE}};'
+						'{{WRAPPER}} .ma-el-image-hover-effect figure' => 'align-items: {{VALUE}}; -webkit-align-items: {{VALUE}};'
 					]
 				]
 			);
@@ -209,7 +220,7 @@
 					'placeholder'	=> __( 'Give a title to this banner', MELA_TD ),
 					'type'			=> Controls_Manager::TEXT,
 					'dynamic'       => [ 'active' => true ],
-					'default'		=> __( 'Master Addon Image', MELA_TD ),
+					'default'		=> __( 'Master Addon <span>Hover Image</span>', MELA_TD ),
 					'label_block'	=> false
 				]
 			);
@@ -295,14 +306,14 @@
 			);
 
 			// Premium Version Codes
-			if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+			if ( ma_el_fs()->can_use_premium_code() ) {
 
 				$this->add_control(
 					'ma_el_main_image_effect',
 					[
 						'label'       => esc_html__( 'Hover Effect', MELA_TD ),
 						'type'        => Controls_Manager::SELECT,
-						'default'     => 'cl-effect-1',
+						'default'     => 'lily',
 						'options'     => [
 							'cl-effect-1' 	=> esc_html__( 'Brackets', 	                                MELA_TD ),
 							'cl-effect-2' 	=> esc_html__( '3D Effect(Pro)', 	                        MELA_TD ),
@@ -321,7 +332,7 @@
 					[
 						'label'       => esc_html__( 'Hover Effect', MELA_TD ),
 						'type'        => Controls_Manager::SELECT,
-						'default'     => 'cl-effect-1',
+						'default'     => 'lily',
 						'options'     => [
 							'lily' 	            => __( 'Lily', 	                            MELA_TD ),
 							'sadie' 	        => __( 'Sadie', 	                        MELA_TD ),
@@ -338,6 +349,10 @@
 							'sarah'             => __( 'Sarah', 	                        MELA_TD ),
 							'zoe'               => __( 'Zoe', 	                            MELA_TD ),
 							'chico'             => __( 'Chico', 	                        MELA_TD ),
+							'julia'             => __( 'Julia', 	                        MELA_TD ),
+							'goliath'           => __( 'Goliath', 	                        MELA_TD ),
+							'hera'              => __( 'Hera', 	                            MELA_TD ),
+							'winston'           => __( 'Winston', 	                            MELA_TD ),
 						],
 
 
@@ -498,21 +513,22 @@
 						'type' => Scheme_Color::get_type(),
 						'value' => Scheme_Color::COLOR_1
 					],
+					'default' => "#fff",
 					'selectors' => [
-						'{{WRAPPER}} .premium-banner-ib-desc .ma_el_main_image_title' => 'color: {{VALUE}};'
+						'{{WRAPPER}} .ma-el-image-hover-effect .ma-el-image-hover-title' => 'color: {{VALUE}};'
 					]
 				]
 			);
 
 			$this->add_control('ma_el_main_image_title_bg',
 				[
-					'label'			=> __( 'Title Background', MELA_TD ),
+					'label'			=> __( 'Background', MELA_TD ),
 					'type'			=> Controls_Manager::COLOR,
 					'default'       => '#f2f2f2',
 					'label_block'	=> true,
 					'description'	=> __( 'Choose a background color for the title', MELA_TD ),
 					'condition'		=> [
-						'ma_el_main_image_effect' => 'animation5'
+						'ma_el_main_image_effect' => 'lily'
 					],
 					'selectors'     => [
 						'{{WRAPPER}} .premium-banner-animation5 .premium-banner-ib-desc'    => 'background: {{VALUE}};',
@@ -522,10 +538,10 @@
 
 			$this->add_control('ma_el_main_image_title_border',
 				[
-					'label'			=> __( 'Title Border Color', MELA_TD ),
+					'label'			=> __( 'Border Color', MELA_TD ),
 					'type'			=> Controls_Manager::COLOR,
 					'condition'		=> [
-						'ma_el_main_image_effect' => 'animation13'
+//						'ma_el_main_image_effect' => 'animation13'
 					],
 					'selectors'     => [
 						'{{WRAPPER}} .premium-banner-animation13 .premium-banner-ib-title::after'    => 'background: {{VALUE}};',
@@ -596,7 +612,7 @@
 			$this->add_group_control(
 				Group_Control_Typography::get_type(),
 				[
-					'name'          => 'ma_el_main_image_desc_typhography',
+					'name'          => 'ma_el_main_image_desc_typography',
 					'selector'      => '{{WRAPPER}} .premium-banner .premium_banner_content',
 					'scheme'        => Scheme_Typography::TYPOGRAPHY_3,
 				]
@@ -735,11 +751,12 @@
 
 		protected function render() {
 
-			$settings 	= $this->get_settings_for_display();
+			$settings = $this->get_settings_for_display();
+
 			$ma_el_id		= $this->get_id();
 
 
-			$this->add_render_attribute( 'ma_el_image_hover_effect', [
+			$this->add_render_attribute( 'ma_el_image_hover_effect_wrapper', [
 				'class'	=> [
 					'ma-el-image-hover-effect',
 					esc_attr($settings['ma_el_main_image_effect'] )
@@ -747,6 +764,16 @@
 				'id' => 'ma-el-image-hover-effect-' . esc_attr( $ma_el_id )
 			]);
 
+
+			$ma_el_main_image = $this->get_settings_for_display( 'ma_el_main_image' );
+
+			$ma_el_main_image_url_src = wp_get_attachment_image_src( $ma_el_main_image['id'], $settings['thumbnail_size'], $settings );
+
+			if( empty( $ma_el_main_image_url_src ) ) {
+				$ma_el_main_image_url = $ma_el_main_image['url'];
+			} else {
+				$ma_el_main_image_url = $ma_el_main_image_url_src[0];
+			}
 
 //
 //			$this->add_inline_editing_attributes('premium_banner_title');
@@ -780,21 +807,37 @@
 
 			?>
 
-				<div <?php echo $this->get_render_attribute_string( 'ma_el_creative_links_wrapper' ); ?>>
+				<div <?php echo $this->get_render_attribute_string( 'ma_el_image_hover_effect_wrapper' ); ?>>
 
-					<figure class="effect-lily">
-						<img src="<?php echo esc_url($settings['ma_el_main_image']['url']); ?>" alt="<?php echo
-						get_post_meta( $settings['ma_el_main_image']['id'], '_wp_attachment_image_alt',
-							true);
-						?>">
+					<figure class="effect-<?php echo esc_attr( $settings['ma_el_main_image_effect'] );?>">
+						<img src="<?php echo esc_url($ma_el_main_image_url); ?>" alt="<?php echo get_post_meta(
+							$settings['ma_el_main_image']['id'], '_wp_attachment_image_alt', true); ?>">
 						<figcaption>
-							<div>
-								<h2>Nice <span>Lily</span></h2>
-								<p>Lily likes to play with crayons and pencils</p>
+							<div class="ma-image-hover-content">
+								<h2 class="ma-el-image-hover-title"><?php echo $this->parse_text_editor(
+									$settings['ma_el_main_image_title'] );
+								?></h2>
+<!--								<p class="ma-el-image-hover-desc">-->
+<!--									--><?php ////echo $this->parse_text_editor( $settings['ma_el_main_image_desc'] ); ?>
+<!--									<a href="#"><span class="fa fa-home"></span></a>-->
+<!--									<a href="#"><span class="fa fa-pencil"></span></a>-->
+<!--									<a href="#"><span class="fa fa-diamond"></span></a>-->
+<!--								</p>-->
+
+								<p class="icon-links">
+									<a href="#"><span class="fa fa-home"></span></a>
+									<a href="#"><span class="fa fa-pencil"></span></a>
+									<a href="#"><span class="fa fa-diamond"></span></a>
+								</p>
+								<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
+
 							</div>
-							<a href="#">View more</a>
+							<a class="ma-image-hover-read-more" href="#">
+								View more
+							</a>
 						</figcaption>
 					</figure>
+
 
 				</div>
 		<?php

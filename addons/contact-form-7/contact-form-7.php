@@ -69,7 +69,7 @@ class Master_Addons_CF7 extends Widget_Base {
 		);
 
 		// Premium Version Codes
-		if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+		if ( ma_el_fs()->can_use_premium_code() ) {
 
 			$this->add_control(
 				'ma_cf7_layout_style',

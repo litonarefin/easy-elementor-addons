@@ -142,7 +142,7 @@ Customization Options.</span>'
 
 
 			// Premium Version Codes
-			if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+			if ( ma_el_fs()->can_use_premium_code() ) {
 
 				$this->add_control(
 					'ma_el_headlines_style_preset',

@@ -236,7 +236,7 @@ Customization Options.</span>'
 			);
 
 			// Premium Version Codes
-			if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+			if ( ma_el_fs()->can_use_premium_code() ) {
 
 				$this->add_control(
 					'ma_el_team_members_preset',
@@ -558,7 +558,8 @@ Customization Options.</span>'
                 <div id="ma-el-team-member-slider" class="ma-el-team-member-slider owl-carousel owl-theme">
                     <div class="ma-el-member-container">
                         <div class="ma-el-inner-container">
-                            <img src="<?php echo esc_url($team_member_image['url']); ?>" alt="<?php echo get_post_meta( $team_member_image['id'], '_wp_attachment_image_alt', true);?>">
+                            <img src="<?php echo esc_url($team_member_image['url']); ?>" alt="<?php echo get_post_meta(
+	                            $team_member_image['id'], '_wp_attachment_image_alt', true); ?>">
                             <div class="ma-el-member-details">
                                 <h4 class="name">
 									<?php echo $settings['ma_el_team_member_name']; ?>
@@ -609,8 +610,8 @@ Customization Options.</span>'
                                 </svg>
 							<?php endif; ?>
 
-                            <img src="<?php echo esc_url($team_member_image_url); ?>" class="circled" alt="<?php echo
-							$settings['ma_el_team_member_name']; ?>">
+                            <img src="<?php echo esc_url($team_member_image_url); ?>" class="circled" alt="<?php echo get_post_meta(
+	                            $team_member_image['id'], '_wp_attachment_image_alt', true); ?>">
                         </div>
                         <div class="ma-el-team-member-content">
                             <h2 class="ma-el-team-member-name"><?php echo $settings['ma_el_team_member_name']; ?></h2>

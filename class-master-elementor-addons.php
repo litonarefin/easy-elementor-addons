@@ -413,7 +413,8 @@
 				if (isset( $is_activated_widget['ma-creative-links'] )) {
 
 					// Premium Version Codes
-					if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+					if ( ma_el_fs()->can_use_premium_code() ) {
+						wp_enqueue_style( 'ma-creative-links', MELA_PLUGIN_URL . '/assets/vendor/creative-links/creative-links.css' );
 						wp_enqueue_style( 'ma-creative-links-pro', MELA_PLUGIN_URL . '/assets/vendor/creative-links/creative-links-pro.css' );
 
 						//Free Version Codes
@@ -426,7 +427,7 @@
 				if (isset( $is_activated_widget['ma-image-hover-effects'] )) {
 
 					// Premium Version Codes
-//					if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+//					if ( ma_el_fs()->can_use_premium_code() ) {
 //
 //
 //						//Free Version Codes
@@ -582,7 +583,7 @@
 				include_once MELA_PLUGIN_PATH . '/inc/classes/utils.php';
 
 				// Extension
-//				if ( ma_el_fs()->can_use_premium_code__premium_only() ) {
+//				if ( ma_el_fs()->can_use_premium_code() ) {
 					include_once MELA_PLUGIN_PATH . '/inc/modules/animated-gradient/animated-gradient.php';
 					include_once MELA_PLUGIN_PATH . '/inc/modules/particles/particles.php';
 					include_once MELA_PLUGIN_PATH . '/inc/modules/bg-slider/bg-slider.php';
