@@ -411,29 +411,25 @@
 
 				//Creative Links
 				if (isset( $is_activated_widget['ma-creative-links'] )) {
+					//Free Version Codes
+					wp_enqueue_style( 'ma-creative-links', MELA_PLUGIN_URL . '/assets/vendor/creative-links/creative-links.css' );
 
 					// Premium Version Codes
 					if ( ma_el_fs()->can_use_premium_code() ) {
-						wp_enqueue_style( 'ma-creative-links', MELA_PLUGIN_URL . '/assets/vendor/creative-links/creative-links.css' );
 						wp_enqueue_style( 'ma-creative-links-pro', MELA_PLUGIN_URL . '/assets/vendor/creative-links/creative-links-pro.css' );
-
-						//Free Version Codes
-					} else {
-						wp_enqueue_style( 'ma-creative-links', MELA_PLUGIN_URL . '/assets/vendor/creative-links/creative-links.css' );
 					}
 				}
 
 				//Image Hover Effects
 				if (isset( $is_activated_widget['ma-image-hover-effects'] )) {
 
+					//Free Version Codes
+					wp_enqueue_style( 'ma-image-hover-effects-set1', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/set1.css' );
+					wp_enqueue_style( 'ma-image-hover-effects-set2', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/set2.css' );
+
 					// Premium Version Codes
 //					if ( ma_el_fs()->can_use_premium_code() ) {
 //
-//
-//						//Free Version Codes
-//					} else {
-						wp_enqueue_style( 'ma-image-hover-effects-set1', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/set1.css' );
-//						wp_enqueue_style( 'ma-image-hover-effects-set2', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/set2.css' );
 //					}
 				}
 
