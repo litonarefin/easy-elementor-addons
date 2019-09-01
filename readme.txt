@@ -230,6 +230,10 @@ Paste on your Local Computer
  = 1.1.2 (30-8-2019) =
  * Fixed: MA Team Members Carousel JS issue fixed
  * Fixed: MA Changelog h2 tag overlap issue fixed
+ * Removed: MA Flipbox Duplicate Background removed
+ * Removed: MA Flipbox Front Box Title, Description color Removed.
+ * Fixed: MA Team Carousel Gridder offset problem fixed
+
 
  = 1.1.1 (30-8-2019) =
  * Fixed: MA Headlines renamed MA Animated Headlines.

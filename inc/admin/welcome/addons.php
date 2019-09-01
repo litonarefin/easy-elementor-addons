@@ -1,11 +1,6 @@
 <div class="wp-tab-panel" id="ma-addons">
 	<div class="master_addons_features">
 
-		<h3 class="black sub-heading">
-			<?php //_e( 'Active/Deactivate elements for better Performance', MELA_TD ); ?>
-		</h3>
-
-
 		<div class="master-addons-el-dashboard-header-wrapper">
 			<div class="master-addons-el-dashboard-header-right">
 				<button type="submit" class="master-addons-el-btn master-addons-el-js-element-save-setting">

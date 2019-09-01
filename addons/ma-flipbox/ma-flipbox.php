@@ -486,28 +486,16 @@
 				]
 			);
 
-
-			$this->add_control(
-				'front_box_background_color',
-				[
-					'label' => esc_html__( 'Background Color', MELA_TD ),
-					'type' => Controls_Manager::COLOR,
-					'default' => '',
-					'selectors' => [
-						'{{WRAPPER}} .ma-el-flip-box-front' => 'background-color: {{VALUE}};',
-					],
-				]
-			);
-
-
 //
-//			$this->add_group_control(
-//				Group_Control_Background::get_type(),
+//			$this->add_control(
+//				'front_box_background_color',
 //				[
-//					'name' => 'front_box_background',
-//					'label' => __( 'Front Box Background', MELA_TD ),
-//					'types' => [ 'classic','gradient' ],
-//					'selector' => '{{WRAPPER}} .ma-el-flip-box-front',
+//					'label' => esc_html__( 'Background Color', MELA_TD ),
+//					'type' => Controls_Manager::COLOR,
+//					'default' => '',
+//					'selectors' => [
+//						'{{WRAPPER}} .ma-el-flip-box-front' => 'background-color: {{VALUE}};',
+//					],
 //				]
 //			);
 
@@ -540,33 +528,33 @@
 					'selector' => '{{WRAPPER}} .front-icon-title',
 				]
 			);
+//
+//			$this->add_control(
+//				'front_box_text_color',
+//				[
+//					'label' => __( 'Description Color', MELA_TD ),
+//					'type' => Controls_Manager::COLOR,
+//					'scheme' => [
+//						'type' => Scheme_Color::get_type(),
+//						'value' => Scheme_Color::COLOR_1,
+//					],
+//					'default' => '#78909c',
+//					'selectors' => [
+//						'{{WRAPPER}} .ma-el-flip-box-front p' => 'color: {{VALUE}};',
+//					],
+//
+//				]
+//			);
 
-			$this->add_control(
-				'front_box_text_color',
-				[
-					'label' => __( 'Description Color', MELA_TD ),
-					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
-					'default' => '#78909c',
-					'selectors' => [
-						'{{WRAPPER}} .ma-el-flip-box-front p' => 'color: {{VALUE}};',
-					],
-
-				]
-			);
-
-			$this->add_group_control(
-				Group_Control_Typography::get_type(),
-				[
-					'name' => 'front_box_text_typography',
-					'label' => __( 'Description Typography', MELA_TD ),
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
-					'selector' => '{{WRAPPER}} .ma-el-flip-box-front p',
-				]
-			);
+//			$this->add_group_control(
+//				Group_Control_Typography::get_type(),
+//				[
+//					'name' => 'front_box_text_typography',
+//					'label' => __( 'Description Typography', MELA_TD ),
+//					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+//					'selector' => '{{WRAPPER}} .ma-el-flip-box-front p',
+//				]
+//			);
 
 
 			/**

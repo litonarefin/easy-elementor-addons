@@ -465,8 +465,8 @@
                 (function($) {
 
                     $('.gridder').gridderExpander({
-                        scroll: true,
-                        scrollOffset: 30,
+                        scroll: false,
+                        scrollOffset: 0,
                         scrollTo: "panel",                  // panel or listitem
                         animationSpeed: 400,
                         animationEasing: "easeInOutExpo",

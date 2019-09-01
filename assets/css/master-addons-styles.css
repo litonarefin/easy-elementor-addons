@@ -2032,67 +2032,101 @@
 
 
 /* Call to Action Start */
-.ma-el-alice-green-bg {
-    background-color: #e4f1f9;
-}
-
-.ma-el-alice-green-bg .ma-el-action-content {
-    padding-left: 3em;
-    padding-right: 3em;
-}
 .ma-el-action-content {
-    padding: 95px 0;
-}
-.ma-el-action-content h3 {
-    color: #333;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    text-transform: inherit;
-    line-height: 1;
+    padding: 70px 0;
 }
 .ma-el-action-content .row {
-    display: flex;
+    align-items: flex-end;
 }
-.ma-el-action-content .btn {
-    background: #8dc63f;
+.ma-el-action-content .ma-el-action-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.125rem;
+}
+.ma-el-action-content .ma-el-action-description {
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 25px;
+}
+.ma-el-action-content .ma-el-action-btn {
     border: none;
     border-radius: 5px;
     -webkit-box-shadow: none;
     box-shadow: none;
-    font-family: "Poppins", sans-serif;
     color: #fff;
     display: inline-block;
-    font-size: .875em;
-    font-weight: 900;
-    line-height: 54px;
-    padding: 0 21.43px;
+    font-size: .875rem;
+    font-weight: 600;
+    line-height: 55px;
+    padding: 0 3.5rem;
     text-decoration: none;
     text-transform: uppercase;
 }
-.ma-el-action-content .btn:hover {
+.ma-el-action-content .ma-el-action-btn:hover {
     background: #8dc63f;
-    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25) inset;
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25) inset;
     color: #fff;
 }
-.ma-el-action-content button {
-    float: right;
-}
-.alice-green-bg .cta-content {
-    margin: 0;
-}
-.gradient-bg {
-    /*background-image: -webkit-gradient(linear, right top, left top, from(#e4f1f9), to(#e1f9f1));*/
-    /*background-image: linear-gradient(to left, #e4f1f9 0%, #e1f9f1 100%);*/
-    background: #000046;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #000046, #1CB5E0);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #000046, #1CB5E0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-}
-.ma-el-action-content.style-02 {
+.style-02 .ma-el-action-content .row {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
     max-width: 650px;
-    margin: 1.25em auto;
     text-align: center;
+}
+.style-02 .ma-el-action-content .ma-el-action-title {
+    color: #fff;
+}
+.style-02 .ma-el-action-content [class*="col"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center !important;
+}
+.style-02 .ma-el-action-content .ma-el-action-btn {
+    margin-top: 40px;
+}
+
+.style-03 .ma-el-action-content .row {
+    border-left: 10px solid #4b00e7;
+    padding-left: 1rem;
+}
+
+.style-04 .ma-el-action-content .row {
+    border-left: 5px solid #f0f2f4;
+    border-right: 5px solid #f0f2f4;
+    padding: 2.25rem 1.25rem;
+}
+
+.style-05 .ma-el-action-content {
+    background: #4b00e7;
+}
+.style-05 .ma-el-action-content .row {
+    padding: 0 1.75rem;
+}
+.style-05 .ma-el-action-content .ma-el-action-title,
+.style-05 .ma-el-action-content .ma-el-action-description {
+    color: #fff;
+}
+.style-05 .ma-el-action-content .ma-el-action-btn {
+    background-color: #fff;
+    color: #4b00e7;
+}
+
+.style-06 .ma-el-action-content .row,
+.style-07 .ma-el-action-content .row {
+    padding: 0 3.5rem;
+}
+.style-06 .ma-el-action-content .ma-el-action-btn,
+.style-07 .ma-el-action-content .ma-el-action-btn {
+    border:  2px solid #fff;
+    color: #fff;
+}
+
+.style-07 .media-left {
+    margin-right: 1.875rem;
+}
+.style-07 .ma-el-action-content i {
+    color: #fff;
+    font-size: 4rem;
 }
 
 /* Call to Action End */

@@ -21,7 +21,7 @@
 }
 .master_addons .wrappper.about-wrap .master_addons_contents{
     display:flex;
-    padding: 0 30px;
+    padding: 0;
 }
 .master_addons header,
 .master_addons .wp-tab-bar {
@@ -411,7 +411,7 @@ pre {
     overflow: hidden;
     display: inline-block;
     background: #fff;
-    box-shadow: 0px 7px 11px 0px #e0e0e0;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     border-radius: 2px;
     vertical-align: top;
     float: left;
@@ -579,16 +579,16 @@ pre {
 
 .master-addons-dashboard-checkbox{
     position: relative;
-    min-width: 300px;
+    min-width: 255px;
     font-size: 24px;
     flex: 0 0 auto;
     display: flex;
     align-items: center;
-    margin: 10px;
+    margin: 5px;
     border: 1px solid #E8E9EF;
     padding: 10px;
-    padding:5px 15px;
-    margin-bottom: 20px !important;
+    padding: 10px;
+    margin-bottom: 5px !important;
 
 }
 
@@ -603,24 +603,26 @@ pre {
     -o-transform: rotate(-45deg);
     position: absolute;
     width: 80px;
-    top: 10px;
-    left: -23px;
+    top: 4px;
+    left: -28px;
     z-index: 2;
     overflow: hidden;
-    box-shadow:0 0 0 3px #4734f1,  0px 21px 5px -18px rgba(0,0,0,0.6);
+    /*box-shadow:0 0 0 3px #4734f1,  0px 21px 5px -18px rgba(0,0,0,0.6);*/
     background: #4734f1;
 }
 
 
 .master-addons-dashboard-checkbox .master-addons-el-title{
+    font-size: 15px;
     float: left;
-    margin-left: 20px;
+    margin: 0;
+    padding-left: 8px;
 }
 
 .master-addons-dashboard-checkbox .switch.switch-text {
     float: right;
-    margin-left: 20px;
-    margin-top: 16px;
+    margin-left: 10px;
+    margin-top: 160;
 }
 
 .master-addons-el-btn {
@@ -662,14 +664,15 @@ pre {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .master-addons-el-dashboard-header-right{
     text-align: right;
-    right: 35px;
-    padding-right: 26px;
-    margin-top: -20px;
+    right: 20px;
+    padding-right: 0;
+    margin-top: -50px;
+    margin-top: -65px;
     position: absolute;
 }
 #addons .sub-heading{
@@ -678,6 +681,7 @@ pre {
 .master-addons-dashboard-tab .master_addons_feature h3{
     width: 100%;
     padding-left: 10px;
+    margin: 0;
 }
 
 

@@ -596,7 +596,10 @@
 					'default' => "#fff",
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-image-hover-effect.lily .ma-el-image-hover-title' => 'color: #fff;',
-						'{{WRAPPER}} .ma-el-image-hover-effect .ma-el-image-hover-title' => 'color: {{VALUE}};'
+
+						'{{WRAPPER}} .ma-el-image-hover-effect .ma-el-image-hover-title' => 'color: {{VALUE}};',
+
+                        '{{WRAPPER}} .ma-el-image-hover-effect.effect-zoe figcaption' => 'color: #3c4a50;',
 					]
 				]
 			);
