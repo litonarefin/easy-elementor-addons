@@ -452,25 +452,42 @@
 				]
 			);
 
+//
+//			$this->add_control(
+//				'front_box_bg_color',
+//				[
+//					'label' => __( 'Background Color', MELA_TD ),
+//					'type' => Controls_Manager::COLOR,
+//					'scheme' => [
+//						'type' => Scheme_Color::get_type(),
+//						'value' => Scheme_Color::COLOR_1,
+//					],
+//					'default' => '#fff',
+//					'selectors' => [
+//						'{{WRAPPER}} .ma-el-flip-box-front' => 'background: {{VALUE}};',
+//					],
+//					'condition' => [
+//						'ma_flipbox_layout_style' => ['one','three','four']
+//					],
+//				]
+//			);
+//
 
-			$this->add_control(
-				'front_box_bg_color',
+
+			$this->add_group_control(
+				Group_Control_Background::get_type(),
 				[
-					'label' => __( 'Background Color', MELA_TD ),
-					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
+					'name' => 'front_box_bg_color',
+					'label' => __( 'Background', MELA_TD ),
+					'types' => [ 'classic', 'gradient' ],
 					'default' => '#fff',
-					'selectors' => [
-						'{{WRAPPER}} .ma-el-flip-box-front' => 'background: {{VALUE}};',
-					],
+					'selector' => '{{WRAPPER}} .ma-el-flip-box-front',
 					'condition' => [
-						'ma_flipbox_layout_style' => 'one'
-					],
+                        'ma_flipbox_layout_style' => ['one','three','four']
+                    ]
 				]
 			);
+
 
 			$this->add_control(
 				'front_box_image',

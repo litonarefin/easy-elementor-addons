@@ -432,6 +432,21 @@ Customization Options.</span>'
 			] );
 
 			$this->add_control(
+				'ma_el_team_member_social_icon_color',
+				[
+					'label' => esc_html__( 'Icon Color', MELA_TD ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#FFF',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-team-member-social-left .ma-el-team-member-social li a' => 'color: {{VALUE}};',
+					],
+					'condition' => [
+						'ma_el_team_members_preset' => '-social-left',
+					],
+				]
+			);
+
+			$this->add_control(
 				'ma_el_team_member_social_color_1',
 				[
 					'label' => esc_html__( 'Background Color', MELA_TD ),
@@ -466,6 +481,21 @@ Customization Options.</span>'
 			$this->start_controls_tab( 'ma_el_team_members_social_icon_hover', [ 'label' => esc_html__( 'Hover',
 				MELA_TD )
 			] );
+
+			$this->add_control(
+				'ma_el_team_member_social_icon_hover_color',
+				[
+					'label' => esc_html__( 'Icon Color', MELA_TD ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#FFF',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-team-member-social-left .ma-el-team-member-social li a:hover' => 'color: {{VALUE}};',
+					],
+					'condition' => [
+						'ma_el_team_members_preset' => '-social-left',
+					],
+				]
+			);
 
 			$this->add_control(
 				'ma_el_team_member_social_hover_color_1',
@@ -595,7 +625,8 @@ Customization Options.</span>'
 
 
 
-                <div id="ma-el-team-member-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-team-item text-center">
+                <div id="ma-el-team-member-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-team-item
+                text-center <?php if( $settings['ma_el_team_members_preset'] == '-rounded' ) echo "rounded"; ?>">
                     <div class="ma-el-team-member<?php echo $settings['ma_el_team_members_preset']; ?> <?php if( $settings['ma_el_team_members_preset'] == '-basic-4' ) echo "bb"; ?> <?php if( $settings['ma_el_team_members_preset'] == '-circle-2' ) echo "bg-transparent"; ?>">
                         <div class="ma-el-team-member-thumb">
 							<?php if( $settings['ma_el_team_members_preset'] == '-circle' ) : ?>

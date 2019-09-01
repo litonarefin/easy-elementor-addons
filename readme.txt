@@ -237,6 +237,10 @@ Paste on your Local Computer
  * Updated: Master Addons Admin Page re-factored. Minimal Designed, Compressed Addons spacing for better visuals.
  * Removed: Master Addons Admin page - "How to" section with Demo links. Removed all Images from source folder for
  decreasing Plugin size. Reduced 12MB to 4MB. All Images will be loaded from Master Addons website.
+ * Updated: Flipbox Background Color Updated
+ * Added: Team Slider - Item Spacing for all team member options, Gridder spacing, Gridder Background Color and
+ Designation Color option Added.
+ * Team Members
 
 
  = 1.1.1 (30-08-2019) =

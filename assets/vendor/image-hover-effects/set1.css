@@ -980,7 +980,9 @@ figure.effect-zoe figcaption {
 	-webkit-transform: translate3d(0,100%,0);
 	transform: translate3d(0,100%,0);
 }
-
+.ma-el-image-hover-effect .effect-zoe  .ma-el-image-hover-title{
+	color: #343434;
+}
 figure.effect-zoe h2 {
 	float: left;
 }

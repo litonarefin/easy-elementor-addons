@@ -220,77 +220,10 @@
 					'placeholder'	=> __( 'Give a title to this banner', MELA_TD ),
 					'type'			=> Controls_Manager::TEXT,
 					'dynamic'       => [ 'active' => true ],
-					'default'		=> __( 'Master Addon <span>Hover Image</span>', MELA_TD ),
+					'default'		=> __( 'Master <span>Addons</span>', MELA_TD ),
 					'label_block'	=> false
 				]
 			);
-
-
-
-
-
-			/* Icons Dependencies for Styles */
-
-			$this->add_control('ma_el_main_image_icon_heading',
-				[
-					'label'			=> __( 'Social Icons', MELA_TD ),
-					'type'			=> Controls_Manager::HEADING,
-					'description'   => __('Select Social Icons', MELA_TD),
-					'condition'		=> [
-//						'ma_el_main_image_effect' => 'lily'
-					],
-				]
-			);
-			$repeater = new Repeater();
-
-
-			$repeater->add_control(
-				'ma_el_main_image_icon',
-				[
-					'label'     => __( 'Icon', MELA_TD ),
-					'type'      => Controls_Manager::ICON,
-					'default'   => 'fa fa-wordpress',
-					'condition' => [
-//						'ma_el_main_image_effect' => 'lily'
-					]
-				]
-			);
-
-			$repeater->add_control(
-				'ma_el_main_image_icon_link',
-				[
-					'label' => __( 'Icon Link', MELA_TD ),
-					'type' => Controls_Manager::URL,
-					'placeholder' => __( 'https://master-addons.com', MELA_TD ),
-					'label_block' => true,
-					'default' => [
-						'url' => '#',
-						'is_external' => true,
-					],
-					'condition' => [
-//						'ma_el_main_image_effect' => 'lily'
-					],
-				]
-			);
-
-			$this->add_control(
-				'ma_el_main_image_icon_tabs',
-				[
-					'type'                  => Controls_Manager::REPEATER,
-					'default'               => [
-						[ 'ma_el_main_image_icon' => 'fa fa-wordpress' ],
-						[ 'ma_el_main_image_icon' => 'fa fa-facebook' ],
-						[ 'ma_el_main_image_icon' => 'fa fa-twitter' ],
-						[ 'ma_el_main_image_icon' => 'fa fa-instagram' ],
-					],
-					'fields'                => array_values( $repeater->get_controls() ),
-					'title_field'           => '{{ma_el_main_image_icon}}',
-//					'condition' => [
-//						'ma_el_main_image_effect' => 'lily'
-//					],
-				]
-			);
-
 
 
 			$this->add_control(
@@ -354,6 +287,78 @@
 					'show_external' => true,
 				]
 			);
+
+			$this->end_controls_section();
+
+
+
+
+
+
+			/*
+			 *  Master Addons: Image Hover Social Links
+			 */
+			$this->start_controls_section(
+				'ma_el_main_image_social_link_section',
+				[
+					'label' => esc_html__( 'Social Links', MELA_TD ),
+					'condition'     => [
+						'ma_el_main_image_effect' => 'zoe'
+					]
+				]
+			);
+
+
+			/* Icons Dependencies for Styles */
+
+			$this->add_control('ma_el_main_image_icon_heading',
+				[
+					'label'			=> __( 'Social Icons', MELA_TD ),
+					'type'			=> Controls_Manager::HEADING,
+					'description'   => __('Select Social Icons', MELA_TD)
+				]
+			);
+			$repeater = new Repeater();
+
+
+			$repeater->add_control(
+				'ma_el_main_image_icon',
+				[
+					'label'     => __( 'Icon', MELA_TD ),
+					'type'      => Controls_Manager::ICON,
+					'default'   => 'fa fa-wordpress'
+				]
+			);
+
+			$repeater->add_control(
+				'ma_el_main_image_icon_link',
+				[
+					'label' => __( 'Icon Link', MELA_TD ),
+					'type' => Controls_Manager::URL,
+					'placeholder' => __( 'https://master-addons.com', MELA_TD ),
+					'label_block' => true,
+					'default' => [
+						'url' => '#',
+						'is_external' => true,
+					]
+				]
+			);
+
+			$this->add_control(
+				'ma_el_main_image_icon_tabs',
+				[
+					'type'                  => Controls_Manager::REPEATER,
+					'default'               => [
+						[ 'ma_el_main_image_icon' => 'fa fa-wordpress' ],
+						[ 'ma_el_main_image_icon' => 'fa fa-facebook' ],
+						[ 'ma_el_main_image_icon' => 'fa fa-twitter' ],
+						[ 'ma_el_main_image_icon' => 'fa fa-instagram' ],
+					],
+					'fields'                => array_values( $repeater->get_controls() ),
+					'title_field'           => '{{ma_el_main_image_icon}}'
+				]
+			);
+
 
 			$this->end_controls_section();
 
@@ -577,7 +582,9 @@
 
 
 
-
+            /*
+             * Title Color
+             */
 			$this->start_controls_section('ma_el_main_image_title_style',
 				[
 					'label' 		=> __( 'Title', MELA_TD ),
@@ -595,11 +602,14 @@
 					],
 					'default' => "#fff",
 					'selectors' => [
+
 						'{{WRAPPER}} .ma-el-image-hover-effect.lily .ma-el-image-hover-title' => 'color: #fff;',
 
 						'{{WRAPPER}} .ma-el-image-hover-effect .ma-el-image-hover-title' => 'color: {{VALUE}};',
+//						'{{WRAPPER}} .ma-el-image-hover-effect .effect-zoe  .ma-el-image-hover-title' => 'color: #343434;',
 
-                        '{{WRAPPER}} .ma-el-image-hover-effect.effect-zoe figcaption' => 'color: #3c4a50;',
+//                        '{{WRAPPER}} .ma-el-image-hover-effect .effect-zoe .ma-el-image-hover-title' => 'color: #3c4a50;',
+//                        '{{WRAPPER}} .ma-el-image-hover-effect .effect-zoe .ma-el-image-hover-title' => 'color: {{VALUE}};',
 					]
 				]
 			);
@@ -635,7 +645,7 @@
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'ma_el_main_image_title_typography',
-					'selector' => '{{WRAPPER}} .premium-banner-ib-desc .ma_el_main_image_title',
+					'selector' => '{{WRAPPER}} .ma-el-image-hover-effect .ma-el-image-hover-title',
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1
 				]
 			);
@@ -707,6 +717,66 @@
 					'label'             => __('Box Shadow',MELA_TD),
 					'name'              => 'ma_el_main_image_desc_box_shadow',
 					'selector'          => '{{WRAPPER}} .ma-el-image-hover-effect .ma-image-hover-content',
+				]
+			);
+
+			$this->end_controls_section();
+
+
+
+			/*
+			 * Social Icons Style
+			 */
+
+			$this->start_controls_section('ma_el_main_image_icon_hover_style_section',
+				[
+					'label' 		=> __( 'Social Icons', MELA_TD ),
+					'tab' 			=> Controls_Manager::TAB_STYLE,
+					'condition'     => [
+						'ma_el_main_image_effect' => 'zoe'
+					]
+				]
+			);
+
+			$this->start_controls_tabs( 'ma_el_main_image_icon_style_tabs' );
+
+			$this->start_controls_tab( 'ma_el_main_image_icon_style_tab_normal',
+				[ 'label' => esc_html__( 'Normal', MELA_TD )
+				] );
+
+			$this->add_control('ma_el_main_image_icon_color',
+				[
+					'label' => __( 'Color', MELA_TD ),
+					'type' => Controls_Manager::COLOR,
+					'scheme' => [
+						'type' => Scheme_Color::get_type(),
+						'value' => Scheme_Color::COLOR_2
+					],
+//					'default'   => '#fff',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-image-hover-effect .icon-links a' => 'color: {{VALUE}};'
+					],
+				]
+			);
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab( 'ma_el_main_image_icon_style_tab_hover',
+                [ 'label' => esc_html__( 'Hover', MELA_TD )
+			] );
+
+			$this->add_control('ma_el_main_image_icon_hover_color',
+				[
+					'label' => __( 'Color', MELA_TD ),
+					'type' => Controls_Manager::COLOR,
+					'scheme' => [
+						'type' => Scheme_Color::get_type(),
+						'value' => Scheme_Color::COLOR_3
+					],
+//					'default'   => '#fff',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-image-hover-effect .icon-links a:hover' => 'color: {{VALUE}};'
+					],
 				]
 			);
 
@@ -901,11 +971,24 @@
 								$this->parse_text_editor($settings['ma_el_main_image_title']);
 								?></<?php echo $settings['title_html_tag'];?>>
 
-	                            <?php if( $settings['ma_el_main_image_effect'] != "honey" ){?>
+
+                                <?php if( $settings['ma_el_main_image_effect'] == "zoe" ){?>
+                                    <p class="icon-links">
+                                        <?php foreach( $settings['ma_el_main_image_icon_tabs'] as $index => $tab ) { ?>
+                                            <a href="<?php echo esc_url_raw( $tab['ma_el_main_image_icon_link']['url'] );?>">
+                                                <span class="<?php echo $tab['ma_el_main_image_icon']; ?>"></span>
+                                            </a>
+                                        <?php } ?>
+                                    </p>
+                                <?php } ?>
+
+	                            <?php if( $settings['ma_el_main_image_effect'] != "honey" ||
+                                          $settings['ma_el_main_image_effect'] != "zoe" ){?>
                                     <p class="ma-el-image-hover-desc">
                                         <?php echo htmlspecialchars_decode( $settings['ma_el_main_image_desc'] ); ?>
                                     </p>
                                 <?php } ?>
+
 
 							</div>
 							<a class="ma-image-hover-read-more" href="<?php echo esc_url( $settings['ma_el_main_image_more_text_url'] );?>">

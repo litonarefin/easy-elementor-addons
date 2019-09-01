@@ -241,7 +241,7 @@
 						'type' => Controls_Manager::SELECT,
 						'default' => '-circle',
 						'options' => [
-							'-default'     => esc_html__( 'Team Carousel', MELA_TD ),
+							'-default'              => esc_html__( 'Team Carousel', MELA_TD ),
 							'-circle'               => esc_html__( 'Circle Gradient', MELA_TD ),
 							'-social-left'          => esc_html__( 'Social Left on Hover', MELA_TD ),
 							'-content-hover'        => esc_html__( 'Content on Hover', MELA_TD ),
@@ -258,11 +258,13 @@
 						'type' => Controls_Manager::SELECT,
 						'default' => '-circle',
 						'options' => [
-							'-default'           => esc_html__( 'Team Carousel', MELA_TD ),
+							'-default'                    => esc_html__( 'Team Carousel', MELA_TD ),
 							'-circle'                     => esc_html__( 'Circle Gradient', MELA_TD ),
 							'-content-hover'              => esc_html__( 'Content on Hover', MELA_TD ),
-							'-pro-team-slider-1'          => esc_html__( 'Social Left on Hover (Pro)', MELA_TD ),
-							'-pro-team-slider-2'          => esc_html__( 'Content Drawer (Pro)', MELA_TD ),
+//							'-pro-team-slider-1'          => esc_html__( 'Social Left on Hover (Pro)', MELA_TD ),
+//							'-pro-team-slider-2'          => esc_html__( 'Content Drawer (Pro)', MELA_TD ),
+							'-social-left'          => esc_html__( 'Social Left on Hover', MELA_TD ),
+							'-content-drawer'       => esc_html__( 'Content Drawer', MELA_TD ),
 						],
 						'description' => sprintf( '2+ more Variations on <a href="%s" target="_blank">%s</a>',
 							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
@@ -271,6 +273,25 @@
 				);
 
 			}
+
+
+			$this->add_responsive_control(
+				'ma_el_team_carousel_item_gap',
+				[
+					'label' => __( 'Item Padding', MELA_TD ),
+					'type' => Controls_Manager::SLIDER,
+					'size_units'    => ['px', '%' ,'em'],
+					'condition' => [
+						'ma_el_team_carousel_preset' => ['-default','-circle','-content-drawer']
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-team-carousel-wrapper .slick-track .ma-el-team-carousel-default-inner,
+						{{WRAPPER}} .ma-el-team-carousel-wrapper .slick-track .ma-el-team-carousel-circle-inner,
+						{{WRAPPER}} .gridder .gridder-list' => 'padding: {{SIZE}}{{UNIT}};'
+					]
+				]
+			);
+
 
 			$this->add_control(
 				'ma_el_team_carousel_avatar_bg',
@@ -294,7 +315,11 @@
 					'type' => Controls_Manager::COLOR,
 					'default' => '#f9f9f9',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-team-member-basic, {{WRAPPER}} .ma-el-team-member-circle, {{WRAPPER}} .ma-el-team-member-social-left, {{WRAPPER}} .ma-el-team-member-rounded' => 'background: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-team-member-basic, 
+						{{WRAPPER}} .ma-el-team-member-circle, 
+						{{WRAPPER}} .ma-el-team-member-social-left, 
+						{{WRAPPER}} .ma-el-team-member-rounded' => 'background: {{VALUE}};',
+						'{{WRAPPER}} .gridder .gridder-show' => 'background-color: {{VALUE}};',
 					],
 				]
 			);
@@ -378,7 +403,8 @@
 					'type' => Controls_Manager::COLOR,
 					'default' => '#8a8d91',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-team-member-about' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-team-member-about,
+						{{WRAPPER}} .gridder-expanded-content p.ma-el-team-member-desc' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -622,7 +648,7 @@
 					'type' => Controls_Manager::COLOR,
 					'default' => '#FFF',
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-team-member-social-left .ma-el-team-member-social li a' => 'background: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-team-member-social-left .ma-el-team-member-social li a' => 'background: {{VALUE}};'
 					],
 					'condition' => [
 						'ma_el_team_carousel_preset' => '-social-left',
@@ -770,7 +796,9 @@ Customization Options.</span>'
                         <div class="content-left">
                             <span class="ma-el-team-member-designation"><?php echo $member['ma_el_team_carousel_designation']; ?></span>
                             <h2 class="ma-el-team-member-name"><?php echo $member['ma_el_team_carousel_name'];?></h2>
-							<?php echo $member['ma_el_team_carousel_description']; ?>
+							<p class="ma-el-team-member-desc">
+                                <?php echo $this->parse_text_editor( $member['ma_el_team_carousel_description'] ); ?>
+                            </p>
                         </div>
 
                         <div class="content-right">
