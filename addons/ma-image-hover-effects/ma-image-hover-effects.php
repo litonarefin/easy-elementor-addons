@@ -357,7 +357,7 @@
 				[
 					'label' => esc_html__( 'Social Links', MELA_TD ),
 					'condition'     => [
-						'ma_el_main_image_effect' => 'zoe'
+						'ma_el_main_image_effect' => ['zoe','hera']
 					]
 				]
 			);
@@ -787,7 +787,7 @@
 					'label' 		=> __( 'Social Icons', MELA_TD ),
 					'tab' 			=> Controls_Manager::TAB_STYLE,
 					'condition'     => [
-						'ma_el_main_image_effect' => 'zoe'
+						'ma_el_main_image_effect' => ['zoe','hera']
 					]
 				]
 			);
@@ -1008,7 +1008,7 @@
 //
 //			$banner_url = 'url' == $settings['premium_banner_link_selection'] ? $settings['premium_banner_link']['url'] : get_permalink($settings['premium_banner_existing_link']);
 //
-
+			$ma_el_main_image_effect = $settings['ma_el_main_image_effect'];
 			$ma_el_main_image_alt = esc_attr( Control_Media::get_image_alt( $settings['ma_el_main_image'] ) );
 
 			?>
@@ -1026,7 +1026,10 @@
 								?></<?php echo $settings['title_html_tag'];?>>
 
 
-                                <?php if( $settings['ma_el_main_image_effect'] == "zoe" ){?>
+                                <?php
+	                                // Social Icons Sets
+	                                $ma_el_main_image_socials_array = array( "hera","zoe");
+	                                if (in_array($ma_el_main_image_effect, $ma_el_main_image_socials_array)) { ?>
                                     <p class="icon-links">
                                         <?php foreach( $settings['ma_el_main_image_icon_tabs'] as $index => $tab ) { ?>
                                             <a href="<?php echo esc_url_raw( $tab['ma_el_main_image_icon_link']['url'] );?>">
@@ -1036,20 +1039,17 @@
                                     </p>
                                 <?php } ?>
 
-	                        <?php if( $settings['ma_el_main_image_effect'] == "julia" ){?>
+	                        <?php
+		                        // Design Specific Descriptions for Set 1
+                                if( $settings['ma_el_main_image_effect'] == "julia" ){?>
 		                        <?php foreach( $settings['ma_el_main_image_desc_set2_tabs'] as $index => $tab ) { ?>
-                                    <p>
-	                                    <?php echo $tab['ma_el_main_image_desc_set2']; ?>
-                                    </p>
-		                        <?php } ?>
-	                        <?php } ?>
+                                    <p class="ma-el-image-hover-desc"><?php echo $tab['ma_el_main_image_desc_set2']; ?></p>
+		                        <?php }
+	                            }
 
-
-
-	                            <?php if( ( $settings['ma_el_main_image_effect'] != "honey" ) ||
-                                          ( $settings['ma_el_main_image_effect'] != "zoe" ) ||
-                                          ( $settings['ma_el_main_image_effect'] != "julia" )
-                                        ){?>
+	                            // Design Specific Descriptions for Set 1
+                                $ma_el_main_image_effect_array=array( "honey","zoe","goliath" );
+                                if (in_array($ma_el_main_image_effect,$ma_el_main_image_effect_array)) { ?>
                                     <p class="ma-el-image-hover-desc">
                                         <?php echo htmlspecialchars_decode( $settings['ma_el_main_image_desc'] ); ?>
                                     </p>
@@ -1057,9 +1057,13 @@
 
 
 							</div>
-							<a class="ma-image-hover-read-more" href="<?php echo esc_url( $settings['ma_el_main_image_more_text_url'] );?>">
+
+
+                            <a class="ma-image-hover-read-more"
+                               href="<?php echo esc_url( $settings['ma_el_main_image_more_text_url'] );?>">
 								<?php echo $settings['ma_el_main_image_more_text'];?>
 							</a>
+
 						</figcaption>
 
 					</figure>

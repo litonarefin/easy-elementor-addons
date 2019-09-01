@@ -1,4 +1,4 @@
-/*.ma-el-image-hover-effect {
+.ma-el-image-hover-effect {
 	position: relative;
 	clear: both;
 	margin: 0 auto;
@@ -7,18 +7,18 @@
 	list-style: none;
 	text-align: center;
 }
-*/
+
 /* Common style */
-/*
+
 .ma-el-image-hover-effect figure {
 	position: relative;
 	float: left;
 	overflow: hidden;
-	margin: 10px 1%;
+	/*margin: 10px 1%;
 	min-width: 320px;
 	max-width: 480px;
 	max-height: 360px;
-	width: 48%;
+	width: 48%;*/
 	height: auto;
 	background: #3085a3;
 	text-align: center;
@@ -56,7 +56,7 @@
 	height: 100%;
 }
 
-/* Anchor will cover the whole item by default */
+/* Anchor will cover the whole item by default 
 /* For some effects it will show as a button */
 
 /*
@@ -196,7 +196,7 @@ figure.effect-goliath p {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	padding: 30px;
+	padding: 15px;
 }
 
 figure.effect-goliath p {
@@ -283,7 +283,8 @@ figure.effect-hera p a:focus {
 	opacity: 0.6;
 }
 
-figure.effect-hera p a i {
+figure.effect-hera p a span {
+	width:1.6em;
 	opacity: 0;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
@@ -321,7 +322,7 @@ figure.effect-hera:hover h2 {
 	transform: translate3d(-50%,-50%,0) scale3d(0.8,0.8,1);
 }
 
-figure.effect-hera:hover p i:empty {
+figure.effect-hera:hover p span:empty {
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0); /* just because it's stronger than nth-child */
 	opacity: 1;

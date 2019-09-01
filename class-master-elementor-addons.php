@@ -424,7 +424,7 @@
 				if (isset( $is_activated_widget['ma-image-hover-effects'] )) {
 
 					//Free Version Codes
-					wp_enqueue_style( 'ma-image-hover-effects-set1', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/set1.css' );
+//					wp_enqueue_style( 'ma-image-hover-effects-set1', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/set1.css' );
 					wp_enqueue_style( 'ma-image-hover-effects-set2', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/set2.css' );
 
 					// Premium Version Codes
