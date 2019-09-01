@@ -113,13 +113,40 @@
 			$this->add_control(
 				'front-text',
 				[
-					'label' => __( 'Text', MELA_TD ),
+					'label' => __( 'Description', MELA_TD ),
 					'type' => Controls_Manager::TEXTAREA,
 					'dynamic' => [
 						'active' => true,
 					],
 					'placeholder' => __( 'Enter text', MELA_TD ),
 					'default' => __( 'Add some nice text here.', MELA_TD ),
+				]
+			);
+
+			$this->add_responsive_control(
+				'front_box_front_text_align',
+				[
+					'label' => esc_html__( 'Alignment', MELA_TD ),
+					'type' => Controls_Manager::CHOOSE,
+					'label_block' => true,
+					'options' => [
+						'left' => [
+							'title' => esc_html__( 'Left', MELA_TD ),
+							'icon' => 'fa fa-align-left',
+						],
+						'center' => [
+							'title' => esc_html__( 'Center', MELA_TD ),
+							'icon' => 'fa fa-align-center',
+						],
+						'right' => [
+							'title' => esc_html__( 'Right', MELA_TD ),
+							'icon' => 'fa fa-align-right',
+						],
+					],
+					'default' => 'left',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-flip-box-front' => 'text-align: {{VALUE}};',
+					],
 				]
 			);
 
@@ -207,13 +234,41 @@
 			$this->add_control(
 				'back_text',
 				[
-					'label' => __( 'Text', MELA_TD ),
+					'label' => __( 'Description', MELA_TD ),
 					'type' => Controls_Manager::TEXTAREA,
 					'dynamic' => [
 						'active' => true,
 					],
 					'placeholder' => __( 'Enter text', MELA_TD ),
 					'default' => __( 'Add some nice text here.', MELA_TD ),
+				]
+			);
+
+
+			$this->add_responsive_control(
+				'front_box_back_text_align',
+				[
+					'label' => esc_html__( 'Alignment', MELA_TD ),
+					'type' => Controls_Manager::CHOOSE,
+					'label_block' => true,
+					'options' => [
+						'left' => [
+							'title' => esc_html__( 'Left', MELA_TD ),
+							'icon' => 'fa fa-align-left',
+						],
+						'center' => [
+							'title' => esc_html__( 'Center', MELA_TD ),
+							'icon' => 'fa fa-align-center',
+						],
+						'right' => [
+							'title' => esc_html__( 'Right', MELA_TD ),
+							'icon' => 'fa fa-align-right',
+						],
+					],
+					'default' => 'left',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-flip-box-back' => 'text-align: {{VALUE}};',
+					],
 				]
 			);
 
@@ -451,6 +506,8 @@
 					'tab' => Controls_Manager::TAB_STYLE
 				]
 			);
+
+
 
 //
 //			$this->add_control(

@@ -241,6 +241,7 @@ Paste on your Local Computer
  * Added: Team Slider - Item Spacing for all team member options, Gridder spacing, Gridder Background Color and
  Designation Color option Added.
  * Team Members
+ * Added: MA Flipbox Front Text and Back Text Alignment
 
 
  = 1.1.1 (30-08-2019) =
