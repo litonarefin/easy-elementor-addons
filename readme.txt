@@ -227,15 +227,19 @@ Paste on your Local Computer
 
 
 == Changelog ==
- = 1.1.2 (30-8-2019) =
+ = 1.1.2 (02-09-2019) =
  * Fixed: MA Team Members Carousel JS issue fixed
  * Fixed: MA Changelog h2 tag overlap issue fixed
  * Removed: MA Flipbox Duplicate Background removed
  * Removed: MA Flipbox Front Box Title, Description color Removed.
  * Fixed: MA Team Carousel Gridder offset problem fixed
+ * Fixed: Call to Action Variations Added, Gradient, Background Image, Typography added
+ * Updated: Master Addons Admin Page re-factored. Minimal Designed, Compressed Addons spacing for better visuals.
+ * Removed: Master Addons Admin page - "How to" section with Demo links. Removed all Images from source folder for
+ decreasing Plugin size. Reduced 12MB to 4MB. All Images will be loaded from Master Addons website.
 
 
- = 1.1.1 (30-8-2019) =
+ = 1.1.1 (30-08-2019) =
  * Fixed: MA Headlines renamed MA Animated Headlines.
  * Fixed: Accordion Design Presets styles done.
  * Added: Accordion Items can be designed individually. Every item can be set different background color, text color etc.

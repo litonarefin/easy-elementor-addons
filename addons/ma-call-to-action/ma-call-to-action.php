@@ -269,7 +269,7 @@
 
 			$this->end_controls_section();
 
-			
+
 
 			$this->start_controls_section(
 				'ma_el_call_to_action_button_section',
