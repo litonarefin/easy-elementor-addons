@@ -243,7 +243,11 @@
 					'type'			=> Controls_Manager::WYSIWYG,
 					'dynamic'       => [ 'active' => true ],
 					'default'		=> __( 'Master Addons gives your website a vibrant and lively style, you would love.', MELA_TD ),
-					'label_block'	=> true
+					'label_block'	=> true,
+					'condition'     => [
+						'ma_el_main_image_effect!'   => ['julia']
+					]
+
 				]
 			);
 
@@ -262,7 +266,7 @@
 					'label'         => __('Read More Text',MELA_TD),
 					'type'          => Controls_Manager::TEXT,
 					'dynamic'       => [ 'active' => true ],
-					'default'       => 'Ream More',
+					'default'       => 'Read More',
 					'condition'     => [
 						'ma_el_main_image_button_link'    => 'yes',
 						'ma_el_image_link_url_switch!'   => 'yes'
@@ -289,6 +293,56 @@
 			);
 
 			$this->end_controls_section();
+
+
+
+
+
+            /*
+             *  Master Addons: Set 2 Image Descriptions
+             */
+			$this->start_controls_section(
+				'ma_el_main_image_desc_set2_heading',
+				[
+					'label'			=> __( 'Description', MELA_TD ),
+					'type'			=> Controls_Manager::HEADING,
+					'description'   => __('Write Description Each line', MELA_TD),
+					'condition'     => [
+						'ma_el_main_image_effect'   => ['julia']
+					]
+				]
+			);
+
+			$repeater = new Repeater();
+
+
+			$repeater->add_control('ma_el_main_image_desc_set2',
+				[
+					'label'         => __('Read More Text',MELA_TD),
+					'type'          => Controls_Manager::TEXTAREA,
+					'dynamic'       => [ 'active' => true ],
+					'default'       => 'Julia dances in the deep dark',
+				]
+			);
+
+
+			$this->add_control(
+				'ma_el_main_image_desc_set2_tabs',
+				[
+					'type'                  => Controls_Manager::REPEATER,
+					'default'               => [
+						[ 'ma_el_main_image_desc_set2' => 'Julia dances in the deep dark' ],
+						[ 'ma_el_main_image_desc_set2' => 'She loves the smell of the ocean' ],
+						[ 'ma_el_main_image_desc_set2' => 'And dives into the morning light' ]
+					],
+					'fields'                => array_values( $repeater->get_controls() ),
+					'title_field'           => '{{ma_el_main_image_desc_set2}}'
+				]
+			);
+
+
+			$this->end_controls_section();
+
 
 
 
@@ -982,8 +1036,20 @@
                                     </p>
                                 <?php } ?>
 
-	                            <?php if( $settings['ma_el_main_image_effect'] != "honey" ||
-                                          $settings['ma_el_main_image_effect'] != "zoe" ){?>
+	                        <?php if( $settings['ma_el_main_image_effect'] == "julia" ){?>
+		                        <?php foreach( $settings['ma_el_main_image_desc_set2_tabs'] as $index => $tab ) { ?>
+                                    <p>
+	                                    <?php echo $tab['ma_el_main_image_desc_set2']; ?>
+                                    </p>
+		                        <?php } ?>
+	                        <?php } ?>
+
+
+
+	                            <?php if( ( $settings['ma_el_main_image_effect'] != "honey" ) ||
+                                          ( $settings['ma_el_main_image_effect'] != "zoe" ) ||
+                                          ( $settings['ma_el_main_image_effect'] != "julia" )
+                                        ){?>
                                     <p class="ma-el-image-hover-desc">
                                         <?php echo htmlspecialchars_decode( $settings['ma_el_main_image_desc'] ); ?>
                                     </p>
