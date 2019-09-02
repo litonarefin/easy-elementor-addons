@@ -1,4 +1,4 @@
-.ma-el-image-hover-effect {
+.ma-el-image-hover-effect-two {
 	position: relative;
 	clear: both;
 	margin: 0 auto;
@@ -10,7 +10,7 @@
 
 /* Common style */
 
-.ma-el-image-hover-effect figure {
+.ma-el-image-hover-effect-two figure {
 	position: relative;
 	float: left;
 	overflow: hidden;
@@ -25,7 +25,7 @@
 	cursor: pointer;
 }
 
-.ma-el-image-hover-effect figure img {
+.ma-el-image-hover-effect-two figure img {
 	position: relative;
 	display: block;
 	min-height: 100%;
@@ -33,7 +33,7 @@
 	opacity: 0.8;
 }
 
-.ma-el-image-hover-effect figure figcaption {
+.ma-el-image-hover-effect-two figure figcaption {
 	padding: 2em;
 	color: #fff;
 	text-transform: uppercase;
@@ -42,13 +42,13 @@
 	backface-visibility: hidden;
 }
 
-.ma-el-image-hover-effect figure figcaption::before,
-.ma-el-image-hover-effect figure figcaption::after {
+.ma-el-image-hover-effect-two figure figcaption::before,
+.ma-el-image-hover-effect-two figure figcaption::after {
 	pointer-events: none;
 }
 
-.ma-el-image-hover-effect figure figcaption,
-.ma-el-image-hover-effect figure figcaption > a {
+.ma-el-image-hover-effect-two figure figcaption,
+.ma-el-image-hover-effect-two figure figcaption > a {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -59,7 +59,7 @@
 /* Anchor will cover the whole item by default 
 /* For some effects it will show as a button */
 
-.ma-el-image-hover-effect figure figcaption > a {
+.ma-el-image-hover-effect-two figure figcaption > a {
 	z-index: 1000;
 	text-indent: 200%;
 	white-space: nowrap;
@@ -67,21 +67,21 @@
 	opacity: 0;
 }
 
-.ma-el-image-hover-effect figure h2 {
+.ma-el-image-hover-effect-two figure h2 {
 	word-spacing: -0.15em;
 	font-weight: 300;
 }
 
-.ma-el-image-hover-effect figure h2 span {
+.ma-el-image-hover-effect-two figure h2 span {
 	font-weight: 800;
 }
 
-.ma-el-image-hover-effect figure h2,
-.ma-el-image-hover-effect figure p {
+.ma-el-image-hover-effect-two figure h2,
+.ma-el-image-hover-effect-two figure p {
 	margin: 0;
 }
 
-.ma-el-image-hover-effect figure p {
+.ma-el-image-hover-effect-two figure p {
 	letter-spacing: 1px;
 	font-size: 68.5%;
 }
@@ -488,6 +488,7 @@ figure.effect-terry {
 
 figure.effect-terry figcaption {
 	padding: 1em;
+	font-size: 1em;
 }
 
 figure.effect-terry figcaption::before,
@@ -779,7 +780,7 @@ figure.effect-kira figcaption {
 }
 
 figure.effect-kira p {
-	padding: 2.25em 0.5em;
+	padding: 1.4em 0.5em;
 	font-weight: 600;	
 	font-size: 100%;
 	line-height: 1.5;
@@ -1264,7 +1265,7 @@ figure.effect-duke:hover p {
 		padding: 0 10px;
 		text-align: center;
 	}
-	.ma-el-image-hover-effect figure {
+	.ma-el-image-hover-effect-two figure {
 		display: inline-block;
 		float: none;
 		margin: 10px auto;

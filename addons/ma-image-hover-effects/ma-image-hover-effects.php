@@ -19,6 +19,48 @@
 
 	class Master_Addons_Image_Hover_Effects extends Widget_Base {
 
+	    public static $ma_el_image_hover_effects;
+
+	    public static function ma_el_image_hover_effects() {
+
+//	        parent::__construct();
+
+
+		    return self::$ma_el_image_hover_effects =
+			    [
+				    'lily' 	            => __( 'Lily', 	                            MELA_TD ),
+				    'sadie' 	        => __( 'Sadie', 	                        MELA_TD ),
+				    'roxy'              => __( 'Roxy', 	                            MELA_TD ),
+				    'bubba'             => __( 'Bubba', 	                        MELA_TD ),
+				    'romeo'             => __( 'Romeo', 	                        MELA_TD ),
+				    'layla'             => __( 'Layla', 	                        MELA_TD ),
+				    'honey'             => __( 'Honey', 	                        MELA_TD ),
+				    'oscar'             => __( 'Oscar', 	                        MELA_TD ),
+				    'marley'            => __( 'Marley', 	                        MELA_TD ),
+				    'ruby'              => __( 'Ruby', 	                            MELA_TD ),
+				    'milo'              => __( 'Milo', 	                            MELA_TD ),
+				    'dexter'            => __( 'Dexter', 	                        MELA_TD ),
+				    'sarah'             => __( 'Sarah', 	                        MELA_TD ),
+				    'zoe'               => __( 'Zoe', 	                            MELA_TD ),
+				    'chico'             => __( 'Chico', 	                        MELA_TD ),
+				    'julia'             => __( 'Julia', 	                        MELA_TD ),
+				    'goliath'           => __( 'Goliath', 	                        MELA_TD ),
+				    'hera'              => __( 'Hera', 	                            MELA_TD ),
+				    'winston'           => __( 'Winston', 	                        MELA_TD ),
+				    'selena'            => __( 'Selena', 	                        MELA_TD ),
+				    'terry'             => __( 'Terry', 	                        MELA_TD ),
+				    'phoebe'            => __( 'Phoebe', 	                        MELA_TD ),
+				    'apollo'            => __( 'Apollo', 	                        MELA_TD ),
+				    'kira'              => __( 'Kira', 	                            MELA_TD ),
+				    'steve'             => __( 'Steve', 	                        MELA_TD ),
+				    'moses'             => __( 'Moses', 	                        MELA_TD ),
+				    'jazz'              => __( 'Jazz', 	                            MELA_TD ),
+				    'ming'              => __( 'Ming', 	                            MELA_TD ),
+				    'lexi'              => __( 'Lexi', 	                            MELA_TD ),
+				    'duke'              => __( 'Duke', 	                            MELA_TD ),
+            ];
+	    }
+
 		public function get_name() {
 			return 'ma-image-hover-effects';
 		}
@@ -357,7 +399,7 @@
 				[
 					'label' => esc_html__( 'Social Links', MELA_TD ),
 					'condition'     => [
-						'ma_el_main_image_effect' => ['zoe','hera','winston']
+						'ma_el_main_image_effect' => ['zoe','hera','winston','terry','phoebe','kira']
 					]
 				]
 			);
@@ -460,38 +502,7 @@
 						'label'       => esc_html__( 'Hover Effect', MELA_TD ),
 						'type'        => Controls_Manager::SELECT,
 						'default'     => 'lily',
-						'options'     => [
-							'lily' 	            => __( 'Lily', 	                            MELA_TD ),
-							'sadie' 	        => __( 'Sadie', 	                        MELA_TD ),
-							'roxy'              => __( 'Roxy', 	                            MELA_TD ),
-							'bubba'             => __( 'Bubba', 	                        MELA_TD ),
-							'romeo'             => __( 'Romeo', 	                        MELA_TD ),
-							'layla'             => __( 'Layla', 	                        MELA_TD ),
-							'honey'             => __( 'Honey', 	                        MELA_TD ),
-							'oscar'             => __( 'Oscar', 	                        MELA_TD ),
-							'marley'            => __( 'Marley', 	                        MELA_TD ),
-							'ruby'              => __( 'Ruby', 	                            MELA_TD ),
-							'milo'              => __( 'Milo', 	                            MELA_TD ),
-							'dexter'            => __( 'Dexter', 	                        MELA_TD ),
-							'sarah'             => __( 'Sarah', 	                        MELA_TD ),
-							'zoe'               => __( 'Zoe', 	                            MELA_TD ),
-							'chico'             => __( 'Chico', 	                        MELA_TD ),
-							'julia'             => __( 'Julia', 	                        MELA_TD ),
-							'goliath'           => __( 'Goliath', 	                        MELA_TD ),
-							'hera'              => __( 'Hera', 	                            MELA_TD ),
-							'winston'           => __( 'Winston', 	                        MELA_TD ),
-							'selena'            => __( 'Selena', 	                        MELA_TD ),
-							'terry'             => __( 'Terry', 	                        MELA_TD ),
-							'phoebe'            => __( 'Phoebe', 	                        MELA_TD ),
-							'apollo'            => __( 'Apollo', 	                        MELA_TD ),
-							'kira'              => __( 'Kira', 	                            MELA_TD ),
-							'steve'             => __( 'Steve', 	                        MELA_TD ),
-							'moses'             => __( 'Moses', 	                        MELA_TD ),
-							'jazz'              => __( 'Jazz', 	                            MELA_TD ),
-							'ming'              => __( 'Ming', 	                            MELA_TD ),
-							'lexi'              => __( 'Lexi', 	                            MELA_TD ),
-							'duke'              => __( 'Duke', 	                            MELA_TD ),
-						],
+						'options'     => self::ma_el_image_hover_effects(),
 
 
 						'description' => sprintf( '20+ more effects on <a href="%s" target="_blank">%s</a>',
@@ -960,12 +971,24 @@
 
 			$settings = $this->get_settings_for_display();
 
-//			$ma_el_id		= $this->get_id();
+			
+            // First 15 Effects
+			foreach( array_slice(self::$ma_el_image_hover_effects, 0, 15) as
+				$key=>$ma_el_image_hover_value ){
+				$ma_el_image_hover_sets = "one";
+			}
+
+			// Last 15 Effects
+			foreach( array_slice(self::$ma_el_image_hover_effects, 15, 30) as
+				$key=>$ma_el_image_hover_value ){
+				$ma_el_image_hover_sets = "two";
+			}
 
 
 			$this->add_render_attribute( 'ma_el_image_hover_effect_wrapper', [
 				'class'	=> [
-					'ma-el-image-hover-effect',
+				    'ma-el-image-hover-effect',
+					'ma-el-image-hover-effect-' . $ma_el_image_hover_sets,
 					esc_attr($settings['ma_el_main_image_effect'] )
 				],
 				'id' => 'ma-el-image-hover-effect-' . $this->get_id()
@@ -1011,6 +1034,8 @@
 			$ma_el_main_image_effect = $settings['ma_el_main_image_effect'];
 			$ma_el_main_image_alt = esc_attr( Control_Media::get_image_alt( $settings['ma_el_main_image'] ) );
 
+
+
 			?>
 
 				<div <?php echo $this->get_render_attribute_string( 'ma_el_image_hover_effect_wrapper' ); ?>>
@@ -1028,7 +1053,7 @@
 
                                 <?php
 	                                // Social Icons Sets
-	                                $ma_el_main_image_socials_array = array( "hera","zoe","winston");
+	                                $ma_el_main_image_socials_array = array( "hera","zoe","winston","terry","phoebe","kira");
 	                                if (in_array($ma_el_main_image_effect, $ma_el_main_image_socials_array)) { ?>
                                     <p class="icon-links">
                                         <?php foreach( $settings['ma_el_main_image_icon_tabs'] as $index => $tab ) { ?>
@@ -1048,7 +1073,7 @@
 	                            }
 
 	                            // Design Specific Descriptions for Set 1
-                                $ma_el_main_image_effect_array=array( "honey","zoe","goliath","selena" );
+                                $ma_el_main_image_effect_array=array( "honey","zoe","goliath","selena","apollo","steve","moses","jazz","ming","lexi","duke" );
                                 if (in_array($ma_el_main_image_effect,$ma_el_main_image_effect_array)) { ?>
                                     <p class="ma-el-image-hover-desc">
                                         <?php echo htmlspecialchars_decode( $settings['ma_el_main_image_desc'] ); ?>

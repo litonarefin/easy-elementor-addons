@@ -1,5 +1,5 @@
 
-.ma-el-image-hover-effect {
+.ma-el-image-hover-effect-one {
 	position: relative;
 	margin: 0 auto;
 	padding: 1em 0 4em;
@@ -9,7 +9,7 @@
 }
 
 /* Common style */
-.ma-el-image-hover-effect figure {
+.ma-el-image-hover-effect-one figure {
 	position: relative;
 	float: left;
 	overflow: hidden;
@@ -26,7 +26,7 @@
 	cursor: pointer;
 }
 
-.ma-el-image-hover-effect figure img {
+.ma-el-image-hover-effect-one figure img {
 	position: relative;
 	display: block;
 	min-height: 100%;
@@ -34,7 +34,7 @@
 	opacity: 0.8;
 }
 
-.ma-el-image-hover-effect figure figcaption {
+.ma-el-image-hover-effect-one figure figcaption {
 	padding: 2em;
 	color: #fff;
 	text-transform: uppercase;
@@ -43,13 +43,13 @@
 	backface-visibility: hidden;
 }
 
-.ma-el-image-hover-effect figure figcaption::before,
-.ma-el-image-hover-effect figure figcaption::after {
+.ma-el-image-hover-effect-one figure figcaption::before,
+.ma-el-image-hover-effect-one figure figcaption::after {
 	pointer-events: none;
 }
 
-.ma-el-image-hover-effect figure figcaption,
-.ma-el-image-hover-effect figure figcaption > a {
+.ma-el-image-hover-effect-one figure figcaption,
+.ma-el-image-hover-effect-one figure figcaption > a {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -59,7 +59,7 @@
 
 /* Anchor will cover the whole item by default */
 /* For some effects it will show as a button */
-.ma-el-image-hover-effect figure figcaption > a {
+.ma-el-image-hover-effect-one figure figcaption > a {
 	z-index: 1000;
 	text-indent: 200%;
 	white-space: nowrap;
@@ -67,21 +67,21 @@
 	opacity: 0;
 }
 
-.ma-el-image-hover-effect figure h2 {
+.ma-el-image-hover-effect-one figure h2 {
 	word-spacing: -0.15em;
 	font-weight: 300;
 }
 
-.ma-el-image-hover-effect figure h2 span {
+.ma-el-image-hover-effect-one figure h2 span {
 	font-weight: 800;
 }
 
-.ma-el-image-hover-effect figure h2,
-.ma-el-image-hover-effect figure p {
+.ma-el-image-hover-effect-one figure h2,
+.ma-el-image-hover-effect-one figure p {
 	margin: 0;
 }
 
-.ma-el-image-hover-effect figure p {
+.ma-el-image-hover-effect-one figure p {
 	letter-spacing: 1px;
 	font-size: 68.5%;
 }
@@ -980,7 +980,7 @@ figure.effect-zoe figcaption {
 	-webkit-transform: translate3d(0,100%,0);
 	transform: translate3d(0,100%,0);
 }
-.ma-el-image-hover-effect .effect-zoe  .ma-el-image-hover-title{
+.ma-el-image-hover-effect-one .effect-zoe  .ma-el-image-hover-title{
 	color: #343434;
 }
 figure.effect-zoe h2 {
@@ -1137,7 +1137,7 @@ figure.effect-chico:hover p {
 		padding: 0 10px;
 		text-align: center;
 	}
-	.ma-el-image-hover-effect figure {
+	.ma-el-image-hover-effect-one figure {
 		display: inline-block;
 		float: none;
 		margin: 10px auto;
