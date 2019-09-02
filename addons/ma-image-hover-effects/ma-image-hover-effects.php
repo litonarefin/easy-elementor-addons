@@ -971,7 +971,7 @@
 
 			$settings = $this->get_settings_for_display();
 
-			
+
             // First 15 Effects
 			foreach( array_slice(self::$ma_el_image_hover_effects, 0, 15) as
 				$key=>$ma_el_image_hover_value ){

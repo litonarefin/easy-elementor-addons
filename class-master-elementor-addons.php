@@ -424,8 +424,8 @@
 				if (isset( $is_activated_widget['ma-image-hover-effects'] )) {
 
 					//Free Version Codes
-					wp_enqueue_style( 'ma-image-hover-effects-set1', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/set1.css' );
-					wp_enqueue_style( 'ma-image-hover-effects-set2', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/set2.css' );
+					wp_enqueue_style( 'ma-image-hover-effects-one', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/image-hover-one.css' );
+					wp_enqueue_style( 'ma-image-hover-effects-two', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/image-hover-two.css' );
 
 					// Premium Version Codes
 //					if ( ma_el_fs()->can_use_premium_code() ) {
@@ -549,8 +549,8 @@
 			public function plugin_actions_links( $links ) {
 				if ( is_admin() ) {
 					$links[] = sprintf( '<a href="admin.php?page=master-addons-settings">' . __( 'Settings', MELA_TD ) . '</a>' );
-					$links[] = '<a href="https://jeweltheme.com/support/forum/wordpress-plugins/master-addons/" target="_blank">' . esc_html__( 'Support', MELA_TD ) . '</a>';
-					$links[] = '<a href="https://docs.jeweltheme.com/master-addons" target="_blank">' . esc_html__( 'Documentation',
+					$links[] = '<a href="https://master-addons.com/contact-us" target="_blank">' . esc_html__( 'Support', MELA_TD ) . '</a>';
+					$links[] = '<a href="https://master-addons.com/docs/" target="_blank">' . esc_html__( 'Documentation',
 							MELA_TD ) . '</a>';
 				}
 
