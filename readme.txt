@@ -242,6 +242,7 @@ Paste on your Local Computer
  Designation Color option Added.
  * Team Members
  * Added: MA Flipbox Front Text and Back Text Alignment
+ * Added: Nested Tabs feature added for MA Tabs.
 
 
  = 1.1.1 (30-08-2019) =
