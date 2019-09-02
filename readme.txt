@@ -243,6 +243,12 @@ Paste on your Local Computer
  * Team Members
  * Added: MA Flipbox Front Text and Back Text Alignment
  * Added: Nested Tabs feature added for MA Tabs.
+ * Updated: Re-factored MA Tabs Codes
+ * Added: Multicolor Accordion Title and Content Color Option given
+
+[//]: # fs_premium_only_begin
+ * Added: Multicolor Accordion Title and Content Color Option given
+[//]: # fs_premium_only_end
 
 
  = 1.1.1 (30-08-2019) =

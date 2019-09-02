@@ -219,9 +219,21 @@
 				);
 
 				$repeater->add_control(
+					'single_title_text_color',
+					[
+						'label'                 => esc_html__( 'Title Color', MELA_TD ),
+						'type'                  => Controls_Manager::COLOR,
+						'default'               => '#333333',
+						'condition'             => [
+							'single_tab_title_bg_color_show' => 'yes'
+						]
+					]
+				);
+
+				$repeater->add_control(
 					'single_tab_title_bg_color',
 					[
-						'label'                 => esc_html__( 'Background Color', MELA_TD ),
+						'label'                 => esc_html__( 'Title Background Color', MELA_TD ),
 						'type'                  => Controls_Manager::COLOR,
 						'default'               => '#fff',
 						'condition'             => [
@@ -231,16 +243,38 @@
 				);
 
 				$repeater->add_control(
-					'single_title_text_color',
+					'single_title_content_color',
 					[
-						'label'                 => esc_html__( 'Text Color', MELA_TD ),
+						'label'                 => esc_html__( 'Content Color', MELA_TD ),
 						'type'                  => Controls_Manager::COLOR,
 						'default'               => '#333333',
 						'condition'             => [
 							'single_tab_title_bg_color_show' => 'yes'
+						],
+						'selectors'             => [
+							'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ma-multicolor-accordion .ma-accordion-tab-content p' => 'color: {{VALUE}}'
+//                                '{{WRAPPER}} .ma-accordion-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 						]
 					]
 				);
+
+				$repeater->add_control(
+					'single_tab_content_bg_color',
+					[
+						'label'                 => esc_html__( 'Content Background Color', MELA_TD ),
+						'type'                  => Controls_Manager::COLOR,
+						'default'               => '#fff',
+						'condition'             => [
+							'single_tab_title_bg_color_show' => 'yes'
+						],
+                        'selectors'             => [
+                                '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ma-multicolor-accordion .ma-accordion-tab-content'
+                                => 'background-color: {{VALUE}};'
+//                                '{{WRAPPER}} .ma-accordion-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                        ]
+					]
+				);
+
 
 				/* End of Single Accordion Tab Styles */
 
@@ -649,7 +683,8 @@ Customization Options.</span>'
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#ffffff',
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover,
+						{{WRAPPER}} .ma-accordion-item.ma-multicolor-accordion .ma-accordion-tab-title:hover' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -863,7 +898,8 @@ Customization Options.</span>'
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#333',
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content,
+						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content p' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -1049,22 +1085,29 @@ Customization Options.</span>'
 						]);
 
 
+					if ( ma_el_fs()->can_use_premium_code() ) {
+
+						if ( $tab['single_tab_title_bg_color_show'] == 'yes' ) {
+						    $single_item_class = 'ma-multicolor-accordion';
+						}
+					}
+
 						?>
-                        <div class="ma-accordion-item <?php echo esc_attr( $settings['ma_advanced_accordion_style'] ); ?>">
+                        <div class="ma-accordion-item <?php echo esc_attr( $settings['ma_advanced_accordion_style'] )
+                        ; ?> <?php echo ($single_item_class) ? $single_item_class :'' ;?>">
                             <<?php echo $settings['title_html_tag']; ?> <?php echo $this->get_render_attribute_string
-                            ($tab_title_setting_key); ?>
-                            <?php
+                            ($tab_title_setting_key);
 
-						    // Premium Version Codes
-						    if ( ma_el_fs()->can_use_premium_code() ) {
+                                // Premium Version Codes
+                                if ( ma_el_fs()->can_use_premium_code() ) {
 
-						        if($tab['single_tab_title_bg_color_show']=='yes'){ ?>
-                                    style="background-color:<?php echo $tab['single_tab_title_bg_color'];?>;
-                                    color:<?php echo $tab['single_title_text_color'];?>"
+                                    if($tab['single_tab_title_bg_color_show']=='yes'){ ?>
+                                        style="background-color:<?php echo $tab['single_tab_title_bg_color'];?>;
+                                        color:<?php echo $tab['single_title_text_color'];?>"
 
-                                <?php } // Premium Version Codes
+                                    <?php } // Premium Version Codes
 
-						} ?>>
+                            } ?>>
                                 <span class="ma-accordion-title-icon">
 
                                     <?php if ( $tab['accordion_tab_icon_show'] === 'yes' ) { ?>
@@ -1087,7 +1130,19 @@ Customization Options.</span>'
 								<?php } ?>
                             </<?php echo $settings['title_html_tag']; ?>>
 
-                            <div <?php echo $this->get_render_attribute_string($tab_content_setting_key); ?>>
+                            <div <?php echo $this->get_render_attribute_string($tab_content_setting_key);
+
+	                            // Premium Version Codes
+	                            if ( ma_el_fs()->can_use_premium_code() ) {
+
+		                            if($tab['single_tab_title_bg_color_show']=='yes'){ ?>
+                                        style="background-color:<?php echo $tab['single_tab_content_bg_color'];?>;
+                                                color:<?php echo $tab['single_title_content_color'];?>"
+
+		                            <?php } // Premium Version Codes
+
+	                            }
+	                            ?>>
 								<?php
 
 						            if ( ma_el_fs()->can_use_premium_code() ) {

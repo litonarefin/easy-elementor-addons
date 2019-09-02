@@ -26,7 +26,7 @@
 		protected function _register_controls() {
 
 			/**
-			 * Exclusive Tabs Content Settings
+			 * MA Tabs Content Settings
 			 */
 			$this->start_controls_section(
 				'ma_el_section_tabs_content_settings',
@@ -43,166 +43,201 @@
 			$repeater->add_control(
 				'ma_el_tab_show_as_default',
 				[
-					'label'                 => esc_html__( 'Active as Default', MELA_TD ),
-					'type'                  => Controls_Manager::SWITCHER,
-					'default'               => 'no',
-					'return_value'          => 'yes',
+					'name' => 'ma_el_tab_show_as_default',
+					'label' => __( 'Set as Default', MELA_TD ),
+					'type' => Controls_Manager::SWITCHER,
+					'return_value' => 'active',
 				]
 			);
 
+
+			$repeater->add_control(
+				'ma_el_tabs_icon_type',
+				[
+					'label'       => esc_html__( 'Icon Type', MELA_TD ),
+					'type'        => Controls_Manager::CHOOSE,
+					'label_block' => false,
+					'options'     => [
+						'none' => [
+							'title' => esc_html__( 'None', MELA_TD ),
+							'icon'  => 'fa fa-ban',
+						],
+						'icon' => [
+							'title' => esc_html__( 'Icon', MELA_TD ),
+							'icon'  => 'fa fa-gear',
+						],
+						'image' => [
+							'title' => esc_html__( 'Image', MELA_TD ),
+							'icon'  => 'fa fa-picture-o',
+						],
+					],
+					'default'       => 'icon',
+				]
+			);
+			$repeater->add_control(
+				'ma_el_tab_title_icon',
+				[
+					'label' => esc_html__( 'Icon', MELA_TD ),
+					'type' => Controls_Manager::ICON,
+					'default' => 'fa fa-home',
+					'condition' => [
+						'ma_el_tabs_icon_type' => 'icon'
+					]
+				]
+			);
+			$repeater->add_control(
+				'ma_el_tab_title_image',
+				[
+					'label' => esc_html__( 'Image', MELA_TD ),
+					'type' => Controls_Manager::MEDIA,
+					'default' => [
+						'url' => Utils::get_placeholder_image_src(),
+					],
+					'condition' => [
+						'ma_el_tabs_icon_type' => 'image'
+					]
+				]
+			);
+
+			$repeater->add_control(
+				'ma_el_tab_title',
+				[
+					'label' => esc_html__( 'Tab Title', MELA_TD ),
+					'type' => Controls_Manager::TEXT,
+					'default' => esc_html__( 'Tab Title', MELA_TD ),
+					'dynamic' => [ 'active' => true ]
+				]
+			);
+
+
+			// Premium Version Codes
+			if ( ma_el_fs()->can_use_premium_code() ) {
+
+				$repeater->add_control(
+					'ma_tabs_content_type',
+					[
+						'label'                 => esc_html__( 'Content Type', MELA_TD ),
+						'type'                  => Controls_Manager::SELECT,
+						'label_block'           => false,
+						'options'               => [
+							'content'   => __( 'Content', MELA_TD ),
+							'section'   => __( 'Saved Section', MELA_TD ),
+							'widget'    => __( 'Saved Widget', MELA_TD ),
+							'template'  => __( 'Saved Page Template', MELA_TD ),
+						],
+						'default'               => 'content',
+					]
+				);
+
+				$repeater->add_control(
+					'ma_el_tab_content',
+					[
+						'label'                 => esc_html__( 'Tab Content', MELA_TD ),
+						'type'                  => Controls_Manager::TEXTAREA,
+						'default'               => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', MELA_TD ),
+						'condition'             => [
+							'ma_tabs_content_type'	=> 'content',
+						],
+					]
+				);
+
+
+				$repeater->add_control(
+					'saved_widget',
+					[
+						'label'                 => __( 'Choose Widget', MELA_TD ),
+						'type'                  => Controls_Manager::SELECT,
+						'options'               => $this->get_page_template_options( 'widget' ),
+						'default'               => '-1',
+						'condition'             => [
+							'ma_tabs_content_type'    => 'widget',
+						],
+						'conditions'        => [
+							'terms' => [
+								[
+									'name'      => 'ma_tabs_content_type',
+									'operator'  => '==',
+									'value'     => 'widget',
+								],
+							],
+						],
+					]
+				);
+
+				$repeater->add_control(
+					'saved_section',
+					[
+						'label'                 => __( 'Choose Section', MELA_TD ),
+						'type'                  => Controls_Manager::SELECT,
+						'options'               => $this->get_page_template_options( 'section' ),
+						'default'               => '-1',
+						'conditions'        => [
+							'terms' => [
+								[
+									'name'      => 'ma_tabs_content_type',
+									'operator'  => '==',
+									'value'     => 'section',
+								],
+							],
+						],
+					]
+				);
+
+				$repeater->add_control(
+					'templates',
+					[
+						'label'                 => __( 'Choose Template', MELA_TD ),
+						'type'                  => Controls_Manager::SELECT,
+						'options'               => $this->get_page_template_options( 'page' ),
+						'default'               => '-1',
+						'conditions'        => [
+							'terms' => [
+								[
+									'name'      => 'ma_tabs_content_type',
+									'operator'  => '==',
+									'value'     => 'template',
+								],
+							],
+						],
+					]
+				);
+
+			} else {
+				$repeater->add_control(
+					'ma_el_tab_content',
+					[
+						'label'                 => esc_html__( 'Tab Content', MELA_TD ),
+						'type'                  => Controls_Manager::TEXTAREA,
+						'default'               => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', MELA_TD ),
+//						'condition'             => [
+//							'ma_tabs_content_type'	=> 'content',
+//						],
+					]
+				);
+
+			}
 
 
 			$this->add_control(
 				'ma_el_tabs',
 				[
-					'type' => Controls_Manager::REPEATER,
-					'seperator' => 'before',
-					'default' => [
+					'type'                  => Controls_Manager::REPEATER,
+					'default'               => [
 						[ 'ma_el_tab_title' => esc_html__( 'Tab Title One', MELA_TD ) ],
 						[ 'ma_el_tab_title' => esc_html__( 'Tab Title Two', MELA_TD ) ],
 						[ 'ma_el_tab_title' => esc_html__( 'Tab Title Three', MELA_TD ) ],
 					],
-					'fields' => [
-						[
-							'name' => 'ma_el_tab_show_as_default',
-							'label' => __( 'Set as Default', MELA_TD ),
-							'type' => Controls_Manager::SWITCHER,
-							'return_value' => 'active',
-						],
-						[
-							'name'        => 'ma_el_tabs_icon_type',
-							'label'       => esc_html__( 'Icon Type', MELA_TD ),
-							'type'        => Controls_Manager::CHOOSE,
-							'label_block' => false,
-							'options'     => [
-								'none' => [
-									'title' => esc_html__( 'None', MELA_TD ),
-									'icon'  => 'fa fa-ban',
-								],
-								'icon' => [
-									'title' => esc_html__( 'Icon', MELA_TD ),
-									'icon'  => 'fa fa-gear',
-								],
-								'image' => [
-									'title' => esc_html__( 'Image', MELA_TD ),
-									'icon'  => 'fa fa-picture-o',
-								],
-							],
-							'default'       => 'icon',
-						],
-						[
-							'name' => 'ma_el_tab_title_icon',
-							'label' => esc_html__( 'Icon', MELA_TD ),
-							'type' => Controls_Manager::ICON,
-							'default' => 'fa fa-home',
-							'condition' => [
-								'ma_el_tabs_icon_type' => 'icon'
-							]
-						],
-						[
-							'name' => 'ma_el_tab_title_image',
-							'label' => esc_html__( 'Image', MELA_TD ),
-							'type' => Controls_Manager::MEDIA,
-							'default' => [
-								'url' => Utils::get_placeholder_image_src(),
-							],
-							'condition' => [
-								'ma_el_tabs_icon_type' => 'image'
-							]
-						],
-						[
-							'name' => 'ma_el_tab_title',
-							'label' => esc_html__( 'Tab Title', MELA_TD ),
-							'type' => Controls_Manager::TEXT,
-							'default' => esc_html__( 'Tab Title', MELA_TD ),
-							'dynamic' => [ 'active' => true ]
-						],
-
-						[
-						    'name'                  => 'ma_tabs_content_type',
-							'label'                 => esc_html__( 'Content Type', MELA_TD ),
-							'type'                  => Controls_Manager::SELECT,
-							'label_block'           => false,
-							'options'               => [
-								'content'   => __( 'Content', MELA_TD ),
-								'section'   => __( 'Saved Section', MELA_TD ),
-								'widget'    => __( 'Saved Widget', MELA_TD ),
-								'template'  => __( 'Saved Page Template', MELA_TD ),
-							],
-							'default'               => 'content',
-						],
-						[
-							'name'                  => 'ma_el_tab_content',
-							'label'                 => esc_html__( 'Tab Content', MELA_TD ),
-							'type'                  => Controls_Manager::TEXTAREA,
-							'default'               => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', MELA_TD ),
-							'condition'             => [
-								'ma_tabs_content_type'	=> 'content',
-							],
-						],
-						[
-						    'name'                  => 'saved_widget',
-							'label'                 => __( 'Choose Widget', MELA_TD ),
-							'type'                  => Controls_Manager::SELECT,
-							'options'               => $this->get_page_template_options( 'widget' ),
-							'default'               => '-1',
-							'condition'             => [
-								'ma_tabs_content_type'    => 'widget',
-							],
-							'conditions'        => [
-								'terms' => [
-									[
-										'name'      => 'ma_tabs_content_type',
-										'operator'  => '==',
-										'value'     => 'widget',
-									],
-								],
-							],
-						],
-						[
-							'name'                  => 'saved_section',
-							'label'                 => __( 'Choose Section', MELA_TD ),
-							'type'                  => Controls_Manager::SELECT,
-							'options'               => $this->get_page_template_options( 'section' ),
-							'default'               => '-1',
-							'conditions'        => [
-								'terms' => [
-									[
-										'name'      => 'ma_tabs_content_type',
-										'operator'  => '==',
-										'value'     => 'section',
-									],
-								],
-							],
-						],
-						[   'name'                  => 'templates',
-							'label'                 => __( 'Choose Template', MELA_TD ),
-							'type'                  => Controls_Manager::SELECT,
-							'options'               => $this->get_page_template_options( 'page' ),
-							'default'               => '-1',
-							'conditions'        => [
-								'terms' => [
-									[
-										'name'      => 'ma_tabs_content_type',
-										'operator'  => '==',
-										'value'     => 'template',
-									],
-								],
-							],
-						]
-
-
-
-
-					],
-					'title_field' => '{{ma_el_tab_title}}',
+					'fields'                => array_values( $repeater->get_controls() ),
+					'title_field'           => '{{ma_el_tab_title}}',
 				]
 			);
+
+
 			$this->end_controls_section();
 
 			/**
 			 * -------------------------------------------
-			 * Tab Style Exclusive Tabs Generel Style
+			 * Tab Style MA Tabs Generel Style
 			 * -------------------------------------------
 			 */
 			$this->start_controls_section(
@@ -244,7 +279,7 @@
 			$this->end_controls_section();
 			/**
 			 * -------------------------------------------
-			 * Tab Style Exclusive Tabs Heading Style
+			 * Tab Style MA Tabs Heading Style
 			 * -------------------------------------------
 			 */
 			$this->start_controls_section(
@@ -379,7 +414,7 @@
 
 			/**
 			 * -------------------------------------------
-			 * Tab Style Exclusive Tabs Content Style
+			 * Tab Style MA Tabs Content Style
 			 * -------------------------------------------
 			 */
 			$this->start_controls_section(
@@ -470,8 +505,8 @@
 				$this->start_controls_section(
 					'ma_el_section_pro_style_section',
 					[
-						'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD ),
-						'tab' => Controls_Manager::TAB_STYLE
+						'label' => esc_html__( 'Upgrade to Pro Nested Accordions', MELA_TD ),
+//						'tab' => Controls_Manager::TAB_STYLE
 					]
 				);
 
@@ -537,8 +572,8 @@ Customization Options.</span>'
 						?></h3>
 						<p><?php
 
-
-//								if ( ma_el_fs()->can_use_premium_code() ) {
+                                // Nested Accordion Available for Premium Version
+								if ( ma_el_fs()->can_use_premium_code() ) {
 
 									if ( $tab['ma_tabs_content_type'] == 'content' ) {
 
@@ -557,13 +592,12 @@ Customization Options.</span>'
 										echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_widget'] );
 
 									}
-//								} else{
-//									if ( $tab['ma_el_tab_content'] == 'content' ) {
-//
-//										echo do_shortcode( $tab['ma_el_tab_content'] );
-//
-//									}
-//								}
+
+									// Free Version Code
+								} else{
+
+										echo do_shortcode( $tab['ma_el_tab_content'] );
+								}
 
 
 								?></p>
@@ -574,34 +608,7 @@ Customization Options.</span>'
 			<?php
 		}
 
-		protected function _content_template() {
-			?>
-			<div id="ma-el-advance-tabs" class="ma-el-advance-tab {{ settings.ma_el_tabs_preset }}" data-tabs>
 
-				<ul class="ma-el-advance-tab-nav">
-					<# _.each( settings.ma_el_tabs, function( tab, index ) { #>
-					<li class="{{ tab.ma_el_tab_show_as_default }}" data-tab>
-						<# if( settings.ma_el_tabs_icon_show === 'yes' ) { #>
-						<# if( tab.ma_el_tabs_icon_type === 'icon' ) { #>
-						<i class="{{ tab.ma_el_tab_title_icon }}"></i>
-						<# } else if( tab.ma_el_tabs_icon_type === 'image' ) { #>
-						<img src="{{ tab.ma_el_tab_title_image.url }}">
-						<# } #>
-						<# } #>
-						<span class="ma-el-tab-title">{{{ tab.ma_el_tab_title }}}</span></li>
-					<# }); #>
-				</ul>
-
-				<# _.each( settings.ma_el_tabs, function( tab, index ) { #>
-				<div class="ma-el-advance-tab-content {{ tab.ma_el_tab_show_as_default }}">
-					<h3 class="ma-el-advance-tab-content-title">{{{ tab.ma_el_tab_title }}}</h3>
-					<p>{{{ tab.ma_el_tab_content }}}</p>
-				</div>
-				<# }); #>
-
-			</div>
-			<?php
-		}
 
 		public function get_page_template_options( $type = '' ) {
 
