@@ -357,7 +357,7 @@
 				[
 					'label' => esc_html__( 'Social Links', MELA_TD ),
 					'condition'     => [
-						'ma_el_main_image_effect' => ['zoe','hera']
+						'ma_el_main_image_effect' => ['zoe','hera','winston']
 					]
 				]
 			);
@@ -1028,7 +1028,7 @@
 
                                 <?php
 	                                // Social Icons Sets
-	                                $ma_el_main_image_socials_array = array( "hera","zoe");
+	                                $ma_el_main_image_socials_array = array( "hera","zoe","winston");
 	                                if (in_array($ma_el_main_image_effect, $ma_el_main_image_socials_array)) { ?>
                                     <p class="icon-links">
                                         <?php foreach( $settings['ma_el_main_image_icon_tabs'] as $index => $tab ) { ?>
@@ -1048,7 +1048,7 @@
 	                            }
 
 	                            // Design Specific Descriptions for Set 1
-                                $ma_el_main_image_effect_array=array( "honey","zoe","goliath" );
+                                $ma_el_main_image_effect_array=array( "honey","zoe","goliath","selena" );
                                 if (in_array($ma_el_main_image_effect,$ma_el_main_image_effect_array)) { ?>
                                     <p class="ma-el-image-hover-desc">
                                         <?php echo htmlspecialchars_decode( $settings['ma_el_main_image_desc'] ); ?>

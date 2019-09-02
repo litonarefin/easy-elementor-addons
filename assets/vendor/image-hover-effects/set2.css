@@ -59,7 +59,6 @@
 /* Anchor will cover the whole item by default 
 /* For some effects it will show as a button */
 
-/*
 .ma-el-image-hover-effect figure figcaption > a {
 	z-index: 1000;
 	text-indent: 200%;
@@ -350,7 +349,7 @@ figure.effect-winston figcaption::before {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: url(../img/triangle.svg) no-repeat center center;
+	background: url(../../images/triangle.svg) no-repeat center center;
 	background-size: 100% 100%;
 	content: '';
 	-webkit-transition: opacity 0.45s, -webkit-transform 0.45s;
@@ -386,7 +385,7 @@ figure.effect-winston a:focus {
 	color: #cc6055;
 }
 
-figure.effect-winston p a i {
+figure.effect-winston p a span {
 	opacity: 0;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
@@ -409,7 +408,7 @@ figure.effect-winston:hover figcaption::before {
 	transform: rotate3d(0,0,1,20deg);
 }
 
-figure.effect-winston:hover p i {
+figure.effect-winston:hover p span {
 	opacity: 1;
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
@@ -635,7 +634,7 @@ figure.effect-phoebe figcaption::before {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: url(../img/triangle2.svg) no-repeat center center;
+	background: url(../../images/triangle2.svg) no-repeat center center;
 	background-size: 100% 100%;
 	content: '';
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
