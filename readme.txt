@@ -204,7 +204,7 @@ We're adding new Features everyday. You'll get regular Updates also !
 7. Master Addons Progressbar
 8. Master Addons Progressbars
 9. Master Addons Team Members
-10. Master Addons Team Members Slider
+10. Master Addons Team Members Carousel
 11. Master Addons Creative Buttons
 12. Master Addons Contact Form 7
 13. Master Addons Ninja Forms
@@ -245,6 +245,7 @@ Paste on your Local Computer
  * Added: Nested Tabs feature added for MA Tabs.
  * Updated: Re-factored MA Tabs Codes
  * Added: Multicolor Accordion Title and Content Color Option given
+ * Added: Social Icon Color Change Option for "Normal" and "Hover" tab Option added on MA Team Carousel
 
 [//]: # fs_premium_only_begin
  * Added: Multicolor Accordion Title and Content Color Option given

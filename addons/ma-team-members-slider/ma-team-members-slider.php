@@ -112,7 +112,7 @@
 					'condition' => [
 						'ma_el_team_carousel_enable_social_profiles!' => '',
 					],
-					'placeholder' => __( 'https://your-link.com', MELA_TD ),
+					'placeholder' => __( 'https://master-addons.com', MELA_TD ),
 					'label_block' => true,
 					'default' => [
 						'url' => '',
@@ -129,7 +129,7 @@
 					'condition' => [
 						'ma_el_team_carousel_enable_social_profiles!' => '',
 					],
-					'placeholder' => __( 'https://your-link.com', MELA_TD ),
+					'placeholder' => __( 'https://master-addons.com', MELA_TD ),
 					'label_block' => true,
 					'default' => [
 						'url' => '',
@@ -146,7 +146,7 @@
 					'condition' => [
 						'ma_el_team_carousel_enable_social_profiles!' => '',
 					],
-					'placeholder' => __( 'https://your-link.com', MELA_TD ),
+					'placeholder' => __( 'https://master-addons.com', MELA_TD ),
 					'label_block' => true,
 					'default' => [
 						'url' => '',
@@ -163,7 +163,7 @@
 					'condition' => [
 						'ma_el_team_carousel_enable_social_profiles!' => '',
 					],
-					'placeholder' => __( 'https://your-link.com', MELA_TD ),
+					'placeholder' => __( 'https://master-addons.com', MELA_TD ),
 					'label_block' => true,
 					'default' => [
 						'url' => '',
@@ -180,7 +180,7 @@
 					'condition' => [
 						'ma_el_team_carousel_enable_social_profiles!' => '',
 					],
-					'placeholder' => __( 'https://your-link.com', MELA_TD ),
+					'placeholder' => __( 'https://master-addons.com', MELA_TD ),
 					'label_block' => true,
 					'default' => [
 						'url' => '',
@@ -632,6 +632,9 @@
 				[
 					'label' => __('Social', MELA_TD),
 					'tab' => Controls_Manager::TAB_STYLE,
+					'condition' => [
+						'ma_el_team_carousel_preset' => ['-social-left', '-default'],
+					],
 				]
 			);
 
@@ -639,6 +642,18 @@
 
 			$this->start_controls_tab( 'ma_el_team_carousel_social_icon_control',
 				[ 'label' => esc_html__( 'Normal', MELA_TD ) ]
+			);
+
+			$this->add_control(
+				'ma_el_team_carousel_social_icon_color',
+				[
+					'label' => esc_html__( 'Icon Color', MELA_TD ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#FFF',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-team-member-social li a' => 'color: {{VALUE}};'
+					],
+				]
 			);
 
 			$this->add_control(
@@ -650,9 +665,6 @@
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-team-member-social-left .ma-el-team-member-social li a' => 'background: {{VALUE}};'
 					],
-					'condition' => [
-						'ma_el_team_carousel_preset' => '-social-left',
-					],
 				]
 			);
 
@@ -663,16 +675,26 @@
 			);
 
 			$this->add_control(
-				'ma_el_team_carousel_social_hover_color_1',
+				'ma_el_team_carousel_social_icon_hover_color',
+				[
+					'label' => esc_html__( 'Icon Hover Color', MELA_TD ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#FFF',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-team-member-social li a:hover' => 'color: {{VALUE}};'
+					],
+				]
+			);
+
+
+			$this->add_control(
+				'ma_el_team_carousel_social_hover_bg_color_1',
 				[
 					'label' => esc_html__( 'Hover Color', MELA_TD ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '#ff6d55',
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-team-member-social-left .ma-el-team-member-social li a:hover' => 'background: {{VALUE}};',
-					],
-					'condition' => [
-						'ma_el_team_carousel_preset' => '-social-left'
 					],
 				]
 			);
