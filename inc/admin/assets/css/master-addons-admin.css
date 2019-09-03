@@ -685,6 +685,11 @@ pre {
 }
 
 
+/* News Dashboard Widget */
+#master-addons-news-feed .hndle.ui-sortable-handle img{
+    margin: -5px 10px -5px 0;
+}
+
 /*
  Freemius Styles
  */

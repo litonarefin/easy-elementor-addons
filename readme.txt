@@ -246,6 +246,9 @@ Paste on your Local Computer
  * Updated: Re-factored MA Tabs Codes
  * Added: Multicolor Accordion Title and Content Color Option given
  * Added: Social Icon Color Change Option for "Normal" and "Hover" tab Option added on MA Team Carousel
+ * Updated: Dashboard News widget and Blog Updates Feed Link changed to Master Addons Website. Logo Icon Placed for
+ more visual appeal.
+ *
 
 [//]: # fs_premium_only_begin
  * Added: Multicolor Accordion Title and Content Color Option given

@@ -32,16 +32,18 @@
 		// add a custom dashboard widget
 		wp_add_dashboard_widget(
 			'master-addons-news-feed',
-			esc_html__('News from siteXY', MELA_TD),
+			'<img src="https://master-addons.com/wp-content/uploads/2019/06/icon-128x128.png" height="20" width="20">' .
+			esc_html__
+			('Master Addons News & Updates', MELA_TD),
 			'ma_el_dashboard_news_feed' );
 	}
 
 	function ma_el_dashboard_news_feed() {
 		echo '<div class="rss-widget">';
 		wp_widget_rss_output(array(
-			'url' => 'https://jeweltheme.com/feed',
-			'title' => 'Whats up at siteXY',
-			'items' => 4,
+			'url' => 'https://master-addons.com/blog/',
+			'title' => 'Master Addons News & Updates',
+			'items' => 5,
 			'show_summary' => 1,
 			'show_author' => 0,
 			'show_date' => 1
