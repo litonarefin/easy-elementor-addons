@@ -689,6 +689,28 @@ pre {
 #master-addons-news-feed .hndle.ui-sortable-handle img{
     margin: -5px 10px -5px 0;
 }
+#master-addons-news-feed .master-addons-dashboard_footer{
+    margin: 0 -12px -12px;
+    padding: 12px;
+    border-top: 1px solid #eee;
+}
+#master-addons-news-feed .master-addons-dashboard_footer ul{
+    display: flex;
+    list-style: none;
+}
+#master-addons-news-feed .master-addons-dashboard_footer ul li:first-child {
+    padding-left: 0;
+    border: none;
+}
+#master-addons-news-feed .master-addons-dashboard_footer li {
+    padding: 0 10px;
+    margin: 0;
+    border-left: 1px solid #ddd;
+}
+#master-addons-news-feed .ma-el-overview__go-pro a {
+    color: #fcb92c;
+    font-weight: 500;
+}
 
 /*
  Freemius Styles

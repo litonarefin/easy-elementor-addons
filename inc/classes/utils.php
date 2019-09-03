@@ -38,8 +38,39 @@
 			'ma_el_dashboard_news_feed' );
 	}
 
+
+	function get_dashboard_overview_widget_footer_actions() {
+		$base_actions = [
+			'blog' => [
+				'title' => __( 'Blog', MELA_TD ),
+				'link' => 'https://master-addons.com/blog/',
+			],
+			'help' => [
+				'title' => __( 'Help', MELA_TD ),
+				'link' => 'https://master-addons.com/docs/',
+			],
+		];
+
+		$additions_actions = [
+			'go-pro' => [
+				'title' => __( 'Go Pro', MELA_TD ),
+				'link' => \Elementor\Utils::get_pro_link( 'https://master-addons.com/pricing/' ),
+			],
+		];
+
+		$additions_actions = apply_filters( 'master_addons/admin/dashboard_overview_widget/footer_actions',
+			$additions_actions );
+
+		$actions = $base_actions + $additions_actions;
+
+		return $actions;
+	}
+
+
+
+
 	function ma_el_dashboard_news_feed() {
-		echo '<div class="rss-widget">';
+		echo '<div class="master-addons-posts">';
 		wp_widget_rss_output(array(
 			'url' => 'https://master-addons.com/blog/',
 			'title' => 'Master Addons News & Updates',
@@ -49,6 +80,20 @@
 			'show_date' => 1
 		));
 		echo "</div>";
+		?>
+
+		<div class="master-addons-dashboard_footer">
+			<ul>
+				<?php foreach ( get_dashboard_overview_widget_footer_actions() as $action_id => $action ) : ?>
+					<li class="ma-el-overview__<?php echo esc_attr( $action_id ); ?>"><a href="<?php echo esc_attr(
+						$action['link'] ); ?>" target="_blank"><?php echo esc_html( $action['title'] ); ?> <span
+								class="screen-reader-text"><?php echo __( '(opens in a new window)', MELA_TD );
+								?></span><span aria-hidden="true" class="dashicons dashicons-external"></span></a></li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+
+<?php
 	}
 
 
