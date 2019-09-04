@@ -6,21 +6,6 @@
 
 	add_action('wp_dashboard_setup', 'ma_el_dashboard_widgets');
 
-	function ma_el_array_flatten($array) {
-		if (!is_array($array)) {
-			return false;
-		}
-		$result = array();
-		foreach ($array as $key => $value) {
-			if (is_array($value)) {
-				$result = array_merge($result, array_values($value));
-			} else {
-				$result[$key] = $value;
-			}
-		}
-		return $result;
-	}
-
 	function ma_el_dashboard_widgets() {
 		global $wp_meta_boxes;
 		unset(
@@ -94,6 +79,22 @@
 		</div>
 
 <?php
+	}
+
+
+	function ma_el_array_flatten($array) {
+		if (!is_array($array)) {
+			return false;
+		}
+		$result = array();
+		foreach ($array as $key => $value) {
+			if (is_array($value)) {
+				$result = array_merge($result, array_values($value));
+			} else {
+				$result[$key] = $value;
+			}
+		}
+		return $result;
 	}
 
 

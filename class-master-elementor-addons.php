@@ -85,12 +85,12 @@
 
 				];
 
-//
-//				self::$ma_el_extensions = [
-//					'ma-particles',
-//					'ma-animated-gradient-background',
-//					'ma-background-slider',
-//				];
+
+				self::$ma_el_extensions = [
+					'ma-particles',
+					'ma-animated-gradient-background',
+					'ma-background-slider',
+				];
 
 
 
@@ -274,22 +274,33 @@
 				$maad_el_default_settings = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),
 					true );
 
-//				$li1 = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),
-//					true );
-//				$li2 = array_fill_keys( ma_el_array_flatten( self::$ma_el_extensions ),
-//					true );
-//
-//				$maad_el_default_settings =  array_merge($li1, $li2);
-
-				$maad_el_get_settings     = get_option( 'maad_el_save_settings', $maad_el_default_settings );
-				$maad_el_new_settings     = array_diff_key( $maad_el_default_settings, $maad_el_get_settings );
+				$maad_el_get_extension_settings     = get_option( 'maad_el_save_settings', $maad_el_default_settings );
+				$maad_el_new_settings     = array_diff_key( $maad_el_default_settings, $maad_el_get_extension_settings );
 
 				if ( ! empty( $maad_el_new_settings ) ) {
-					$maad_el_updated_settings = array_merge( $maad_el_get_settings, $maad_el_new_settings );
+					$maad_el_updated_settings = array_merge( $maad_el_get_extension_settings, $maad_el_new_settings );
 					update_option( 'maad_el_save_settings', $maad_el_updated_settings );
 				}
 
-				return $maad_el_get_settings = get_option( 'maad_el_save_settings', $maad_el_default_settings );
+				return $maad_el_get_extension_settings = get_option( 'maad_el_save_settings', $maad_el_default_settings );
+
+			}
+
+			public static function activated_extensions() {
+
+				$ma_el_default_extensions_settings = array_fill_keys( ma_el_array_flatten( self::$ma_el_extensions ),
+					true );
+
+				$maad_el_get_settings     = get_option( 'ma_el_extensions_save_settings', $ma_el_default_extensions_settings );
+				$maad_el_new_settings     = array_diff_key( $ma_el_default_extensions_settings, $maad_el_get_settings );
+
+				if ( ! empty( $maad_el_new_settings ) ) {
+					$maad_el_updated_settings = array_merge( $maad_el_get_settings, $maad_el_new_settings );
+					update_option( 'ma_el_extensions_save_settings', $maad_el_updated_settings );
+				}
+
+				return $maad_el_get_settings = get_option( 'ma_el_extensions_save_settings',
+					$ma_el_default_extensions_settings );
 
 			}
 
