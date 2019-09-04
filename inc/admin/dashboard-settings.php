@@ -19,10 +19,15 @@ class Master_Addons_Admin_Settings{
 
 
 	public function __construct() {
+		$this->ma_el_include_files();
 		add_action( 'admin_menu', [ $this, 'master_addons_admin_menu' ],  '', 10);
 		add_action( 'admin_enqueue_scripts', [ $this, 'master_addons_el_admin_scripts' ], 99 );
 		add_action( 'wp_ajax_master_addons_save_elements_settings', [ $this, 'master_addons_save_elements_settings' ] );
 		add_action( 'wp_ajax_nopriv_master_addons_save_elements_settings', [ $this, 'master_addons_save_elements_settings' ] );
+	}
+
+	public function ma_el_include_files(){
+		include_once MELA_PLUGIN_PATH . '/inc/admin/promotions.php';
 	}
 
 	public function get_menu_title() {
