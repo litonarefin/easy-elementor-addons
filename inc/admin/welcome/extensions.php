@@ -59,10 +59,7 @@
 															echo ucwords( $is_pro );
 															echo '</span>';
 														}
-														echo __('MA ', MELA_TD) . esc_html( ucwords( str_replace( "-",
-																	" ",
-																$extension )
-														) );
+										echo __('MA ', MELA_TD) . esc_html( ucwords( str_replace( "-", " ", $extension )) );
 													}
 
 //				                                }
