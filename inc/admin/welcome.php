@@ -46,6 +46,9 @@
 
 			<?php
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/addons.php';
+				require MELA_PLUGIN_PATH . '/inc/admin/welcome/extensions.php';
+				require MELA_PLUGIN_PATH . '/inc/admin/welcome/api-keys.php';
+//				require MELA_PLUGIN_PATH . '/inc/admin/welcome/third-party-plugins.php';
 				//                require MELA_PLUGIN_PATH . '/inc/admin/welcome/how-to.php';
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/docs.php';
 			    require MELA_PLUGIN_PATH . '/inc/admin/welcome/supports.php';

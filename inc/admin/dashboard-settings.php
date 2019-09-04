@@ -94,13 +94,15 @@ class Master_Addons_Admin_Settings{
 
 		$js_info = array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-			'ajax_nonce' => wp_create_nonce( 'maad_el_settings_nonce_action' )
+			'ajax_nonce' => wp_create_nonce( 'maad_el_settings_nonce_action' ),
+			'ajax_extensions_nonce' => wp_create_nonce( 'ma_el_extensions_settings_nonce_action' )
 		);
 		wp_localize_script( 'master-addons-el-admin', 'js_maad_el_settings', $js_info );
 
 
 
 		// Master Addons Elements
+
 		$this->maad_el_default_settings = array_fill_keys( ma_el_array_flatten(
 			Master_Elementor_Addons::$maad_el_default_widgets ), true );
 
@@ -114,14 +116,17 @@ class Master_Addons_Admin_Settings{
 		$this->maad_el_get_settings = get_option( 'maad_el_save_settings', $this->maad_el_default_settings );
 
 
+
 		// Master Addons Extensions
+
 		$this->ma_el_default_extensions_settings = array_fill_keys( ma_el_array_flatten(Master_Elementor_Addons::$ma_el_extensions ), true);
-
 		$this->maad_el_get_extension_settings = get_option( 'ma_el_extensions_save_settings', $this->ma_el_default_extensions_settings );
-		$maad_el_new_settings = array_diff_key( $this->ma_el_default_extensions_settings, $this->maad_el_get_extension_settings );
+		$maad_el_new_extensions_settings = array_diff_key( $this->ma_el_default_extensions_settings,
+			$this->maad_el_get_extension_settings );
 
-		if( ! empty( $maad_el_new_settings ) ) {
-			$maad_el_updated_settings = array_merge( $this->maad_el_get_extension_settings, $maad_el_new_settings );
+		if( ! empty( $maad_el_new_extensions_settings ) ) {
+			$maad_el_updated_settings = array_merge( $this->maad_el_get_extension_settings,
+				$maad_el_new_extensions_settings );
 			update_option( 'ma_el_extensions_save_settings', $maad_el_updated_settings );
 		}
 		$this->maad_el_get_extension_settings = get_option( 'ma_el_extensions_save_settings', $this->ma_el_default_extensions_settings );
@@ -129,8 +134,8 @@ class Master_Addons_Admin_Settings{
 
 
 		// Master
-		$ma_el_default_extensions_settings = array_fill_keys( ma_el_array_flatten( Master_Elementor_Addons::$ma_el_extensions ),
-			true );
+//		$ma_el_default_extensions_settings = array_fill_keys( ma_el_array_flatten( Master_Elementor_Addons::$ma_el_extensions ),
+//			true );
 //
 //		$maad_el_get_settings     = get_option( 'ma_el_extensions_save_settings', $ma_el_default_extensions_settings );
 //		$maad_el_new_settings     = array_diff_key( $ma_el_default_extensions_settings, $maad_el_get_settings );
@@ -154,7 +159,7 @@ class Master_Addons_Admin_Settings{
 
 	public function master_addons_save_extensions_settings() {
 
-		check_ajax_referer( 'maad_el_settings_nonce_action', 'security' );
+		check_ajax_referer( 'ma_el_extensions_settings_nonce_action', 'security' );
 
 		if( isset( $_POST['fields'] ) ) {
 			parse_str( $_POST['fields'], $settings );
@@ -174,7 +179,7 @@ class Master_Addons_Admin_Settings{
 		update_option( 'ma_el_extensions_save_settings', $this->maad_el_extension_settings );
 
 		// Google Map API key
-		update_option( 'maad_el_google_map_api_option', $settings['google_map_api_key'] );
+//		update_option( 'maad_el_google_map_api_option', $settings['google_map_api_key'] );
 
 		return true;
 		die();
@@ -205,7 +210,7 @@ class Master_Addons_Admin_Settings{
 		update_option( 'maad_el_save_settings', $this->maad_el_settings );
 
 		// Google Map API key
-		update_option( 'maad_el_google_map_api_option', $settings['google_map_api_key'] );
+//		update_option( 'maad_el_google_map_api_option', $settings['google_map_api_key'] );
 
 		return true;
 		die();

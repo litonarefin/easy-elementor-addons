@@ -89,7 +89,8 @@
 				self::$ma_el_extensions = [
 					'ma-particles',
 					'ma-animated-gradient-background',
-					'ma-background-slider',
+//					'ma-background-slider',
+					['ma-background-slider','pro']
 				];
 
 

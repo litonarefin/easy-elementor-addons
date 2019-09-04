@@ -82,10 +82,12 @@
     // Saving Data With Ajax Request
     $( '.master-addons-el-js-element-save-setting' ).on( 'click', function(e) {
         e.preventDefault();
-        var $this = $(this);
+
+        let $this = $(this);
+
         if( $(this).hasClass('master-addons-el-save-now') ) {
 
-            // Master Addons Elem
+            // Master Addons Elemements
             $.ajax( {
                 url: js_maad_el_settings.ajaxurl,
                 type: 'post',
@@ -136,17 +138,29 @@
 
 
 
+
+        } else {
+            $(this).attr('disabled', 'true').css('cursor', 'not-allowed');
+        }
+
+
+
+
+
+
+
         // Master Addons Extensions
-         $.ajax( {
+        $.ajax( {
             url: js_maad_el_settings.ajaxurl,
             type: 'post',
             data: {
                 action: 'master_addons_save_extensions_settings',
-                security: js_maad_el_settings.ajax_nonce,
-                fields: $( '#master-addons-el-settings' ).serialize(),
+                security: js_maad_el_settings.ajax_extensions_nonce,
+                fields: $( '#master-addons-el-extensions-settings' ).serialize(),
             },
             success: function( response ) {
 
+                console.log('extensions changed');
 
                 swal({
                     title: "Saved",
@@ -175,10 +189,15 @@
                     $('.master-addons-el-settings-saved').fadeOut('slow');
                 }, 2000);
 
+            },
+            error: function() {
 
-        } else {
-            $(this).attr('disabled', 'true').css('cursor', 'not-allowed');
-        }
+            }
+        } );
+
+
+
+
     } );
 
 });

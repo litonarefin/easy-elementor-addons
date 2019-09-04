@@ -622,7 +622,7 @@ pre {
 .master-addons-dashboard-checkbox .switch.switch-text {
     float: right;
     margin-left: 10px;
-    margin-top: 160;
+    /*margin-top: 160;*/
 }
 
 .master-addons-el-btn {
