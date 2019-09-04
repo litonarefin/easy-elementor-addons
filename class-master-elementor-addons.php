@@ -125,6 +125,7 @@
 
 				// Elementor Dependencies
 
+				add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'ma_el_editor_scripts' ),100);
 				add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'maad_el_editor_styles' ] );
 
 				// Add Elementor Widgets
@@ -335,6 +336,24 @@
 			 */
 			public function maad_el_editor_styles() {
 				wp_enqueue_style( 'master-addons-editor', MELA_PLUGIN_URL . '/assets/css/master-addons-editor.css' );
+			}
+
+			/**
+			 *
+			 * Enqueue Elementor Editor Script
+			 *
+			 */
+			public function ma_el_editor_scripts() {
+				wp_enqueue_script( 'master-addons-editor',
+					MELA_PLUGIN_URL . '/assets/js/editor.js',
+					array(
+						'jquery',
+						'underscore',
+						'backbone-marionette'
+					),
+					self::VERSION,
+					true
+				);
 			}
 
 
