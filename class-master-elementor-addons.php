@@ -87,10 +87,10 @@
 
 
 				self::$ma_el_extensions = [
-					'ma-particles',
-					'ma-animated-gradient-background',
+					'particles',
+					'animated-gradient',
 //					'ma-background-slider',
-					['ma-background-slider','pro']
+					['bg-slider','pro']
 				];
 
 
@@ -590,9 +590,35 @@
 
 				// Extension
 //				if ( ma_el_fs()->can_use_premium_code() ) {
-					include_once MELA_PLUGIN_PATH . '/inc/modules/animated-gradient/animated-gradient.php';
-					include_once MELA_PLUGIN_PATH . '/inc/modules/particles/particles.php';
-					include_once MELA_PLUGIN_PATH . '/inc/modules/bg-slider/bg-slider.php';
+
+
+
+
+
+				$activated_extensions = $this->activated_extensions();
+
+				foreach ( ma_el_array_flatten( self::$ma_el_extensions ) as $extensions ) {
+
+
+//					$c=unserialize(self::$ma_el_extensions);
+//					var_dump($c);
+//					print_r($extensions);
+
+					if ( $activated_extensions[ $extensions ] == true ) {
+
+
+						$li = include_once MELA_PLUGIN_PATH .  '/inc/modules/' . $extensions . '/' . $extensions . '.php';
+						echo $li;
+
+
+					}
+				}
+
+//
+//					include_once MELA_PLUGIN_PATH . '/inc/modules/animated-gradient/animated-gradient.php';
+//					include_once MELA_PLUGIN_PATH . '/inc/modules/particles/particles.php';
+//					include_once MELA_PLUGIN_PATH . '/inc/modules/bg-slider/bg-slider.php';
+
 //				}
 
 			}

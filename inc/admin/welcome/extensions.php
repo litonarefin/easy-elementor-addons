@@ -59,7 +59,10 @@
 															echo ucwords( $is_pro );
 															echo '</span>';
 														}
-														echo esc_html( ucwords( str_replace( "-", " ", $extension ) ) );
+														echo __('MA ', MELA_TD) . esc_html( ucwords( str_replace( "-",
+																	" ",
+																$extension )
+														) );
 													}
 
 //				                                }
@@ -79,7 +82,7 @@
 
 												<?php //}?>
 
-												
+
 													<input type="checkbox"
 												       id="<?php echo esc_attr( $extension ); ?>"
 												       class="switch-input"
