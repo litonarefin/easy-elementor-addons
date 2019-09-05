@@ -344,6 +344,14 @@
 			 *
 			 */
 			public function ma_el_editor_scripts() {
+				wp_enqueue_style(
+					'master-addons-editor',
+					MELA_PLUGIN_URL . '/assets/css/editor.css',
+					[],
+					self::VERSION
+				);
+
+
 				wp_enqueue_script( 'master-addons-editor',
 					MELA_PLUGIN_URL . '/assets/js/editor.js',
 					array(
