@@ -5,7 +5,7 @@
 	if( !class_exists('Master_Elementor_Addons') ){
 		final class Master_Elementor_Addons {
 
-			const VERSION = "1.1.1";
+			const VERSION = "1.1.2";
 
 			const MINIMUM_PHP_VERSION = '5.4';
 
@@ -56,7 +56,7 @@
 					'ma-infobox',               // 12
 					'ma-flipbox',               // 13
 					'ma-creative-links',        // 14
-					'ma-image-hover-effects',   // 14
+//					'ma-image-hover-effects',   // 14
 
 					'contact-form-7',           // 15
 					'ninja-forms',              // 16

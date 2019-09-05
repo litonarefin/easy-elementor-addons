@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jwthe
 Requires at least: 4.0
 Tested up to: 5.2.2
 Requires PHP: 5.6
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Master Addons is essential for Elementor page builder. It enhances the page or post customization speed.
@@ -120,6 +120,16 @@ our MA Particle Background, you can also add the effect of color gradients to ad
 18. [Slider background](http://master-addons.com/ma-slider-background/): This is a very simple background Elementor Addon that can generate a beautiful image and video sliders. You can easily customize the height, width, and padding. You can also background color overlay to make it look attractive. You can also
 change the alignment of the image within the slider as per your choice.
 
+
+== Master Addons PRO widgets ==
+- [MA Animated Headlines](https://master-addons.com/ma-animated-headlines/)
+- [MA Advanced Nested Accordion](https://master-addons.com/ma-accordion/)
+- [MA Advanced Multicolor Accordion](https://master-addons.com/ma-accordion/)
+- [MA Nested Tabs](https://master-addons.com/ma-tabs/)
+- [MA Creative Buttons](https://master-addons.com/ma-creative-button/)
+- [MA Creative Links](https://master-addons.com/ma-creative-links/)
+- [MA Team Members (Content Drawer)](https://master-addons.com/ma-team-member/)
+- [MA Flipbox](https://master-addons.com/ma-flipbox/)
 
 ## Why Use Master Addons For Elementor? ##
 

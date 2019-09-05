@@ -11,7 +11,30 @@
         MasterModules;
 
     MasterEditorViews = {
-        ModalLayoutView = null,
+        ModalLayoutView: null,
+        ModalHeaderView: null,
+        ModalHeaderInsertButton: null,
+        ModalLoadingView: null,
+        ModalBodyView: null,
+        ModalErrorView: null,
+        LibraryCollection: null,
+        KeywordsModel: null,
+        ModalCollectionView: null,
+        ModalTabsCollection: null,
+        ModalTabsCollectionView: null,
+        FiltersCollectionView: null,
+        FiltersItemView: null,
+        ModalTabsItemView: null,
+        ModalTemplateItemView: null,
+        ModalInsertTemplateBehavior: null,
+        ModalTemplateModel: null,
+        CategoriesCollection: null,
+        ModalPreviewView: null,
+        ModalHeaderBack: null,
+        ModalHeaderLogo: null,
+        KeywordsView: null,
+        TabModel: null,
+        CategoryModel: null,
     }
 
 
