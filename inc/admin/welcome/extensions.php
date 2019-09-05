@@ -48,22 +48,23 @@
 
 											<p class="master-addons-el-title">
 
-												<?php
 
-//				                                if( ma_el_fs()->can_use_premium_code ()) {
+												<?php
 													if ( isset( $extension ) ) {
 														if ( is_array( $extension ) ) {
-															echo '<span class="pro-ribbon">';
 															$is_pro = $extension[1];
 															$extension = $extension[0];
-															echo ucwords( $is_pro );
-															echo '</span>';
-														}
-										echo __('MA ', MELA_TD) . esc_html( ucwords( str_replace( "-", " ", $extension )) );
-													}
 
-//				                                }
+															if( !ma_el_fs()->can_use_premium_code()) {
+																echo '<span class="pro-ribbon">';
+																echo ucwords( $is_pro );
+																echo '</span>';
+															}
+														}
+														echo esc_html( ucwords( str_replace( "-", " ", $extension ) ) );
+													}
 												?>
+
 											</p>
 
 
@@ -71,7 +72,9 @@
 
 											<label
 												for="<?php echo esc_attr( $extension ); ?>"
-												class="switch switch-text switch-primary switch-pill <?php echo (isset($is_pro) && $is_pro !="")? "ma-el-pro" :"";?>">
+												class="switch switch-text switch-primary switch-pill <?php
+													if( !ma_el_fs()->can_use_premium_code() && isset($is_pro) && $is_pro !="") { echo
+													"ma-el-pro";} ?>">
 
 												<?php if ( ma_el_fs()->can_use_premium_code() ) { ?>
 
@@ -84,25 +87,22 @@
 
 												<?php } else {
 
-													// Check the Addon is Free or Pro for Ribbon
-													if ( isset( $extension ) ) {
-														if ( is_array( $extension ) ) {
-															echo '<span class="pro-ribbon">';
-															$extension = $extension[0];
-															$is_pro = $extension[1];
-															echo ucwords( $is_pro );
-															echo '</span>';
-														}
-													} ?>
+
+                                                        if ( isset( $widget ) ) {
+                                                            if ( is_array( $widget ) ) {
+                                                                $is_pro = $widget[1];
+                                                            }
+                                                        }
+													?>
 
                                                     <input
                                                             type="checkbox" id="<?php echo esc_attr( $extension ); ?>"
                                                             class="switch-input "
                                                             name="<?php echo esc_attr( $extension ); ?>"
-														<?php checked( 1,
-                                                            $this->maad_el_get_extension_settings[$extension], true ); ?>
-														<?php echo (isset($is_pro) && $is_pro !="")? "disabled" :"";
-														?> />
+
+	                                                    <?php checked( 1, $this->maad_el_get_settings[$widget], true );
+		                                                    if( !ma_el_fs()->can_use_premium_code() && isset($is_pro) &&
+		                                                        $is_pro !="") { echo "disabled";} ?>/>
 
 
 												<?php $is_pro = ""; }?>

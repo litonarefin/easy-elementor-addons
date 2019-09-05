@@ -34,16 +34,67 @@
 									<div class="master-addons-dashboard-checkbox col">
 
                                         <p class="master-addons-el-title">
-                                            <?php echo esc_html( ucwords( str_replace( "-", " ", $widget) ) );?>
+
+	                                        <?php
+		                                        if ( isset( $widget ) ) {
+			                                        if ( is_array( $widget ) ) {
+				                                        $is_pro = $widget[1];
+				                                        $widget = $widget[0];
+
+				                                        if( !ma_el_fs()->can_use_premium_code()) {
+					                                        echo '<span class="pro-ribbon">';
+					                                        echo ucwords( $is_pro );
+					                                        echo '</span>';
+				                                        }
+			                                        }
+			                                        echo esc_html( ucwords( str_replace( "-", " ", $widget ) ) );
+		                                        }
+	                                        ?>
                                         </p>
 
-                                        <label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text
+
+										<?php if( ma_el_fs()->can_use_premium_code ()) {?>
+
+                                            <label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text
                                          switch-primary switch-pill">
-                                            <input type="checkbox" id="<?php echo esc_attr( $widget ); ?>" class="switch-input"
-                                                   name="<?php echo esc_attr( $widget ); ?>" <?php checked( 1, $this->maad_el_get_settings[$widget], true ); ?>>
-                                            <span data-on="On" data-off="Off" class="switch-label"></span>
-                                            <span class="switch-handle"></span>
-                                        </label>
+                                                <input
+                                                        type="checkbox"
+                                                        id="<?php echo esc_attr( $widget ); ?>"
+                                                        class="switch-input"
+                                                        name="<?php echo esc_attr( $widget ); ?>"
+													<?php checked( 1, $this->maad_el_get_settings[$widget], true ); ?>>
+
+                                                <span data-on="On" data-off="Off" class="switch-label"></span>
+                                                <span class="switch-handle"></span>
+                                            </label>
+										<?php } else{
+
+											if ( isset( $widget ) ) {
+												if ( is_array( $widget ) ) {
+													$is_pro = $widget[1];
+												}
+											}
+
+											?>
+
+                                            <label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text
+                                             switch-primary switch-pill <?php
+												if( !ma_el_fs()->can_use_premium_code() && isset($is_pro) && $is_pro !="") { echo
+												"ma-el-pro";} ?>">
+                                                <input
+                                                        type="checkbox" id="<?php echo esc_attr( $widget ); ?>"
+                                                        class="switch-input "
+                                                        name="<?php echo esc_attr( $widget ); ?>"
+													<?php checked( 1, $this->maad_el_get_settings[$widget], true );
+														if( !ma_el_fs()->can_use_premium_code() && isset($is_pro) &&
+														    $is_pro !="") { echo "disabled";} ?>>
+
+                                                <span data-on="On" data-off="Off" class="switch-label"></span>
+                                                <span class="switch-handle"></span>
+                                            </label>
+											<?php
+											$is_pro = "";
+										}?>
 
 									</div>
 								<?php endif; ?>
@@ -61,20 +112,23 @@
                                 <div class="master-addons-dashboard-checkbox col">
 
                                     <p class="master-addons-el-title">
-                                        <?php if( !ma_el_fs()->can_use_premium_code ()) { ?>
-                                            <?php
+
+                                        <?php
                                             if ( isset( $widget ) ) {
-                                                    if ( is_array( $widget ) ) {
+                                                if ( is_array( $widget ) ) {
+                                                    $is_pro = $widget[1];
+                                                    $widget = $widget[0];
+
+                                                    if( !ma_el_fs()->can_use_premium_code()) {
                                                         echo '<span class="pro-ribbon">';
-                                                        $is_pro = $widget[1];
-                                                        $widget = $widget[0];
                                                         echo ucwords( $is_pro );
                                                         echo '</span>';
                                                     }
-                                                    echo esc_html( ucwords( str_replace( "-", " ", $widget ) ) );
                                                 }
-                                            ?>
-                                        <?php } ?>
+                                                echo esc_html( ucwords( str_replace( "-", " ", $widget ) ) );
+                                            }
+                                        ?>
+
                                     </p>
 
 
@@ -96,27 +150,25 @@
                                         </label>
                                     <?php } else{
 
-                                            // Check the Addon is Free or Pro for Ribbon
-//                                            if ( isset( $widget ) ) {
-//                                                if ( is_array( $widget ) ) {
-//                                                    echo '<span class="pro-ribbon">';
-//                                                    $widget = $widget[0];
-//                                                    $is_pro = $widget[1];
-//                                                    echo ucwords( $is_pro );
-//                                                    echo '</span>';
-//                                                }
-//                                            }
+	                                    if ( isset( $widget ) ) {
+		                                    if ( is_array( $widget ) ) {
+			                                    $is_pro = $widget[1];
+		                                    }
+	                                    }
 
-                                        ?>
+	                                    ?>
 
                                             <label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text
-                                             switch-primary switch-pill <?php echo (isset($is_pro) && $is_pro !="")? "ma-el-pro" :"";?>">
+                                             switch-primary switch-pill <?php
+                                    if( !ma_el_fs()->can_use_premium_code() && isset($is_pro) && $is_pro !="") { echo
+                                    "ma-el-pro";} ?>">
                                                 <input
                                                         type="checkbox" id="<?php echo esc_attr( $widget ); ?>"
                                                         class="switch-input "
                                                         name="<?php echo esc_attr( $widget ); ?>"
-                                                    <?php checked( 1, $this->maad_el_get_settings[$widget], true ); ?>
-                                                    <?php echo (isset($is_pro) && $is_pro !="")? "disabled" :"";?> >
+                                                    <?php checked( 1, $this->maad_el_get_settings[$widget], true );
+	                                                if( !ma_el_fs()->can_use_premium_code() && isset($is_pro) &&
+                                                        $is_pro !="") { echo "disabled";} ?>>
 
                                                 <span data-on="On" data-off="Off" class="switch-label"></span>
                                                 <span class="switch-handle"></span>

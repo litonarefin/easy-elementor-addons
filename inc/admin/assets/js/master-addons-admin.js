@@ -27,7 +27,7 @@
 
             swal({
                 title: "Go Pro",
-                text: 'Upgrade to <a href="http://bit.ly/2ly5eaQ"> Pro Version </a> for ' +
+                text: 'Upgrade to <a href="http://bit.ly/2ly5eaQ" target="_blank"> Pro Version </a> for ' +
                 ' Unlock more Features ',
                 type: "warning",
                 showLoaderOnConfirm: true,

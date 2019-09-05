@@ -11,7 +11,7 @@
         MasterModules;
 
     MasterEditorViews = {
-
+        ModalLayoutView = null,
     }
 
 
