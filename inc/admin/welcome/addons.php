@@ -61,9 +61,9 @@
                                 <div class="master-addons-dashboard-checkbox col">
 
                                     <p class="master-addons-el-title">
-                                        <?php
-                //                            if( !ma_el_fs()->can_use_premium_code ()) {
-                                                if ( isset( $widget ) ) {
+                                        <?php if( !ma_el_fs()->can_use_premium_code ()) { ?>
+                                            <?php
+                                            if ( isset( $widget ) ) {
                                                     if ( is_array( $widget ) ) {
                                                         echo '<span class="pro-ribbon">';
                                                         $is_pro = $widget[1];
@@ -73,63 +73,59 @@
                                                     }
                                                     echo esc_html( ucwords( str_replace( "-", " ", $widget ) ) );
                                                 }
-                //                            }
-                                        ?>
+                                            ?>
+                                        <?php } ?>
                                     </p>
 
-                                    <label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text
-											 switch-primary switch-pill">
 
-                                        <?php if( ma_el_fs()->can_use_premium_code ()) {?>
+
+
+                                    <?php if( ma_el_fs()->can_use_premium_code ()) {?>
+
+                                        <label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text
+                                         switch-primary switch-pill">
                                             <input
-                                                    type="checkbox"
-                                                    id="<?php echo esc_attr( $widget ); ?>"
-                                                    class="switch-input"
-                                                    name="<?php echo esc_attr( $widget ); ?>"
-                                                <?php checked( 1, $this->maad_el_get_settings[$widget], true ); ?>>
+                                                type="checkbox"
+                                                id="<?php echo esc_attr( $widget ); ?>"
+                                                class="switch-input"
+                                                name="<?php echo esc_attr( $widget ); ?>"
+                                            <?php checked( 1, $this->maad_el_get_settings[$widget], true ); ?>>
 
-                                        <?php } else{
+                                            <span data-on="On" data-off="Off" class="switch-label"></span>
+                                            <span class="switch-handle"></span>
+                                        </label>
+                                    <?php } else{
 
-
-                                            if ( isset( $widget ) ) {
-                                                if ( is_array( $widget ) ) {
-                                                    echo '<span class="pro-ribbon">';
-                                                    $widget = $widget[0];
-                                                    $is_pro = $widget[1];
-                                                    echo ucwords( $is_pro );
-                                                    echo '</span>';
-                                                }
-                                            }
-
-
-
-//	                                        $pro_link = array( "pro");
-
-//	                                        print_r($widget);
-
-//	                                            if ( isset( $widget ) ) {
-//                                                    if (in_array($widget, $pro_link)) {
-//                                                        echo "Liton";
-//                                                    }else{
-//                                                        echo "Arefin";
-//                                                    }
-//
+                                            // Check the Addon is Free or Pro for Ribbon
+//                                            if ( isset( $widget ) ) {
+//                                                if ( is_array( $widget ) ) {
+//                                                    echo '<span class="pro-ribbon">';
+//                                                    $widget = $widget[0];
+//                                                    $is_pro = $widget[1];
+//                                                    echo ucwords( $is_pro );
+//                                                    echo '</span>';
 //                                                }
-//                                            echo $is_pro;
-                                            ?>
+//                                            }
 
-                                            <input
-                                                    type="checkbox" id="<?php echo esc_attr( $widget ); ?>"
-                                                    class="switch-input"
-                                                    name="<?php echo esc_attr( $widget ); ?>"
-                                                <?php checked( 0, $this->maad_el_get_settings[$widget], true ); ?>
-                                                <?php //echo (isset($is_pro))? "disabled" :"";?> >
-                                        <?php }?>
+                                        ?>
+
+                                            <label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text
+                                             switch-primary switch-pill <?php echo (isset($is_pro) && $is_pro !="")? "ma-el-pro" :"";?>">
+                                                <input
+                                                        type="checkbox" id="<?php echo esc_attr( $widget ); ?>"
+                                                        class="switch-input "
+                                                        name="<?php echo esc_attr( $widget ); ?>"
+                                                    <?php checked( 1, $this->maad_el_get_settings[$widget], true ); ?>
+                                                    <?php echo (isset($is_pro) && $is_pro !="")? "disabled" :"";?> >
+
+                                                <span data-on="On" data-off="Off" class="switch-label"></span>
+                                                <span class="switch-handle"></span>
+                                            </label>
+                                        <?php
+                                            $is_pro = "";
+                                        }?>
 
 
-                                        <span data-on="On" data-off="Off" class="switch-label"></span>
-                                        <span class="switch-handle"></span>
-                                    </label>
 
                                 </div>
 

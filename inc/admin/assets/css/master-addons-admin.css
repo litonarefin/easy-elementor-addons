@@ -711,6 +711,12 @@ pre {
     color: #fcb92c;
     font-weight: 500;
 }
+/*class=""*/
+/*.ma-el-pro > .master-addons-dashboard-checkbox{*/
+/*.master-addons-dashboard-checkbox:contains(.ma-el-pro ){*/
+    /*background-color:red !important;*/
+/*}*/
+
 
 /*
  Freemius Styles

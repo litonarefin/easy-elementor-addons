@@ -249,7 +249,9 @@ Paste on your Local Computer
  * Added: Social Icon Color Change Option for "Normal" and "Hover" tab Option added on MA Team Carousel
  * Updated: Dashboard News widget and Blog Updates Feed Link changed to Master Addons Website. Logo Icon Placed for
  more visual appeal.
- *
+ * Added: Dashboard Master Addons News RSS feed Opens New Window.
+ * Updated: Dashboard Addons, Extensions seperated. Pro Features blocked with Popup Sweetalert.
+ * Added: Blocked Pro Version Ribbons, popup opens with Pro Version Pricing Links.
 
 [//]: # fs_premium_only_begin
  * Added: Multicolor Accordion Title and Content Color Option given

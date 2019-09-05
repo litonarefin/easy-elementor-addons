@@ -4,7 +4,10 @@
     jQuery(document).ready(function($) {
     'use strict';
 
-    $('.wp-tab-bar a').click(function(event){
+        $('.master-addons-posts a.rsswidget').attr('target', '_blank');
+
+
+        $('.wp-tab-bar a').on('click',function(event){
         event.preventDefault();
 
         // Limit effect to the container element.
@@ -15,7 +18,33 @@
         $( $(this).attr('href'), context ).show();
     });
 
-    // Make setting wp-tab-active optional.
+
+    // Go Pro Modal
+    //     a img:parent { background: none; }
+    //     a < img { border: none; }
+    $('.ma-el-pro:parent').on('click',function(event){
+            event.preventDefault();
+
+            swal({
+                title: "Go Pro",
+                text: 'Upgrade to <a href="http://bit.ly/2ly5eaQ"> Pro Version </a> for ' +
+                ' Unlock more Features ',
+                type: "warning",
+                showLoaderOnConfirm: true,
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                confirmButtonClass: 'btn-success',
+                confirmButtonText: 'Okay'
+
+            }, function () {
+                setTimeout(function () {
+                    $('.ma-el-pro').fadeOut('slow');
+                }, 2000);
+            });
+    });
+
+
+        // Make setting wp-tab-active optional.
     $('.wp-tab-bar').each(function(){
         if ( $('.wp-tab-active', this).length )
             $('.wp-tab-active', this).click();
@@ -109,6 +138,10 @@
                         confirmButtonClass: 'btn-success',
                         confirmButtonText: 'Okay'
 
+                    }, function () {
+                        setTimeout(function () {
+                            $('.master-addons-el-settings-saved').fadeOut('fast');
+                        }, 2000);
                     });
 
                     // setTimeout(function(){
@@ -122,9 +155,9 @@
 
                     saveHeaderAction.removeClass( 'master-addons-el-save-now' );
 
-                    setTimeout(function(){
-                        $('.master-addons-el-settings-saved').fadeOut('slow');
-                    }, 2000);
+                    // setTimeout(function(){
+                    //     $('.master-addons-el-settings-saved').fadeOut('slow');
+                    // }, 2000);
 
 
 

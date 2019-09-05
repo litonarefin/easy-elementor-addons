@@ -2,7 +2,17 @@
 
     'use strict';
 
-    console.log("Editor JS File");
+    // console.log("Master Addons Editor JS");
+
+    var MasterAddonsData = window.MasterAddonsLibraryData || {},
+        MasterEditor,
+        MasterEditorViews,
+        MasterControlViews,
+        MasterModules;
+
+    MasterEditorViews = {
+
+    }
 
 
 })(jQuery);

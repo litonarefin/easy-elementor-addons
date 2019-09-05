@@ -39,7 +39,7 @@
 		$additions_actions = [
 			'go-pro' => [
 				'title' => __( 'Go Pro', MELA_TD ),
-				'link' => \Elementor\Utils::get_pro_link( 'https://master-addons.com/pricing/' ),
+				'link' => 'http://bit.ly/2ly5eaQ#utm_source=dashboard&utm_medium=dashboard&utm_campaign=Dashboard&utm_term=dashboard&utm_content=dashboard',
 			],
 		];
 
@@ -58,7 +58,7 @@
 		echo '<div class="master-addons-posts">';
 		wp_widget_rss_output(array(
 			'url' => 'https://master-addons.com/blog/',
-			'title' => 'Master Addons News & Updates',
+			'title' => __('Master Addons News & Updates',MELA_TD),
 			'items' => 5,
 			'show_summary' => 1,
 			'show_author' => 0,

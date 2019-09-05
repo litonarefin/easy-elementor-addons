@@ -71,22 +71,45 @@
 
 											<label
 												for="<?php echo esc_attr( $extension ); ?>"
-												class="switch switch-text switch-primary switch-pill">
+												class="switch switch-text switch-primary switch-pill <?php echo (isset($is_pro) && $is_pro !="")? "ma-el-pro" :"";?>">
 
-												<?php //if ( ma_el_fs()->can_use_premium_code() ) { ?>
+												<?php if ( ma_el_fs()->can_use_premium_code() ) { ?>
 
-												<?php //} else{ ?>
+                                                    <input type="checkbox"
+                                                           id="<?php echo esc_attr( $extension ); ?>"
+                                                           class="switch-input"
+                                                           name="<?php echo esc_attr( $extension ); ?>"
+														<?php checked( 1, $this->maad_el_get_extension_settings[$extension], true ); ?>>
 
-												<?php //}?>
+
+												<?php } else {
+
+													// Check the Addon is Free or Pro for Ribbon
+													if ( isset( $extension ) ) {
+														if ( is_array( $extension ) ) {
+															echo '<span class="pro-ribbon">';
+															$extension = $extension[0];
+															$is_pro = $extension[1];
+															echo ucwords( $is_pro );
+															echo '</span>';
+														}
+													} ?>
+
+                                                    <input
+                                                            type="checkbox" id="<?php echo esc_attr( $extension ); ?>"
+                                                            class="switch-input "
+                                                            name="<?php echo esc_attr( $extension ); ?>"
+														<?php checked( 1,
+                                                            $this->maad_el_get_extension_settings[$extension], true ); ?>
+														<?php echo (isset($is_pro) && $is_pro !="")? "disabled" :"";
+														?> />
 
 
-													<input type="checkbox"
-												       id="<?php echo esc_attr( $extension ); ?>"
-												       class="switch-input"
-												       name="<?php echo esc_attr( $extension ); ?>"
-												<?php checked( 1, $this->maad_el_get_extension_settings[$extension], true ); ?>>
-													<span data-on="On" data-off="Off" class="switch-label"></span>
-													<span class="switch-handle"></span>
+												<?php $is_pro = ""; }?>
+
+                                                <span data-on="On" data-off="Off" class="switch-label"></span>
+                                                <span class="switch-handle"></span>
+
 											</label>
 
 										</div>
