@@ -335,6 +335,58 @@
 
 
 
+
+			/*
+			 *  Master Addons: Icon Styling
+			 */
+			$this->start_controls_section(
+				'ma_el_dual_heading_icon_style',
+				[
+					'label' => esc_html__( 'Icon Style', MELA_TD ),
+					'tab'   => Controls_Manager::TAB_STYLE
+				]
+			);
+
+			$this->start_controls_tabs( 'ma_el_dual_heading_icon_style_tabs' );
+
+			$this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', MELA_TD ) ] );
+
+			$this->add_control(
+				'ma_el_dual_heading_icon_style_color',
+				[
+					'label'     => esc_html__( 'Text Color', MELA_TD ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '#8c8c8c',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-dual-heading-icon i'                                      => 'color: {{VALUE}};'
+					],
+				]
+			);
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab( 'ma_el_dual_heading_icon_hover_color',
+                [ 'label' => esc_html__( 'Hover', MELA_TD )
+			] );
+
+			$this->add_control(
+				'ma_el_dual_heading_icon_style_hover_text_color',
+				[
+					'label'     => esc_html__( 'Text Color', MELA_TD ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '#8c8c8c',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-dual-heading-icon i:hover'                               => 'color: {{VALUE}};'
+					],
+				]
+			);
+			$this->end_controls_tab();
+
+
+			$this->end_controls_section();
+
+
+
 			if ( ma_el_fs()->is_not_paying() ) {
 
 				$this->start_controls_section(

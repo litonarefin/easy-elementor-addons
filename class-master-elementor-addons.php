@@ -125,8 +125,16 @@
 
 				// Elementor Dependencies
 
-				add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'ma_el_editor_scripts' ),100);
-				add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'maad_el_editor_styles' ] );
+				add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'ma_el_editor_scripts']);
+				add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'maad_el_editor_styles' ]);
+
+				add_action( 'elementor/editor/footer', [ $this, 'load_footer_scripts' ]);
+
+
+				// Tab Variable and Scripts
+//				add_action( 'elementor/editor/footer', [ $this, 'admin_inline_js'] );
+				add_action( 'elementor/editor/footer', [ $this, 'ma_el_admin_footer_scripts' ] );
+
 
 				// Add Elementor Widgets
 				add_action( 'elementor/widgets/widgets_registered', [ $this, 'maad_el_init_widgets' ] );
@@ -329,12 +337,47 @@
 			}
 
 
+			/* Load Footer Scripts */
+			public function ma_el_admin_footer_scripts(){
+
+				foreach ( glob( $this->dir . 'views/editor/*.php' ) as $file ) {
+					$name = basename( $file, '.php' );
+					ob_start();
+					include $file;
+					printf( '<script type="text/html" id="view-elementskit-%1$s">%2$s</script>', $name, ob_get_clean() );
+				}
+
+
+				$scripts = glob( MELA_PLUGIN_PATH . 'includes/templates/scripts/*.php' );
+
+				array_map( function( $file ) {
+
+					$name = basename( $file, '.php' );
+					ob_start();
+					include $file;
+					printf( '<script type="text/html" id="tmpl-premium-%1$s">%2$s</script>', $name, ob_get_clean() );
+
+				}, $scripts);
+
+
+			}
+
+
+
 			/**
 			 *
 			 * Enqueue Elementor Editor Styles
 			 *
 			 */
 			public function maad_el_editor_styles() {
+
+				wp_enqueue_style(
+					'master-editor-only',
+					MELA_PLUGIN_URL . '/assets/css/editor.css',
+					[],
+					self::VERSION
+				);
+
 				wp_enqueue_style( 'master-addons-editor', MELA_PLUGIN_URL . '/assets/css/master-addons-editor.css' );
 			}
 
@@ -344,12 +387,6 @@
 			 *
 			 */
 			public function ma_el_editor_scripts() {
-				wp_enqueue_style(
-					'master-addons-editor',
-					MELA_PLUGIN_URL . '/assets/css/editor.css',
-					[],
-					self::VERSION
-				);
 
 
 				wp_enqueue_script( 'master-addons-editor',
@@ -362,9 +399,42 @@
 					self::VERSION,
 					true
 				);
+
+//				$button = Templates\premium_templates()->config->get('master_addons_templates');
+				$button = 'Buttons';
+				wp_localize_script( 'master-addons-editor', 'MasterAddonsData', apply_filters(
+						'master-addons-core/assets/editor/localize',
+						array(
+							'MasterAddonsEditorBtn'   => $button,
+							'modalRegions'          => $this->get_modal_region(),
+//							'license'               => array(
+//								'status'        => Templates\premium_templates()->config->get('status'),
+//								'activateLink'  => Templates\premium_templates()->config->get('license_page'),
+//								'proMessage'    => Templates\premium_templates()->config->get('pro_message')
+//							)
+						))
+				);
+
+
+//				wp_enqueue_script(
+//					'magnific-popup',
+//					MELA_PLUGIN_URL . 'assets/lib/magnific-popup/jquery.magnific-popup.min.js',
+//					[
+//						'jquery',
+//					],
+//					'2.2.1',
+//					true
+//				);
 			}
 
+			public function get_modal_region() {
 
+				return array(
+					'modalHeader'  => '.dialog-header',
+					'modalContent' => '.dialog-message',
+				);
+
+			}
 
 			/**
 			 * Enqueue Plugin Styles and Scripts

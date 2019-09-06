@@ -1,5 +1,22 @@
+.ma-el-add-section-btn {
+    border-radius: 30px;
+    padding: 0;
+    height: 40px;
+    width: 40px;
+    margin-left: 5px;
+    color: #ffffff;
+    border: 1px solid #f2295b;
+    background-color: #d30c5c;
+    line-height: 40px;
+    padding-left: 2px;
+    cursor: pointer;
+}
+
+.ma-el-add-section-btn {
+    order: 5;
+}
 .elementor-add-new-section .ma-el-add-section-btn {
     color: #fff;
-    background: #d30c5c !important;
+    background: #d30c5c;
     margin-right: 5px;
 }

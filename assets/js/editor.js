@@ -865,8 +865,8 @@
                 layout: Backbone.Radio.channel('MASTER_EDITOR:layout'),
             };
 
-            this.tabs = PremiumTempsData.tabs;
-            this.defaultTab = PremiumTempsData.defaultTab;
+            this.tabs = MasterAddonsData.tabs;
+            this.defaultTab = MasterAddonsData.defaultTab;
 
         },
 
@@ -874,12 +874,12 @@
 
 
             var $addNewSection = window.elementor.$previewContents.find('.elementor-add-new-section'),
-                addMasterTemplate = "<button class='elementor-add-section-area-button ma-el-add-section-btn' title='Add" +
+                addMasterTemplate = "<div class='elementor-add-section-area-button ma-el-add-section-btn' title='Add" +
                     " Master Addons" +
-                    " Template'><i class='fa fa-cc-mastercard'></i></button>",
+                    " Template'><i class='fas fa-star'></i></div>",
                 $addMasterTemplate;
 
-            if ($addNewSection.length && PremiumTempsData.PremiumTemplatesBtn) {
+            if ($addNewSection.length && MasterAddonsData.MasterAddonsEditorBtn) {
 
                 $addMasterTemplate = $(addMasterTemplate).prependTo($addNewSection);
             }
@@ -901,7 +901,7 @@
                         });
                     }
 
-                    if (PremiumTempsData.PremiumTemplatesBtn) {
+                    if (MasterAddonsData.MasterAddonsEditorBtn) {
                         setTimeout(function () {
                             var $addNew = $section.prev('.elementor-add-section').find('.elementor-add-new-section');
                             $addNew.prepend(addMasterTemplate);
