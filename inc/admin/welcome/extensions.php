@@ -100,7 +100,7 @@
                                                             class="switch-input "
                                                             name="<?php echo esc_attr( $extension ); ?>"
 
-	                                                    <?php checked( 1, $this->maad_el_get_settings[$widget], true );
+	                                                    <?php checked( 0, $this->maad_el_get_settings[$widget], true );
 		                                                    if( !ma_el_fs()->can_use_premium_code() && isset($is_pro) &&
 		                                                        $is_pro !="") { echo "disabled";} ?>/>
 
