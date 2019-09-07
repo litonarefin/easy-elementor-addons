@@ -4,6 +4,6 @@
  */
 ?>
 <label>
-	<input type="radio" value="{{ slug }}" name="premium-template-modal-header-tab">
+	<input type="radio" value="{{ slug }}" name="ma-el-modal-header-tab">
 	<span>{{ title }}</span>
 </label>

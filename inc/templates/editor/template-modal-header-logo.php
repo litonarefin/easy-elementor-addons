@@ -3,10 +3,10 @@
  * Template Library Modal Header
  */
 ?>
-<span class="premium-template-modal-header-logo-icon">
-    <img src="<?php echo PREMIUM_ADDONS_URL .'admin/images/premium-addons-logo.png'; ?>">
+<span class="ma-el-modal-header-logo-icon">
+    <img src="<?php //echo MELA_IMAGE_DIR .'logo.png'; ?>https://master-addons.com/wp-content/uploads/2019/08/cropped-logo-white.png">
 </span>
-<span class="premium-template-modal-header-logo-label">
-    <?php echo __('Premium Templates', 'premium-addons-for-elementor'); ?>
+<span class="ma-el-modal-header-logo-label">
+    <?php echo __('Master Addons', MELA_TD ); ?>
 </span>
 

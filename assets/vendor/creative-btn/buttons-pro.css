@@ -210,8 +210,8 @@
     height: 100%;
     padding: 1em 2em;
     color: #37474f;
-    -webkit-transform-origin: -25% 50%;
-    transform-origin: -25% 50%;
+    -webkit-transform-origin: -40% 50%;
+    transform-origin: -40% 50%;
     -webkit-transform: rotate3d(0, 0, 1, 45deg);
     transform: rotate3d(0, 0, 1, 45deg);
     -webkit-transition: -webkit-transform 0.3s ease-in;

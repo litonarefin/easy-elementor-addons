@@ -3,4 +3,4 @@
  * Template Library Filter
  */
 ?>
-<div id="premium-modal-filters-container"></div>
+<div id="ma-el-modal-filters-container"></div>

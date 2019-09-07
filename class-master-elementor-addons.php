@@ -132,6 +132,7 @@
 
 
 				// Tab Variable and Scripts
+				add_action( 'elementor/preview/enqueue_styles', array( $this, 'ma_el_enqueue_preview_styles' ) );
 //				add_action( 'elementor/editor/footer', [ $this, 'admin_inline_js'] );
 				add_action( 'elementor/editor/footer', [ $this, 'ma_el_admin_footer_scripts' ] );
 
@@ -356,6 +357,19 @@
 
 
 
+			public function ma_el_enqueue_preview_styles(){
+
+				wp_enqueue_style(
+					'master-addons-editor-preview',
+					MELA_PLUGIN_URL . '/assets/templates/css/preview.css',
+					array(),
+					self::VERSION,
+					'all'
+				);
+
+			}
+
+
 			/**
 			 *
 			 * Enqueue Elementor Editor Styles
@@ -365,7 +379,7 @@
 
 				wp_enqueue_style(
 					'master-editor-only',
-					MELA_PLUGIN_URL . '/assets/css/editor.css',
+					MELA_PLUGIN_URL . '/assets/templates/css/editor.css',
 					[],
 					self::VERSION
 				);
@@ -382,7 +396,7 @@
 
 
 				wp_enqueue_script( 'master-addons-editor',
-					MELA_PLUGIN_URL . '/assets/js/editor.js',
+					MELA_PLUGIN_URL . '/assets/templates/js/editor.js',
 					array(
 						'jquery',
 						'underscore',

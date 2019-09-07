@@ -40,8 +40,7 @@
         init: function () {
             var me = this;
 
-            me.ModalTemplateModel =
-                Backbone.Model.extend({
+            me.ModalTemplateModel = Backbone.Model.extend({
                 defaults:{
                     template_id: 0,
                     name: '',
@@ -132,18 +131,42 @@
             });
 
             me.ModalPreviewView = Marionette.ItemView.extend({
-                template: '#ma-el-template-modal-preview',
+                template: '#ma-el-modal-template-preview',
                 id: 'ma-el-item-preview-wrap',
                 ui:{
-                    // iframe: 'iframe',
-                    // notice: '.ma-el-item-notice'
-                    img: 'img'
+                    iframe: 'iframe',
+                    notice: '.ma-el-item-notice',
+                    // img: 'img'
                 },
-                onRender: function(){
-                    // if(null !=)
-                    this.ui.img.attr('src', me.getOption('preview'))
+                // onRender: function(){
+                //     // if(null !=)
+                //     this.ui.img.attr('src', me.getOption('preview'))
+                // },
+
+                onRender: function () {
+
+                    if (null !== this.getOption('notice')) {
+                        if (this.getOption('notice').length) {
+                            var message = "";
+                            if (-1 !== this.getOption('notice').indexOf("facebook")) {
+                                message += "<p>Please login with your Facebook account in order to get your Facebook Reviews.</p>";
+                            } else if (-1 !== this.getOption('notice').indexOf("google")) {
+                                message += "<p>You need to add your Google API key from Dashboard -> Premium Add-ons for Elementor -> Google Maps</p>";
+                            } else if (-1 !== this.getOption('notice').indexOf("form")) {
+                                message += "<p>You need to have <a href='https://wordpress.org/plugins/contact-form-7/' target='_blank'>Contact Form 7 plugin</a> installed and active.</p>";
+                            }
+
+                            this.ui.notice.html('<div><p><strong>Important!</strong></p>' + message + '</div>');
+                        }
+                    }
+
+                    this.ui.iframe.attr('src', this.getOption('url'));
+
                 }
-            })
+
+
+
+            });
 
             me.ModalHeaderBack = Marionette.ItemView.extend({
                 template: '#ma-el-modal-template-header-back',
@@ -277,7 +300,7 @@
 
             me.ModalHeaderInsertButton = Marionette.ItemView.extend({
                 template: '#ma-el-modal-template-insert-button',
-                id: 'ma-el-template-modal-insert-button',
+                id: 'ma-el-modal-template-insert-button',
                 behaviours:{
                     insertTemplate:{
                         behaviorClass: me.ModalInsertTemplateBehavior
@@ -287,7 +310,7 @@
 
             me.MasterProButton = Marionette.ItemView.extend({
                 template: '#ma-el-modal-template-pro-button',
-                id: 'ma-el-template-modal-pro-button',
+                id: 'ma-el-modal-template-pro-button',
             });
 
 
@@ -419,7 +442,7 @@
 
                 id: 'ma-el-modal-template-library-filters',
 
-                template: '#ma-el-template-modal-filters',
+                template: '#ma-el-modal-template-filters',
 
                 childViewContainer: '#ma-el-modal-filters-container',
 
@@ -521,18 +544,18 @@
 
             me.ModalLoadingView = Marionette.ItemView.extend({
                 id: 'ma-el-modal-loading',
-                template: '#ma-el-template-modal-loading'
+                template: '#ma-el-modal-template-loading'
             });
 
             me.ModalErrorView = Marionette.ItemView.extend({
                 id: 'ma-el-modal-loading',
-                template: '#ma-el-template-modal-error'
+                template: '#ma-el-modal-template-error'
             });
 
 
             me.ModalLayoutView = Marionette.LayoutView.extend({
 
-                el: '#ma-el-template-modal',
+                el: '#ma-el-modal-template',
 
                 regions: MasterAddonsData.modalRegions,
 
@@ -569,7 +592,7 @@
 
                         if( '' != filter ) {
                             MasterEditor.setFilter( 'category', filter );
-                            jQuery('#ma-el-filters-container').find("input[value='" + filter + "']").prop('checked', true);
+                            jQuery('#ma-el-modal-filters-container').find("input[value='" + filter + "']").prop('checked', true);
 
                         }
 
@@ -1038,7 +1061,7 @@
 
             if (!this.modal) {
                 this.modal = elementor.dialogsManager.createWidget('lightbox', {
-                    id: 'ma-el-template-modal',
+                    id: 'ma-el-modal-template',
                     className: 'elementor-templates-modal',
                     closeButton: false
                 });

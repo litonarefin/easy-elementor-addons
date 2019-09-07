@@ -136,34 +136,34 @@
 			$this->end_controls_section();
 
 
-            if ( ma_el_fs()->is_not_paying() ) {
+			if ( ma_el_fs()->is_not_paying() ) {
 
-                $this->start_controls_section(
-                    'maad_el_section_pro',
-                    [
-                        'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD )
-                    ]
-                );
+				$this->start_controls_section(
+					'maad_el_section_pro',
+					[
+						'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD )
+					]
+				);
 
-                $this->add_control(
-                    'maad_el_control_get_pro',
-                    [
-                        'label'       => esc_html__( 'Unlock more possibilities', MELA_TD ),
-                        'type'        => Controls_Manager::CHOOSE,
-                        'options'     => [
-                            '1' => [
-                                'title' => esc_html__( '', MELA_TD ),
-                                'icon'  => 'fa fa-unlock-alt',
-                            ],
-                        ],
-                        'default'     => '1',
-                        'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
-                    ]
-                );
+				$this->add_control(
+					'maad_el_control_get_pro',
+					[
+						'label'       => esc_html__( 'Unlock more possibilities', MELA_TD ),
+						'type'        => Controls_Manager::CHOOSE,
+						'options'     => [
+							'1' => [
+								'title' => esc_html__( '', MELA_TD ),
+								'icon'  => 'fa fa-unlock-alt',
+							],
+						],
+						'default'     => '1',
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+					]
+				);
 
-                $this->end_controls_section();
+				$this->end_controls_section();
 
-            }
+			}
 
 
 			/*
@@ -227,7 +227,7 @@
 				);
 
 
-			//Free Version Codes
+				//Free Version Codes
 
 			} else {
 
@@ -279,7 +279,7 @@
 
 
 
-            }
+			}
 
 
 			$this->add_responsive_control(
@@ -373,7 +373,7 @@
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-creative-button'                                      => 'color: {{VALUE}};',
 						'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya::before' => 'color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya::after'  => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya::after'  => 'color: {{VALUE}};'
 					],
 				]
 			);
@@ -392,7 +392,7 @@
 						'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--wayra:hover'    => 'background-color: {{VALUE}};',
 						'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya::before' => 'background-color: {{VALUE}};',
 						'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya::after'  => 'background-color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--rayen:hover'    => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--rayen:hover'    => 'background-color: {{VALUE}};'
 					],
 				]
 			);
@@ -439,6 +439,8 @@
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-creative-button:hover'                               => 'color: {{VALUE}};',
 						'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--winona::after' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-button--saqui:hover,
+						{{WRAPPER}} .ma-el-creative-button--saqui::after'  							=> 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -455,6 +457,7 @@
 						'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--wayra:hover::before' => 'background-color: {{VALUE}};',
 						'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya:hover' => 'background-color: {{VALUE}};',
 						'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--rayen::before' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-creative-button--saqui:hover'		    				=> 'background-color: {{VALUE}};',
 					]
 				]
 			);
@@ -544,23 +547,23 @@ Customization Options.</span>'
 			$this->add_render_attribute( 'ma_el_creative_button', 'data-text', esc_attr($settings['creative_alternative_button_text'] ));
 			?>
 
-				<div class="ma-el-creative-button-wrapper">
-					<a <?php echo $this->get_render_attribute_string( 'ma_el_creative_button' ); ?>>
+            <div class="ma-el-creative-button-wrapper">
+                <a <?php echo $this->get_render_attribute_string( 'ma_el_creative_button' ); ?>>
 						<span>
 							<?php if ( ! empty( $settings['ma_el_creative_button_icon'] ) && $settings['ma_el_creative_button_icon_alignment'] == 'left' ) : ?>
-								<i class="<?php echo esc_attr($settings['ma_el_creative_button_icon'] ); ?>
+                                <i class="<?php echo esc_attr($settings['ma_el_creative_button_icon'] ); ?>
 								ma-el-creative-button-icon-left" aria-hidden="true"></i>
 							<?php endif; ?>
 
 							<?php echo  $settings['creative_button_text'];?>
 
 							<?php if ( ! empty( $settings['ma_el_creative_button_icon'] ) && $settings['ma_el_creative_button_icon_alignment'] == 'right' ) : ?>
-								<i class="<?php echo esc_attr($settings['ma_el_creative_button_icon'] ); ?>
+                                <i class="<?php echo esc_attr($settings['ma_el_creative_button_icon'] ); ?>
 								ma-el-creative-button-icon-right" aria-hidden="true"></i>
 							<?php endif; ?>
 						</span>
-					</a>
-				</div>
+                </a>
+            </div>
 
 			<?php
 		}
