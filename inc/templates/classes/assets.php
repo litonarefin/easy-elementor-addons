@@ -71,28 +71,13 @@
 				);
 
 
-//				$button = Templates\premium_templates()->config->get('master_addons_templates');
-//				$button = 'Buttons';
-//				wp_localize_script( 'master-addons-editor', 'MasterAddonsData', apply_filters(
-//						'master-addons-core/assets/editor/localize',
-//						array(
-//							'MasterAddonsEditorBtn'   => $button,
-//							'modalRegions'          => $this->get_modal_region(),
-//							'license'               => array(
-//								'status'        => MasterAddons\Inc\Templates\premium_templates()->config->get('status'),
-//								'activateLink'  => MasterAddons\Inc\Templates\premium_templates()->config->get('license_page'),
-//								'proMessage'    => MasterAddons\Inc\Templates\premium_templates()->config->get('pro_message')
-//							)
-//						))
-//				);
-
 
 				$button = Templates\premium_templates()->config->get('premium_temps');
 
-				wp_localize_script( 'premium-temps-editor', 'PremiumTempsData', apply_filters(
-						'premium-templates-core/assets/editor/localize',
+				wp_localize_script( 'master-addons-editor', 'MasterAddonsData', apply_filters(
+						'master-addons-core/assets/editor/localize',
 						array(
-							'PremiumTemplatesBtn'   => $button,
+							'MasterAddonsEditorBtn'   => $button,
 							'modalRegions'          => $this->get_modal_region(),
 							'license'               => array(
 								'status'        => Templates\premium_templates()->config->get('status'),
@@ -137,11 +122,8 @@
 			public static function get_instance() {
 
 				if( self::$instance == null ) {
-
 					self::$instance = new self;
-
 				}
-
 				return self::$instance;
 
 			}

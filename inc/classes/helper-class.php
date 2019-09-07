@@ -1,5 +1,5 @@
 <?php
-	namespace Elementor;
+	namespace MasterAddons\Inc\Helper_Functions;
 
 	class Master_Addons_Helper{
 
@@ -204,6 +204,25 @@
 			];
 
 			return $title_tags;
+		}
+
+		public static function get_installed_theme() {
+
+			$theme = wp_get_theme();
+
+			if( $theme->parent() ) {
+
+				$theme_name = $theme->parent()->get('Name');
+
+			} else {
+
+				$theme_name = $theme->get('Name');
+
+			}
+
+			$theme_name = sanitize_key( $theme_name );
+
+			return $theme_name;
 		}
 
 

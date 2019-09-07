@@ -235,20 +235,20 @@
 
 
 
-                    // if (innerTemplatesLength > 0) {
-                    //     for (var key in innerTemplates) {
-                    //         $.ajax({
-                    //             url: ajaxurl,
-                    //             type: 'post',
-                    //             dataType: 'json',
-                    //             data: {
-                    //                 action: 'ma_el_inner_template',
-                    //                 template: innerTemplates[key],
-                    //                 tab: MasterEditor.getTab()
-                    //             }
-                    //         });
-                    //     }
-                    // }
+                    if (innerTemplatesLength > 0) {
+                        for (var key in innerTemplates) {
+                            $.ajax({
+                                url: ajaxurl,
+                                type: 'post',
+                                dataType: 'json',
+                                data: {
+                                    action: 'ma_el_inner_template',
+                                    template: innerTemplates[key],
+                                    tab: MasterEditor.getTab()
+                                }
+                            });
+                        }
+                    }
 
                     // if ("valid" === MasterAddonsData.license.status || ! isPro ) {
 

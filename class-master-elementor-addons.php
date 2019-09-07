@@ -128,7 +128,7 @@
 
 				add_action( 'elementor/editor/footer', [ $this, 'load_footer_scripts' ]);
 
-				
+
 				// Add Elementor Widgets
 				add_action( 'elementor/widgets/widgets_registered', [ $this, 'maad_el_init_widgets' ] );
 

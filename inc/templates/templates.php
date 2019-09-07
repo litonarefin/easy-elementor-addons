@@ -56,12 +56,14 @@
 
 				require MELA_PLUGIN_PATH . '/inc/templates/classes/api.php';
 
+//				require MELA_PLUGIN_PATH . '/inc/classes/helper-class.php';
+
 			}
 
 
 			private function set_config() {
 
-				$this->config       = new Classes\Master_Templates_Core_Config();
+				$this->config       = new Classes\Master_Addons_Templates_Core_Config();
 
 			}
 
