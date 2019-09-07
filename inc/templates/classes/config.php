@@ -30,8 +30,8 @@
 					'pro_message'                   => $this->get_pro_message(),
 					'api'                           => array(
 									'enabled'   => true,
-									'base'      => 'https://pa.premiumtemplates.io/',
-									'path'      => 'wp-json/patemp/v2',
+									'base'      => 'https://el.master-addons.com/',
+									'path'      => 'wp-json/masteraddons/v2',
 									'id'        => 9,
 									'endpoints' => array(
 										'templates'  => '/templates/',
