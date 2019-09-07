@@ -38,7 +38,7 @@
 					'master-editor-only',
 					MELA_PLUGIN_URL . '/assets/templates/css/editor.css',
 					[],
-					self::VERSION
+					MELA_VERSION
 				);
 
 			}
@@ -50,7 +50,7 @@
 					'master-addons-editor-preview',
 					MELA_PLUGIN_URL . '/assets/templates/css/preview.css',
 					array(),
-					self::VERSION,
+					MELA_VERSION,
 					'all'
 				);
 
@@ -66,7 +66,7 @@
 						'underscore',
 						'backbone-marionette'
 					),
-					self::VERSION,
+					MELA_VERSION,
 					true
 				);
 

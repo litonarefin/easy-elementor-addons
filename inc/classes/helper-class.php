@@ -1,5 +1,5 @@
 <?php
-	namespace MasterAddons\Inc\Helper_Functions;
+	namespace MasterAddons\Inc\Templates\Classes;
 
 	class Master_Addons_Helper{
 

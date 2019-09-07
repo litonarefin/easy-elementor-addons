@@ -28,7 +28,7 @@
 				require $base_path . 'base.php';
 
 				$temp_types = array(
-					__NAMESPACE__ . '\Premium_Structure_Section' => $base_path . 'section.php',
+					__NAMESPACE__ . '\Master_Addons_Structure_Section' => $base_path . 'section.php',
 				);
 
 				array_walk( $temp_types, function( $file, $class ) {
@@ -39,7 +39,7 @@
 
 				} );
 
-				do_action( 'premium-templates/types/register', $this );
+				do_action( 'master-addons-templates/types/register', $this );
 
 			}
 

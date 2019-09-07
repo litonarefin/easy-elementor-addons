@@ -1,6 +1,6 @@
 <?php
 	namespace MasterAddons\Inc\Templates\Classes;
-	use MasterAddons\Helper_Functions;
+//	use MasterAddons\Inc\Templates\Classes\Master_Addons_Helper;
 //	use MasterAddonsPro\License\Admin;
 
 	/**

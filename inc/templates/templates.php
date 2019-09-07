@@ -70,28 +70,28 @@
 
 			private function set_assets() {
 
-				$this->assets       = new Classes\Master_Templates_Assets();
+				$this->assets       = new Classes\Master_Addons_Templates_Assets();
 
 			}
 
 
 			private function set_api() {
 
-				$this->api       = new Classes\Master_Templates_API();
+				$this->api       = new Classes\Master_Addons_Templates_API();
 
 			}
 
 
 			private function set_types() {
 
-				$this->types        = new Types\Master_Templates_Types();
+				$this->types        = new Types\Master_Addons_Templates_Types();
 
 			}
 
 
 			private function set_templates_manager() {
 
-				$this->temp_manager = new Classes\Master_Templates_Manager();
+				$this->temp_manager = new Classes\Master_Addons_Templates_Manager();
 
 			}
 
