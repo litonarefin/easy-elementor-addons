@@ -23,24 +23,24 @@
 			public function __construct() {
 
 				$this->config = array(
-					'premium_temps'     => __('Master Addons', MELA_TD ),
-					'key'               => $this->get_license_key(),
-					'status'            => $this->get_license_status(),
-					'license_page'      => $this->get_license_page(),
-					'pro_message'       => $this->get_pro_message(),
-					'api'               => array(
-						'enabled'   => true,
-						'base'      => 'https://pa.premiumtemplates.io/',
-						'path'      => 'wp-json/patemp/v2',
-						'id'        => 9,
-						'endpoints' => array(
-							'templates'  => '/templates/',
-							'keywords'   => '/keywords/',
-							'categories' => '/categories/',
-							'template'   => '/template/',
-							'info'       => '/info/',
-							'template'   => '/template/',
-						),
+					'master_addons_templates'       => __('Master Addons', MELA_TD ),
+					'key'                           => $this->get_license_key(),
+					'status'                        => $this->get_license_status(),
+					'license_page'                  => $this->get_license_page(),
+					'pro_message'                   => $this->get_pro_message(),
+					'api'                           => array(
+									'enabled'   => true,
+									'base'      => 'https://pa.premiumtemplates.io/',
+									'path'      => 'wp-json/patemp/v2',
+									'id'        => 9,
+									'endpoints' => array(
+										'templates'  => '/templates/',
+										'keywords'   => '/keywords/',
+										'categories' => '/categories/',
+										'template'   => '/template/',
+										'info'       => '/info/',
+										'template'   => '/template/',
+									),
 					),
 				);
 

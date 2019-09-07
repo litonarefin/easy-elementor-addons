@@ -72,7 +72,7 @@
 
 
 
-				$button = Templates\premium_templates()->config->get('premium_temps');
+				$button = Templates\premium_templates()->config->get('master_addons_templates');
 
 				wp_localize_script( 'master-addons-editor', 'MasterAddonsData', apply_filters(
 						'master-addons-core/assets/editor/localize',

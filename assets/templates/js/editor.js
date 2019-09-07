@@ -2,7 +2,6 @@
 
     'use strict';
 
-    // console.log("Master Addons Editor JS");
 
     var MasterAddonsData = window.MasterAddonsData || {},
         MasterEditor,
@@ -57,7 +56,7 @@
 
             me.ModalHeaderView = Marionette.LayoutView.extend({
                 id: 'ma-el-modal-header',
-                template: '#ma-el-modal-template-header',
+                template: '#tmpl-ma-el-modal-template-header',
                 ui:{
                     closeModal: '#ma-el-modal-header-close-modal'
                 },
@@ -874,7 +873,7 @@
 
         onPreviewLoaded: function () {
 
-            this.initPremTempsButton();
+            this.initMasterTempsButton();
 
             window.elementor.$previewContents.on(
                 'click.addMasterTemplate',
@@ -893,13 +892,13 @@
 
         },
 
-        initPremTempsButton: function () {
+        initMasterTempsButton: function () {
 
 
             var $addNewSection = window.elementor.$previewContents.find('.elementor-add-new-section'),
                 addMasterTemplate = "<div class='elementor-add-section-area-button ma-el-add-section-btn' title='Add" +
                     " Master Addons" +
-                    " Template'><i class='fas fa-star'></i></div>",
+                    " Template'><i class='fas fa-home'></i></div>",
                 $addMasterTemplate;
 
             if ($addNewSection.length && MasterAddonsData.MasterAddonsEditorBtn) {

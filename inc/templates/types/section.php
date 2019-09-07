@@ -32,7 +32,7 @@
 
 			public function get_document_type() {
 				return array(
-					'class' => 'Premium_Section_Document',
+					'class' => 'Master_Addons_Section_Document',
 					'file'  => MELA_PLUGIN_PATH . '/inc/templates/documents/section.php',
 				);
 			}
