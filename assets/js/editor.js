@@ -66,7 +66,7 @@
                     'click @ui.closeModal': 'onCloseModalClick'
                 },
                 regions:{
-                    headerLogo: '#ma-el-modal-header-logo',
+                    headerLogo: '#ma-el-modal-header-logo-area',
                     headerTabs: '#ma-el-modal-header-tabs',
                     headerActions: '#ma-el-modal-header-actions'
                 },

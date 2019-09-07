@@ -340,22 +340,14 @@
 			/* Load Footer Scripts */
 			public function ma_el_admin_footer_scripts(){
 
-				foreach ( glob( $this->dir . 'views/editor/*.php' ) as $file ) {
-					$name = basename( $file, '.php' );
-					ob_start();
-					include $file;
-					printf( '<script type="text/html" id="view-elementskit-%1$s">%2$s</script>', $name, ob_get_clean() );
-				}
-
-
-				$scripts = glob( MELA_PLUGIN_PATH . 'includes/templates/scripts/*.php' );
+				$scripts = glob( MELA_PLUGIN_PATH . 'inc/templates/editor/*.php' );
 
 				array_map( function( $file ) {
 
 					$name = basename( $file, '.php' );
 					ob_start();
 					include $file;
-					printf( '<script type="text/html" id="tmpl-premium-%1$s">%2$s</script>', $name, ob_get_clean() );
+					printf( '<script type="text/html" id="ma-el-modal-template-%1$s">%2$s</script>', $name, ob_get_clean() );
 
 				}, $scripts);
 
