@@ -199,6 +199,9 @@
     -ms-flex-align: center;
     align-items: center;
 }
+
+/*#premium-template-modal-header-logo .premium-template-modal-header-logo-icon*/
+
 #ma-el-modal-header-logo .ma-el-modal-header-logo-icon {
     margin-right: 5px;
 }

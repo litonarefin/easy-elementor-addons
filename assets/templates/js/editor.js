@@ -1033,7 +1033,7 @@
                         tab: tabName
                     },
                     success: function (response) {
-                        console.log("%cTemplates Retrieved Successfully!!", "color: #7a7a7a; background-color: red;");
+                        console.log("%cTemplates Retrieved Successfully!!", "color: #7a7a7a; background-color: #eee;");
 
                         var templates = new MasterEditorViews.LibraryCollection(response.data.templates),
                             categories = new MasterEditorViews.CategoriesCollection(response.data.categories);

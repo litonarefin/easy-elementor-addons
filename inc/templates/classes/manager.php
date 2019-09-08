@@ -143,6 +143,11 @@
 
 			public function insert_inner_template() {
 
+				echo "This is Inner Template Section";
+//
+//				die();
+//				exit;
+
 				if ( ! current_user_can( 'edit_posts' ) ) {
 					wp_send_json_error();
 				}

@@ -3,4 +3,4 @@
  * Templates Modal Container
  */
 ?>
-<div id="premium-modal-templates-container"></div>
+<div id="ma-el-modal-templates-container"></div>
