@@ -3,7 +3,7 @@
 	namespace MasterAddons\Inc\Templates\Classes;
 
 	use MasterAddons\Inc\Templates;
-	use MasterAddons\Inc\Templates\Types;
+	use MasterAddons\Inc\Templates\Types\Master_Addons_Templates_Types;
 
 	/**
 	 * Author Name: Liton Arefin
@@ -22,6 +22,7 @@
 			private static $instance = null;
 
 			private $sources = array();
+
 
 			public function __construct() {
 
@@ -42,6 +43,7 @@
 
 			}
 
+
 			public function localize_tabs( $data ) {
 
 				$tabs    = $this->get_template_tabs();
@@ -54,6 +56,7 @@
 				return $data;
 
 			}
+
 
 			public function register_sources() {
 
@@ -139,6 +142,11 @@
 			}
 
 			public function insert_inner_template() {
+
+				echo "This is Inner Template Section";
+//
+//				die();
+//				exit;
 
 				if ( ! current_user_can( 'edit_posts' ) ) {
 					wp_send_json_error();
