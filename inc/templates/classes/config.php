@@ -1,7 +1,6 @@
 <?php
 	namespace MasterAddons\Inc\Templates\Classes;
-//	use MasterAddons\Inc\Templates\Classes\Master_Addons_Helper;
-//	use MasterAddonsPro\License\Admin;
+	use MasterAddons\Inc\Templates\Classes\Master_Addons_Helper;
 
 	/**
 	 * Author Name: Liton Arefin
@@ -29,8 +28,6 @@
 					'status'                        => 'pro',
 					'license_page'                  => $this->get_license_page(),
 					'pro_message'                   => $this->get_pro_message(),
-
-
 					'api'               => array(
 						'enabled'   => true,
 						'base'      => 'https://pa.premiumtemplates.io/',

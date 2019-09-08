@@ -85,9 +85,12 @@
                                                         type="checkbox" id="<?php echo esc_attr( $widget ); ?>"
                                                         class="switch-input "
                                                         name="<?php echo esc_attr( $widget ); ?>"
-													<?php checked( 0, $this->maad_el_get_settings[$widget], true );
-														if( !ma_el_fs()->can_use_premium_code() && isset($is_pro) &&
-														    $is_pro !="") { echo "disabled";} ?>>
+													<?php if( !ma_el_fs()->can_use_premium_code() && isset($is_pro) &&
+														    $is_pro !="") { echo "disabled";
+														checked( 0, $this->maad_el_get_settings[$widget], true );
+													} else{
+														checked( 1, $this->maad_el_get_settings[$widget], true );
+                                                    } ?>>
 
                                                 <span data-on="On" data-off="Off" class="switch-label"></span>
                                                 <span class="switch-handle"></span>
