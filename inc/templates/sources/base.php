@@ -31,17 +31,17 @@ abstract class Master_Addons_Templates_Source_Base {
 
 
 	public function templates_key() {
-		return 'master_addons_templates_' . $this->get_slug() . '_' . $this->get_version();
+		return 'premium_templates_' . $this->get_slug() . '_' . $this->get_version();
 	}
 
 
 	public function categories_key() {
-		return 'master_addons_categories_' . $this->get_slug() . '_' . $this->get_version();
+		return 'premium_categories_' . $this->get_slug() . '_' . $this->get_version();
 	}
 
 
 	public function keywords_key() {
-		return 'master_addons_keywords_' . $this->get_slug() . '_' . $this->get_version();
+		return 'premium_keywords_' . $this->get_slug() . '_' . $this->get_version();
 	}
 
 
@@ -107,7 +107,7 @@ abstract class Master_Addons_Templates_Source_Base {
 
 	public function is_debug_active() {
 
-		if ( defined( 'PREMIUM_API_DEBUG' ) && true === PREMIUM_API_DEBUG ) {
+		if ( defined( 'MA_EL_API_DEBUG' ) && true === MA_EL_API_DEBUG ) {
 			return true;
 		} else {
 			return false;

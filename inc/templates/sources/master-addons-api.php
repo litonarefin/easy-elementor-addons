@@ -13,7 +13,7 @@ class Master_Addons_Templates_Source_Api extends Master_Addons_Templates_Source_
 	private $_object_cache = array();
 
 	public function get_slug() {
-		return 'premium-api';
+		return 'master-addons-api';
 	}
 
 	public function get_version() {

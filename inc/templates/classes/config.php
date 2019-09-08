@@ -23,10 +23,9 @@
 			public function __construct() {
 
 				$this->config = array(
-					'master_addons_templates'       => __('Master Addons', MELA_TD ),
+					'premium_templates'       => __('Master Addons', MELA_TD ),
 					'key'                           => $this->get_license_key(),
-//					'status'                        => $this->get_license_status(),
-					'status'                        => 'pro',
+					'status'                        => $this->get_license_status(),
 					'license_page'                  => $this->get_license_page(),
 					'pro_message'                   => $this->get_pro_message(),
 					'api'               => array(

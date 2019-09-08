@@ -72,7 +72,7 @@
 
 
 
-				$button = Templates\premium_templates()->config->get('master_addons_templates');
+				$button = Templates\premium_templates()->config->get('premium_templates');
 
 				wp_localize_script( 'master-addons-editor', 'MasterAddonsData', apply_filters(
 						'master-addons-core/assets/editor/localize',

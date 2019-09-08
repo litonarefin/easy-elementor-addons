@@ -79,7 +79,7 @@
 
     height: 50px;
 }
-#ma-el-template-modal-header .ma-el-template-modal-back {
+#ma-el-template-modal-header .ma-el-template-modal-header-back {
     background: none;
     border: none;
     border-right: 1px solid #e6e9ec;
@@ -93,7 +93,7 @@
     cursor: pointer;
     color: #6d7882;
 }
-#ma-el-template-modal-header .ma-el-template-modal-back:not(:hover) {
+#ma-el-template-modal-header .ma-el-template-modal-header-back:not(:hover) {
     color: #a4afb7;
 }
 #ma-el-template-modal-header .elementor-button {
