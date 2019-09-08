@@ -77,12 +77,12 @@
 				wp_localize_script( 'master-addons-editor', 'MasterAddonsData', apply_filters(
 						'master-addons-core/assets/editor/localize',
 						array(
-							'MasterAddonsEditorBtn'   => $button,
-							'modalRegions'          => $this->get_modal_region(),
-							'license'               => array(
-								'status'        => Templates\premium_templates()->config->get('status'),
-								'activateLink'  => Templates\premium_templates()->config->get('license_page'),
-								'proMessage'    => Templates\premium_templates()->config->get('pro_message')
+							'MasterAddonsEditorBtn'     => $button,
+							'modalRegions'              => $this->get_modal_region(),
+							'license'                   => array(
+											'status'        => Templates\premium_templates()->config->get('status'),
+											'activateLink'  => Templates\premium_templates()->config->get('license_page'),
+											'proMessage'    => Templates\premium_templates()->config->get('pro_message')
 							)
 						))
 				);
@@ -103,14 +103,17 @@
 			public function load_footer_scripts() {
 
 
-				$scripts = glob( MELA_PLUGIN_PATH . 'inc/templates/editor/*.php' );
+				$scripts = glob( MELA_PLUGIN_PATH . '/inc/templates/editor/*.php' );
 
 				array_map( function( $file ) {
 
 					$name = basename( $file, '.php' );
+
 					ob_start();
+
 					include $file;
-					printf( '<script type="text/html" id="ma-el-modal-template-%1$s">%2$s</script>', $name, ob_get_clean() );
+
+					printf( '<script type="text/html" id="views-ma-el-%1$s">%2$s</script>', $name, ob_get_clean() );
 
 				}, $scripts);
 

@@ -37,7 +37,7 @@
         CategoryModel: null,
 
         init: function () {
-            var me = this;
+            let me = this;
 
             me.ModalTemplateModel = Backbone.Model.extend({
                 defaults:{
@@ -55,8 +55,8 @@
             });
 
             me.ModalHeaderView = Marionette.LayoutView.extend({
-                id: 'ma-el-modal-header',
-                template: '#tmpl-ma-el-modal-template-header',
+                id: 'ma-el-modal-template-header',
+                template: '#views-ma-el-template-modal-header',
                 ui:{
                     closeModal: '#ma-el-modal-header-close-modal'
                 },
@@ -108,7 +108,7 @@
             //Commented
             me.KeywordsView = Marionette.ItemView.extend({
                 id: 'elementor-template-library-filter',
-                template: '#ma-el-modal-keywords',
+                template: '#views-ma-el-template-modal-keywords',
                 ui:{
                     keywords: '.ma-el-keywords'
                 },
@@ -120,7 +120,7 @@
                     MasterEditor.setFilter('keyword', selected);
                 },
                 onRender: function(){
-                    var $filters = me.$('ma-el-library-keywords');
+                    var $filters = this.$('ma-el-library-keywords');
                     $filters.select2({
                         placeholder: "Choose a Widget",
                         allowClear: true,
@@ -130,7 +130,7 @@
             });
 
             me.ModalPreviewView = Marionette.ItemView.extend({
-                template: '#ma-el-modal-template-preview',
+                template: '#tmpl-ma-el-modal-template-preview',
                 id: 'ma-el-item-preview-wrap',
                 ui:{
                     iframe: 'iframe',
@@ -168,7 +168,7 @@
             });
 
             me.ModalHeaderBack = Marionette.ItemView.extend({
-                template: '#ma-el-modal-template-header-back',
+                template: '#tmpl-ma-el-modal-template-header-back',
                 id: 'ma-el-modal-header-back',
                 ui: {
                     button: 'button'
@@ -182,12 +182,12 @@
             });
 
             me.ModalHeaderLogo = Marionette.ItemView.extend({
-                template: '#ma-el-modal-template-header-logo',
+                template: '#views-ma-el-template-modal-header',
                 id: 'ma-el-modal-header-logo'
             });
 
             me.ModalBodyView = Marionette.LayoutView.extend({
-                template: '#ma-el-modal-template-modal-content',
+                template: '#views-ma-el-template-modal-content',
                 id: 'ma-el-template-library-content',
                 className: function () {
                     return 'library-tab-' + MasterEditor.getTab();
@@ -202,12 +202,12 @@
 
             me.LibraryLoadingView = Marionette.ItemView.extend({
                 id: 'ma-el-modal-template-library-loading',
-                template: '#ma-el-modal-template-library-loading-view'
+                template: '#views-ma-el-template-modal-library-loading-view'
             });
 
             me.LibraryErrorView = Marionette.ItemView.extend({
                 id: 'ma-el-modal-template-library-error',
-                template: '#ma-el-modal-template-library-error-view'
+                template: '#views-ma-el-template-modal-library-error-view'
             });
 
 
@@ -298,7 +298,7 @@
 
 
             me.ModalHeaderInsertButton = Marionette.ItemView.extend({
-                template: '#ma-el-modal-template-insert-button',
+                template: '#tmpl-ma-el-modal-template-insert-button',
                 id: 'ma-el-modal-template-insert-button',
                 behaviours:{
                     insertTemplate:{
@@ -308,7 +308,7 @@
             });
 
             me.MasterProButton = Marionette.ItemView.extend({
-                template: '#ma-el-modal-template-pro-button',
+                template: '#tmpl-ma-el-modal-template-pro-button',
                 id: 'ma-el-modal-template-pro-button',
             });
 
@@ -401,7 +401,7 @@
 
             me.ModalTabsItemView = Marionette.ItemView.extend({
 
-                template: '#ma-el-modal-template-modal-tabs-item',
+                template: '#views-ma-el-template-modal-tabs-item',
 
                 className: function () {
                     return 'elementor-template-library-menu-item';
@@ -441,7 +441,7 @@
 
                 id: 'ma-el-modal-template-library-filters',
 
-                template: '#ma-el-modal-template-filters',
+                template: '#views-ma-el-template-modal-filters',
 
                 childViewContainer: '#ma-el-modal-filters-container',
 
@@ -454,9 +454,9 @@
 
             me.ModalTabsCollectionView = Marionette.CompositeView.extend({
 
-                template: '#ma-el-modal-template-modal-tabs',
+                template: '#views-ma-el-template-modal-tabs',
 
-                childViewContainer: '#ma-el-modal-template-tabs-items',
+                childViewContainer: '#views-ma-el-template-modal-tabs-items',
 
                 initialize: function () {
                     this.listenTo(MasterEditor.channels.layout, 'tamplate:cloned', this._renderChildren);
@@ -473,7 +473,7 @@
 
             me.ModalCollectionView = Marionette.CompositeView.extend({
 
-                template: '#ma-el-modal-templates',
+                template: '#views-ma-el-template-modal-templates',
 
                 id: 'ma-el-modal-template-library-templates',
 
@@ -543,18 +543,18 @@
 
             me.ModalLoadingView = Marionette.ItemView.extend({
                 id: 'ma-el-modal-loading',
-                template: '#ma-el-modal-template-loading'
+                template: '#views-ma-el-template-modal-loading'
             });
 
             me.ModalErrorView = Marionette.ItemView.extend({
                 id: 'ma-el-modal-loading',
-                template: '#ma-el-modal-template-error'
+                template: '#tmpl-ma-el-modal-template-error'
             });
 
 
             me.ModalLayoutView = Marionette.LayoutView.extend({
 
-                el: '#ma-el-modal-template',
+                el: '#tmpl-ma-el-modal-template',
 
                 regions: MasterAddonsData.modalRegions,
 
@@ -1033,7 +1033,7 @@
                         tab: tabName
                     },
                     success: function (response) {
-                        console.log("%cTemplates Retrieved Successfully!!", "color: #7a7a7a; background-color: #eee;");
+                        console.log("%cTemplates Retrieved Successfully!!", "color: #7a7a7a; background-color: red;");
 
                         var templates = new MasterEditorViews.LibraryCollection(response.data.templates),
                             categories = new MasterEditorViews.CategoriesCollection(response.data.categories);

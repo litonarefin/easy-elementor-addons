@@ -25,7 +25,8 @@
 				$this->config = array(
 					'master_addons_templates'       => __('Master Addons', MELA_TD ),
 					'key'                           => $this->get_license_key(),
-					'status'                        => $this->get_license_status(),
+//					'status'                        => $this->get_license_status(),
+					'status'                        => 'pro',
 					'license_page'                  => $this->get_license_page(),
 					'pro_message'                   => $this->get_pro_message(),
 					'api'                           => array(
@@ -88,7 +89,7 @@
 
 					$theme_slug = Master_Addons_Helper::get_installed_theme();
 
-					$url = sprintf('https://premiumaddons.com/pro/?utm_source=premium-templates&utm_medium=wp-dash&utm_campaign=get-pro&utm_term=%s', $theme_slug);
+					$url = sprintf('https://master-addons.com/account/?utm_source=premium-templates&utm_medium=wp-dash&utm_campaign=get-pro&utm_term=%s', $theme_slug);
 
 					return $url;
 

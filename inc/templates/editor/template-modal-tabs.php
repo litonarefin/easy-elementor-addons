@@ -3,4 +3,4 @@
  * Template Library Header Tabs
  */
 ?>
-<div id="ma-el-modal-template-modal-tabs-item"></div>
+<div id="views-ma-el-template-modal-tabs-items"></div>
