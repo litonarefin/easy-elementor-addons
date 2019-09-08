@@ -3,3 +3,6 @@
     background: #4b00e7;
     margin-right: 5px;
 }
+.elementor-add-new-section .ma-el-add-section-btn .master-addons-icon-button{
+    background: url("../../images/icon.png");
+}

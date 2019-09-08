@@ -12,7 +12,7 @@
 	class Master_Addons_Section_Document extends Master_Addons_Document_Base {
 
 		public function get_name() {
-			return 'master_addons_page';
+			return 'premium_page';
 		}
 
 		public static function get_title() {

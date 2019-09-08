@@ -232,7 +232,7 @@
                     MasterEditor.layout.showLoadingView();
 
 
-
+                    console.log(innerTemplates);
 
                     if (innerTemplatesLength > 0) {
                         for (var key in innerTemplates) {
@@ -249,7 +249,7 @@
                         }
                     }
 
-                    // if ("valid" === MasterAddonsData.license.status || ! isPro ) {
+                    if ("valid" === MasterAddonsData.license.status || ! isPro ) {
 
                         elementor.templates.requestTemplateContent(
                             templateModel.get('source'),
@@ -288,9 +288,9 @@
                                 }
                             }
                         );
-                    // } else {
-                    //     MasterEditor.layout.showLicenseError();
-                    // }
+                    } else {
+                        MasterEditor.layout.showLicenseError();
+                    }
 
 
                 }
@@ -815,19 +815,19 @@
         },
 
         init: function () {
-            if (window.elementor.settings.ma_el_template) {
-                window.elementor.settings.ma_el_template.getDataToSave = this.getDataToSave;
+            if (window.elementor.settings.premium_template) {
+                window.elementor.settings.premium_template.getDataToSave = this.getDataToSave;
             }
 
-            if (window.elementor.settings.ma_el_page) {
-                window.elementor.settings.ma_el_page.getDataToSave = this.getDataToSave;
-                window.elementor.settings.ma_el_page.changeCallbacks = {
+            if (window.elementor.settings.premium_page) {
+                window.elementor.settings.premium_page.getDataToSave = this.getDataToSave;
+                window.elementor.settings.premium_page.changeCallbacks = {
                     custom_header: function () {
                         this.save(function () {
                             elementor.reloadPreview();
 
                             elementor.once('preview:loaded', function () {
-                                elementor.getPanelView().setPage('ma_el_page_settings');
+                                elementor.getPanelView().setPage('premium_page_settings');
                             });
                         });
                     },
@@ -836,7 +836,7 @@
                             elementor.reloadPreview();
 
                             elementor.once('preview:loaded', function () {
-                                elementor.getPanelView().setPage('ma_el_page_settings');
+                                elementor.getPanelView().setPage('premium_page_settings');
                             });
                         });
                     }
