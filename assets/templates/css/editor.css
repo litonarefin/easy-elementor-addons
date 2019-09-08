@@ -60,7 +60,7 @@
 #ma-el-modal-template ::-webkit-scrollbar-corner {
     background: transparent;
 }
-#ma-el-modal-template-header {
+#ma-el-template-modal-header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -79,7 +79,7 @@
 
     height: 50px;
 }
-#ma-el-modal-template-header .ma-el-modal-template-back {
+#ma-el-template-modal-header .ma-el-template-modal-back {
     background: none;
     border: none;
     border-right: 1px solid #e6e9ec;
@@ -93,13 +93,13 @@
     cursor: pointer;
     color: #6d7882;
 }
-#ma-el-modal-template-header .ma-el-modal-template-back:not(:hover) {
+#ma-el-template-modal-header .ma-el-template-modal-back:not(:hover) {
     color: #a4afb7;
 }
-#ma-el-modal-template-header .elementor-button {
+#ma-el-template-modal-header .elementor-button {
     padding: 8px 10px;
 }
-#ma-el-modal-header-close-modal {
+#ma-el-template-modal-header-close-modal {
     width: 45px;
     border-left: 1px solid #e6e9ec;
     display: -webkit-box;
@@ -115,19 +115,19 @@
     -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
 }
-#ma-el-modal-header-close-modal i {
+#ma-el-template-modal-header-close-modal i {
     color: #a4afb7;
     font-size: 16px;
 }
-#ma-el-modal-header-close-modal:hover i {
+#ma-el-template-modal-header-close-modal:hover i {
     color: #6d7882;
 }
-#ma-el-modal-header-actions .template-library-activate-license {
+#ma-el-template-modal-header-actions .template-library-activate-license {
     display: block;
     padding: 8px 10px;
     color: #fff;
 }
-#ma-el-modal-header-actions .template-library-activate-license:hover {
+#ma-el-template-modal-header-actions .template-library-activate-license:hover {
     color: #fff;
     opacity: 0.85;
     -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.12),
@@ -170,7 +170,7 @@
 #views-ma-el-template-modal-items {
     display: none;
 }
-#ma-el-modal-header-tabs {
+#ma-el-template-modal-header-tabs {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -185,11 +185,11 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
-#ma-el-modal-header-logo-area {
+#ma-el-template-modal-header-logo-area {
     text-align: left;
     padding-left: 15px;
 }
-#ma-el-modal-header-logo-area > * {
+#ma-el-template-modal-header-logo-area > * {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;

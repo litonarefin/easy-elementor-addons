@@ -55,18 +55,18 @@
             });
 
             me.ModalHeaderView = Marionette.LayoutView.extend({
-                id: 'ma-el-modal-template-header',
+                id: 'ma-el-template-modal-header',
                 template: '#views-ma-el-template-modal-header',
                 ui:{
-                    closeModal: '#ma-el-modal-header-close-modal'
+                    closeModal: '#ma-el-template-modal-header-close-modal'
                 },
                 events:{
                     'click @ui.closeModal': 'onCloseModalClick'
                 },
                 regions:{
-                    headerLogo: '#ma-el-modal-header-logo-area',
-                    headerTabs: '#ma-el-modal-header-tabs',
-                    headerActions: '#ma-el-modal-header-actions'
+                    headerLogo: '#ma-el-template-modal-header-logo-area',
+                    headerTabs: '#ma-el-template-modal-header-tabs',
+                    headerActions: '#ma-el-template-modal-header-actions'
                 },
                 onCloseModalClick: function () {
                     MasterEditor.closeModal()
@@ -120,7 +120,7 @@
                     MasterEditor.setFilter('keyword', selected);
                 },
                 onRender: function(){
-                    var $filters = this.$('ma-el-library-keywords');
+                    var $filters = this.$('.ma-el-library-keywords');
                     $filters.select2({
                         placeholder: "Choose a Widget",
                         allowClear: true,
@@ -130,7 +130,7 @@
             });
 
             me.ModalPreviewView = Marionette.ItemView.extend({
-                template: '#tmpl-ma-el-modal-template-preview',
+                template: '#views-ma-el-template-modal-preview',
                 id: 'ma-el-item-preview-wrap',
                 ui:{
                     iframe: 'iframe',
@@ -168,8 +168,8 @@
             });
 
             me.ModalHeaderBack = Marionette.ItemView.extend({
-                template: '#tmpl-ma-el-modal-template-header-back',
-                id: 'ma-el-modal-header-back',
+                template: '#views-ma-el-template-modal-header-back',
+                id: 'ma-el-template-modal-header-back',
                 ui: {
                     button: 'button'
                 },
@@ -182,8 +182,8 @@
             });
 
             me.ModalHeaderLogo = Marionette.ItemView.extend({
-                template: '#views-ma-el-template-modal-header',
-                id: 'ma-el-modal-header-logo'
+                template: '#views-ma-el-template-modal-header-logo',
+                id: 'ma-el-template-modal-header-logo'
             });
 
             me.ModalBodyView = Marionette.LayoutView.extend({
