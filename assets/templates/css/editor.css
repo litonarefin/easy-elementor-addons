@@ -434,9 +434,7 @@ div.ma-el-modal-template-has-url:hover .ma-el-modal-clone-template {
 #ma-el-modal-templates-container .ma-el-modal-template-no-url .fa-search-plus {
     display: none !important;
 }
-#ma-el-modal-templates-container
-.elementor-template-library-template:hover
-.template-library-activate-license {
+#ma-el-modal-templates-container .elementor-template-library-template:hover .template-library-activate-license {
     display: block !important;
 }
 .elementor-template-library-template-screenshot img {
@@ -446,8 +444,7 @@ div.ma-el-modal-template-has-url:hover .ma-el-modal-clone-template {
     display: block;
 }
 /* * Preview Iframe */
-#ma-el-item-preview-wrap,
-#ma-el-item-preview-wrap .ma-el-item-preview-iframe {
+#ma-el-item-preview-wrap, #ma-el-item-preview-wrap .ma-el-item-preview-iframe {
     height: 100%;
     overflow: hidden;
 }
