@@ -110,7 +110,7 @@
                 id: 'elementor-template-library-filter',
                 template: '#views-ma-el-template-modal-keywords',
                 ui:{
-                    keywords: '.ma-el-keywords'
+                    keywords: '.ma-el-library-keywords'
                 },
                 events:{
                     'change @ui.keywords' : 'onSelectKeyword'
@@ -298,7 +298,7 @@
 
 
             me.ModalHeaderInsertButton = Marionette.ItemView.extend({
-                template: '#views-ma-el-template-insert-button',
+                template: '#views-ma-el-template-modal-insert-button',
                 id: 'ma-el-modal-template-insert-button',
                 behaviours:{
                     insertTemplate:{
