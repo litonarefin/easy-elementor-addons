@@ -1,6 +1,7 @@
 <?php
 	namespace MasterAddons\Inc\Templates\Classes;
-	use MasterAddons\Inc\Templates\Classes\Master_Addons_Helper;
+//	use MasterAddons\Inc\Templates\Classes\Master_Addons_Helper;
+	use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 	/**
 	 * Author Name: Liton Arefin

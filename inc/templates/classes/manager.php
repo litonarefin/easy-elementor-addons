@@ -3,6 +3,7 @@
 	namespace MasterAddons\Inc\Templates\Classes;
 
 	use MasterAddons\Inc\Templates;
+	use MasterAddons\Inc\Templates\Types\Master_Addons_Templates_Types;
 
 	/**
 	 * Author Name: Liton Arefin
@@ -82,7 +83,6 @@
 				$tabs = Templates\premium_templates()->types->get_types_for_popup();
 
 				return $tabs;
-
 			}
 
 
@@ -129,7 +129,7 @@
 				$all_cats = array(
 					array(
 						'slug' => '',
-						'title' => __( 'All', 'premium-addons-for-elementor' ),
+						'title' => __( 'All', MELA_TD ),
 					)
 				);
 

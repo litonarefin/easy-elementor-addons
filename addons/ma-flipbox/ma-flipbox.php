@@ -14,6 +14,7 @@
 	use Elementor\Group_Control_Typography;
 	use Elementor\Scheme_Typography;
 	use Elementor\Modules\DynamicTags\Module as TagsModule;
+	use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 
 	if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.

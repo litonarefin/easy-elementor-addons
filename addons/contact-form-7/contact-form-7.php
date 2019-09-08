@@ -1,6 +1,7 @@
 <?php
 namespace Elementor;
 use Elementor\Widget_Base;
+use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 

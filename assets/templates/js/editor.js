@@ -298,7 +298,7 @@
 
 
             me.ModalHeaderInsertButton = Marionette.ItemView.extend({
-                template: '#tmpl-ma-el-modal-template-insert-button',
+                template: '#views-ma-el-template-insert-button',
                 id: 'ma-el-modal-template-insert-button',
                 behaviours:{
                     insertTemplate:{
@@ -308,14 +308,14 @@
             });
 
             me.MasterProButton = Marionette.ItemView.extend({
-                template: '#tmpl-ma-el-modal-template-pro-button',
+                template: '#views-ma-el-template-pro-button',
                 id: 'ma-el-modal-template-pro-button',
             });
 
 
             me.ModalTemplateItemView = Marionette.ItemView.extend({
 
-                template: '#ma-el-modal-template-modal-item',
+                template: '#views-ma-el-template-modal-item',
 
                 className: function () {
 
@@ -366,7 +366,7 @@
 
             me.FiltersItemView = Marionette.ItemView.extend({
 
-                template: '#ma-el-modal-template-modal-filters-item',
+                template: '#views-ma-el-template-modal-filters-item',
 
                 className: function () {
                     return 'ma-el-modal-template-filter-item';

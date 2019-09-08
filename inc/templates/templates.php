@@ -7,6 +7,9 @@
 
 	namespace MasterAddons\Inc\Templates;
 
+	use MasterAddons\Inc\Templates\Types;
+
+
 	if ( ! defined('ABSPATH') ) exit;
 
 

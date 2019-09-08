@@ -6,6 +6,7 @@
 	use \Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
 	use \Elementor\Group_Control_Typography as Group_Control_Typography;
 	use \Elementor\Scheme_Typography as Scheme_Typography;
+	use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 	/**
 	 * Author Name: Liton Arefin

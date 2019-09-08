@@ -15,7 +15,7 @@
 		class Master_Addons_Structure_Section extends Master_Addons_Structure_Base {
 
 			public function get_id() {
-				return 'master_addons_section';
+				return 'premium_section';
 			}
 
 			public function get_single_label() {

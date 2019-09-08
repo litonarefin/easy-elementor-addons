@@ -12,6 +12,7 @@
 	use Elementor\Group_Control_Typography;
 	use Elementor\Scheme_Typography;
 	use Elementor\Scheme_Color;
+	use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 
 
