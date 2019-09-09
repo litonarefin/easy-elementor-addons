@@ -231,12 +231,20 @@
                         isPro = templateModel.attributes.pro,
                         innerTemplatesLength = Object.keys(innerTemplates).length,
                         options = {};
+                    //
+                    // console.log( ' Template Model:' + templateModel );
+                    // console.log( ' innerTemplates:' + innerTemplates );
+                    // console.log( ' isPro:' + isPro );
+                    // console.log( ' innerTemplatesLength:' + innerTemplatesLength );
+                    // console.log( ' options:' + options );
+                    //
 
                     MasterEditor.layout.showLoadingView();
 
-                    if (innerTemplatesLength > 0) {
-                        for (var key in innerTemplates) {
 
+                    if (innerTemplatesLength > 0) {
+
+                        for (var key in innerTemplates) {
 
                             $.ajax({
                                 url: ajaxurl,
@@ -263,7 +271,7 @@
                                 },
                                 success: function (data) {
 
-                                    console.log(data);
+                                    // console.log(data);
 
                                     //
                                     // if ( ! data.license ) {
@@ -306,7 +314,7 @@
             me.ModalHeaderInsertButton = Marionette.ItemView.extend({
                 template: '#views-ma-el-template-modal-insert-button',
                 id: 'ma-el-template-modal-insert-button',
-                behaviours:{
+                behaviors:{
                     insertTemplate:{
                         behaviorClass: me.ModalInsertTemplateBehavior
                     }

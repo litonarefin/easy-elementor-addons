@@ -3,7 +3,6 @@
 	namespace MasterAddons\Inc\Templates\Classes;
 
 	use MasterAddons\Inc\Templates;
-//	use MasterAddons\Inc\Templates\Types;
 
 	/**
 	 * Author Name: Liton Arefin
