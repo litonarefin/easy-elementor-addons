@@ -231,11 +231,11 @@
 
                     MasterEditor.layout.showLoadingView();
 
-
-                    console.log(innerTemplates);
-
                     if (innerTemplatesLength > 0) {
                         for (var key in innerTemplates) {
+
+                            console.log( innerTemplates );
+
                             $.ajax({
                                 url: ajaxurl,
                                 type: 'post',
@@ -249,7 +249,7 @@
                         }
                     }
 
-                    if ("valid" === MasterAddonsData.license.status || ! isPro ) {
+                    // if ("valid" === MasterAddonsData.license.status || ! isPro ) {
 
                         elementor.templates.requestTemplateContent(
                             templateModel.get('source'),
@@ -261,10 +261,13 @@
                                 },
                                 success: function (data) {
 
-                                    if ( ! data.license ) {
-                                        MasterEditor.layout.showLicenseError();
-                                        return;
-                                    }
+                                    console.log(data);
+
+                                    //
+                                    // if ( ! data.license ) {
+                                    //     MasterEditor.layout.showLicenseError();
+                                    //     return;
+                                    // }
 
                                     console.log("%c Template Inserted Successfully!!", "color: #7a7a7a; background-color: #eee;");
 
@@ -288,9 +291,10 @@
                                 }
                             }
                         );
-                    } else {
-                        MasterEditor.layout.showLicenseError();
-                    }
+
+                    // } else {
+                    //     MasterEditor.layout.showLicenseError();
+                    // }
 
 
                 }
@@ -515,7 +519,7 @@
                         items = this.$childViewContainer.children(),
                         tab = MasterEditor.getTab();
 
-                    if ('ma_el_page' === tab || 'local' === tab) {
+                    if ('premium_page' === tab || 'local' === tab) {
                         return;
                     }
 
@@ -799,7 +803,7 @@
 
             });
 
-            window.elementor.addControlView('ma_el_search', me.MasterSearchView);
+            window.elementor.addControlView('premium_search', me.MasterSearchView);
 
         }
 
@@ -1033,6 +1037,9 @@
                         tab: tabName
                     },
                     success: function (response) {
+
+                        console.log(response);
+
                         console.log("%cTemplates Retrieved Successfully!!", "color: #7a7a7a; background-color: #eee;");
 
                         var templates = new MasterEditorViews.LibraryCollection(response.data.templates),

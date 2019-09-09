@@ -70,7 +70,8 @@
 					return;
 				}
 
-				$key = Admin::get_license_key();
+//				$key = Admin::get_license_key();
+				$key = '';
 
 				return $key;
 
@@ -83,7 +84,8 @@
 					return;
 				}
 
-				$status = Admin::get_license_status();
+//				$status = Admin::get_license_status();
+				$status = true;
 
 				return $status;
 

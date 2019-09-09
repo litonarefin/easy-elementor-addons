@@ -3,7 +3,8 @@
 	namespace MasterAddons\Inc\Templates\Classes;
 
 	use MasterAddons\Inc\Templates;
-	use MasterAddons\Inc\Templates\Types\Master_Addons_Templates_Types;
+	use MasterAddons\Inc\Templates\Sources;
+//	use MasterAddons\Inc\Templates\Types;
 
 	/**
 	 * Author Name: Liton Arefin
@@ -34,7 +35,7 @@
 				if ( defined( 'ELEMENTOR_VERSION' ) && version_compare( ELEMENTOR_VERSION, '2.2.8', '>' ) ) {
 					add_action( 'elementor/ajax/register_actions', array( $this, 'register_ajax_actions' ), 20 );
 				} else {
-					add_action( 'wp_ajax_elementor_get_template_data', array( $this, 'get_template_data' ), -1 );
+					add_action( 'wp_ajax_elementor_get_template_data', array( $this, 'get_template_data' ));
 				}
 
 				$this->register_sources();
@@ -64,13 +65,15 @@
 
 				$namespace = str_replace( 'Classes', 'Sources' , __NAMESPACE__ );
 
+
 				$sources = array(
 					'master-addons-api'   =>  $namespace . '\Master_Addons_Templates_Source_Api',
 				);
 
+
 				foreach ( $sources as $key => $class ) {
 
-					require MELA_PLUGIN_PATH . '/inc/templates/sources/' . $key . '.php';
+					require  MELA_PLUGIN_PATH . '/inc/templates/sources/' . $key . '.php';
 
 					$this->add_source( $key, $class );
 				}
@@ -129,7 +132,7 @@
 				$all_cats = array(
 					array(
 						'slug' => '',
-						'title' => __( 'All', MELA_TD ),
+						'title' => __( 'All Sections', MELA_TD ),
 					)
 				);
 
@@ -143,10 +146,6 @@
 
 			public function insert_inner_template() {
 
-				echo "This is Inner Template Section";
-//
-//				die();
-//				exit;
 
 				if ( ! current_user_can( 'edit_posts' ) ) {
 					wp_send_json_error();
@@ -158,7 +157,9 @@
 					wp_send_json_error();
 				}
 
+
 				$template_id = isset( $template['template_id'] ) ? esc_attr( $template['template_id'] ) : false;
+
 				$source_name = isset( $template['source'] ) ? esc_attr( $template['source'] ) : false;
 				$source      = isset( $this->sources[ $source_name ] ) ? $this->sources[ $source_name ] : false;
 
@@ -237,6 +238,7 @@
 
 				$source_name = isset( $data['source'] ) ? esc_attr( $data['source'] ) : '';
 
+
 				if ( ! $source_name ) {
 					return false;
 				}
@@ -257,7 +259,7 @@
 			}
 
 
-			public function premium_get_template_data() {
+			public function get_template_data() {
 
 				$template = $this->get_template_data_array( $_REQUEST );
 
