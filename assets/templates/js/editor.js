@@ -214,7 +214,7 @@
 
             me.ModalInsertTemplateBehavior = Marionette.Behavior.extend({
                 ui: {
-                    insertButton: '.ma-el-modal-template-insert'
+                    insertButton: '.ma-el-template-insert'
                 },
 
                 events: {
@@ -222,6 +222,9 @@
                 },
 
                 onInsertButtonClick: function () {
+
+
+                    console.log( 'Insert Clicked' );
 
                     var templateModel = this.view.model,
                         innerTemplates = templateModel.attributes.dependencies,
@@ -234,7 +237,6 @@
                     if (innerTemplatesLength > 0) {
                         for (var key in innerTemplates) {
 
-                            console.log( innerTemplates );
 
                             $.ajax({
                                 url: ajaxurl,
@@ -249,7 +251,7 @@
                         }
                     }
 
-                    // if ("valid" === MasterAddonsData.license.status || ! isPro ) {
+                    if ("valid" === MasterAddonsData.license.status || ! isPro ) {
 
                         elementor.templates.requestTemplateContent(
                             templateModel.get('source'),
@@ -292,9 +294,9 @@
                             }
                         );
 
-                    // } else {
-                    //     MasterEditor.layout.showLicenseError();
-                    // }
+                    } else {
+                        MasterEditor.layout.showLicenseError();
+                    }
 
 
                 }

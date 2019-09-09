@@ -3,7 +3,6 @@
 	namespace MasterAddons\Inc\Templates\Classes;
 
 	use MasterAddons\Inc\Templates;
-	use MasterAddons\Inc\Templates\Sources;
 //	use MasterAddons\Inc\Templates\Types;
 
 	/**
@@ -35,7 +34,7 @@
 				if ( defined( 'ELEMENTOR_VERSION' ) && version_compare( ELEMENTOR_VERSION, '2.2.8', '>' ) ) {
 					add_action( 'elementor/ajax/register_actions', array( $this, 'register_ajax_actions' ), 20 );
 				} else {
-					add_action( 'wp_ajax_elementor_get_template_data', array( $this, 'get_template_data' ));
+					add_action( 'wp_ajax_elementor_get_template_data', array( $this, 'get_template_data' ), -1 );
 				}
 
 				$this->register_sources();
@@ -69,10 +68,9 @@
 					'premium-api'   =>  $namespace . '\Master_Addons_Templates_Source_Api',
 				);
 
-
 				foreach ( $sources as $key => $class ) {
 
-					require  MELA_PLUGIN_PATH . '/inc/templates/sources/' . $key . '.php';
+					require MELA_PLUGIN_PATH . '/inc/templates/sources/' . $key . '.php';
 
 					$this->add_source( $key, $class );
 				}

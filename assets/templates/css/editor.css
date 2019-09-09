@@ -303,13 +303,13 @@
 #ma-el-template-library-content .ma-el-modal-templates-wrap {
     width: 100%;
 }
-#ma-el-template-library-content .ma-el-modal-template-insert {
+#ma-el-template-library-content .ma-el-template-insert {
     padding: 5px 12px;
 }
-#ma-el-template-library-content .ma-el-modal-template-insert i {
+#ma-el-template-library-content .ma-el-template-insert i {
     margin-right: 2px;
 }
-#ma-el-template-library-content .ma-el-modal-template-insert span {
+#ma-el-template-library-content .ma-el-template-insert span {
     font-size: 11px;
 }
 #ma-el-template-library-content .elementor-template-library-template-name {
@@ -372,7 +372,7 @@
 #ma-el-template-library-content #ma-el-modal-templates-container .elementor-template-library-template:hover .elementor-template-library-template-controls {
     bottom: 0;
 }
-#ma-el-template-library-content #ma-el-modal-templates-container .ma-el-modal-template-insert {
+#ma-el-template-library-content #ma-el-modal-templates-container .ma-el-template-insert {
     padding: 0;
     margin: 0;
     color: #39b54a;
@@ -397,7 +397,7 @@
 div.ma-el-modal-template-has-url:hover .ma-el-modal-clone-template {
     display: block !important;
 }
-#ma-el-template-library-content #ma-el-modal-templates-container .ma-el-modal-template-insert:hover {
+#ma-el-template-library-content #ma-el-modal-templates-container .ma-el-template-insert:hover {
     -webkit-box-shadow: none;
     box-shadow: none;
 }

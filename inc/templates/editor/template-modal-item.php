@@ -14,7 +14,7 @@
 </div>
 <div class="elementor-template-library-template-controls">
 	<# if ( 'valid' === window.MasterAddonsData.license.status || ! pro ) { #>
-        <button class="elementor-template-library-template-action ma-el-modal-template-insert elementor-button elementor-button-success">
+        <button class="elementor-template-library-template-action ma-el-template-insert elementor-button elementor-button-success">
             <i class="eicon-file-download"></i>
                 <span class="elementor-button-title"><?php echo __( 'Insert', MELA_TD ); ?></span>
         </button>
