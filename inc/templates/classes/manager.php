@@ -65,9 +65,8 @@
 
 				$namespace = str_replace( 'Classes', 'Sources' , __NAMESPACE__ );
 
-
 				$sources = array(
-					'master-addons-api'   =>  $namespace . '\Master_Addons_Templates_Source_Api',
+					'premium-api'   =>  $namespace . '\Master_Addons_Templates_Source_Api',
 				);
 
 

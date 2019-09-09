@@ -30,6 +30,7 @@
 				$temp_types = array(
 					__NAMESPACE__ . '\Master_Addons_Structure_Section' => $base_path . 'section.php',
 				);
+//				print_r($temp_types);
 
 				array_walk( $temp_types, function( $file, $class ) {
 
@@ -82,7 +83,6 @@
 						'settings' => $structure->library_settings(),
 					);
 				}
-
 				return $result;
 
 			}

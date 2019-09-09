@@ -303,7 +303,7 @@
 
             me.ModalHeaderInsertButton = Marionette.ItemView.extend({
                 template: '#views-ma-el-template-modal-insert-button',
-                id: 'ma-el-modal-template-insert-button',
+                id: 'ma-el-template-modal-insert-button',
                 behaviours:{
                     insertTemplate:{
                         behaviorClass: me.ModalInsertTemplateBehavior
@@ -552,7 +552,7 @@
 
             me.ModalErrorView = Marionette.ItemView.extend({
                 id: 'ma-el-modal-loading',
-                template: '#tmpl-ma-el-modal-template-error'
+                template: '#views-ma-el-template-modal-error'
             });
 
 

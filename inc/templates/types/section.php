@@ -27,7 +27,7 @@
 			}
 
 			public function get_sources() {
-				return array( 'master-addons-api' );
+				return array( 'premium-api' );
 			}
 
 			public function get_document_type() {
