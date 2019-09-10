@@ -912,7 +912,7 @@
             var $addNewSection = window.elementor.$previewContents.find('.elementor-add-new-section'),
                 addMasterTemplate = "<div class='elementor-add-section-area-button ma-el-add-section-btn' title='Add" +
                     " Master Addons" +
-                    " Template'><i class='fas fa-home'></i></div>",
+                    " Template'><img src='https://ps.w.org/master-addons/assets/icon-256x256.png'></div>",
                 $addMasterTemplate;
 
             if ($addNewSection.length && MasterAddonsData.MasterAddonsEditorBtn) {
