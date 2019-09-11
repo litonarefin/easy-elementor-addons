@@ -1,4 +1,6 @@
 <?php
+	namespace MasterAddons\Admin\Dashboard;
+	use MasterAddons\Master_Elementor_Addons;
 	/*
 	 * Master Admin Dashboard Page
 	 * Jewel Theme < Liton Arefin >

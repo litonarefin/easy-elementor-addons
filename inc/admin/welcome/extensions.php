@@ -1,4 +1,7 @@
 <?php
+	namespace MasterAddons\Admin\Dashboard\Extensions;
+	use MasterAddons\Master_Elementor_Addons;
+
 	/**
 	 * Author Name: Liton Arefin
 	 * Author URL: https://jeweltheme.com

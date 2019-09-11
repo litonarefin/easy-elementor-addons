@@ -1,3 +1,9 @@
+<?php
+	namespace MasterAddons\Admin\Dashboard\Addons;
+	use MasterAddons\Master_Elementor_Addons;
+	?>
+
+
 <div class="wp-tab-panel" id="ma-addons">
 	<div class="master_addons_features">
 

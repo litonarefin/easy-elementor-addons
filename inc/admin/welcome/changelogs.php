@@ -1,4 +1,3 @@
-
 <div class="wp-tab-panel" id="changelogs" style="display: none;">
 	<div class="parent">
 		<div class="left_column">
