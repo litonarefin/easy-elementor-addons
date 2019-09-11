@@ -36,7 +36,7 @@
 						'base'      => 'https://api.master-addons.app/',
 						'path'      => 'wp-json/masteraddons/v2',
 
-						'id'        => 9,
+//						'id'        => 9,
 						'endpoints' => array(
 							'templates'  => '/templates/',
 							'keywords'   => '/keywords/',

@@ -37,7 +37,7 @@
         CategoryModel: null,
 
         init: function () {
-            let me = this;
+            var me = this;
 
             me.ModalTemplateModel = Backbone.Model.extend({
                 defaults:{
@@ -1048,7 +1048,7 @@
                     },
                     success: function (response) {
 
-                        console.log(response);
+                        // console.log(response);
 
                         console.log("%cTemplates Retrieved Successfully!!", "color: #7a7a7a; background-color: #eee;");
 

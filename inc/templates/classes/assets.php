@@ -23,7 +23,7 @@
 
 				add_action( 'elementor/preview/enqueue_styles', array( $this, 'enqueue_preview_styles' ) );
 
-				add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'editor_scripts' ), 0 );
+				add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'editor_scripts' ),-1 );
 
 				add_action( 'elementor/editor/after_enqueue_styles', array( $this, 'editor_styles' ) );
 
@@ -59,7 +59,7 @@
 
 			public function editor_scripts() {
 
-				wp_enqueue_script( 'master-addons-editor',
+				wp_enqueue_script( 'master-addons-editor-js',
 					MELA_PLUGIN_URL . '/assets/templates/js/editor.js',
 					array(
 						'jquery',
@@ -74,7 +74,7 @@
 
 				$button = Templates\premium_templates()->config->get('premium_templates');
 
-				wp_localize_script( 'master-addons-editor', 'MasterAddonsData', apply_filters(
+				wp_localize_script( 'master-addons-editor-js', 'MasterAddonsData', apply_filters(
 						'master-addons-core/assets/editor/localize',
 						array(
 							'MasterAddonsEditorBtn'     => $button,
