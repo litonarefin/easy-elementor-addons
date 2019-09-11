@@ -30,7 +30,6 @@
 			return [ 'gridder' ];
 		}
 
-
 		protected function _register_controls() {
 
 			$this->start_controls_section(
@@ -739,7 +738,6 @@ Customization Options.</span>'
 
 		}
 
-
 		protected function render() {
 			$settings = $this->get_settings_for_display();
 
@@ -751,12 +749,21 @@ Customization Options.</span>'
 			$this->add_render_attribute(
 				'ma_el_team_carousel',
 				[
-					'class' => [ 'ma-el-team-carousel-wrapper', 'ma-el-team-carousel' . $team_preset ],
+					'class' => [ 'ma-el-team-members-slider-section','ma-el-team-carousel-wrapper', 'ma-el-team-carousel' . $team_preset ],
 					'data-team-preset' => $team_preset,
 					'data-carousel-nav' => $settings['ma_el_team_carousel_nav'],
 					'data-slidestoshow' => $settings['ma_el_team_per_view'],
 					'data-slidestoscroll' => $settings['ma_el_team_slides_to_scroll'],
 					'data-speed' => $settings['ma_el_team_transition_duration'],
+				]
+			);
+
+
+			$this->add_render_attribute(
+				'ma_el_team_slider_section',
+				[
+					'class' => 'ma-el-team-members-slider-section',
+					'data-team-preset' => $team_preset,
 				]
 			);
 
@@ -778,6 +785,7 @@ Customization Options.</span>'
 
 			<?php if( $team_preset == '-content-drawer' ) { ?>
 
+                <div <?php echo $this->get_render_attribute_string( 'ma_el_team_slider_section' ); ?>>
                 <!-- Gridder navigation -->
                 <ul class="gridder">
 
@@ -869,6 +877,8 @@ Customization Options.</span>'
                         </div>
                     </div>
 				<?php } ?>
+
+                </div>
 
 			<?php } else { ?>
 

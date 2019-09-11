@@ -618,7 +618,7 @@
 //				if ( ma_el_fs()->can_use_premium_code() ) {
 
 					$activated_extensions = $this->activated_extensions();
-					print_r($activated_extensions);
+//					print_r($activated_extensions);
 
 					foreach ( ma_el_array_flatten( self::$ma_el_extensions ) as $extensions ) {
 

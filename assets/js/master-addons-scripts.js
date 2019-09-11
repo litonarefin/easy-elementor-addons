@@ -400,96 +400,110 @@
         },
 
         MA_TeamSlider: function ($scope, $){
-            try {
-                (function($) {
 
-                    let $teamCarouselWrapper = $scope.find('.ma-el-team-carousel-wrapper').eq(0),
-                        $carousel_nav = $teamCarouselWrapper.data("carousel-nav"),
-                        $loop = ($teamCarouselWrapper.data("loop") !== undefined) ? $teamCarouselWrapper.data("loop") : false,
-                        $slidesToShow = $teamCarouselWrapper.data("slidestoshow"),
-                        $slidesToScroll = $teamCarouselWrapper.data("slidestoscroll"),
-                        $autoPlay = ($teamCarouselWrapper.data("autoplay") !== undefined) ? $teamCarouselWrapper.data("autoplay") : false,
-                        $autoplaySpeed = ($teamCarouselWrapper.data("autoplayspeed") !== undefined) ? $teamCarouselWrapper.data("autoplayspeed") : false,
-                        $transitionSpeed = $teamCarouselWrapper.data("speed"),
-                        $pauseOnHover = ($teamCarouselWrapper.data("pauseonhover") !== undefined) ? $teamCarouselWrapper.data("pauseonhover") : false;
+            let $teamCarouselWrapper = $scope.find('.ma-el-team-members-slider-section').eq(0),
+                        $team_preset = $teamCarouselWrapper.data("team-preset");
 
-                    // Team Carousel
-                    if ($carousel_nav == "arrows" ) {
-                        var arrows = true;
-                        var dots = false;
-                    } else {
-                        var arrows = false;
-                        var dots = true;
-                    }
+                    if( $team_preset == "-content-drawer"){
 
-                    $teamCarouselWrapper.slick({
-                        infinite: $loop,
-                        slidesToShow : $slidesToShow,
-                        slidesToScroll: $slidesToScroll,
-                        autoplay: $autoPlay,
-                        autoplaySpeed: $autoplaySpeed,
-                        speed: $transitionSpeed,
-                        pauseOnHover: $pauseOnHover,
-                        dots: dots,
-                        arrows: arrows,
-                        prevArrow: "<div class='ma-el-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-                        nextArrow: "<div class='ma-el-team-carousel-next'><i class='fa fa-angle-right'></i></div>",
-                        rows: 0,
-                        responsive: [
-                            {
-                                breakpoint: 1024,
-                                settings: {
-                                    slidesToShow: 3,
-                                }
-                            },
-                            {
-                                breakpoint: 576,
-                                settings: {
-                                    slidesToShow: 2,
-                                }
-                            }
-                        ],
-                    });
+                        // console.log("Content Drawer Loaded");
 
+                        try {
+                            (function($) {
 
+                                $('.gridder').gridderExpander({
+                                    scroll: false,
+                                    scrollOffset: 0,
+                                    scrollTo: "panel",                  // panel or listitem
+                                    animationSpeed: 400,
+                                    animationEasing: "easeInOutExpo",
+                                    showNav: true, // Show Navigation
+                                    nextText: "<span></span>", // Next button text
+                                    prevText: "<span></span>", // Previous button text
+                                    closeText: "", // Close button text
+                                    onStart: function(){
+                                        //Gridder Inititialized
+                                    },
+                                    onContent: function(){
+                                        //Gridder Content Loaded
+                                    },
+                                    onClosed: function(){
+                                        //Gridder Closed
+                                    }
+                                });
 
-                })(jQuery);
-            } catch(e) {
-                //We can also throw from try block and catch it here
-                // No Error Show
-            }
-
-
-
-            try {
-                (function($) {
-
-                    $('.gridder').gridderExpander({
-                        scroll: false,
-                        scrollOffset: 0,
-                        scrollTo: "panel",                  // panel or listitem
-                        animationSpeed: 400,
-                        animationEasing: "easeInOutExpo",
-                        showNav: true, // Show Navigation
-                        nextText: "<span></span>", // Next button text
-                        prevText: "<span></span>", // Previous button text
-                        closeText: "", // Close button text
-                        onStart: function(){
-                            //Gridder Inititialized
-                        },
-                        onContent: function(){
-                            //Gridder Content Loaded
-                        },
-                        onClosed: function(){
-                            //Gridder Closed
+                            })(jQuery);
+                        } catch(e) {
+                            //We can also throw from try block and catch it here
+                            // No Error Show
                         }
-                    });
 
-                })(jQuery);
-            } catch(e) {
-                //We can also throw from try block and catch it here
-                // No Error Show
-            }
+
+                    } else {
+                        // console.log("Slider Loaded");
+
+                        try {
+                            (function($) {
+
+                                let $teamCarouselWrapper = $scope.find('.ma-el-team-members-slider-section').eq(0),
+                                    $carousel_nav = $teamCarouselWrapper.data("carousel-nav"),
+                                    $loop = ($teamCarouselWrapper.data("loop") !== undefined) ? $teamCarouselWrapper.data("loop") : false,
+                                    $slidesToShow = $teamCarouselWrapper.data("slidestoshow"),
+                                    $slidesToScroll = $teamCarouselWrapper.data("slidestoscroll"),
+                                    $autoPlay = ($teamCarouselWrapper.data("autoplay") !== undefined) ? $teamCarouselWrapper.data("autoplay") : false,
+                                    $autoplaySpeed = ($teamCarouselWrapper.data("autoplayspeed") !== undefined) ? $teamCarouselWrapper.data("autoplayspeed") : false,
+                                    $transitionSpeed = $teamCarouselWrapper.data("speed"),
+                                    $pauseOnHover = ($teamCarouselWrapper.data("pauseonhover") !== undefined) ? $teamCarouselWrapper.data("pauseonhover") : false
+
+
+                                // Team Carousel
+                                if ($carousel_nav == "arrows" ) {
+                                    var arrows = true;
+                                    var dots = false;
+                                } else {
+                                    var arrows = false;
+                                    var dots = true;
+                                }
+
+                                $teamCarouselWrapper.slick({
+                                    infinite: $loop,
+                                    slidesToShow : $slidesToShow,
+                                    slidesToScroll: $slidesToScroll,
+                                    autoplay: $autoPlay,
+                                    autoplaySpeed: $autoplaySpeed,
+                                    speed: $transitionSpeed,
+                                    pauseOnHover: $pauseOnHover,
+                                    dots: dots,
+                                    arrows: arrows,
+                                    prevArrow: "<div class='ma-el-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
+                                    nextArrow: "<div class='ma-el-team-carousel-next'><i class='fa fa-angle-right'></i></div>",
+                                    rows: 0,
+                                    responsive: [
+                                        {
+                                            breakpoint: 1024,
+                                            settings: {
+                                                slidesToShow: 3,
+                                            }
+                                        },
+                                        {
+                                            breakpoint: 576,
+                                            settings: {
+                                                slidesToShow: 2,
+                                            }
+                                        }
+                                    ],
+                                });
+
+                            })(jQuery);
+                        } catch(e) {
+                            //We can also throw from try block and catch it here
+                            // No Error Show
+                        }
+
+
+
+
+                    }
 
 
 

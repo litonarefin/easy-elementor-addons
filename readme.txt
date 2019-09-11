@@ -237,7 +237,12 @@ Paste on your Local Computer
 
 
 == Changelog ==
- = 1.1.2 (06-09-2019) =
+ = 1.1.4 (12-09-2019) =
+ * Tweak: Team Slider Content Drawer conflicting with Slick Slider issue resolved
+ * Fixed: Dashboard Extensions, Addons tabs error fixed.
+
+
+ = 1.1.3 (10-09-2019) =
  * Fixed: Icons Color Changed "Normal" and "Hover" Options given on MA Dual Headlines
  * Fixed: Creative Button Saqui Transform style fixed
 
