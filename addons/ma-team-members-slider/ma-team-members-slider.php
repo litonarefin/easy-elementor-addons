@@ -260,10 +260,8 @@
 							'-default'                    => esc_html__( 'Team Carousel', MELA_TD ),
 							'-circle'                     => esc_html__( 'Circle Gradient', MELA_TD ),
 							'-content-hover'              => esc_html__( 'Content on Hover', MELA_TD ),
-//							'-pro-team-slider-1'          => esc_html__( 'Social Left on Hover (Pro)', MELA_TD ),
-//							'-pro-team-slider-2'          => esc_html__( 'Content Drawer (Pro)', MELA_TD ),
-							'-social-left'          => esc_html__( 'Social Left on Hover', MELA_TD ),
-							'-content-drawer'       => esc_html__( 'Content Drawer', MELA_TD ),
+							'-pro-team-slider-1'          => esc_html__( 'Social Left on Hover (Pro)', MELA_TD ),
+							'-pro-team-slider-2'          => esc_html__( 'Content Drawer (Pro)', MELA_TD )
 						],
 						'description' => sprintf( '2+ more Variations on <a href="%s" target="_blank">%s</a>',
 							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
@@ -301,6 +299,36 @@
 			);
 
 			$this->add_responsive_control(
+				'ma_el_team_image_bg_size',
+				[
+					'label' => __( 'Background Image Size', MELA_TD ),
+					'description' => __('Height Width will be same ratio', MELA_TD),
+					'type' => Controls_Manager::SLIDER,
+					'size_units'    => ['px'],
+					'range' => [
+						'px' => [
+							'min' => 100,
+							'max' => 1000,
+							'step' => 5,
+						]
+					],
+					'default' => [
+						'unit' => 'px',
+						'size' => 125,
+					],
+					'condition' => [
+						'ma_el_team_carousel_preset' => '-circle'
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb svg,
+						{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb' =>
+                            'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};'
+
+					]
+				]
+			);
+
+			$this->add_responsive_control(
 				'ma_el_team_image_size',
 				[
 					'label' => __( 'Image Size', MELA_TD ),
@@ -326,11 +354,12 @@
 						'ma_el_team_carousel_preset' => '-circle'
 					],
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb' =>
-                            'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
+//						'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb' =>
+//                            'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
 
 						'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb img' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
-						'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb svg' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
+
+//						'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb svg' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
 
 					]
 				]

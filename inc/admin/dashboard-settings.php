@@ -134,24 +134,6 @@ class Master_Addons_Admin_Settings{
 		$this->maad_el_get_extension_settings = get_option( 'ma_el_extensions_save_settings', $this->ma_el_default_extensions_settings );
 
 
-
-		// Master
-//		$ma_el_default_extensions_settings = array_fill_keys( ma_el_array_flatten( Master_Elementor_Addons::$ma_el_extensions ),
-//			true );
-//
-//		$maad_el_get_settings     = get_option( 'ma_el_extensions_save_settings', $ma_el_default_extensions_settings );
-//		$maad_el_new_settings     = array_diff_key( $ma_el_default_extensions_settings, $maad_el_get_settings );
-//
-//		if ( ! empty( $maad_el_new_settings ) ) {
-//			$maad_el_updated_settings = array_merge( $maad_el_get_settings, $maad_el_new_settings );
-//			update_option( 'ma_el_extensions_save_settings', $maad_el_updated_settings );
-//		}
-//
-//		return $maad_el_get_settings = get_option( 'ma_el_extensions_save_settings',
-//			$ma_el_default_extensions_settings );
-
-
-
 		include MELA_PLUGIN_PATH . '/inc/admin/welcome.php';
 
 	}

@@ -57,12 +57,12 @@
 					'ma-infobox',               // 12
 					'ma-flipbox',               // 13
 					'ma-creative-links',        // 14
-//					'ma-image-hover-effects',   // 14
+					'ma-image-hover-effects',   // 14
 
 					'contact-form-7',           // 15
 					'ninja-forms',              // 16
-					['gravity-forms','pro'],    // 17
 					'wpforms',                  // 18
+					['gravity-forms','pro'],    // 17
 					'caldera-forms',            // 19
 					'weforms',                  // 20
 
@@ -275,32 +275,36 @@
 				$maad_el_default_settings = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),
 					true );
 
-				$maad_el_get_extension_settings     = get_option( 'maad_el_save_settings', $maad_el_default_settings );
-				$maad_el_new_settings     = array_diff_key( $maad_el_default_settings, $maad_el_get_extension_settings );
+				$maad_el_get_settings     = get_option( 'maad_el_save_settings', $maad_el_default_settings );
+				$maad_el_new_settings     = array_diff_key( $maad_el_default_settings, $maad_el_get_settings );
 
 				if ( ! empty( $maad_el_new_settings ) ) {
-					$maad_el_updated_settings = array_merge( $maad_el_get_extension_settings, $maad_el_new_settings );
+					$maad_el_updated_settings = array_merge( $maad_el_get_settings, $maad_el_new_settings );
 					update_option( 'maad_el_save_settings', $maad_el_updated_settings );
 				}
 
-				return $maad_el_get_extension_settings = get_option( 'maad_el_save_settings', $maad_el_default_settings );
+				return $maad_el_get_settings = get_option( 'maad_el_save_settings', $maad_el_default_settings );
 
 			}
+
+
+
 
 			public static function activated_extensions() {
 
 				$ma_el_default_extensions_settings = array_fill_keys( ma_el_array_flatten( self::$ma_el_extensions ),
 					true );
 
-				$maad_el_get_settings     = get_option( 'ma_el_extensions_save_settings', $ma_el_default_extensions_settings );
-				$maad_el_new_settings     = array_diff_key( $ma_el_default_extensions_settings, $maad_el_get_settings );
+				$maad_el_get_extension_settings     = get_option( 'ma_el_extensions_save_settings', $ma_el_default_extensions_settings );
+				$maad_el_new_extension_settings     = array_diff_key( $ma_el_default_extensions_settings, $maad_el_get_extension_settings );
 
-				if ( ! empty( $maad_el_new_settings ) ) {
-					$maad_el_updated_settings = array_merge( $maad_el_get_settings, $maad_el_new_settings );
-					update_option( 'ma_el_extensions_save_settings', $maad_el_updated_settings );
+				if ( ! empty( $maad_el_new_extension_settings ) ) {
+					$maad_el_updated_extension_settings = array_merge( $maad_el_get_extension_settings,
+						$maad_el_new_extension_settings );
+					update_option( 'ma_el_extensions_save_settings', $maad_el_updated_extension_settings );
 				}
 
-				return $maad_el_get_settings = get_option( 'ma_el_extensions_save_settings',
+				return $maad_el_get_extension_settings = get_option( 'ma_el_extensions_save_settings',
 					$ma_el_default_extensions_settings );
 
 			}
@@ -622,6 +626,21 @@
 
 					foreach ( ma_el_array_flatten( self::$ma_el_extensions ) as $extensions ) {
 
+//						if ( isset( $extension ) ) {
+//							if ( is_array( $extension ) ) {
+//								$is_pro = $extension[1];
+//								$extension = $extension[0];
+//
+//								if( !ma_el_fs()->can_use_premium_code()) {
+//									echo '<span class="pro-ribbon">';
+//									echo ucwords( $is_pro );
+//									echo '</span>';
+//								}
+//							}
+//							echo esc_html( ucwords( str_replace( "-", " ", $extension ) ) );
+//						}
+//
+//
 						if ( $activated_extensions[ $extensions ] == true ) {
 
 							include_once MELA_PLUGIN_PATH .  '/inc/modules/' . $extensions . '/' . $extensions . '.php';
@@ -630,6 +649,28 @@
 					}
 //				}
 
+
+//
+//				$activated_widgets = $this->activated_widgets();
+//
+//				foreach ( ma_el_array_flatten( self::$maad_el_default_widgets ) as $widget ) {
+//					if ( $activated_widgets[ $widget ] == true ) {
+////						require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+//
+//						if ( $widget == 'contact-form-7' ) {
+//							if ( function_exists( 'wpcf7' ) ) {
+//								require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+//							}
+//						} else {
+//							require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+//						}
+//
+//					}
+//				}
+//
+//
+//
+//
 
 			}
 

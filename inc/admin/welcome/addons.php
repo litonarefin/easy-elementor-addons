@@ -120,19 +120,35 @@
                                     <p class="master-addons-el-title">
 
                                         <?php
-                                            if ( isset( $widget ) ) {
-                                                if ( is_array( $widget ) ) {
-                                                    $is_pro = $widget[1];
-                                                    $widget = $widget[0];
+//                                            if ( isset( $widget ) ) {
+//                                                if ( is_array( $widget ) ) {
+//                                                    $is_pro = $widget[1];
+//                                                    $widget = $widget[0];
+//
+//                                                    if( !ma_el_fs()->can_use_premium_code()) {
+//                                                        echo '<span class="pro-ribbon">';
+//                                                        echo ucwords( $is_pro );
+//                                                        echo '</span>';
+//                                                    }
+//                                                }
+//                                                echo esc_html( ucwords( str_replace( "-", " ", $widget ) ) );
+//                                            }
 
-                                                    if( !ma_el_fs()->can_use_premium_code()) {
-                                                        echo '<span class="pro-ribbon">';
-                                                        echo ucwords( $is_pro );
-                                                        echo '</span>';
-                                                    }
-                                                }
-                                                echo esc_html( ucwords( str_replace( "-", " ", $widget ) ) );
-                                            }
+	                                        if ( isset( $widget ) ) {
+		                                        if ( is_array( $widget ) ) {
+			                                        $is_pro = $widget[1];
+			                                        $widget = $widget[0];
+
+			                                        if( !ma_el_fs()->can_use_premium_code()) {
+				                                        echo '<span class="pro-ribbon">';
+				                                        echo ucwords( $is_pro );
+				                                        echo '</span>';
+			                                        }
+		                                        }
+		                                        echo esc_html( ucwords( str_replace( "-", " ", $widget ) ) );
+	                                        }
+
+
                                         ?>
 
                                     </p>
@@ -172,9 +188,14 @@
                                                         type="checkbox" id="<?php echo esc_attr( $widget ); ?>"
                                                         class="switch-input "
                                                         name="<?php echo esc_attr( $widget ); ?>"
-                                                    <?php checked( 0, $this->maad_el_get_settings[$widget], true );
-	                                                if( !ma_el_fs()->can_use_premium_code() && isset($is_pro) &&
-                                                        $is_pro !="") { echo "disabled";} ?>>
+                                                    <?php
+//	                                                if( isset($is_pro) && $is_pro !="") {
+//		                                                checked( 0, $this->maad_el_get_settings[$widget], true );
+//	                                                    echo "disabled";
+//	                                                }else{
+
+	                                                    checked( 1, $this->maad_el_get_settings[$widget], true );
+                                                    //}  ?>>
 
                                                 <span data-on="On" data-off="Off" class="switch-label"></span>
                                                 <span class="switch-handle"></span>
