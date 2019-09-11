@@ -14,8 +14,7 @@ Master Addons is essential for Elementor page builder. It enhances the page or p
 Have you been looking for the perfect addons for Elementor that can help you make a creative looking website? Well, you don’t have to look too far. With master-addons for elementor, you get a wide range of elements that make your ordinary-looking website into something interactable, visually appealing and a lot more reader-friendly.
 
 
->[Website](https://master-addons.com/)  | [All Elements](https://master-addons.com/all-widgets/)  |  [Support]
-(https://jeweltheme.com/support/forum/wordpress-plugins/master-addons/) |  [Documentation](https://master-addons.com/docs/) |  [Video Tutorials](https://www.youtube.com/watch?v=wXPEl93_UBw&list=PLqpMw0NsHXV9V6UwRniXTUkabCJtOhyIf)
+>[All Elements](https://master-addons.com/all-widgets/)  |  [Support](https://jeweltheme.com/support/forum/wordpress-plugins/master-addons/) |  [Documentation](https://master-addons.com/docs/) |  [Video Tutorials](https://www.youtube.com/watch?v=wXPEl93_UBw&list=PLqpMw0NsHXV9V6UwRniXTUkabCJtOhyIf)
 
 Master Addons comes with some necessary widget, which helps your webpage to bring life. It's easy to enable and disable any widget from the plugin add-ons section. If you enable your necessary widget, then it will load the exact script of each widget. It will make your website faster. Make sure you have installed Elementor Page builder plugin. Otherwise, it will not work. We are working on its Development every day and trying to cover the essential widgets.
 
