@@ -626,21 +626,6 @@
 
 					foreach ( ma_el_array_flatten( self::$ma_el_extensions ) as $extensions ) {
 
-//						if ( isset( $extension ) ) {
-//							if ( is_array( $extension ) ) {
-//								$is_pro = $extension[1];
-//								$extension = $extension[0];
-//
-//								if( !ma_el_fs()->can_use_premium_code()) {
-//									echo '<span class="pro-ribbon">';
-//									echo ucwords( $is_pro );
-//									echo '</span>';
-//								}
-//							}
-//							echo esc_html( ucwords( str_replace( "-", " ", $extension ) ) );
-//						}
-//
-//
 						if ( $activated_extensions[ $extensions ] == true ) {
 
 							include_once MELA_PLUGIN_PATH .  '/inc/modules/' . $extensions . '/' . $extensions . '.php';
@@ -648,29 +633,7 @@
 						}
 					}
 //				}
-
-
-//
-//				$activated_widgets = $this->activated_widgets();
-//
-//				foreach ( ma_el_array_flatten( self::$maad_el_default_widgets ) as $widget ) {
-//					if ( $activated_widgets[ $widget ] == true ) {
-////						require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
-//
-//						if ( $widget == 'contact-form-7' ) {
-//							if ( function_exists( 'wpcf7' ) ) {
-//								require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
-//							}
-//						} else {
-//							require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
-//						}
-//
-//					}
-//				}
-//
-//
-//
-//
+				
 
 			}
 
