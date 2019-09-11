@@ -240,6 +240,7 @@ Paste on your Local Computer
  = 1.1.4 (12-09-2019) =
  * Tweak: Team Slider Content Drawer conflicting with Slick Slider issue resolved
  * Fixed: Dashboard Extensions, Addons tabs error fixed.
+ * Added: Image Size, Background Image size added on Team Slider Image
 
 
  = 1.1.3 (10-09-2019) =
