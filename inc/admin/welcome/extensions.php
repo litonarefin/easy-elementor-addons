@@ -86,7 +86,8 @@
                                                            class="switch-input"
                                                            name="<?php echo esc_attr( $extension ); ?>"
 														<?php checked( 1, $this->maad_el_get_extension_settings[$extension], true ); ?>>
-
+                                                    <span data-on="On" data-off="Off" class="switch-label"></span>
+                                                    <span class="switch-handle"></span>
 
 												<?php } else {
 
@@ -103,15 +104,16 @@
                                                             class="switch-input "
                                                             name="<?php echo esc_attr( $extension ); ?>"
 
-	                                                    <?php checked( 0, $this->maad_el_get_settings[$widget], true );
+	                                                    <?php checked( 1, $this->maad_el_get_settings[$widget], true );
 		                                                    if( !ma_el_fs()->can_use_premium_code() && isset($is_pro) &&
 		                                                        $is_pro !="") { echo "disabled";} ?>/>
 
+                                                    <span data-on="On" data-off="Off" class="switch-label"></span>
+                                                    <span class="switch-handle"></span>
 
 												<?php $is_pro = ""; }?>
 
-                                                <span data-on="On" data-off="Off" class="switch-label"></span>
-                                                <span class="switch-handle"></span>
+
 
 											</label>
 
