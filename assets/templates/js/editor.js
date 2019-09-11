@@ -74,31 +74,31 @@
             });
 
             me.TabModel = Backbone.Model.extend({
-               defaults: {
-                   slug: '',
-                   title: ''
-               }
+                defaults: {
+                    slug: '',
+                    title: ''
+                }
             });
 
             me.LibraryCollection = Backbone.Collection.extend({
-               model: me.ModalTemplateModel
+                model: me.ModalTemplateModel
             });
 
             me.ModalTabsCollection = Backbone.Collection.extend({
-               model: me.TabModel
+                model: me.TabModel
             });
 
             me.CategoryModel = Backbone.Model.extend({
-               defaults:{
-                   slug:'',
-                   title:''
-               }
+                defaults:{
+                    slug:'',
+                    title:''
+                }
             });
 
             me.KeywordsModel = Backbone.Model.extend({
-               defaults: {
-                   keywords:{}
-               }
+                defaults: {
+                    keywords:{}
+                }
             });
 
             me.CategoriesCollection = Backbone.Collection.extend({

@@ -80,9 +80,9 @@
 							'MasterAddonsEditorBtn'     => $button,
 							'modalRegions'              => $this->get_modal_region(),
 							'license'                   => array(
-											'status'        => Templates\premium_templates()->config->get('status'),
-											'activateLink'  => Templates\premium_templates()->config->get('license_page'),
-											'proMessage'    => Templates\premium_templates()->config->get('pro_message')
+								'status'        => Templates\premium_templates()->config->get('status'),
+								'activateLink'  => Templates\premium_templates()->config->get('license_page'),
+								'proMessage'    => Templates\premium_templates()->config->get('pro_message')
 							)
 						))
 				);

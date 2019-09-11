@@ -127,7 +127,7 @@
 				// Elementor Dependencies
 				add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'maad_el_editor_styles' ]);
 
-				add_action( 'elementor/editor/footer', [ $this, 'load_footer_scripts' ]);
+//				add_action( 'elementor/editor/footer', [ $this, 'load_footer_scripts' ]);
 
 
 				// Add Elementor Widgets
