@@ -226,11 +226,11 @@
 
                     MasterEditor.layout.showLoadingView();
 
-                    console.log(MasterEditor.layout.showLoadingView());
+                    // console.log(MasterEditor.layout.showLoadingView());
 
                     if (innerTemplatesLength > 0) {
 
-                        console.log( ' innerTemplatesLength:' + innerTemplatesLength );
+                        // console.log( ' innerTemplatesLength:' + innerTemplatesLength );
 
                         for (var key in innerTemplates) {
                             console.log( ' Foreach :' + innerTemplatesLength );
