@@ -33,7 +33,7 @@
 //						'base'      => 'https://pa.premiumtemplates.io/',
 //						'path'      => 'wp-json/patemp/v2',
 
-						'base'      => 'https://api.master-addons.app/',
+						'base'      => 'https://el.master-addons.com/',
 						'path'      => 'wp-json/masteraddons/v2',
 
 //						'id'        => 9,
@@ -88,8 +88,7 @@
 					return;
 				}
 
-//				$status = Admin::get_license_status();
-				$status = true;
+				$status = ma_el_fs()->can_use_premium_code();
 
 				return $status;
 
@@ -111,7 +110,7 @@
 
 					$theme_slug = Master_Addons_Helper::get_installed_theme();
 
-					$url = sprintf('https://master-addons.com/account/?utm_source=premium-templates&utm_medium=wp-dash&utm_campaign=get-pro&utm_term=%s', $theme_slug);
+					$url = sprintf('https://master-addons.com/pricing/?utm_source=premium-templates&utm_medium=wp-dash&utm_campaign=get-pro&utm_term=%s', $theme_slug);
 
 					return $url;
 

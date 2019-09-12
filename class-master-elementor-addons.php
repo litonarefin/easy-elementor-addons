@@ -6,7 +6,7 @@
 	if( !class_exists('Master_Elementor_Addons') ){
 		final class Master_Elementor_Addons {
 
-			const VERSION = "1.1.2";
+			const VERSION = "1.1.3";
 
 			const MINIMUM_PHP_VERSION = '5.4';
 

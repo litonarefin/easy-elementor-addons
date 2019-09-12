@@ -148,7 +148,7 @@
 				}
 
 				$template = isset( $_REQUEST['template'] ) ? $_REQUEST['template'] : false;
-
+				print_r($template);
 				if ( ! $template ) {
 					wp_send_json_error();
 				}

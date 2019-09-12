@@ -224,28 +224,20 @@
                 onInsertButtonClick: function () {
 
 
-                    console.log( 'Insert Clicked' );
+
 
                     var templateModel = this.view.model,
                         innerTemplates = templateModel.attributes.dependencies,
                         isPro = templateModel.attributes.pro,
                         innerTemplatesLength = Object.keys(innerTemplates).length,
                         options = {};
-                    //
-                    // console.log( ' Template Model:' + templateModel );
-                    // console.log( ' innerTemplates:' + innerTemplates );
-                    // console.log( ' isPro:' + isPro );
-                    // console.log( ' innerTemplatesLength:' + innerTemplatesLength );
-                    // console.log( ' options:' + options );
-                    //
 
                     MasterEditor.layout.showLoadingView();
 
+                    // console.log( innerTemplatesLength );
 
                     if (innerTemplatesLength > 0) {
-
                         for (var key in innerTemplates) {
-
                             $.ajax({
                                 url: ajaxurl,
                                 type: 'post',
@@ -259,9 +251,13 @@
                         }
                     }
 
+
+
                     if ("valid" === MasterAddonsData.license.status || ! isPro ) {
 
                         elementor.templates.requestTemplateContent(
+
+
                             templateModel.get('source'),
                             templateModel.get('template_id'),
                             {
@@ -272,7 +268,7 @@
                                 success: function (data) {
 
                                     // console.log(data);
-
+                                    //
                                     //
                                     // if ( ! data.license ) {
                                     //     MasterEditor.layout.showLicenseError();
