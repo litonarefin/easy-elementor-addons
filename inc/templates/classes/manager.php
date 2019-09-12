@@ -153,46 +153,45 @@
 
 			public function insert_inner_template() {
 
-			echo 'Ajax Fired';
-			die();
-//
-//				if ( ! current_user_can( 'edit_posts' ) ) {
-//					wp_send_json_error();
-//				}
-//
-//				$template = isset( $_REQUEST['template'] ) ? $_REQUEST['template'] : false;
-//
-//
-//				if ( ! $template ) {
-//					wp_send_json_error();
-//				}
-//
-//
-//				$template_id = isset( $template['template_id'] ) ? esc_attr( $template['template_id'] ) : false;
-//
-//				$source_name = isset( $template['source'] ) ? esc_attr( $template['source'] ) : false;
-//				$source      = isset( $this->sources[ $source_name ] ) ? $this->sources[ $source_name ] : false;
-//
-//				if ( ! $source || ! $template_id ) {
-//					wp_send_json_error();
-//				}
-//
-//				$template_data = $source->get_item( $template_id );
-//
-//				if ( ! empty( $template_data['content'] ) ) {
-//					wp_insert_post( array(
-//						'post_type'   => 'elementor_library',
-//						'post_title'  => $template['title'],
-//						'post_status' => 'publish',
-//						'meta_input'  => array(
-//							'_elementor_data'          => $template_data['content'],
-//							'_elementor_edit_mode'     => 'builder',
-//							'_elementor_template_type' => 'section',
-//						),
-//					) );
-//				}
-//
-//				wp_send_json_success();
+
+
+				if ( ! current_user_can( 'edit_posts' ) ) {
+					wp_send_json_error();
+				}
+
+				$template = isset( $_REQUEST['template'] ) ? $_REQUEST['template'] : false;
+
+
+				if ( ! $template ) {
+					wp_send_json_error();
+				}
+
+
+				$template_id = isset( $template['template_id'] ) ? esc_attr( $template['template_id'] ) : false;
+
+				$source_name = isset( $template['source'] ) ? esc_attr( $template['source'] ) : false;
+				$source      = isset( $this->sources[ $source_name ] ) ? $this->sources[ $source_name ] : false;
+
+				if ( ! $source || ! $template_id ) {
+					wp_send_json_error();
+				}
+
+				$template_data = $source->get_item( $template_id );
+
+				if ( ! empty( $template_data['content'] ) ) {
+					wp_insert_post( array(
+						'post_type'   => 'elementor_library',
+						'post_title'  => $template['title'],
+						'post_status' => 'publish',
+						'meta_input'  => array(
+							'_elementor_data'          => $template_data['content'],
+							'_elementor_edit_mode'     => 'builder',
+							'_elementor_template_type' => 'section',
+						),
+					) );
+				}
+
+				wp_send_json_success();
 
 			}
 
