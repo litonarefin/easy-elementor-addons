@@ -447,10 +447,7 @@
                 template: '#views-ma-el-template-modal-tabs',
 
                 childViewContainer: '#views-ma-el-template-modal-tabs-items',
-                //
-                // initialize: function () {
-                //     this.listenTo(MasterEditor.channels.layout, 'tamplate:cloned', this._renderChildren);
-                // },
+
                 initialize: function () {
                     this.listenTo(MasterEditor.channels.layout, 'tamplate:cloned', this._renderChildren);
                 },

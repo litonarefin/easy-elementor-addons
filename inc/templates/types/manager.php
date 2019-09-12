@@ -30,7 +30,6 @@
 				$temp_types = array(
 					__NAMESPACE__ . '\Master_Addons_Structure_Section' => $base_path . 'section.php',
 				);
-//				print_r($temp_types);
 
 				array_walk( $temp_types, function( $file, $class ) {
 
@@ -73,7 +72,45 @@
 
 			public function get_types_for_popup() {
 
-				$result = array();
+//				$result = array();
+				$result = array(
+					'master_pages' =>array(
+						'title' => __('Ready Pages', MELA_TD),
+						'data' =>[],
+						'sources' => array( 'premium-api' ),
+						'settings' =>array(
+							'show_title' =>true,
+							'show_keywords' =>true
+						)
+					),
+					'master_header' =>array(
+						'title' => __('Headers', MELA_TD) ,
+						'data' =>[],
+						'sources' => array( 'premium-api' ),
+						'settings' =>array(
+							'show_title' =>true,
+							'show_keywords' =>true
+						)
+					),
+					'master_footer' =>array(
+						'title' => __('Footers', MELA_TD) ,
+						'data' =>[],
+						'sources' => array( 'premium-api' ),
+						'settings' =>array(
+							'show_title' =>true,
+							'show_keywords' =>true
+						)
+					),
+					'master_widgets' =>array(
+						'title' => __('Widgets', MELA_TD) ,
+						'data' =>[],
+						'sources' => array( 'premium-api' ),
+						'settings' =>array(
+							'show_title' =>true,
+							'show_keywords' =>true
+						)
+					),
+				);
 
 				foreach ( $this->types as $id => $structure ) {
 					$result[ $id ] = array(
