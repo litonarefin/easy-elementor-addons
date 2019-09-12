@@ -83,6 +83,17 @@
 								'status'        => Templates\premium_templates()->config->get('status'),
 								'activateLink'  => Templates\premium_templates()->config->get('license_page'),
 								'proMessage'    => Templates\premium_templates()->config->get('pro_message')
+							),
+							'tabs'      => array(
+								'ready_pages' =>array(
+									'title' =>'Ready Pages',
+									'data' =>'Ready Pages',
+									'sources' => array( 'master-themes', 'premium-api' ),
+									'settings' =>array(
+										'show_title' =>true,
+										'show_keywords' =>true
+									)
+								),
 							)
 						))
 				);

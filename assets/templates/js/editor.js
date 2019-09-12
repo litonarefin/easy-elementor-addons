@@ -285,7 +285,7 @@
                     }
                 }
             });
-            
+
 
             me.ModalHeaderInsertButton = Marionette.ItemView.extend({
                 template: '#views-ma-el-template-modal-insert-button',
@@ -447,7 +447,10 @@
                 template: '#views-ma-el-template-modal-tabs',
 
                 childViewContainer: '#views-ma-el-template-modal-tabs-items',
-
+                //
+                // initialize: function () {
+                //     this.listenTo(MasterEditor.channels.layout, 'tamplate:cloned', this._renderChildren);
+                // },
                 initialize: function () {
                     this.listenTo(MasterEditor.channels.layout, 'tamplate:cloned', this._renderChildren);
                 },
@@ -888,7 +891,8 @@
             var $addNewSection = window.elementor.$previewContents.find('.elementor-add-new-section'),
                 addMasterTemplate = "<div class='elementor-add-section-area-button ma-el-add-section-btn' title='Add" +
                     " Master Addons" +
-                    " Template'><img src='https://ps.w.org/master-addons/assets/icon-256x256.png'></div>",
+                    " Template'><img" +
+                    " src='https://plugins.elementor.app/wp-content/plugins/master-addons/assets/images/icon.svg'></div>",
                 $addMasterTemplate;
 
             if ($addNewSection.length && MasterAddonsData.MasterAddonsEditorBtn) {
@@ -1066,7 +1070,11 @@
     };
 
 
+
+
     $(window).on('elementor:init', MasterEditor.init);
+
+
 
 
 })(jQuery);
