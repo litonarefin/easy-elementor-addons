@@ -135,13 +135,7 @@
                 ui:{
                     iframe: 'iframe',
                     notice: '.ma-el-item-notice',
-                    // img: 'img'
                 },
-                // onRender: function(){
-                //     // if(null !=)
-                //     this.ui.img.attr('src', me.getOption('preview'))
-                // },
-
                 onRender: function () {
 
                     if (null !== this.getOption('notice')) {
@@ -211,7 +205,6 @@
             });
 
 
-
             me.ModalInsertTemplateBehavior = Marionette.Behavior.extend({
                 ui: {
                     insertButton: '.ma-el-template-insert'
@@ -223,21 +216,24 @@
 
                 onInsertButtonClick: function () {
 
-
-
-
                     var templateModel = this.view.model,
                         innerTemplates = templateModel.attributes.dependencies,
                         isPro = templateModel.attributes.pro,
                         innerTemplatesLength = Object.keys(innerTemplates).length,
                         options = {};
 
+
+
                     MasterEditor.layout.showLoadingView();
 
-                    // console.log( innerTemplatesLength );
+                    console.log(MasterEditor.layout.showLoadingView());
 
                     if (innerTemplatesLength > 0) {
+
+                        console.log( ' innerTemplatesLength:' + innerTemplatesLength );
+
                         for (var key in innerTemplates) {
+                            console.log( ' Foreach :' + innerTemplatesLength );
                             $.ajax({
                                 url: ajaxurl,
                                 type: 'post',
@@ -251,13 +247,9 @@
                         }
                     }
 
-
-
-                    if ("valid" === MasterAddonsData.license.status || ! isPro ) {
+                    // if ("valid" === MasterAddonsData.license.status || ! isPro ) {
 
                         elementor.templates.requestTemplateContent(
-
-
                             templateModel.get('source'),
                             templateModel.get('template_id'),
                             {
@@ -267,13 +259,10 @@
                                 },
                                 success: function (data) {
 
-                                    // console.log(data);
-                                    //
-                                    //
-                                    // if ( ! data.license ) {
-                                    //     MasterEditor.layout.showLicenseError();
-                                    //     return;
-                                    // }
+                                    if ( ! data.license ) {
+                                        MasterEditor.layout.showLicenseError();
+                                        return;
+                                    }
 
                                     console.log("%c Template Inserted Successfully!!", "color: #7a7a7a; background-color: #eee;");
 
@@ -297,15 +286,103 @@
                                 }
                             }
                         );
-
-                    } else {
-                        MasterEditor.layout.showLicenseError();
-                    }
-
-
+                    // } else {
+                    //     MasterEditor.layout.showLicenseError();
+                    // }
                 }
             });
-
+            //
+            //
+            // me.ModalInsertTemplateBehavior = Marionette.Behavior.extend({
+            //     ui: {
+            //         insertButton: '.ma-el-template-insert'
+            //     },
+            //     events: {
+            //         'click @ui.insertButton': 'onInsertButtonClick'
+            //     },
+            //     onInsertButtonClick: function () {
+            //
+            //
+            //         var templateModel = this.view.model,
+            //             innerTemplates = templateModel.attributes.dependencies,
+            //             isPro = templateModel.attributes.pro,
+            //             innerTemplatesLength = Object.keys(innerTemplates).length,
+            //             options = {};
+            //
+            //         MasterEditor.layout.showLoadingView();
+            //
+            //         console.log(MasterEditor.layout.showLoadingView());
+            //
+            //         if (innerTemplatesLength > 0) {
+            //             for (var key in innerTemplates) {
+            //                 $.ajax({
+            //                     url: ajaxurl,
+            //                     type: 'post',
+            //                     dataType: 'json',
+            //                     data: {
+            //                         action: 'ma_el_inner_template',
+            //                         template: innerTemplates[key],
+            //                         tab: MasterEditor.getTab()
+            //                     }
+            //                 });
+            //             }
+            //         }
+            //
+            //
+            //
+            //         if ("valid" === MasterAddonsData.license.status || ! isPro ) {
+            //
+            //             elementor.templates.requestTemplateContent(
+            //
+            //
+            //                 templateModel.get('source'),
+            //                 templateModel.get('template_id'),
+            //                 {
+            //                     data: {
+            //                         tab: MasterEditor.getTab(),
+            //                         page_settings: false
+            //                     },
+            //                     success: function (data) {
+            //
+            //                         // console.log(data);
+            //                         //
+            //                         //
+            //                         // if ( ! data.license ) {
+            //                         //     MasterEditor.layout.showLicenseError();
+            //                         //     return;
+            //                         // }
+            //
+            //                         console.log("%c Template Inserted Successfully!!", "color: #7a7a7a; background-color: #eee;");
+            //
+            //                         MasterEditor.closeModal();
+            //
+            //                         elementor.channels.data.trigger('template:before:insert', templateModel);
+            //
+            //                         if (null !== MasterEditor.atIndex) {
+            //                             options.at = MasterEditor.atIndex;
+            //                         }
+            //
+            //                         elementor.sections.currentView.addChildModel(data.content, options);
+            //
+            //                         elementor.channels.data.trigger('template:after:insert', templateModel);
+            //
+            //                         MasterEditor.atIndex = null;
+            //
+            //                     },
+            //                     error: function (err) {
+            //                         console.log(err);
+            //                     }
+            //                 }
+            //             );
+            //
+            //         } else {
+            //             MasterEditor.layout.showLicenseError();
+            //         }
+            //
+            //
+            //     }
+            // });
+            //
 
             me.ModalHeaderInsertButton = Marionette.ItemView.extend({
                 template: '#views-ma-el-template-modal-insert-button',

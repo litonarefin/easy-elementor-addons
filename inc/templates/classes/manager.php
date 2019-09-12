@@ -127,9 +127,17 @@
 
 				$all_cats = array(
 					array(
-						'slug' => '',
+						'slug' => 'all-sections',
 						'title' => __( 'All Sections', MELA_TD ),
-					)
+					),
+//					array(
+//						'slug' => 'ready-pages',
+//						'title' => __( 'Ready Pages', MELA_TD ),
+//					),
+//					array(
+//						'slug' => 'ready-blocks',
+//						'title' => __( 'Ready Blocks', MELA_TD ),
+//					),
 				);
 
 				if ( ! empty( $result['categories'] ) ) {
@@ -143,12 +151,15 @@
 			public function insert_inner_template() {
 
 
+
 				if ( ! current_user_can( 'edit_posts' ) ) {
 					wp_send_json_error();
 				}
 
 				$template = isset( $_REQUEST['template'] ) ? $_REQUEST['template'] : false;
-				print_r($template);
+
+				//				print_r($template);
+
 				if ( ! $template ) {
 					wp_send_json_error();
 				}

@@ -290,7 +290,7 @@ class Master_Addons_Templates_Source_Api extends Master_Addons_Templates_Source_
         $license_key = Templates\premium_templates()->config->get( 'key' );
         
 		$api_url = Templates\premium_templates()->api->api_url( 'template' );
-//        print_r($api_url);
+
 
 		if ( ! $api_url ) {
 			wp_send_json_success( array(
