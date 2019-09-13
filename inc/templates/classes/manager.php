@@ -111,6 +111,10 @@
 
 				$result = array(
 					'templates'  => array(),
+//					'ready_pages'  => array(),
+//					'ready_widgets'  => array(),
+//					'ready_headers'  => array(),
+//					'ready_footers'  => array(),
 					'categories' => array(),
 					'keywords'   => array(),
 				);
@@ -120,6 +124,7 @@
 					$source = isset( $this->sources[ $source_slug ] ) ? $this->sources[ $source_slug ] : false;
 
 					if ( $source ) {
+//						$result['ready_pages']  = array_merge( $result['ready_pages'], $source->get_items( $tab ) );
 						$result['templates']  = array_merge( $result['templates'], $source->get_items( $tab ) );
 						$result['categories'] = array_merge( $result['categories'], $source->get_categories( $tab ) );
 						$result['keywords']   = array_merge( $result['keywords'], $source->get_keywords( $tab ) );
@@ -130,11 +135,11 @@
 
 				$all_cats = array(
 					array(
-						'slug' => 'all-sections',
+						'slug' => '',
 						'title' => __( 'All Sections', MELA_TD ),
 					),
 //					array(
-//						'slug' => 'ready-pages',
+//						'slug' => 'master_pages',
 //						'title' => __( 'Ready Pages', MELA_TD ),
 //					),
 //					array(

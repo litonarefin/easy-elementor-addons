@@ -889,7 +889,7 @@
                 addMasterTemplate = "<div class='elementor-add-section-area-button ma-el-add-section-btn' title='Add" +
                     " Master Addons" +
                     " Template'><img" +
-                    " src='https://plugins.elementor.app/wp-content/plugins/master-addons/assets/images/icon.svg'></div>",
+                    " src='https://plugins.elementor.app/wp-content/plugins/master-addons/assets/images/MA_icon.svg'></div>",
                 $addMasterTemplate;
 
             if ($addNewSection.length && MasterAddonsData.MasterAddonsEditorBtn) {

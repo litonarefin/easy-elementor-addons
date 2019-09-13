@@ -1,13 +1,11 @@
 .elementor-add-new-section .ma-el-add-section-btn {    
     color: #fff;
     background: #4b00e7;
-    margin-right: 8px;
+    margin-right: 4px;
+    margin-left: 3px;
     display: inherit;
     padding: 0;
     line-height: 40px;
-}
-.elementor-add-new-section .ma-el-add-section-btn .master-addons-icon-button{
-    background: url("../../images/icon.svg");
 }
 .add-elementskit-template{
     order:1;

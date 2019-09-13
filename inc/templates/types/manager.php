@@ -77,25 +77,25 @@
 					'master_pages' =>array(
 						'title' => __('Ready Pages', MELA_TD),
 						'data' =>[],
-						'sources' => array( 'premium-api' ),
+						'sources' => array( 'master-addons','premium-api' ),
 						'settings' =>array(
 							'show_title' =>true,
 							'show_keywords' =>true
 						)
 					),
-					'master_header' =>array(
+					'master_headers' =>array(
 						'title' => __('Headers', MELA_TD) ,
 						'data' =>[],
-						'sources' => array( 'premium-api' ),
+						'sources' => array( 'master-addons','premium-api' ),
 						'settings' =>array(
 							'show_title' =>true,
 							'show_keywords' =>true
 						)
 					),
-					'master_footer' =>array(
+					'master_footers' =>array(
 						'title' => __('Footers', MELA_TD) ,
 						'data' =>[],
-						'sources' => array( 'premium-api' ),
+						'sources' => array( 'master-addons','premium-api' ),
 						'settings' =>array(
 							'show_title' =>true,
 							'show_keywords' =>true
@@ -104,7 +104,7 @@
 					'master_widgets' =>array(
 						'title' => __('Widgets', MELA_TD) ,
 						'data' =>[],
-						'sources' => array( 'premium-api' ),
+						'sources' => array( 'master-addons','premium-api' ),
 						'settings' =>array(
 							'show_title' =>true,
 							'show_keywords' =>true
