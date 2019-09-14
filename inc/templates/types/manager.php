@@ -83,6 +83,7 @@
 							'show_keywords' =>true
 						)
 					),
+
 //					'master_headers' =>array(
 //						'title' => __('Headers', MELA_TD) ,
 //						'data' =>[],
