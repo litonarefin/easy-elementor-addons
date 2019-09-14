@@ -883,13 +883,19 @@
         },
 
         initMasterTempsButton: function () {
-
-
+            //
+            //
+            // var $addNewSection = window.elementor.$previewContents.find('.elementor-add-new-section'),
+            //     addMasterTemplate = "<div class='elementor-add-section-area-button ma-el-add-section-btn' title='Add" +
+            //         " Master Addons Templates'><img" + " src='" + master_image_dir + "'ma-editor-icon.svg'></div>",
+            //     $addMasterTemplate;
+            //
+            //
             var $addNewSection = window.elementor.$previewContents.find('.elementor-add-new-section'),
                 addMasterTemplate = "<div class='elementor-add-section-area-button ma-el-add-section-btn' title='Add" +
                     " Master Addons" +
                     " Template'><img" +
-                    " src='https://plugins.elementor.app/wp-content/plugins/master-addons/assets/images/MA_icon.svg'></div>",
+                    " src='https://plugins.elementor.app/wp-content/plugins/master-addons/assets/images/ma-editor-icon.svg'></div>",
                 $addMasterTemplate;
 
             if ($addNewSection.length && MasterAddonsData.MasterAddonsEditorBtn) {

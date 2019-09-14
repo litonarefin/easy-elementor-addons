@@ -77,6 +77,7 @@
 				wp_localize_script( 'master-addons-editor-js', 'MasterAddonsData', apply_filters(
 						'master-addons-core/assets/editor/localize',
 						array(
+							'master_image_dir'          => MELA_PLUGIN_PATH . '/assets/images/',
 							'MasterAddonsEditorBtn'     => $button,
 							'modalRegions'              => $this->get_modal_region(),
 							'license'                   => array(
@@ -84,17 +85,17 @@
 								'activateLink'  => Templates\premium_templates()->config->get('license_page'),
 								'proMessage'    => Templates\premium_templates()->config->get('pro_message')
 							),
-							'tabs'      => array(
-								'ready_pages' =>array(
-									'title' =>'Ready Pages',
-									'data' =>'Ready Pages',
-									'sources' => array( 'master-themes', 'premium-api' ),
-									'settings' =>array(
-										'show_title' =>true,
-										'show_keywords' =>true
-									)
-								),
-							)
+//							'tabs'      => array(
+//								'ready_pages' =>array(
+//									'title' =>'Ready Pages',
+//									'data' =>'Ready Pages',
+//									'sources' => array( 'master-themes', 'premium-api' ),
+//									'settings' =>array(
+//										'show_title' =>true,
+//										'show_keywords' =>true
+//									)
+//								),
+//							)
 						))
 				);
 

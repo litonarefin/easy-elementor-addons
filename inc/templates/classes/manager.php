@@ -138,14 +138,6 @@
 						'slug' => '',
 						'title' => __( 'All Sections', MELA_TD ),
 					),
-//					array(
-//						'slug' => 'master_pages',
-//						'title' => __( 'Ready Pages', MELA_TD ),
-//					),
-//					array(
-//						'slug' => 'ready-blocks',
-//						'title' => __( 'Ready Blocks', MELA_TD ),
-//					),
 				);
 
 				if ( ! empty( $result['categories'] ) ) {

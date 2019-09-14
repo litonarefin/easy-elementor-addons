@@ -80,6 +80,7 @@
     height: 50px;
 }
 #ma-el-template-modal-header .ma-el-template-modal-header-back {
+    margin-left: -200px;
     background: none;
     border: none;
     border-right: 1px solid #e6e9ec;
@@ -168,8 +169,8 @@
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-/*#views-ma-el-template-modal-tabs-items {*/
-/*display: none;*/
+/*#ma-el-template-modal-header-tabs #views-ma-el-template-modal-tabs-items {*/
+    /*padding-left: 15%;*/
 /*}*/
 
 #views-ma-el-template-modal-tabs-items .elementor-template-library-menu-item{
@@ -326,7 +327,7 @@
 }
 #ma-el-template-library-content .ma-el-modal-template-filter-label:hover span,
 #ma-el-template-library-content .ma-el-modal-template-filter-label input:checked + span {
-    color: #f47216;
+    color: #4b00e7;
 }
 #ma-el-template-library-content .ma-el-modal-template-filter-item {
     border-top: 1px solid rgba(213, 218, 223, 0.5);
