@@ -110,11 +110,11 @@
 				$sources = $tabs[ $tab ]['sources'];
 
 				$result = array(
+					'ready_pages'  => array(),
+					'ready_widgets'  => array(),
+					'ready_headers'  => array(),
+					'ready_footers'  => array(),
 					'templates'  => array(),
-//					'ready_pages'  => array(),
-//					'ready_widgets'  => array(),
-//					'ready_headers'  => array(),
-//					'ready_footers'  => array(),
 					'categories' => array(),
 					'keywords'   => array(),
 				);
@@ -124,7 +124,7 @@
 					$source = isset( $this->sources[ $source_slug ] ) ? $this->sources[ $source_slug ] : false;
 
 					if ( $source ) {
-//						$result['ready_pages']  = array_merge( $result['ready_pages'], $source->get_items( $tab ) );
+						$result['ready_pages']  = array_merge( $result['ready_pages'], $source->get_items( $tab ) );
 						$result['templates']  = array_merge( $result['templates'], $source->get_items( $tab ) );
 						$result['categories'] = array_merge( $result['categories'], $source->get_categories( $tab ) );
 						$result['keywords']   = array_merge( $result['keywords'], $source->get_keywords( $tab ) );

@@ -83,24 +83,24 @@
 							'show_keywords' =>true
 						)
 					),
-					'master_headers' =>array(
-						'title' => __('Headers', MELA_TD) ,
-						'data' =>[],
-						'sources' => array( 'master-addons','premium-api' ),
-						'settings' =>array(
-							'show_title' =>true,
-							'show_keywords' =>true
-						)
-					),
-					'master_footers' =>array(
-						'title' => __('Footers', MELA_TD) ,
-						'data' =>[],
-						'sources' => array( 'master-addons','premium-api' ),
-						'settings' =>array(
-							'show_title' =>true,
-							'show_keywords' =>true
-						)
-					),
+//					'master_headers' =>array(
+//						'title' => __('Headers', MELA_TD) ,
+//						'data' =>[],
+//						'sources' => array( 'master-addons','premium-api' ),
+//						'settings' =>array(
+//							'show_title' =>true,
+//							'show_keywords' =>true
+//						)
+//					),
+//					'master_footers' =>array(
+//						'title' => __('Footers', MELA_TD) ,
+//						'data' =>[],
+//						'sources' => array( 'master-addons','premium-api' ),
+//						'settings' =>array(
+//							'show_title' =>true,
+//							'show_keywords' =>true
+//						)
+//					),
 					'master_widgets' =>array(
 						'title' => __('Widgets', MELA_TD) ,
 						'data' =>[],
