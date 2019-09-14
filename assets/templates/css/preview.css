@@ -2,11 +2,11 @@
     color: #fff;
     background: #4b00e7;
     margin-right: 4px;
-    margin-left: 3px;
+    margin-left: 4px;
     display: inherit;
     padding: 0;
     line-height: 40px;
 }
-.add-elementskit-template{
-    order:1;
+.ma-el-add-section-btn{
+    order:0;
 }
