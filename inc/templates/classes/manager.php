@@ -110,10 +110,11 @@
 				$sources = $tabs[ $tab ]['sources'];
 
 				$result = array(
-					'ready_pages'  => array(),
-					'ready_widgets'  => array(),
-					'ready_headers'  => array(),
-					'ready_footers'  => array(),
+//					'ready_pages'  => array(),
+//					'ready_widgets'  => array(),
+//					'ready_headers'  => array(),
+//					'ready_footers'  => array(),
+//					'ready_woocommerce'  => array(),
 					'templates'  => array(),
 					'categories' => array(),
 					'keywords'   => array(),

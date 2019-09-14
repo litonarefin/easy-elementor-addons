@@ -101,6 +101,17 @@
 //							'show_keywords' =>true
 //						)
 //					),
+
+//					'master_woocommerce' =>array(
+//						'title' => __('WooCommerce', MELA_TD) ,
+//						'data' =>[],
+//						'sources' => array( 'master-addons','premium-api' ),
+//						'settings' =>array(
+//							'show_title' =>true,
+//							'show_keywords' =>true
+//						)
+//					),
+
 					'master_widgets' =>array(
 						'title' => __('Widgets', MELA_TD) ,
 						'data' =>[],
