@@ -9,7 +9,7 @@
                         <ul class="master-addons-supports-list">
                             <li>
                                 <div class="addons-supports-list-content">
-                                    <a href="https://www.facebook.com/groups/jeweltheme/" target="_blank">
+                                    <a href="https://www.facebook.com/groups/2495256720521297/" target="_blank">
                                         <?php echo esc_html__('Facebook Community', MELA_TD);?>
                                     </a>
                                     <div class="addons-supports-list-icon">
@@ -19,7 +19,7 @@
                             </li>
                             <li>
                                 <div class="addons-supports-list-content">
-                                    <a href="https://www.facebook.com/jwthemeltd/" target="_blank">
+                                    <a href="https://www.facebook.com/masteraddons" target="_blank">
                                         <?php echo esc_html__('Like Facebook Page', MELA_TD);?>
                                     </a>
                                     <div class="addons-supports-list-icon">
@@ -29,10 +29,9 @@
                             </li>
                             <li>
                                 <div class="addons-supports-list-content">
-                                    <a href="https://jeweltheme.com/support/forum/wordpress-plugins/master-addons/" target="_blank">
-                                        Support
+                                    <a href="https://master-addons.com/contact-us/" target="_blank">
+                                        <?php echo esc_html__('Contact Support', MELA_TD);?>
                                     </a>
-
                                     <div class="addons-supports-list-icon">
                                         <img src="<?php echo MELA_ADMIN_ASSETS;?>icons/MA_icon.svg" alt="Contact Support">
                                     </div><!-- /.addons-supports-list-icon -->
@@ -41,7 +40,7 @@
                             <li>
                                 <div class="addons-supports-list-content">
                                     <a href="https://wordpress.org/support/plugin/master-addons/" target="_blank">
-                                        WordPress Support Forum
+                                        <?php echo esc_html__('WordPress.org Support', MELA_TD);?>
                                     </a>
 
                                     <div class="addons-supports-list-icon">
@@ -51,8 +50,8 @@
                             </li>
                             <li>
                                 <div class="addons-supports-list-content">
-                                    <a href="https://www.youtube.com/channel/UCAPfTXvzbNebKsB322Iz6HQ" target="_blank">
-                                        Watch Video Tutorial
+                                    <a href="https://www.youtube.com/playlist?list=PLqpMw0NsHXV9V6UwRniXTUkabCJtOhyIf" target="_blank">
+                                        <?php echo esc_html__('Video Tutorials', MELA_TD);?>
                                     </a>
 
                                     <div class="addons-supports-list-icon">
@@ -63,8 +62,8 @@
 
                             <li>
                                 <div class="addons-supports-list-content">
-                                    <a href="#" target="_blank">
-                                        Documentation
+                                    <a href="https://master-addons.com/docs/" target="_blank">
+                                        <?php echo esc_html__('Documentation', MELA_TD);?>
                                     </a>
 
                                     <div class="addons-supports-list-icon">
@@ -87,11 +86,11 @@
                                     <?php echo esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ', MELA_TD);?>
                                 </p>
 
-                                <button class="master-addons-review-btn">
-                                    <a href="https://wordpress.org/support/plugin/master-addons/reviews/#new-post">
-                                        <?php echo esc_html__('Give a 5 star review', MELA_TD);?>
-                                    </a>
-                                </button>
+                                <a href="https://wordpress.org/support/plugin/master-addons/reviews/#new-post" target="_blank">
+                                    <button class="master-addons-review-btn">
+                                        <?php echo esc_html__('Give a Five star review', MELA_TD);?>
+                                    </button>
+                                </a>
                             </div><!-- /.review-content-right -->
                         </div><!-- /.master-addons-star-review -->
 
@@ -110,7 +109,11 @@
                                 </p>
                             </div><!-- /.master-addons-faq-content -->
 
-                            <button class="master-addons-btn read-more">Read more</button>
+                            <a href="https://master-addons.com/pricing/" target="_blank">
+                                <button class="master-addons-btn read-more">
+                                    Read more
+                                </button>
+                            </a>
                         </div><!-- /.master-addons-support-faq -->
                     </div>
                 </div>
@@ -134,19 +137,27 @@
                             <?php echo esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', MELA_TD);?>
                         </p>
 
-                        <button class="master-addons-widget-btn">Request feature</button>
+                        <a href="https://master-addons.com/contact-us/" target="_blank">
+                            <button class="master-addons-widget-btn">
+                                <?php echo esc_html__('Request a Feature', MELA_TD);?>
+                            </button>
+                        </a>
                     </div><!-- /.master-addons-right-column-widget -->
 
                     <div class="master-addons-right-column-widget">
-                        <img class="icon-image" src="../wp-content/plugins/master-addons/assets/images/icons/sidebar-2.png" alt="Icon Image">
-
-                        <h4><?php echo esc_html__('Subscribe Newsletter', MELA_TD);?></h4>
-
+                        <img class="icon-image" src="<?php echo MELA_ADMIN_ASSETS;?>icons/newsletter.svg" alt="Subscript to Newsletter">
+                        <h4>
+                            <?php echo esc_html__('Subscribe Newsletter', MELA_TD);?>
+                        </h4>
                         <p>
                             <?php echo esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', MELA_TD);?>
                         </p>
 
-                        <button class="master-addons-widget-btn">Subscribe now</button>
+                        <a href="https://master-addons.com/pricing" target="_blank">
+                            <button class="master-addons-widget-btn">
+                                <?php echo esc_html__('Subscribe Now', MELA_TD);?>
+                            </button>
+                        </a>
                     </div><!-- /.master-addons-right-column-widget -->
 
                 </div>
