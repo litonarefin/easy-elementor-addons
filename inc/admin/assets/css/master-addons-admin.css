@@ -592,6 +592,9 @@
     margin: 0;
     padding: 0 7.5px 15px;
 }
+.master-addons-supports-list li:hover{
+    cursor: pointer;
+}
 .master-addons-supports-list .addons-supports-list-content {
     border: 1px solid #efeff5;
     border-radius: 5px;
@@ -618,7 +621,7 @@
     float: right;
     max-height: 44px;
     max-width: 100%;
-    width: initial;
+    width: 35px;
 }
 
 /* Review */

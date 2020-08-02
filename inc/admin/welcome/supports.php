@@ -1,4 +1,4 @@
-<div class="wp-tab-panel" id="support" style="display: none;">
+<div class="wp-tab-panel" id="welcome">
     <div class="master_addons_features">
         <div class="master_addons_feature">
 
@@ -9,32 +9,32 @@
                         <ul class="master-addons-supports-list">
                             <li>
                                 <div class="addons-supports-list-content">
-                                    <a href="https://www.facebook.com/groups/jeweltheme/">Join <span>Facebook</span> Community</a>
-
+                                    <a href="https://www.facebook.com/groups/jeweltheme/" target="_blank">
+                                        <?php echo esc_html__('Facebook Community', MELA_TD);?>
+                                    </a>
                                     <div class="addons-supports-list-icon">
-                                        <img src="../wp-content/plugins/master-addons/assets/images/icons/1.png" alt="Icon Image">
+                                        <img src="<?php echo MELA_ADMIN_ASSETS;?>icons/fb_group.svg" alt="Join our Facebook Community">
                                     </div><!-- /.addons-supports-list-icon -->
                                 </div><!-- /.addons-supports-list-content -->
                             </li>
                             <li>
                                 <div class="addons-supports-list-content">
                                     <a href="https://www.facebook.com/jwthemeltd/" target="_blank">
-                                        Like <span>Facebook</span> Fan Page
+                                        <?php echo esc_html__('Like Facebook Page', MELA_TD);?>
                                     </a>
-
                                     <div class="addons-supports-list-icon">
-                                        <img src="../wp-content/plugins/master-addons/assets/images/icons/2.png" alt="Icon Image">
+                                        <img src="<?php echo MELA_ADMIN_ASSETS;?>icons/fb_page.svg" alt="Like Facebook Page">
                                     </div><!-- /.addons-supports-list-icon -->
                                 </div><!-- /.addons-supports-list-content -->
                             </li>
                             <li>
                                 <div class="addons-supports-list-content">
                                     <a href="https://jeweltheme.com/support/forum/wordpress-plugins/master-addons/" target="_blank">
-                                        Jewel Theme Support Forum
+                                        Support
                                     </a>
 
                                     <div class="addons-supports-list-icon">
-                                        <img src="../wp-content/plugins/master-addons/assets/images/icons/3.png" alt="Icon Image">
+                                        <img src="<?php echo MELA_ADMIN_ASSETS;?>icons/MA_icon.svg" alt="Contact Support">
                                     </div><!-- /.addons-supports-list-icon -->
                                 </div><!-- /.addons-supports-list-content -->
                             </li>
@@ -45,7 +45,7 @@
                                     </a>
 
                                     <div class="addons-supports-list-icon">
-                                        <img src="../wp-content/plugins/master-addons/assets/images/icons/4.png" alt="Icon Image">
+                                        <img src="<?php echo MELA_ADMIN_ASSETS;?>icons/ma_wp_support.svg" alt="Icon Image">
                                     </div><!-- /.addons-supports-list-icon -->
                                 </div><!-- /.addons-supports-list-content -->
                             </li>
@@ -56,7 +56,7 @@
                                     </a>
 
                                     <div class="addons-supports-list-icon">
-                                        <img src="../wp-content/plugins/master-addons/assets/images/icons/5.png" alt="Icon Image">
+                                        <img src="<?php echo MELA_ADMIN_ASSETS;?>icons/video.svg" alt="Icon Image">
                                     </div><!-- /.addons-supports-list-icon -->
                                 </div><!-- /.addons-supports-list-content -->
                             </li>
@@ -64,11 +64,11 @@
                             <li>
                                 <div class="addons-supports-list-content">
                                     <a href="#" target="_blank">
-                                        Full Proof Documentation
+                                        Documentation
                                     </a>
 
                                     <div class="addons-supports-list-icon">
-                                        <img src="../wp-content/plugins/master-addons/assets/images/icons/6.png" alt="Icon Image">
+                                        <img src="<?php echo MELA_ADMIN_ASSETS;?>icons/docs.svg" alt="Icon Image">
                                     </div><!-- /.addons-supports-list-icon -->
                                 </div><!-- /.addons-supports-list-content -->
                             </li>
@@ -76,16 +76,22 @@
 
                         <div class="master-addons-star-review">
                             <div class="review-content-left">
-                                <img src="../wp-content/plugins/master-addons/assets/images/icons/review.png" alt="Icon Image">
+                                <img src="<?php echo MELA_ADMIN_ASSETS;?>icons/reviews.svg" alt="Icon Image">
                             </div><!-- /.review-content-left -->
 
                             <div class="review-content-right">
-                                <h4><?php echo esc_html__('Show Us Some Love', MELA_TD);?></h4>
+                                <h4>
+                                    <?php echo esc_html__('Show Us Some Love', MELA_TD);?>
+                                </h4>
                                 <p>
                                     <?php echo esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ', MELA_TD);?>
                                 </p>
 
-                                <button class="master-addons-review-btn">Give a five star review</button>
+                                <button class="master-addons-review-btn">
+                                    <a href="https://wordpress.org/support/plugin/master-addons/reviews/#new-post">
+                                        <?php echo esc_html__('Give a 5 star review', MELA_TD);?>
+                                    </a>
+                                </button>
                             </div><!-- /.review-content-right -->
                         </div><!-- /.master-addons-star-review -->
 
@@ -112,18 +118,17 @@
                 <div class="right_column">
 
                     <div class="master-addons-banner">
-                        <img class="tab-banner" src="../wp-content/plugins/master-addons/assets/images/tab-banner.png" alt="Master Addons - Gutenberg Blocks Page Builder Block Banner Image">
-
-                        <div class="master-addons-banner-content">
-                            <h3><span>UNLOCK</span> All Possibilities</h3>
-                            <button class="master-addons-pro-btn">Upgrade to pro</button>
-                        </div><!-- /.addons-banner-content -->
+                        <a href="https://master-addons.com/pricing" target="_blank">
+                            <img class="tab-banner" src="<?php echo MELA_ADMIN_ASSETS;?>icons/upgrade-pro.png" alt="Upgrade to Pro Master Addons">
+                        </a>
                     </div><!-- /.master-addons-banner -->
 
                     <div class="master-addons-right-column-widget">
-                        <img class="icon-image" src="../wp-content/plugins/master-addons/assets/images/icons/sidebar-1.png" alt="Icon Image">
+                        <img class="icon-image" src="<?php echo MELA_ADMIN_ASSETS;?>icons/contribute.svg" alt="Contribute to Master Addons">
 
-                        <h4><?php echo esc_html__('Contribute to Master Addons', MELA_TD);?></h4>
+                        <h4>
+                            <?php echo esc_html__('Contribute to Master Addons', MELA_TD);?>
+                        </h4>
 
                         <p>
                             <?php echo esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', MELA_TD);?>

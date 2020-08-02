@@ -19,8 +19,7 @@
                 </h1>
                 <div class="about-text">
 			        <?php printf( __( "Ultimate and Essential Addons for Elementor Page Builder.", MELA ,
-				        MELA_TD ),
-				        MELA_VERSION ); ?>
+				        MELA_TD ), MELA_VERSION ); ?>
                 </div>
 
             </header>
@@ -29,18 +28,14 @@
 
         <?php require_once MELA_PLUGIN_PATH . '/inc/admin/welcome/navigation.php';?>
 
-
-
 		<div class="master_addons_contents">
-
 			<?php
+				require MELA_PLUGIN_PATH . '/inc/admin/welcome/supports.php';
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/addons.php';
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/extensions.php';
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/api-keys.php';
-			    require MELA_PLUGIN_PATH . '/inc/admin/welcome/supports.php';
 			    require MELA_PLUGIN_PATH . '/inc/admin/welcome/changelogs.php';
 			?>
-
 		</div>
 
 	</div>
