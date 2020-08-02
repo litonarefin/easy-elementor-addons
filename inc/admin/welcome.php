@@ -37,13 +37,7 @@
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/addons.php';
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/extensions.php';
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/api-keys.php';
-				require MELA_PLUGIN_PATH . '/inc/admin/welcome/docs.php';
 			    require MELA_PLUGIN_PATH . '/inc/admin/welcome/supports.php';
-				if ( ma_el_fs()->can_use_premium_code() ) {
-					require MELA_PLUGIN_PATH . '/inc/admin/welcome/osaka-pro.php';
-				}else{
-					require MELA_PLUGIN_PATH . '/inc/admin/welcome/free-themes.php';
-                }
 			    require MELA_PLUGIN_PATH . '/inc/admin/welcome/changelogs.php';
 			?>
 
