@@ -153,7 +153,7 @@
                             <?php echo esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', MELA_TD);?>
                         </p>
 
-                        <a href="https://master-addons.com/pricing" target="_blank">
+                        <a href="https://master-addons.com/newsletter/" target="_blank">
                             <button class="master-addons-widget-btn">
                                 <?php echo esc_html__('Subscribe Now', MELA_TD);?>
                             </button>

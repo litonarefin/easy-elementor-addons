@@ -9,26 +9,24 @@
 
     <div class="master_addons_feature">
 
-      <h3><?php echo esc_html__('All MA Addons', MELA_TD);?></h3>
+      	<div class="master-addons-dashboard-filter">
+        	<div class="filter-left">
+          		<button class="addons-enable-all">
+					  <?php echo esc_html__('Enable All', MELA_TD);?>
+				</button>
+          		<button class="addons-disable-all">
+					  <?php echo esc_html__('Disable All', MELA_TD);?>
+				</button>
+        	</div>
 
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-      </p>
-
-      <div class="master-addons-dashboard-filter">
-        <div class="filter-left">
-          <button class="addons-enable-all">Enable All</button>
-          <button class="addons-disable-all">Disable All</button>
-        </div>
-
-        <div class="filter-right">
-          <select class="master-addons-filter">
-            <option>All</option>
-            <option>Pro</option>
-            <option>Free</option>
-          </select>
-        </div>
-      </div><!-- /.master-addons-dashboard-filter -->
+        	<div class="filter-right">
+				<select class="master-addons-filter">
+					<option>All</option>
+					<option>Pro</option>
+					<option>Free</option>
+				</select>
+        	</div>
+      	</div><!-- /.master-addons-dashboard-filter -->
 
 		  <?php foreach( array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 0, 35) as
 			 $key=>$widget ) : ?>

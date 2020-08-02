@@ -4,7 +4,7 @@
 ?>
 
 
-<div class="wp-tab-panel" id="ma-addons">
+<div class="wp-tab-panel" id="ma-addons" style="display: none;">
     <div class="master_addons_features">
 
         <div class="master-addons-el-dashboard-header-wrapper">

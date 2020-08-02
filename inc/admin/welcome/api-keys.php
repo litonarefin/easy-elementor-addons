@@ -1,4 +1,4 @@
-<div class="wp-tab-panel" id="ma_api_keys">
+<div class="wp-tab-panel" id="ma_api_keys" style="display: none;">
 	<h3><?php echo esc_html__('Api Settings', MELA_TD);?></h3>
 
 	<div class="master_addons_feature">

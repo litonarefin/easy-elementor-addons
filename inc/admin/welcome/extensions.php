@@ -12,7 +12,7 @@
 	include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-extensions.php';
 	?>
 
-	<div class="wp-tab-panel" id="extensions">
+	<div class="wp-tab-panel" id="extensions" style="display: none;">
 
 		<div class="master-addons-el-dashboard-header-wrapper">
 			<div class="master-addons-el-dashboard-header-right">
