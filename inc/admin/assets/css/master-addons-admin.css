@@ -231,6 +231,11 @@
     font-weight: 700;
     padding: .875rem 1.875rem 1.2rem;
 }
+.master_addons .master_addons_navbar.wp-tab-bar a.nav-upgrade-pro{
+    background-color: #6814cd;
+    color: #fff;
+    text-transform: uppercase;
+}
 .master_addons .master_addons_navbar.wp-tab-bar li a:focus,
 .master_addons .master_addons_navbar.wp-tab-bar li a:visited,
 .master_addons .master_addons_navbar.wp-tab-bar li a:active{

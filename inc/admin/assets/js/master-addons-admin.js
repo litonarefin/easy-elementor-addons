@@ -35,18 +35,26 @@
         // Dashboard widget links target
         $('.master-addons-posts a.rsswidget').attr('target', '_blank');
 
-        $('.wp-tab-bar a').on('click',function(event){
-            event.preventDefault();
-            // Limit effect to the container element.
-            var context = $(this).closest('.wp-tab-bar').parent();
-            $('.wp-tab-bar li', context).removeClass('wp-tab-active');
-            $(this).closest('li').addClass('wp-tab-active');
-            $('.master_addons_contents .wp-tab-panel', context).hide();
-            $( $(this).attr('href'), context ).show();
+        //Navigation Tabs
+        $('.master_addons_navbar a').on('click',function(event){
+            event.preventDefault(); // Limit effect to the container element.
+
+            var context = $(this).closest('.master_addons_navbar').parent();
+            var url = $(this).attr('href'),
+                target = $(this).attr('target');
+
+            if(target == '_blank') {
+                window.open(url, target);
+            } else {
+                $('.master_addons_navbar li', context).removeClass('wp-tab-active');
+                $(this).closest('li').addClass('wp-tab-active');
+                $('.master_addons_contents .wp-tab-panel', context).hide();
+                $( $(this).attr('href'), context ).show();
+            }
         });
 
         // Make setting wp-tab-active optional.
-        $('.wp-tab-bar').each(function(){
+        $('.master_addons_navbar').each(function(){
             if ( $('.wp-tab-active', this).length )
                 $('.wp-tab-active', this).click();
             else
