@@ -30,7 +30,7 @@
                             <li>
                                 <div class="addons-supports-list-content">
                                     <a href="https://master-addons.com/contact-us/" target="_blank">
-                                        <?php echo esc_html__('Contact Support', MELA_TD);?>
+                                        <?php echo esc_html__('Email Support', MELA_TD);?>
                                     </a>
                                     <div class="addons-supports-list-icon">
                                         <img src="<?php echo MELA_ADMIN_ASSETS;?>icons/MA_icon.svg" alt="Contact Support">

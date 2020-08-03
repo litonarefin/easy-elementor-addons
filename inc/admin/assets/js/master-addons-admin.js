@@ -4,6 +4,20 @@
     jQuery(document).ready(function($) {
     'use strict';
 
+        // $(function() {
+        //     enable_cb();
+        //     $("#master-addons-elements .addons-enable-all").click(enable_cb);
+        // });
+
+        // function enable_cb() {
+        //     $("#master-addons-elements input.switch-input").prop("disabled", !this.checked);
+        // }
+        $('#master-addons-elements .addons-enable-all').on('click',function(e){
+            e.preventDefault();
+            console.log('clicked');
+            // $("#master-addons-elements input.switch-input").prop("disabled", !this.checked);
+        });
+
         // Dismissible Admin Notices
         $( 'div[data-dismissible] button.notice-dismiss' ).click(
             function (event) {

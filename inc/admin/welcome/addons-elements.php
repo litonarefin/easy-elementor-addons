@@ -68,10 +68,9 @@
                     <div class="ma-el-tooltip">
 
                       <?php
-                      Master_Addons_Helper::jltma_admin_tooltip_info('Demo',$jltma_elements['jltma-addons']['elements'][$key]['demo_url'], 'eicon-device-desktop' );
-                      Master_Addons_Helper::jltma_admin_tooltip_info('Documentation',$jltma_elements['jltma-addons']['elements'][$key]['docs_url'], 'eicon-info-circle-o' );
-                      Master_Addons_Helper::jltma_admin_tooltip_info('Video Tutorial',$jltma_elements['jltma-addons']['elements'][$key]['tuts_url'], 'eicon-video-camera' );
-
+						Master_Addons_Helper::jltma_admin_tooltip_info('Demo',$jltma_elements['jltma-addons']['elements'][$key]['demo_url'], 'eicon-device-desktop' );
+						Master_Addons_Helper::jltma_admin_tooltip_info('Documentation',$jltma_elements['jltma-addons']['elements'][$key]['docs_url'], 'eicon-info-circle-o' );
+						Master_Addons_Helper::jltma_admin_tooltip_info('Video Tutorial',$jltma_elements['jltma-addons']['elements'][$key]['tuts_url'], 'eicon-video-camera' );
                       ?>
 
                     </div>
@@ -83,8 +82,7 @@
             						}
             				} ?>
                     <div class="master_addons_feature_switchbox">
-                        <label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text
-                           switch-primary switch-pill <?php
+                        <label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text switch-primary switch-pill <?php
                            if( !ma_el_fs()->can_use_premium_code() && isset($is_pro) && $is_pro !="") { echo
                               "ma-el-pro";} ?>">
                               <input type="checkbox" id="<?php echo esc_attr( $widget ); ?>" class="switch-input " name="<?php echo esc_attr( $widget ); ?>"

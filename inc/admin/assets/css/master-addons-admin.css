@@ -476,7 +476,7 @@
 
 .master_addons_features .master_addons_feature_switchbox {
     flex: 1;
-    margin-top: -1px;Fwaa
+    margin-top: -1px;
 }
 .master_addons_features .switch-primary>.switch-input:checked~.switch-label {
   background-image: -moz-linear-gradient( 0deg, rgb(153,41,234) 0%, rgb(88,8,251) 100%) !important;
