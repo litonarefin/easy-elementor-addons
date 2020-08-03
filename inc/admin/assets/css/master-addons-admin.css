@@ -1141,21 +1141,21 @@
 /* Sidebar */
 
 .sidebar_title{
-    background: #274ad8;
+    background: #6814cd;
     padding: 20px;
     color: #fff;
     text-align: center;
     margin:0 !important;
 }
 .sidebar_title .dashicons{
-    padding: 5px;
+    padding: 5px 20px;
 }
 .inner_content{
     padding: 30px 40px;
     border-bottom: solid 1px #e3e3e4;
     margin: 0;
     list-style: none;
-    background: #28c6ab;
+    background: #487eb0;
 }
 .inner_content p{
     color: #fff;
@@ -1169,11 +1169,10 @@
     text-align: center;
     line-height: 46px;
     margin-top: 10px;
-    background: #b54bd8;
+    background: #e8156e;
     color: #fff;
     font-size: 13px;
     font-weight: 700;
-    border: 1px solid mediumaquamarine;
     box-shadow: none;
     transition: .3s ease;
     text-shadow: none !important;
