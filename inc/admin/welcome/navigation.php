@@ -30,10 +30,9 @@
 			<?php _e( 'Changelogs', MELA_TD ); ?>
 		</a>
 	</li>
-	<li>
-		<a href="https://master-addons.com/pricing" target="_blank">
-			<?php _e( 'Upgrado Pro', MELA_TD ); ?>
-		</a>
-	</li>
+
+	<a class="nav-upgrade-pro" href="https://master-addons.com/pricing" target="_blank">
+		<?php _e( 'Upgrado Pro', MELA_TD ); ?>
+	</a>
 
 </ul>

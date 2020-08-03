@@ -221,7 +221,8 @@
     margin: 0 5px 0 0;
     padding: 0;
 }
-.master_addons .master_addons_navbar.wp-tab-bar li a {
+.master_addons .master_addons_navbar.wp-tab-bar li a,
+.master_addons .master_addons_navbar.wp-tab-bar a.nav-upgrade-pro {
     background-color: #f7f7fa;
     border-top: 4px solid transparent;
     color: #393c3f;
@@ -232,7 +233,7 @@
 }
 .master_addons .master_addons_navbar.wp-tab-bar li a:focus,
 .master_addons .master_addons_navbar.wp-tab-bar li a:visited,
-.master_addons .master_addons_navbar.wp-tab-bar li a:active {
+.master_addons .master_addons_navbar.wp-tab-bar li a:active{
     box-shadow: none;
     outline: 0;
 }
@@ -927,7 +928,8 @@
         margin-right: 3px;
         margin-bottom: 3px;
     }
-    .master_addons .master_addons_navbar.wp-tab-bar li a {
+    .master_addons .master_addons_navbar.wp-tab-bar li a,
+    .master_addons .master_addons_navbar.wp-tab-bar a.nav-upgrade-pro {
         padding: .75rem 1rem 1rem;
     }
     .master_addons_feature .parent {
@@ -1005,7 +1007,8 @@
         float: left;
         margin-right: 3px;
     }
-    .master_addons .master_addons_navbar.wp-tab-bar li a {
+    .master_addons .master_addons_navbar.wp-tab-bar li a,
+    .master_addons .master_addons_navbar.wp-tab-bar a.nav-upgrade-pro {
         padding: .75rem 10px 1rem;
     }
     .master_addons .about-wrap h1 {
