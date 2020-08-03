@@ -112,26 +112,25 @@
     cursor: pointer;
     float: left;
 }
+.master_addons .header .ma_el_logo .wp-badge{
+    width:75px;
+}
 .svg .wp-badge.welcome__logo {
-    background: url('../../../../assets/images/logo.png')left center no-repeat;
+    background: url('../icons/white-logo.png')left center no-repeat;
     background-size: contain;
     color: #fff;
     box-shadow: none;
-    height: 50px;
+    height: 70px;
     margin: 0;
     padding: 0;
     position: inherit;
 }
-.master_addons .intro_wrapper .ma_logo {
-    width: 205px;
-}
-.about-wrap h1 {
+.master_addons .about-wrap h1 {
     color: #fff;
-    display: inline-flex;
-    font-size: 0;
     margin: 0;
     position: relative;
-    top: -5px;
+    top: 10px;
+    left: 10px;
 }
 .master_addons small{
     font-size: 14px;
@@ -147,7 +146,7 @@
     margin: 0;
     position: relative;
 }
-.about-wrap .about-text {
+.master_addons .about-wrap .about-text {
     color: #fff;
 }
 .main_heading{
@@ -259,15 +258,15 @@
 .master-addons-dashboard-tab .master_addons_feature h3 {
     color: #393c3f;
     display: inline-block;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    margin: 15px 0 16px;
+    margin: 25px 0 16px;
     padding-left: 7.5px;
     width: 100%;
 }
 .master_addons_features .master_addons_feature .col {
-    flex: 0 0 33.33%;
-    max-width: 33.33%;
+    flex: 1 0 24.5%;
+    max-width: 24.5%;
     margin: 0;
     padding: 0 7.5px 15px;
 }
@@ -310,24 +309,29 @@
 .master-addons-dashboard-filter .filter-right {
     float: right;
 }
-.master-addons-dashboard-filter .master-addons-filter {
-    background-color: #fff;
-    border: 1px solid #90a4ae;
+.master-addons-dashboard-filter .master-addons-filter a{
+    background-color: #f1f1f1;
+    border: 1px solid #efeff5;
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
     border-radius: 5px;
     color: #90a4ae;
-    display: block;
     font-size: 14px;
     font-weight: 700;
     line-height: 43px;
-    margin: 0;
+    margin-right: 5px;
     max-width: 100%;
-    padding: 0 20px;
+    padding: 15px 20px;
     width: 100%;
+    text-decoration: none;
 
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
+}
+.master-addons-dashboard-filter .master-addons-filter a.active{
+    background-color: #fff;
+    border: 1px solid #efeff5;
+    color:#6814cd;
 }
 .master-addons-dashboard-filter .master-addons-filter::-ms-expand {
     display: none;
@@ -965,7 +969,7 @@
         font-size: 1.125rem;
         padding: 15px;
     }
-    .about-wrap h2 {
+    .master_addons .about-wrap h1 {
         font-size: 1.25rem;
         margin: 10px 0 .6em;
     }
@@ -1004,7 +1008,7 @@
     .master_addons .master_addons_navbar.wp-tab-bar li a {
         padding: .75rem 10px 1rem;
     }
-    .about-wrap h2 {
+    .master_addons .about-wrap h1 {
         font-size: 1.5rem;
         margin: 10px 0 .6em;
     }

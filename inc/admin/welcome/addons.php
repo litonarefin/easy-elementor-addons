@@ -25,13 +25,11 @@
                 <div class="master-addons-el-dashboard-tabs-wrapper">
 
                     <div id="master-addons-elements" class="master-addons-el-dashboard-header-left master-addons-dashboard-tab master_addons_features">
-
 						<?php
 							include_once MELA_PLUGIN_PATH . '/inc/admin/welcome/addons-elements.php';
 							include_once MELA_PLUGIN_PATH . '/inc/admin/welcome/addons-forms.php';
 							include_once MELA_PLUGIN_PATH . '/inc/admin/welcome/addons-marketing.php';
 						?>
-
                     </div>
                 </div> <!-- .master-addons-el-dashboard-tabs-wrapper-->
 

@@ -21,7 +21,7 @@
 			private static $plugin_url;
 			private static $plugin_slug;
 			public static $plugin_dir_url;
-			public static $plugin_name = 'Master Addons for Elementor';
+			public static $plugin_name = 'Master Addons';
 
 			private static $instance = null;
 

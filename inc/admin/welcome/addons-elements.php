@@ -20,15 +20,17 @@
         	</div>
 
         	<div class="filter-right">
-				<select class="master-addons-filter">
-					<option>All</option>
-					<option>Pro</option>
-					<option>Free</option>
-				</select>
+				<div class="master-addons-filter">
+					<a href="#all" class="active"><?php echo esc_html__('All', MELA_TD);?></a>
+					<a href="#pro"><?php echo esc_html__('Pro', MELA_TD);?></a>
+					<a href="#free"><?php echo esc_html__('Free', MELA_TD);?></a>
+				</div>
         	</div>
       	</div><!-- /.master-addons-dashboard-filter -->
 
-		  <?php foreach( array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 0, 35) as
+		<h3><?php echo esc_html__('Content Elements', MELA_TD);?></h3>
+
+		<?php foreach( array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 0, 35) as
 			 $key=>$widget ) : ?>
 
             <div class="master-addons-dashboard-checkbox col">

@@ -37,28 +37,24 @@
 
 						<div id="master-addons-elements" class="master-addons-el-dashboard-header-left master-addons-dashboard-tab master_addons_features ma_el_extensions">
 
-
-
 							<div class="master_addons_feature">
-
-								<h3><?php echo esc_html__('Master Addons Extensions', MELA_TD);?></h3>
-
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-								</p>
 
 								<div class="master-addons-dashboard-filter">
 									<div class="filter-left">
-										<button class="addons-enable-all">Enable All</button>
-										<button class="addons-disable-all">Disable All</button>
+										<button class="addons-enable-all">
+											<?php echo esc_html__('Enable All', MELA_TD);?>
+										</button>
+										<button class="addons-disable-all">
+											<?php echo esc_html__('Disable All', MELA_TD);?>
+										</button>
 									</div>
 
 									<div class="filter-right">
-										<select class="master-addons-filter">
-											<option>All</option>
-											<option>Pro</option>
-											<option>Free</option>
-										</select>
+										<div class="master-addons-filter">
+											<a href="#all" class="active"><?php echo esc_html__('All', MELA_TD);?></a>
+											<a href="#pro"><?php echo esc_html__('Pro', MELA_TD);?></a>
+											<a href="#free"><?php echo esc_html__('Free', MELA_TD);?></a>
+										</div>
 									</div>
 								</div><!-- /.master-addons-dashboard-filter -->
 
