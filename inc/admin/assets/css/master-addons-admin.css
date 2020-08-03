@@ -238,7 +238,10 @@
 }
 .master_addons .master_addons_navbar.wp-tab-bar li a:focus,
 .master_addons .master_addons_navbar.wp-tab-bar li a:visited,
-.master_addons .master_addons_navbar.wp-tab-bar li a:active{
+.master_addons .master_addons_navbar.wp-tab-bar li a:active,
+.master_addons .master_addons_navbar.wp-tab-bar a.nav-upgrade-pro:focus,
+.master_addons .master_addons_navbar.wp-tab-bar a.nav-upgrade-pro:visited,
+.master_addons .master_addons_navbar.wp-tab-bar a.nav-upgrade-pro:active{
     box-shadow: none;
     outline: 0;
 }
@@ -487,6 +490,7 @@
 .master_addons_features .switch-primary>.switch-input:checked~.switch-handle {
     color: #560ab2;
 }
+
 .master_addons_features .switch.switch-text .switch-label::before,
 .master_addons_features .switch.switch-text .switch-label::after {
     display: none;
@@ -500,7 +504,6 @@
 }
 .master_addons_features .switch.switch-text .switch-handle {
     left: 3px;
-    top: 3px;
 }
 .master-addons-dashboard-checkbox .switch.switch-text {
     float: right;

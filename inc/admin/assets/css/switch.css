@@ -514,10 +514,6 @@
     border-color: #0062cc;
 }
 
-.switch-primary>.switch-input:checked~.switch-handle {
-    border-color: #0062cc;
-}
-
 .switch-primary-outline>.switch-input:checked~.switch-label {
     background: #fff !important;
     border-color: #007bff;
