@@ -4,13 +4,6 @@
 * Admin Settings and Welcome Page CSS
 */
 
-
-*,
-::after,
-::before {
-    box-sizing: border-box;
-}
-
 /* Column Width */
 
 .four-col,.three-col {

@@ -19,12 +19,12 @@
 			<?php _e( 'Extensions', MELA_TD ); ?>
 		</a>
 	</li>
-
+<!--
 	<li>
 		<a href="#ma_api_keys">
-			<?php _e( 'API', MELA_TD ); ?>
+			<?php //_e( 'API', MELA_TD ); ?>
 		</a>
-	</li>
+	</li> -->
 	<li>
 		<a href="#changelogs">
 			<?php _e( 'Changelogs', MELA_TD ); ?>

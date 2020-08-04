@@ -311,6 +311,24 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.4.6 (05-08-2020) =
+* Updated: Admin UI changed to modern look and placed necessary links in front.
+* Updated: Elementor Custom Breakpoints enabled with fixes - not editing live editor and not saving changes issue fixed.
+* Fixed: Appearance>Themes UI changed issue fixed
+
+= 1.4.5.5 (20-07-2020) =
+* Removed: Temporarily removed Custom Breakpoints for layout issue on frontend. Will fix it and enable it again asap.
+
+= 1.4.5.4 (20-07-2020) =
+* Fixed: Fatal error Elementor\Core\Base issue fixed
+* Updated: Reading progressbar warning fixed
+
+= 1.4.5.2 (20-07-2020) =
+* Fixed: Quick fix on fatal error.
+
+= 1.4.5.1 (20-07-2020) =
+* Fixed: Quick fix on fatal error.
+
 = 1.4.5 (18-07-2020) =
 * Added: Elementor Custom Breakpoints added as Extensions module.
 * Removed: "MA" Text removed from all Addon names on Admin backend "Addons" settings.
