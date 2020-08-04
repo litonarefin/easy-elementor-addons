@@ -120,11 +120,13 @@
 
                 <div class="right_column">
 
-                    <div class="master-addons-banner">
-                        <a href="https://master-addons.com/pricing" target="_blank">
-                            <img class="tab-banner" src="<?php echo MELA_ADMIN_ASSETS;?>icons/upgrade-pro.png" alt="Upgrade to Pro Master Addons">
-                        </a>
-                    </div><!-- /.master-addons-banner -->
+                    <?php if ( ma_el_fs()->is_not_paying() ) {?>
+                        <div class="master-addons-banner">
+                            <a href="https://master-addons.com/pricing" target="_blank">
+                                <img class="tab-banner" src="<?php echo MELA_ADMIN_ASSETS;?>icons/upgrade-pro.png" alt="Upgrade to Pro Master Addons">
+                            </a>
+                        </div><!-- /.master-addons-banner -->
+                    <?php } ?>
 
                     <div class="master-addons-right-column-widget">
                         <img class="icon-image" src="<?php echo MELA_ADMIN_ASSETS;?>icons/contribute.svg" alt="Contribute to Master Addons">

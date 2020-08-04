@@ -35,7 +35,7 @@
 
 					<div class="master-addons-el-dashboard-tabs-wrapper">
 
-						<div id="master-addons-elements" class="master-addons-el-dashboard-header-left master-addons-dashboard-tab master_addons_features ma_el_extensions">
+						<div id="master-addons-extensions" class="master-addons-el-dashboard-header-left master-addons-dashboard-tab master_addons_features ma_el_extensions">
 
 							<div class="master_addons_feature">
 

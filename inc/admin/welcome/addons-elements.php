@@ -21,9 +21,9 @@
 
         	<div class="filter-right">
 				<div class="master-addons-filter">
-					<a href="#all" class="active"><?php echo esc_html__('All', MELA_TD);?></a>
-					<a href="#pro"><?php echo esc_html__('Pro', MELA_TD);?></a>
-					<a href="#free"><?php echo esc_html__('Free', MELA_TD);?></a>
+					<a href="#all" class="active" data-filter="*"><?php echo esc_html__('All', MELA_TD);?></a>
+					<a href="#free" data-filter="free"><?php echo esc_html__('Free', MELA_TD);?></a>
+					<a href="#pro" data-filter="pro"><?php echo esc_html__('Pro', MELA_TD);?></a>
 				</div>
         	</div>
       	</div><!-- /.master-addons-dashboard-filter -->

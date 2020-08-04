@@ -4,27 +4,140 @@
     jQuery(document).ready(function($) {
     'use strict';
 
-        // $(function() {
-        //     enable_cb();
-        //     $("#master-addons-elements .addons-enable-all").click(enable_cb);
+
+        // Save Button reacting on any changes
+        var saveHeaderAction = $( '.master-addons-el-dashboard-header-wrapper .master-addons-el-btn' );
+        $('.master-addons-dashboard-tab input').on( 'click', function() {
+            saveHeaderAction.addClass( 'master-addons-el-save-now' );
+            saveHeaderAction.removeAttr('disabled').css('cursor', 'pointer');
+        } );
+
+        // Enable All Elements
+        $('#master-addons-elements .addons-enable-all').on("click",function (e) {
+            e.preventDefault();
+
+            $("#master-addons-elements .master_addons_feature_switchbox input:enabled").each(function (i) {
+                $(this).prop("checked", true).change();
+            });
+            saveHeaderAction
+                .addClass("master-addons-el-save-now")
+                .removeAttr("disabled")
+                .css("cursor", "pointer");
+        });
+
+        // Disable All Elements
+        $('#master-addons-elements .addons-disable-all').on("click",function (e) {
+            e.preventDefault();
+
+            $("#master-addons-elements .master_addons_feature_switchbox input:enabled").each(function (i) {
+                $(this).prop("checked", false).change();
+            });
+
+            saveHeaderAction
+                .addClass("master-addons-el-save-now")
+                .removeAttr("disabled")
+                .css("cursor", "pointer");
+        });
+
+        // Enable All Extensions
+        $('#master-addons-extensions .addons-enable-all').on("click",function (e) {
+            e.preventDefault();
+
+            $("#master-addons-extensions .master_addons_feature_switchbox input:enabled").each(function (i) {
+                $(this).prop("checked", true).change();
+            });
+            saveHeaderAction
+                .addClass("master-addons-el-save-now")
+                .removeAttr("disabled")
+                .css("cursor", "pointer");
+        });
+
+        // Disable All Elements
+        $('#master-addons-extensions .addons-disable-all').on("click",function (e) {
+            e.preventDefault();
+
+            $("#master-addons-extensions .master_addons_feature_switchbox input:enabled").each(function (i) {
+                $(this).prop("checked", false).change();
+            });
+
+            saveHeaderAction
+                .addClass("master-addons-el-save-now")
+                .removeAttr("disabled")
+                .css("cursor", "pointer");
+        });
+
+
+        // a(".ha-action--btn").on("click", function (e) {
+        //     e.preventDefault();
+        //     var t = a(this),
+        //         n = t.data("filter"),
+        //         i = t.data("action"),
+        //         s = c.find(".ha-dashboard-widgets__item"),
+        //         r = s.not(".item--is-pro"),
+        //         o = s.filter(".item--is-pro"),
+        //         d = s.not(".item--is-placeholder").find(":checkbox");
+        //     if (n)
+        //         switch (n) {
+        //             case "free":
+        //                 r.show(), o.hide();
+        //                 break;
+        //             case "pro":
+        //                 r.hide(), o.show();
+        //                 break;
+        //             case "*":
+        //             default:
+        //                 s.show();
+        //         }
+        //     i && ("enable" === i ? d.prop("checked", !0) : "disable" === i && d.prop("checked", !1), d.trigger("change"));
+        // }),
+        // a(".ha-feature-sub-title-a").magnificPopup({ disableOn: 700, type: "iframe", mainClass: "mfp-fade", removalDelay: 160, preloader: !1, fixedContentPos: !1 }),
+        // a(".btn-how-to-contribute").on("click", function (e) {
+        //     e.preventDefault(), a(this).next().show();
         // });
 
-        // function enable_cb() {
-        //     $("#master-addons-elements input.switch-input").prop("disabled", !this.checked);
-        // }
-        $('#master-addons-elements .addons-enable-all').on('click',function(e){
-            e.preventDefault();
-            console.log('clicked');
-            // $("#master-addons-elements input.switch-input").prop("disabled", !this.checked);
+
+        // Variable
+        // var posts = $('.post');
+        // posts.hide();
+
+        // // Click function
+        // $( "#category li a" ).click(function() {
+        //     // Get data of category
+        //     var customType = $( this ).data('filter'); // category
+        //     console.log(customType);
+        //     console.log(posts.length); // Length of articles
+
+        //     posts
+        //         .hide()
+        //         .filter(function () {
+        //             return $(this).data('cat') === customType;
+        //         })
+        //         .show();
+        // });
+
+
+        // Dasboard Addons Filter
+        $('.master-addons-dashboard-filter .master-addons-filter a').on('click',function(){
+            console.log('Filter Clicked');
+
+            var thisis = $( this ),
+                thisis = $( this ),
+                customType = $( this ).data('filter'); // category
+
+            posts
+                .hide()
+                .filter(function () {
+                    return $(this).data('cat') === customType;
+                })
+                .show();
         });
+
 
         // Dismissible Admin Notices
         $( 'div[data-dismissible] button.notice-dismiss' ).click(
             function (event) {
                 event.preventDefault();
                 var $this = $( this );
-
-                console.log('dismiss clicked');
 
                 var attr_value, option_name, dismissible_length, data;
 
@@ -78,11 +191,8 @@
 
 
         // Go Pro Modal
-        //     a img:parent { background: none; }
-        //     a < img { border: none; }
         $('.ma-el-pro:parent').on('click',function(event){
                 event.preventDefault();
-
                 swal({
                     title: "Go Pro",
                     text: 'Upgrade to <a href="http://bit.ly/2ly5eaQ" target="_blank"> Pro Version </a> for ' +
@@ -93,23 +203,12 @@
                     confirmButtonColor: '#3085d6',
                     confirmButtonClass: 'btn-success',
                     confirmButtonText: 'Okay'
-
                 }, function () {
                     setTimeout(function () {
                         $('.ma-el-pro').fadeOut('slow');
                     }, 2000);
                 });
         });
-
-
-
-        // Save Button reacting on any changes
-        var saveHeaderAction = $( '.master-addons-el-dashboard-header-wrapper .master-addons-el-btn' );
-        $('.master-addons-dashboard-tab input').on( 'click', function() {
-            saveHeaderAction.addClass( 'master-addons-el-save-now' );
-            saveHeaderAction.removeAttr('disabled').css('cursor', 'pointer');
-        } );
-
 
 
         //Tracking purchases with Google Analytics and Facebook for Freemius Checkout
@@ -193,23 +292,11 @@
                             }, 2000);
                         });
 
-                        // setTimeout(function(){
-                        //     $('.swal2-container').fadeOut('slow');
-                        // }, 2000);
-
-
                         $this.html('Save Settings');
                         $('.master-addons-el-dashboard-header-right').prepend('<span' +
                             ' class="master-addons-el-settings-saved"></span>').fadeIn('slow');
 
                         saveHeaderAction.removeClass( 'master-addons-el-save-now' );
-
-                        // setTimeout(function(){
-                        //     $('.master-addons-el-settings-saved').fadeOut('slow');
-                        // }, 2000);
-
-
-
                     },
                     error: function() {
 

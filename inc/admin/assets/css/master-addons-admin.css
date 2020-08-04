@@ -96,7 +96,7 @@
 /* Intro Wrapper */
 
 .master_addons .wrappper.about-wrap {
-    margin: 20px 20px 15px 15px;
+    margin: 20px 20px 15px 0px;
     max-width: 100%;
 }
 .master_addons .intro_wrapper {
@@ -490,13 +490,12 @@
 .master_addons_features .switch-primary>.switch-input:checked~.switch-handle {
     color: #560ab2;
 }
-
 .master_addons_features .switch.switch-text .switch-label::before,
 .master_addons_features .switch.switch-text .switch-label::after {
     display: none;
 }
 .master_addons_features .switch.switch-text .switch-input:checked~.switch-handle {
-    left: 24px;
+    left: 25px;
 }
 .master_addons_features .switch.switch-text .switch-label {
     background-color: #eceff4;
