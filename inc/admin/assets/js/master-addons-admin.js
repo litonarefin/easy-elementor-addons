@@ -66,58 +66,8 @@
                 .css("cursor", "pointer");
         });
 
-
-        // a(".ha-action--btn").on("click", function (e) {
-        //     e.preventDefault();
-        //     var t = a(this),
-        //         n = t.data("filter"),
-        //         i = t.data("action"),
-        //         s = c.find(".ha-dashboard-widgets__item"),
-        //         r = s.not(".item--is-pro"),
-        //         o = s.filter(".item--is-pro"),
-        //         d = s.not(".item--is-placeholder").find(":checkbox");
-        //     if (n)
-        //         switch (n) {
-        //             case "free":
-        //                 r.show(), o.hide();
-        //                 break;
-        //             case "pro":
-        //                 r.hide(), o.show();
-        //                 break;
-        //             case "*":
-        //             default:
-        //                 s.show();
-        //         }
-        //     i && ("enable" === i ? d.prop("checked", !0) : "disable" === i && d.prop("checked", !1), d.trigger("change"));
-        // }),
-        // a(".ha-feature-sub-title-a").magnificPopup({ disableOn: 700, type: "iframe", mainClass: "mfp-fade", removalDelay: 160, preloader: !1, fixedContentPos: !1 }),
-        // a(".btn-how-to-contribute").on("click", function (e) {
-        //     e.preventDefault(), a(this).next().show();
-        // });
-
-
-        // Variable
-        // var posts = $('.post');
-        // posts.hide();
-
-        // // Click function
-        // $( "#category li a" ).click(function() {
-        //     // Get data of category
-        //     var customType = $( this ).data('filter'); // category
-        //     console.log(customType);
-        //     console.log(posts.length); // Length of articles
-
-        //     posts
-        //         .hide()
-        //         .filter(function () {
-        //             return $(this).data('cat') === customType;
-        //         })
-        //         .show();
-        // });
-
-
         // Dasboard Addons Filter
-        var jltma_items = $('.post');
+        var jltma_items = $('#master-addons-elements .master-addons-dashboard-checkbox');
         $('.master-addons-dashboard-filter .master-addons-filter a').on('click',function(){
             console.log('Filter Clicked');
 
@@ -125,7 +75,6 @@
                 filterType = $( this ).data('filter');
 
             console.log(jltma_items.length); // Length of articles
-
             jltma_items
                 .hide()
                 .filter(function () {

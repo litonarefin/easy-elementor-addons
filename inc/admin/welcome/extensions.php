@@ -41,20 +41,19 @@
 
 								<div class="master-addons-dashboard-filter">
 									<div class="filter-left">
+										<h3><?php echo esc_html__('Master Addons Extensions', MELA_TD);?></h3>
+										<p>
+											<?php echo esc_html__('Enable/Disable all Extensions at once. Please make sure to click "Save Changes" button');?>
+										</p>
+									</div>
+
+									<div class="filter-right">
 										<button class="addons-enable-all">
 											<?php echo esc_html__('Enable All', MELA_TD);?>
 										</button>
 										<button class="addons-disable-all">
 											<?php echo esc_html__('Disable All', MELA_TD);?>
 										</button>
-									</div>
-
-									<div class="filter-right">
-										<div class="master-addons-filter">
-											<a href="#all" class="active"><?php echo esc_html__('All', MELA_TD);?></a>
-											<a href="#pro"><?php echo esc_html__('Pro', MELA_TD);?></a>
-											<a href="#free"><?php echo esc_html__('Free', MELA_TD);?></a>
-										</div>
 									</div>
 								</div><!-- /.master-addons-dashboard-filter -->
 

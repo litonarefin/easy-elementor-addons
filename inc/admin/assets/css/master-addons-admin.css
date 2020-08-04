@@ -269,7 +269,7 @@
     display: inline-block;
     font-size: 1.3rem;
     font-weight: 700;
-    margin: 25px 0 16px;
+    margin: 20px 0 16px;
     padding-left: 7.5px;
     width: 100%;
 }
@@ -281,7 +281,7 @@
 }
 .master-addons-dashboard-filter {
     display: inline-block;
-    margin: 15px 7.5px 45px;
+    margin: 5px 0 35px;
     width: 100%;
 }
 .master-addons-dashboard-filter .filter-left {
@@ -385,7 +385,7 @@
 .master_addons_features .master-addons-el-title-content {
     color: #393c3f;
     display: inline-block;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     margin-right: 6px;
 }
