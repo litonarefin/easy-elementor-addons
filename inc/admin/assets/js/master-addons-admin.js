@@ -117,17 +117,19 @@
 
 
         // Dasboard Addons Filter
+        var jltma_items = $('.post');
         $('.master-addons-dashboard-filter .master-addons-filter a').on('click',function(){
             console.log('Filter Clicked');
 
             var thisis = $( this ),
-                thisis = $( this ),
-                customType = $( this ).data('filter'); // category
+                filterType = $( this ).data('filter');
 
-            posts
+            console.log(jltma_items.length); // Length of articles
+
+            jltma_items
                 .hide()
                 .filter(function () {
-                    return $(this).data('cat') === customType;
+                    return $(this).data('cat') === filterType;
                 })
                 .show();
         });
@@ -138,9 +140,7 @@
             function (event) {
                 event.preventDefault();
                 var $this = $( this );
-
                 var attr_value, option_name, dismissible_length, data;
-
                 attr_value = $this.parent().attr( 'data-dismissible' ).split( '-' );
 
                 // remove the dismissible length from the attribute value and rejoin the array.

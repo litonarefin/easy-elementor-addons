@@ -174,8 +174,7 @@
 
 .switch.switch-text .switch-handle {
     position: absolute;
-    top: 2px;
-    left: 2px;
+    top: 3px;
     width: 18px;
     height: 18px;
     background: #fff;
