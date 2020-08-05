@@ -19,6 +19,14 @@
 			<?php _e( 'Extensions', MELA_TD ); ?>
 		</a>
 	</li>
+
+	<?php //if ( ma_el_fs()->is_plan('developer') ) { ?>
+		<!-- <li>
+			<a href="#white-labeling">
+				<?php //_e( 'Branding', MELA_TD ); ?>
+			</a>
+		</li> -->
+	<?php //} ?>
 <!--
 	<li>
 		<a href="#ma_api_keys">

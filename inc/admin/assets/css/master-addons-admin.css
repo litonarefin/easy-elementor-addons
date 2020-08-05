@@ -4,6 +4,13 @@
 * Admin Settings and Welcome Page CSS
 */
 
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
 /* Column Width */
 
 .four-col,.three-col {
@@ -172,6 +179,7 @@
     padding: 0 25px;
     text-align: center;
     text-transform: uppercase;
+    letter-spacing: .8px;
     text-decoration: none;
     white-space: nowrap;
 
@@ -180,9 +188,9 @@
 }
 .master-addons-el-save-btn-wrap .master-addons-el-btn.master-addons-el-save-now,
 .master-addons-el-dashboard-header-wrapper .master-addons-el-btn.master-addons-el-save-now{
-  background: -moz-linear-gradient( 0deg, rgb(153,41,234) 0%, rgb(88,8,251) 100%);
-  background: -webkit-linear-gradient( 0deg, rgb(153,41,234) 0%, rgb(88,8,251) 100%);
-  background: -ms-linear-gradient( 0deg, rgb(153,41,234) 0%, rgb(88,8,251) 100%);
+  background: -moz-linear-gradient( 0deg, rgb(153,41,234) 0%, rgb(245, 102, 64) 100%);
+  background: -webkit-linear-gradient( 0deg, rgb(153,41,234) 0%, rgb(245, 102, 64) 100%);
+  background: -ms-linear-gradient( 0deg, rgb(153,41,234) 0%, rgb(245, 102, 64) 100%);
   color: #fff;
 }
 .master-addons-el-btn:hover,

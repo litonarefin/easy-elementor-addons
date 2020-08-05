@@ -113,7 +113,7 @@
 					['transforms','pro'],
 					['rellax','pro'],
 					['reveal','pro'],
-					//'custom-breakpoints'
+					'custom-breakpoints'
 //					'pseudo-elements', //need to fix before and after
 				];
 

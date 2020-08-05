@@ -103,6 +103,7 @@ abstract class Base extends Base_File {
 	 * @access public
 	 */
 	public function __construct( $file_name ) {
+		
 		parent::__construct( $file_name );
 
 		$this->init_stylesheet();
@@ -688,6 +689,7 @@ abstract class Base extends Base_File {
 	 * @access private
 	 */
 	private function init_stylesheet() {
+
 		$this->stylesheet_obj = new Stylesheet();
 
 		$breakpoints = Responsive::get_breakpoints();
@@ -703,6 +705,7 @@ abstract class Base extends Base_File {
 				continue;
 			$this->stylesheet_obj->add_device($bp_name, $bp_value["input1"]);
 		}
+
 	}
 
 	/**

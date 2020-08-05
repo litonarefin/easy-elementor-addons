@@ -24,7 +24,7 @@ if( !class_exists('JLTMA_Master_Custom_Breakpoint') ){
 		public static $plugin_name = 'Elementor Breakpoints Extender';
 
 	    public function __construct(){
-			
+
 			$this->jltma_mcb_include_files();
 
 			add_action( 'init', [ $this, 'jltma_mcb_i18n' ] );
