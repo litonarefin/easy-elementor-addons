@@ -18,7 +18,7 @@ $jltma_elements = [
                 'demo_url'      => 'https://master-addons.com/demos/call-to-action/',
                 'docs_url'      => 'https://master-addons.com/docs/addons/call-to-action/',
                 'tuts_url'      => 'https://www.youtube.com/watch?v=iY2q1jtSV5o'
-            ],  
+            ],
             [
                 'key'           => 'ma-dual-heading',
                 'title'         => esc_html__( 'Dual Heading', MELA_TD),
@@ -207,7 +207,7 @@ $jltma_elements = [
                 'demo_url'      => 'https://master-addons.com/demos/dynamic-table/',
                 'docs_url'      => 'https://master-addons.com/docs/addons/dynamic-table-element/',
                 'tuts_url'      => 'https://www.youtube.com/watch?v=bn0TvaGf9l8'
-            ],            
+            ],
             [
                 'key'   		=> 'ma-navmenu',
                 'title' 		=> esc_html__( 'Nav Menu', MELA_TD),
@@ -248,6 +248,13 @@ $jltma_elements = [
                 'title' 		=> esc_html__( 'Countdown Timer', MELA_TD),
                 'demo_url' 		=> 'https://master-addons.com/demos/countdown-timer/',
                 'docs_url' 		=> 'https://master-addons.com/docs/addons/count-down-timer/',
+                'tuts_url' 		=> 'https://www.youtube.com/watch?v=1lIbOLM9C1I'
+            ],
+            [
+                'key'   		=> 'ma-content-toggle',
+                'title' 		=> esc_html__( 'Toggle Content', MELA_TD),
+                'demo_url' 		=> 'https://master-addons.com/demos/toggle-content/',
+                'docs_url' 		=> 'https://master-addons.com/docs/addons/toggle-content/',
                 'tuts_url' 		=> 'https://www.youtube.com/watch?v=1lIbOLM9C1I'
             ],
 

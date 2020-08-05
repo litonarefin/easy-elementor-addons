@@ -1,9 +1,6 @@
 <?php
 namespace Elementor;
 
-use MasterAddons\Inc\Classes\Controls\Templates\Master_Addons_Template_Controls as TemplateControls;
-use MasterAddons\Inc\Helper\Master_Addons_Helper;
-
 // Elementor Classes
 use Elementor\Repeater;
 use Elementor\Icons_Manager;
@@ -16,6 +13,10 @@ use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Background;
 use Elementor\Scheme_Color;
 use Elementor\Scheme_Typography;
+
+// Master Addons Classes
+use MasterAddons\Inc\Classes\Controls\Templates\Master_Addons_Template_Controls as TemplateControls;
+use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
  * Author Name: Liton Arefin
@@ -83,7 +84,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             $this->add_control(
                 'jltma_toggle_content_preset',
                 [
-                    'label'       	=> esc_html__( 'Style Preset', MELA_TD ),
+                    'label'       	=> esc_html__( 'Style Presets', MELA_TD ),
                     'type' 			=> Controls_Manager::SELECT,
                     'default' 		=> 'two',
                     'label_block' 	=> false,
@@ -131,7 +132,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         );
 
 
-        $this->add_control(
+        $repeater->add_control(
             'jltma_toggle_content_icon',
             [
                 'label'					=> esc_html__( 'Icon', MELA_TD ),
@@ -171,10 +172,10 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                 'condition'             => [
                     'jltma_toggle_content_fa4_icon!' => '',
                 ],
-                'selectors'             => [
-                    // '{{WRAPPER}} {{CURRENT_ITEM}} .ee-icon--right' => 'margin-left: {{SIZE}}{{UNIT}};',
-                    // '{{WRAPPER}} {{CURRENT_ITEM}} .ee-icon--left' => 'margin-right: {{SIZE}}{{UNIT}};',
-                ],
+                // 'selectors'             => [
+                //     '{{WRAPPER}} {{CURRENT_ITEM}} .ee-icon--right' => 'margin-left: {{SIZE}}{{UNIT}};',
+                //     '{{WRAPPER}} {{CURRENT_ITEM}} .ee-icon--left' => 'margin-right: {{SIZE}}{{UNIT}};',
+                // ],
             ]
         );
 
@@ -205,11 +206,12 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         );
 
         TemplateControls::add_controls( $repeater, [
-            'jltma_toggle_content_condition' => [
+            'condition' => [
                 'jltma_toggle_content_type' => 'template',
             ],
             'prefix' => 'content_',
         ] );
+
         $repeater->end_controls_tab();
 
         $repeater->start_controls_tab( 'jltma_toggle_content_label', [ 'label' => esc_html__( 'Style', MELA_TD ) ] );
@@ -275,9 +277,247 @@ class Master_Addons_Toggle_Content extends Widget_Base {
 
 
 
+        /**
+         * Content Tab: Toggle Settings
+         */
+        $this->start_controls_section(
+            'jltma_toggle_content_settings',
+            [
+                'label' => esc_html__( 'Toggle Settings', MELA_TD ),
+            ]
+        );
+
+        $this->add_control(
+            'jltma_toggle_content_active_index',
+            [
+                'label'			        => esc_html__( 'Active Index', MELA_TD ),
+                'title'   		        => esc_html__( 'The index of the default active element.', MELA_TD ),
+                'type'			        => Controls_Manager::NUMBER,
+                'default'		        => '1',
+                'min'			        => 1,
+                'step'			        => 1,
+                'frontend_available' => true,
+            ]
+        );
+
+        $this->add_control(
+            'jltma_toggle_content_position',
+            [
+                'label'		            => esc_html__( 'Position', MELA_TD ),
+                'type' 		            => Controls_Manager::SELECT,
+                'default' 	            => 'before',
+                'options' 	            => [
+                    'before'  	  => esc_html__( 'Before', MELA_TD ),
+                    'after' 	  => esc_html__( 'After', MELA_TD ),
+                ],
+            ]
+        );
+
+
+        $this->add_control(
+            'jltma_toggle_content_indicator_speed',
+            [
+                'label' 	            => esc_html__( 'Indicator Speed', MELA_TD ),
+                'type' 		            => Controls_Manager::SLIDER,
+                'range' 	            => [
+                    'px' 	            => [
+                        'min' 	  => 0.1,
+                        'max' 	  => 2,
+                        'step'	  => 0.1,
+                    ],
+                ],
+                'default' 	            => [
+                    'size'        => 0.3
+                ],
+                'frontend_available'    => true,
+            ]
+        );
+
+        $this->end_controls_section();
 
 
 
+
+        /**
+         * Content Tab: Toggle Style
+         */
+		$this->start_controls_section(
+			'jltma_toggle_content_style_toggler',
+			[
+				'label'                  => esc_html__( 'Toggler', MELA_TD ),
+				'tab'                    => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+        $this->add_control(
+            'jltma_toggle_content_toggle_style',
+            [
+                'label'		            => esc_html__( 'Style', MELA_TD ),
+                'type' 		            => Controls_Manager::SELECT,
+                'default' 	            => 'round',
+                'options' 	            => [
+                    'round'  => esc_html__( 'Round', MELA_TD ),
+                    'square' => esc_html__( 'Square', MELA_TD ),
+                ],
+                // 'prefix_class'          => 'ee-toggle-element--',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'jltma_toggle_content_toggle_align',
+            [
+                'label' 		=> esc_html__( 'Align', MELA_TD ),
+                'label_block'	=> false,
+                'type' 			=> Controls_Manager::CHOOSE,
+                'options' 		=> [
+                    'left'    		=> [
+                        'title' 	=> esc_html__( 'Left', MELA_TD ),
+                        'icon' 		=> 'eicon-h-align-left',
+                    ],
+                    'center' 		=> [
+                        'title' 	=> esc_html__( 'Center', MELA_TD ),
+                        'icon' 		=> 'eicon-h-align-center',
+                    ],
+                    'right' 		=> [
+                        'title' 	=> esc_html__( 'Right', MELA_TD ),
+                        'icon' 		=> 'eicon-h-align-right',
+                    ],
+                ],
+                'default' 	=> 'center',
+                'selectors' => [
+                    // '{{WRAPPER}} .ee-toggle-element__toggle' => 'text-align: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'jltma_toggle_content_toggle_zoom',
+            [
+                'label' 	=> esc_html__( 'Zoom', MELA_TD ),
+                'type' 		=> Controls_Manager::SLIDER,
+                'default' 	=> [
+                    'size' 	=> 16,
+                ],
+                'range' 	=> [
+                    'px' 	=> [
+                        'max' 	=> 28,
+                        'min' 	=> 12,
+                        'step' 	=> 1,
+                    ],
+                ],
+                'selectors' 	=> [
+                    // '{{WRAPPER}} .ee-toggle-element__controls-wrapper' => 'font-size: {{SIZE}}px;',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_toggle_content_toggle_spacing',
+            [
+                'label' 	=> esc_html__( 'Spacing', MELA_TD ),
+                'type' 		=> Controls_Manager::SLIDER,
+                'default' 	=> [
+                    'size' 	=> 24,
+                ],
+                'range' 	=> [
+                    'px' 	=> [
+                        'max' 	=> 100,
+                        'min' 	=> 0,
+                        'step' 	=> 1,
+                    ],
+                ],
+                'selectors' 	=> [
+                    // '{{WRAPPER}} .ee-toggle-element__controls-wrapper--before' => 'margin-bottom: {{SIZE}}px;',
+                    // '{{WRAPPER}} .ee-toggle-element__controls-wrapper--after' => 'margin-top: {{SIZE}}px;',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_toggle_content_toggle_padding',
+            [
+                'label' 	=> esc_html__( 'Padding', MELA_TD ),
+                'type' 		=> Controls_Manager::SLIDER,
+                'default' 	=> [
+                    'size' 	=> 6,
+                ],
+                'range' 	=> [
+                    'px' 	=> [
+                        'max' 	=> 10,
+                        'min' 	=> 0,
+                        'step' 	=> 1,
+                    ],
+                ],
+                'selectors' 	=> [
+                    '{{WRAPPER}} .ee-toggle-element__indicator' => 'margin: {{SIZE}}px;',
+                    '{{WRAPPER}} .ee-toggle-element__controls-wrapper' => 'padding: {{SIZE}}px;',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'toggle_width',
+            [
+                'label' 	=> esc_html__( 'Width (%)', MELA_TD ),
+                'type' 		=> Controls_Manager::SLIDER,
+                'range' 	=> [
+                    'px' 	=> [
+                        'max' 	=> 100,
+                        'min' 	=> 0,
+                        'step' 	=> 1,
+                    ],
+                ],
+                'selectors' 	=> [
+                    '{{WRAPPER}} .ee-toggle-element__controls-wrapper' => 'width: {{SIZE}}%;',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'toggle_radius',
+            [
+                'label' 	=> esc_html__( 'Radius', MELA_TD ),
+                'type' 		=> Controls_Manager::SLIDER,
+                'default' 	=> [
+                    'size' 	=> 4,
+                ],
+                'range' 	=> [
+                    'px' 	=> [
+                        'max' 	=> 10,
+                        'min' 	=> 0,
+                        'step' 	=> 1,
+                    ],
+                ],
+                'selectors' 	=> [
+                    '{{WRAPPER}}.ee-toggle-element--square .ee-toggle-element__controls-wrapper' => 'border-radius: {{SIZE}}px;',
+                    '{{WRAPPER}}.ee-toggle-element--square .ee-toggle-element__indicator' => 'border-radius: calc( {{SIZE}}px - 2px );',
+                ],
+                'condition' => [
+                    'toggle_style' => 'square',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'toggle_background',
+            [
+                'label' 	=> esc_html__( 'Background Color', MELA_TD ),
+                'type' 		=> Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .ee-toggle-element__controls-wrapper' => 'background-color: {{VALUE}};'
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' 		=> 'toggle',
+                'selector' 	=> '{{WRAPPER}} .ee-toggle-element__controls-wrapper',
+            ]
+        );
+
+		$this->end_controls_section();
 
 
         /**
@@ -326,7 +566,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             $this->start_controls_section(
                 'ma_el_section_pro_style_section',
                 [
-                    'label' => esc_html__( 'Upgrade to Pro Nested Tabs', MELA_TD ),
+                    'label' => esc_html__( 'Upgrade to Pro', MELA_TD ),
                 ]
             );
 
@@ -353,125 +593,9 @@ class Master_Addons_Toggle_Content extends Widget_Base {
     }
 
     protected function render() {
-        $settings = $this->get_settings_for_display();
-        $column_order = ( isset( $settings['ma_el_tabs_left_cols'] ) ) ? 'row d-flex' : '';
-        $this->add_render_attribute(
-            'ma_el_tab_wrapper',
-            [
-                'id'     => "ma-el-advance-tabs-{$this->get_id()}",
-                'class'	 => [ 'ma-el-advance-tab',
-                                $settings['ma_el_tabs_preset'],
-                                $column_order
-                            ],
-                'data-tab-effect' => $settings['ma_el_tabs_effect']
-            ]
-        );
 
-        if(isset( $settings['ma_el_tabs_left_cols'] )){
-            $ma_el_tabs_left_cols = explode( '-',  $settings['ma_el_tabs_left_cols'] );
-        }
-        $column_order = isset( $settings['ma_el_tabs_content_style'] )?$settings['ma_el_tabs_content_style']:"";
-    ?>
-
-
-            <div <?php echo $this->get_render_attribute_string('ma_el_tab_wrapper'); ?> data-tabs>
-
-                <?php if(isset( $settings['ma_el_tabs_preset']) && $settings['ma_el_tabs_preset'] == "five"){ ?>
-                    <div class="col-md-<?php echo esc_attr($ma_el_tabs_left_cols[0]);?> <?php if($column_order=="float-left") {
-                            echo "order-1";
-                        }else{
-                            echo "order-2";
-                        } ?>">
-                <?php } ?>
-
-                        <ul class="ma-el-advance-tab-nav">
-                            <?php foreach( $settings['ma_el_tabs'] as $key=>$tab ) : ?>
-                                <li class="<?php echo esc_attr( $tab['ma_el_tab_show_as_default'] ); ?>" data-tab data-tab-id="jltma-tab-<?php echo $this->get_id() . $key;?>">
-                                    <?php if( $settings['ma_el_tabs_icon_show'] === 'yes' ) :
-                                        if( $tab['ma_el_tabs_icon_type'] === 'icon' ) : ?>
-                                            <i class="<?php echo esc_attr( $tab['ma_el_tab_title_icon'] ); ?>"></i>
-                                        <?php elseif( $tab['ma_el_tabs_icon_type'] === 'image' ) : ?>
-                                            <img src="<?php echo esc_attr( $tab['ma_el_tab_title_image']['url'] );
-                                            ?>">
-                                        <?php endif; ?>
-                                    <?php endif; ?>
-                                    <span class="ma-el-tab-title"><?php echo $tab['ma_el_tab_title']; ?></span>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-
-                    <?php if($settings['ma_el_tabs_preset'] == "five"){ ?>
-                        </div>
-
-                    <div class="col-md-<?php echo esc_attr($ma_el_tabs_left_cols[1]);?> <?php if($column_order=="float-left") {
-                            echo "order-2";
-                        }else{
-                            echo "order-1";
-                        } ?>">
-                    <?php } ?>
-
-                        <div class="tab-content">
-                            <?php foreach( $settings['ma_el_tabs'] as $key=>$tab ) : $ma_el_find_default_tab[] = $tab['ma_el_tab_show_as_default'];?>
-                                <div id="jltma-tab-<?php echo $this->get_id() . $key;?>" class="ma-el-advance-tab-content tab-pane <?php echo esc_attr( $tab['ma_el_tab_show_as_default']
-                                ); ?>">
-                                    <?php
-                                        // Nested Accordion Available for Premium Version
-                                        if ( ma_el_fs()->can_use_premium_code() ) {
-
-                                            if ( $tab['ma_tabs_content_type'] == 'content' ) {
-
-                                                echo do_shortcode( $tab['ma_el_tab_content'] );
-
-                                            } else if ( $tab['ma_tabs_content_type'] == 'section' && ! empty( $tab['saved_section'] ) ) {
-
-                                                echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_section'] );
-
-                                            } else if ( $tab['ma_tabs_content_type'] == 'template' && ! empty( $tab['templates'] ) ) {
-
-                                                echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['templates'] );
-
-                                            } else if ( $tab['ma_tabs_content_type'] == 'widget' && ! empty( $tab['saved_widget'] ) ) {
-
-                                                echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_widget'] );
-
-                                            }
-
-                                            // Free Version Code
-                                        } else{
-
-                                                echo do_shortcode( $tab['ma_el_tab_content'] );
-                                        } ?>
-                                    </div><!-- ma-el-advance-tab-content -->
-                                <?php endforeach; ?>
-                            </div> <!-- tab-content -->
-
-
-                        <?php if($settings['ma_el_tabs_preset'] == "five"){ ?>
-                            </div> <!-- col-md-5 -->
-                        <?php } ?>
-
-            </div>
-        <?php
     }
 
-
-
-    public function get_page_template_options( $type = '' ) {
-
-        $page_templates = Master_Addons_Helper::ma_get_page_templates( $type );
-
-        $options[-1]   = esc_html__( 'Select', MELA_TD );
-
-        if ( count( $page_templates ) ) {
-            foreach ( $page_templates as $id => $name ) {
-                $options[ $id ] = $name;
-            }
-        } else {
-            $options['no_template'] = esc_html__( 'No saved templates found!', MELA_TD );
-        }
-
-        return $options;
-    }
 
 
 }

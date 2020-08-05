@@ -315,6 +315,8 @@ Paste on your Local Computer
 * Updated: Admin UI changed to modern look and placed necessary links in front.
 * Updated: Elementor Custom Breakpoints enabled with fixes - not editing live editor and not saving changes issue fixed.
 * Fixed: Appearance>Themes UI changed issue fixed
+* Updated: Master Addons Scripts & Styles dependency only loaded for Master Addons Menu
+* Updated: Master Addons Admin Dashboard widget blog posts style issue fixed, removed contents and only Titles are showing for better appearance.
 
 = 1.4.5.5 (20-07-2020) =
 * Removed: Temporarily removed Custom Breakpoints for layout issue on frontend. Will fix it and enable it again asap.

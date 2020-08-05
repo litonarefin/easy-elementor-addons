@@ -10,7 +10,7 @@
 
         <h3><?php echo esc_html__('Marketing', MELA_TD);?></h3>
 
-        <?php foreach( array_slice( Master_Elementor_Addons::$maad_el_default_widgets, 41, 1 ) as
+        <?php foreach( array_slice( Master_Elementor_Addons::$maad_el_default_widgets, 42, 1 ) as
             $key=>$widget ) : ?>
 
             <div class="master-addons-dashboard-checkbox col">

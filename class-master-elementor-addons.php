@@ -78,7 +78,7 @@
 					['ma-instagram-feed','pro'],    // 33
 					'ma-counter-up',				// 34
 					'ma-countdown-timer',			// 35
-					'ma-content-toggle',			// 36
+					'ma-toggle-content',			// 36
 
 					// Form Elements
 					'contact-form-7',           	// 37

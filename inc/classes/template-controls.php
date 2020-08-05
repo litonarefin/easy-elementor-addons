@@ -67,13 +67,13 @@ class Master_Addons_Template_Controls{
 		$object->add_control(
 			$args['prefix'] . 'template_type',
 			[
-				'label'		=> __( 'Template Type', MELA_TD ),
+				'label'		=> esc_html__( 'Template Type', MELA_TD ),
 				'type' 		=> Controls_Manager::SELECT,
 				'default' 	=> 'section',
 				'options' 	=> [
-					'section'	=> __( 'Section', MELA_TD ),
-					'page'		=> __( 'Page', MELA_TD ),
-					'widget'	=> __( 'Widget', MELA_TD ),
+					'section'	=> esc_html__( 'Section', MELA_TD ),
+					'page'		=> esc_html__( 'Page', MELA_TD ),
+					'widget'	=> esc_html__( 'Widget', MELA_TD ),
 				],
 				'condition' 	=> $args['condition'],
 			]
@@ -130,9 +130,7 @@ class Master_Addons_Template_Controls{
 		);
 	}
 
-	/**
-	 * @since 2.0.0
-	 */
+
 	public static function render_template_content( $id ) {
 
 		// Double check required method and template_id
@@ -145,7 +143,7 @@ class Master_Addons_Template_Controls{
 		$template = Master_Addons_Helper::jltma_elementor()->frontend->get_builder_content_for_display( $id );
 
 		if ( $template ) {
-			?><div class="elementor-template ma-el-template"><?php echo $template; ?></div><?php
+			?><div class="elementor-template jltma-template"><?php echo $template; ?></div><?php
 		} else {
 			_e( 'No template selected.', MELA_TD );
 		}
