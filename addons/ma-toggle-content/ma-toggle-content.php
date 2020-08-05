@@ -449,14 +449,14 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     ],
                 ],
                 'selectors' 	=> [
-                    '{{WRAPPER}} .ee-toggle-element__indicator' => 'margin: {{SIZE}}px;',
-                    '{{WRAPPER}} .ee-toggle-element__controls-wrapper' => 'padding: {{SIZE}}px;',
+                    // '{{WRAPPER}} .ee-toggle-element__indicator' => 'margin: {{SIZE}}px;',
+                    // '{{WRAPPER}} .ee-toggle-element__controls-wrapper' => 'padding: {{SIZE}}px;',
                 ],
             ]
         );
 
         $this->add_responsive_control(
-            'toggle_width',
+            'jltma_toggle_content_toggle_width',
             [
                 'label' 	=> esc_html__( 'Width (%)', MELA_TD ),
                 'type' 		=> Controls_Manager::SLIDER,
@@ -468,13 +468,13 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     ],
                 ],
                 'selectors' 	=> [
-                    '{{WRAPPER}} .ee-toggle-element__controls-wrapper' => 'width: {{SIZE}}%;',
+                    // '{{WRAPPER}} .ee-toggle-element__controls-wrapper' => 'width: {{SIZE}}%;',
                 ],
             ]
         );
 
         $this->add_responsive_control(
-            'toggle_radius',
+            'jltma_toggle_content_toggle_radius',
             [
                 'label' 	=> esc_html__( 'Radius', MELA_TD ),
                 'type' 		=> Controls_Manager::SLIDER,
@@ -489,22 +489,22 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     ],
                 ],
                 'selectors' 	=> [
-                    '{{WRAPPER}}.ee-toggle-element--square .ee-toggle-element__controls-wrapper' => 'border-radius: {{SIZE}}px;',
-                    '{{WRAPPER}}.ee-toggle-element--square .ee-toggle-element__indicator' => 'border-radius: calc( {{SIZE}}px - 2px );',
+                    // '{{WRAPPER}}.ee-toggle-element--square .ee-toggle-element__controls-wrapper' => 'border-radius: {{SIZE}}px;',
+                    // '{{WRAPPER}}.ee-toggle-element--square .ee-toggle-element__indicator' => 'border-radius: calc( {{SIZE}}px - 2px );',
                 ],
                 'condition' => [
-                    'toggle_style' => 'square',
+                    'jltma_toggle_content_toggle_style' => 'square',
                 ]
             ]
         );
 
         $this->add_control(
-            'toggle_background',
+            'jltma_toggle_content_toggle_background',
             [
                 'label' 	=> esc_html__( 'Background Color', MELA_TD ),
                 'type' 		=> Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .ee-toggle-element__controls-wrapper' => 'background-color: {{VALUE}};'
+                    // '{{WRAPPER}} .ee-toggle-element__controls-wrapper' => 'background-color: {{VALUE}};'
                 ],
             ]
         );
@@ -512,12 +512,48 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name' 		=> 'toggle',
-                'selector' 	=> '{{WRAPPER}} .ee-toggle-element__controls-wrapper',
+                'name' 		=> 'jltma_toggle_content_toggle',
+                // 'selector' 	=> '{{WRAPPER}} .ee-toggle-element__controls-wrapper',
             ]
         );
 
 		$this->end_controls_section();
+
+
+
+
+        /**
+         * Content Tab: Docs Links
+         */
+
+		$this->start_controls_section(
+			'jltma_toggle_content_section_style_indicator',
+			[
+				'label' => esc_html__( 'Indicator', MELA_TD ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+			$this->add_control(
+				'jltma_toggle_content_indicator_color',
+				[
+					'label' 	=> esc_html__( 'Color', MELA_TD ),
+					'type' 		=> Controls_Manager::COLOR,
+					'frontend_available' => true,
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Box_Shadow::get_type(),
+				[
+					'name' 		=> 'jltma_toggle_content_indicator',
+					// 'selector' 	=> '{{WRAPPER}} .ee-toggle-element__indicator',
+				]
+			);
+
+		$this->end_controls_section();
+
+
 
 
         /**
