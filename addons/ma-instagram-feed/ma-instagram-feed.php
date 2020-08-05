@@ -60,7 +60,7 @@
         public function get_help_url(){
             return 'https://master-addons.com/demos/instagram-feed';
         }
-        
+
 
         public function get_style_depends(){
             return [
