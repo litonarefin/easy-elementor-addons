@@ -1,5 +1,5 @@
 <?php
-	namespace MasterAddons\Inc\Classes\Transitions;
+	namespace MasterAddons\Inc\Controls;
 
 	use Elementor\Group_Control_Base;
 	use Elementor\Controls_Manager;
@@ -43,7 +43,7 @@
 
 
 		public static function get_type() {
-			return 'ma-el-transition';
+			return 'jltma-transitions';
 		}
 
 		public static function get_easings() {
@@ -127,4 +127,4 @@
 
 //	MA_Group_Control_Transition::instance();
 
-	\Elementor\Plugin::instance()->controls_manager->add_group_control( 'ma-el-transition', MA_Group_Control_Transition::instance());
+	\Elementor\Plugin::instance()->controls_manager->add_group_control( 'jltma-transitions', MA_Group_Control_Transition::instance());

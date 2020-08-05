@@ -16,7 +16,7 @@ use Elementor\Scheme_Typography;
 
 // Master Addons Classes
 use MasterAddons\Inc\Classes\Controls\Templates\Master_Addons_Template_Controls as TemplateControls;
-use MasterAddons\Inc\Classes\Transitions\MA_Group_Control_Transition;
+use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 

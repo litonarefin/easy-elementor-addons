@@ -371,6 +371,11 @@
 						'class' => 'MasterAddons\Inc\Controls\MA_Transform_Element',
 						'type'  => 'group'
 					),
+					'jltma-transitions' => array(
+						'file'  => MELA_PLUGIN_PATH . '/inc/controls/group/transitions.php',
+						'class' => 'MasterAddons\Inc\Controls\MA_Group_Control_Transition',
+						'type'  => 'group'
+					),
 					'xy_positions' => array(
 						'file'  => MELA_PLUGIN_PATH . '/inc/controls/xy-position.php',
 						'class' => 'MasterAddons\Inc\Controls\MA_XY_Position',

@@ -17,7 +17,7 @@
 
 
 	use MasterAddons\Inc\Helper\Master_Addons_Helper;
-//	use MasterAddons\Inc\Classes\Transitions\MA_Group_Control_Transition;
+	use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
 
 	/**
 	 * Author Name: Liton Arefin
@@ -727,15 +727,15 @@
 					'separator'	=> 'before',
 				]
 			);
-//
-//			$this->add_group_control(
-//				MA_Group_Control_Transition::get_type(),
-//				[
-//					'name' 			=> 'ma_el_hotspots',
-//					'selector' 		=> '{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper,
-//										{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper:before',
-//				]
-//			);
+
+			$this->add_group_control(
+				MA_Group_Control_Transition::get_type(),
+				[
+					'name' 			=> 'ma_el_hotspots',
+					'selector' 		=> '{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper,
+										{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper:before',
+				]
+			);
 
 			$this->start_controls_tabs( 'tabs_ma_el_hotspots_style' );
 
