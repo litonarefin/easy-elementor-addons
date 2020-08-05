@@ -78,14 +78,15 @@
 					['ma-instagram-feed','pro'],    // 33
 					'ma-counter-up',				// 34
 					'ma-countdown-timer',			// 35
+					'ma-content-toggle',			// 36
 
 					// Form Elements
-					'contact-form-7',           	// 36
-					'ninja-forms',              	// 37
-					'wpforms',                  	// 38
-					['gravity-forms','pro'],    	// 39
-					'caldera-forms',            	// 40
-					'weforms',                  	// 41
+					'contact-form-7',           	// 37
+					'ninja-forms',              	// 38
+					'wpforms',                  	// 39
+					['gravity-forms','pro'],    	// 40
+					'caldera-forms',            	// 41
+					'weforms',                  	// 42
 
 					// Marketing Addons
 					'ma-mailchimp',             	// 42
