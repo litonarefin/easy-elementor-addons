@@ -780,7 +780,7 @@
 				include_once MELA_PLUGIN_PATH . '/inc/classes/helper-class.php';
 
 				// Templates Control Class
-				include_once MELA_PLUGIN_PATH . '/inc/classes/template-control.php';
+				include_once MELA_PLUGIN_PATH . '/inc/classes/template-controls.php';
 
 				// Post/Pages Duplicator
 				include_once MELA_PLUGIN_PATH . '/inc/classes/ma-duplicator.php';

@@ -1,7 +1,7 @@
 <?php
 namespace Elementor;
 
-use MasterAddons\Inc\Classes\Controls\Templates as ControlTemplates;
+use MasterAddons\Inc\Classes\Controls\Templates\Master_Addons_Template_Controls as TemplateControls;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 // Elementor Classes
@@ -204,7 +204,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             ]
         );
 
-        ControlTemplates::add_controls( $repeater, [
+        TemplateControls::add_controls( $repeater, [
             'jltma_toggle_content_condition' => [
                 'jltma_toggle_content_type' => 'template',
             ],
@@ -237,6 +237,37 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     // '{{WRAPPER}} {{CURRENT_ITEM}}.ee-toggle-element__controls__item.ee--is-active,
                     //  {{WRAPPER}} {{CURRENT_ITEM}}.ee-toggle-element__controls__item.ee--is-active:hover' => 'color: {{VALUE}};',
                 ],
+            ]
+        );
+
+        $repeater->add_control(
+            'jltma_toggle_content_active_color',
+            [
+                'label' 	            => esc_html__( 'Indicator Color', MELA_TD ),
+                'type' 		            => Controls_Manager::COLOR,
+            ]
+        );
+
+        $repeater->end_controls_tab();
+        $repeater->end_controls_tabs();
+
+        $this->add_control(
+            'jltma_toggle_content_elements',
+            [
+                'label' 	            => esc_html__( 'Elements', MELA_TD ),
+                'type' 		            => Controls_Manager::REPEATER,
+                'default' 	            => [
+                    [
+                        'jltma_toggle_content_text'     => '',
+                        'jltma_toggle_content'          => esc_html__( 'I am the content ready to be toggled', MELA_TD ),
+                    ],
+                    [
+                        'jltma_toggle_content_text' 	=> '',
+                        'jltma_toggle_content'          => esc_html__( 'I am the content of another element ready to be toggled', MELA_TD ),
+                    ],
+                ],
+                'fields' 		        => array_values( $repeater->get_controls() ),
+                'title_field' 	        => '{{{ jltma_toggle_content_text }}}',
             ]
         );
 

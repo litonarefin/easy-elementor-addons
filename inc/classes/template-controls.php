@@ -13,15 +13,7 @@ use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Master_Addons_Template_Controls extends Widget_base {
-
-	public function get_name() {
-		return 'templates';
-	}
-
-	public function get_widgets() {
-		return [];
-	}
+class Master_Addons_Template_Controls{
 
 	protected static function get_templates( $args = [] ) {
 
