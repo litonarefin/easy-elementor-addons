@@ -30,9 +30,6 @@
 
 		public function __construct() {
 			add_action( 'elementor/init', [ $this, 'init' ], 0 );
-
-
-
 		}
 
 		public function init(){
@@ -51,10 +48,10 @@
 
 		public static function get_easings() {
 			return [
-				'linear' 		=> __( 'Linear', MELA_TD ),
-				'ease-in' 		=> __( 'Ease In', MELA_TD ),
-				'ease-out' 		=> __( 'Ease Out', MELA_TD ),
-				'ease-in-out' 	=> __( 'Ease In Out', MELA_TD ),
+				'linear' 		=> esc_html__( 'Linear', MELA_TD ),
+				'ease-in' 		=> esc_html__( 'Ease In', MELA_TD ),
+				'ease-out' 		=> esc_html__( 'Ease Out', MELA_TD ),
+				'ease-in-out' 	=> esc_html__( 'Ease In Out', MELA_TD ),
 			];
 		}
 
@@ -67,7 +64,7 @@
 				'type' 			=> Controls_Manager::SELECT,
 				'default' 		=> 'all',
 				'options'		=> [
-					'all'		=> __( 'All', MELA_TD ),
+					'all'		=> esc_html__( 'All', MELA_TD ),
 				],
 				'selectors' => [
 					'{{SELECTOR}}' => 'transition-property: {{VALUE}}',

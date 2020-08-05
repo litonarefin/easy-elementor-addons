@@ -16,7 +16,9 @@ use Elementor\Scheme_Typography;
 
 // Master Addons Classes
 use MasterAddons\Inc\Classes\Controls\Templates\Master_Addons_Template_Controls as TemplateControls;
+use MasterAddons\Inc\Classes\Transitions\MA_Group_Control_Transition;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
+
 
 /**
  * Author Name: Liton Arefin
@@ -76,7 +78,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->start_controls_section(
             'jltma_toggle_content_element_settings',
             [
-                'label' => esc_html__( 'Content Settings', MELA_TD )
+                'label' => esc_html__( 'Toggle Content', MELA_TD )
             ]
         );
 
@@ -523,7 +525,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
 
 
         /**
-         * Content Tab: Docs Links
+         * Content Tab: Toggle Content Indicator
          */
 
 		$this->start_controls_section(
@@ -534,25 +536,314 @@ class Master_Addons_Toggle_Content extends Widget_Base {
 			]
 		);
 
-			$this->add_control(
-				'jltma_toggle_content_indicator_color',
-				[
-					'label' 	=> esc_html__( 'Color', MELA_TD ),
-					'type' 		=> Controls_Manager::COLOR,
-					'frontend_available' => true,
-				]
-			);
+        $this->add_control(
+            'jltma_toggle_content_indicator_color',
+            [
+                'label' 	=> esc_html__( 'Color', MELA_TD ),
+                'type' 		=> Controls_Manager::COLOR,
+                'frontend_available' => true,
+            ]
+        );
 
-			$this->add_group_control(
-				Group_Control_Box_Shadow::get_type(),
-				[
-					'name' 		=> 'jltma_toggle_content_indicator',
-					// 'selector' 	=> '{{WRAPPER}} .ee-toggle-element__indicator',
-				]
-			);
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' 		=> 'jltma_toggle_content_indicator',
+                // 'selector' 	=> '{{WRAPPER}} .ee-toggle-element__indicator',
+            ]
+        );
 
 		$this->end_controls_section();
 
+
+        /**
+         * Content Tab: Toggle Content Labels
+         */
+
+		$this->start_controls_section(
+			'jltma_toggle_content_section_style_labels',
+			[
+				'label' => esc_html__( 'Labels', MELA_TD ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+        $this->add_control(
+            'jltma_toggle_content_labels_info',
+            [
+                'type' 				=> Controls_Manager::RAW_HTML,
+                'raw' 				=> esc_html__( 'After adjusting some of these settings, interact with the toggler so that the position of the indicator is updated. ', MELA_TD ),
+                'content_classes' 	=> 'elementor-panel-alert elementor-panel-alert-info',
+            ]
+        );
+
+        $this->add_control(
+            'jltma_toggle_content_labels_stack',
+            [
+                'label'		=> esc_html__( 'Stack On', MELA_TD ),
+                'type' 		=> Controls_Manager::SELECT,
+                'default' 	=> '',
+                'options' 	=> [
+                    ''  		=> esc_html__( 'None', MELA_TD ),
+                    'desktop'  	=> esc_html__( 'All', MELA_TD ),
+                    'tablet'  	=> esc_html__( 'Tablet & Mobile', MELA_TD ),
+                    'mobile' 	=> esc_html__( 'Mobile', MELA_TD ),
+                ],
+                // 'prefix_class' => 'ee-toggle-element--stack-',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'jltma_toggle_content_labels_align',
+            [
+                'label' 		=> esc_html__( 'Inline Align', MELA_TD ),
+                'description' 	=> esc_html__( 'Label alignment only works if you set a custom width for the toggler.', MELA_TD ),
+                'type' 			=> Controls_Manager::CHOOSE,
+                'options' 		=> [
+                    'start'    => [
+                        'title' 	=> esc_html__( 'Left', MELA_TD ),
+                        'icon' 		=> 'eicon-h-align-left',
+                    ],
+                    'center' 		=> [
+                        'title' 	=> esc_html__( 'Center', MELA_TD ),
+                        'icon' 		=> 'eicon-h-align-center',
+                    ],
+                    'end' 		=> [
+                        'title' 	=> esc_html__( 'Right', MELA_TD ),
+                        'icon' 		=> 'eicon-h-align-right',
+                    ],
+                    'stretch' 		=> [
+                        'title' 	=> esc_html__( 'Justify', MELA_TD ),
+                        'icon' 		=> 'eicon-h-align-stretch',
+                    ],
+                ],
+                'default' 		=> 'center',
+                // 'prefix_class' 	=> 'ee-labels-align%s--',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'jltma_toggle_content_stacked_labels_align',
+            [
+                'label' 		=> esc_html__( 'Stacked Align', MELA_TD ),
+                'type' 			=> Controls_Manager::CHOOSE,
+                'options' 		=> [
+                    'start'    => [
+                        'title' 	=> esc_html__( 'Left', MELA_TD ),
+                        'icon' 		=> 'eicon-h-align-left',
+                    ],
+                    'center' 		=> [
+                        'title' 	=> esc_html__( 'Center', MELA_TD ),
+                        'icon' 		=> 'eicon-h-align-center',
+                    ],
+                    'end' 		=> [
+                        'title' 	=> esc_html__( 'Right', MELA_TD ),
+                        'icon' 		=> 'eicon-h-align-right',
+                    ],
+                    'stretch' 		=> [
+                        'title' 	=> esc_html__( 'Justify', MELA_TD ),
+                        'icon' 		=> 'eicon-h-align-stretch',
+                    ],
+                ],
+                'default' 		=> 'center',
+                // 'prefix_class' 	=> 'ee-labels-align-stacked%s--',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'jltma_toggle_content_labels_text_align',
+            [
+                'label' 		=> esc_html__( 'Align Label Text', MELA_TD ),
+                'description' 	=> esc_html__( 'Label text alignment only works if your labels have text.', MELA_TD ),
+                'type' 			=> Controls_Manager::CHOOSE,
+                'default' 		=> '',
+                'options' 		=> [
+                    'left'    		=> [
+                        'title' 	=> esc_html__( 'Left', MELA_TD ),
+                        'icon' 		=> 'fa fa-align-left',
+                    ],
+                    'center' 		=> [
+                        'title' 	=> esc_html__( 'Center', MELA_TD ),
+                        'icon' 		=> 'fa fa-align-center',
+                    ],
+                    'right' 		=> [
+                        'title' 	=> esc_html__( 'Right', MELA_TD ),
+                        'icon' 		=> 'fa fa-align-right',
+                    ],
+                ],
+                'selectors'		=> [
+                    // '{{WRAPPER}} .ee-toggle-element__controls__item' => 'text-align: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' 		=> 'jltma_toggle_content_labels_typography',
+                // 'selector' 	=> '{{WRAPPER}} .ee-toggle-element__controls__item',
+                'exclude'	=> ['font_size'],
+                'scheme' 	=> Scheme_Typography::TYPOGRAPHY_3,
+            ]
+        );
+
+        $this->add_group_control(
+            MA_Group_Control_Transition::get_type(),
+            [
+                'name' 			=> 'jltma_toggle_content_labels',
+                // 'selector' 		=> '{{WRAPPER}} .ee-toggle-element__controls__item',
+            ]
+        );
+
+        $this->start_controls_tabs( 'jltma_toggle_content_labels_style' );
+
+            $this->start_controls_tab( 'jltma_toggle_content_labels_style_default', [ 'label' => esc_html__( 'Default', MELA_TD ) ] );
+
+            $this->add_control(
+                'labels_color',
+                [
+                    'label' 	=> esc_html__( 'Color', MELA_TD ),
+                    'type' 		=> Controls_Manager::COLOR,
+                    'selectors' => [
+                        // '{{WRAPPER}} .ee-toggle-element__controls__item' => 'color: {{VALUE}};'
+                    ],
+                ]
+            );
+
+            $this->end_controls_tab();
+
+			$this->start_controls_tab( 'jltma_toggle_content_labels_style_hover', [ 'label' => esc_html__( 'Hover', MELA_TD ) ] );
+
+            $this->add_control(
+                'jltma_toggle_content_labels_color_hover',
+                [
+                    'label' 	=> esc_html__( 'Color', MELA_TD ),
+                    'type' 		=> Controls_Manager::COLOR,
+                    'selectors' => [
+                        // '{{WRAPPER}} .ee-toggle-element__controls__item:hover' => 'color: {{VALUE}};'
+                    ],
+                ]
+            );
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab( 'jltma_toggle_content_labels_style_active', [ 'label' => esc_html__( 'Active', MELA_TD ) ] );
+
+				$this->add_control(
+					'jltma_toggle_content_labels_color_active',
+					[
+						'label' 	=> esc_html__( 'Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							// '{{WRAPPER}} .ee-toggle-element__controls__item.ee--is-active,
+							//  {{WRAPPER}} .ee-toggle-element__controls__item.ee--is-active:hover' => 'color: {{VALUE}};'
+						],
+					]
+				);
+
+			$this->end_controls_tab();
+
+			$this->end_controls_tabs();
+
+		$this->end_controls_section();
+
+
+
+        /**
+         * Content Tab: Toggle Content
+         */
+
+		$this->start_controls_section(
+			'jltma_toggle_content_section_style_content',
+			[
+				'label' => esc_html__( 'Content', MELA_TD ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' 		=> 'jltma_toggle_content_typography',
+                    // 'selector' 	=> '{{WRAPPER}} .ee-toggle-element__element',
+                    'scheme' 	=> Scheme_Typography::TYPOGRAPHY_3,
+                ]
+            );
+
+            $this->add_control(
+                'jltma_toggle_content_padding',
+                [
+                    'label' 		=> esc_html__( 'Padding', MELA_TD ),
+                    'type' 			=> Controls_Manager::DIMENSIONS,
+                    'size_units' 	=> [ 'px', 'em', '%' ],
+                    'selectors' 	=> [
+                        // '{{WRAPPER}} .ee-toggle-element__element' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'jltma_toggle_content_margin',
+                [
+                    'label' 		=> esc_html__( 'Margin', MELA_TD ),
+                    'type' 			=> Controls_Manager::DIMENSIONS,
+                    'size_units' 	=> [ 'px', 'em', '%' ],
+                    'selectors' 	=> [
+                        // '{{WRAPPER}} .ee-toggle-element__element' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Border::get_type(),
+                [
+                    'name' 		=> 'jltma_toggle_content_border',
+                    'label' 	=> esc_html__( 'Border', MELA_TD ),
+                    // 'selector' 	=> '{{WRAPPER}} .ee-toggle-element__element',
+                ]
+            );
+
+            $this->add_responsive_control(
+                'jltma_toggle_content_border_radius',
+                [
+                    'label' 	=> esc_html__( 'Border Radius', MELA_TD ),
+                    'type' 		=> Controls_Manager::SLIDER,
+                    'range' 	=> [
+                        'px' 	=> [
+                            'max' 	=> 10,
+                            'min' 	=> 0,
+                            'step' 	=> 1,
+                        ],
+                    ],
+                    'selectors' 	=> [
+                        // '{{WRAPPER}} .ee-toggle-element__element' => 'border-radius: {{SIZE}}px;',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'jltma_toggle_content_foreground',
+                [
+                    'label' 	=> esc_html__( 'Color', MELA_TD ),
+                    'type' 		=> Controls_Manager::COLOR,
+                    'separator' => 'before',
+                    'selectors'	=> [
+                        // '{{WRAPPER}} .ee-toggle-element__element' => 'color: {{VALUE}};'
+                    ]
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Background::get_type(),
+                [
+                    'name' 		=> 'jltma_toggle_content_background',
+                    'selector' 	=> '{{WRAPPER}} .ee-toggle-element__element',
+                    'types' 	=> [ 'classic', 'gradient' ],
+                    'default'	=> 'classic',
+                ]
+            );
+
+		$this->end_controls_section();
 
 
 
