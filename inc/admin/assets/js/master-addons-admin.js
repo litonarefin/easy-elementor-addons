@@ -66,23 +66,6 @@
                 .css("cursor", "pointer");
         });
 
-        // Dasboard Addons Filter
-        var jltma_items = $('#master-addons-elements .master-addons-dashboard-checkbox');
-        $('.master-addons-dashboard-filter .master-addons-filter a').on('click',function(){
-            console.log('Filter Clicked');
-
-            var thisis = $( this ),
-                filterType = $( this ).data('filter');
-
-            console.log(jltma_items.length); // Length of articles
-            jltma_items
-                .hide()
-                .filter(function () {
-                    return $(this).data('cat') === filterType;
-                })
-                .show();
-        });
-
 
         // Dismissible Admin Notices
         $( 'div[data-dismissible] button.notice-dismiss' ).click(
