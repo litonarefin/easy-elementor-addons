@@ -1,6 +1,9 @@
 <?php
 namespace Elementor;
 
+use MasterAddons\Inc\Classes\Controls\Templates as ControlTemplates;
+use MasterAddons\Inc\Helper\Master_Addons_Helper;
+
 // Elementor Classes
 use Elementor\Repeater;
 use Elementor\Icons_Manager;
@@ -114,7 +117,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
 
         $repeater->start_controls_tabs( 'jltma_toggle_contents_repeater' );
 
-        $repeater->start_controls_tab( 'jltma_toggle_content', [ 'label' => esc_html__( 'Content', MELA_TD ) ] );
+        $repeater->start_controls_tab( 'jltma_toggle_contents', [ 'label' => esc_html__( 'Content', MELA_TD ) ] );
 
         $repeater->add_control(
             'jltma_toggle_content_text',
@@ -189,14 +192,50 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         );
 
         $repeater->add_control(
-            'content',
+            'jltma_toggle_content',
             [
                 'label' 	            => esc_html__( 'Content', MELA_TD ),
                 'type' 		            => Controls_Manager::WYSIWYG,
                 'dynamic'	            => [ 'active' => true ],
                 'default' 	            => esc_html__( 'I am the content ready to be toggled', MELA_TD ),
                 'condition'	            => [
-                    'content_type'      => 'content',
+                    'jltma_toggle_content_type'      => 'content',
+                ],
+            ]
+        );
+
+        ControlTemplates::add_controls( $repeater, [
+            'jltma_toggle_content_condition' => [
+                'jltma_toggle_content_type' => 'template',
+            ],
+            'prefix' => 'content_',
+        ] );
+        $repeater->end_controls_tab();
+
+        $repeater->start_controls_tab( 'jltma_toggle_content_label', [ 'label' => esc_html__( 'Style', MELA_TD ) ] );
+
+        $repeater->add_control(
+            'jltma_toggle_content_text_color',
+            [
+                'label' 	            => esc_html__( 'Label Color', MELA_TD ),
+                'type' 		            => Controls_Manager::COLOR,
+                'default'	            => '',
+                'selectors'             => [
+                    // '{{WRAPPER}} {{CURRENT_ITEM}}.ee-toggle-element__controls__item' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+
+        $repeater->add_control(
+            'jltma_toggle_content_text_active_color',
+            [
+                'label' 	            => esc_html__( 'Active Label Color', MELA_TD ),
+                'type' 		            => Controls_Manager::COLOR,
+                'default'	            => '',
+                'selectors'             => [
+                    // '{{WRAPPER}} {{CURRENT_ITEM}}.ee-toggle-element__controls__item.ee--is-active,
+                    //  {{WRAPPER}} {{CURRENT_ITEM}}.ee-toggle-element__controls__item.ee--is-active:hover' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -406,4 +445,4 @@ class Master_Addons_Toggle_Content extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Toggle_Contenttoggle-content);
+Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Toggle_Content());

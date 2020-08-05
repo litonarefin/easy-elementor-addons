@@ -3,7 +3,6 @@
 
 	class Master_Addons_Helper{
 
-
 		public static function jltma_elementor() {
 			return \Elementor\Plugin::$instance;
 		}
@@ -654,7 +653,7 @@
 		}
 
 
-		// Tooltip Icon & 
+		// Tooltip Icon &
 		public static function jltma_admin_tooltip_info($info_name, $info_url, $info_icon){
 
         	if( !empty( $info_url )){?>
