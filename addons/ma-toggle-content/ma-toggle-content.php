@@ -953,7 +953,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
 								$this->render_text( $index, $item );
 								break;
 							case 'template':
-								$template_key = 'content_' . $item['jltma_toggle_content_type'] . '_template_id';
+                                $template_key = 'content_' . $item['content_template_type'] . '_template_id';
 								if ( array_key_exists( $template_key, $item ) )
                                 TemplateControls::render_template_content( $item[ $template_key ] );
 								break;
