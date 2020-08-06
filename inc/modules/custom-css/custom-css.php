@@ -1,18 +1,7 @@
 <?php
 	namespace MasterAddons\Modules\CustomCSS;
 
-	use Elementor\Plugin;
-	use Elementor\Widget_Base;
 	use Elementor\Controls_Manager;
-	use Elementor\Group_Control_Image_Size;
-	use Elementor\Group_Control_Typography;
-	use Elementor\Scheme_Color;
-	use Elementor\Scheme_Typography;
-	use Elementor\Control_Media;
-	use Elementor\Group_Control_Border;
-	use Elementor\Group_Control_Box_Shadow;
-	use Elementor\Group_Control_Background;
-
 
 	/**
 	 * Author Name: Liton Arefin
@@ -124,9 +113,6 @@ selector .child-element{ margin: 10px; }
 			}
 			return self::$instance;
 		}
-
-
-
 	}
 
 	Master_Addons_Custom_CSS::get_instance();

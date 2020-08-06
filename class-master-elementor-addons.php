@@ -79,7 +79,7 @@
 					['ma-instagram-feed','pro'],    // 33
 					'ma-counter-up',				// 34
 					'ma-countdown-timer',			// 35
-					'ma-toggle-content',			// 36
+					['ma-toggle-content','pro'],	// 36
 
 					// Form Elements
 					'contact-form-7',           	// 37
@@ -108,6 +108,7 @@
 					'reading-progress-bar',
 					'bg-slider',
 					'custom-css',
+					'custom-js',
 					'positioning',
 					'extras',
 					'mega-menu',

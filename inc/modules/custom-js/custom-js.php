@@ -1,39 +1,43 @@
 <?php
-namespace Essential_Addons_Elementor\Extensions;
+namespace MasterAddons\Modules\CustomJS;
 
-if (!defined('ABSPATH')) {
-    exit;
-}
+use Elementor\Controls_Manager;
 
-use \Elementor\Controls_Manager;
+/**
+ * Author Name: Liton Arefin
+ * Author URL: https://jeweltheme.com
+ * Date: 07/08/20
+ */
+if ( ! defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
-class Custom_JS
-{
-    public function __construct()
-    {
-        add_action('elementor/documents/register_controls', [$this, 'section_custom_js'], 20);
+class Master_Addons_Custom_JS{
+
+    private static $instance = null;
+
+    public function __construct(){
+        // Add new controls to Page Settings on Advanced Tab globally
+        add_action('elementor/documents/register_controls', [$this, 'jltma_add_section_custom_js_controls'], 20);
     }
 
-    public function section_custom_js($controls)
-    {
+    public function jltma_add_section_custom_js_controls($controls){
         $controls->start_controls_section(
-            'eael_ext_section_custom_js',
+            'jtlma_section_custom_js',
             [
-                'label' => sprintf('<i class="eaicon-logo"></i> %s', __('Custom JS', 'essential-addons-for-elementor-lite')),
-                'tab' => Controls_Manager::TAB_ADVANCED,
+                'label'     => MA_EL_BADGE . __( ' Custom JS', MELA_TD ),
+                'tab'       => Controls_Manager::TAB_ADVANCED,
             ]
         );
 
         $controls->add_control(
-            'eael_custom_js_label',
+            'jtlma_custom_js_label',
             [
-                'type' => Controls_Manager::RAW_HTML,
-                'raw' => __('Add your own custom JS here', 'essential-addons-for-elementor-lite'),
+                'type'      => Controls_Manager::RAW_HTML,
+                'raw'       => __('Add your own custom JS here', MELA_TD),
             ]
         );
 
         $controls->add_control(
-            'eael_custom_js',
+            'jtlma_custom_js',
             [
                 'type' => Controls_Manager::CODE,
                 'show_label' => false,
@@ -42,23 +46,33 @@ class Custom_JS
         );
 
         $controls->add_control(
-            'eael_custom_js_usage',
+            'jtlma_custom_js_usage',
             [
                 'type' => Controls_Manager::RAW_HTML,
-                'raw' => __('You may use both jQuery selector e.g. $(‘.selector’) or Vanilla JS selector e.g. document.queryselector(‘.selector’)', 'essential-addons-for-elementor-lite'),
+                'raw' => __('You may use both jQuery selector e.g. $(‘.selector’) or Vanilla JS selector e.g. document.queryselector(‘.selector’)', MELA_TD),
                 'content_classes' => 'elementor-descriptor',
             ]
         );
 
         $controls->add_control(
-            'eael_custom_js_docs',
+            'jtlma_custom_js_docs',
             [
                 'type' => Controls_Manager::RAW_HTML,
-                'raw' => __('For more information, <a href="https://essential-addons.com/elementor/docs/custom-js/" target="_blank">click here</a>', 'essential-addons-for-elementor-lite'),
+                'raw' => __('For more information, <a href="https://master-addons.com/docs/addons/custom-js-extension/" target="_blank">click here</a>', MELA_TD),
                 'content_classes' => 'elementor-descriptor',
             ]
         );
 
         $controls->end_controls_section();
     }
+
+    public static function get_instance() {
+        if ( ! self::$instance ) {
+            self::$instance = new self;
+        }
+        return self::$instance;
+    }
+
 }
+
+Master_Addons_Custom_JS::get_instance();
