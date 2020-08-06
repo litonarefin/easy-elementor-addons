@@ -318,6 +318,8 @@ Paste on your Local Computer
 * Updated: Master Addons Scripts & Styles dependency only loaded for Master Addons Menu
 * Updated: Master Addons Admin Dashboard widget blog posts style issue fixed, removed contents and only Titles are showing for better appearance.
 * Added: Group Control Transitions added on "Image Hotspot" addon
+* Added: New Addon Element "Toggle Content" added
+* Added: New Extension "Custom JS" added. It's applied on Page "Advanced" Settings. Now, any kind of JavaScripts can be applied on specific page.
 
 = 1.4.5.5 (20-07-2020) =
 * Removed: Temporarily removed Custom Breakpoints for layout issue on frontend. Will fix it and enable it again asap.

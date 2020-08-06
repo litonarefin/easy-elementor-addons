@@ -106,7 +106,7 @@ class Responsive {
 	    $custom_breakpoints = json_decode(file_get_contents(JLTMA_MCB_PLUGIN_PATH.'/custom_breakpoints.json'), true);
 	    return array_merge($default_breakpoints, $custom_breakpoints);
 	}
-	
+
 
 	public static function get_breakpoints() {
 		self::$default_breakpoints = self::jltma_cbps();

@@ -16,6 +16,11 @@ body:not(.elementor-device-desktop) div#elementor-preview-responsive-wrapper:bef
 .elementor-panel .elementor-panel-footer-sub-menu-item {
   padding: 3px 0;
 }
+/* .elementor-panel .elementor-panel-footer-sub-menu-item.active { */
+  /* border-top: 1px solid #d30c5c; */
+  /* border-bottom: 1px solid #d30c5c; */
+  /* background-color: rgba(212, 14, 92, 0.3) !important; */
+/* } */
 
 #elementor-panel-footer-responsive .elementor-panel-footer-sub-menu {
   overflow-y: scroll;

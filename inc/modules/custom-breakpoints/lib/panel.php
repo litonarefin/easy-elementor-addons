@@ -70,7 +70,9 @@ $document = Plugin::$instance->documents->get( Plugin::$instance->editor->get_po
 		<span class="elementor-screen-only"><?php echo __( 'History', 'elementor' ); ?></span>
 	</div>
 	<div id="elementor-panel-footer-responsive" class="elementor-panel-footer-tool elementor-toggle-state">
+
 		<i class="eicon-device-desktop tooltip-target" aria-hidden="true" data-tooltip="<?php esc_attr_e( 'Responsive Mode', 'elementor' ); ?>"></i>
+
 		<span class="elementor-screen-only">
 			<?php echo __( 'Responsive Mode', 'elementor' ); ?>
 		</span>
@@ -104,8 +106,7 @@ $document = Plugin::$instance->documents->get( Plugin::$instance->editor->get_po
 					        <?php echo esc_html__('Type:', 'elementor');?> <span style="text-transform:capitalize;"><?php echo $value['orientation']; ?></span> <br>
 					        <?php echo $value['select1']; ?>: <?php echo $value['input1']; ?><br>
 					        <?php echo $value['select2']; ?>: <?php echo $value['input2']; ?>
-					        
-					    </span>						
+					    </span>
 					</div>
 				<?php } ?>
 
@@ -280,7 +281,7 @@ $document = Plugin::$instance->documents->get( Plugin::$instance->editor->get_po
 					<# if ( device == "desktop" || device == "mobile" || device == "tablet" ) { #>
 						<i class="eicon-device-{{ device }}"></i>
 					<# } else{ #>
-						<i class="eicon-device-mobile master-cbp-device-"></i>
+						<i class="eicon-device-mobile master-cbp-device-<?php echo $value['orientation']; ?>"></i>
 					<# } #>
 				</a>
 			<# } ); #>

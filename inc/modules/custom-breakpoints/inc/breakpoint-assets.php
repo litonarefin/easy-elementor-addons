@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit;
 class JLTMA_Master_Custom_Breakpoint_Assets{
 
     private static $_instance = null;
-    
+
     public function __construct(){
 
         add_action('admin_print_scripts', [$this, 'jltma_mcb_admin_js']);
@@ -16,6 +16,7 @@ class JLTMA_Master_Custom_Breakpoint_Assets{
         add_action( 'admin_enqueue_scripts', [$this, 'jltma_mcb_admin_enqueue_scripts'] );
 
 		add_action( 'elementor/editor/before_enqueue_scripts', [$this, 'jltma_mcb_elmentor_scripts']);
+		// add_action( 'admin_enqueue_scripts', [$this, 'jltma_mcb_elmentor_scripts']);
 
 		add_action('admin_head',[ $this, 'jltma_mcb_admin_styles' ]);
 
@@ -24,17 +25,14 @@ class JLTMA_Master_Custom_Breakpoint_Assets{
 
     // Custom Admin Styles for Master Custom Breakpoint page
     public function jltma_mcb_admin_styles(){
-    	
     	$screen = get_current_screen();
-
         if($screen->id == 'master-addons_page_master-custom-breakpoints'){
-        	
         	$style = '#wpwrap{ background: #efeff5; }
 					margin-left: auto; margin-right: auto;
         	';
-
         	echo '<style>' . $style . '</style>';
         }
+
     }
 
     // Declare Variable for Rest API
@@ -43,7 +41,6 @@ class JLTMA_Master_Custom_Breakpoint_Assets{
         echo $this->jltma_common_js();
         echo "\n</script>";
     }
-
 
     public function jltma_common_js(){
         ob_start(); ?>
@@ -57,21 +54,19 @@ class JLTMA_Master_Custom_Breakpoint_Assets{
 
     public function jltma_mcb_elmentor_scripts(){
     	wp_enqueue_style( 'master-cbp-css', JLTMA_MCB_PLUGIN_URL . 'assets/css/master-cbp.css');
-    	wp_enqueue_script( 'master-cbp-script', JLTMA_MCB_PLUGIN_URL . 'assets/js/master-cbp.js', array( 'jquery'), true, JLTMA_MCB_VERSION );
+    	// wp_enqueue_script( 'master-cbp-script', JLTMA_MCB_PLUGIN_URL . 'assets/js/master-cbp.js', array( 'jquery'), true, JLTMA_MCB_VERSION );
 
         // Localize Scripts
-        $jltma_mcb_localize_data = array(
-            'plugin_url'    => JLTMA_MCB_PLUGIN_URL,
-            'ajaxurl'       => admin_url( 'admin-ajax.php' ),                
-            'resturl'       => get_rest_url() . 'masteraddons/v2/'
-        );      
-        wp_localize_script( 'master-cbp-script', 'masteraddons', $jltma_mcb_localize_data );
-
-
+        // $jltma_mcb_localize_data = array(
+        //     'plugin_url'    => JLTMA_MCB_PLUGIN_URL,
+        //     'ajaxurl'       => admin_url( 'admin-ajax.php' ),
+        //     'resturl'       => get_rest_url() . 'masteraddons/v2/'
+        // );
+        // wp_localize_script( 'master-cbp-script', 'masteraddons', $jltma_mcb_localize_data );
     }
 
     public function jltma_mcb_admin_enqueue_scripts(){
-        
+
         $screen = get_current_screen();
 
         if($screen->id == 'master-addons_page_master-custom-breakpoints'){
@@ -85,12 +80,10 @@ class JLTMA_Master_Custom_Breakpoint_Assets{
             // Localize Scripts
             $jltma_mcb_localize_data = array(
                 'plugin_url'    => JLTMA_MCB_PLUGIN_URL,
-                'ajaxurl'       => admin_url( 'admin-ajax.php' ),                
+                'ajaxurl'       => admin_url( 'admin-ajax.php' ),
                 'resturl'       => get_rest_url() . 'masteraddons/v2/'
-            );      
+            );
             wp_localize_script( 'master-cbp-admin', 'masteraddons', $jltma_mcb_localize_data );
-
-            
         }
     }
 
