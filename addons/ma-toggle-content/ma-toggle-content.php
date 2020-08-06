@@ -54,6 +54,13 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         ];
     }
 
+    public function get_script_depends(){
+        return [
+            'jltma-toggle-content',
+            'gsap-js'
+        ];
+    }
+
     public function get_keywords() {
         return [
             'content toggle',

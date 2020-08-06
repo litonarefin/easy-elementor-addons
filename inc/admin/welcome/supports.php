@@ -83,7 +83,7 @@
                                     <?php echo esc_html__('Show Us Some Love', MELA_TD);?>
                                 </h4>
                                 <p>
-                                    <?php echo esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ', MELA_TD);?>
+                                    <?php echo esc_html__('If you like Master Addons and want to support our work, please rate us 5 Star in our WordPress plugin repo. It will inspire us to work more and bring some amazing elements for your website. Thanks for using Master Addons.', MELA_TD);?>
                                 </p>
 
                                 <a href="https://wordpress.org/support/plugin/master-addons/reviews/#new-post" target="_blank">
@@ -138,7 +138,7 @@
                             <?php echo esc_html__('Contribute to Master Addons', MELA_TD);?>
                         </h4>
                         <p>
-                            <?php echo esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', MELA_TD);?>
+                            <?php echo esc_html__('If you need any unique elements for your website, please get in touch with us. We will hear your idea and develop element.', MELA_TD);?>
                         </p>
                         <a href="https://master-addons.com/contact-us/" target="_blank">
                             <button class="master-addons-widget-btn">
@@ -153,7 +153,7 @@
                             <?php echo esc_html__('Subscribe Newsletter', MELA_TD);?>
                         </h4>
                         <p>
-                            <?php echo esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', MELA_TD);?>
+                            <?php echo esc_html__('Newsletter is the best way for you to get informed about the latest news and updates. Subscribe now & stay updated.', MELA_TD);?>
                         </p>
                         <a href="https://master-addons.com/newsletter/" target="_blank">
                             <button class="master-addons-widget-btn">

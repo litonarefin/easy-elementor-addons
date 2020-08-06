@@ -549,6 +549,11 @@
 				// Toggle Content
 				wp_register_script( 'jltma-toggle-content', MELA_PLUGIN_URL . '/assets/vendor/toggle-content/toggle-content.js',array('jquery'),self::VERSION, true );
 
+				// GSAP TweenMax
+				// if ( 'no' !== $this->settings->get_option( 'load_tweenmax', 'jltma_options_advanced', false ) ) {
+					wp_enqueue_script(  'gsap-js', '//cdnjs.cloudflare.com/ajax/libs/gsap/' . $this->gsap_version . '/TweenMax.min.js', array(), null, true );
+				// }
+
 
 				// Addons specific Script/Styles Dependencies
 

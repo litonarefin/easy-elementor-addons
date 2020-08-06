@@ -6,9 +6,9 @@
                 speed: 0.3,
                 active: 1,
                 indicatorColor: "rgba(0, 0, 0, 1)",
-                controlItemClass: ".ee-toggle-element__controls__item",
-                indicatorClass: ".ee-toggle-element__indicator",
-                elementClass: ".ee-toggle-element__element",
+                controlItemClass: ".jltma-toggle-element__controls__item",
+                indicatorClass: ".jltma-toggle-element__indicator",
+                elementClass: ".jltma-toggle-element__element",
                 onBeforeToggle: function () {},
                 onAfterToggle: function () {},
             },
@@ -30,13 +30,13 @@
                 (r = g.find(s.opts.controlItemClass)), (c = g.find(s.opts.indicatorClass)), (d = g.find(s.opts.elementClass)), (m = r.length), s.opts.active > 0 && s.opts.active <= m && (h = s.opts.active - 1), s.setup(), s.events();
             }),
             (s.setup = function () {
-                (u = r.eq(h)), this.opts.watchControls && this.adjust(), this.goTo(h), g.addClass("ee--is-ready"), a.trigger("ee/toggle-element/ready");
+                (u = r.eq(h)), this.opts.watchControls && this.adjust(), this.goTo(h), g.addClass("jltma--is-ready"), a.trigger("ee/toggle-element/ready");
             }),
             (s.events = function () {
                 r.on("click", this.onClick), g._resize(this.adjust);
             }),
             (s.onClick = function (t) {
-                var o = e(t.target).closest(".ee-toggle-element__controls__item"),
+                var o = e(t.target).closest(".jltma-toggle-element__controls__item"),
                     n = o.index(),
                     i = n < m - 1 ? n + 1 : 0;
                 (h = h === n ? i : n), s.goTo(h);
@@ -50,11 +50,11 @@
                     r.data("active", !1),
                     r.eq(e).data("active", !0),
                     this.adjust(),
-                    r.removeClass("ee--is-active"),
-                    u.addClass("ee--is-active"),
+                    r.removeClass("jltma--is-active"),
+                    u.addClass("jltma--is-active"),
                     s.opts.onAfterToggle(),
                     a.trigger("ee/toggle-element/toggle"),
-                    a.trigger("resize");
+                    // a.trigger("resize");
             }),
             (s.adjust = function () {
                 var e = u.get(0).offsetLeft,
