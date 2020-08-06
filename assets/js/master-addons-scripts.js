@@ -1425,31 +1425,25 @@
 
         // Toggle Content
         MA_Toggle_Content: function( $scope, $ ) {
-
             Master_Addons.getElementSettings    = getElementSettings($scope);
-
-			var $wrapper 			= $scope.find( '.ee-toggle-element' ),
+			var $wrapper 			= $scope.find( '.jltma-toggle-content' ),
 				toggleElementArgs 	= {
 					active : Master_Addons.getElementSettings.toggle_active_index,
-				};
+                };
 
-			ToggleContentinit = function() {
-				if ( '' !== Master_Addons.getElementSettings.jltma_toggle_content_indicator_color ) {
-					toggleElementArgs.indicatorColor = Master_Addons.getElementSettings.jltma_toggle_content_indicator_color;
-				}
+            if ( '' !== Master_Addons.getElementSettings.jltma_toggle_content_indicator_color ) {
+                toggleElementArgs.indicatorColor = Master_Addons.getElementSettings.jltma_toggle_content_indicator_color;
+            }
 
-				if ( Master_Addons.getElementSettings.jltma_toggle_content_indicator_speed.size ) {
-					toggleElementArgs.speed = Master_Addons.getElementSettings.jltma_toggle_content_indicator_speed.size;
-				}
+            if ( Master_Addons.getElementSettings.jltma_toggle_content_indicator_speed.size ) {
+                toggleElementArgs.speed = Master_Addons.getElementSettings.jltma_toggle_content_indicator_speed.size;
+            }
 
-				if ( elementorFrontend.isEditMode() ) {
-					toggleElementArgs.watchControls = true;
-				}
+            if ( elementorFrontend.isEditMode() ) {
+                toggleElementArgs.watchControls = true;
+            }
 
-				$wrapper.toggleElement( toggleElementArgs );
-			};
-
-			ToggleContentinit();
+            $wrapper.MA_ToggleElement( toggleElementArgs );
         },
 
 

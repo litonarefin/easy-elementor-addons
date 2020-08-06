@@ -50,7 +50,8 @@ class Master_Addons_Toggle_Content extends Widget_Base {
     public function get_style_depends(){
         return [
             'font-awesome-5-all',
-            'font-awesome-4-shim'
+            'font-awesome-4-shim',
+            'master-addons-main-style',
         ];
     }
 
@@ -181,10 +182,10 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                 'condition'             => [
                     'jltma_toggle_content_fa4_icon!' => '',
                 ],
-                // 'selectors'             => [
-                //     '{{WRAPPER}} {{CURRENT_ITEM}} .jltma-icon--right' => 'margin-left: {{SIZE}}{{UNIT}};',
-                //     '{{WRAPPER}} {{CURRENT_ITEM}} .jltma-icon--left' => 'margin-right: {{SIZE}}{{UNIT}};',
-                // ],
+                'selectors'             => [
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .jltma-icon--right' => 'margin-left: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .jltma-icon--left' => 'margin-right: {{SIZE}}{{UNIT}};',
+                ],
             ]
         );
 
@@ -232,7 +233,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                 'type' 		            => Controls_Manager::COLOR,
                 'default'	            => '',
                 'selectors'             => [
-                    // '{{WRAPPER}} {{CURRENT_ITEM}}.jltma-toggle-element__controls__item' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} {{CURRENT_ITEM}}.jltma-toggle-element__controls__item' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -245,8 +246,8 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                 'type' 		            => Controls_Manager::COLOR,
                 'default'	            => '',
                 'selectors'             => [
-                    // '{{WRAPPER}} {{CURRENT_ITEM}}.jltma-toggle-element__controls__item.jltma--is-active,
-                    //  {{WRAPPER}} {{CURRENT_ITEM}}.jltma-toggle-element__controls__item.jltma--is-active:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} {{CURRENT_ITEM}}.jltma-toggle-element__controls__item.jltma--is-active,
+                     {{WRAPPER}} {{CURRENT_ITEM}}.jltma-toggle-element__controls__item.jltma--is-active:hover' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -368,7 +369,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     'round'  => esc_html__( 'Round', MELA_TD ),
                     'square' => esc_html__( 'Square', MELA_TD ),
                 ],
-                // 'prefix_class'          => 'jltma-toggle-element--',
+                'prefix_class'          => 'jltma-toggle-element--',
             ]
         );
 
@@ -394,7 +395,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                 ],
                 'default' 	=> 'center',
                 'selectors' => [
-                    // '{{WRAPPER}} .jltma-toggle-element__toggle' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .jltma-toggle-element__toggle' => 'text-align: {{VALUE}};',
                 ],
             ]
         );
@@ -415,7 +416,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     ],
                 ],
                 'selectors' 	=> [
-                    // '{{WRAPPER}} .jltma-toggle-element__controls-wrapper' => 'font-size: {{SIZE}}px;',
+                    '{{WRAPPER}} .jltma-toggle-element__controls-wrapper' => 'font-size: {{SIZE}}px;',
                 ],
             ]
         );
@@ -436,8 +437,8 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     ],
                 ],
                 'selectors' 	=> [
-                    // '{{WRAPPER}} .jltma-toggle-element__controls-wrapper--before' => 'margin-bottom: {{SIZE}}px;',
-                    // '{{WRAPPER}} .jltma-toggle-element__controls-wrapper--after' => 'margin-top: {{SIZE}}px;',
+                    '{{WRAPPER}} .jltma-toggle-element__controls-wrapper--before' => 'margin-bottom: {{SIZE}}px;',
+                    '{{WRAPPER}} .jltma-toggle-element__controls-wrapper--after' => 'margin-top: {{SIZE}}px;',
                 ],
             ]
         );
@@ -458,8 +459,8 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     ],
                 ],
                 'selectors' 	=> [
-                    // '{{WRAPPER}} .jltma-toggle-element__indicator' => 'margin: {{SIZE}}px;',
-                    // '{{WRAPPER}} .jltma-toggle-element__controls-wrapper' => 'padding: {{SIZE}}px;',
+                    '{{WRAPPER}} .jltma-toggle-element__indicator' => 'margin: {{SIZE}}px;',
+                    '{{WRAPPER}} .jltma-toggle-element__controls-wrapper' => 'padding: {{SIZE}}px;',
                 ],
             ]
         );
@@ -477,7 +478,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     ],
                 ],
                 'selectors' 	=> [
-                    // '{{WRAPPER}} .jltma-toggle-element__controls-wrapper' => 'width: {{SIZE}}%;',
+                    '{{WRAPPER}} .jltma-toggle-element__controls-wrapper' => 'width: {{SIZE}}%;',
                 ],
             ]
         );
@@ -498,8 +499,8 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     ],
                 ],
                 'selectors' 	=> [
-                    // '{{WRAPPER}}.jltma-toggle-element--square .jltma-toggle-element__controls-wrapper' => 'border-radius: {{SIZE}}px;',
-                    // '{{WRAPPER}}.jltma-toggle-element--square .jltma-toggle-element__indicator' => 'border-radius: calc( {{SIZE}}px - 2px );',
+                    '{{WRAPPER}}.jltma-toggle-element--square .jltma-toggle-element__controls-wrapper' => 'border-radius: {{SIZE}}px;',
+                    '{{WRAPPER}}.jltma-toggle-element--square .jltma-toggle-element__indicator' => 'border-radius: calc( {{SIZE}}px - 2px );',
                 ],
                 'condition' => [
                     'jltma_toggle_content_toggle_style' => 'square',
@@ -513,7 +514,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                 'label' 	=> esc_html__( 'Background Color', MELA_TD ),
                 'type' 		=> Controls_Manager::COLOR,
                 'selectors' => [
-                    // '{{WRAPPER}} .jltma-toggle-element__controls-wrapper' => 'background-color: {{VALUE}};'
+                    '{{WRAPPER}} .jltma-toggle-element__controls-wrapper' => 'background-color: {{VALUE}};'
                 ],
             ]
         );
@@ -522,7 +523,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' 		=> 'jltma_toggle_content_toggle',
-                // 'selector' 	=> '{{WRAPPER}} .jltma-toggle-element__controls-wrapper',
+                'selector' 	=> '{{WRAPPER}} .jltma-toggle-element__controls-wrapper',
             ]
         );
 
@@ -556,7 +557,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' 		=> 'jltma_toggle_content_indicator',
-                // 'selector' 	=> '{{WRAPPER}} .jltma-toggle-element__indicator',
+                'selector' 	=> '{{WRAPPER}} .jltma-toggle-element__indicator',
             ]
         );
 
@@ -596,7 +597,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     'tablet'  	=> esc_html__( 'Tablet & Mobile', MELA_TD ),
                     'mobile' 	=> esc_html__( 'Mobile', MELA_TD ),
                 ],
-                // 'prefix_class' => 'jltma-toggle-element--stack-',
+                'prefix_class' => 'jltma-toggle-element--stack-',
             ]
         );
 
@@ -625,7 +626,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     ],
                 ],
                 'default' 		=> 'center',
-                // 'prefix_class' 	=> 'jltma-labels-align%s--',
+                'prefix_class' 	=> 'jltma-labels-align%s--',
             ]
         );
 
@@ -653,7 +654,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     ],
                 ],
                 'default' 		=> 'center',
-                // 'prefix_class' 	=> 'jltma-labels-align-stacked%s--',
+                'prefix_class' 	=> 'jltma-labels-align-stacked%s--',
             ]
         );
 
@@ -679,7 +680,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     ],
                 ],
                 'selectors'		=> [
-                    // '{{WRAPPER}} .jltma-toggle-element__controls__item' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .jltma-toggle-element__controls__item' => 'text-align: {{VALUE}};',
                 ]
             ]
         );
@@ -688,7 +689,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' 		=> 'jltma_toggle_content_labels_typography',
-                // 'selector' 	=> '{{WRAPPER}} .jltma-toggle-element__controls__item',
+                'selector' 	=> '{{WRAPPER}} .jltma-toggle-element__controls__item',
                 'exclude'	=> ['font_size'],
                 'scheme' 	=> Scheme_Typography::TYPOGRAPHY_3,
             ]
@@ -698,7 +699,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             MA_Group_Control_Transition::get_type(),
             [
                 'name' 			=> 'jltma_toggle_content_labels',
-                // 'selector' 		=> '{{WRAPPER}} .jltma-toggle-element__controls__item',
+                'selector' 		=> '{{WRAPPER}} .jltma-toggle-element__controls__item',
             ]
         );
 
@@ -712,7 +713,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     'label' 	=> esc_html__( 'Color', MELA_TD ),
                     'type' 		=> Controls_Manager::COLOR,
                     'selectors' => [
-                        // '{{WRAPPER}} .jltma-toggle-element__controls__item' => 'color: {{VALUE}};'
+                        '{{WRAPPER}} .jltma-toggle-element__controls__item' => 'color: {{VALUE}};'
                     ],
                 ]
             );
@@ -727,7 +728,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     'label' 	=> esc_html__( 'Color', MELA_TD ),
                     'type' 		=> Controls_Manager::COLOR,
                     'selectors' => [
-                        // '{{WRAPPER}} .jltma-toggle-element__controls__item:hover' => 'color: {{VALUE}};'
+                        '{{WRAPPER}} .jltma-toggle-element__controls__item:hover' => 'color: {{VALUE}};'
                     ],
                 ]
             );
@@ -742,8 +743,8 @@ class Master_Addons_Toggle_Content extends Widget_Base {
 						'label' 	=> esc_html__( 'Color', MELA_TD ),
 						'type' 		=> Controls_Manager::COLOR,
 						'selectors' => [
-							// '{{WRAPPER}} .jltma-toggle-element__controls__item.jltma--is-active,
-							//  {{WRAPPER}} .jltma-toggle-element__controls__item.jltma--is-active:hover' => 'color: {{VALUE}};'
+							'{{WRAPPER}} .jltma-toggle-element__controls__item.jltma--is-active,
+							 {{WRAPPER}} .jltma-toggle-element__controls__item.jltma--is-active:hover' => 'color: {{VALUE}};'
 						],
 					]
 				);
@@ -772,7 +773,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' 		=> 'jltma_toggle_content_typography',
-                    // 'selector' 	=> '{{WRAPPER}} .jltma-toggle-element__element',
+                    'selector' 	=> '{{WRAPPER}} .jltma-toggle-element__element',
                     'scheme' 	=> Scheme_Typography::TYPOGRAPHY_3,
                 ]
             );
@@ -784,7 +785,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     'type' 			=> Controls_Manager::DIMENSIONS,
                     'size_units' 	=> [ 'px', 'em', '%' ],
                     'selectors' 	=> [
-                        // '{{WRAPPER}} .jltma-toggle-element__element' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .jltma-toggle-element__element' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                 ]
             );
@@ -796,7 +797,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     'type' 			=> Controls_Manager::DIMENSIONS,
                     'size_units' 	=> [ 'px', 'em', '%' ],
                     'selectors' 	=> [
-                        // '{{WRAPPER}} .jltma-toggle-element__element' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .jltma-toggle-element__element' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                 ]
             );
@@ -806,7 +807,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                 [
                     'name' 		=> 'jltma_toggle_content_border',
                     'label' 	=> esc_html__( 'Border', MELA_TD ),
-                    // 'selector' 	=> '{{WRAPPER}} .jltma-toggle-element__element',
+                    'selector' 	=> '{{WRAPPER}} .jltma-toggle-element__element',
                 ]
             );
 
@@ -823,7 +824,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                         ],
                     ],
                     'selectors' 	=> [
-                        // '{{WRAPPER}} .jltma-toggle-element__element' => 'border-radius: {{SIZE}}px;',
+                        '{{WRAPPER}} .jltma-toggle-element__element' => 'border-radius: {{SIZE}}px;',
                     ],
                 ]
             );
@@ -835,7 +836,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
                     'type' 		=> Controls_Manager::COLOR,
                     'separator' => 'before',
                     'selectors'	=> [
-                        // '{{WRAPPER}} .jltma-toggle-element__element' => 'color: {{VALUE}};'
+                        '{{WRAPPER}} .jltma-toggle-element__element' => 'color: {{VALUE}};'
                     ]
                 ]
             );
@@ -934,6 +935,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
 			'wrapper' => [
 				'class' => [
 					'jltma-toggle-element',
+					'jltma-toggle-content',
 				],
 			],
 			'toggle' => [

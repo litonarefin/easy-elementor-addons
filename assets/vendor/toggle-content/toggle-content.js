@@ -1,5 +1,5 @@
 !(function (e, t, o, n) {
-    (e.toggleElement = function (n, i) {
+    (e.MA_ToggleElement = function (n, i) {
         var l = {
                 wrapper: null,
                 watchControls: !1,
@@ -54,7 +54,7 @@
                     u.addClass("jltma--is-active"),
                     s.opts.onAfterToggle(),
                     a.trigger("jltma/toggle-content/toggle"),
-                    // a.trigger("resize");
+                    a.trigger("resize");
             }),
             (s.adjust = function () {
                 var e = u.get(0).offsetLeft,
@@ -68,15 +68,15 @@
             (s.destroy = function () {}),
             s.init();
     }),
-        (e.fn.toggleElement = function (t) {
+        (e.fn.MA_ToggleElement = function (t) {
             return this.each(function () {
                 if (
-                    ((e.fn.toggleElement.destroy = function () {
+                    ((e.fn.MA_ToggleElement.destroy = function () {
                         void 0 !== o && (e(this).data("toggle-element").destroy(), e(this).removeData("toggle-element"));
                     }),
                     void 0 === e(this).data("toggle-element"))
                 ) {
-                    var o = new e.toggleElement(this, t);
+                    var o = new e.MA_ToggleElement(this, t);
                     e(this).data("toggle-element", o);
                 }
             });

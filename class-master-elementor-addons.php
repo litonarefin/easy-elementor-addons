@@ -22,7 +22,7 @@
 			private static $plugin_slug;
 			public static $plugin_dir_url;
 			public static $plugin_name = 'Master Addons';
-			public static $gsap_version = '1.20.2';
+			public $gsap_version = '1.20.2';
 
 			private static $instance = null;
 
@@ -676,8 +676,12 @@
 					wp_enqueue_script( 'jquery-event-move' );
 					wp_enqueue_script( 'twentytwenty' );
 					wp_enqueue_script( 'master-addons-scripts' );
+				}
 
-
+				//MA Toggle Content
+				if ( $is_activated_widget['ma-toggle-content'] ) {
+					wp_enqueue_script( 'jltma-toggle-content' );
+					wp_enqueue_script( 'gsap-js' );
 				}
 
 
