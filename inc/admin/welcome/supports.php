@@ -109,7 +109,9 @@
                                     <?php echo esc_html__('How to Upgrade from Free to Pro?', MELA_TD);?>
                                 </h4>
                                 <p>
-                                    <?php echo esc_html__('It\'s easy to upgrade your free version to pro with a few steps. We have explained details on Free to Pro Update here.', MELA_TD);?>
+                                    <?php echo sprintf( __('It\'s easy to upgrade your free version to pro with a few steps. We have explained details on <a href="%s" target="_blank">Free to Pro Update here</a>.', MELA_TD),
+                                    esc_url('https://master-addons.com/docs/getting-started/upgrade-master-addons-free-to-pro/')
+                                    );?>
                                 </p>
                             </div><!-- /.master-addons-faq-content -->
 
