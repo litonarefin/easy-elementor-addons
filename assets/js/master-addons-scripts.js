@@ -1428,7 +1428,7 @@
             Master_Addons.getElementSettings    = getElementSettings($scope);
 			var $wrapper 			= $scope.find( '.jltma-toggle-content' ),
 				toggleElementArgs 	= {
-					active : Master_Addons.getElementSettings.toggle_active_index,
+					active : Master_Addons.getElementSettings.jltma_toggle_content_active_index,
                 };
 
             if ( '' !== Master_Addons.getElementSettings.jltma_toggle_content_indicator_color ) {

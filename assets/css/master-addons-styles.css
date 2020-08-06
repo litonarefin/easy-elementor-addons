@@ -10462,7 +10462,7 @@ blockquote.jltma-blockquote cite{
 
 
 /* Start of Content Toggle */
-.jltma-toggle-element__controls {
+.jltma-toggle-content-controls {
     list-style: none;
     margin: 0;
     display: -ms-flexbox;
@@ -10471,78 +10471,78 @@ blockquote.jltma-blockquote cite{
     align-items: flex-start;
     padding: 0;
 }
-.jltma-toggle-element__toggle {
+.jltma-toggle-content-toggle {
     display: block;
     text-align: center;
 }
-.jltma-toggle-element__controls-wrapper {
+.jltma-toggle-content-controls-wrapper {
     display: inline-block;
     position: relative;
     padding: 6px;
     margin: 0;
     background-color: #f7f7f7;
 }
-.jltma-toggle-element__controls-wrapper--before {
+.jltma-toggle-content-controls-wrapper--before {
     margin-bottom: 24px;
 }
-.jltma-toggle-element__controls-wrapper--after {
+.jltma-toggle-content-controls-wrapper--after {
     margin-top: 24px;
 }
-.jltma-toggle-element__controls {
+.jltma-toggle-content-controls {
     position: relative;
     cursor: pointer;
     min-height: 26px;
 }
-.jltma-toggle-element__controls__item {
+.jltma-toggle-content-controls__item {
     line-height: 1;
     min-width: 26px;
     height: 100%;
     padding: 0.5em 0.9em;
     transition: all 0.3s linear;
 }
-.jltma-toggle-element__controls__item.jltma--is-active {
+.jltma-toggle-content-controls__item.jltma--is-active {
     color: #ffffff;
 }
-.jltma-toggle-element__controls__text {
+.jltma-toggle-content-controls__text {
     display: block;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
-.jltma-labels-align--start .jltma-toggle-element__controls {
+.jltma-labels-align--start .jltma-toggle-content-controls {
     -ms-flex-pack: start;
     justify-content: flex-start;
 }
-.jltma-labels-align--center .jltma-toggle-element__controls {
+.jltma-labels-align--center .jltma-toggle-content-controls {
     -ms-flex-pack: center;
     justify-content: center;
 }
-.jltma-labels-align--end .jltma-toggle-element__controls {
+.jltma-labels-align--end .jltma-toggle-content-controls {
     -ms-flex-pack: end;
     justify-content: flex-end;
 }
-.jltma-labels-align--stretch .jltma-toggle-element__controls__item {
+.jltma-labels-align--stretch .jltma-toggle-content-controls__item {
     -ms-flex-positive: 1;
     flex-grow: 1;
 }
-.jltma-labels-align-stacked--start .jltma-toggle-element__controls {
+.jltma-labels-align-stacked--start .jltma-toggle-content-controls {
     -ms-flex-align: start;
     align-items: flex-start;
 }
-.jltma-labels-align-stacked--center .jltma-toggle-element__controls {
+.jltma-labels-align-stacked--center .jltma-toggle-content-controls {
     -ms-flex-align: center;
     align-items: center;
 }
-.jltma-labels-align-stacked--end .jltma-toggle-element__controls {
+.jltma-labels-align-stacked--end .jltma-toggle-content-controls {
     -ms-flex-align: end;
     align-items: flex-end;
 }
-.jltma-labels-align-stacked--stretch .jltma-toggle-element__controls {
+.jltma-labels-align-stacked--stretch .jltma-toggle-content-controls {
     -ms-flex-align: stretch;
     align-items: stretch;
 }
-.jltma-toggle-element__indicator {
+.jltma-toggle-content-indicator {
     position: absolute;
     left: 0;
     top: 0;
@@ -10552,86 +10552,86 @@ blockquote.jltma-blockquote cite{
     opacity: 0;
     transition: opacity 0.3s linear;
 }
-.jltma--is-ready .jltma-toggle-element__indicator {
+.jltma--is-ready .jltma-toggle-content-indicator {
     opacity: 1;
 }
-.jltma-toggle-element__elements {
+.jltma-toggle-content-elements {
     text-align: left;
 }
-.jltma-toggle-element__element {
+.jltma-toggle-content-element {
     display: none;
 }
-.jltma-toggle-element__element p:last-child {
+.jltma-toggle-content-element p:last-child {
     margin: 0px;
 }
-.jltma-toggle-element--round .jltma-toggle-element__controls-wrapper,
-.jltma-toggle-element--round .jltma-toggle-element__indicator {
+.jltma-toggle-element--round .jltma-toggle-content-controls-wrapper,
+.jltma-toggle-element--round .jltma-toggle-content-indicator {
     border-radius: 2em;
 }
-.jltma-toggle-element--square .jltma-toggle-element__controls-wrapper {
+.jltma-toggle-element--square .jltma-toggle-content-controls-wrapper {
     border-radius: 4px;
 }
-.jltma-toggle-element--square .jltma-toggle-element__indicator {
+.jltma-toggle-element--square .jltma-toggle-content-indicator {
     border-radius: 2px;
 }
-.jltma-toggle-element--stack-desktop.jltma-toggle-element--round .jltma-toggle-element__controls-wrapper,
-.jltma-toggle-element--stack-tablet.jltma-toggle-element--round .jltma-toggle-element__controls-wrapper,
-.jltma-toggle-element--stack-mobile.jltma-toggle-element--round .jltma-toggle-element__controls-wrapper {
+.jltma-toggle-element--stack-desktop.jltma-toggle-element--round .jltma-toggle-content-controls-wrapper,
+.jltma-toggle-element--stack-tablet.jltma-toggle-element--round .jltma-toggle-content-controls-wrapper,
+.jltma-toggle-element--stack-mobile.jltma-toggle-element--round .jltma-toggle-content-controls-wrapper {
     border-radius: 1.3em;
 }
-.jltma-toggle-element--stack-desktop .jltma-toggle-element__controls {
+.jltma-toggle-element--stack-desktop .jltma-toggle-content-controls {
     margin-left: 0 !important;
     -ms-flex-direction: column;
     flex-direction: column;
 }
-.jltma-toggle-element--stack-desktop .jltma-toggle-element__controls > li {
+.jltma-toggle-element--stack-desktop .jltma-toggle-content-controls > li {
     margin-left: 0 !important;
 }
-.jltma-toggle-element--stack-desktop .jltma-toggle-element__controls > li > a {
+.jltma-toggle-element--stack-desktop .jltma-toggle-content-controls > li > a {
     display: block;
 }
 
-.jltma-labels-align-tablet--start .jltma-toggle-element__controls {
+.jltma-labels-align-tablet--start .jltma-toggle-content-controls {
     -ms-flex-pack: start;
     justify-content: flex-start;
 }
-.jltma-labels-align-tablet--center .jltma-toggle-element__controls {
+.jltma-labels-align-tablet--center .jltma-toggle-content-controls {
     -ms-flex-pack: center;
     justify-content: center;
 }
-.jltma-labels-align-tablet--end .jltma-toggle-element__controls {
+.jltma-labels-align-tablet--end .jltma-toggle-content-controls {
     -ms-flex-pack: end;
     justify-content: flex-end;
 }
-.jltma-labels-align-tablet--stretch .jltma-toggle-element__controls__item {
+.jltma-labels-align-tablet--stretch .jltma-toggle-content-controls__item {
     -ms-flex-positive: 1;
     flex-grow: 1;
 }
-.jltma-labels-align-stacked-tablet--start .jltma-toggle-element__controls {
+.jltma-labels-align-stacked-tablet--start .jltma-toggle-content-controls {
     -ms-flex-align: start;
     align-items: flex-start;
 }
-.jltma-labels-align-stacked-tablet--center .jltma-toggle-element__controls {
+.jltma-labels-align-stacked-tablet--center .jltma-toggle-content-controls {
     -ms-flex-align: center;
     align-items: center;
 }
-.jltma-labels-align-stacked-tablet--end .jltma-toggle-element__controls {
+.jltma-labels-align-stacked-tablet--end .jltma-toggle-content-controls {
     -ms-flex-align: end;
     align-items: flex-end;
 }
-.jltma-labels-align-stacked-tablet--stretch .jltma-toggle-element__controls {
+.jltma-labels-align-stacked-tablet--stretch .jltma-toggle-content-controls {
     -ms-flex-align: stretch;
     align-items: stretch;
 }
-.jltma-toggle-element--stack-tablet .jltma-toggle-element__controls {
+.jltma-toggle-element--stack-tablet .jltma-toggle-content-controls {
     margin-left: 0 !important;
     -ms-flex-direction: column;
     flex-direction: column;
 }
-.jltma-toggle-element--stack-tablet .jltma-toggle-element__controls > li {
+.jltma-toggle-element--stack-tablet .jltma-toggle-content-controls > li {
     margin-left: 0 !important;
 }
-.jltma-toggle-element--stack-tablet .jltma-toggle-element__controls > li > a {
+.jltma-toggle-element--stack-tablet .jltma-toggle-content-controls > li > a {
     display: block;
 }
 /* End of Content Toggle */
