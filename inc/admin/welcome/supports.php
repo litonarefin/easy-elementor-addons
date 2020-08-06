@@ -96,22 +96,26 @@
 
                         <div class="master-addons-support-faq">
                             <div class="master-addons-faq-content">
-                                <h4>Can I use "Master Addons" Plugin without Elementor Plugin ?</h4>
+                                <h4>
+                                    <?php echo esc_html__('What is Master Addons & How does it Work?', MELA_TD);?>
+                                </h4>
                                 <p>
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                                    <?php echo esc_html__('It\'s an Elementor Addons pack plugin. This plugin adds more elements inside your elementor editor. Master Addons will work on any WordPress website which has Elementor page builder installed', MELA_TD);?>
                                 </p>
                             </div><!-- /.master-addons-faq-content -->
 
                             <div class="master-addons-faq-content">
-                                <h4>Can I use "Master Addons" Plugin without Elementor Plugin ?</h4>
+                                <h4>
+                                    <?php echo esc_html__('How to Upgrade from Free to Pro?', MELA_TD);?>
+                                </h4>
                                 <p>
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                                    <?php echo esc_html__('It\'s easy to upgrade your free version to pro with a few steps. We have explained details on Free to Pro Update here.', MELA_TD);?>
                                 </p>
                             </div><!-- /.master-addons-faq-content -->
 
                             <a href="https://master-addons.com/pricing/" target="_blank">
                                 <button class="master-addons-btn read-more">
-                                    Read more
+                                    <?php echo esc_html__('Read more', MELA_TD);?>
                                 </button>
                             </a>
                         </div><!-- /.master-addons-support-faq -->
@@ -130,15 +134,12 @@
 
                     <div class="master-addons-right-column-widget">
                         <img class="icon-image" src="<?php echo MELA_ADMIN_ASSETS;?>icons/contribute.svg" alt="Contribute to Master Addons">
-
                         <h4>
                             <?php echo esc_html__('Contribute to Master Addons', MELA_TD);?>
                         </h4>
-
                         <p>
                             <?php echo esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', MELA_TD);?>
                         </p>
-
                         <a href="https://master-addons.com/contact-us/" target="_blank">
                             <button class="master-addons-widget-btn">
                                 <?php echo esc_html__('Request a Feature', MELA_TD);?>
@@ -154,7 +155,6 @@
                         <p>
                             <?php echo esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', MELA_TD);?>
                         </p>
-
                         <a href="https://master-addons.com/newsletter/" target="_blank">
                             <button class="master-addons-widget-btn">
                                 <?php echo esc_html__('Subscribe Now', MELA_TD);?>

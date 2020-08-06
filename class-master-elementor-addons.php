@@ -546,6 +546,9 @@
 				wp_register_script( 'jquery-event-move', MELA_PLUGIN_URL . '/assets/vendor/image-comparison/js/jquery.event.move.js',array('jquery'),self::VERSION, true );
 				wp_register_script( 'twentytwenty', MELA_PLUGIN_URL . '/assets/vendor/image-comparison/js/jquery.twentytwenty.js',array('jquery'),self::VERSION, true );
 
+				// Toggle Content
+				wp_register_script( 'jltma-toggle-content', MELA_PLUGIN_URL . '/assets/vendor/toggle-content/toggle-content.js',array('jquery'),self::VERSION, true );
+
 
 				// Addons specific Script/Styles Dependencies
 
