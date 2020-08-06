@@ -90,40 +90,6 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             ]
         );
 
-        if ( ma_el_fs()->can_use_premium_code() ) {
-            $this->add_control(
-                'jltma_toggle_content_preset',
-                [
-                    'label'       	=> esc_html__( 'Style Presets', MELA_TD ),
-                    'type' 			=> Controls_Manager::SELECT,
-                    'default' 		=> 'two',
-                    'label_block' 	=> false,
-                    'options' 		=> [
-                            'two'       => esc_html__( 'Horizontal Tabs', MELA_TD ),
-                            'three'     => esc_html__( 'Vertical Tabs', MELA_TD ),
-                            'four'      => esc_html__( 'Left Active Border', MELA_TD ),
-                            'five'      => esc_html__( 'Tabular Content', MELA_TD ),
-                    ]
-                ]
-            );
-        } else{
-            $this->add_control(
-                'jltma_toggle_content_preset',
-                [
-                    'label'       	=> esc_html__( 'Style Preset', MELA_TD ),
-                    'type' 			=> Controls_Manager::SELECT,
-                    'default' 		=> 'two',
-                    'label_block' 	=> false,
-                    'options' 		=> [
-                            'two'       => esc_html__( 'Horizontal Tabs', MELA_TD ),
-                            'three'     => esc_html__( 'Vertical Tabs', MELA_TD ),
-                            'four'      => esc_html__( 'Left Active Border', MELA_TD ),
-                            'ma_tabular_pro'      => esc_html__( 'Tabular Content (Pro)', MELA_TD ),
-                    ],
-                ]
-            );
-        }
-
         $repeater = new Repeater();
 
         $repeater->start_controls_tabs( 'jltma_toggle_contents_repeater' );
@@ -142,15 +108,19 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         );
 
 
-        $repeater->add_control(
-            'jltma_toggle_content_icon',
-            [
-                'label'					=> esc_html__( 'Icon', MELA_TD ),
-                'type'					=> Controls_Manager::ICONS,
-                'fa4compatibility'		=> 'jltma_toggle_content_fa4_icon',
-                'label_block' 	        => false,
-            ]
-        );
+        // $repeater->add_control(
+        //     'jltma_toggle_content_icon',
+        //     [
+        //         'label'					=> esc_html__( 'Icon', MELA_TD ),
+        //         'type'					=> Controls_Manager::ICONS,
+        //         'fa4compatibility'      => 'icon',
+        //         'default' => [
+        //             'value'     => 'fa fa-search',
+        //             'library'   => 'fa-solid',
+        //         ],
+        //         'label_block' 	        => false,
+        //     ]
+        // );
 
         $repeater->add_control(
             'jltma_toggle_content_icon_position',
@@ -990,7 +960,6 @@ class Master_Addons_Toggle_Content extends Widget_Base {
 							default:
 								break;
 						}
-
 						?></div><?php
 					} ?>
 				</div>
@@ -1015,7 +984,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
 					$control_key = $this->get_repeater_setting_key( 'control', 'jltma_toggle_content_elements', $index );
 					$control_text_key = $this->get_repeater_setting_key( 'control-text', 'jltma_toggle_content_elements', $index );
 
-					$has_icon = ! empty( $item['icon'] ) || ! empty( $item['jltma_toggle_content_icon']['value'] );
+                    $has_icon = ! empty( $item['icon'] ) || ! empty( $item['jltma_toggle_content_icon']['value'] );
 
 					$this->add_render_attribute( [
 						$control_key => [
@@ -1059,9 +1028,14 @@ class Master_Addons_Toggle_Content extends Widget_Base {
 
 	protected function render_toggle_item_icon( $index, $item ) {
 
-		$icon_key 	= $this->get_repeater_setting_key( 'icon', 'jltma_toggle_content_elements', $index );
+        $icon_key 	= $this->get_repeater_setting_key( 'icon', 'jltma_toggle_content_elements', $index );
+
 		$migrated 	= isset( $item['__fa4_migrated']['jltma_toggle_content_icon'] );
 		$is_new 	= empty( $item['icon'] ) && Icons_Manager::is_migration_allowed();
+
+        // $icon_migrated = isset($settings['__fa4_migrated']['jltma_search_icon']);
+        // $icon_is_new = empty($settings['jltma_search_icon_new']);
+
 
 		$this->add_render_attribute( $icon_key, 'class', [
 			'jltma-toggle-content-controls__icon',

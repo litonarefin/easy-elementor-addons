@@ -6,9 +6,9 @@
                 speed: 0.3,
                 active: 1,
                 indicatorColor: "rgba(0, 0, 0, 1)",
-                controlItemClass: ".jltma-toggle-element__controls__item",
-                indicatorClass: ".jltma-toggle-element__indicator",
-                elementClass: ".jltma-toggle-element__element",
+                controlItemClass: ".jltma-toggle-content-controls__item",
+                indicatorClass: ".jltma-toggle-content-indicator",
+                elementClass: ".jltma-toggle-content-element",
                 onBeforeToggle: function () {},
                 onAfterToggle: function () {},
             },
@@ -36,7 +36,7 @@
                 r.on("click", this.onClick), g._resize(this.adjust);
             }),
             (s.onClick = function (t) {
-                var o = e(t.target).closest(".jltma-toggle-element__controls__item"),
+                var o = e(t.target).closest(".jltma-toggle-content-controls__item"),
                     n = o.index(),
                     i = n < m - 1 ? n + 1 : 0;
                 (h = h === n ? i : n), s.goTo(h);
@@ -72,12 +72,12 @@
             return this.each(function () {
                 if (
                     ((e.fn.MA_ToggleElement.destroy = function () {
-                        void 0 !== o && (e(this).data("toggle-element").destroy(), e(this).removeData("toggle-element"));
+                        void 0 !== o && (e(this).data("toggle-content").destroy(), e(this).removeData("toggle-content"));
                     }),
-                    void 0 === e(this).data("toggle-element"))
+                    void 0 === e(this).data("toggle-content"))
                 ) {
                     var o = new e.MA_ToggleElement(this, t);
-                    e(this).data("toggle-element", o);
+                    e(this).data("toggle-content", o);
                 }
             });
         });
