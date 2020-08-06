@@ -16,7 +16,6 @@ class JLTMA_Master_Custom_Breakpoint_Assets{
         add_action( 'admin_enqueue_scripts', [$this, 'jltma_mcb_admin_enqueue_scripts'] );
 
 		add_action( 'elementor/editor/before_enqueue_scripts', [$this, 'jltma_mcb_elmentor_scripts']);
-		// add_action( 'admin_enqueue_scripts', [$this, 'jltma_mcb_elmentor_scripts']);
 
 		add_action('admin_head',[ $this, 'jltma_mcb_admin_styles' ]);
 
