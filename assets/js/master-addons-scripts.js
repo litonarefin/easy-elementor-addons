@@ -1423,6 +1423,35 @@
 
         },
 
+        // Toggle Content
+        MA_Toggle_Content: function( $scope, $ ) {
+
+            Master_Addons.getElementSettings    = getElementSettings($scope);
+
+			var $wrapper 			= $scope.find( '.ee-toggle-element' ),
+				toggleElementArgs 	= {
+					active : Master_Addons.getElementSettings.toggle_active_index,
+				};
+
+			ToggleContentinit = function() {
+				if ( '' !== Master_Addons.getElementSettings.jltma_toggle_content_indicator_color ) {
+					toggleElementArgs.indicatorColor = Master_Addons.getElementSettings.jltma_toggle_content_indicator_color;
+				}
+
+				if ( Master_Addons.getElementSettings.jltma_toggle_content_indicator_speed.size ) {
+					toggleElementArgs.speed = Master_Addons.getElementSettings.jltma_toggle_content_indicator_speed.size;
+				}
+
+				if ( elementorFrontend.isEditMode() ) {
+					toggleElementArgs.watchControls = true;
+				}
+
+				$wrapper.toggleElement( toggleElementArgs );
+			};
+
+			ToggleContentinit();
+        },
+
 
         // Master Addons: Counter Up
         MA_Counter_Up: function( $scope, $ ) {
@@ -2112,6 +2141,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.MA_PiechartsHandlerOnScroll);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbars.default', Master_Addons.StatsBarHandlerOnScroll);
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-instagram-feed.default', Master_Addons.MA_Instagram_Feed);
+        elementorFrontend.hooks.addAction('frontend/element_ready/jltma-toggle-content.default', Master_Addons.MA_Toggle_Content);
 
 
         if (elementorFrontend.isEditMode()) {

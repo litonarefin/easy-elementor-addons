@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 class Master_Addons_Toggle_Content extends Widget_Base {
 
     public function get_name() {
-        return 'ma-toggle-content';
+        return 'jltma-toggle-content';
     }
 
     public function get_title() {

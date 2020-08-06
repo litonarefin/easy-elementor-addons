@@ -22,6 +22,7 @@
 			private static $plugin_slug;
 			public static $plugin_dir_url;
 			public static $plugin_name = 'Master Addons';
+			public static $gsap_version = '1.20.2';
 
 			private static $instance = null;
 
@@ -551,7 +552,7 @@
 
 				// GSAP TweenMax
 				// if ( 'no' !== $this->settings->get_option( 'load_tweenmax', 'jltma_options_advanced', false ) ) {
-					wp_enqueue_script(  'gsap-js', '//cdnjs.cloudflare.com/ajax/libs/gsap/' . $this->gsap_version . '/TweenMax.min.js', array(), null, true );
+				wp_register_script(  'gsap-js', '//cdnjs.cloudflare.com/ajax/libs/gsap/' . $this->gsap_version . '/TweenMax.min.js', array(), null, true );
 				// }
 
 

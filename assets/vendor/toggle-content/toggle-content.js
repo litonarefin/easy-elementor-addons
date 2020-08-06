@@ -30,7 +30,7 @@
                 (r = g.find(s.opts.controlItemClass)), (c = g.find(s.opts.indicatorClass)), (d = g.find(s.opts.elementClass)), (m = r.length), s.opts.active > 0 && s.opts.active <= m && (h = s.opts.active - 1), s.setup(), s.events();
             }),
             (s.setup = function () {
-                (u = r.eq(h)), this.opts.watchControls && this.adjust(), this.goTo(h), g.addClass("jltma--is-ready"), a.trigger("ee/toggle-element/ready");
+                (u = r.eq(h)), this.opts.watchControls && this.adjust(), this.goTo(h), g.addClass("jltma--is-ready"), a.trigger("jltma/toggle-content/ready");
             }),
             (s.events = function () {
                 r.on("click", this.onClick), g._resize(this.adjust);
@@ -53,7 +53,7 @@
                     r.removeClass("jltma--is-active"),
                     u.addClass("jltma--is-active"),
                     s.opts.onAfterToggle(),
-                    a.trigger("ee/toggle-element/toggle"),
+                    a.trigger("jltma/toggle-content/toggle"),
                     // a.trigger("resize");
             }),
             (s.adjust = function () {
