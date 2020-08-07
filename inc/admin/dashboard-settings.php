@@ -42,7 +42,6 @@ class Master_Addons_Admin_Settings{
 		] );
 
 		$this->ma_el_include_files();
-
 	}
 
 	public function ma_el_include_files(){

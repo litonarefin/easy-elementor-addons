@@ -45,17 +45,19 @@ if( !class_exists('JLTMA_Master_Custom_Breakpoint') ){
 			}
 
 			if ( is_plugin_active( 'elementor/elementor.php' ) ) {
+
 				// Check if the Version between 2.9.0 to 3.0.0
-				if ( version_compare( ELEMENTOR_VERSION, '2.9.0', '>=' ) && version_compare( ELEMENTOR_VERSION, '3.0.0', '<' ) ) {
+				if ( version_compare( ELEMENTOR_VERSION, '2.9.0', '>=' ) && version_compare( ELEMENTOR_VERSION, '3.0.0', '<' ) ){
+
 					include_once JLTMA_MCB_PLUGIN_PATH .'/lib-v2/base.php';
 					include_once JLTMA_MCB_PLUGIN_PATH .'/lib-v2/frontend.php';
 					include_once JLTMA_MCB_PLUGIN_PATH .'/lib-v2/responsive.php';
 					include_once JLTMA_MCB_PLUGIN_PATH .'/lib-v2/controls-stack.php';
 					include_once JLTMA_MCB_PLUGIN_PATH .'/lib-v2/stylesheet.php';
 					include_once JLTMA_MCB_PLUGIN_PATH .'/lib-v2/editor.php';
-				
-				} elseif( version_compare( ELEMENTOR_VERSION, '3.0.0', '>' ) ) {
-					
+
+				} elseif( version_compare( ELEMENTOR_VERSION, '3.0.0-beta1', '>' ) || version_compare( ELEMENTOR_VERSION, '3.0.0', '>' ) ) {
+
 					include_once JLTMA_MCB_PLUGIN_PATH .'/lib-v3/base.php';
 					include_once JLTMA_MCB_PLUGIN_PATH .'/lib-v3/frontend.php';
 					include_once JLTMA_MCB_PLUGIN_PATH .'/lib-v3/responsive.php';

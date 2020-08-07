@@ -48,10 +48,6 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
             return;
         }
 
-        if ( !( version_compare( ELEMENTOR_VERSION, '2.9.0', '>=' ) && version_compare( ELEMENTOR_VERSION, '3.0.0', '<' ) )) {
-            echo esc_html__('This version of Elementor doesn\'t support Custom Breakpoints.', MELA_TD);
-        }
-
         $breakpoints = Responsive::get_breakpoints();
 
         $breakpoints_tbody = "";
