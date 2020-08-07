@@ -22,8 +22,6 @@ if( !class_exists('Master_Addons_Promotions') ) {
 
         public function __construct(){
 
-            $this->init();
-
             // Admin Notices
             add_action( 'admin_init', [ $this, 'jltma_admin_notice_init' ] );
             add_action( 'admin_notices', [$this, 'jltma_latest_blog_update'], 10 );
@@ -39,11 +37,6 @@ if( !class_exists('Master_Addons_Promotions') ) {
             add_action('admin_print_styles', [$this, 'jltma_admin_notice_styles']);
         }
 
-        public function init(){
-            if(!get_option('jltma_activation_time')){
-                add_option('jltma_activation_time', strtotime("now") );
-            }
-        }
         public function jltma_admin_notice_init(){
             add_action( 'wp_ajax_dismiss_admin_notice', [ $this, 'jltma_dismiss_admin_notice' ] );
         }
@@ -187,31 +180,14 @@ if( !class_exists('Master_Addons_Promotions') ) {
 
         public function jltma_days_differences(){
 
-            $install_date = get_option( 'jltma_activation_time' );
-            // $install_date = strtotime('2020-20-12 12:00:00'); // Testing date
-            // $install_date = '2020-20-12 12:00:00'; // Testing date
-            // $jltma_date_format = 'Y-m-d H:i:s';
+            // $install_date = get_option( 'jltma_activation_time' );
+            $install_date = strtotime('2020-07-01 14:39:05'); // Testing datetime
+            $jltma_date_format = 'Y-m-d H:i:s';
             $jltma_datetime1 = \DateTime::createFromFormat( 'U', $install_date );
             $jltma_datetime2 = \DateTime::createFromFormat( 'U', strtotime("now") );
 
-            print_r($install_date);
-            echo "<br>";
-            // // print_r($jltma_datetime1);
-            // echo "<br>";
-            // print_r($jltma_datetime2);
-            // print_r(strtotime("now"));
-            // echo "<br>";
-
-
-            // $jltma_datetime_format_1 = $jltma_datetime1->format( $jltma_date_format );
-            // $jltma_datetime_format_2 = $jltma_datetime2->format( $jltma_date_format );
-
-            $interval = $jltma_datetime1->diff($jltma_datetime2);
-
-            // print_r($interval);
-
+            $interval = $jltma_datetime2->diff($jltma_datetime1);
             $jltma_days_diff = $this->jltma_get_total_interval($interval, 'days');
-
             return $jltma_days_diff;
         }
 
