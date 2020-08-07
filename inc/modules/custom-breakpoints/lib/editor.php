@@ -475,7 +475,6 @@ class Editor {
 		wp_register_script(
 			'elementor-editor',
 			JLTMA_MCB_PLUGIN_URL . 'lib/editor/editor-2.9.14.min.js',
-			// ELEMENTOR_ASSETS_URL . 'js/editor' . $suffix . '.js',
 			[
 				'elementor-common',
 				'elementor-editor-modules',
@@ -875,40 +874,6 @@ class Editor {
 		wp_enqueue_style( 'elementor-editor' );
 
 
-
-        // Editor Devices
-        $original_file = file_get_contents( JLTMA_MCB_PLUGIN_PATH . '/custom_breakpoints.json');
-        $custom_breakpoints = json_decode($original_file, true);
-
-        $jltma_mcb_devices_name = '';
-        $jltma_mcb_devices_bp_val = '';
-        foreach($custom_breakpoints as $bp_name => $bp_value) {
-            $skip = ["xs", "sm", "md", "lg", "xl", "xxl"];
-            if(in_array($bp_name, $skip))
-                continue;
-            // $this->stylesheet_obj->add_device($bp_name, $bp_value["input1"]);
-            // addDevice("breakpoint0",600)
-            // $jltma_mcb[] = $bp_name;
-            $jltma_mcb_devices_name .= "addDevice('{$bp_name}', i.{$bp_value['input1']})";
-            // $jltma_mcb_devices_name .= $bp_name;
-            // $$jltma_mcb_devices_bp_val .= $bp_value['input1'];
-            // $style_class2 = ".eicon-device-{$bp_name}:before{ content: '{$bp_name}'; }";
-        }
-        // $jltma_mcb_devices[] = $bp_name;
-
-        // $liton = implode(' ', $jltma_mcb_devices); $jltma_mcb_devices = array();
-        $jltma_mcb_localize_devices = array(
-            // 'devices'     => array('breakpoint0' => 600,'breakpoint1' => 800,'breakpoint2' => 900)
-            'devices_name'     => $jltma_mcb_devices_name,
-            // 'devices_val'     => $$jltma_mcb_devices_bp_val
-            // 'devices'     => $liton
-        );
-        wp_localize_script( 'elementor-editor', 'jltma_mcb_editor', $jltma_mcb_localize_devices );
-
-
-
-        // JLTMA_MCB_PLUGIN_URL . 'lib/editor' . $suffix . '.js',
-
 		$ui_theme = SettingsManager::get_settings_managers( 'editorPreferences' )->get_model()->get_settings( 'ui_theme' );
 
 		if ( 'light' !== $ui_theme ) {
@@ -1269,7 +1234,6 @@ class Editor {
 	private function init_editor_templates() {
 		$template_names = [
 			'global',
-			// 'panel',
 			'panel-elements',
 			'repeater',
 			'templates',
