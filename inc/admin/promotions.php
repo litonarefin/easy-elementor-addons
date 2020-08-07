@@ -146,18 +146,15 @@ use MasterAddons\Inc\Classes\AdminNotice\JLTMA_Admin_Notice;
                 $jltma_days_diff = $this->jltma_get_total_interval($interval, 'days');
 
                 return $jltma_days_diff;
-
             }
 
             public function jltma_admin_upgrade_pro_notice( $notice_key ){ ?>
-
                 <div data-dismissible="<?php echo esc_attr($notice_key);?>" class="updated notice notice-success is-dismissible">
                     <div id="master-addons-review-notice" class="master-addons-review-notice">
                         We’re with you! We're offering <strong>50% Discount</strong> on all pricing due to the impact of COVID-19! Coupon Code: <strong>COVID5</strong>
                          <a href="<?php echo ma_el_fs()->get_upgrade_url();?>" target="_blank">Upgrade Pro</a> now
                     </div>
                 </div>
-
             <?php }
 
 
@@ -185,9 +182,8 @@ use MasterAddons\Inc\Classes\AdminNotice\JLTMA_Admin_Notice;
             <?php }
 
             public function jltma_latest_blog_update(){
-                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'disable-done-notice-forever' ) ) {
-                    return;
-                }
+                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'disable-done-notice-forever' ) ) { return; }
+
                 $blog_update_message = sprintf(
                     __( '%1$s got HUGE Updates!!! %2$s %3$s %4$s %5$s Check Blog Post for <a href="%6$s" target="__blank">%7$s</a>', MELA_TD ),
 
@@ -204,82 +200,63 @@ use MasterAddons\Inc\Classes\AdminNotice\JLTMA_Admin_Notice;
             }
 
             public function jltma_request_review_after_seven_days(){
-
-                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-7' ) ) {
-                    return;
-                }
-
                 $jltma_seven_day_notice = $this->jltma_days_differences();
-
                 if( $jltma_seven_day_notice >= 7 && $jltma_seven_day_notice < 15){
+                    if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-7' ) ) { return; }
                     $this->jltma_admin_notice_ask_for_review( 'jltma-days-7' );
                 }
             }
 
             public function jltma_request_review_after_ten_days(){
-
-                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-10' ) ) { return; }
-
                 $jltma_seven_day_notice = $this->jltma_days_differences();
 
                 if( $jltma_seven_day_notice > 7 && $jltma_seven_day_notice < 10){
+                    if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-10' ) ) { return; }
                     $this->jltma_admin_upgrade_pro_notice( 'jltma-days-10' );
                 }
             }
 
             public function jltma_request_review_after_fifteen_days(){
-
-                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-15' ) ) { return; }
-
                 $jltma_seven_day_notice = $this->jltma_days_differences();
-
                 if( $jltma_seven_day_notice > 7 && $jltma_seven_day_notice < 15 ){
+                    if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-15' ) ) { return; }
                     $this->jltma_admin_notice_ask_for_review( 'jltma-days-15' );
                 }
             }
 
 
             public function jltma_request_review_after_tweenty_days(){
-
-                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-20' ) ) { return; }
-
                 $jltma_seven_day_notice = $this->jltma_days_differences();
-
                 if( $jltma_seven_day_notice > 20){
+                    if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-20' ) ) { return; }
                     $this->jltma_admin_upgrade_pro_notice( 'jltma-days-20' );
                 }
             }
 
             public function jltma_request_review_after_thirty_days(){
-
-                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-30' ) ) { return; }
-
                 $jltma_seven_day_notice = $this->jltma_days_differences();
-
                 if( $jltma_seven_day_notice > 30){
+                    if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-30' ) ) { return; }
                     $this->jltma_admin_notice_ask_for_review( 'jltma-days-30' );
                 }
             }
 
 
             public function jltma_request_review_after_fourty_five_days(){
-
-                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-45' ) ) { return; }
-
                 $jltma_seven_day_notice = $this->jltma_days_differences();
 
                 if( $jltma_seven_day_notice > 45){
+                    if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-45' ) ) { return; }
                     $this->jltma_admin_upgrade_pro_notice( 'jltma-days-45' );
                 }
             }
 
             public function jltma_request_review_after_ninety_days(){
 
-                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-90' ) ) { return; }
-
                 $jltma_seven_day_notice = $this->jltma_days_differences();
 
                 if( $jltma_seven_day_notice > 90){
+                    if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-90' ) ) { return; }
                     $this->jltma_admin_upgrade_pro_notice( 'jltma-days-90' );
                 }
             }

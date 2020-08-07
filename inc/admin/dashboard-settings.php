@@ -1,7 +1,7 @@
 <?php
 namespace MasterAddons\Admin\Dashboard;
 use MasterAddons\Master_Elementor_Addons;
-use MasterAddons\Inc\Classes\AdminNotice\PAnD;
+use MasterAddons\Inc\Classes\AdminNotice\JLTMA_Admin_Notice;
 
 /*
 	* Master Admin Dashboard Page
