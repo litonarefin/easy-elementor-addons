@@ -25,12 +25,12 @@ use MasterAddons\Inc\Classes\AdminNotice\JLTMA_Admin_Notice;
 
             public function __construct(){
                 $this->init();
-
                 // Admin Notices
                 global $pagenow;
                 add_action('admin_print_styles', [$this, 'jltma_admin_notice_styles']);
 
                 // if ( ( 'admin.php' === $pagenow ) && ( 'master-addons-settings' === $_GET['page'] ) ) {}
+                add_action( 'admin_init', [ 'JLTMA_Admin_Notice', 'init' ] );
                 add_action( 'admin_notices', [$this, 'jltma_latest_blog_update'], 10 );
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_seven_days'], 10 );
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_ten_days'], 10 );
@@ -42,7 +42,9 @@ use MasterAddons\Inc\Classes\AdminNotice\JLTMA_Admin_Notice;
             }
 
             public function init(){
-                include_once MELA_PLUGIN_PATH . '/inc/classes/admin-notices.php';
+                if(!get_option('jltma_activation_time')){
+                    add_option('jltma_activation_time', strtotime("now") );
+                }
             }
 
             public function jltma_admin_notice_styles(){ ?>
@@ -133,15 +135,27 @@ use MasterAddons\Inc\Classes\AdminNotice\JLTMA_Admin_Notice;
             public function jltma_days_differences(){
 
                 $install_date = get_option( 'jltma_activation_time' );
-                // $install_date = strtotime('2020-07-12 12:00:00'); // Testing date
+                // $install_date = strtotime('2020-20-12 12:00:00'); // Testing date
+                // $install_date = '2020-20-12 12:00:00'; // Testing date
+                // $jltma_date_format = 'Y-m-d H:i:s';
                 $jltma_datetime1 = \DateTime::createFromFormat( 'U', $install_date );
                 $jltma_datetime2 = \DateTime::createFromFormat( 'U', strtotime("now") );
 
-                $jltma_date_format = 'Y-m-d H:i:s';
-                $jltma_datetime_format_1 = $jltma_datetime1->format( $jltma_date_format );
-                $jltma_datetime_format_2 = $jltma_datetime2->format( $jltma_date_format );
+                // print_r($install_date);
+                // echo "<br>";
+                // // print_r($jltma_datetime1);
+                // echo "<br>";
+                // print_r($jltma_datetime2);
+                // print_r(strtotime("now"));
+                // echo "<br>";
 
-                $interval = $jltma_datetime2->diff($jltma_datetime1);
+
+                // $jltma_datetime_format_1 = $jltma_datetime1->format( $jltma_date_format );
+                // $jltma_datetime_format_2 = $jltma_datetime2->format( $jltma_date_format );
+
+                $interval = $jltma_datetime1->diff($jltma_datetime2);
+
+                // print_r($interval);
 
                 $jltma_days_diff = $this->jltma_get_total_interval($interval, 'days');
 
@@ -217,9 +231,9 @@ use MasterAddons\Inc\Classes\AdminNotice\JLTMA_Admin_Notice;
             }
 
             public function jltma_request_review_after_fifteen_days(){
+                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-15' ) ) { return; }
                 $jltma_seven_day_notice = $this->jltma_days_differences();
                 if( $jltma_seven_day_notice > 7 && $jltma_seven_day_notice < 15 ){
-                    if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-15' ) ) { return; }
                     $this->jltma_admin_notice_ask_for_review( 'jltma-days-15' );
                 }
             }

@@ -14,24 +14,6 @@ if ( ! class_exists( 'JLTMA_Admin_Notice' ) ) {
 	 */
 	class JLTMA_Admin_Notice {
 
-
-        private static $instance = null;
-
-        public static function get_instance() {
-            if ( ! self::$instance ) {
-                self::$instance = new self;
-                self::$instance->init();
-            }
-            return self::$instance;
-        }
-
-
-        public function __construct(){
-        	add_action( 'admin_init', [ $this, 'init'] );
-        }
-		/**
-		 * Init hooks.
-		 */
 		public static function init() {
 			add_action( 'wp_ajax_dismiss_admin_notice', array( __CLASS__, 'dismiss_admin_notice' ) );
 		}
@@ -119,7 +101,4 @@ if ( ! class_exists( 'JLTMA_Admin_Notice' ) ) {
 		}
 
 	}
-
-	JLTMA_Admin_Notice::get_instance();
-
 }
