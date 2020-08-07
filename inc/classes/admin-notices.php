@@ -1,4 +1,5 @@
 <?php
+namespace MasterAddons\Inc\Classes\AdminNotice;
 /**
  * Exit if called directly.
  */
@@ -6,12 +7,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-if ( ! class_exists( 'PAnD' ) ) {
+if ( ! class_exists( 'JLTMA_Admin_Notice' ) ) {
 
 	/**
-	 * Class PAnD
+	 * Class JLTMA_Admin_Notice
 	 */
-	class PAnD {
+	class JLTMA_Admin_Notice {
 
 
         private static $instance = null;
@@ -119,6 +120,6 @@ if ( ! class_exists( 'PAnD' ) ) {
 
 	}
 
-	PAnD::get_instance();
+	JLTMA_Admin_Notice::get_instance();
 
 }

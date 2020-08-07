@@ -1,14 +1,15 @@
 <?php
-	namespace MasterAddons\Admin\Dashboard;
-	use MasterAddons\Master_Elementor_Addons;
-	use MasterAddons\Admin\Promotions\Master_Addons_Promotions;
-	/*
-	 * Master Admin Dashboard Page
-	 * Jewel Theme < Liton Arefin >
-	 */
+namespace MasterAddons\Admin\Dashboard;
+use MasterAddons\Master_Elementor_Addons;
+use MasterAddons\Inc\Classes\AdminNotice\PAnD;
 
-	// Exit if accessed directly
-	if( ! defined( 'ABSPATH' ) ) { exit(); }
+/*
+	* Master Admin Dashboard Page
+	* Jewel Theme < Liton Arefin >
+	*/
+
+// Exit if accessed directly
+if( ! defined( 'ABSPATH' ) ) { exit(); }
 
 class Master_Addons_Admin_Settings{
 
@@ -60,7 +61,6 @@ class Master_Addons_Admin_Settings{
 	}
 
 	public function ma_el_include_files(){
-		include_once MELA_PLUGIN_PATH . '/inc/classes/admin-notices.php';
 		include_once MELA_PLUGIN_PATH . '/inc/admin/promotions.php';
 	}
 

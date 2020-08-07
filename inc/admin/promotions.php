@@ -1,4 +1,6 @@
 <?php
+namespace MasterAddons\Admin\Promotions;
+use MasterAddons\Inc\Classes\AdminNotice\JLTMA_Admin_Notice;
     /**
      * Author Name: Liton Arefin
      * Author URL: https://jeweltheme.com
@@ -183,16 +185,16 @@
             <?php }
 
             public function jltma_latest_blog_update(){
-                if ( ! PAnD::is_admin_notice_active( 'disable-done-notice-forever' ) ) {
+                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'disable-done-notice-forever' ) ) {
                     return;
                 }
                 $blog_update_message = sprintf(
                     __( '%1$s got HUGE Updates!!! %2$s %3$s %4$s %5$s Check Blog Post for <a href="%6$s" target="__blank">%7$s</a>', MELA_TD ),
 
                     '<strong>' . esc_html__( 'Master Addons for Elementor', MELA_TD ) . '</strong>',
-                    '<br>' . esc_html__( '✅ Custom Breakpoints', MELA_TD ) . '<br>',
-                    esc_html__( '✅ Post/Page Duplicator', MELA_TD ) . '<br>',
-                    esc_html__( '✅ 30+ Header & Footer Templates', MELA_TD ) . '<br>',
+                    '<br>' . esc_html__( '✅ Custom Breakpoints Fixed', MELA_TD ) . '<br>',
+                    esc_html__( '✅ Toggle Content Switcher Added', MELA_TD ) . '<br>',
+                    esc_html__( '✅ Custom JS Extension Added', MELA_TD ) . '<br>',
                     esc_html__( '✅ Live Demo, Documentation, Video help links on On/Off tooltips', MELA_TD ) . '<br>',
                     esc_url_raw('https://master-addons.com/master-addons-v1-4-5/'),
                     esc_html__( 'More Details', MELA_TD )
@@ -203,7 +205,7 @@
 
             public function jltma_request_review_after_seven_days(){
 
-                if ( ! PAnD::is_admin_notice_active( 'jltma-days-7' ) ) {
+                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-7' ) ) {
                     return;
                 }
 
@@ -216,7 +218,7 @@
 
             public function jltma_request_review_after_ten_days(){
 
-                if ( ! PAnD::is_admin_notice_active( 'jltma-days-10' ) ) { return; }
+                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-10' ) ) { return; }
 
                 $jltma_seven_day_notice = $this->jltma_days_differences();
 
@@ -227,7 +229,7 @@
 
             public function jltma_request_review_after_fifteen_days(){
 
-                if ( ! PAnD::is_admin_notice_active( 'jltma-days-15' ) ) { return; }
+                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-15' ) ) { return; }
 
                 $jltma_seven_day_notice = $this->jltma_days_differences();
 
@@ -239,7 +241,7 @@
 
             public function jltma_request_review_after_tweenty_days(){
 
-                if ( ! PAnD::is_admin_notice_active( 'jltma-days-20' ) ) { return; }
+                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-20' ) ) { return; }
 
                 $jltma_seven_day_notice = $this->jltma_days_differences();
 
@@ -250,7 +252,7 @@
 
             public function jltma_request_review_after_thirty_days(){
 
-                if ( ! PAnD::is_admin_notice_active( 'jltma-days-30' ) ) { return; }
+                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-30' ) ) { return; }
 
                 $jltma_seven_day_notice = $this->jltma_days_differences();
 
@@ -262,7 +264,7 @@
 
             public function jltma_request_review_after_fourty_five_days(){
 
-                if ( ! PAnD::is_admin_notice_active( 'jltma-days-45' ) ) { return; }
+                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-45' ) ) { return; }
 
                 $jltma_seven_day_notice = $this->jltma_days_differences();
 
@@ -273,7 +275,7 @@
 
             public function jltma_request_review_after_ninety_days(){
 
-                if ( ! PAnD::is_admin_notice_active( 'jltma-days-90' ) ) { return; }
+                if ( ! JLTMA_Admin_Notice::is_admin_notice_active( 'jltma-days-90' ) ) { return; }
 
                 $jltma_seven_day_notice = $this->jltma_days_differences();
 

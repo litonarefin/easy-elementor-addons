@@ -794,6 +794,8 @@
 
 			// Include Files
 			public function maad_el_include_files() {
+				//Admin Notices
+				include_once MELA_PLUGIN_PATH . '/inc/classes/admin-notices.php';
 
 				// Helper Class
 				include_once MELA_PLUGIN_PATH . '/inc/classes/helper-class.php';
