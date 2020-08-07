@@ -81,11 +81,15 @@ if ( ma_el_fs()->is_not_paying() ) {
 register_activation_hook( __FILE__, 'ma_el_redirect' );
 // Plugin Redirect Option Added by register_activation_hook
 if ( !function_exists( 'ma_el_redirect' ) ) {
-    function ma_el_redirect()
-    {
+    function ma_el_redirect(){
         add_option( 'ma_el_update_redirect', true );
-        $jltma_activation_time = strtotime( "now" );
-        add_option( 'jltma_activation_time', $jltma_activation_time );
+
+        if(!get_option('jltma_activation_time')){
+			add_option('jltma_activation_time', strtotime("now") );
+		}else{
+			update_option('jltma_activation_time', strtotime("now") );
+        }
+
     }
 
 }

@@ -28,8 +28,6 @@ class Master_Addons_Admin_Settings{
 
 	public function __construct() {
 
-		$this->init();
-
 		add_action( 'admin_menu', [ $this, 'master_addons_admin_menu' ],  '', 10);
 		add_action( 'admin_enqueue_scripts', [ $this, 'master_addons_el_admin_scripts' ], 99 );
 
@@ -42,22 +40,9 @@ class Master_Addons_Admin_Settings{
 		] );
 		add_action( 'wp_ajax_nopriv_master_addons_save_extensions_settings', [ $this, 'master_addons_save_extensions_settings'
 		] );
-		register_activation_hook( MELA_PLUGIN_PATH . '/inc/admin/dashboard-setting.php',  [ $this, 'jltma_admin_register_activation_hook' ] );
 
 		$this->ma_el_include_files();
 
-	}
-
-	public function init(){
-		if(get_option('jltma_activation_time') ==""){
-			add_option('jltma_activation_time', strtotime("now") );
-		}else{
-			update_option('jltma_activation_time', strtotime("now") );
-		}
-	}
-
-	public function jltma_admin_register_activation_hook(){
-		add_option('jltma_activation_time', strtotime("now") );
 	}
 
 	public function ma_el_include_files(){
