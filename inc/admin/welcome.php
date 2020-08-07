@@ -37,10 +37,3 @@
 
 	</div>
 </div>
-
-
-<script>
-	jQuery(document).ready(function(){
-		jQuery( "#accordion" ).accordion();
-	});
-</script>

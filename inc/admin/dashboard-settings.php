@@ -1,7 +1,6 @@
 <?php
 namespace MasterAddons\Admin\Dashboard;
 use MasterAddons\Master_Elementor_Addons;
-use MasterAddons\Inc\Classes\AdminNotice\JLTMA_Admin_Notice;
 
 /*
 	* Master Admin Dashboard Page
@@ -57,7 +56,6 @@ class Master_Addons_Admin_Settings{
 	}
 
 	public function master_addons_admin_menu(){
-
 		add_menu_page(
 			esc_html__( 'Master Addons for Elementor', MELA_TD ), // Page Title
 			esc_html__( 'Master Addons', MELA_TD ),    // Menu Title
@@ -67,7 +65,6 @@ class Master_Addons_Admin_Settings{
 			MELA_IMAGE_DIR . 'icon.png',
 			57
 		);
-
 	}
 
 
@@ -80,24 +77,17 @@ class Master_Addons_Admin_Settings{
 			wp_enqueue_style( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'css/master-addons-admin.css' );
 			wp_enqueue_style( 'sweetalert', MELA_ADMIN_ASSETS .'css/sweetalert2.min.css');
 			wp_enqueue_style( 'master-addons-el-switch', MELA_ADMIN_ASSETS .'css/switch.css');
-			wp_enqueue_script( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'js/master-addons-admin.js', array
-			('jquery'), '1.0', true );
-			wp_enqueue_script( 'master-addons-el-welcome-tabs', MELA_ADMIN_ASSETS .'js/welcome-tabs.js', array('jquery'), MELA_VERSION, true );
-			wp_enqueue_script( 'sweetalert', MELA_ADMIN_ASSETS .'js/sweetalert2.min.js', array('jquery'),
-				MELA_VERSION, true );
-
-
-			//Accordion
-			wp_enqueue_script( 'jquery-ui-accordion' );
-
-			// Localize Script
-			if ( is_customize_preview() ) { return; }
-			wp_localize_script( 'master-addons-el-admin', 'dismissible_notice',
-				array(
-					'nonce' => wp_create_nonce( 'dismissible-notice' ),
-				)
-			);
+			wp_enqueue_script( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'js/master-addons-admin.js', ['jquery'], MELA_VERSION, true );
+			wp_enqueue_script( 'master-addons-el-welcome-tabs', MELA_ADMIN_ASSETS .'js/welcome-tabs.js', ['jquery'], MELA_VERSION, true );
+			wp_enqueue_script( 'sweetalert', MELA_ADMIN_ASSETS .'js/sweetalert2.min.js', ['jquery'], MELA_VERSION, true );
 		}
+
+		// Admin Notice Dismiss
+		wp_enqueue_script( 'jltma-dismiss-notice', MELA_ADMIN_ASSETS . 'js/dismiss-notice.js', ['jquery'], MELA_VERSION, true );
+
+		// Localize Script
+		if ( is_customize_preview() ) { return; }
+		wp_localize_script( 'jltma-dismiss-notice', 'dismissible_notice', array( 'nonce' => wp_create_nonce( 'dismissible-notice' )));
 
 	}
 
