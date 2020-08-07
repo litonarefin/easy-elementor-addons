@@ -39,6 +39,11 @@ if( !class_exists('JLTMA_Master_Custom_Breakpoint') ){
     	}
 
 		public function init(){
+			// If 'is_plugin_active' function not found
+			if ( ! function_exists( 'is_plugin_active' ) ){
+				require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+			}
+
 			if ( is_plugin_active( 'elementor/elementor.php' ) ) {
 		        include_once JLTMA_MCB_PLUGIN_PATH .'/lib/base.php';
 		        include_once JLTMA_MCB_PLUGIN_PATH .'/lib/frontend.php';
