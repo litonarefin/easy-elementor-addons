@@ -1,14 +1,14 @@
 <?php
 namespace Elementor;
-use \Elementor\Plugin;
+
 use Elementor\Core\Responsive\Responsive;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+
 $document = Plugin::$instance->documents->get( Plugin::$instance->editor->get_post_id() );
 ?>
-
 <script type="text/template" id="tmpl-elementor-panel">
 	<div id="elementor-mode-switcher"></div>
 	<div id="elementor-panel-state-loading">
@@ -24,6 +24,12 @@ $document = Plugin::$instance->documents->get( Plugin::$instance->editor->get_po
 
 <script type="text/template" id="tmpl-elementor-panel-menu">
 	<div id="elementor-panel-page-menu-content"></div>
+	<div id="elementor-panel__editor__help">
+		<a id="elementor-panel__editor__help__link" href="https://go.elementor.com/global-settings" target="_blank">
+			<?php echo __( 'Need Help', 'elementor' ); ?>
+			<i class="eicon-help-o"></i>
+		</a>
+	</div>
 </script>
 
 <script type="text/template" id="tmpl-elementor-panel-menu-group">
@@ -70,9 +76,7 @@ $document = Plugin::$instance->documents->get( Plugin::$instance->editor->get_po
 		<span class="elementor-screen-only"><?php echo __( 'History', 'elementor' ); ?></span>
 	</div>
 	<div id="elementor-panel-footer-responsive" class="elementor-panel-footer-tool elementor-toggle-state">
-
 		<i class="eicon-device-desktop tooltip-target" aria-hidden="true" data-tooltip="<?php esc_attr_e( 'Responsive Mode', 'elementor' ); ?>"></i>
-
 		<span class="elementor-screen-only">
 			<?php echo __( 'Responsive Mode', 'elementor' ); ?>
 		</span>
@@ -95,6 +99,7 @@ $document = Plugin::$instance->documents->get( Plugin::$instance->editor->get_po
 					<span class="elementor-description"><?php echo sprintf( __( 'Preview for %s', 'elementor' ), '360px' ); ?></span>
 				</div>
 
+
 				<?php $original_file = file_get_contents( JLTMA_MCB_PLUGIN_PATH . '/custom_breakpoints.json');
 					$custom_breakpoints = json_decode($original_file, true);
 					foreach($custom_breakpoints as $key => $value){ ?>
@@ -108,8 +113,7 @@ $document = Plugin::$instance->documents->get( Plugin::$instance->editor->get_po
 					        <?php echo $value['select2']; ?>: <?php echo $value['input2']; ?>
 					    </span>
 					</div>
-				<?php } ?>
-
+				<?php } ?>				
 			</div>
 		</div>
 	</div>
@@ -130,7 +134,7 @@ $document = Plugin::$instance->documents->get( Plugin::$instance->editor->get_po
 		</button>
 	</div>
 	<div id="elementor-panel-footer-saver-options" class="elementor-panel-footer-tool elementor-toggle-state">
-		<button id="elementor-panel-saver-button-save-options" class="elementor-button elementor-button-success tooltip-target elementor-disabled" data-tooltip="<?php esc_attr_e( 'Save Options', 'elementor' ); ?>">
+		<button id="elementor-panel-saver-button-save-options" class="elementor-button elementor-button-success tooltip-target elementor-disabled" data-tooltip="<?php esc_attr_e( 'Save Options', 'elementor' ); ?>" data-tooltip-offset="7">
 			<i class="eicon-caret-up" aria-hidden="true"></i>
 			<span class="elementor-screen-only"><?php echo __( 'Save Options', 'elementor' ); ?></span>
 		</button>
@@ -258,7 +262,6 @@ $document = Plugin::$instance->documents->get( Plugin::$instance->editor->get_po
 	<div class="elementor-control-responsive-switchers">
 		<div class="elementor-control-responsive-switchers__holder">
 
-
 		<?php
 			$original_file = file_get_contents( JLTMA_MCB_PLUGIN_PATH . '/custom_breakpoints.json');
 			$custom_breakpoints = json_decode($original_file, true);
@@ -269,6 +272,7 @@ $document = Plugin::$instance->documents->get( Plugin::$instance->editor->get_po
 			$jltma_merge_devices = array_merge($jltma_devices, $jltma_mcb);
 			$jltma_mcb_devices = json_encode($jltma_merge_devices);
 		?>
+
 
 			<#
 				var devices = responsive.devices || <?php echo $jltma_mcb_devices;?>;
@@ -285,6 +289,7 @@ $document = Plugin::$instance->documents->get( Plugin::$instance->editor->get_po
 					<# } #>
 				</a>
 			<# } ); #>
+
 
 		</div>
 	</div>
