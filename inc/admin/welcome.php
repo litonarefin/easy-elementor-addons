@@ -15,7 +15,7 @@
 				</a>
 
                 <h1 class="ma_title">
-			        <?php printf( __( '%s <small>v %s</small>'), MELA, MELA_VERSION ); ?>
+			        <?php printf( __( '%s <small>v %s</small>'), MELA, JLTMA_PLUGIN_VERSION ); ?>
 				</h1>
 
                 <div class="about-text"></div>

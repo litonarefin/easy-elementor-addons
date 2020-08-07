@@ -1,30 +1,35 @@
 <?php
-
 /**
- * Plugin Name: Master Addons for Elementor (Pro)
+ * Plugin Name: Master Addons for Elementor
  * Description: Master Addons is easy and must have Elementor Addons for WordPress Page Builder. Clean, Modern, Hand crafted designed Addons blocks.
  * Plugin URI: https://master-addons.com
  * Author: Jewel Theme
- * Version: 1.4.5.5
+ * Version: 1.4.6
  * Author URI: https://master-addons.com
  * Text Domain: mela
  * Domain Path: /languages
  */
-if ( !defined( 'ABSPATH' ) ) {
-    exit;
-}
+
 // No, Direct access Sir !!!
+ if ( !defined( 'ABSPATH' ) ) exit;
+
+ $jltma_plugin_data = get_file_data(__FILE__,  array('Version'=> 'Version','Plugin Name'=>'Plugin Name'),false);
+ $jltma_plugin_name = $jltma_plugin_data['Plugin Name'];
+ $jltma_plugin_version = $jltma_plugin_data['Version'];
+
+define('JLTMA_NAME', $jltma_plugin_name);
+define('JLTMA_PLUGIN_VERSION', $jltma_plugin_version);
 
 if ( function_exists( 'ma_el_fs' ) ) {
     ma_el_fs()->set_basename( true, __FILE__ );
 } else {
-    
+
     if ( !function_exists( 'ma_el_fs' ) ) {
         // Create a helper function for easy SDK access.
         function ma_el_fs()
         {
             global  $ma_el_fs ;
-            
+
             if ( !isset( $ma_el_fs ) ) {
                 // Activate multisite network integration.
                 if ( !defined( 'WP_FS__PRODUCT_4015_MULTISITE' ) ) {
@@ -53,10 +58,10 @@ if ( function_exists( 'ma_el_fs' ) ) {
                     'is_live'         => true,
                 ] );
             }
-            
+
             return $ma_el_fs;
         }
-        
+
         // Init Freemius.
         ma_el_fs();
         // Signal that SDK was initiated.

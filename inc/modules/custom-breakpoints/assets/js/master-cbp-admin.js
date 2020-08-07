@@ -2,7 +2,7 @@
   "use strict";
 
 	  $(function () {
-		
+
 	  	// Reset Form
         jQuery("#elementor_settings_reset_form").submit(function(evt){
             evt.preventDefault();
@@ -14,7 +14,7 @@
 				data: {
 					'security': reset_form,
 					action: 'jltma_mcb_reset_settings'
-				},                
+				},
                 dataType: 'json',
                 async: true,
                 cache: false,
@@ -42,13 +42,13 @@
 			$.ajax({
 				url: masteraddons.ajaxurl,
 				method: 'POST',
-				data: { 
+				data: {
 					form_fields: form_data,
 					'security': breakpoints_form,
 					action: 'jltma_mcb_save_settings'
 				},
 				// dataType: 'json',
-			    success : function( data ){ 
+			    success : function( data ){
 					form.prepend( '<div class="updated"><p>Saved Breakpoints</p></div>' );
 
                     setTimeout(function() {
@@ -56,12 +56,12 @@
                         form.find('.updated').remove();
                     }, 700 );
 			    },
-			    error : function(error){ 
-			    	console.log('failed', error); 
+			    error : function(error){
+			    	console.log('failed', error);
 			    }
 			});
 
-		});	
+		});
 
 
 	  });

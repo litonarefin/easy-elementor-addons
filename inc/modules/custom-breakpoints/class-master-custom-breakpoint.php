@@ -45,12 +45,17 @@ if( !class_exists('JLTMA_Master_Custom_Breakpoint') ){
 			}
 
 			if ( is_plugin_active( 'elementor/elementor.php' ) ) {
-		        include_once JLTMA_MCB_PLUGIN_PATH .'/lib/base.php';
-		        include_once JLTMA_MCB_PLUGIN_PATH .'/lib/frontend.php';
-		        include_once JLTMA_MCB_PLUGIN_PATH .'/lib/responsive.php';
-		        include_once JLTMA_MCB_PLUGIN_PATH .'/lib/controls-stack.php';
-		        include_once JLTMA_MCB_PLUGIN_PATH .'/lib/stylesheet.php';
-		        include_once JLTMA_MCB_PLUGIN_PATH .'/lib/editor.php';
+				// Check if the Version between 2.9.0 to 3.0.0
+				if ( version_compare( ELEMENTOR_VERSION, '2.9.0', '>=' ) && version_compare( ELEMENTOR_VERSION, '3.0.0', '<' ) ) {
+					include_once JLTMA_MCB_PLUGIN_PATH .'/lib/base.php';
+					include_once JLTMA_MCB_PLUGIN_PATH .'/lib/frontend.php';
+					include_once JLTMA_MCB_PLUGIN_PATH .'/lib/responsive.php';
+					include_once JLTMA_MCB_PLUGIN_PATH .'/lib/controls-stack.php';
+					include_once JLTMA_MCB_PLUGIN_PATH .'/lib/stylesheet.php';
+					include_once JLTMA_MCB_PLUGIN_PATH .'/lib/editor.php';
+				}else{
+					echo esc_html__('This version of Elementor doesn\'t support Custom Breakpoints.', MELA_TD);
+				}
 	    	}
 		}
 

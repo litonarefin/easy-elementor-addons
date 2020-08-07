@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace MasterCustomBreakPoint\Inc;
 use MasterCustomBreakPoint\JLTMA_Master_Custom_Breakpoint;
 // use MasterCustomBreakPoint\Lib\JLTMA_Master_Custom_Breakpoint_Responsive;
@@ -41,11 +41,15 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
     }
 
 
-    public function jltma_mcb_content(){ 
+    public function jltma_mcb_content(){
 
         if ( !is_plugin_active( 'elementor/elementor.php' ) ) {
             echo esc_html__("Please Active Elementor Plugin", JLTMA_MCB_TD);
             return;
+        }
+
+        if ( !( version_compare( ELEMENTOR_VERSION, '2.9.0', '>=' ) && version_compare( ELEMENTOR_VERSION, '3.0.0', '<' ) )) {
+            echo esc_html__('This version of Elementor doesn\'t support Custom Breakpoints.', MELA_TD);
         }
 
         $breakpoints = Responsive::get_breakpoints();
@@ -54,7 +58,6 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
 
         $counter = 0;
         foreach($breakpoints as $bp => $bp_value) {
-            
 
             $skip = ["xs", "sm", "md", "lg", "xl", "xxl"];
             if(in_array($bp, $skip))
@@ -72,7 +75,7 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
                                 <option value='height'"; if($bp_value['select1'] == 'height') { $breakpoints_tbody .= 'selected'; } $breakpoints_tbody .= ">Height</option>
                                 <option value='min-height'"; if($bp_value['select1'] == 'min-height') { $breakpoints_tbody .= 'selected'; } $breakpoints_tbody .= ">Min Height</option>
                                 <option value='max-height'"; if($bp_value['select1'] == 'max-height') { $breakpoints_tbody .= 'selected'; } $breakpoints_tbody .= ">Max Height</option>
-                            </select>                        
+                            </select>
                         </li>
                         <li data-label='{$bp_value["input1"]}'>
                             <input type='number' name='breakpoint_input1[]' value='{$bp_value["input1"]}'>
@@ -85,7 +88,7 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
                                 <option value='height'"; if($bp_value['select2'] == 'height') { $breakpoints_tbody .= 'selected'; } $breakpoints_tbody .= ">Height</option>
                                 <option value='min-height'"; if($bp_value['select2'] == 'min-height') { $breakpoints_tbody .= 'selected'; } $breakpoints_tbody .= ">Min Height</option>
                                 <option value='max-height'"; if($bp_value['select2'] == 'max-height') { $breakpoints_tbody .= 'selected'; } $breakpoints_tbody .= ">Max Height</option>
-                            </select>                        
+                            </select>
                         </li>
                         <li data-label='{$bp_value["input2"]}'>
                             <input type='number' name='breakpoint_input2[]' value='{$bp_value["input2"]}'>
@@ -110,7 +113,7 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
                 <?php echo esc_html_e( JLTMA_Master_Custom_Breakpoint::$plugin_name, JLTMA_MCB_TD ); ?>
             </h2>
 
-            <?php 
+            <?php
                 if(isset($_POST['updated']) && $_POST["updated"] === 'true' ){
                     $this->handle_form();
                 }
@@ -118,7 +121,7 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
             <form method="POST" class="jlmta-cbp-input-form" id="jlmta-cbp-form">
 
                 <div class="jltma-spinner"></div>
-                
+
                 <?php wp_nonce_field( 'breakpoints_update', 'breakpoints_form' ); ?>
 
                 <div id="master_cbp_table" class="master_cbp_table">
@@ -137,7 +140,7 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
 
 
                 <?php if( !ma_el_fs()->can_use_premium_code()) { ?>
-                    <?php 
+                    <?php
                         $pro_message = sprintf( __( ' 3 Breakpoint allowed in free Version. <a href="%1$s">Upgrade to Pro</a> for Unlimited Options. <a href="%2$s">Upgrade Now</a>', JLTMA_MCB_TD ),
                             ma_el_fs()->get_upgrade_url(),
                             ma_el_fs()->get_upgrade_url() );
@@ -159,11 +162,11 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
 
         <div class="jltma-wrap">
 
-            <h2> 
-                <?php echo esc_html__('Breakpoint Settings', JLTMA_MCB_TD);?> 
+            <h2>
+                <?php echo esc_html__('Breakpoint Settings', JLTMA_MCB_TD);?>
             </h2>
-            
-            <div class="jltma-mcb-settings master_cbp_table <?php if( !ma_el_fs()->can_use_premium_code()) { 
+
+            <div class="jltma-mcb-settings master_cbp_table <?php if( !ma_el_fs()->can_use_premium_code()) {
             echo "jltma-mcb-disabled"; }?>">
 
                 <?php if( !ma_el_fs()->can_use_premium_code()) {  echo '<span class="jltma-mcb-pro-badge eicon-pro-icon"></span>'; }?>
@@ -176,7 +179,7 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
                     </li>
                     <li>
                         <strong>
-                            <?php echo esc_html__('Export Settings', JLTMA_MCB_TD);?>        
+                            <?php echo esc_html__('Export Settings', JLTMA_MCB_TD);?>
                         </strong>
                     </li>
                     <li>
@@ -199,7 +202,7 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
 
                             <div id="reset_success" class='updated' style="display: none;">
                                 <p><?php echo esc_html__('Reset Settings', JLTMA_MCB_TD);?></p>
-                            </div>                            
+                            </div>
                         </div>
                         <br>
                     </li>
@@ -215,14 +218,14 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
 
                     <li>
                         <form id="elementor_settings_import_form" enctype="multipart/form-data" method="post">
-                            
+
                             <?php wp_nonce_field('jltma-mcb-import'); ?>
 
                             <input name="jltma_mcb" type="file" />
                             <input type="hidden" name="action" value="jltma_cbp_import_elementor_settings">
                             <br>
                             <button type="submit" class="button button-primary jltma-cbp-save">
-                                <?php echo esc_html__('Import Settings', JLTMA_MCB_TD);?>        
+                                <?php echo esc_html__('Import Settings', JLTMA_MCB_TD);?>
                             </button>
                         </form>
 
@@ -240,16 +243,16 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
 
         <script>
 
-            var limit = 4,
+            var limit = 3,
                 mcb_row_length = jQuery("#master_cbp_table ul").length,
                 counter = 1;
-            
+
             function jltma_mbp_del_table_row(element) {
                 jQuery(element).parents('ul').remove();
 
                 <?php if( !ma_el_fs()->can_use_premium_code()) { ?>
                     mcb_row_length--;
-                    if( mcb_row_length < 4){
+                    if( mcb_row_length < 3){
                         jQuery("#jltma-mcb-message").slideUp();
                     }
                 <?php } ?>
@@ -298,13 +301,13 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
                     "</ul>";
 
                 <?php if( !ma_el_fs()->can_use_premium_code()) { ?>
-                    if( mcb_row_length < limit){                    
+                    if( mcb_row_length < limit){
                         mcb_row_length++;
                         jQuery('#master_cbp_table').append(jltma_cbp_new_ul);
-                    } 
+                    }
 
                     // Limit 3 Breakpoints for Free Version
-                    if( mcb_row_length >= 4){
+                    if( mcb_row_length >= 3){
                         jQuery("#jltma-mcb-message").slideDown();
                     }
                 <?php } else{?>
@@ -349,14 +352,14 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
 
 
     public function jltma_mcb_save_settings(){
-        
+
         // check security field
         if( ! isset( $_POST['security'] ) || ! wp_verify_nonce( $_POST['security'], 'breakpoints_update' ) ) {
             wp_send_json_error(  esc_html__( 'Security Error.', JLTMA_MCB_TD ) );
         }
 
         $form_fields = $_POST['form_fields'];
-        $output = array_slice($form_fields, 2); 
+        $output = array_slice($form_fields, 2);
         $split_form_data = array_chunk($output, 6);
 
         $custom_breakpoints = [];
@@ -368,7 +371,7 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
                 'select2'       => $value[3]['value'],
                 'input2'        => $value[4]['value'],
                 'orientation'   => $value[5]['value']
-            ];   
+            ];
         }
 
         update_option( 'jltma_mcb', $custom_breakpoints );
@@ -380,14 +383,14 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
     }
 
     public function handle_form() {
-        
-        // Save Breakpoints 
+
+        // Save Breakpoints
         if( ! isset( $_POST['breakpoints_form'] ) || ! wp_verify_nonce( $_POST['breakpoints_form'], 'breakpoints_update' ) ){ ?>
             <div class="error">
                 <p>
-                    <?php echo esc_html__('Sorry, your nonce was not correct. Please try again.', JLTMA_MCB_TD);?>      
+                    <?php echo esc_html__('Sorry, your nonce was not correct. Please try again.', JLTMA_MCB_TD);?>
                 </p>
-            </div> 
+            </div>
         <?php
             exit;
         } else {
@@ -441,15 +444,15 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
 
     // Reset Settings
     public function jltma_mcb_reset_settings(){
-        
+
         if( ! isset( $_POST['security'] ) || ! wp_verify_nonce( $_POST['security'], 'breakpoints_reset' ) ) {
             wp_send_json_error(  esc_html__( 'Security Error.', JLTMA_MCB_TD ) );
         }
 
         $original_file = file_get_contents( JLTMA_MCB_PLUGIN_PATH . '/lib/custom_breakpoints-original.json');
-        
+
         $custom_breakpoints = json_decode($original_file, true);
-        
+
         update_option( 'jltma_mcb', $custom_breakpoints );
 
         file_put_contents( JLTMA_MCB_PLUGIN_PATH .'/custom_breakpoints.json', json_encode($custom_breakpoints));
@@ -495,7 +498,7 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
                     $encode_options = file_get_contents($_FILES['jltma_mcb']['tmp_name']);
                     $options = json_decode($encode_options, true);
                     update_option( 'jltma_mcb', $options );
-                    
+
                     file_put_contents( JLTMA_MCB_PLUGIN_PATH .'/custom_breakpoints.json', json_encode($options));
 
                     echo json_encode('ok');

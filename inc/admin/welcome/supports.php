@@ -83,7 +83,7 @@
                                     <?php echo esc_html__('Show Us Some Love', MELA_TD);?>
                                 </h4>
                                 <p>
-                                    <?php echo esc_html__('If you like Master Addons and want to support our work, please rate us 5 Star in our WordPress plugin repo. It will inspire us to work more and bring some amazing elements for your website. Thanks for using Master Addons.', MELA_TD);?>
+                                    <?php echo esc_html__('Support us by giving a 5 Star rating on our WordPress plugin Repository. It will inspire us to do better work and bring some amazing elements for you. Thanks for using Master Addons.', MELA_TD);?>
                                 </p>
 
                                 <a href="https://wordpress.org/support/plugin/master-addons/reviews/#new-post" target="_blank">
@@ -100,7 +100,7 @@
                                     <?php echo esc_html__('What is Master Addons & How does it Work?', MELA_TD);?>
                                 </h4>
                                 <p>
-                                    <?php echo esc_html__('It\'s an Elementor Addons pack plugin. This plugin adds more elements inside your elementor editor. Master Addons will work on any WordPress website which has Elementor page builder installed', MELA_TD);?>
+                                    <?php echo sprintf( __('It\'s an <strong>Elementor</strong> Addons pack plugin. Elementor Page Builder is required for using Master Addons. This plugin adds more elements/features inside your elementor editor so you feel more independency.', MELA_TD));?>
                                 </p>
                             </div><!-- /.master-addons-faq-content -->
 
@@ -135,12 +135,12 @@
                     <?php } ?>
 
                     <div class="master-addons-right-column-widget">
-                        <img class="icon-image" src="<?php echo MELA_ADMIN_ASSETS;?>icons/contribute.svg" alt="Contribute to Master Addons">
+                        <img class="icon-image" src="<?php echo MELA_ADMIN_ASSETS;?>icons/contribute.svg" alt="Request a Feature">
                         <h4>
-                            <?php echo esc_html__('Contribute to Master Addons', MELA_TD);?>
+                            <?php echo esc_html__('Request a Feature', MELA_TD);?>
                         </h4>
                         <p>
-                            <?php echo esc_html__('If you need any unique elements for your website, please get in touch with us. We will hear your idea and develop element.', MELA_TD);?>
+                            <?php echo esc_html__('Missing something? Share your IDEA/Requirements with us, drop us an email about your details. We will be in touch with you(work with you) and Develop it.', MELA_TD);?>
                         </p>
                         <a href="https://master-addons.com/contact-us/" target="_blank">
                             <button class="master-addons-widget-btn">

@@ -909,7 +909,6 @@ class Editor {
            $style_class  = ".elementor-device-{$bp_name} #elementor-preview-responsive-wrapper { width: {$bp_value["input1"]}px; padding: 40px 10px 70px; }";
 		   $style_class2 = ".eicon-device-{$bp_name}:before{ content: '{$bp_name}'; }";
            $style_class3 = "body:not(.elementor-device-{$bp_name}) .elementor-control.elementor-control-responsive-{$bp_name} { display: none; }";
-           $style_class4 = ".elementor-device-{$bp_name} .elementor-responsive-switcher-{$bp_name} { background-color: #71d7f7; }";
            $style_class5 = ".elementor-device-{$bp_name} .elementor-responsive-switchers-open:not(:hover) .elementor-responsive-switcher.elementor-responsive-switcher-{$bp_name} { color: #71d7f7; }";
            $style_class6 = ".elementor-device-{$bp_name} .elementor-responsive-switcher.elementor-responsive-switcher-{$bp_name} {
            	height: 2em;
@@ -924,7 +923,6 @@ class Editor {
            wp_add_inline_style( 'elementor-editor', $style_class);
            wp_add_inline_style( 'elementor-editor', $style_class2);
            wp_add_inline_style( 'elementor-editor', $style_class3);
-           wp_add_inline_style( 'elementor-editor', $style_class4);
            wp_add_inline_style( 'elementor-editor', $style_class5);
            wp_add_inline_style( 'elementor-editor', $style_class6);
            wp_add_inline_style( 'elementor-editor', $style_class7);
