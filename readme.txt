@@ -8,7 +8,7 @@ Stable tag: trunk
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Must have and Essential Elementor Addons for speed up your Design Creativity. Header Footer & Comment Form Builder,Custom CSS, dynamic conditions.
+Must have and Essential Elementor Addons for speed up your Design Creativity. Custom Breakpoints, Header Footer & Comment Form Builder,Custom CSS, Custom JS, dynamic conditions etc.
 
 == Description ==
 [Master Addons](https://master-addons.com/) is a collection of Stunning and cutting edged designed Elementor Addons Pack. Have you been looking for the perfect addons for Elementor that can help you make a creative looking website? Well, you don’t have to look too far. With master-addons for elementor, you get a wide range of elements that make your ordinary-looking website into something interactable, visually appealing and a lot more reader-friendly.

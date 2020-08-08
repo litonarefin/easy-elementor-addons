@@ -50,7 +50,7 @@ class Master_Addons_Custom_JS{
             'jtlma_custom_js_usage',
             [
                 'type'              => Controls_Manager::RAW_HTML,
-                'raw'               => __('You may use both jQuery selector e.g. $(‘.selector’) or Vanilla JS selector e.g. document.queryselector(‘.selector’)', MELA_TD),
+                'raw'               => __('No need to write `$( document ).ready()`, write direct code. <br> You may use both jQuery selector e.g. $(‘.selector’) or Vanilla JS selector e.g. document.queryselector(‘.selector’)', MELA_TD),
                 'content_classes'   => 'elementor-descriptor',
             ]
         );
