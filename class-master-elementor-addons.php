@@ -131,6 +131,8 @@
 				$this->constants();
 				$this->maad_el_include_files();
 				$this->jltma_load_extensions();
+				// $this->jltma_load_default_settings();
+
 
 
 				self::$plugin_slug = 'master-addons';
@@ -139,6 +141,7 @@
 
 				// Initialize Plugin
 				add_action('plugins_loaded', [$this, 'ma_el_plugins_loaded']);
+				add_action('init', [$this, 'jltma_load_default_settings']);
 
 				add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'plugin_actions_links' ] );
 
@@ -169,7 +172,6 @@
 				//Body Class
 				add_action( 'body_class', [ $this, 'jltma_body_class' ] );
 			}
-
 
 			public function ma_el_init() {
 
@@ -824,6 +826,36 @@
 			}
 
 
+			// Load default settings
+			public function jltma_load_default_settings(){
+
+				// Master Addons Elements Settings
+				$maad_el_default_settings = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ), true );
+
+				$maad_el_get_settings 				= get_option( 'maad_el_save_settings', $maad_el_default_settings );
+				$maad_el_new_settings 				= array_diff_key( $maad_el_default_settings, $maad_el_get_settings );
+				$maad_el_updated_addons_settings 	= array_merge( $maad_el_get_settings, $maad_el_new_settings );
+
+				if(!get_option('maad_el_save_settings')){
+					add_option( 'maad_el_save_settings', $maad_el_updated_addons_settings );
+				}elseif ( ! empty( $maad_el_new_settings ) ) {
+					update_option( 'maad_el_save_settings', $maad_el_updated_addons_settings );
+				}
+
+
+				// Master Addons Extensions Settings
+				$ma_el_default_extensions_settings = array_fill_keys( ma_el_array_flatten(self::$ma_el_extensions ), true);
+				$maad_el_get_extension_settings = get_option( 'ma_el_extensions_save_settings', $ma_el_default_extensions_settings );
+				$maad_el_new_extensions_settings = array_diff_key( $ma_el_default_extensions_settings,$maad_el_get_extension_settings );
+				$maad_el_updated_extension_settings = array_merge( $maad_el_get_extension_settings,$maad_el_new_extensions_settings );
+
+				if(!get_option('ma_el_extensions_save_settings')){
+					add_option( 'ma_el_extensions_save_settings', $ma_el_default_extensions_settings );
+				}elseif ( ! empty( $maad_el_new_extensions_settings ) ) {
+					update_option( 'ma_el_extensions_save_settings', $maad_el_updated_extension_settings );
+				}
+			}
+
 
 			public function jltma_body_class( $classes ) {
 				global $pagenow;
@@ -831,23 +863,13 @@
 				if ( in_array( $pagenow, [ 'post.php', 'post-new.php' ], true ) && \Elementor\Utils::is_post_support() ) {
 					$post = get_post();
 
-					$mode_class = \Elementor\Plugin::$instance->db->is_built_with_elementor( $post->ID ) ? 'elementor-editor-active' : 'elementor-editor-inactive liton-arefin';
+					$mode_class = \Elementor\Plugin::$instance->db->is_built_with_elementor( $post->ID ) ? 'elementor-editor-active' : 'elementor-editor-inactive master-addons';
 
 					$classes .= ' ' . $mode_class;
 				}
 
 				return $classes;
 			}
-
-
-//			public function jltma_body_class( $classes ){
-//				if(class_exists('\Elementor\Plugin')) {
-//					if ( ! \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
-//						$classes[] = 'master-addons';
-//					}
-//				}
-//				return $classes;
-//			}
 
 
 			public function get_localize_settings() {
