@@ -118,7 +118,7 @@ class Master_Addons_Admin_Settings{
 
 	public function master_addons_el_page_content(){
 
-		// Master Addons Elements
+		// Master Addons Elements Settings
 		$this->maad_el_default_settings = array_fill_keys( ma_el_array_flatten( Master_Elementor_Addons::$maad_el_default_widgets ), true );
 
 		$this->maad_el_get_settings 	= get_option( 'maad_el_save_settings', $this->maad_el_default_settings );
@@ -131,7 +131,8 @@ class Master_Addons_Admin_Settings{
 			update_option( 'maad_el_save_settings', $maad_el_updated_addons_settings );
 		}
 
-		// Master Addons Extensions
+
+		// Master Addons Extensions Settings
 		$this->ma_el_default_extensions_settings = array_fill_keys( ma_el_array_flatten(Master_Elementor_Addons::$ma_el_extensions ), true);
 		$this->maad_el_get_extension_settings = get_option( 'ma_el_extensions_save_settings', $this->ma_el_default_extensions_settings );
 		$maad_el_new_extensions_settings = array_diff_key( $this->ma_el_default_extensions_settings,$this->maad_el_get_extension_settings );
