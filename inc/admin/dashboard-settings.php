@@ -82,13 +82,27 @@ class Master_Addons_Admin_Settings{
 
 		// Load Scripts only Master Addons Admin Page
 		if($screen->id == 'toplevel_page_master-addons-settings'){
+
+			//CSS
 			wp_enqueue_style( 'master-addons-notice', MELA_ADMIN_ASSETS . 'css/master-addons-notice.css' );
 			wp_enqueue_style( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'css/master-addons-admin.css' );
 			wp_enqueue_style( 'sweetalert', MELA_ADMIN_ASSETS .'css/sweetalert2.min.css');
 			wp_enqueue_style( 'master-addons-el-switch', MELA_ADMIN_ASSETS .'css/switch.css');
+
+			//JS
 			wp_enqueue_script( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'js/master-addons-admin.js', ['jquery'], MELA_VERSION, true );
 			wp_enqueue_script( 'master-addons-el-welcome-tabs', MELA_ADMIN_ASSETS .'js/welcome-tabs.js', ['jquery'], MELA_VERSION, true );
 			wp_enqueue_script( 'sweetalert', MELA_ADMIN_ASSETS .'js/sweetalert2.min.js', ['jquery'], MELA_VERSION, true );
+
+
+			$jltma_localize_admin_script = array(
+				'ajaxurl' 				=> admin_url( 'admin-ajax.php' ),
+				'ajax_nonce' 			=> wp_create_nonce( 'maad_el_settings_nonce_action' ),
+				'ajax_extensions_nonce' => wp_create_nonce( 'ma_el_extensions_settings_nonce_action' )
+			);
+			wp_localize_script( 'master-addons-el-admin', 'js_maad_el_settings', $jltma_localize_admin_script );
+
+
 		}
 
 		// Admin Notice Dismiss
@@ -104,17 +118,7 @@ class Master_Addons_Admin_Settings{
 
 	public function master_addons_el_page_content(){
 
-		$js_info = array(
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-			'ajax_nonce' => wp_create_nonce( 'maad_el_settings_nonce_action' ),
-			'ajax_extensions_nonce' => wp_create_nonce( 'ma_el_extensions_settings_nonce_action' )
-		);
-		wp_localize_script( 'master-addons-el-admin', 'js_maad_el_settings', $js_info );
-
-
-
 		// Master Addons Elements
-
 		$this->maad_el_default_settings = array_fill_keys( ma_el_array_flatten(
 			Master_Elementor_Addons::$maad_el_default_widgets ), true );
 

@@ -8,8 +8,7 @@
 
 		private static $_instance = null;
 
-		public function __construct()
-		{
+		public function __construct(){
 			add_action( 'elementor/element/after_section_end', [ $this, 'register_controls' ], 10, 3 );
 			add_action( 'elementor/element/print_template', [ $this, '_print_template'],10,2);
 			add_action( 'elementor/section/print_template', [ $this, '_print_template'],10,2);
@@ -65,6 +64,7 @@
 						]
 					]
 				);
+
 				$repeater = new Repeater();
 
 				$repeater->add_control(
@@ -95,11 +95,9 @@
 								'ma_el_animated_gradient_color'   =>  '#e57600'
 							]
 						],
-
-						/*'selectors' => [
+						'selectors' => [
 							'{{WRAPPER}}' => 'background : linear-gradient({{gradient_background_angle.SIZE}}{{gradient_background_angle.UNIT}} );',
-						],*/
-
+						],
 						'condition' =>  [
 							'ma_el_animated_gradient_enable' => 'yes',
 						]
