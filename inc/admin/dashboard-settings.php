@@ -126,28 +126,23 @@ class Master_Addons_Admin_Settings{
 		$maad_el_new_settings = array_diff_key( $this->maad_el_default_settings, $this->maad_el_get_settings );
 
 		if( ! empty( $maad_el_new_settings ) ) {
-			$maad_el_updated_settings = array_merge( $this->maad_el_get_settings, $maad_el_new_settings );
-			update_option( 'maad_el_save_settings', $maad_el_updated_settings );
+			$maad_el_updated_addons_settings = array_merge( $this->maad_el_get_settings, $maad_el_new_settings );
+			update_option( 'maad_el_save_settings', $maad_el_updated_addons_settings );
 		}
-		$this->maad_el_get_settings = get_option( 'maad_el_save_settings', $this->maad_el_default_settings );
-
-
 
 		// Master Addons Extensions
-
 		$this->ma_el_default_extensions_settings = array_fill_keys( ma_el_array_flatten(Master_Elementor_Addons::$ma_el_extensions ), true);
 		$this->maad_el_get_extension_settings = get_option( 'ma_el_extensions_save_settings', $this->ma_el_default_extensions_settings );
 		$maad_el_new_extensions_settings = array_diff_key( $this->ma_el_default_extensions_settings,
 			$this->maad_el_get_extension_settings );
 
 		if( ! empty( $maad_el_new_extensions_settings ) ) {
-			$maad_el_updated_settings = array_merge( $this->maad_el_get_extension_settings,
+			$maad_el_updated_extension_settings = array_merge( $this->maad_el_get_extension_settings,
 				$maad_el_new_extensions_settings );
-			update_option( 'ma_el_extensions_save_settings', $maad_el_updated_settings );
+			update_option( 'ma_el_extensions_save_settings', $maad_el_updated_extension_settings );
 		}
-		$this->maad_el_get_extension_settings = get_option( 'ma_el_extensions_save_settings', $this->ma_el_default_extensions_settings );
 
-
+		// Welcome Page
 		include MELA_PLUGIN_PATH . '/inc/admin/welcome.php';
 
 	}
