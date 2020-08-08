@@ -1,1 +1,1 @@
-{"breakpoint0":{"name":"Liton","select1":"min-width","input1":"500","select2":"max-width","input2":"1440","orientation":"portrait"},"breakpoint1":{"name":"Arefin","select1":"height","input1":"600","select2":"max-width","input2":"1440","orientation":"landscape"}}
+{"breakpoint0":{"name":"iPhone 5\/SE","select1":"width","input1":"320","select2":"height","input2":"568","orientation":"portrait"},"breakpoint1":{"name":"iPhone 5\/SE","select1":"width","input1":"568","select2":"height","input2":"320","orientation":"landscape"}}

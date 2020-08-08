@@ -99,7 +99,7 @@ class Responsive {
 	 *
 	 * @return array Responsive breakpoints.
 	 */
-	
+
 
 	public static function jltma_cbps() {
 	    $default_breakpoints = self::$default_breakpoints;
