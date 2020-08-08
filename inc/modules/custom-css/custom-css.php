@@ -78,10 +78,7 @@ selector .child-element{ margin: 10px; }
 
 				$widget->end_controls_section();
 			}
-
-
 		}
-
 
 
 

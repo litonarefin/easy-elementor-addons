@@ -17,13 +17,14 @@ class Master_Addons_Custom_JS{
     public function __construct(){
         // Add new controls to Page Settings on Advanced Tab globally
         add_action('elementor/documents/register_controls', [$this, 'jltma_add_section_custom_js_controls'], 20);
+        add_action( 'wp_print_footer_scripts', [ $this, 'jltma_page_custom_js' ], 999 );
     }
 
     public function jltma_add_section_custom_js_controls($controls){
         $controls->start_controls_section(
             'jtlma_section_custom_js',
             [
-                'label'         => MA_EL_BADGE . __( ' Custom JS', MELA_TD ),
+                'label'         => MA_EL_BADGE . esc_html__( ' Custom JS', MELA_TD ),
                 'tab'           => Controls_Manager::TAB_ADVANCED,
             ]
         );
@@ -32,7 +33,7 @@ class Master_Addons_Custom_JS{
             'jtlma_custom_js_label',
             [
                 'type'          => Controls_Manager::RAW_HTML,
-                'raw'           => __('Add your own custom JS here', MELA_TD),
+                'raw'           => esc_html__('Add your own custom JS here', MELA_TD),
             ]
         );
 
@@ -65,6 +66,27 @@ class Master_Addons_Custom_JS{
 
         $controls->end_controls_section();
     }
+
+
+    public function jltma_page_custom_js() {
+
+		if ( \Elementor\Plugin::instance()->editor->is_edit_mode() || \Elementor\Plugin::instance()->preview->is_preview_mode() ) { return; }
+
+        $document = \Elementor\Plugin::instance()->documents->get( get_the_ID() );
+
+		if ( ! $document ) return;
+
+        $custom_js = $document->get_settings( 'jtlma_custom_js' );
+
+		if ( empty( $custom_js ) ) return;
+
+        echo "<script type='text/javascript'>(function($){
+            'use strict';
+            {$custom_js}
+        })(jQuery);</script>";
+    }
+
+
 
     public static function get_instance() {
         if ( ! self::$instance ) {

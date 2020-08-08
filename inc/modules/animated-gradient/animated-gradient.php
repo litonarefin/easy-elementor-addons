@@ -131,8 +131,8 @@
 				$element->add_render_attribute('_wrapper' , 'data-color' , $colors);
 				?>
                 <!-- <style>
-                .elementor-element-<?php echo $element->get_id(); ?>.ma-el-animated-gradient-yes{
-                    background : <?php echo 'linear-gradient('.$angle.'deg'.','.$colors.')'; ?>;
+                .elementor-element-<?php //echo $element->get_id(); ?>.ma-el-animated-gradient-yes{
+                    background : <?php //echo 'linear-gradient('.$angle.'deg'.','.$colors.')'; ?>;
                 }
 
             </style>-->
