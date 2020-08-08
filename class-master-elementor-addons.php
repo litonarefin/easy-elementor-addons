@@ -413,41 +413,23 @@
 				$activated_widgets = $this->activated_widgets();
 
 				foreach ( ma_el_array_flatten( self::$maad_el_default_widgets ) as $widget ) {
+					$is_pro = "";
+					if ( isset( $widget ) ) {
+						if ( is_array( $widget ) ) {
+							$is_pro = $widget[1];
+							$widget = $widget[0];
 
-					if ( $activated_widgets[ $widget ] == true ) {
-						if( in_array( $widget, self::$maad_el_pro_widgets )){
 							if ( ma_el_fs()->can_use_premium_code() ) {
-								require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+								if ( $activated_widgets[ $widget ] == true && $is_pro == "pro" ) {
+									require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+								}
 							}
-						} else {
-							require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
 						}
 					}
 
-
-					// $is_pro = "";
-					// if ( isset( $widget ) ) {
-					// 	if ( is_array( $widget ) ) {
-					// 		$is_pro = $widget[1];
-					// 		$widget = $widget[0];
-
-					// 		if ( ma_el_fs()->can_use_premium_code() ) {
-					// 			if ( $activated_widgets[ $widget ] == true && $is_pro == "pro" ) {
-					// 				require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
-					// 			}
-					// 		}
-					// 	}
-					// }
-
-					// if ( $activated_widgets[ $widget ] == true && $is_pro !="pro") {
-					// 	require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
-					// }
-
-
-
-
-
-
+					if ( $activated_widgets[ $widget ] == true && $is_pro !="pro") {
+						require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+					}
 				}
 
 			}
