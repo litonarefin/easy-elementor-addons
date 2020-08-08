@@ -84,26 +84,16 @@
 							name="<?php echo esc_attr( $widget ); ?>"
 							<?php checked( 1, $this->maad_el_get_settings[$widget], true ); ?>>
 
-							<?php } else {
+						<?php } else { ?>
 
-							if ( isset( $widget ) ) {
-								if ( is_array( $widget ) ) {
-									$is_pro = $widget[1];
-								}
-							} ?>
-
-							<input
-							type="checkbox" id="<?php echo esc_attr( $widget ); ?>"
-							class="switch-input "
-							name="<?php echo esc_attr( $widget ); ?>"
-
-							<?php
+                        <input type="checkbox" id="<?php echo esc_attr( $widget ); ?>" class="switch-input " name="<?php echo esc_attr( $widget ); ?>"
+						<?php
 							if( !ma_el_fs()->can_use_premium_code() && $is_pro =="pro") {
-								checked( 0,$this->maad_el_get_settings[$widget], false );
-								echo "disabled";
+								checked( 1, $this->maad_el_get_settings[$widget], false );
 							}else{
-								checked( 1, $this->maad_el_get_settings[$widget], true );
-							}  ?>/>
+								checked( 1, $this->maad_el_get_settings[$widget] );
+							}  ?> />
+
 							<?php  }?>
 
                            <span data-on="On" data-off="Off" class="switch-label"></span>

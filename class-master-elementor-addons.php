@@ -424,6 +424,30 @@
 						}
 					}
 
+
+					// $is_pro = "";
+					// if ( isset( $widget ) ) {
+					// 	if ( is_array( $widget ) ) {
+					// 		$is_pro = $widget[1];
+					// 		$widget = $widget[0];
+
+					// 		if ( ma_el_fs()->can_use_premium_code() ) {
+					// 			if ( $activated_widgets[ $widget ] == true && $is_pro == "pro" ) {
+					// 				require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+					// 			}
+					// 		}
+					// 	}
+					// }
+
+					// if ( $activated_widgets[ $widget ] == true && $is_pro !="pro") {
+					// 	require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+					// }
+
+
+
+
+
+
 				}
 
 			}
