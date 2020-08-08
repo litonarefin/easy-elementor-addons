@@ -83,13 +83,5 @@ register_activation_hook( __FILE__, 'ma_el_redirect' );
 if ( !function_exists( 'ma_el_redirect' ) ) {
     function ma_el_redirect(){
         add_option( 'ma_el_update_redirect', true );
-
-        if(!get_option('jltma_activation_time')){
-			add_option('jltma_activation_time', strtotime("now") );
-		}else{
-			update_option('jltma_activation_time', strtotime("now") );
-        }
-
     }
-
 }

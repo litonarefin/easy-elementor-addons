@@ -180,8 +180,8 @@ if( !class_exists('Master_Addons_Promotions') ) {
 
         public function jltma_days_differences(){
 
-            // $install_date = get_option( 'jltma_activation_time' );
-            $install_date = strtotime('2020-07-01 14:39:05'); // Testing datetime
+            $install_date = get_option( 'jltma_activation_time' );
+            // $install_date = strtotime('2020-07-01 14:39:05'); // Testing datetime
             $jltma_date_format = 'Y-m-d H:i:s';
             $jltma_datetime1 = \DateTime::createFromFormat( 'U', $install_date );
             $jltma_datetime2 = \DateTime::createFromFormat( 'U', strtotime("now") );
