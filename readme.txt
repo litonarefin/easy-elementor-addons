@@ -25,16 +25,21 @@ To use Master Addons you will have to activate Elementor plugin in your WordPres
 Here is the Download link for [Elementor](https://wordpress.org/plugins/elementor/) WordPress Plugin.
 
 == Unique Features ==
-1. Header, Footer & Comment Form Builder
-2. Mega Menu Builder
-3. Custom CSS
-4. MA Duplicator - Duplicate all kind of Posts/Pages/Custom Posts
-5. Positioning
-6. Transforms
-7. Container Extra
-8. Domain Checker
-9. Restrict Content (Age Gate, Match Captcha, User Role & Password)
-10. Rich Template Library ( 1000+ Pre-built Designed Landing Pages/Sections/Header/Footers )
+1. Header, Footer & Comment Form Builder (Coming Soon)
+2. Custom Breakpoint For Elementor
+3. Mega Menu Builder
+4. Custom CSS & Custom JS
+5. MA Duplicator - Duplicate all kind of Posts/Pages/Custom Posts
+6. Positioning
+7. Transforms
+8. Container Extra
+9. Domain Checker
+10. Restrict Content (Age Gate, Match Captcha, User Role & Password)
+11. Rich Template Library ( 100+ Pre-built Designed Landing Pages/Sections/Header/Footers )
+
+
+== Elementor Custom Breakpoints ==
+[youtube https://www.youtube.com/watch?v=JGdmeUrzaxA]
 
 
 Quick Overview:
@@ -56,28 +61,45 @@ Quick Overview:
 9. [Info Box](https://master-addons.com/demos/infobox/)
 10. [Team Members](https://master-addons.com/demos/team-member/)
 11. [Team Members Slider](https://master-addons.com/demos/team-carousel/)
-12. [WP Forms](https://master-addons.com/demos/wp-forms/)
 13. [Call to Action](https://master-addons.com/demos/call-to-action/)
 14. [Creative Buttons](https://master-addons.com/demos/creative-button/)
 15. [Changelog](https://master-addons.com/changelogs/)
 16. [Creative Links](https://master-addons.com/demos/creative-link/)
 17. [Image Hover Effects](https://master-addons.com/demos/image-hover-effects/)
 18. [Blog](https://master-addons.com/demos/blog-element/)
-19. [News Ticker](https://master-addons.com/demos/news-ticker/)
 20. [Business Hours](https://master-addons.com/demos/business-hours/)
 21. [Table of Contents](https://master-addons.com/100-best-elementor-addons/)
-22. [Image Hotspots](https://master-addons.com/demos/image-hotspot/)
 23. [Image Gallery](https://master-addons.com/demos/image-gallery/)
 24. [Pricing Table](https://master-addons.com/demos/pricing-table/)
 25. [Timeline](https://master-addons.com/demos/timeline/)
 26. [Image Comparison](https://master-addons.com/demos/image-comparison/)
 27. [Current Time](https://master-addons.com/demos/current-time/)
-28. [Responsive Table](https://master-addons.com/demos/dynamic-table/)
+28. [Dynamic Table](https://master-addons.com/demos/dynamic-table/)
 29. [Nav Menu](https://master-addons.com/elementor-mega-menu/)
 30. [Search Element](https://master-addons.com/demos/search-element/)
 31. [Blockquote](https://master-addons.com/demos/blockquote-element/)
 32. [Counter Up](https://master-addons.com/demos/counter-up/)
 33. [Countdown Timer](https://master-addons.com/demos/countdown-timer/)
+34. [Mailchimp](https://master-addons.com/demos/mailchimp/)
+
+== PRO Elements ==
+1. [News Ticker](https://master-addons.com/demos/news-ticker/)
+2. [Image Hotspot](https://master-addons.com/demos/image-hotspot/)
+3. [Restrict Content](https://master-addons.com/demos/restrict-content-for-elementor/)
+4. [Domain Search](https://master-addons.com/demos/domain-search/)
+5. [Instagram Feed](https://master-addons.com/demos/instagram-feed/) - Working On API Issue
+6. [Toggle Content](https://master-addons.com/demos/toggle-content/)
+7. [Animated Headlines](https://master-addons.com/demos/animated-headline/) - Unlock 6 More Animation
+8. [Advanced Nested Accordion](https://master-addons.com/demos/advanced-accordion/) - Able to set saved Section, content, Page template in Accordion
+9. [Nested & Tabular Tabs](https://master-addons.com/demos/tabs/) - Unlock Saved Section, Content, Page template as content & Tabular content Style Preset
+10. [Creative Buttons](https://master-addons.com/demos/creative-button/) - Get 15 More Button effect
+11. [Creative Links](https://master-addons.com/demos/creative-link/) - 12 More Creative Link Style Effect
+12. [Team Members](https://master-addons.com/demos/team-carousel/) - Unlock Content Drawer, Animation Background & more possibilities.
+13. [Flipbox](https://master-addons.com/demos/flipbox/) - Unlock 16 Animation Style & 2 Design Variation
+14. [Image Hover Effects](https://master-addons.com/demos/image-hover-effects/) Unlock 22 hover effects, Border Radius and more.
+15. [Image Hotspots](https://master-addons.com/demos/image-hotspot/)
+16. [Domain Checker](https://master-addons.com/demos/domain-search/)
+17. [Toggle Content] (https://master-addons.com/demos/toggle-content/)
 
 == Form Elements ==
 1. [Contact Forms 7](https://master-addons.com/demos/contact-form-7/)
@@ -85,124 +107,153 @@ Quick Overview:
 3. [WP Forms](https://master-addons.com/demos/wp-forms/)
 4. [Caldera Forms](https://master-addons.com/demos/caldera-forms/)
 5. [weForms](https://master-addons.com/demos/we-forms/)
+6. Gravity Forms (Pro Element)
 
-== Extensions Elements ==
+== Free Extensions ==
 1. [Particles Background](http://master-addons.com/ma-particles-background/)
-2. [Animated Gradient Background](https://master-addons.com/ma-gradient-background/)
-3. [Background Slider](http://master-addons.com/ma-slider-background/)
-4. [Reveal](https://master-addons.com/demos/reveal/)
-5. [Transforms](https://master-addons.com/demos/transforms-extension/)
-6. [Custom CSS](https://master-addons.com/docs/addons/custom-css-extension/)
-7. [Rellax](https://master-addons.com/demos/rellax/)
+2. [Background Slider](http://master-addons.com/ma-slider-background/)
+3. [Custom Breakpoints](https://master-addons.com/demos/custom-breakpoints/)
+4. [Custom CSS](https://master-addons.com/docs/addons/custom-css-extension/)
+5. [Custom JS](https://master-addons.com/docs/addons/custom-js-extension/)
+6. [Reading Progress Bar](https://master-addons.com/100-best-elementor-addons/)
+7. [Mega Menu](https://master-addons.com/elementor-mega-menu/)
 8. [Positioning](https://master-addons.com/demos/positioning/)
+9. [Container Extras]
 
 
-== Master Addons PRO Elements ==
-- [Animated Headlines](https://master-addons.com/demos/animated-headline/)
-- [Advanced Nested Accordion](https://master-addons.com/demos/advanced-accordion/)
-- [Advanced Multicolor Accordion](https://master-addons.com/demos/advanced-accordion/)
-- [Nested Tabs](https://master-addons.com/demos/tabs/)
-- [Creative Buttons](https://master-addons.com/demos/creative-button/)
-- [Creative Links](https://master-addons.com/demos/creative-link/)
-- [Team Members (Content Drawer, Animation Background)](https://master-addons.com/demos/team-carousel/)
-- [Flipbox](https://master-addons.com/demos/flipbox/)
-- [News Ticker](https://master-addons.com/demos/news-ticker/)
-- [Image Hover Effects](https://master-addons.com/demos/image-hover-effects/)
-- [Animated Gradient Background](https://master-addons.com/ma-gradient-background/)
-- [Image Hotspots](https://master-addons.com/demos/image-hotspot/)
-- [Domain Checker](https://master-addons.com/demos/domain-search/)
-- [Instagram Feed](https://master-addons.com/demos/instagram-feed/)
-
+== PRO Extensions ==
+1. [Animated Gradient Background](https://master-addons.com/ma-gradient-background/)
+2. [Custom Breakpoints](https://master-addons.com/demos/custom-breakpoints/) - Unlock Unlimited Breakpoints + import export options
+3. [Reveal](https://master-addons.com/demos/reveal/)
+4. [Rellax](https://master-addons.com/demos/rellax/)
+5. [Transforms](https://master-addons.com/demos/transforms-extension/)
+6. [Transition] - On Development
 
 ## Master Addons All Widgets ##
 This plugin gives you access to the following widgets or elements
 
-
-1. [MA Animated Headlines](https://master-addons.com/demos/animated-headline/): Our heading widget can help you create beautiful headings that attract people's attention. The heading of your website or blog for an online page is the most important aspect of the message you want to convey. Headlines are the first thing that catches a person’s eyes.If it's bland the reader will lose interest on the heading itself. We provide you with a great variety of stylishanimated headings that are eye-catching and add extra value to your website. This add-on gives you the freedom to customize your own headline style.
-
-
-2. [MA Dual Heading](https://master-addons.com/demos/dual-heading/): Dual heading is advanced headline widget in addition to the animated headlines. Simply having a headline with a nice font is sometimes not enough. What if you could customize it to look even better? This addon gives you options to choose interesting backgrounds with a dual-colored box that enhance your heading. You can use Dual fonts in a single heading to highlight certain words. Dual colors for words can be used as well it enhances a particular word. If you want a background image behind the heading, give it artistic look you can do so with this addon. You can also highlight a particular word with different thickness than the one used for the whole heading. Experiment with all the different styles available and see what works best for your website.
+1. [Animated Headlines](https://master-addons.com/demos/animated-headline/): Our heading widget can help you create beautiful headings that attract people's attention. The heading of your website or blog for an online page is the most important aspect of the message you want to convey. Headlines are the first thing that catches a person’s eyes.If it's bland the reader will lose interest on the heading itself. We provide you with a great variety of stylishanimated headings that are eye-catching and add extra value to your website. This add-on gives you the freedom to customize your own headline style.
 
 
-3. [MA Advanced Accordion](https://master-addons.com/demos/advanced-accordion/): Accordion helps you to present your content in a
+2. [Dual Heading](https://master-addons.com/demos/dual-heading/): Dual heading is advanced headline widget in addition to the animated headlines. Simply having a headline with a nice font is sometimes not enough. What if you could customize it to look even better? This addon gives you options to choose interesting backgrounds with a dual-colored box that enhance your heading. You can use Dual fonts in a single heading to highlight certain words. Dual colors for words can be used as well it enhances a particular word. If you want a background image behind the heading, give it artistic look you can do so with this addon. You can also highlight a particular word with different thickness than the one used for the whole heading. Experiment with all the different styles available and see what works best for your website.
+
+
+3. [Advanced Accordion](https://master-addons.com/demos/advanced-accordion/): Accordion helps you to present your content in a
 user-friendly way. It is easier for the reader to simply see what the content is about before clicks to read the whole page.
 Advanced Accordion helps the reader to give a quick glance to the content that is under each Accordion bar. Accordion
 addon gives you the freedom to make your own style of accordion for easy sorting. You can customize the collapse
 animation, column color, size and position of the accordion. You can choose what will activate the drop-down, whether it would be a click or a Mouse hover. Choose from our wide range of colors and styles.
 
 
-4. [MA Tabs](https://master-addons.com/demos/tabs/): For a user-friendly website, having creative and informative tabs is very important. With the tabs addon, you can customize the visuals of the tabs on your website. You can choose from the wide range of theme colors, Positioning ( vertical or horizontal), font-size, icon image, etc.
+4. [Tabs](https://master-addons.com/demos/tabs/): For a user-friendly website, having creative and informative tabs is very important. With the tabs addon, you can customize the visuals of the tabs on your website. You can choose from the wide range of theme colors, Positioning ( vertical or horizontal), font-size, icon image, etc.
 You can make as many tabs as you like and include them on your homepage. It can include about us page, services page or
 any other page that you like. Tabs makes it easier for The Reader to navigate in your website. It also makes your
 website look more organized.
 
 
-5. [MA Progressbar](https://master-addons.com/demos/progress-bar/): A progress bar is an intelligent touch to your website. It allows you to add a stylish and animated progress bar to enrich your pages. You can use the progress bar to highlight expertise in a certain subject matter. You can also use it to showcase the different services you offer. MA Progressbar comes in different styles- Line style, bubble style as well as Circle style.
+5. [Progressbar](https://master-addons.com/demos/progress-bar/): A progress bar is an intelligent touch to your website. It allows you to add a stylish and animated progress bar to enrich your pages. You can use the progress bar to highlight expertise in a certain subject matter. You can also use it to showcase the different services you offer. MA Progressbar comes in different styles- Line style, bubble style as well as Circle style.
 
 
-6. [MA Tooltips](https://master-addons.com/demos/tooltip/): Tooltip is a cool addon which makes your website is far more
-user-friendly than bland websites with too much information in it. The widget tooltips give the reader the option to
-hover their Mouseover a certain image, text or icons and know additional information about it without clicking on it.
+6. [Tooltips](https://master-addons.com/demos/tooltip/): Tooltip is a cool addon which makes your website is far more user-friendly than bland websites with too much information in it. The widget tooltips give the reader the option to hover their Mouseover a certain image, text or icons and know additional information about it without clicking on it.
 Tooltips make your content far more interactive than simply putting interruptive information in between your content. If you want to give information about certain words or images without filling up your website with text that is not very relevant to the message you want to convey, it can distract your readers from your content. An easy way to give added informative without being boring is by using tooltips. With this addon, you can customize your tooltips in the Elementor plugin.
 
 
-7. [MA Flip Box](https://master-addons.com/demos/flipbox/): If you’re looking for a cool way to showcase your services or add a call to action section which differentiates from the rest of the page, then you should consider adding Flip Box.
+7. [Flip Box](https://master-addons.com/demos/flipbox/): If you’re looking for a cool way to showcase your services or add a call to action section which differentiates from the rest of the page, then you should consider adding Flip Box.
 MA Flip Box comes with a 3D effect and in a variety of options. The Variations are Flip box Horizontal, Flip vertical, Flipping Cubes, Fade, Cube, Diagonal and Rollover options.
 
 
-8. [MA Info Box](https://master-addons.com/demos/infobox/): If you’re looking to highlight some important information on your website in a vibrant and lively style, you would love MA Infobox. Your viewers don’t have much time to read everything on your website, and they would appreciate if you can include important information in the colorful Infobox. They can easily skim through the information in the Infobox. MA Infobox widget is shipped in a pack with dozen of different styles you can choose from.
+8. [Info Box](https://master-addons.com/demos/infobox/): If you’re looking to highlight some important information on your website in a vibrant and lively style, you would love MA Infobox. Your viewers don’t have much time to read everything on your website, and they would appreciate if you can include important information in the colorful Infobox. They can easily skim through the information in the Infobox. MA Infobox widget is shipped in a pack with dozen of different styles you can choose from.
 
 
-9. [Team Members ](https://master-addons.com/demos/team-member/): A website with a not complete without a beautifully customized team member page. Your audience should be able to see the team members that work for your business. It makes your website more authentic and gives your reader a sense of trust. They can know who are the people that are working behind the scenes. It also gives exposure to your team members which is an added benefit. With our MA Team Member addon, you can easily create the Team Members page of your choice. There are many Team member options to choose from various templates we have in our library. Add the names, pictures, designation and social media information for each of your members and you’re done.
+9. [Team Members](https://master-addons.com/demos/team-member/): A website with a not complete without a beautifully customized team member page. Your audience should be able to see the team members that work for your business. It makes your website more authentic and gives your reader a sense of trust. They can know who are the people that are working behind the scenes. It also gives exposure to your team members which is an added benefit. With our MA Team Member addon, you can easily create the Team Members page of your choice. There are many Team member options to choose from various templates we have in our library. Add the names, pictures, designation and social media information for each of your members and you’re done.
 
 
 10. [Team Members Slider](https://master-addons.com/demos/team-carousel/): Team members sliders addon help you to easily create a display page for your team members on your site with beautifully customizable slider view. With the above-mentioned block team member view, all your team members will be shown at once on the page. However, with slider addon, the reader can click on the arrow at the side and navigate through each of the team members profile, with our "team members slider add-on".  You can customize the speed of the slide, background color and other details to make it look perfect.
 
 
-11. [Contact Form 7](https://master-addons.com/demos/contact-form-7/): The perfect kinds of websites are those websites which
- give the reader the option to contact you personally. Add-on contact form 7 asks the reader to fill up a brief form which may contain their name, email id and the message they want to send you. With our contact form 7 addon, it is easy to set up the form questions that are available in our existing template, you don't need to write any HTML codes. You can change the color of background, field and do many other customizations.
+11. [Call to Action](https://master-addons.com/demos/call-to-action/): Call to action it is a powerful tool to make convert readers into two customers. No matter what kind of business you are “call to action” click button is the most important aspect of marketing. With our MA CTA widgets, you can customize the animation, write your own text in the “call to action” box that you think would be good, use text images or icons as the call to action button.
 
 
-12. [Ninja Forms](https://master-addons.com/demos/ninja-form/): If you’re a ninja form user and looking for Elementor Addons
-that can help you customize it, don’t worry. With our Ninja Form addon you can customize the design and more.
+12. [Creative Buttons](https://master-addons.com/demos/creative-button/): There can be several clickable items on your website. Let it be tabs, call to action button or any other button. Creative button add-on gives you various animations on the buttons when the readers hover their mouse over the clickable area. The add-on animates the button creatively. You can choose from our templates and make your website more aesthetically pleasing.
 
 
-13. [WP Forms](https://master-addons.com/demos/wp-forms/): This addon will help you add elements specific to WP Forms.
-So, if you have designed a form using WP Forms and is trying to display them in a page built using Elementor, you can do that using this widget.
+13. [Image Hover Effects](https://master-addons.com/demos/image-hover-effects/): Don't you think sometimes it's necessary to put a title and description of your image? I think you have thought about this. The Image Hover effects will solve your issue. There is total 20+ amazing Hover effects available within this element. That doesn't mean you are stuck within our predefine style. There is a rich options panel for customizing your hover effects. You are free to select Typo, Border, Background color, text color from the panel.
 
 
-14. [MA Call to Action](https://master-addons.com/demos/call-to-action/): Call to action it is a powerful tool to make
-convert readers into two customers. No matter what kind of business you are “call to action” click button is the most important aspect of marketing. With our MA CTA widgets, you can customize the animation, write your own text in the “call to action” box that you think would be good, use text images or icons as the call to action button.
+14. [Blog](https://master-addons.com/demos/blog-element/): Blog should be arranged attractively. Blog posts always help you to drive more traffic on your website. Many bloggers face problems while arranging blog layout. We have developed this element which will help you to create your dreamy blog without any hassle. Select Grid, List, Masonry style and define column. Change typo for your headline, meta, and excerpt too.
 
 
-15. [MA Creative Buttons](https://master-addons.com/demos/creative-button/): There can be several clickable items on your website. Let it be tabs, call to action button or any other button. Creative button add-on gives you various animations on the buttons when the readers hover their mouse over the clickable area. The add-on animates the button creatively. You can choose from our templates and make your website more aesthetically pleasing.
+15. [News Ticker](https://master-addons.com/demos/news-ticker/): Showcase your blog post or news using this ticker. You can sort posts in numerous ways, for example, date of publishing, author, type, id, Last modified, random. We haven't set any predefined style here because it's fully customizable. Customize each part and create something unique yourself or You can import different variations from our content importer.
 
 
-16. [Particles Background](http://master-addons.com/ma-particles-background/): Particles background is an animated background that has particles moving inside it. You can choose different shapes, sizes, and colors of these particles. You can use them as backgrounds of rows and columns to make them interactive. With our MA Particle Background, you can also add the effect of color gradients to add more wow factor.
+16. [Business Hours](https://master-addons.com/demos/business-hours/): Business hour's come's with 5 design preset and custom business table. That means you are free to arrange any type of content within the business hours element. If you have a booking system then just enable button and set your Booking URL.
 
 
-17. [Animated Gradient Background](https://master-addons.com/demos/gradient-background/): You can also create a section or
-row background with Gradient only using our Gradient Background addon. There are unlimited possibilities of customization using our custom color palette.
+17. [Table of Contents](https://master-addons.com/100-best-elementor-addons/): Table of contents works like navigation in a single blog post. It's helpful for the reader to navigate anywhere within your post. Within this element, you are free to place the Table Of content anywhere in your post and able to customize everything from typo to color.
 
 
-18. [Background Slider](https://master-addons.com/demos/background-slider/): This is a very simple background Elementor
-Addon that can generate a beautiful image and video sliders. You can easily customize the height, width, and padding.
-You can also background color overlay to make it look attractive. You can also change the alignment of the image within the slider as per your choice.
+18. [Image Hotspot](https://master-addons.com/demos/image-hotspot/): Image hotspot will allow you to indicate the details info of your image. Check the demo and you will get a clear idea of how it works.
 
 
-19. [Ma Image Hover Effects](https://master-addons.com/demos/image-hover-effects/): Don't you think sometimes it's necessary to put a title and description of your image? I think you have thought about this. The Image Hover effects will solve your issue. There is total 20+ amazing Hover effects available within this element. That doesn't mean you are stuck within our predefine style. There is a rich options panel for customizing your hover effects. You are free to select Typo, Border, Background color, text color from the panel.
+19. [Image Comparison](https://master-addons.com/demos/image-comparison/): If you like to showcase before and after version of any image then image comparison will help you. Customize the label, color, typography on your needs.
 
 
-20. [MA Blog](https://master-addons.com/demos/blog-element/): Blog should be arranged attractively. Blog posts always help you to drive more traffic on your website. Many bloggers face problems while arranging blog layout. We have developed this element which will help you to create your dreamy blog without any hassle. Select Grid, List, Masonry style and define column. Change typo for your headline, meta, and excerpt too.
+20. [Dynamic Table](https://master-addons.com/demos/dynamic-table/): Table is necessary to showcase any type of data inside your page. Creating a table in Elementor with a text editor is complicated for users. We have developed this responsive table element for you. Drag and drop it inside your editor and input the data.
 
 
-21. [MA News Ticker](https://master-addons.com/demos/news-ticker/): Showcase your blog post or news using this ticker. You can sort posts in numerous ways, for example, date of publishing, author, type, id, Last modified, random. We haven't set any predefined style here because it's fully customizable. Customize each part and create something unique yourself or You can import different variations from our content importer.
+21. [Nav Menu](https://master-addons.com/elementor-mega-menu/): Nav menu element will help you to set different types of navigation menu inside your page. Here you will get one-page nav menu, burger menu, and of course multi-page menu. There are different type of off-canvas system, select the best one for your use.
 
 
-22. [MA Business Hours](https://master-addons.com/demos/business-hours/): Business hour's come's with 5 design preset and custom business table. That means you are free to arrange any type of content within the business hours element. If you have a booking system then just enable button and set your Booking URL.
+22. [Restrict Content](https://master-addons.com/demos/restrict-content-for-elementor/): Sometimes you need to lock your webpage content via password, user-based, age, math captcha. Here is the content locker element for you. Use this wisely in your pages and protect your content.
 
 
-23. [MA Table of Contents](https://master-addons.com/100-best-elementor-addons/): Table of contents works like navigation in a single blog post. It's helpful for the reader to navigate anywhere within your post. Within this element, you are free to place the Table Of content anywhere in your post and able to customize everything from typo to color.
+23. [Creative Links](https://master-addons.com/demos/creative-link/): Using button everywhere inside your editor is not a good idea. Sometimes you need to use only link with some unique effect. This element will highlight your text links on hover. Watch the demo and see how it works.
+
+
+24. [Timeline](https://master-addons.com/demos/timeline/): You can arrange your blog post and custom content via timeline. It's attractive and a new way to express your webpage.
+
+
+25. [Image Gallery](https://master-addons.com/demos/image-gallery/): Create a filterable portfolio image gallery with this element. This element has simple image popup, text popup, saved section or page template popup system too.
+
+
+26. [Pricing Table](https://master-addons.com/demos/pricing-table/): If you are running a service-based website then you know the necessity of a great pricing table. With this element, you can create and customize any type of pricing table. If you want a content switcher for the pricing table then use the Tabs element.
+
+
+27. [Current Time](https://master-addons.com/demos/current-time/): You can showcase current time on your website with this element. Just drag this in your editor and select your time variation.
+
+
+28. [Domain Search](https://master-addons.com/demos/domain-search/): Domain search is required for some user who wants to showcase if a domain is available or not to their visitors. There is no extra configuration of this element.
+
+
+29. [Search](https://master-addons.com/demos/search-element/): Allow your visitors to search for something on your webpage. Use this element and customize the search bar as you want.
+
+
+30. [Counter Up](https://master-addons.com/demos/counter-up/): There are different type of variation packed within this element. You can insert icon, title, number in this element. Check the demo and get a clear idea on this.
+
+
+31. [Countdown Timer](https://master-addons.com/demos/countdown-timer/): specially used to create a coming soon page. But you can use this anywhere if you need to showcase countdown.
+
+
+32. [Toggle Content](https://master-addons.com/demos/toggle-content/): Toggle content is a content switcher. You can add as much toggle as you need. Add text content, saved section, saved page template in your toggle.
+
+
+33. [Contact Form 7](https://master-addons.com/demos/contact-form-7/): The perfect kinds of websites are those websites which give the reader the option to contact you personally. Add-on contact form 7 asks the reader to fill up a brief form which may contain their name, email id and the message they want to send you. With our contact form 7 addon, it is easy to set up the form questions that are available in our existing template, you don't need to write any HTML codes. You can change the color of background, field and do many other customizations.
+
+
+34. [Ninja Forms](https://master-addons.com/demos/ninja-form/): If you’re a ninja form user and looking for Elementor Addons that can help you customize it, don’t worry. With our Ninja Form addon you can customize the design and more.
+
+
+35. [WP Forms](https://master-addons.com/demos/wp-forms/): This addon will help you add elements specific to WP Forms. So, if you have designed a form using WP Forms and is trying to display them in a page built using Elementor, you can do that using this widget.
+
+
+36. [Particles Background](http://master-addons.com/ma-particles-background/): Particles background is an animated background that has particles moving inside it. You can choose different shapes, sizes, and colors of these particles. You can use them as backgrounds of rows and columns to make them interactive. With our MA Particle Background, you can also add the effect of color gradients to add more wow factor.
+
+
+37. [Animated Gradient Background](https://master-addons.com/demos/gradient-background/): You can also create a section or row background with Gradient only using our Gradient Background addon. There are unlimited possibilities of customization using our custom color palette.
+
+
+38. [Background Slider](https://master-addons.com/demos/background-slider/): This is a very simple background Elementor Addon that can generate a beautiful image and video sliders. You can easily customize the height, width, and padding. You can also background color overlay to make it look attractive. You can also change the alignment of the image within the slider as per your choice.
+
 
 And many more that are listed at the top list.
 
@@ -321,6 +372,7 @@ Paste on your Local Computer
 * Added: New Addon Element "Toggle Content" added
 * Added: New Extension "Custom JS" added. It's applied on Page "Advanced" Settings. Now, any kind of JavaScripts can be applied on specific page.
 
+
 = 1.4.5.5 (20-07-2020) =
 * Removed: Temporarily removed Custom Breakpoints for layout issue on frontend. Will fix it and enable it again asap.
 
@@ -340,7 +392,7 @@ Paste on your Local Computer
 * Added: Live Demo, Documentation and Video added on every Addon elements bottom for easily accessible help.
 * Added: Live Demo, Documentation and Video popup added on Addons switcher
 * Fixed: MA Blog Element - 1) Thumbnail Condition Checked on Style tab. 2) Content Color not working issue fixed. 3)
-* Updated: MA Tabs - 1) Icon & Tabs typo fixed. Border Radius issue fixed 2) Icon size was missing, now icon size can be control on all styles
+* Updated: MA Tabs - 1) Icon & Tabs typo fixed. Border Radius issue fixed 2) Icon size was missing, now icon size can be controll on all styles
 * Updated: MA Timeline - 1) Horizontal space problem fixed 2) warning showings issue fixed
 * Fixed: Business Hours - warning issue fixed. Image size problem fixed
 * Updated: Dashboard UX changed. Demo, Documentation and Video Tutorials tooltip added with resource links. So, anyone can navigate to specific Addon and check how it works.
