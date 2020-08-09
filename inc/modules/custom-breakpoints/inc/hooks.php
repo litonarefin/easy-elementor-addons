@@ -249,6 +249,7 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
                     mcb_row_length--;
                     if( mcb_row_length < 3){
                         jQuery("#jltma-mcb-message").slideUp();
+                        jQuery("#jlmta-cbp-form .jltma-cbp-add").removeClass('jltma-disabled');
                     }
                 <?php } ?>
             }
@@ -296,17 +297,22 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
                     "</ul>";
 
                 <?php if( !ma_el_fs()->can_use_premium_code()) { ?>
+
                     if( mcb_row_length < limit){
                         mcb_row_length++;
                         jQuery('#master_cbp_table').append(jltma_cbp_new_ul);
                     }
 
-                    // Limit 3 Breakpoints for Free Version
+                    // Limit 2 Breakpoints for Free Version
+                    // jQuery("#jlmta-cbp-form .jltma-cbp-add").removeClass('jltma-disabled');
                     if( mcb_row_length >= 3){
                         jQuery("#jltma-mcb-message").slideDown();
+                        jQuery("#jlmta-cbp-form .jltma-cbp-add").addClass('jltma-disabled');
                     }
+
                 <?php } else{?>
                     jQuery('#master_cbp_table').append(jltma_cbp_new_ul);
+
                 <?php } ?>
 
             }

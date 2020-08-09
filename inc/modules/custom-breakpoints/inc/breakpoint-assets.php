@@ -24,9 +24,13 @@ class JLTMA_Master_Custom_Breakpoint_Assets{
     public function jltma_mcb_admin_styles(){
     	$screen = get_current_screen();
         if($screen->id == 'master-addons_page_master-custom-breakpoints'){
-        	$style = '#wpwrap{ background: #efeff5; }
+        	$style = '#wpwrap{ background: #efeff5;
 					margin-left: auto; margin-right: auto;
-        	';
+        	}
+            .jltma-disabled{
+                  pointer-events: none;
+                  opacity: 0.4;
+            }';
         	echo '<style>' . $style . '</style>';
         }
 
