@@ -902,6 +902,7 @@ class Editor {
 
 		//CUSTOM BREAKPOINTS STYLE
         $breakpoints = Responsive::get_breakpoints();
+        // print_r($breakpoints);
         foreach($breakpoints as $bp_name => $bp_value) {
             $skip = ["xs", "sm", "md", "lg", "xl", "xxl"];
             if(in_array($bp_name, $skip))

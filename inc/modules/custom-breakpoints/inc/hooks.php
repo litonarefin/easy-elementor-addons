@@ -1,7 +1,6 @@
 <?php
 namespace MasterCustomBreakPoint\Inc;
 use MasterCustomBreakPoint\JLTMA_Master_Custom_Breakpoint;
-// use MasterCustomBreakPoint\Lib\JLTMA_Master_Custom_Breakpoint_Responsive;
 use Elementor\Core\Responsive\Responsive;
 
 
@@ -446,9 +445,9 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
         }
 
         if ( version_compare( ELEMENTOR_VERSION, '2.9.0', '>=' ) && version_compare( ELEMENTOR_VERSION, '3.0.0', '<' ) ){
-            $original_file = file_get_contents( JLTMA_MCB_PLUGIN_PATH . '/lib-v2/custom_breakpoints-original.json');
+            $original_file = file_get_contents( JLTMA_MCB_PLUGIN_PATH . '/inc/custom_breakpoints-original.json');
         } elseif( version_compare( ELEMENTOR_VERSION, '3.0.0-beta1', '>' ) || version_compare( ELEMENTOR_VERSION, '3.0.0', '>' ) ) {
-            $original_file = file_get_contents( JLTMA_MCB_PLUGIN_PATH . '/lib-v3/custom_breakpoints-original.json');
+            $original_file = file_get_contents( JLTMA_MCB_PLUGIN_PATH . '/inc/custom_breakpoints-original.json');
         }
 
         $custom_breakpoints = json_decode($original_file, true);

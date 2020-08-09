@@ -253,7 +253,7 @@ class Stylesheet {
 	 * @return string CSS style.
 	 */
 	public function __toString() {
-		
+
         $standard_style             = '';
         $custom_breakpoints_style   = "";
 
@@ -262,7 +262,7 @@ class Stylesheet {
         $breakpoints = Responsive::get_breakpoints();
 
         foreach($rules as $rule_name => $rules_class) {
-			
+
             $breakpoint     = explode('breakpoint', $rule_name);
             $device_style   = self::parse_rules( $rules_class );
 			$breakpoint_nr  = null;
@@ -329,7 +329,7 @@ class Stylesheet {
 
         return $return_style;
     }
-	
+
 	/* OLD
 		public function __toString() {
 		$style_text = '';

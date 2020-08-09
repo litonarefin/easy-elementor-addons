@@ -1,7 +1,7 @@
 /*
 * Master Addons Elementor Styles
  */
-
+ html,body{overflow-x:hidden;}
 
 .jltma-container {
     width: 100%;
