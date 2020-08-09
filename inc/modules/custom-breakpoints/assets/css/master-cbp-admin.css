@@ -7,7 +7,7 @@
 }
 
 .master_cbp_table ul:nth-child(odd) {
-	background: #fcfcff;
+	background: #f9f9f9;
 	border-bottom: 1px solid #ececec;
 }
 

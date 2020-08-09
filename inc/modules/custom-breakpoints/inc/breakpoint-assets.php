@@ -63,6 +63,7 @@ class JLTMA_Master_Custom_Breakpoint_Assets{
 
             // JS
             wp_enqueue_script( 'master-cbp-admin', JLTMA_MCB_PLUGIN_URL . 'assets/js/master-cbp-admin.js', array( 'jquery'), true, JLTMA_MCB_VERSION );
+            wp_enqueue_script('jquery-ui-sortable');
 
             // Localize Scripts
             $jltma_mcb_localize_data = array(

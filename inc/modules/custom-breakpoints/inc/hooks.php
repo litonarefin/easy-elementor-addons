@@ -317,39 +317,11 @@ class JLTMA_Master_Custom_Breakpoint_Hooks{
 
             }
 
-
-
-            jQuery("#elementor_settings_import_form").submit(function(evt){
-
-                evt.preventDefault();
-                var formData = new FormData(jQuery(this)[0]);
-
-                jQuery.ajax({
-                    url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
-                    type: 'POST',
-                    data: formData,
-                    dataType: 'json',
-                    async: true,
-                    cache: false,
-                    contentType: false,
-                    enctype: 'multipart/form-data',
-                    processData: false,
-                    success: function (response) {
-                        if(response == 'ok')  {
-                            jQuery('#elementor_import_success').slideDown();
-                            setTimeout(function() {
-                                window.location.reload();
-                            }, 3000);
-                        }
-                    }
-                });
-                return false;
-            });
-
         </script>
 
         <?php
     }
+
 
 
     public function jltma_mcb_save_settings(){

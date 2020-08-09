@@ -3,6 +3,35 @@
 
 	  $(function () {
 
+	  	// Import Breakpoints Form
+        jQuery("#elementor_settings_import_form").submit(function(evt){
+
+            evt.preventDefault();
+            var formData = new FormData(jQuery(this)[0]);
+
+            jQuery.ajax({
+                url: masteraddons.ajaxurl,
+                type: 'POST',
+                data: formData,
+                dataType: 'json',
+                async: true,
+                cache: false,
+                contentType: false,
+                enctype: 'multipart/form-data',
+                processData: false,
+                success: function (response) {
+                    if(response == 'ok')  {
+                        jQuery('#elementor_import_success').slideDown();
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 3000);
+                    }
+                }
+            });
+            return false;
+        });
+
+
 	  	// Reset Form
         jQuery("#elementor_settings_reset_form").submit(function(evt){
             evt.preventDefault();
@@ -60,8 +89,12 @@
 			    	console.log('failed', error);
 			    }
 			});
-
 		});
+
+
+		// Drag/Drop Sorting
+		var jltma_breakpoints = $('#master_cbp_table');
+		jltma_breakpoints.sortable();			
 
 
 	  });
