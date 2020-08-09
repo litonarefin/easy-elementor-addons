@@ -1,7 +1,6 @@
 <?php
 namespace Elementor;
 use Elementor\Core\Responsive\Responsive;
-// use MasterCustomBreakPoint\Lib\JLTMA_Master_Custom_Breakpoint_Responsive;
 
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -253,7 +252,7 @@ class Stylesheet {
 	 * @return string CSS style.
 	 */
 	public function __toString() {
-		
+
         $standard_style             = '';
         $custom_breakpoints_style   = "";
 
@@ -262,7 +261,7 @@ class Stylesheet {
         $breakpoints = Responsive::get_breakpoints();
 
         foreach($rules as $rule_name => $rules_class) {
-			
+
             $breakpoint     = explode('breakpoint', $rule_name);
             $device_style   = self::parse_rules( $rules_class );
 			$breakpoint_nr  = null;
@@ -276,23 +275,24 @@ class Stylesheet {
 
         /* STANDARD */
         foreach ($this->rules as $query_hash => $rule ) {
-            $device_text = self::parse_rules( $rule );
+			$device_text = self::parse_rules( $rule );
+
+			if ( 'all' !== $query_hash ) {
+				$device_text = $this->get_query_hash_style_format( $query_hash ) . '{' . $device_text . '}';
+			}
             $standard_style .= $device_text;
-
-            /*
-            if ( 'all' !== $query_hash ) {
-                $device_text = $this->get_query_hash_style_format( $query_hash ) . '{' . $device_text . '}';
-            }
-            $raw = implode( "\n", $rule );
-
-            if ( $raw && isset( $this->devices[ $query_hash ] ) ) {
-                $raw = '@media(max-width: ' . $this->devices[ $query_hash ] . 'px){' . $raw . '}';
-
-            }
-            $standard_style .= $raw;
-            */
-
         }
+
+		foreach ( $this->raw as $device_name => $raw ) {
+			$raw = implode( "\n", $raw );
+
+			if ( $raw && isset( $this->devices[ $device_name ] ) ) {
+				$raw = '@media(max-width: ' . $this->devices[ $device_name ] . 'px){' . $raw . '}';
+			}
+
+			$style_text .= $raw;
+		}
+
 
         foreach($breakpoints as $bp_name => $bp_value) {
             $skip = ["xs", "sm", "md", "lg", "xl", "xxl"];
@@ -329,34 +329,6 @@ class Stylesheet {
 
         return $return_style;
     }
-	
-	/* OLD
-		public function __toString() {
-		$style_text = '';
-
-		foreach ( $this->rules as $query_hash => $rule ) {
-			$device_text = self::parse_rules( $rule );
-
-			if ( 'all' !== $query_hash ) {
-				$device_text = $this->get_query_hash_style_format( $query_hash ) . '{' . $device_text . '}';
-			}
-
-			$style_text .= $device_text;
-		}
-
-		foreach ( $this->raw as $device_name => $raw ) {
-			$raw = implode( "\n", $raw );
-
-			if ( $raw && isset( $this->devices[ $device_name ] ) ) {
-				$raw = '@media(max-width: ' . $this->devices[ $device_name ] . 'px){' . $raw . '}';
-			}
-
-			$style_text .= $raw;
-		}
-
-		return $style_text;
-	}
-	*/
 
 	/**
 	 * Get device maximum value.

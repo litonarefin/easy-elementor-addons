@@ -829,7 +829,7 @@ abstract class Controls_Stack extends Base_Object {
 	 */
 	final public function add_responsive_control( $id, array $args, $options = [] ) {
         $args['responsive'] = [];
-        
+
 		$devices            = [];
         $devices[]          = self::RESPONSIVE_DESKTOP;
         $devices[]          = self::RESPONSIVE_TABLET;
