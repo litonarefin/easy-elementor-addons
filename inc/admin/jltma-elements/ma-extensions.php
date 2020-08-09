@@ -45,7 +45,7 @@ $jltma_elements = [
                 'title'         => esc_html__( 'Custom JS', MELA_TD),
                 'demo_url'      => 'https://master-addons.com/docs/addons/custom-js-extension/',
                 'docs_url'      => 'https://master-addons.com/docs/addons/custom-js-extension/',
-                'tuts_url'      => 'https://www.youtube.com/watch?v=ajXVVGJZuuM'
+                'tuts_url'      => 'https://www.youtube.com/watch?v=8G4JLw0s8sI'
             ],
             [
                 'key'           => 'positioning',

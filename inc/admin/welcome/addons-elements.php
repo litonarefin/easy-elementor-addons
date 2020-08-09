@@ -72,6 +72,7 @@
 								$is_pro = $widget[1];
 							}
 					} ?>
+
                     <div class="master_addons_feature_switchbox">
 						<label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text switch-primary switch-pill <?php if( !ma_el_fs()->can_use_premium_code() && isset($is_pro) && $is_pro !="") { echo "ma-el-pro";} ?>">
 
@@ -86,15 +87,15 @@
 
 						<?php } else { ?>
 
-                        <input type="checkbox" id="<?php echo esc_attr( $widget ); ?>" class="switch-input " name="<?php echo esc_attr( $widget ); ?>"
-						<?php
-							if( !ma_el_fs()->can_use_premium_code() && $is_pro =="pro") {
-								checked( 1, $this->maad_el_get_settings[$widget], false );
-							}else{
-								checked( 1, $this->maad_el_get_settings[$widget] );
-							}  ?> />
+	                        <input type="checkbox" id="<?php echo esc_attr( $widget ); ?>" class="switch-input " name="<?php echo esc_attr( $widget ); ?>"
+							<?php
+								if( !ma_el_fs()->can_use_premium_code() && $is_pro =="pro") {
+									checked( 1, $this->maad_el_get_settings[$widget], false );
+								}else{
+									checked( 1, $this->maad_el_get_settings[$widget] );
+								}  ?> />
 
-							<?php  }?>
+							<?php } ?>
 
                            <span data-on="On" data-off="Off" class="switch-label"></span>
                            <span class="switch-handle"></span>

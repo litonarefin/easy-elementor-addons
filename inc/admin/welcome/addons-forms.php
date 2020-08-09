@@ -38,9 +38,7 @@ include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-forms.php';
 
 			<div class="master-addons-el-title">
 				<div class="master-addons-el-title-content">
-					<?php
-					echo $jltma_elements['jltma-forms']['elements'][$key]['title'];
-					?>
+					<?php echo $jltma_elements['jltma-forms']['elements'][$key]['title']; ?>
 				</div> <!-- master-addons-el-title-content -->
 
 
@@ -76,13 +74,7 @@ include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-forms.php';
 							name="<?php echo esc_attr( $widget ); ?>"
 							<?php checked( 1, $this->maad_el_get_settings[$widget], true ); ?>>
 
-							<?php } else {
-
-							if ( isset( $widget ) ) {
-								if ( is_array( $widget ) ) {
-									$is_pro = $widget[1];
-								}
-							} ?>
+							<?php } else { ?>
 
 							<input
 							type="checkbox" id="<?php echo esc_attr( $widget ); ?>"
@@ -96,7 +88,7 @@ include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-forms.php';
 							}else{
 								checked( 1, $this->maad_el_get_settings[$widget], true );
 							}  ?>/>
-						<?php  }?>
+						<?php } ?>
 
 						<span data-on="On" data-off="Off" class="switch-label"></span>
 						<span class="switch-handle"></span>

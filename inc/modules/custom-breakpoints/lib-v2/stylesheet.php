@@ -290,7 +290,7 @@ class Stylesheet {
 				$raw = '@media(max-width: ' . $this->devices[ $device_name ] . 'px){' . $raw . '}';
 			}
 
-			$style_text .= $raw;
+			$standard_style .= $raw;
 		}
 
 
