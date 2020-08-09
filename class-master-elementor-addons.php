@@ -832,15 +832,18 @@
 				// Master Addons Elements Settings
 				$maad_el_default_settings = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ), true );
 
-				if(!get_option('maad_el_save_settings')){
-					add_option( 'maad_el_save_settings', $maad_el_default_settings );
-				}elseif ( ! empty( $maad_el_new_settings ) ) {
-					$maad_el_get_settings 				= get_option( 'maad_el_save_settings', $maad_el_default_settings );
-					$maad_el_new_settings 				= array_diff_key( $maad_el_default_settings, $maad_el_get_settings );
-					$maad_el_updated_addons_settings 	= array_merge( $maad_el_get_settings, $maad_el_new_settings );
-					update_option( 'maad_el_save_settings', $maad_el_updated_addons_settings );
+				$maad_el_save_settings = 'maad_el_save_settings' ;
+				$maad_el_get_settings = get_option( $maad_el_save_settings, $maad_el_default_settings );
+				$maad_el_new_settings = array_diff_key( $maad_el_default_settings, $maad_el_get_settings );
+				$maad_el_updated_addons_settings = array_merge( $maad_el_get_settings, $maad_el_new_settings );
+				
+				if ( get_option( $maad_el_save_settings ) !== false ) {
+					update_option( $maad_el_save_settings, $maad_el_updated_addons_settings );
+				} else {
+					$deprecated = null;
+					$autoload = 'no';
+					add_option( $maad_el_save_settings, $maad_el_default_settings, $deprecated, $autoload );
 				}
-
 
 				// Master Addons Extensions Settings
 				$ma_el_default_extensions_settings = array_fill_keys( ma_el_array_flatten(self::$ma_el_extensions ), true);
