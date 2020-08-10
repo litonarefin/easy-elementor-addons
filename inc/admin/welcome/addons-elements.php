@@ -76,24 +76,28 @@
                     <div class="master_addons_feature_switchbox">
 						<label for="<?php echo esc_attr( $widget ); ?>" class="switch switch-text switch-primary switch-pill <?php if( !ma_el_fs()->can_use_premium_code() && isset($is_pro) && $is_pro !="") { echo "ma-el-pro";} ?>">
 
+							<?php if ( ma_el_fs()->can_use_premium_code() ) { ?>
 
-						<?php if ( ma_el_fs()->can_use_premium_code() ) { ?>
+								<input type="checkbox"
+								id="<?php echo esc_attr( $widget ); ?>"
+								class="switch-input"
+								name="<?php echo esc_attr( $widget ); ?>"
+								<?php checked( 1, $this->maad_el_get_settings[$widget], true ); ?>>
 
-							<input type="checkbox"
-							id="<?php echo esc_attr( $widget ); ?>"
-							class="switch-input"
-							name="<?php echo esc_attr( $widget ); ?>"
-							<?php checked( 1, $this->maad_el_get_settings[$widget], true ); ?>>
+								<?php } else { ?>
 
-						<?php } else { ?>
+								<input
+								type="checkbox" id="<?php echo esc_attr( $widget ); ?>"
+								class="switch-input "
+								name="<?php echo esc_attr( $widget ); ?>"
 
-	                        <input type="checkbox" id="<?php echo esc_attr( $widget ); ?>" class="switch-input " name="<?php echo esc_attr( $widget ); ?>"
-							<?php
+								<?php
 								if( !ma_el_fs()->can_use_premium_code() && $is_pro =="pro") {
-									checked( 1, $this->maad_el_get_settings[$widget], false );
+									checked( 0,$this->maad_el_get_settings[$widget], false );
+									echo "disabled";
 								}else{
-									checked( 1, $this->maad_el_get_settings[$widget] );
-								}  ?> />
+									checked( 1, $this->maad_el_get_settings[$widget], true );
+								}  ?>/>
 
 							<?php } ?>
 

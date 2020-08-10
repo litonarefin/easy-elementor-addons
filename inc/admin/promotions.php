@@ -231,11 +231,11 @@ if( !class_exists('Master_Addons_Promotions') ) {
                 __( '%1$s got HUGE Updates!!! %2$s %3$s %4$s %5$s Check Blog Post for <a href="%6$s" target="__blank">%7$s</a>', MELA_TD ),
 
                 '<strong>' . esc_html__( 'Master Addons for Elementor', MELA_TD ) . '</strong>',
-                '<br>' . esc_html__( '✅ Custom Breakpoints Fixed', MELA_TD ) . '<br>',
+                '<br>' . esc_html__( '✅ Custom Breakpoints Fixed and Live Now !!', MELA_TD ) . '<br>',
                 esc_html__( '✅ Toggle Content Switcher Added', MELA_TD ) . '<br>',
                 esc_html__( '✅ Custom JS Extension Added', MELA_TD ) . '<br>',
-                esc_html__( '✅ Live Demo, Documentation, Video help links on On/Off tooltips', MELA_TD ) . '<br>',
-                esc_url_raw('https://master-addons.com/master-addons-v1-4-5/'),
+                esc_html__( '✅ Few other fixes, check Changelogs', MELA_TD ) . '<br>',
+                esc_url_raw('https://master-addons.com/master-addons-v1-4-6/'),
                 esc_html__( 'More Details', MELA_TD )
             );
 

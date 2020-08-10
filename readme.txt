@@ -362,7 +362,10 @@ Paste on your Local Computer
 
 
 == Changelog ==
-= 1.4.6 (05-08-2020) =
+= 1.4.6.1 (10-08-2020) =
+* Removed: Due to error, we've removed "Custom Breakpoints". We'll release it Addon/separate plugin.
+
+= 1.4.6 (10-08-2020) =
 * Updated: Admin UI changed to modern look and placed necessary links in front.
 * Updated: Elementor Custom Breakpoints enabled with fixes - not editing live editor and not saving changes issue fixed.
 * Fixed: Appearance>Themes UI changed issue fixed

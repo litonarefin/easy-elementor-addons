@@ -95,14 +95,7 @@ $jltma_elements = [
                 'demo_url'      => 'https://master-addons.com/demos/reveal/',
                 'docs_url'      => 'https://master-addons.com/docs/addons/reveal-extension/',
                 'tuts_url'      => 'https://www.youtube.com/watch?v=xEG1fi_lY1M'
-            ],
-            [
-                'key'           => 'custom-breakpoints',
-                'title'         => esc_html__( 'Custom Breakpoints', MELA_TD),
-                'demo_url'      => 'https://master-addons.com/demos/custom-breakpoints/',
-                'docs_url'      => 'https://master-addons.com/docs/addons/custom-breakpoints/',
-                'tuts_url'      => 'https://www.youtube.com/watch?v=JGdmeUrzaxA&t=47s'
-            ],
+            ]
 
 
     	]

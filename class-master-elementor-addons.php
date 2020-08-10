@@ -9,7 +9,7 @@
 			static public $class_namespace = '\\MasterAddons\\Inc\\Classes\\';
 			public $controls_manager;
 
-			const VERSION = "1.4.5.5";
+			const VERSION = "1.4.6.1";
 
 			const MINIMUM_PHP_VERSION = '5.4';
 
@@ -115,8 +115,7 @@
 					['transition', 'pro'],
 					['transforms','pro'],
 					['rellax','pro'],
-					['reveal','pro'],
-					'custom-breakpoints'
+					['reveal','pro']
 //					'pseudo-elements', //need to fix before and after
 				];
 
@@ -131,9 +130,6 @@
 				$this->constants();
 				$this->maad_el_include_files();
 				$this->jltma_load_extensions();
-				// $this->jltma_load_default_settings();
-
-
 
 				self::$plugin_slug = 'master-addons';
 				self::$plugin_path = untrailingslashit( plugin_dir_path( '/', __FILE__ ) );
@@ -141,7 +137,7 @@
 
 				// Initialize Plugin
 				add_action('plugins_loaded', [$this, 'ma_el_plugins_loaded']);
-				add_action('init', [$this, 'jltma_load_default_settings']);
+				// add_action('init', [$this, 'jltma_load_default_settings']);
 
 				add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'plugin_actions_links' ] );
 
@@ -312,7 +308,7 @@
 					update_option( 'maad_el_save_settings', $maad_el_updated_settings );
 				}
 
-				return $maad_el_get_settings = get_option( 'maad_el_save_settings', $maad_el_default_settings );
+				return $maad_el_get_settings;
 
 			}
 
@@ -414,7 +410,7 @@
 
 				$activated_widgets = $this->activated_widgets();
 
-				foreach ( ma_el_array_flatten( self::$maad_el_default_widgets ) as $widget ) {
+				foreach ( self::$maad_el_default_widgets as $widget ) {
 					$is_pro = "";
 					if ( isset( $widget ) ) {
 						if ( is_array( $widget ) ) {
@@ -831,14 +827,14 @@
 
 				// Master Addons Elements Settings
 				$maad_el_default_settings = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ), true );
+				$maad_el_save_settings = 'maad_el_save_settings' ;
 
-				if(!get_option('maad_el_save_settings')){
-					add_option( 'maad_el_save_settings', $maad_el_default_settings );
-				}elseif ( ! empty( $maad_el_new_settings ) ) {
-					$maad_el_get_settings = get_option( 'maad_el_save_settings', $maad_el_default_settings );
-					$maad_el_new_settings = array_diff_key( $maad_el_default_settings, $maad_el_get_settings );
-					$maad_el_updated_addons_settings = array_merge( $maad_el_get_settings, $maad_el_new_settings );
-					update_option( 'maad_el_save_settings', $maad_el_updated_addons_settings );
+				if ( get_option( $maad_el_save_settings ) !== false ) {
+					update_option( $maad_el_save_settings, $maad_el_default_settings );
+				} else {
+					$deprecated = null;
+					$autoload = 'no';
+					add_option( $maad_el_save_settings, $maad_el_default_settings, $deprecated, $autoload );
 				}
 
 
