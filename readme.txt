@@ -362,6 +362,12 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.4.6.2 (10-08-2020) =
+* Updated: Multiple Toggle Content on same page not working issue fixed
+* Updated: Reading Progress bar warning issue fixed
+* Updated: Activation/Deactivation hook fixed, if not saved data then warning showing on Admin Settings problem fixed.
+* Fixed: Plugin Deactivation popup style issue fixed
+
 = 1.4.6.1 (10-08-2020) =
 * Removed: Due to error, we've removed "Custom Breakpoints". We'll release it Addon/separate plugin.
 

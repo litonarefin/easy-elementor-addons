@@ -33,7 +33,7 @@
                 (u = r.eq(h)), this.opts.watchControls && this.adjust(), this.goTo(h), g.addClass("jltma--is-ready"), a.trigger("jltma/toggle-content/ready");
             }),
             (s.events = function () {
-                r.on("click", this.onClick), g._resize(this.adjust);
+                r.on("click", this.onClick);
             }),
             (s.onClick = function (t) {
                 var o = e(t.target).closest(".jltma-toggle-content-controls__item"),

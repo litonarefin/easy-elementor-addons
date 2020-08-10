@@ -226,8 +226,9 @@
 					$jltma_r_p_b_custom_css = ".ma-el-page-scroll-indicator{ background: {$jltma_r_p_b_bg_color};}
 						.ma-el-scroll-indicator{ background: {$jltma_r_p_b_fill_color};}
 						.ma-el-page-scroll-indicator, .ma-el-scroll-indicator{ height: {$jltma_r_p_b_height['size']}px;}";
+						echo '<style>' . $jltma_r_p_b_custom_css . '</style>';
 				}
-				echo '<style>' . $jltma_r_p_b_custom_css . '</style>';
+				
 			}
 
 		}

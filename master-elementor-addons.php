@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Master Addons for Elementor
+ * Plugin Name: AAA Master Addons for Elementor
  * Description: Master Addons is easy and must have Elementor Addons for WordPress Page Builder. Clean, Modern, Hand crafted designed Addons blocks.
  * Plugin URI: https://master-addons.com
  * Author: Jewel Theme
@@ -77,11 +77,10 @@ if ( !class_exists( '\\MasterAddons\\Master_Elementor_Addons' ) ) {
 if ( ma_el_fs()->is_not_paying() ) {
     require_once dirname( __FILE__ ) . '/inc/freemius-config.php';
 }
-/* Activation And De-Activation Hook */
-register_activation_hook( __FILE__, 'ma_el_redirect' );
-// Plugin Redirect Option Added by register_activation_hook
-if ( !function_exists( 'ma_el_redirect' ) ) {
-    function ma_el_redirect(){
-        add_option( 'ma_el_update_redirect', true );
-    }
+
+// Activation and Deactivation hooks
+if(class_exists('\\MasterAddons\\Master_Elementor_Addons')){
+    register_activation_hook( __FILE__ , array('\\MasterAddons\\Master_Elementor_Addons', 'jltma_plugin_activation_hook'));
+    register_deactivation_hook(__FILE__, array('\\MasterAddons\\Master_Elementor_Addons', 'jltma_plugin_deactivation_hook'));
 }
+

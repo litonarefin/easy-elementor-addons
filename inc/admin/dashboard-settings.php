@@ -24,10 +24,7 @@ class Master_Addons_Admin_Settings{
 	private $maad_el_extension_settings;
 	private $maad_el_get_extension_settings;
 
-
 	public function __construct() {
-
-		$this->init();
 
 		add_action( 'admin_menu', [ $this, 'master_addons_admin_menu' ],  '', 10);
 		add_action( 'admin_enqueue_scripts', [ $this, 'master_addons_el_admin_scripts' ], 99 );
@@ -44,13 +41,6 @@ class Master_Addons_Admin_Settings{
 
 		$this->ma_el_include_files();
 	}
-
-	public function init(){
-        if(!get_option('jltma_activation_time')){
-			add_option('jltma_activation_time', strtotime("now") );
-		}
-	}
-
 
 	public function ma_el_include_files(){
 		include_once MELA_PLUGIN_PATH . '/inc/admin/promotions.php';

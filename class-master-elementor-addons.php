@@ -137,7 +137,6 @@
 
 				// Initialize Plugin
 				add_action('plugins_loaded', [$this, 'ma_el_plugins_loaded']);
-				// add_action('init', [$this, 'jltma_load_default_settings']);
 
 				add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'plugin_actions_links' ] );
 
@@ -183,6 +182,23 @@
 				return \Elementor\Plugin::$instance;
 			}
 
+			// Deactivation Hook
+			public static function jltma_plugin_deactivation_hook(){
+				delete_option('jltma_activation_time');
+				delete_option('maad_el_save_settings');
+				delete_option('ma_el_extensions_save_settings');
+			}
+
+			// Activation Hook
+		    public static function jltma_plugin_activation_hook(){
+
+		        if (get_option('jltma_activation_time') === false)
+		        	update_option('jltma_activation_time', strtotime("now") );
+
+				self::activated_widgets();
+				self::activated_extensions();
+		    }
+
 			// Initialize
 			public function ma_el_plugins_loaded(){
 
@@ -204,6 +220,8 @@
 					return;
 				}
 
+				self::jltma_plugin_activation_hook();
+				
 			}
 
 
@@ -302,11 +320,11 @@
 				$maad_el_default_settings = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ),true );
 				$maad_el_get_settings     = get_option( 'maad_el_save_settings', $maad_el_default_settings );
 				$maad_el_new_settings     = array_diff_key( $maad_el_default_settings, $maad_el_get_settings );
+				$maad_el_updated_settings = array_merge( $maad_el_get_settings, $maad_el_new_settings );
 
-				if ( ! empty( $maad_el_new_settings ) ) {
-					$maad_el_updated_settings = array_merge( $maad_el_get_settings, $maad_el_new_settings );
-					update_option( 'maad_el_save_settings', $maad_el_updated_settings );
-				}
+				if ($maad_el_get_settings === false)
+					$maad_el_get_settings = array();
+				update_option('maad_el_save_settings', $maad_el_updated_settings);
 
 				return $maad_el_get_settings;
 
@@ -321,14 +339,14 @@
 
 				$maad_el_get_extension_settings     = get_option( 'ma_el_extensions_save_settings', $ma_el_default_extensions_settings );
 				$maad_el_new_extension_settings     = array_diff_key( $ma_el_default_extensions_settings, $maad_el_get_extension_settings );
-
-				if ( ! empty( $maad_el_new_extension_settings ) ) {
-					$maad_el_updated_extension_settings = array_merge( $maad_el_get_extension_settings,
+				$maad_el_updated_extension_settings = array_merge( $maad_el_get_extension_settings,
 						$maad_el_new_extension_settings );
-					update_option( 'ma_el_extensions_save_settings', $maad_el_updated_extension_settings );
-				}
 
-				return $maad_el_get_extension_settings = get_option( 'ma_el_extensions_save_settings',$ma_el_default_extensions_settings );
+				if ($maad_el_get_extension_settings === false)
+					$maad_el_get_extension_settings = array();
+				update_option('ma_el_extensions_save_settings', $maad_el_updated_extension_settings);
+
+				return $maad_el_get_extension_settings;
 
 			}
 
@@ -408,7 +426,7 @@
 
 			public function jltma_init_widgets() {
 
-				$activated_widgets = $this->activated_widgets();
+				$activated_widgets = self::activated_widgets();
 
 				foreach ( self::$maad_el_default_widgets as $widget ) {
 					$is_pro = "";
@@ -487,8 +505,8 @@
 			 */
 			public function maad_el_enqueue_scripts() {
 
-				$is_activated_widget = $this->activated_widgets();
-				$is_activated_extensions = $this->activated_extensions();
+				$is_activated_widget = self::activated_widgets();
+				$is_activated_extensions = self::activated_extensions();
 
 				wp_enqueue_style( 'bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css' );
 
@@ -819,36 +837,6 @@
 				require_once MELA_PLUGIN_PATH . '/inc/templates/templates.php';
 
 				require_once MELA_PLUGIN_PATH . '/inc/classes/JLTMA_Extension_Prototype.php';
-			}
-
-
-			// Load default settings
-			public function jltma_load_default_settings(){
-
-				// Master Addons Elements Settings
-				$maad_el_default_settings = array_fill_keys( ma_el_array_flatten( self::$maad_el_default_widgets ), true );
-				$maad_el_save_settings = 'maad_el_save_settings' ;
-
-				if ( get_option( $maad_el_save_settings ) !== false ) {
-					update_option( $maad_el_save_settings, $maad_el_default_settings );
-				} else {
-					$deprecated = null;
-					$autoload = 'no';
-					add_option( $maad_el_save_settings, $maad_el_default_settings, $deprecated, $autoload );
-				}
-
-
-				// Master Addons Extensions Settings
-				$ma_el_default_extensions_settings = array_fill_keys( ma_el_array_flatten(self::$ma_el_extensions ), true);
-
-				if(!get_option('ma_el_extensions_save_settings')){
-					add_option( 'ma_el_extensions_save_settings', $ma_el_default_extensions_settings );
-				}elseif ( ! empty( $maad_el_new_extensions_settings ) ) {
-					$maad_el_get_extension_settings = get_option( 'ma_el_extensions_save_settings', $ma_el_default_extensions_settings );
-					$maad_el_new_extensions_settings = array_diff_key( $ma_el_default_extensions_settings,$maad_el_get_extension_settings );
-					$maad_el_updated_extension_settings = array_merge( $maad_el_get_extension_settings,$maad_el_new_extensions_settings );
-					update_option( 'ma_el_extensions_save_settings', $maad_el_updated_extension_settings );
-				}
 			}
 
 

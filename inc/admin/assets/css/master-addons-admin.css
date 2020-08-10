@@ -213,7 +213,7 @@
     padding:0;
 }
 .master_addons .wp-tab-bar.master_addons_navbar {
-    margin: 30px 0 0;
+    margin: 15px 0 0;
 }
 .master_addons .master_addons_navbar.wp-tab-bar li {
     background-color: transparent;
@@ -1236,19 +1236,4 @@
 }
 .ui-accordion-header-active:before {
     content: "\f347";
-}
-
-/* Freemius Styles */
-
-div.fs-notice.updated,
-div.fs-notice.success,
-div.fs-notice.promotion,
-.fs-notice-body {
-    display: block !important;
-}
-.fs-modal .fs-modal-header{
-    background: #4a33f1 !important;
-}
-.fs-modal .fs-modal-header h4{
-    color: #fff !important;
 }
