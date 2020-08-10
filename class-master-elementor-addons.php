@@ -661,12 +661,6 @@
 					wp_enqueue_script( 'ma-counter-up' );
 				}
 
-				// Countdown Timer
-				// if ( $is_activated_widget['ma-countdown-timer'] ) {
-				// 	wp_enqueue_script('master-addons-countdown');
-				// }
-
-
 				//MA Blog
 				if ( $is_activated_widget['ma-blog'] ) {
 					wp_enqueue_script( 'isotope' );
