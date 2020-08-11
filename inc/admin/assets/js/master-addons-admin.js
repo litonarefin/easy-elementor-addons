@@ -205,9 +205,7 @@
 
                         saveHeaderAction.removeClass( 'master-addons-el-save-now' );
                     },
-                    error: function() {
-
-                    }
+                    error: function() {}
                 } );
 
                 // Master Addons Extensions
@@ -244,10 +242,47 @@
                         }, 1200);
 
                     },
-                    error: function() {
-
-                    }
+                    error: function() {}
                 } );
+
+
+                // Master Addons API Extensions
+                $.ajax( {
+                    url: js_maad_el_settings.ajaxurl,
+                    type: 'post',
+                    data: {
+                        action: 'master_addons_save_extensions_settings',
+                        security: js_maad_el_settings.ajax_api_nonce,
+                        fields: $( '#master-addons-el-extensions-settings' ).serialize(),
+                    },
+                    success: function( response ) {
+
+                        swal({
+                            title: "Saved",
+                            text: "Your Changes has been Saved",
+                            type: "success",
+                            showLoaderOnConfirm: true,
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonClass: 'btn-success',
+                            confirmButtonText: 'Okay'
+                        });
+
+                        $this.html('Save Settings');
+                        $('.master-addons-el-dashboard-header-right').prepend('<span' +
+                            ' class="master-addons-el-settings-saved"></span>').fadeIn('slow');
+
+                        saveHeaderAction.removeClass( 'master-addons-el-save-now' );
+
+                        setTimeout(function(){
+                            $('.master-addons-el-settings-saved').fadeOut('slow');
+                            swal.close();
+                        }, 1200);
+
+                    },
+                    error: function() {}
+                } );
+                
 
 
             } else {

@@ -34,10 +34,12 @@ class Master_Addons_Admin_Settings{
 		add_action( 'wp_ajax_nopriv_master_addons_save_elements_settings', [ $this, 'master_addons_save_elements_settings' ] );
 
 		// Master Addons Extensions
-		add_action( 'wp_ajax_master_addons_save_extensions_settings', [ $this, 'master_addons_save_extensions_settings'
-		] );
-		add_action( 'wp_ajax_nopriv_master_addons_save_extensions_settings', [ $this, 'master_addons_save_extensions_settings'
-		] );
+		add_action( 'wp_ajax_master_addons_save_extensions_settings', [ $this, 'master_addons_save_extensions_settings']);
+		add_action( 'wp_ajax_nopriv_master_addons_save_extensions_settings', [ $this, 'master_addons_save_extensions_settings']);
+
+		// Master Addons API Settings
+		add_action( 'wp_ajax_jltma_save_api_settings', [ $this, 'jltma_save_api_settings']);
+		add_action( 'wp_ajax_nopriv_jltma_save_api_settings', [ $this, 'jltma_save_api_settings']);
 
 		$this->ma_el_include_files();
 	}
@@ -88,7 +90,8 @@ class Master_Addons_Admin_Settings{
 			$jltma_localize_admin_script = array(
 				'ajaxurl' 				=> admin_url( 'admin-ajax.php' ),
 				'ajax_nonce' 			=> wp_create_nonce( 'maad_el_settings_nonce_action' ),
-				'ajax_extensions_nonce' => wp_create_nonce( 'ma_el_extensions_settings_nonce_action' )
+				'ajax_extensions_nonce' => wp_create_nonce( 'ma_el_extensions_settings_nonce_action' ),
+				'ajax_api_nonce' 		=> wp_create_nonce( 'jltma_api_settings_nonce_action' )
 			);
 			wp_localize_script( 'master-addons-el-admin', 'js_maad_el_settings', $jltma_localize_admin_script );
 
@@ -174,12 +177,39 @@ class Master_Addons_Admin_Settings{
 
 		update_option( 'maad_el_save_settings', $this->maad_el_settings );
 
+		return true;
+		die();
+	}
+
+
+	public function jltma_save_api_settings() {
+
+		check_ajax_referer( 'jltma_api_settings_nonce_action', 'security' );
+
+		if( isset( $_POST['fields'] ) ) {
+			parse_str( $_POST['fields'], $settings );
+		} else {
+			return;
+		}
+
+		$this->maad_el_settings = [];
+
+		foreach( ma_el_array_flatten( Master_Elementor_Addons::$maad_el_default_widgets ) as $value ){
+
+			if( isset( $settings[ $value ] ) ) {
+				$this->maad_el_settings[ $value ] = 1;
+			} else {
+				$this->maad_el_settings[ $value ] = 0;
+			}
+		}
+
+		update_option( 'maad_el_save_settings', $this->maad_el_settings );
+
 		// Google Map API key
 //		update_option( 'maad_el_google_map_api_option', $settings['google_map_api_key'] );
 
 		return true;
 		die();
-
 	}
 
 

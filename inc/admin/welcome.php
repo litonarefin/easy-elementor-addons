@@ -30,7 +30,7 @@
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/supports.php';
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/addons.php';
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/extensions.php';
-				// require MELA_PLUGIN_PATH . '/inc/admin/welcome/api-keys.php';
+				require MELA_PLUGIN_PATH . '/inc/admin/welcome/api-keys.php';
 			    require MELA_PLUGIN_PATH . '/inc/admin/welcome/changelogs.php';
 			?>
 		</div>

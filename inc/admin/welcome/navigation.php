@@ -3,6 +3,12 @@
 <ul class="wp-tab-bar master_addons_navbar">
 
 	<li class="wp-tab-active">
+		<a href="#ma_api_keys">
+			<?php _e( 'API', MELA_TD ); ?>
+		</a>
+	</li> 
+
+	<li >
 		<a href="#welcome">
 			<?php _e( 'Welcome', MELA_TD ); ?>
 		</a>
@@ -27,12 +33,7 @@
 			</a>
 		</li> -->
 	<?php //} ?>
-<!--
-	<li>
-		<a href="#ma_api_keys">
-			<?php //_e( 'API', MELA_TD ); ?>
-		</a>
-	</li> -->
+
 	<li>
 		<a href="#changelogs">
 			<?php _e( 'Changelogs', MELA_TD ); ?>
