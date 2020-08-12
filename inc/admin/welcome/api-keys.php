@@ -1,4 +1,4 @@
-<div class="wp-tab-panel" id="ma_api_keys">
+<div class="wp-tab-panel" id="ma_api_keys" style="display: none;">
 
 	<div class="master-addons-el-dashboard-header-wrapper">
 		<div class="master-addons-el-dashboard-header-right">

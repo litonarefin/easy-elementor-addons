@@ -1,4 +1,4 @@
-<div class="wp-tab-panel" id="welcome" style="display: none;">
+<div class="wp-tab-panel" id="welcome">
     <div class="master_addons_features">
         <div class="master_addons_feature">
 

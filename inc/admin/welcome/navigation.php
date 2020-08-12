@@ -3,12 +3,6 @@
 <ul class="wp-tab-bar master_addons_navbar">
 
 	<li class="wp-tab-active">
-		<a href="#ma_api_keys">
-			<?php _e( 'API', MELA_TD ); ?>
-		</a>
-	</li> 
-
-	<li >
 		<a href="#welcome">
 			<?php _e( 'Welcome', MELA_TD ); ?>
 		</a>
@@ -26,6 +20,12 @@
 		</a>
 	</li>
 
+	<li>
+		<a href="#ma_api_keys">
+			<?php _e( 'API', MELA_TD ); ?>
+		</a>
+	</li> 
+	
 	<?php //if ( ma_el_fs()->is_plan('developer') ) { ?>
 		<!-- <li>
 			<a href="#white-labeling">
