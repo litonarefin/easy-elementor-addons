@@ -133,7 +133,7 @@
 				[
 					'label' => esc_html__( 'Alignment', MELA_TD ),
 					'type' => Controls_Manager::CHOOSE,
-					'label_block' => true,
+					'label_block' => false,
 					'options' => [
 						'left' => [
 							'title' => esc_html__( 'Left', MELA_TD ),

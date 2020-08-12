@@ -154,6 +154,34 @@
 					'default'      => '1'
 				)
 			);
+
+
+			$this->add_responsive_control(
+				'ma_el_countdown_alignment',
+				[
+					'label' => esc_html__( 'Alignment', MELA_TD ),
+					'type' => Controls_Manager::CHOOSE,
+					'label_block' => false,
+					'options' => [
+						'flex-start' => [
+							'title' => esc_html__( 'Left', MELA_TD ),
+							'icon' => 'fa fa-align-left',
+						],
+						'center' => [
+							'title' => esc_html__( 'Center', MELA_TD ),
+							'icon' => 'fa fa-align-center',
+						],
+						'flex-end' => [
+							'title' => esc_html__( 'Right', MELA_TD ),
+							'icon' => 'fa fa-align-right',
+						],
+					],
+					'default' => 'center',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-widget-countdown .ma-el-countdown-wrapper.ma-el-countdown-block' => 'justify-content: {{VALUE}};',
+					],
+				]
+			);
 			$this->end_controls_section();
 
 

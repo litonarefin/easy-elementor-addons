@@ -2,7 +2,7 @@
 Contributors: jwthemeltd, litonice13
 Tags: elementor, elementor addon, elementor widget, custom css elements, essential widget, after before image comparison, image hover effects, header & footer builder, template import, elementor addons, elementor extensions,  elementor modules, elementor templates, comment form builder, mega menu, header footer builder, elements, page builder addons, addons
 Requires at least: 4.0
-Tested up to: 5.4.2
+Tested up to: 5.5
 Requires PHP: 5.3
 Stable tag: trunk
 License: GPLv2
@@ -367,6 +367,7 @@ Paste on your Local Computer
 * Updated: Reading Progress bar warning issue fixed
 * Updated: Activation/Deactivation hook fixed, if not saved data then warning showing on Admin Settings problem fixed.
 * Fixed: Plugin Deactivation popup style issue fixed
+* Fixed: Toggle Content alignment css issue fixed
 
 = 1.4.6.1 (10-08-2020) =
 * Removed: Due to error, we've removed "Custom Breakpoints". We'll release it Addon/separate plugin.

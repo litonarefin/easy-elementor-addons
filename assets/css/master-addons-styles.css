@@ -10462,6 +10462,10 @@ blockquote.jltma-blockquote cite{
 
 
 /* Start of Content Toggle */
+ul.jltma-toggle-content-controls {
+    margin-top: 0;
+    padding-left: 0;
+}
 .jltma-toggle-content-controls {
     list-style: none;
     margin: 0;
