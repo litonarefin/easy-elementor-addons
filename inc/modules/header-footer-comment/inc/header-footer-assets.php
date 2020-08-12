@@ -40,14 +40,14 @@ class JLTMA_Header_Footer_Assets{
         if($screen->id == 'edit-master_template'){
 
             // CSS
-            wp_enqueue_style( 'bootstrap', JLTMA_PLUGIN_URL . 'assets/css/bootstrap.min.css');
+            wp_enqueue_style( 'bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css');
             wp_enqueue_style( 'jtlma-popup', JLTMA_PLUGIN_URL . 'assets/css/header-footer.css');
             wp_enqueue_style( 'select2', JLTMA_PLUGIN_URL . 'assets/css/select2.min.css');
 
             // JS
-            wp_enqueue_script( 'bootstrap', JLTMA_PLUGIN_URL . 'assets/js/bootstrap.min.js', array( 'jquery' ), JLTMA_VERSION, true );
+            wp_enqueue_script( 'bootstrap', MELA_PLUGIN_URL . '/assets/js/bootstrap.min.js', array( 'jquery' ), JLTMA_VERSION, true );
             wp_enqueue_script( 'select2', JLTMA_PLUGIN_URL . 'assets/js/select2.js', array( 'jquery'), true, JLTMA_VERSION );
-            wp_enqueue_script( 'master-template-admin-script', JLTMA_PLUGIN_URL . 'assets/js/admin-script.js', array( 'jquery'), true, JLTMA_VERSION );
+            wp_enqueue_script( 'jltma-hfc-admin-script', JLTMA_PLUGIN_URL . 'assets/js/admin-script.js', array( 'jquery'), true, JLTMA_VERSION );
             
             // Localize Scripts
             $jltma_localize_hfc_data = array(
@@ -56,7 +56,7 @@ class JLTMA_Header_Footer_Assets{
                 'resturl'       => get_rest_url() . 'masteraddons/v2/',
                 'upgrade_pro'   => sprintf( __( '<a href="%1$s" target="_blank">Upgrade to Pro</a> unlock this feature. <a href="%1$s" target="_blank">Upgrade Now</a>', JLTMA_TD ), ma_el_fs()->get_upgrade_url())
             );      
-            wp_localize_script( 'master-template-admin-script', 'masteraddons', $jltma_localize_hfc_data );
+            wp_localize_script( 'jltma-hfc-admin-script', 'masteraddons', $jltma_localize_hfc_data );
         }
     }
 

@@ -508,6 +508,7 @@
 
 				$is_activated_widget = self::activated_widgets();
 				$is_activated_extensions = self::activated_extensions();
+				$jltma_api_settings = get_option( 'jltma_api_save_settings' );
 
 				wp_enqueue_style( 'bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css' );
 
@@ -576,7 +577,9 @@
 				// GSAP TweenMax
 				wp_register_script(  'gsap-js', '//cdnjs.cloudflare.com/ajax/libs/gsap/' . $this->gsap_version . '/TweenMax.min.js', array(), null, true );
 
-				wp_register_script( 'recaptcha', '//www.google.com/recaptcha/api.js', ['jquery'], null, true );
+				if ( !empty($jltma_api_settings['recaptcha_site_key']) and !empty($jltma_api_settings['recaptcha_secret_key']) ) {
+					wp_register_script( 'google-recaptcha', '//www.google.com/recaptcha/api.js', ['jquery'], null, true );
+				}
 
 				// Addons specific Script/Styles Dependencies
 

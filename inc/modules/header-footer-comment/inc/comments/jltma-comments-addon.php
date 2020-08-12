@@ -64,8 +64,9 @@
 
 
 	    public function get_script_depends() {
-	        return [ 'jltma-comments' ];
+	        return [ 'jltma-comments','google-recaptcha' ];
 	    }
+	    
 
 	    public function get_style_depends() {
 	        return [ 
