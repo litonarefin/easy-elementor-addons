@@ -95,6 +95,13 @@ $jltma_elements = [
                 'demo_url'      => 'https://master-addons.com/demos/reveal/',
                 'docs_url'      => 'https://master-addons.com/docs/addons/reveal-extension/',
                 'tuts_url'      => 'https://www.youtube.com/watch?v=xEG1fi_lY1M'
+            ],
+            [
+                'key'           => 'header-footer-comment',
+                'title'         => esc_html__( 'Header,Footer,Comment Form', MELA_TD),
+                'demo_url'      => 'https://master-addons.com/demos/header-footer-comment-builder/',
+                'docs_url'      => 'https://master-addons.com/docs/addons/header-footer-comment-builder/',
+                'tuts_url'      => ''
             ]
 
 

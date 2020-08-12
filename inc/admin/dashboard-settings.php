@@ -186,27 +186,20 @@ class Master_Addons_Admin_Settings{
 
 		check_ajax_referer( 'jltma_api_settings_nonce_action', 'security' );
 
+		print_r($_POST['fields']);
 		if( isset( $_POST['fields'] ) ) {
-			parse_str( $_POST['fields'], $settings );
+			parse_str( $_POST['fields'] );
 		} else {
 			return;
 		}
 
-		$this->maad_el_settings = [];
+		$jltma_api_settings = [];
 
-		foreach( ma_el_array_flatten( Master_Elementor_Addons::$maad_el_default_widgets ) as $value ){
-
-			if( isset( $settings[ $value ] ) ) {
-				$this->maad_el_settings[ $value ] = 1;
-			} else {
-				$this->maad_el_settings[ $value ] = 0;
-			}
+		foreach( $_POST['fields'] as $key=>$value ){
+				$jltma_api_settings[ $value['name']] = $value['value'];
 		}
 
-		update_option( 'maad_el_save_settings', $this->maad_el_settings );
-
-		// Google Map API key
-//		update_option( 'maad_el_google_map_api_option', $settings['google_map_api_key'] );
+		update_option( 'jltma_api_save_settings', $jltma_api_settings );
 
 		return true;
 		die();

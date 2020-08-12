@@ -283,3 +283,10 @@ function jltma_admin_styles(){ ?>
 		}
 	</style>
 <?php }
+
+
+function jltma_get_options( $option, $default="" ){
+	if(isset($option) && $option!=""){
+		echo esc_attr($option);
+	}
+}

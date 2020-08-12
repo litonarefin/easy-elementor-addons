@@ -793,7 +793,7 @@
     font-size: 1.125rem;
     font-weight: 700;
 }
-.jltma-api-forms-settings .api-settings-element{
+.api-settings-element .api-forms {
     background-color: #fff;
     border: 1px solid #efeff5;
     border-radius: 5px;
@@ -805,7 +805,7 @@
     align-items: center;
     margin-bottom: 1.875rem;
 }
-.jltma-api-forms-settings .api-settings-element label {
+.api-settings-element .api-forms label {
     color: #393c3f;
     font-size: 14px;
     font-weight: 600;
@@ -813,7 +813,7 @@
     max-width: 35%;
     padding-right: 10px;
 }
-.jltma-api-forms-settings .api-settings-element input {
+.api-settings-element .api-forms input {
     background-color: #fcfcff;
     border: 1px solid #ededf2;
     border-radius: 3rem;
@@ -1033,7 +1033,7 @@
         flex: 0 0 100%;
         max-width: 100%;
     }
-    .jltma-api-forms-settings .api-settings-element {
+    .api-settings-element .api-forms {
         padding: 15px;
     }
 }
@@ -1043,7 +1043,7 @@
         flex: 0 0 100%;
         max-width: 100%;
     }
-    .jltma-api-forms-settings .api-settings-element  {
+    .api-settings-element .api-forms  {
         padding: 15px;
     }
     .master-addons-banner-content h3 {
@@ -1079,13 +1079,13 @@
         float: left;
         margin-top: 15px;
     }
-    .jltma-api-forms-settings .api-settings-element label,
-    .jltma-api-forms-settings .api-settings-element input,
+    .api-settings-element .api-forms label,
+    .api-settings-element .api-forms input,
     .master-addons-supports-list li {
         flex: 0 0 100%;
         max-width: 100%;
     }
-    .jltma-api-forms-settings .api-settings-element input {
+    .api-settings-element .api-forms input {
         margin-top: 10px;
     }
 }

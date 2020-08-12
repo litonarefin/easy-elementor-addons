@@ -11,6 +11,11 @@
             saveHeaderAction.addClass( 'master-addons-el-save-now' );
             saveHeaderAction.removeAttr('disabled').css('cursor', 'pointer');
         } );
+        //API Input Fields Change
+        $('#jltma-api-forms-settings input').on( 'keyup', function() {
+            saveHeaderAction.addClass( 'master-addons-el-save-now' );
+            saveHeaderAction.removeAttr('disabled').css('cursor', 'pointer');
+        } );
 
         // Enable All Elements
         $('#master-addons-elements .addons-enable-all').on("click",function (e) {
@@ -163,7 +168,6 @@
         };
 
 
-
         // Saving Data With Ajax Request
         $( '.master-addons-el-js-element-save-setting' ).on( 'click', function(e) {
             e.preventDefault();
@@ -251,12 +255,11 @@
                     url: js_maad_el_settings.ajaxurl,
                     type: 'post',
                     data: {
-                        action: 'master_addons_save_extensions_settings',
+                        action: 'jltma_save_api_settings',
                         security: js_maad_el_settings.ajax_api_nonce,
-                        fields: $( '#master-addons-el-extensions-settings' ).serialize(),
+                        fields: $( '#jltma-api-forms-settings' ).serializeArray(),
                     },
                     success: function( response ) {
-
                         swal({
                             title: "Saved",
                             text: "Your Changes has been Saved",
@@ -278,11 +281,10 @@
                             $('.master-addons-el-settings-saved').fadeOut('slow');
                             swal.close();
                         }, 1200);
-
                     },
                     error: function() {}
                 } );
-                
+
 
 
             } else {
