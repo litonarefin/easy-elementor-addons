@@ -578,7 +578,7 @@
 				wp_register_script(  'gsap-js', '//cdnjs.cloudflare.com/ajax/libs/gsap/' . $this->gsap_version . '/TweenMax.min.js', array(), null, true );
 
 				if ( !empty($jltma_api_settings['recaptcha_site_key']) and !empty($jltma_api_settings['recaptcha_secret_key']) ) {
-					wp_register_script( 'google-recaptcha', '//www.google.com/recaptcha/api.js', ['jquery'], null, true );
+					wp_register_script( 'google-recaptcha', 'https://www.google.com/recaptcha/api.js', ['jquery'], null, true );
 				}
 
 				// Addons specific Script/Styles Dependencies

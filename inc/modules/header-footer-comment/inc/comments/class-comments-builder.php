@@ -60,13 +60,58 @@ if( !class_exists('JLTMA_Comments_Builder') ){
             add_filter( 'comment_text', 'force_balance_tags', 25 ); 
             add_filter( 'comment_text', 'convert_smilies',    20 );
             add_filter( 'comment_text', 'wpautop',            30 );
+
+            // if (!is_user_logged_in()) {
+                add_filter('comment_form_defaults', [$this, 'add_google_recaptcha'] );
+                add_action('pre_comment_on_post', [$this,'verify_google_recaptcha']);
+            // }
+
 		}
+
+
+        public function add_google_recaptcha($submit_field) {
+            $jltma_api_settings = get_option( 'jltma_api_save_settings' );
+            // if ( !empty($jltma_api_settings['recaptcha_site_key']) and !empty($jltma_api_settings['recaptcha_secret_key']) ) {
+            $submit_field['submit_field'] = '<div class="g-recaptcha" data-sitekey="'. $jltma_api_settings['recaptcha_site_key'] .'"></div><br>' . $submit_field['submit_field'];
+            return $submit_field;
+        }
+
+        /**
+         * Google recaptcha check, validate and catch the spammer
+         */
+        function is_valid_captcha($captcha) {
+            $jltma_api_settings = get_option( 'jltma_api_save_settings' );
+
+            $captcha_postdata = http_build_query(array(
+                                      'secret' => $jltma_api_settings['recaptcha_secret_key'],
+                                      'response' => $captcha,
+                                      'remoteip' => $_SERVER['REMOTE_ADDR']));
+            $captcha_opts = array('http' => array(
+                                'method'  => 'POST',
+                                'header'  => 'Content-type: application/x-www-form-urlencoded',
+                                'content' => $captcha_postdata));
+            $captcha_context  = stream_context_create($captcha_opts);
+            $captcha_response = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify" , false , $captcha_context), true);
+            if ($captcha_response['success'])
+              return true;
+            else
+              return false;
+        }
+
+
+
+        function verify_google_recaptcha() {
+            $recaptcha = $_POST['g-recaptcha-response'];
+            if (empty($recaptcha))
+              wp_die( __("<b>ERROR:</b> please select <b>I'm not a robot!</b><p><a href='javascript:history.back()'>« Back</a></p>"));
+            else if (! $this->is_valid_captcha($recaptcha))
+              wp_die( __("<b>Go away SPAMMERsss!</b>"));
+        }
+
 
 
 
         public function render_comment_meta_front( $jltma_comment_text, $comment ){
-
-            // print_r( $comment );
 
             $comment_meta = get_option('jltma_comments');
             $comment_content = $comment->comment_content;

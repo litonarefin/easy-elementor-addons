@@ -66,7 +66,7 @@
 	    public function get_script_depends() {
 	        return [ 'jltma-comments','google-recaptcha' ];
 	    }
-	    
+
 
 	    public function get_style_depends() {
 	        return [ 
@@ -339,6 +339,43 @@
                 ]
             );
 
+
+	        $this->end_controls_section();
+
+
+
+
+	        /**
+             * Content Tab: SPAM Protection
+             */
+            $this->start_controls_section(
+                'jltma_comment_section_spam_protection',
+                [
+                    'label'                 => esc_html__( 'SPAM Protection', JLTMA_TD ),
+                ]
+            );
+
+	        $this->add_control(
+	            'jltma_comment_spam_protection',
+	            [
+					'label' 		    => esc_html__( 'Enable SPAM Protection', JLTMA_TD ),
+					'type'              => Controls_Manager::SWITCHER,
+	                'default'           => 'yes',
+	                'label_on'          => esc_html__( 'Enable', JLTMA_TD ),
+	                'label_off'         => esc_html__( 'Disable', JLTMA_TD ),
+	                'return_value'      => 'yes',
+	                'style_transfer'    => true,
+	            ]
+			);
+
+	        $this->add_control(
+	            'jtlma_comment_spam_protection_help',
+	            [
+	                'type'              => Controls_Manager::RAW_HTML,
+	                'raw'               => sprintf( __('First configure API Settings <a href="%1$s">click here</a>', MELA_TD), admin_url('admin.php?page=master-addons-settings#ma_api_keys')),
+	                'content_classes'   => 'elementor-descriptor',
+	            ]
+	        );
 
 	        $this->end_controls_section();
 
@@ -2581,6 +2618,12 @@
                 $cancel_reply_link = (isset($settings['jltma_comment_cancel_reply_label']) && $settings['jltma_comment_cancel_reply_label'] != '') ? esc_attr($settings['jltma_comment_cancel_reply_label']) : esc_html__('Cancel Reply', JLTMA_TD);
 
                 $label_submit = (isset($settings['jltma_comment_form_submit_label']) && $settings['jltma_comment_form_submit_label'] != '') ? esc_attr($settings['jltma_comment_form_submit_label']) : esc_html__('Post Comment', JLTMA_TD);
+    
+    			$jltma_api_settings = get_option( 'jltma_api_save_settings' );
+                
+                $submit_field = '<div class="jltma-form-submit">%1$s %2$s</div>';
+	            $submit_field .= '<div class="g-recaptcha" data-sitekey="'. $jltma_api_settings['recaptcha_site_key'] .'" data-badge="inline" render="explicit" ></div>';
+
 
                 $comments_args = array(
                     'fields' 					=> apply_filters( 'comment_form_default_fields', $fields ),
@@ -2599,7 +2642,8 @@
                     'class_submit' 				=> 'jltma-comment-form-submit',
                     'label_submit' 				=> $label_submit,
                     'submit_button' 			=> '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />',
-                    'submit_field' 				=> '<div class="jltma-form-submit">%1$s %2$s</div>',
+                    // 'submit_field' 				=> '<div class="jltma-form-submit">%1$s %2$s</div>',
+                    'submit_field' 				=> $submit_field,
                     'id_form' 					=> 'jltma-commentform',
                     'id_submit' 				=> 'jltma-submit',
                     'class_form' 				=> 'jltma-comment-form clearfix',

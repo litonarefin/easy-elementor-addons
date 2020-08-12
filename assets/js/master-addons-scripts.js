@@ -1446,6 +1446,30 @@
             $wrapper.MA_ToggleElement( toggleElementArgs );
         },
 
+        
+        // Comment Form reCaptcha
+        MA_Comment_Form_reCaptcha: function( $scope, $ ) {
+            Master_Addons.getElementSettings    = getElementSettings($scope);
+            var $wrapper            = $scope.find( '.jltma-toggle-content' ),
+                toggleElementArgs   = {
+                    active : Master_Addons.getElementSettings.jltma_toggle_content_active_index,
+                };
+
+            // if ( '' !== Master_Addons.getElementSettings.jltma_toggle_content_indicator_color ) {
+
+
+                var jltma_comment_form;
+
+                var onloadCallback = function() {
+                    jltma_comment_form = grecaptcha.render("jltma_comment_form", {
+                        "sitekey" : ' . $jltma_api_settings['recaptcha_site_key'] . ',
+                        "theme" : "light"
+                    });
+                    grecaptcha.reset(jltma_comment_form);
+                };
+            // }
+        },
+
 
         // Master Addons: Counter Up
         MA_Counter_Up: function( $scope, $ ) {
@@ -2136,6 +2160,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbars.default', Master_Addons.StatsBarHandlerOnScroll);
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-instagram-feed.default', Master_Addons.MA_Instagram_Feed);
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-toggle-content.default', Master_Addons.MA_Toggle_Content);
+        elementorFrontend.hooks.addAction('frontend/element_ready/jltma-comments.default', Master_Addons.MA_Comment_Form_reCaptcha);
 
 
         if (elementorFrontend.isEditMode()) {
