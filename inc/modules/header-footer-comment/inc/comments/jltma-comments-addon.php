@@ -2619,10 +2619,20 @@
 
                 $label_submit = (isset($settings['jltma_comment_form_submit_label']) && $settings['jltma_comment_form_submit_label'] != '') ? esc_attr($settings['jltma_comment_form_submit_label']) : esc_html__('Post Comment', JLTMA_TD);
     
+    			// API Settings
     			$jltma_api_settings = get_option( 'jltma_api_save_settings' );
-                
-                $submit_field = '<div class="jltma-form-submit">%1$s %2$s</div>';
-	            $submit_field .= '<div class="g-recaptcha" data-sitekey="'. $jltma_api_settings['recaptcha_site_key'] .'" data-badge="inline" render="explicit" ></div>';
+                $submit_field ='';
+                if (!is_user_logged_in()) {
+	                if(isset($settings['jltma_comment_spam_protection']) && $settings['jltma_comment_spam_protection'] =="yes"){
+	                	$submit_field .= '<div class="g-recaptcha" data-sitekey="'. $jltma_api_settings['recaptcha_site_key'] .'" data-badge="inline" render="explicit" style="padding-top:30px;"></div>';	
+	                }
+	            }
+
+                if (is_user_logged_in() && JLTMA_Comments_Builder::jltma_comment_elementor_preview_mode()) {
+                	echo esc_html__('Check Frontend Comment Form for reCaptcha', MELA_TD);
+                }
+	            
+	            $submit_field .= '<div class="jltma-form-submit">%1$s %2$s</div>';
 
 
                 $comments_args = array(
@@ -2846,7 +2856,20 @@
 						])) 
 					]
             	]
-        	]); ?>
+        	]); 
+
+
+            if(isset($settings['jltma_comment_spam_protection']) && $settings['jltma_comment_spam_protection'] =="yes"){
+                
+                $jltma_api_settings = get_option( 'jltma_api_save_settings' );
+
+                $jltma_spam_protection = [
+                    'sitekey'   => $jltma_api_settings['recaptcha_site_key'],
+                    'theme'     => "light"
+                ];
+
+				$this->add_render_attribute([ 'jltma_comments_wrap' =>[ 'data-recaptcha' => wp_json_encode( $jltma_spam_protection ) ]]);
+            } ?>
 
             <div <?php echo $this->get_render_attribute_string( 'jltma_comments_wrap' );?> >
 

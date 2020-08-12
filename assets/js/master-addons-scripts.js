@@ -1450,24 +1450,19 @@
         // Comment Form reCaptcha
         MA_Comment_Form_reCaptcha: function( $scope, $ ) {
             Master_Addons.getElementSettings    = getElementSettings($scope);
-            var $wrapper            = $scope.find( '.jltma-toggle-content' ),
-                toggleElementArgs   = {
-                    active : Master_Addons.getElementSettings.jltma_toggle_content_active_index,
-                };
+            var $commentsWrapper = $scope.find(".jltma-comments-wrap"),
+                $comments_recaptcha_data = $commentsWrapper.data("recaptcha"),
+                $recaptcha_theme = $comments_recaptcha_data.theme,
+                $recaptcha_sitekey = $comments_recaptcha_data.sitekey,
+                jltma_comment_form;
 
-            // if ( '' !== Master_Addons.getElementSettings.jltma_toggle_content_indicator_color ) {
-
-
-                var jltma_comment_form;
-
-                var onloadCallback = function() {
-                    jltma_comment_form = grecaptcha.render("jltma_comment_form", {
-                        "sitekey" : ' . $jltma_api_settings['recaptcha_site_key'] . ',
-                        "theme" : "light"
-                    });
-                    grecaptcha.reset(jltma_comment_form);
-                };
-            // }
+            var onloadCallback = function() {
+                jltma_comment_form = grecaptcha.render("jltma_comment_form", {
+                    "sitekey" : $recaptcha_sitekey,
+                    "theme" : "light"
+                });
+                grecaptcha.reset(jltma_comment_form);
+            };
         },
 
 
