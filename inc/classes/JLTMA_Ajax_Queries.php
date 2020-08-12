@@ -1,5 +1,6 @@
 <?php
     namespace MasterAddons\Inc\Classes;
+    use \Elementor\Plugin;
     use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 	/**
@@ -21,6 +22,8 @@
 
 
 		public function __construct() {
+            
+            add_action('elementor/editor/after_save', array($this, 'jltma_editor_global_values'), 10, 2);
 
             // Restrict Content
 			add_action( 'wp_ajax_ma_el_restrict_content', array( $this, 'ma_el_restrict_content' ) );
@@ -37,6 +40,30 @@
 
         }
 
+        function jltma_editor_global_values(){
+            $document = Plugin::$instance->documents->get($post_id);
+            $global_settings = get_option('jltma_global_settings');
+            
+            if ($document->get_settings('jltma_reading_progress_bar_enable_global') == 'yes') {
+                $global_settings['reading_progress'] = [
+                    'post_id' => $post_id,
+                    'enabled' => $document->get_settings('jltma_reading_progress_bar_enable_global') === 'yes',
+                    'display_condition' => $document->get_settings('eael_ext_reading_progress_global_display_condition'),
+                    'position' => $document->get_settings('eael_ext_reading_progress_position'),
+                    'height' => $document->get_settings('eael_ext_reading_progress_height'),
+                    'bg_color' => $document->get_settings('eael_ext_reading_progress_bg_color'),
+                    'fill_color' => $document->get_settings('eael_ext_reading_progress_fill_color'),
+                    'animation_speed' => $document->get_settings('eael_ext_reading_progress_animation_speed'),
+                ];
+            } else {
+                if (isset($global_settings['reading_progress']['post_id']) && $global_settings['reading_progress']['post_id'] == $post_id) {
+                    $global_settings['reading_progress'] = [];
+                }
+            }
+
+
+            update_option('jltma_global_settings', $global_settings);
+        }
 
 		function ma_el_restrict_content() {
 
