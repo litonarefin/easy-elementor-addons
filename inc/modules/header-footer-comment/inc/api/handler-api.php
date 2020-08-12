@@ -22,6 +22,7 @@ class Handler_Api{
             register_rest_route( untrailingslashit('masteraddons/v2/' . $this->prefix), '/(?P<action>\w+)/' . ltrim($this->param, '/'), array(
                 'methods' => \WP_REST_Server::READABLE,
                 'callback' => [$this, 'action'],
+                'permission_callback' => '__return_true'
             ));
         });
     }

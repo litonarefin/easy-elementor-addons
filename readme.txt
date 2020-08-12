@@ -362,12 +362,14 @@ Paste on your Local Computer
 
 
 == Changelog ==
-= 1.4.6.2 (10-08-2020) =
+= 1.4.6.2 (13-08-2020) =
 * Updated: Multiple Toggle Content on same page not working issue fixed
 * Updated: Reading Progress bar warning issue fixed
 * Updated: Activation/Deactivation hook fixed, if not saved data then warning showing on Admin Settings problem fixed.
 * Fixed: Plugin Deactivation popup style issue fixed
 * Fixed: Toggle Content alignment css issue fixed
+* Added: Alignment added on Countdown Timer
+* Fixed: Fixed Rest API Endpoins notice - "register_rest_route was called incorrectly. The REST API route definition for  is missing the required permission_callback argument. For REST API routes that are intended to be public, use __return_true as the permission callback. for more information. This message was added in version 5.5.0"
 
 = 1.4.6.1 (10-08-2020) =
 * Removed: Due to error, we've removed "Custom Breakpoints". We'll release it Addon/separate plugin.
