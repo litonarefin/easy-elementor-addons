@@ -21,12 +21,21 @@
 
 		public function __construct(){
 			add_action('elementor/documents/register_controls', [$this, 'jltma_rpb_register_controls'], 10);
-			add_action('wp_footer', [$this, 'jltma_reading_progress_bar_render']);
+			// add_action('wp_footer', [$this, 'jltma_reading_progress_bar_render']);
 			// add_action( 'wp_enqueue_scripts', [$this, 'jltma_reading_progress_bar_scripts'] );
-			add_action( 'wp_head', [$this, 'jltma_reading_progress_bar_scripts'] );
+			// add_action( 'wp_head', [$this, 'jltma_reading_progress_bar_scripts'] );
 		}
 
 		public function jltma_rpb_register_controls( $element ){
+
+	        // $template_name = get_post_meta($id, '_elementor_template_type', true);
+	        // $template_list = [ 'footer', 'header', 'section', 'popup' ];
+	        
+	        // if(in_array($template_name, $template_list)){
+	        // 	return false;	
+	        // } 
+
+			$global_settings = get_option('jltma_global_settings');
 
 			$element->start_controls_section(
 				'jltma_reading_progress_bar_section',
@@ -48,54 +57,83 @@
 				]
 			);
 
-			$element->add_control(
-				'jltma_enable_reading_progress_bar_id',
-				[
-					'label' 		=> esc_html__('Single Post/Page Scrollbar', MELA_TD),
-					'type' 			=> \Elementor\Controls_Manager::HIDDEN,
-					'default' 		=> get_the_ID(),
-					'condition' 	=> [
-						'jltma_enable_reading_progress_bar' => 'yes',
-					],
-				]
-			);
+
+	        $element->add_control(
+	            'jltma_reading_progress_has_global',
+	            [
+	                'label' => __('Enabled Globally?', MELA_TD),
+	                'type' => \Elementor\Controls_Manager::HIDDEN,
+	                'default' => isset($global_settings['reading_progress']['enabled']) ? true : false,
+	            ]
+	        );
 
 
-			$element->add_control(
-				'jltma_reading_progress_bar_enable_global',
-				[
-					'label' 		=> esc_html__('Entire Site?', MELA_TD),
-					'description' 	=> esc_html__('Enable to apply entire site', MELA_TD),
-					'type' 			=> Controls_Manager::SWITCHER,
-					'default' 		=> 'no',
-					'label_on' 		=> esc_html__('Yes', MELA_TD),
-					'label_off' 	=> esc_html__('No', MELA_TD),
-					'return_value' 	=> 'yes',
-					'condition' 	=> [
-						'jltma_enable_reading_progress_bar' => 'yes',
-					],
-				]
-			);
+	        if (isset($global_settings['reading_progress']['enabled']) && ($global_settings['reading_progress']['enabled'] == true) && get_the_ID() != $global_settings['reading_progress']['post_id'] && get_post_status($global_settings['reading_progress']['post_id']) == 'publish') {
 
+	            $element->add_control(
+	                'jltma_global_warning_text',
+	                [
+	                    'type' => Controls_Manager::RAW_HTML,
+	                    'raw' => __('You can modify the Global Reading Progress Bar by <strong><a href="' . get_bloginfo('url') . '/wp-admin/post.php?post=' . $global_settings['reading_progress']['post_id'] . '&action=elementor">Clicking Here</a></strong>', MELA_TD),
+	                    'content_classes' => 'elementor-warning',
+	                    'separator' => 'before',
+	                    'condition' => [
+	                        'jltma_enable_reading_progress_bar' => 'yes',
+	                    ],
+	                ]
+	            );
 
-			$element->add_control(
-				'jltma_reading_progress_bar_global_condition',
-				[
-					'label' 		=> esc_html__('Display On', MELA_TD),
-					'type' 			=> \Elementor\Controls_Manager::SELECT,
-					'default' 		=> 'all',
-					'options' 	=> [
-						'posts' 	=> esc_html__('All Posts', MELA_TD),
-						'pages' 	=> esc_html__('All Pages', MELA_TD),
-						'all' 		=> esc_html__('All Posts & Pages', MELA_TD),
-					],
-					'condition' => [
-						'jltma_enable_reading_progress_bar' => 'yes',
-						'jltma_reading_progress_bar_enable_global' => 'yes',
+        	} else{
+
+				$element->add_control(
+					'jltma_reading_progress_bar_enable_global',
+					[
+						'label' 		=> esc_html__('Entire Site?', MELA_TD),
+						'description' 	=> esc_html__('Enable to apply entire site', MELA_TD),
+						'type' 			=> Controls_Manager::SWITCHER,
+						'default' 		=> 'no',
+						'label_on' 		=> esc_html__('Yes', MELA_TD),
+						'label_off' 	=> esc_html__('No', MELA_TD),
+						'return_value' 	=> 'yes',
+						'condition' 	=> [
+							'jltma_enable_reading_progress_bar' => 'yes',
+						],
 					]
-				]
-			);
+				);
 
+				$element->add_control(
+					'jltma_reading_progress_bar_global_condition',
+					[
+						'label' 		=> esc_html__('Display On', MELA_TD),
+						'type' 			=> \Elementor\Controls_Manager::SELECT,
+						'default' 		=> 'all',
+						'options' 	=> [
+							'posts' 	=> esc_html__('All Posts', MELA_TD),
+							'pages' 	=> esc_html__('All Pages', MELA_TD),
+							'all' 		=> esc_html__('All Posts & Pages', MELA_TD),
+						],
+						'condition' => [
+							'jltma_enable_reading_progress_bar' => 'yes',
+							'jltma_reading_progress_bar_enable_global' => 'yes',
+						]
+					]
+				);
+
+        	}
+
+
+
+			// $element->add_control(
+			// 	'jltma_enable_reading_progress_bar_id',
+			// 	[
+			// 		'label' 		=> esc_html__('Single Post/Page Scrollbar', MELA_TD),
+			// 		'type' 			=> \Elementor\Controls_Manager::HIDDEN,
+			// 		'default' 		=> get_the_ID(),
+			// 		'condition' 	=> [
+			// 			'jltma_enable_reading_progress_bar' => 'yes',
+			// 		],
+			// 	]
+			// );
 
 			$element->add_control(
 				'jltma_reading_progress_bar_position',
