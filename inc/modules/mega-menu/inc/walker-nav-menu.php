@@ -106,8 +106,6 @@ class JLTMA_Megamenu_Nav_Walker extends \Walker_Nav_Menu{
         $class_names .= ' nav-item';
         $item_meta = $this->get_item_meta($item->ID);
 
-        // print_r($item_meta);
-
         $is_megamenu_item = $this->is_megamenu_item($item_meta, $args->menu);
 
         if (in_array('menu-item-has-children', $classes) || $is_megamenu_item == true) {

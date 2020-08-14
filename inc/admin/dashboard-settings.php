@@ -186,7 +186,6 @@ class Master_Addons_Admin_Settings{
 
 		check_ajax_referer( 'jltma_api_settings_nonce_action', 'security' );
 
-		print_r($_POST['fields']);
 		if( isset( $_POST['fields'] ) ) {
 			parse_str( $_POST['fields'] );
 		} else {

@@ -231,11 +231,11 @@ class Master_Addons_Image_Comparison extends Widget_Base {
 				[
 					'label' 		=> esc_html__( 'Move Handle', MELA_TD ),
 					'type' 			=> Controls_Manager::SELECT,
-					'default' 		=> 'on_swipe',
+					'default' 		=> 'drag',
 					'options' 		=> [
-							'drag'          	=> esc_html__( 'Mouse Drag/Swipe', MELA_TD ),
-							'mouse_move'    	=> esc_html__( 'Mouse Move', MELA_TD ),
-							'mouse_click'   	=> esc_html__( 'Mouse Click', MELA_TD ),
+						'drag'          	=> esc_html__( 'Mouse Drag/Swipe', MELA_TD ),
+						'mouse_move'    	=> esc_html__( 'Mouse Move', MELA_TD ),
+						'mouse_click'   	=> esc_html__( 'Mouse Click', MELA_TD ),
 					],
 					'style_transfer' => true,
 				]
@@ -247,11 +247,11 @@ class Master_Addons_Image_Comparison extends Widget_Base {
 				[
 					'label' 		=> esc_html__( 'Move Handle', MELA_TD ),
 					'type' 			=> Controls_Manager::SELECT,
-					'default' 		=> 'on_swipe',
+					'default' 		=> 'drag',
 					'options' 		=> [
-							'drag'          => esc_html__( 'Mouse Drag/Swipe', MELA_TD ),
-							'mm_pro'    	=> esc_html__( 'Mouse Move (Pro)', MELA_TD ),
-							'mc_pro'   		=> esc_html__( 'Mouse Click (Pro)', MELA_TD ),
+						'drag'          => esc_html__( 'Mouse Drag/Swipe', MELA_TD ),
+						'mm_pro'    	=> esc_html__( 'Mouse Move (Pro)', MELA_TD ),
+						'mc_pro'   		=> esc_html__( 'Mouse Click (Pro)', MELA_TD ),
 					],
 					'style_transfer' => true,
 				]

@@ -314,33 +314,7 @@ if( !class_exists('JLTMA_Comments_Builder') ){
                 }
             }
 
-
-
         }
-
-        public function jltma_comment_form_extra_fields(){
-            // $settings       = $this->get_settings_for_display();
-
-            // $lit = $this->jltma_settings();
-            // $lit = $this->jltma_set_var;
-            // print_r( $lit );
-            // echo 'liton';
-
-            // $post_args = JLTMA_Comments_Builder::jltma_get_post_settings( $settings );
-            
-            // return $settings;
-            // var_dump($settings['jltma_comment_extra_fields_items']);
-            // var_dump($settings);
-            // die();
-            // echo "Liton";
-
-            // foreach( $settings['tabs'] as $index => $tab ) {
-            //  print_r($tab);
-            // }
-            
-        }
-
-
 
 
 
@@ -359,22 +333,6 @@ if( !class_exists('JLTMA_Comments_Builder') ){
 
             return $post_args;
         }
-
-
-
-        // Comment Extra Fields
-        // function jltma_comment_form_extra_fields( ){ 
-        //     $li = new Master_Addons_Comments();
-        //     $t = $li->litonarefin();
-        //     print_r($t);
-
-        //     // $jltma_extra_fields = new Master_Addons_Comments();
-        //     // $jltma_extra_fields->jltma_comment_extra_fields_render();
-        //     // $li =  $this->jltma_comment_settings( $settings);
-        //     // print_r($li);
-        //     // echo $settings;
-        //     // echo "Liton Arefin";
-        // }
 
 
 		public function jltma_plugin_row_meta( $links, $file ){

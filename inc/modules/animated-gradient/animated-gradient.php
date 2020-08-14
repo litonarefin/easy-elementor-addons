@@ -117,7 +117,6 @@
 			}
 
 			$settings = $element->get_settings();
-			//echo '<pre>'; print_r($settings); echo '</pre>';
 			if($settings['ma_el_animated_gradient_enable'] == 'yes') {
 				$angle = $settings['gradient_background_angle']['size'];
 				$element->add_render_attribute('_wrapper' , 'data-angle' , $settings['gradient_background_angle']['size'].'deg');

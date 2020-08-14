@@ -370,6 +370,8 @@ Paste on your Local Computer
 * Fixed: Toggle Content alignment css issue fixed
 * Added: Alignment added on Countdown Timer
 * Fixed: Fixed Rest API Endpoins notice - "register_rest_route was called incorrectly. The REST API route definition for  is missing the required permission_callback argument. For REST API routes that are intended to be public, use __return_true as the permission callback. for more information. This message was added in version 5.5.0"
+* Fixed: Mega Menu link not working issue fixed
+* Fixed: Image Comparison default Move Handle issue fixed
 
 = 1.4.6.1 (10-08-2020) =
 * Removed: Due to error, we've removed "Custom Breakpoints". We'll release it Addon/separate plugin.
