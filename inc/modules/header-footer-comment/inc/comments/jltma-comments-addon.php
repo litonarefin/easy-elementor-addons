@@ -355,27 +355,47 @@
                 ]
             );
 
-	        $this->add_control(
-	            'jltma_comment_spam_protection',
-	            [
-					'label' 		    => esc_html__( 'Enable SPAM Protection', JLTMA_TD ),
-					'type'              => Controls_Manager::SWITCHER,
-	                'default'           => 'yes',
-	                'label_on'          => esc_html__( 'Enable', JLTMA_TD ),
-	                'label_off'         => esc_html__( 'Disable', JLTMA_TD ),
-	                'return_value'      => 'yes',
-	                'style_transfer'    => true,
-	            ]
-			);
+			if ( ma_el_fs()->can_use_premium_code() ) {
+		        $this->add_control(
+		            'jltma_comment_spam_protection',
+		            [
+						'label' 		    => esc_html__( 'Enable SPAM Protection', JLTMA_TD ),
+						'type'              => Controls_Manager::SWITCHER,
+		                'default'           => 'yes',
+		                'label_on'          => esc_html__( 'Enable', JLTMA_TD ),
+		                'label_off'         => esc_html__( 'Disable', JLTMA_TD ),
+		                'return_value'      => 'yes',
+		                'style_transfer'    => true,
+		            ]
+				);
 
-	        $this->add_control(
-	            'jtlma_comment_spam_protection_help',
-	            [
-	                'type'              => Controls_Manager::RAW_HTML,
-	                'raw'               => sprintf( __('First configure API Settings <a href="%1$s">click here</a>', MELA_TD), admin_url('admin.php?page=master-addons-settings#ma_api_keys')),
-	                'content_classes'   => 'elementor-descriptor',
-	            ]
-	        );
+		        $this->add_control(
+		            'jtlma_comment_spam_protection_help',
+		            [
+		                'type'              => Controls_Manager::RAW_HTML,
+		                'raw'               => sprintf( __('First configure API Settings <a href="%1$s">click here</a>', MELA_TD), admin_url('admin.php?page=master-addons-settings#ma_api_keys')),
+		                'content_classes'   => 'elementor-descriptor',
+		            ]
+		        );
+
+		    }else{
+				$this->add_responsive_control(
+					'jltma_comment_spam_protection',
+					[
+						'label' 		    => esc_html__( 'Enable SPAM Protection', JLTMA_TD ),
+						'type' 				=> Controls_Manager::CHOOSE,
+						'options' 			=> [
+							'1' => [
+								'title' => esc_html__( '', MELA_TD ),
+								'icon' => 'fa fa-unlock-alt',
+							],
+						],
+						'default' => '1',
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
+					]
+				);
+		    }
+
 
 	        $this->end_controls_section();
 
@@ -392,233 +412,234 @@
                 ]
             );
 
-			$this->start_controls_tabs( 'jltma_comment_section_fields_tab' );
-			$this->start_controls_tab( 'jltma_comment_fields_name_tab', [ 
-				'label' => esc_html__( 'Name', JLTMA_TD ) 
-			] );
+			
+				$this->start_controls_tabs( 'jltma_comment_section_fields_tab' );
+				$this->start_controls_tab( 'jltma_comment_fields_name_tab', [ 
+					'label' => esc_html__( 'Name', JLTMA_TD ) 
+				] );
 
 
-	        $this->add_control(
-	            'jltma_comment_fields_name_label_display',
-	            [
-					'label' 		    => esc_html__( 'Display Label?', JLTMA_TD ),
-					'type'              => Controls_Manager::SWITCHER,
-	                'default'           => 'show',
-	                'label_on'          => esc_html__( 'Show', JLTMA_TD ),
-	                'label_off'         => esc_html__( 'Hide', JLTMA_TD ),
-	                'return_value'      => 'show',
-	                'style_transfer'    => true,
-	            ]
-			);
+		        $this->add_control(
+		            'jltma_comment_fields_name_label_display',
+		            [
+						'label' 		    => esc_html__( 'Display Label?', JLTMA_TD ),
+						'type'              => Controls_Manager::SWITCHER,
+		                'default'           => 'show',
+		                'label_on'          => esc_html__( 'Show', JLTMA_TD ),
+		                'label_off'         => esc_html__( 'Hide', JLTMA_TD ),
+		                'return_value'      => 'show',
+		                'style_transfer'    => true,
+		            ]
+				);
 
-            $this->add_control(
-                'jltma_comment_fields_name_label',
-                [
-                    'label'                 => esc_html__( 'Name', JLTMA_TD ),
-                    'type'                  => Controls_Manager::TEXT,
-                    'default'               => esc_html__( 'Name', JLTMA_TD ),
-                    'condition'				=> [
-						'jltma_comment_fields_name_label_display' => 'show',
+	            $this->add_control(
+	                'jltma_comment_fields_name_label',
+	                [
+	                    'label'                 => esc_html__( 'Name', JLTMA_TD ),
+	                    'type'                  => Controls_Manager::TEXT,
+	                    'default'               => esc_html__( 'Name', JLTMA_TD ),
+	                    'condition'				=> [
+							'jltma_comment_fields_name_label_display' => 'show',
+						]
+	                ]
+	            );
+
+	            $this->add_control(
+	                'jltma_comment_fields_name_label_placeholder',
+	                [
+	                    'label'                 => esc_html__( 'Placeholder', JLTMA_TD ),
+	                    'type'                  => Controls_Manager::TEXT,
+	                    'default'               => esc_html__( 'Enter your Name', JLTMA_TD )
+	                ]
+	            );
+				$this->end_controls_tab();
+
+
+				//Email
+				$this->start_controls_tab( 'jltma_comment_fields_email_tab', [ 
+					'label' => esc_html__( 'Email', JLTMA_TD ) 
+				] );
+
+		        $this->add_control(
+		            'jltma_comment_fields_email_label_display',
+		            [
+						'label' 		    => esc_html__( 'Display Label?', JLTMA_TD ),
+						'type'              => Controls_Manager::SWITCHER,
+		                'default'           => 'show',
+		                'label_on'          => esc_html__( 'Show', JLTMA_TD ),
+		                'label_off'         => esc_html__( 'Hide', JLTMA_TD ),
+		                'return_value'      => 'show',
+		                'style_transfer'    => true,
+		            ]
+				);
+
+
+	            $this->add_control(
+	                'jltma_comment_fields_email_label',
+	                [
+	                    'label'                 => esc_html__( 'Email', JLTMA_TD ),
+	                    'type'                  => Controls_Manager::TEXT,
+	                    'default'               => esc_html__( 'Email', JLTMA_TD ),
+	                    'condition'				=> [
+							'jltma_comment_fields_email_label_display' => 'show',
+						]
+	                ]
+	            );
+
+
+	            $this->add_control(
+	                'jltma_comment_fields_email_label_placeholder',
+	                [
+	                    'label'                 => esc_html__( 'Placeholder', JLTMA_TD ),
+	                    'type'                  => Controls_Manager::TEXT,
+	                    'default'               => esc_html__( 'Enter your Email', JLTMA_TD )
+	                ]
+	            );
+
+				$this->end_controls_tab();
+
+
+
+				//Website
+				$this->start_controls_tab( 'jltma_comment_fields_url_tab', [ 
+					'label' => esc_html__( 'Website', JLTMA_TD ) 
+				] );
+
+
+		        $this->add_control(
+		            'jltma_comment_fields_url_label_display',
+		            [
+						'label' 		    => esc_html__( 'Display Label?', JLTMA_TD ),
+						'type'              => Controls_Manager::SWITCHER,
+		                'default'           => 'show',
+		                'label_on'          => esc_html__( 'Show', JLTMA_TD ),
+		                'label_off'         => esc_html__( 'Hide', JLTMA_TD ),
+		                'return_value'      => 'show',
+		                'style_transfer'    => true,
+		            ]
+				);
+
+	            $this->add_control(
+	                'jltma_comment_fields_url_label',
+	                [
+	                    'label'                 => esc_html__( 'Website', JLTMA_TD ),
+	                    'type'                  => Controls_Manager::TEXT,
+	                    'default'               => esc_html__( 'Website', JLTMA_TD ),
+	                    'condition'				=> [
+							'jltma_comment_fields_url_label_display' => 'show',
+						]
+	                ]
+	            );
+
+
+	            $this->add_control(
+	                'jltma_comment_fields_url_label_placeholder',
+	                [
+	                    'label'                 => esc_html__( 'Placeholder', JLTMA_TD ),
+	                    'type'                  => Controls_Manager::TEXT,
+	                    'default'               => esc_html__( 'Enter your Website', JLTMA_TD )
+	                ]
+	            );
+
+				$this->end_controls_tab();
+
+
+				//Comment Box
+				$this->start_controls_tab( 'jltma_comment_fields_textarea_tab', [ 
+					'label' => esc_html__( 'Comment', JLTMA_TD ) 
+				] );
+
+		        $this->add_control(
+		            'jltma_comment_fields_textarea_label_display',
+		            [
+						'label' 		    => esc_html__( 'Display Label?', JLTMA_TD ),
+						'type'              => Controls_Manager::SWITCHER,
+		                'default'           => 'show',
+		                'label_on'          => esc_html__( 'Show', JLTMA_TD ),
+		                'label_off'         => esc_html__( 'Hide', JLTMA_TD ),
+		                'return_value'      => 'show',
+		                'style_transfer'    => true,
+		            ]
+				);
+
+
+	            $this->add_control(
+	                'jltma_comment_fields_textarea_label',
+	                [
+	                    'label'                 => esc_html__( 'Comment Box', JLTMA_TD ),
+	                    'type'                  => Controls_Manager::TEXT,
+	                    'default'               => esc_html__( 'Comments', JLTMA_TD ),
+	                    'condition'				=> [
+							'jltma_comment_fields_textarea_label_display' => 'show',
+						]
+	                ]
+	            );
+
+	            $this->add_control(
+	                'jltma_comment_fields_textarea_label_placeholder',
+	                [
+	                    'label'                 => esc_html__( 'Placeholder', JLTMA_TD ),
+	                    'type'                  => Controls_Manager::TEXT,
+	                    'default'               => esc_html__( 'Enter your Comments', JLTMA_TD )
+	                ]
+	            );
+
+
+
+		        $this->add_control(
+		            'jltma_comment_fields_textarea_notice',
+		            [
+						'label' 		    => esc_html__( 'Display Notice?', JLTMA_TD ),
+						'type'              => Controls_Manager::SWITCHER,
+		                'default'           => 'hide',
+		                'label_on'          => esc_html__( 'Show', JLTMA_TD ),
+		                'label_off'         => esc_html__( 'Hide', JLTMA_TD ),
+		                'return_value'      => 'show',
+		                'style_transfer'    => true,
+		            ]
+				);
+
+
+		        $this->add_control(
+					'jltma_comment_fields_textarea_notice_content',
+					[
+						'label'                 => esc_html__( 'Content', JLTMA_TD ),
+						'type'                  => Controls_Manager::WYSIWYG,
+						'default'               => esc_html__( 'Comments are moderated and will only be made live if they add to the discussion in a constructive way. If you disagree with a point, be polite. This should be a conversation between professional people with the aim that we all learn.', JLTMA_TD ),
+						'condition'             => [
+							'jltma_comment_fields_textarea_notice'	=> 'show',
+						],
 					]
-                ]
-            );
+				);
 
-            $this->add_control(
-                'jltma_comment_fields_name_label_placeholder',
-                [
-                    'label'                 => esc_html__( 'Placeholder', JLTMA_TD ),
-                    'type'                  => Controls_Manager::TEXT,
-                    'default'               => esc_html__( 'Enter your Name', JLTMA_TD )
-                ]
-            );
-			$this->end_controls_tab();
-
-
-			//Email
-			$this->start_controls_tab( 'jltma_comment_fields_email_tab', [ 
-				'label' => esc_html__( 'Email', JLTMA_TD ) 
-			] );
-
-	        $this->add_control(
-	            'jltma_comment_fields_email_label_display',
-	            [
-					'label' 		    => esc_html__( 'Display Label?', JLTMA_TD ),
-					'type'              => Controls_Manager::SWITCHER,
-	                'default'           => 'show',
-	                'label_on'          => esc_html__( 'Show', JLTMA_TD ),
-	                'label_off'         => esc_html__( 'Hide', JLTMA_TD ),
-	                'return_value'      => 'show',
-	                'style_transfer'    => true,
-	            ]
-			);
+				$this->add_control(
+		            'jltma_comment_fields_textarea_notice_align',
+		            [
+		                'label' 		=> esc_html__( 'Alignment', JLTMA_TD ),
+		                'type' 			=> Controls_Manager::CHOOSE,
+		                'label_block' 	=> false,
+		                'options' 		=> [
+		                    'left' 	=> [
+									'title' 	=> esc_html__( 'Left', JLTMA_TD ),
+									'icon' 		=> 'eicon-h-align-left',
+		                    ],
+		                    'right' 		=> [
+		                        'title' 		=> esc_html__( 'Right', JLTMA_TD ),
+		                        'icon' 			=> 'eicon-h-align-right',
+		                    ],
+		                ],
+		                'default' 		 => 'right',
+		                'style_transfer' => true,
+		                'condition'             => [
+							'jltma_comment_fields_textarea_notice'	=> 'show',
+						],
+		            ]
+		        );
 
 
-            $this->add_control(
-                'jltma_comment_fields_email_label',
-                [
-                    'label'                 => esc_html__( 'Email', JLTMA_TD ),
-                    'type'                  => Controls_Manager::TEXT,
-                    'default'               => esc_html__( 'Email', JLTMA_TD ),
-                    'condition'				=> [
-						'jltma_comment_fields_email_label_display' => 'show',
-					]
-                ]
-            );
+				$this->end_controls_tab();
 
-
-            $this->add_control(
-                'jltma_comment_fields_email_label_placeholder',
-                [
-                    'label'                 => esc_html__( 'Placeholder', JLTMA_TD ),
-                    'type'                  => Controls_Manager::TEXT,
-                    'default'               => esc_html__( 'Enter your Email', JLTMA_TD )
-                ]
-            );
-
-			$this->end_controls_tab();
-
-
-
-			//Website
-			$this->start_controls_tab( 'jltma_comment_fields_url_tab', [ 
-				'label' => esc_html__( 'Website', JLTMA_TD ) 
-			] );
-
-
-	        $this->add_control(
-	            'jltma_comment_fields_url_label_display',
-	            [
-					'label' 		    => esc_html__( 'Display Label?', JLTMA_TD ),
-					'type'              => Controls_Manager::SWITCHER,
-	                'default'           => 'show',
-	                'label_on'          => esc_html__( 'Show', JLTMA_TD ),
-	                'label_off'         => esc_html__( 'Hide', JLTMA_TD ),
-	                'return_value'      => 'show',
-	                'style_transfer'    => true,
-	            ]
-			);
-
-            $this->add_control(
-                'jltma_comment_fields_url_label',
-                [
-                    'label'                 => esc_html__( 'Website', JLTMA_TD ),
-                    'type'                  => Controls_Manager::TEXT,
-                    'default'               => esc_html__( 'Website', JLTMA_TD ),
-                    'condition'				=> [
-						'jltma_comment_fields_url_label_display' => 'show',
-					]
-                ]
-            );
-
-
-            $this->add_control(
-                'jltma_comment_fields_url_label_placeholder',
-                [
-                    'label'                 => esc_html__( 'Placeholder', JLTMA_TD ),
-                    'type'                  => Controls_Manager::TEXT,
-                    'default'               => esc_html__( 'Enter your Website', JLTMA_TD )
-                ]
-            );
-
-			$this->end_controls_tab();
-
-
-			//Comment Box
-			$this->start_controls_tab( 'jltma_comment_fields_textarea_tab', [ 
-				'label' => esc_html__( 'Comment', JLTMA_TD ) 
-			] );
-
-	        $this->add_control(
-	            'jltma_comment_fields_textarea_label_display',
-	            [
-					'label' 		    => esc_html__( 'Display Label?', JLTMA_TD ),
-					'type'              => Controls_Manager::SWITCHER,
-	                'default'           => 'show',
-	                'label_on'          => esc_html__( 'Show', JLTMA_TD ),
-	                'label_off'         => esc_html__( 'Hide', JLTMA_TD ),
-	                'return_value'      => 'show',
-	                'style_transfer'    => true,
-	            ]
-			);
-
-
-            $this->add_control(
-                'jltma_comment_fields_textarea_label',
-                [
-                    'label'                 => esc_html__( 'Comment Box', JLTMA_TD ),
-                    'type'                  => Controls_Manager::TEXT,
-                    'default'               => esc_html__( 'Comments', JLTMA_TD ),
-                    'condition'				=> [
-						'jltma_comment_fields_textarea_label_display' => 'show',
-					]
-                ]
-            );
-
-            $this->add_control(
-                'jltma_comment_fields_textarea_label_placeholder',
-                [
-                    'label'                 => esc_html__( 'Placeholder', JLTMA_TD ),
-                    'type'                  => Controls_Manager::TEXT,
-                    'default'               => esc_html__( 'Enter your Comments', JLTMA_TD )
-                ]
-            );
-
-
-
-	        $this->add_control(
-	            'jltma_comment_fields_textarea_notice',
-	            [
-					'label' 		    => esc_html__( 'Display Notice?', JLTMA_TD ),
-					'type'              => Controls_Manager::SWITCHER,
-	                'default'           => 'hide',
-	                'label_on'          => esc_html__( 'Show', JLTMA_TD ),
-	                'label_off'         => esc_html__( 'Hide', JLTMA_TD ),
-	                'return_value'      => 'show',
-	                'style_transfer'    => true,
-	            ]
-			);
-
-
-	        $this->add_control(
-				'jltma_comment_fields_textarea_notice_content',
-				[
-					'label'                 => esc_html__( 'Content', JLTMA_TD ),
-					'type'                  => Controls_Manager::WYSIWYG,
-					'default'               => esc_html__( 'Comments are moderated and will only be made live if they add to the discussion in a constructive way. If you disagree with a point, be polite. This should be a conversation between professional people with the aim that we all learn.', JLTMA_TD ),
-					'condition'             => [
-						'jltma_comment_fields_textarea_notice'	=> 'show',
-					],
-				]
-			);
-
-			$this->add_control(
-	            'jltma_comment_fields_textarea_notice_align',
-	            [
-	                'label' 		=> esc_html__( 'Alignment', JLTMA_TD ),
-	                'type' 			=> Controls_Manager::CHOOSE,
-	                'label_block' 	=> false,
-	                'options' 		=> [
-	                    'left' 	=> [
-								'title' 	=> esc_html__( 'Left', JLTMA_TD ),
-								'icon' 		=> 'eicon-h-align-left',
-	                    ],
-	                    'right' 		=> [
-	                        'title' 		=> esc_html__( 'Right', JLTMA_TD ),
-	                        'icon' 			=> 'eicon-h-align-right',
-	                    ],
-	                ],
-	                'default' 		 => 'right',
-	                'style_transfer' => true,
-	                'condition'             => [
-						'jltma_comment_fields_textarea_notice'	=> 'show',
-					],
-	            ]
-	        );
-
-
-			$this->end_controls_tab();
-
-			$this->end_controls_tabs();
+				$this->end_controls_tabs();
 
 	        $this->end_controls_section();
 
@@ -635,117 +656,135 @@
                 ]
             );
 
+            if ( ma_el_fs()->can_use_premium_code() ) {				
 
-			$this->add_control(
-				'jltma_comment_extra_fields_items',
-				[
-					'label'       => esc_html__( 'Comment Fields', JLTMA_TD ),
-					'type'        => Controls_Manager::REPEATER,
-					'seperator'         => 'before',
-					'default'     => [
+				$this->add_control(
+					'jltma_comment_extra_fields_items',
+					[
+						'label'       => esc_html__( 'Comment Fields', JLTMA_TD ),
+						'type'        => Controls_Manager::REPEATER,
+						'seperator'         => 'before',
+						'default'     => [
 
-						[
-							'title'                                 => esc_html__( 'City', JLTMA_TD ),
-							'label_name'                            => esc_html__( 'Cup of Tea', JLTMA_TD ),
-							'field_type'   							=> 'text',
-							'placeholder'                 			=> esc_html__( 'Living', JLTMA_TD ),
-							'error_msg'            					=> esc_html__( '', JLTMA_TD ),
-							'required'   							=> '',
-							// 'checkbox_options'   					=> '',
-							'display_label'   						=> 'show'
-						],
-						[
-							'title'                                 => esc_html__( 'Age', JLTMA_TD ),
-							'label_name'                            => esc_html__( 'Enter Age', JLTMA_TD ),
-							'field_type'   							=> 'text',
-							'placeholder'                 			=> esc_html__( 'Enter Your Age', JLTMA_TD ),
-							'error_msg'            					=> esc_html__( '', JLTMA_TD ),
-							'required'   							=> '',
-							// 'checkbox_options'   					=> '',
-							'display_label'   						=> 'show'
-						]
-
-					],
-					'fields'          => [
-						[
-							'type'          => Controls_Manager::TEXT,
-							'name'          => 'title',
-							'label_block'   => true,
-							'label'         => esc_html__( 'Title', JLTMA_TD ),
-							'default'       => esc_html__( 'Comment  Title', JLTMA_TD )
-						],				
-						[
-							'name'           => 'display_label',
-							'label'        	 => esc_html__( 'Display Label?', JLTMA_TD ),
-							'type'         	 => Controls_Manager::SWITCHER,
-							'default'      	 => 'show',
-							'label_on'       => esc_html__( 'Show', JLTMA_TD ),
-	                		'label_off'      => esc_html__( 'Hide', JLTMA_TD ),
-							'return_value' 	 => 'show',
-							'style_transfer' => true,
-						],
-						[
-							'type'          => Controls_Manager::TEXT,
-							'name'          => 'label_name',
-							'label'         => esc_html__( 'Label Name', JLTMA_TD ),
-							'label_block'   => true,
-							'default'       => esc_html__( 'Age', JLTMA_TD ),
-		                    'condition'     => [
-		                        'display_label'       => 'show'
-		                    ]
-						],
-
-						[
-							'name'          => 'required',
-							'label'        => esc_html__( 'Required Field?', JLTMA_TD ),
-							'type'         => Controls_Manager::SWITCHER,
-							'default'      => 'no',
-							'return_value' => 'yes'
-						],
-
-						[
-							'name'          => 'field_type',
-							'label'         => esc_html__( 'Field Type', JLTMA_TD ),
-							'type'          => Controls_Manager::SELECT,
-							'options'   => [
-								'text'           => esc_html__( 'Text', JLTMA_TD ),
-								'textarea'       => esc_html__( 'Textarea', JLTMA_TD ),
-								'checkbox'       => esc_html__( 'Checkbox', JLTMA_TD )
+							[
+								'title'                                 => esc_html__( 'City', JLTMA_TD ),
+								'label_name'                            => esc_html__( 'Cup of Tea', JLTMA_TD ),
+								'field_type'   							=> 'text',
+								'placeholder'                 			=> esc_html__( 'Living', JLTMA_TD ),
+								'error_msg'            					=> esc_html__( '', JLTMA_TD ),
+								'required'   							=> '',
+								// 'checkbox_options'   					=> '',
+								'display_label'   						=> 'show'
 							],
-							'default'   => 'text'
+							[
+								'title'                                 => esc_html__( 'Age', JLTMA_TD ),
+								'label_name'                            => esc_html__( 'Enter Age', JLTMA_TD ),
+								'field_type'   							=> 'text',
+								'placeholder'                 			=> esc_html__( 'Enter Your Age', JLTMA_TD ),
+								'error_msg'            					=> esc_html__( '', JLTMA_TD ),
+								'required'   							=> '',
+								// 'checkbox_options'   					=> '',
+								'display_label'   						=> 'show'
+							]
+
 						],
-						// [
-						// 	'type'          => Controls_Manager::TEXT,
-						// 	'name'          => 'checkbox_options',
-						// 	'label'         => esc_html__( 'Checkbox Field', JLTMA_TD ),
-						// 	'label_block'   => true,
-		    //                 'condition'     => [
-		    //                     'field_type'       => 'checkbox'
-		    //                 ]							
-						// ],
+						'fields'          => [
+							[
+								'type'          => Controls_Manager::TEXT,
+								'name'          => 'title',
+								'label_block'   => true,
+								'label'         => esc_html__( 'Title', JLTMA_TD ),
+								'default'       => esc_html__( 'Comment  Title', JLTMA_TD )
+							],				
+							[
+								'name'           => 'display_label',
+								'label'        	 => esc_html__( 'Display Label?', JLTMA_TD ),
+								'type'         	 => Controls_Manager::SWITCHER,
+								'default'      	 => 'show',
+								'label_on'       => esc_html__( 'Show', JLTMA_TD ),
+		                		'label_off'      => esc_html__( 'Hide', JLTMA_TD ),
+								'return_value' 	 => 'show',
+								'style_transfer' => true,
+							],
+							[
+								'type'          => Controls_Manager::TEXT,
+								'name'          => 'label_name',
+								'label'         => esc_html__( 'Label Name', JLTMA_TD ),
+								'label_block'   => true,
+								'default'       => esc_html__( 'Age', JLTMA_TD ),
+			                    'condition'     => [
+			                        'display_label'       => 'show'
+			                    ]
+							],
 
-						[
-							'type'          => Controls_Manager::TEXT,
-							'name'          => 'placeholder',
-							'label'         => esc_html__( 'Placeholder Text', JLTMA_TD ),
-							'label_block'   => true,
-							'default'       => esc_html__( 'Enter Age', JLTMA_TD )
+							[
+								'name'          => 'required',
+								'label'        => esc_html__( 'Required Field?', JLTMA_TD ),
+								'type'         => Controls_Manager::SWITCHER,
+								'default'      => 'no',
+								'return_value' => 'yes'
+							],
+
+							[
+								'name'          => 'field_type',
+								'label'         => esc_html__( 'Field Type', JLTMA_TD ),
+								'type'          => Controls_Manager::SELECT,
+								'options'   => [
+									'text'           => esc_html__( 'Text', JLTMA_TD ),
+									'textarea'       => esc_html__( 'Textarea', JLTMA_TD ),
+									'checkbox'       => esc_html__( 'Checkbox', JLTMA_TD )
+								],
+								'default'   => 'text'
+							],
+							// [
+							// 	'type'          => Controls_Manager::TEXT,
+							// 	'name'          => 'checkbox_options',
+							// 	'label'         => esc_html__( 'Checkbox Field', JLTMA_TD ),
+							// 	'label_block'   => true,
+			    //                 'condition'     => [
+			    //                     'field_type'       => 'checkbox'
+			    //                 ]							
+							// ],
+
+							[
+								'type'          => Controls_Manager::TEXT,
+								'name'          => 'placeholder',
+								'label'         => esc_html__( 'Placeholder Text', JLTMA_TD ),
+								'label_block'   => true,
+								'default'       => esc_html__( 'Enter Age', JLTMA_TD )
+							],
+							[
+								'type'          => Controls_Manager::TEXT,
+								'name'          => 'error_msg',
+								'label'         => esc_html__( 'Error Message', JLTMA_TD ),
+								'label_block'   => true,
+								'default'       => esc_html__( 'Age Error', JLTMA_TD )
+							],
 						],
-						[
-							'type'          => Controls_Manager::TEXT,
-							'name'          => 'error_msg',
-							'label'         => esc_html__( 'Error Message', JLTMA_TD ),
-							'label_block'   => true,
-							'default'       => esc_html__( 'Age Error', JLTMA_TD )
+						'title_field' => '{{title}}'
+					]
+				);
+
+
+			} else{
+
+				$this->add_responsive_control(
+					'jltma_comment_extra_fields_section_repeater',
+					[
+						'label' => __( 'Comment Extra Fields', MELA_TD ),
+						'type' => Controls_Manager::CHOOSE,
+						'options' => [
+							'1' => [
+								'title' => esc_html__( '', MELA_TD ),
+								'icon' => 'fa fa-unlock-alt',
+							],
 						],
-						
+						'default' => '1',
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
+					]
+				);				
+			}
 
-
-
-					],
-					'title_field' => '{{title}}'
-				]
-			);
 
 			$this->end_controls_section();
 
