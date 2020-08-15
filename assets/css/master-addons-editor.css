@@ -90,7 +90,7 @@ body:not(.elementor-device-desktop) div#elementor-preview-responsive-wrapper:bef
     background-size: 20px 20px;
   }
 
-  .cbp-elementor.elementor-responsive-switcher i.master-cbp-device {
+  .elementor-responsive-switcher i.master-cbp-device {
     width: 20px;
     height: 20px;
   }
