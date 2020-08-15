@@ -24,9 +24,7 @@ class Master_Addons_Reading_Progress_Bar {
 
 	public function __construct(){
 		add_action('elementor/documents/register_controls', [$this, 'jltma_rpb_register_controls'], 10);
-		// add_action( 'wp_footer', [$this, 'jltma_reading_progress_bar_render']);
-		// add_action( 'wp_head', [$this, 'jltma_reading_progress_bar_styles'] );
-		add_action( 'wp_print_footer_scripts', [$this, 'jltma_reading_progress_bar_render'] );
+		add_action( 'wp_footer', [$this, 'jltma_reading_progress_bar_render'] );
 	}
 
 	public function jltma_rpb_register_controls( $element ){
