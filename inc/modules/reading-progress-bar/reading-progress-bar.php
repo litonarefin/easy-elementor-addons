@@ -24,8 +24,9 @@ class Master_Addons_Reading_Progress_Bar {
 
 	public function __construct(){
 		add_action('elementor/documents/register_controls', [$this, 'jltma_rpb_register_controls'], 10);
-		add_action( 'wp_footer', [$this, 'jltma_reading_progress_bar_render']);
-		add_action( 'wp_head', [$this, 'jltma_reading_progress_bar_styles'] );
+		// add_action( 'wp_footer', [$this, 'jltma_reading_progress_bar_render']);
+		// add_action( 'wp_head', [$this, 'jltma_reading_progress_bar_styles'] );
+		add_action( 'wp_print_footer_scripts', [$this, 'jltma_reading_progress_bar_render'] );
 	}
 
 	public function jltma_rpb_register_controls( $element ){
@@ -247,6 +248,41 @@ class Master_Addons_Reading_Progress_Bar {
 				</script>';
 
 			} // Enable Progress Bar
+
+
+			$jltma_r_p_b_height  			= $page_settings_model->get_settings('jltma_reading_progress_bar_height');
+			$jltma_r_p_b_bg_color  			= $page_settings_model->get_settings('jltma_reading_progress_bar_bg_color');
+			$jltma_r_p_b_fill_color  		= $page_settings_model->get_settings('jltma_reading_progress_bar_fill_color');
+			$jltma_r_p_b_animation_speed  	= $page_settings_model->get_settings('jltma_reading_progress_bar_animation_speed');
+			$jltma_rbp_position  			= $page_settings_model->get_settings('jltma_reading_progress_bar_position');
+
+			$jltma_r_p_b_custom_css = "";
+
+			if( $jltma_r_p_b_bg_color !="" && $jltma_r_p_b_fill_color !="" ){
+				$jltma_r_p_b_custom_css = ".ma-el-page-scroll-indicator{ background: {$jltma_r_p_b_bg_color};}
+					.ma-el-scroll-indicator{ background: {$jltma_r_p_b_fill_color};}
+					.ma-el-page-scroll-indicator, .ma-el-scroll-indicator{ height: {$jltma_r_p_b_height['size']}px;}";		
+			}
+
+			if(isset($jltma_rbp_position) && $jltma_rbp_position !=""){
+				if($jltma_rbp_position == "top"){
+					$jltma_r_p_b_custom_css .= '.ma-el-page-scroll-indicator{top:0px;}';
+				}else{
+					$jltma_r_p_b_custom_css .= '.ma-el-page-scroll-indicator{top:inherit !important; bottom:0;}';
+				}
+			}
+			
+			if ( Plugin::instance()->editor->is_edit_mode() || Plugin::instance()->preview->is_preview_mode() ) { 
+				if($jltma_rbp_position == "top"){
+					$jltma_r_p_b_custom_css .= '.ma-el-page-scroll-indicator{top:0px;}';
+				}else{
+					$jltma_r_p_b_custom_css .= '.ma-el-page-scroll-indicator{top:inherit !important; bottom:0;}';
+				}
+			}
+			
+			echo '<style>' . $jltma_r_p_b_custom_css . '</style>';
+
+
 
 		}
 	}
