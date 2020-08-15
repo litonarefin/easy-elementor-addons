@@ -33,9 +33,7 @@
 						</div>
 
 						<p>
-							<?php echo sprintf( __( ' Go to your Google <a href="%1$s" target="_blank"> reCAPTCHA</a> > Account > Generate Keys (reCAPTCHA V2 > Invisible) and Copy and Paste here.', MELA_TD ),
-									esc_url('https://www.google.com/recaptcha/about/')
-								);
+							<?php echo sprintf( __( 'Go to your Google <a href="%1$s" target="_blank"> reCAPTCHA</a> > Account > Generate Keys (reCAPTCHA V2 > Invisible) and Copy and Paste here.', MELA_TD ), esc_url('https://www.google.com/recaptcha/about/') );
 							?>
 						</p>
 					</div>
