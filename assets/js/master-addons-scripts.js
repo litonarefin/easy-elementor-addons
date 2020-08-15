@@ -1206,22 +1206,6 @@
                 });
         },
 
-
-
-
-        MA_Scroll_Progress: function ($scope, $) {
-            var currentState = document.body.scrollTop || document.documentElement.scrollTop;
-            var pageHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            var scrollStatePercentage = (currentState / pageHeight) * 100;
-            document.querySelector(".ma-el-page-scroll-indicator > .ma-el-scroll-indicator").style.width = scrollStatePercentage + "%";
-        },
-
-        MA_Content_Scroll_Indicator: function ($scope, $) {
-            // On scroll execute the scrollProgress function
-            window.onscroll = function () { Master_Addons.MA_Scroll_Progress() };
-        },
-
-
         MA_PiechartsHandlerOnScroll: function ($scope, $) {
 
             $scope.waypoint(function (direction) {
@@ -2127,7 +2111,6 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_ParticlesBG);
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_Reveal);
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_Rellax);
-        // elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_Content_Scroll_Indicator);
 
 
         //Element Scripts
