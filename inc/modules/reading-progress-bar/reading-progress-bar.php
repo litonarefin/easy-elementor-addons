@@ -11,6 +11,7 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
  * Author URL: https://jeweltheme.com
  * Date: 10/12/19
  */
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
@@ -207,6 +208,14 @@ class Master_Addons_Reading_Progress_Bar {
 
 	public function jltma_reading_progress_bar_render() {
 		
+		$document = \Elementor\Plugin::instance()->documents->get( get_the_ID() );
+
+		if ( ! $document ) return;
+
+        $reading_progress_bar = $document->get_settings( 'jltma_enable_reading_progress_bar' );
+
+		if ( empty( $reading_progress_bar ) ) return;
+
 		if (did_action('elementor/loaded')) {
 
 			$page_settings_manager = \Elementor\Core\Settings\Manager::get_settings_managers('page');
