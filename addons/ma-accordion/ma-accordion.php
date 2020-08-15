@@ -1046,7 +1046,6 @@
 
 
 			if ( ma_el_fs()->is_not_paying() ) {
-
 				$this->start_controls_section(
 					'ma_el_section_pro_style_section',
 					[
@@ -1054,7 +1053,6 @@
 						'tab' => Controls_Manager::TAB_STYLE
 					]
 				);
-
 				$this->add_control(
 					'ma_el_control_get_pro_style_tab',
 					[
@@ -1067,13 +1065,12 @@
 							],
 						],
 						'default' => '1',
-						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with
-Customization Options.</span>'
+						'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 					]
 				);
-
 				$this->end_controls_section();
 			}
+
 
 
 		}
@@ -1089,6 +1086,7 @@ Customization Options.</span>'
 				'data-accordion-id'     => esc_attr( $this->get_id() )
 			] );
 			?>
+
             <div
                 <?php echo $this->get_render_attribute_string('ma_advance_accordion'); ?>
 	            <?php echo 'data-accordion-id="' . esc_attr($this->get_id()) . '"'; ?>
@@ -1109,25 +1107,25 @@ Customization Options.</span>'
 
 
 						if ($tab['accordion_tab_default_active'] == 'yes') {
-							$tab_title_class[] = 'active-default';
-							$tab_content_class[] = 'active-default';
+							$tab_title_class[] 		= 'active-default';
+							$tab_content_class[] 	= 'active-default';
 						}
 
 						$this->add_render_attribute($tab_title_setting_key, [
-							'id' => 'ma-accordion-tab-title-' . $id_int . $tab_count,
-							'class' => $tab_title_class,
-							'tabindex' => $id_int . $tab_count,
-							'data-tab' => $tab_count,
-							'role' => 'tab',
+							'id' 			=> 'ma-accordion-tab-title-' . $id_int . $tab_count,
+							'class' 		=> $tab_title_class,
+							'tabindex' 		=> $id_int . $tab_count,
+							'data-tab' 		=> $tab_count,
+							'role' 			=> 'tab',
 							'aria-controls' => 'ma-accordion-tab-content-' . $id_int . $tab_count,
 						]);
 
 						$this->add_render_attribute($tab_content_setting_key, [
-							'id' => 'ma-accordion-tab-content-' . $id_int . $tab_count,
-							'class' => $tab_content_class,
-							'data-tab' => $tab_count,
-							'role' => 'tabpanel',
-							'aria-labelledby' => 'ma-accordion-tab-title-' . $id_int . $tab_count,
+							'id' 				=> 'ma-accordion-tab-content-' . $id_int . $tab_count,
+							'class' 			=> $tab_content_class,
+							'data-tab' 			=> $tab_count,
+							'role' 				=> 'tabpanel',
+							'aria-labelledby' 	=> 'ma-accordion-tab-title-' . $id_int . $tab_count,
 						]);
 
 
@@ -1136,22 +1134,21 @@ Customization Options.</span>'
 						if ( $tab['single_tab_title_bg_color_show'] == 'yes' ) {
 						    $single_item_class = 'ma-multicolor-accordion';
 						}
-					}
+					} ?>
 
-						?>
                         <div class="ma-accordion-item <?php echo esc_attr( $settings['ma_advanced_accordion_style'] )
                         ; ?> <?php echo isset($single_item_class) ? $single_item_class :'' ;?>">
                             <<?php echo $settings['title_html_tag']; ?> <?php echo $this->get_render_attribute_string
                             ($tab_title_setting_key);
 
-                                // Premium Version Codes
-                                if ( ma_el_fs()->can_use_premium_code() ) {
+                            // Premium Version Codes
+                            if ( ma_el_fs()->can_use_premium_code() ) {
 
-                                    if($tab['single_tab_title_bg_color_show']=='yes'){ ?>
-                                        style="background-color:<?php echo $tab['single_tab_title_bg_color'];?>;
-                                        color:<?php echo $tab['single_title_text_color'];?>"
+                                if($tab['single_tab_title_bg_color_show']=='yes'){ ?>
+                                    style="background-color:<?php echo $tab['single_tab_title_bg_color'];?>;
+                                    color:<?php echo $tab['single_title_text_color'];?>"
 
-                                    <?php } // Premium Version Codes
+                                <?php } // Premium Version Codes
 
                             } ?>>
                                 <span class="ma-accordion-title-icon">
