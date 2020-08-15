@@ -9,7 +9,7 @@
 			static public $class_namespace = '\\MasterAddons\\Inc\\Classes\\';
 			public $controls_manager;
 
-			const VERSION = "1.4.6.1";
+			const VERSION = "1.4.7";
 
 			const MINIMUM_PHP_VERSION = '5.4';
 
