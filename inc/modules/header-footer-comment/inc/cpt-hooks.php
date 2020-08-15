@@ -28,10 +28,10 @@ class JLTMA_CPT_Hook {
 		unset( $columns['date'] );
 		unset( $columns['author'] );
 
-		$columns['type'] = esc_html__( 'Type', JLTMA_TD );
+		$columns['type']      = esc_html__( 'Type', JLTMA_TD );
 		$columns['condition'] = esc_html__( 'Conditions', JLTMA_TD );
 		$columns['date']      = $date_column;
-		$columns['author']      = $author_column;
+		$columns['author']    = $author_column;
 
 		return $columns;
 	}

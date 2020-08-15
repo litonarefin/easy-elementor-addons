@@ -53,7 +53,7 @@ class JLTMA_Header_Footer_CPT_API extends JLTMA_Header_Footer_Rest_API {
                     ? (($condition_singular != '' )
                         ? (' > ' . $condition_singular 
                         . (($condition_singular_id != '')
-                            ? ' > ' . $condition_singular_id
+                            ? ' > ' . implode( ", ", $condition_singular_id )
                             : ''))
                         : '')
                     : '')
