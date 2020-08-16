@@ -24,6 +24,8 @@ if( !class_exists('Master_Addons_Promotions') ) {
 
             // Admin Notices
             add_action( 'admin_init', [ $this, 'jltma_admin_notice_init' ] );
+
+            //Notices
             add_action( 'admin_notices', [$this, 'jltma_latest_blog_update'], 10 );
             add_action( 'admin_notices', [$this, 'jltma_request_review_after_seven_days'], 10 );
             add_action( 'admin_notices', [$this, 'jltma_request_review_after_ten_days'], 10 );
@@ -231,11 +233,11 @@ if( !class_exists('Master_Addons_Promotions') ) {
                 __( '%1$s got HUGE Updates!!! %2$s %3$s %4$s %5$s Check Blog Post for <a href="%6$s" target="__blank">%7$s</a>', MELA_TD ),
 
                 '<strong>' . esc_html__( 'Master Addons for Elementor', MELA_TD ) . '</strong>',
-                '<br>' . esc_html__( '✅ Custom Breakpoints Fixed and Live Now !!', MELA_TD ) . '<br>',
-                esc_html__( '✅ Toggle Content Switcher Added', MELA_TD ) . '<br>',
-                esc_html__( '✅ Custom JS Extension Added', MELA_TD ) . '<br>',
-                esc_html__( '✅ Few other fixes, check Changelogs', MELA_TD ) . '<br>',
-                esc_url_raw('https://master-addons.com/master-addons-v1-4-6/'),
+                '<br>' . __( '✅ <b>Header,Footer & Comment Form Builder</b> extension Added!!', MELA_TD ) . '<br>',
+                __( '✅ WordPress v5.5 Compatibility', MELA_TD ) . '<br>',
+                __( '✅ <b>Custom JS</b> Extension Added', MELA_TD ) . '<br>',
+                __( '✅ Some major fixes, check Changelogs', MELA_TD ) . '<br>',
+                esc_url_raw('https://master-addons.com/master-addons-1-4-7/'),
                 esc_html__( 'More Details', MELA_TD )
             );
 

@@ -1192,8 +1192,6 @@
             var $jltma_image_comp_wrap       = $scope.find('.jltma-image-comparison').eq(0),
                 $jltma_image_data            = $jltma_image_comp_wrap.data('image-comparison-settings');
 
-                console.log($jltma_image_data.visible_ratio);
-
                 $jltma_image_comp_wrap.twentytwenty({
                     default_offset_pct          : $jltma_image_data.visible_ratio,
                     orientation                 : $jltma_image_data.orientation,
