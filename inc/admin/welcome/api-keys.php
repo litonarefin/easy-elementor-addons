@@ -22,14 +22,14 @@
 							<label for="recaptcha_site_key">
 								<?php echo esc_html__('reCAPTCHA Site key', MELA_TD);?>
 							</label>
-							<input name="recaptcha_site_key" type="text" class="form-control recaptcha_site_key" value="<?php jltma_get_options($jltma_api_options['recaptcha_site_key']);?>">
+							<input name="recaptcha_site_key" type="text" class="form-control recaptcha_site_key" value="<?php echo isset($jltma_api_options['recaptcha_site_key'])?$jltma_api_options['recaptcha_site_key']:"" ;?>">
 						</div>
 
 						<div class="form-group">
 							<label for="recaptcha_secret_key">
 								<?php echo esc_html__('reCAPTCHA Secret key', MELA_TD);?>
 							</label>
-							<input type="text" name="recaptcha_secret_key" class="form-control recaptcha_secret_key" value="<?php jltma_get_options($jltma_api_options['recaptcha_secret_key']);?>">
+							<input type="text" name="recaptcha_secret_key" class="form-control recaptcha_secret_key" value="<?php echo isset($jltma_api_options['recaptcha_secret_key'])?$jltma_api_options['recaptcha_secret_key']:"";?>">
 						</div>
 
 						<p>
