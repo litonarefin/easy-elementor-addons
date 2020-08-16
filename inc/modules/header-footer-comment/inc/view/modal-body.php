@@ -84,11 +84,11 @@
                                     </select><br>
 
 
-                                    <div class="jltma_hf_modal-condition_singular-container">
+                                    <div class="jltma_hf_modal-jltma_hfc_singular-container">
                                         <div class="jltma-input-group">
                                             <label class="attr-input-label"></label>
-                                            <select name="condition_singular"
-                                                class="jltma_hf_modal-condition_singular form-control">
+                                            <select name="jltma_hfc_singular"
+                                                class="jltma_hf_modal-jltma_hfc_singular form-control">
                                                 <option value="all"><?php esc_html_e('All Singulars', JLTMA_TD); ?></option>
                                                 <option value="front_page"><?php esc_html_e('Front Page', JLTMA_TD); ?></option>
                                                 <option value="all_posts"><?php esc_html_e('All Posts', JLTMA_TD); ?></option>
@@ -100,10 +100,10 @@
                                         </div>
                                         <br>
 
-                                        <div class="jltma_hf_modal-condition_singular_id-container jltma_multipile_ajax_search_filed">
+                                        <div class="jltma_hf_modal-jltma_hfc_singular_id-container jltma_multipile_ajax_search_filed">
                                             <div class="jltma-input-group">
                                                 <label class="attr-input-label"></label>
-                                                <select multiple name="condition_singular_id[]" class="jltma_hf_modal-condition_singular_id"></select>
+                                                <select multiple name="jltma_hfc_singular_id[]" class="jltma_hf_modal-jltma_hfc_singular_id"></select>
                                             </div>
                                             <br />
                                         </div>

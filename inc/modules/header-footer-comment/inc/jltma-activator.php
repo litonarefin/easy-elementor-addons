@@ -172,7 +172,7 @@ class JLTMA_HF_Activator {
                     'value'   => 'singular',
                 ],
                 [
-                    'key'     => 'condition_singular',
+                    'key'     => 'jltma_hfc_singular',
                     'value'   => 'all',
                 ]
             ];
@@ -187,7 +187,7 @@ class JLTMA_HF_Activator {
                     'value'   => 'singular',
                 ],
                 [
-                    'key'     => 'condition_singular',
+                    'key'     => 'jltma_hfc_singular',
                     'value'   => 'all_pages',
                 ]
             ];
@@ -199,7 +199,7 @@ class JLTMA_HF_Activator {
                     'value'   => 'singular',
                 ],
                 [
-                    'key'     => 'condition_singular',
+                    'key'     => 'jltma_hfc_singular',
                     'value'   => 'all_posts',
                 ]
             ];
@@ -211,7 +211,7 @@ class JLTMA_HF_Activator {
                     'value'   => 'singular',
                 ],
                 [
-                    'key'     => 'condition_singular',
+                    'key'     => 'jltma_hfc_singular',
                     'value'   => '404page',
                 ]
             ];
@@ -226,11 +226,11 @@ class JLTMA_HF_Activator {
                     'value'   => 'singular',
                 ],
                 [
-                    'key'     => 'condition_singular',
+                    'key'     => 'jltma_hfc_singular',
                     'value'   => 'selective',
                 ],
                 [
-                    'key'     => 'condition_singular_id',
+                    'key'     => 'jltma_hfc_singular_id',
                     'value'   => get_the_ID(),
                 ]
             ];
@@ -245,7 +245,7 @@ class JLTMA_HF_Activator {
                     'value'   => 'singular',
                 ],
                 [
-                    'key'     => 'condition_singular',
+                    'key'     => 'jltma_hfc_singular',
                     'value'   => 'front_page',
                 ]
             ];
@@ -274,7 +274,7 @@ class JLTMA_HF_Activator {
                 endif;
                 
                 foreach($filters as $filter){
-                    if($filter['key'] == 'condition_singular_id'){
+                    if($filter['key'] == 'jltma_hfc_singular_id'){
 
                         $ids = explode(',', $template[$filter['key']]);
                         if(!in_array($filter['value'], $ids)){
@@ -308,8 +308,8 @@ class JLTMA_HF_Activator {
             return array_merge((array)$post, [
                 'type' => get_post_meta($post->ID, 'master_template_type', true),
                 'jltma_hf_conditions'   => get_post_meta($post->ID, 'master_template_jltma_hf_conditions', true),
-                'condition_singular'    => get_post_meta($post->ID, 'master_template_condition_singular', true),
-                'condition_singular_id' => get_post_meta($post->ID, 'master_template_condition_singular_id', true),
+                'jltma_hfc_singular'    => get_post_meta($post->ID, 'master_template_jltma_hfc_singular', true),
+                'jltma_hfc_singular_id' => get_post_meta($post->ID, 'master_template_jltma_hfc_singular_id', true),
             ]);
         }
     }

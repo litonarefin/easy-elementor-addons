@@ -17,8 +17,8 @@ class JLTMA_Header_Footer_CPT_API extends JLTMA_Header_Footer_Rest_API {
         $type = $this->request['type'];
 
         $jltma_hf_conditions        = ($type == 'section') ? '' : $this->request['jltma_hf_conditions'];
-        $condition_singular         = ($type == 'section') ? '' : $this->request['condition_singular'];
-        $condition_singular_id      = ($type == 'section') ? '' : $this->request['condition_singular_id'];
+        $jltma_hfc_singular         = ($type == 'section') ? '' : $this->request['jltma_hfc_singular'];
+        $jltma_hfc_singular_id      = ($type == 'section') ? '' : $this->request['jltma_hfc_singular_id'];
 
         $post_data = array(
             'post_title'    => $title,
@@ -39,8 +39,8 @@ class JLTMA_Header_Footer_CPT_API extends JLTMA_Header_Footer_Rest_API {
         update_post_meta( $id, 'master_template_activation', $activation );
         update_post_meta( $id, 'master_template_type', $type );
         update_post_meta( $id, 'master_template_jltma_hf_conditions', $jltma_hf_conditions );
-        update_post_meta( $id, 'master_template_condition_singular', $condition_singular );
-        update_post_meta( $id, 'master_template_condition_singular_id', implode( ", ", $condition_singular_id ) );
+        update_post_meta( $id, 'master_template_jltma_hfc_singular', $jltma_hfc_singular );
+        update_post_meta( $id, 'master_template_jltma_hfc_singular_id', implode( ", ", $jltma_hfc_singular_id ) );
 
         if($open_editor == 'true'){
             $url = get_admin_url() . '/post.php?post='.$builder_post_id.'&action=elementor';
@@ -50,10 +50,10 @@ class JLTMA_Header_Footer_CPT_API extends JLTMA_Header_Footer_Rest_API {
             $cond = ucwords( str_replace('_', ' ',
                 $jltma_hf_conditions  
                 . (($jltma_hf_conditions == 'singular')
-                    ? (($condition_singular != '' )
-                        ? (' > ' . $condition_singular 
-                        . (($condition_singular_id != '')
-                            ? ' > ' . implode( ", ", $condition_singular_id )
+                    ? (($jltma_hfc_singular != '' )
+                        ? (' > ' . $jltma_hfc_singular 
+                        . (($jltma_hfc_singular_id != '')
+                            ? ' > ' . implode( ", ", $jltma_hfc_singular_id )
                             : ''))
                         : '')
                     : '')
@@ -85,8 +85,8 @@ class JLTMA_Header_Footer_CPT_API extends JLTMA_Header_Footer_Rest_API {
                 'activation'            => get_post_meta($post->ID, 'master_template_activation', true),
                 'type'                  => get_post_meta($post->ID, 'master_template_type', true),
                 'jltma_hf_conditions'   => get_post_meta($post->ID, 'master_template_jltma_hf_conditions', true),
-                'condition_singular'    => get_post_meta($post->ID, 'master_template_condition_singular', true),
-                'condition_singular_id' => get_post_meta($post->ID, 'master_template_condition_singular_id', true),
+                'jltma_hfc_singular'    => get_post_meta($post->ID, 'master_template_jltma_hfc_singular', true),
+                'jltma_hfc_singular_id' => get_post_meta($post->ID, 'master_template_jltma_hfc_singular_id', true),
             ];
         }
         return true;

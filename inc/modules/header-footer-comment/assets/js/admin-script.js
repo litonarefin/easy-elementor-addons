@@ -27,8 +27,8 @@
                     // set the form data
                     $('.jltma_hf_modal-title').val(data.title);
                     $('.jltma_hf_modal-jltma_hf_conditions').val(data.jltma_hf_conditions);
-                    $('.jltma_hf_modal-condition_singular').val(data.condition_singular);
-                    $('.jltma_hf_modal-condition_singular_id').val(data.condition_singular_id);
+                    $('.jltma_hf_modal-jltma_hfc_singular').val(data.jltma_hfc_singular);
+                    $('.jltma_hf_modal-jltma_hfc_singular_id').val(data.jltma_hfc_singular_id);
                     $('.jltma_hfc_type').val(data.type);
 
                     var activation_input = $('.jltma-enable-switcher');
@@ -38,16 +38,16 @@
                         activation_input.removeAttr('checked');
                     }
 
-                    $('.jltma-enable-switcher, .jltma_hfc_type, .jltma_hf_modal-jltma_hf_conditions, .jltma_hf_modal-condition_singular')
+                    $('.jltma-enable-switcher, .jltma_hfc_type, .jltma_hf_modal-jltma_hf_conditions, .jltma_hf_modal-jltma_hfc_singular')
                         .trigger('change');
 
-                    var el = $('.jltma_hf_modal-condition_singular_id');
+                    var el = $('.jltma_hf_modal-jltma_hfc_singular_id');
                     
                     $.ajax({
                         url: window.masteraddons.resturl + 'select2/singular_list',
                         dataType: 'json',
                         data: {
-                            ids: String(data.condition_singular_id)
+                            ids: String(data.jltma_hfc_singular_id)
                         }
                     }).then(function (data) {
 
@@ -74,7 +74,7 @@
 
 
         Modal_Singular_List: function() {
-            $('.jltma_hf_modal-condition_singular_id').select2({
+            $('.jltma_hf_modal-jltma_hfc_singular_id').select2({
                 ajax: {
                     url: window.masteraddons.resturl + 'select2/singular_list',
                     dataType: 'json',
@@ -171,11 +171,11 @@
             try { 
                 (function($) {
 
-                    $('.jltma_hf_modal-condition_singular').on('change', function () {
-                        var condition_singular = $(this).val();
-                        var inputs = $('.jltma_hf_modal-condition_singular_id-container');
+                    $('.jltma_hf_modal-jltma_hfc_singular').on('change', function () {
+                        var jltma_hfc_singular = $(this).val();
+                        var inputs = $('.jltma_hf_modal-jltma_hfc_singular_id-container');
 
-                        if (condition_singular == 'selective') {
+                        if (jltma_hfc_singular == 'selective') {
                             inputs.show();
                         } else {
                             inputs.hide();
@@ -194,7 +194,7 @@
 
                     $('.jltma_hf_modal-jltma_hf_conditions').unbind().on('change', function () {
                         var jltma_hf_conditions = $(this).val(),
-                            inputs = $('.jltma_hf_modal-condition_singular-container');
+                            inputs = $('.jltma_hf_modal-jltma_hfc_singular-container');
 
                         if (jltma_hf_conditions == 'singular') {
                             inputs.show();
@@ -264,7 +264,7 @@
                                 title               : '',
                                 type                : 'header',
                                 jltma_hf_conditions : 'entire_site',
-                                condition_singular  : 'all',
+                                jltma_hfc_singular  : 'all',
                                 activation          : '',
                             };
 

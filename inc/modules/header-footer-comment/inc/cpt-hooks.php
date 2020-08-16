@@ -53,17 +53,17 @@ class JLTMA_CPT_Hook {
 
                 $cond = [
                     'jltma_hf_conditions'   => get_post_meta($post_id, 'master_template_jltma_hf_conditions', true),
-                    'condition_singular'    => get_post_meta($post_id, 'master_template_condition_singular', true),
-                    'condition_singular_id' => get_post_meta($post_id, 'master_template_condition_singular_id', true),
+                    'jltma_hfc_singular'    => get_post_meta($post_id, 'master_template_jltma_hfc_singular', true),
+                    'jltma_hfc_singular_id' => get_post_meta($post_id, 'master_template_jltma_hfc_singular_id', true),
                 ];
 
                 echo ucwords( str_replace('_', ' ',
                     $cond['jltma_hf_conditions']  
                     . (($cond['jltma_hf_conditions'] == 'singular')
-                        ? (($cond['condition_singular'] != '' )
-                            ? (' > ' . $cond['condition_singular'] 
-                            . (($cond['condition_singular_id'] != '')
-                                ? ' > ' . $cond['condition_singular_id']
+                        ? (($cond['jltma_hfc_singular'] != '' )
+                            ? (' > ' . $cond['jltma_hfc_singular'] 
+                            . (($cond['jltma_hfc_singular_id'] != '')
+                                ? ' > ' . $cond['jltma_hfc_singular_id']
                                 : ''))
                             : '')
                         : '')
