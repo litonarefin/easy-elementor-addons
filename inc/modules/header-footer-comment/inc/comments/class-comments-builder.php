@@ -951,11 +951,14 @@ if( !class_exists('JLTMA_Comments_Builder') ){
 
 
         public function jltma_verify_google_recaptcha() {
-            $recaptcha = $_POST['g-recaptcha-response'];
-            if (empty($recaptcha))
-              wp_die( __("<b>ERROR:</b> please select <b>I'm not a robot!</b><p><a href='javascript:history.back()'>« Back</a></p>"));
-            else if (! $this->jltma_is_valid_captcha($recaptcha))
-              wp_die( __("<b>Go away SPAMMERsss!</b>", MELA_TD));
+            $jltma_comment_recaptha = $this->jltma_set_var;
+            if(isset($jltma_comment_recaptha['jltma_comment_spam_protection']) && $jltma_comment_recaptha['jltma_comment_spam_protection'] =="yes"){
+                $recaptcha = $_POST['g-recaptcha-response'];
+                if (empty($recaptcha))
+                  wp_die( __("<b>ERROR:</b> please select <b>I'm not a robot!</b><p><a href='javascript:history.back()'>« Back</a></p>"));
+                else if (! $this->jltma_is_valid_captcha($recaptcha))
+                  wp_die( __("<b>Go away SPAMMERsss!</b>", MELA_TD));
+            }
         }
 
 

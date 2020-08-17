@@ -290,3 +290,17 @@ function jltma_get_options( $option, $default="" ){
 		echo esc_attr($option);
 	}
 }
+
+/**
+ * Check if WooCommerce is active
+ *
+ * @since 1.4.7
+ *
+ */
+if ( ! function_exists( 'is_woocommerce_active' ) ) {
+	function is_woocommerce_active() {
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		
+		return is_plugin_active( 'woocommerce/woocommerce.php' );
+	}
+}

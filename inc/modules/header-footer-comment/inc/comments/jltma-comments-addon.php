@@ -221,6 +221,31 @@
 	            ]
 			);
 
+	        $this->add_control(
+	            'jltma_comment_spam_protection_enable',
+	            [
+					'label' 		    => esc_html__( 'Enable reCaptcha', JLTMA_TD ),
+					'type'              => Controls_Manager::SWITCHER,
+	                'default'           => 'no',
+	                'label_on'          => esc_html__( 'Enable', JLTMA_TD ),
+	                'label_off'         => esc_html__( 'Disable', JLTMA_TD ),
+	                'return_value'      => 'yes',
+	                'style_transfer'    => true,
+	            ]
+			);
+	        $this->add_control(
+	            'jltma_comment_extra_fields_enable',
+	            [
+					'label' 		    => esc_html__( 'Enable Extra Comment Fields', JLTMA_TD ),
+					'type'              => Controls_Manager::SWITCHER,
+	                'default'           => 'no',
+	                'label_on'          => esc_html__( 'Enable', JLTMA_TD ),
+	                'label_off'         => esc_html__( 'Disable', JLTMA_TD ),
+	                'return_value'      => 'yes',
+	                'style_transfer'    => true,
+	            ]
+			);
+
             $this->add_responsive_control(
                 'jltma_comment_pagination_items',
                 [
@@ -352,6 +377,9 @@
                 'jltma_comment_section_spam_protection',
                 [
                     'label'                 => esc_html__( 'SPAM Protection', JLTMA_TD ),
+                    'condition'				=> [
+						'jltma_comment_spam_protection_enable' => 'yes',
+					]
                 ]
             );
 
@@ -653,6 +681,9 @@
                 'jltma_comment_extra_fields_sections',
                 [
                     'label'                 => esc_html__( 'Extra Comment Fields', JLTMA_TD ),
+                    'condition'				=> [
+						'jltma_comment_extra_fields_enable' => 'yes',
+					]
                 ]
             );
 
