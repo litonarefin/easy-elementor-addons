@@ -116,8 +116,9 @@
 					['transforms','pro'],
 					['rellax','pro'],
 					['reveal','pro'],
-					'header-footer-comment'
+					'header-footer-comment',
 //					'pseudo-elements', //need to fix before and after
+					'display-conditions'
 				];
 
 				self::$ma_el_pro_extensions = [
@@ -399,6 +400,11 @@
 						'class' => 'MasterAddons\Inc\Controls\MA_XY_Position',
 						'type'  => 'single'
 					),
+					'jltma_query' => array(
+						'file'  => MELA_PLUGIN_PATH . '/inc/controls/jltma-query.php',
+						'class' => 'MasterAddons\Inc\Controls\JLTMA_Control_Query',
+						'type'  => 'single'
+					)
 
 
 				);

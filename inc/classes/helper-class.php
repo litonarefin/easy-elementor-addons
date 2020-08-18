@@ -668,6 +668,34 @@ class Master_Addons_Helper{
         <?php }
 	}
 
+	/**
+	 * Get Taxonomies Options
+	 *
+	 * Fetches available taxonomies
+	 *
+	 * @since 1.4.8
+	 */
+	public static function get_taxonomies_options() {
+
+		$options = [];
+
+		$taxonomies = get_taxonomies( array(
+			'show_in_nav_menus' => true
+		), 'objects' );
+
+		if ( empty( $taxonomies ) ) {
+			$options[ '' ] = __( 'No taxonomies found', MELA_TD );
+			return $options;
+		}
+
+		foreach ( $taxonomies as $taxonomy ) {
+			$options[ $taxonomy->name ] = $taxonomy->label;
+		}
+
+		return $options;
+	}
+
+
 
 
 
