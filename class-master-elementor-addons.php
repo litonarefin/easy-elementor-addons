@@ -118,7 +118,8 @@
 					['reveal','pro'],
 					'header-footer-comment',
 //					'pseudo-elements', //need to fix before and after
-					'display-conditions'
+					'display-conditions',
+					'dynamic-tags',
 				];
 
 				self::$ma_el_pro_extensions = [

@@ -109,6 +109,13 @@ $jltma_elements = [
                 'demo_url'      => 'https://master-addons.com/demos/header-footer-comment-builder/',
                 'docs_url'      => 'https://master-addons.com/docs/addons/header-footer-comment-builder/',
                 'tuts_url'      => ''
+            ],
+            [
+                'key'           => 'display-tags',
+                'title'         => esc_html__( 'Display Tags', MELA_TD),
+                'demo_url'      => 'https://master-addons.com/demos/header-footer-comment-builder/',
+                'docs_url'      => 'https://master-addons.com/docs/addons/header-footer-comment-builder/',
+                'tuts_url'      => ''
             ]
 
 

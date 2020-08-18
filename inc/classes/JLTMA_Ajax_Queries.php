@@ -1,8 +1,11 @@
 <?php
     namespace MasterAddons\Inc\Classes;
     use \Elementor\Plugin;
+    use \Elementor\Core\Common\Modules\Ajax\Module as Ajax;
+
     use MasterAddons\Master_Elementor_Addons;
     use MasterAddons\Inc\Helper\Master_Addons_Helper;
+    
 
 	/**
 	 * Author Name: Liton Arefin
@@ -40,8 +43,36 @@
             // add_action('wp_ajax_jltma_instafeed_load_more_action', [$this, 'jltma_instafeed_render_items' ] );
             // add_action('wp_ajax_nopriv_jltma_instafeed_load_more_action', [$this, 'jltma_instafeed_render_items'] );
 
+            add_action( 'elementor/ajax/register_actions', [ $this, 'register_ajax_actions' ] );
+
+
         }
 
+        public function register_ajax_actions( $ajax_manager ) {
+            $ajax_manager->register_ajax_action( 'jltma_query_control_value_titles', [ $this, 'ajax_call_control_value_titles' ] );
+            $ajax_manager->register_ajax_action( 'jltma_query_control_filter_autocomplete', [ $this, 'ajax_call_filter_autocomplete' ] );
+        }
+
+
+        public function ajax_call_control_value_titles( $request ) {
+            $results = call_user_func( [ $this, 'get_value_titles_for_' . $request['query_type'] ], $request );
+
+            return $results;
+        }
+
+
+        public function ajax_call_filter_autocomplete( array $data ) {
+
+            if ( empty( $data['query_type'] ) || empty( $data['q'] ) ) {
+                throw new \Exception( 'Bad Request' );
+            }
+
+            $results = call_user_func( [ $this, 'get_autocomplete_for_' . $data['query_type'] ], $data );
+
+            return [
+                'results' => $results,
+            ];
+        }        
 
 		public function ma_el_restrict_content() {
 
