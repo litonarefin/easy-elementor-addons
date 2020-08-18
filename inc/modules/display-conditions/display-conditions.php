@@ -39,36 +39,12 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return [];
 	}
 
-	/**
-	 * The description of the current extension
-	 *
-	 * @since 2.-.0
-	 **/
-	public static function get_description() {
-		return __( 'Adds display conditions to widgets and sections allowing you to show them depending on authentication, roles, date and time of day.', 'elementor-extras' );
-	}
-
-	/**
-	 * Is disabled by default
-	 *
-	 * Return wether or not the extension should be disabled by default,
-	 * prior to user actually saving a value in the admin page
-	 *
-	 * @access public
-	 * @since 2.0.0
-	 * @return bool
-	 */
 	public static function is_default_disabled() {
 		return true;
 	}
 
-	/**
-	 * Add common sections
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 */
+	
+	//Add common sections
 	public function add_common_sections_actions() {
 
 		// Activate sections for widgets
@@ -94,51 +70,46 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 
 	}
 
-	/**
-	 * Set the Conditions options array
-	 *
-	 * @since 2.1.0
-	 *
-	 * @access private
-	 */
+
+	// Set the Conditions options array
 	private function set_conditions_options() {
 
 		$this->conditions_options = [
 			[
-				'label'		=> __( 'Visitor', 'elementor-extras' ),
+				'label'		=> esc_html__( 'Visitor', MELA_TD ),
 				'options' 	=> [
-					'authentication' 	=> __( 'Login Status', 'elementor-extras' ),
-					'role' 				=> __( 'User Role', 'elementor-extras' ),
-					'os' 				=> __( 'Operating System', 'elementor-extras' ),
-					'browser' 			=> __( 'Browser', 'elementor-extras' ),
+					'authentication' 	=> esc_html__( 'Login Status', MELA_TD ),
+					'role' 				=> esc_html__( 'User Role', MELA_TD ),
+					'os' 				=> esc_html__( 'Operating System', MELA_TD ),
+					'browser' 			=> esc_html__( 'Browser', MELA_TD ),
 				],
 			],
 			[
-				'label'			=> __( 'Date & Time', 'elementor-extras' ),
+				'label'			=> esc_html__( 'Date & Time', MELA_TD ),
 				'options' 		=> [
-					'date' 		=> __( 'Current Date', 'elementor-extras' ),
-					'time' 		=> __( 'Time of Day', 'elementor-extras' ),
-					'day' 		=> __( 'Day of Week', 'elementor-extras' ),
+					'date' 		=> esc_html__( 'Current Date', MELA_TD ),
+					'time' 		=> esc_html__( 'Time of Day', MELA_TD ),
+					'day' 		=> esc_html__( 'Day of Week', MELA_TD ),
 				],
 			],
 			[
-				'label'					=> __( 'Single', 'elementor-extras' ),
+				'label'					=> esc_html__( 'Single', MELA_TD ),
 				'options' 				=> [
-					'page' 				=> __( 'Page', 'elementor-extras' ),
-					'post' 				=> __( 'Post', 'elementor-extras' ),
-					'static_page' 		=> __( 'Static Page', 'elementor-extras' ),
-					'post_type' 		=> __( 'Post Type', 'elementor-extras' ),
+					'page' 				=> esc_html__( 'Page', MELA_TD ),
+					'post' 				=> esc_html__( 'Post', MELA_TD ),
+					'static_page' 		=> esc_html__( 'Static Page', MELA_TD ),
+					'post_type' 		=> esc_html__( 'Post Type', MELA_TD ),
 				],
 			],
 			[
-				'label'					=> __( 'Archive', 'elementor-extras' ),
+				'label'					=> esc_html__( 'Archive', MELA_TD ),
 				'options' 				=> [
-					'taxonomy_archive' 	=> __( 'Taxonomy', 'elementor-extras' ),
-					'term_archive' 		=> __( 'Term', 'elementor-extras' ),
-					'post_type_archive'	=> __( 'Post Type', 'elementor-extras' ),
-					'date_archive'		=> __( 'Date', 'elementor-extras' ),
-					'author_archive'	=> __( 'Author', 'elementor-extras' ),
-					'search_results'	=> __( 'Search', 'elementor-extras' ),
+					'taxonomy_archive' 	=> esc_html__( 'Taxonomy', MELA_TD ),
+					'term_archive' 		=> esc_html__( 'Term', MELA_TD ),
+					'post_type_archive'	=> esc_html__( 'Post Type', MELA_TD ),
+					'date_archive'		=> esc_html__( 'Date', MELA_TD ),
+					'author_archive'	=> esc_html__( 'Author', MELA_TD ),
+					'search_results'	=> esc_html__( 'Search', MELA_TD ),
 				],
 			],
 		];
@@ -146,21 +117,16 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		// EDD Conditions
 		if ( class_exists( 'Easy_Digital_Downloads', false ) ) {
 			$this->conditions_options[] = [
-				'label'					=> __( 'Easy Digital Downloads', 'elementor-extras' ),
+				'label'					=> esc_html__( 'Easy Digital Downloads', MELA_TD ),
 				'options' 				=> [
-					'edd_cart' 			=> __( 'Cart', 'elementor-extras' ),
+					'edd_cart' 			=> esc_html__( 'Cart', MELA_TD ),
 				],
 			];
 		}
 	}
 
-	/**
-	 * Add Controls
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access private
-	 */
+	
+	// Add Controls
 	private function add_controls( $element, $args ) {
 
 		global $wp_roles;
@@ -174,11 +140,11 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		$element->add_control(
 			'ee_display_conditions_enable',
 			[
-				'label'			=> __( 'Display Conditions', 'elementor-extras' ),
+				'label'			=> esc_html__( 'Display Conditions', MELA_TD ),
 				'type' 			=> Controls_Manager::SWITCHER,
 				'default' 		=> '',
-				'label_on' 		=> __( 'Yes', 'elementor-extras' ),
-				'label_off' 	=> __( 'No', 'elementor-extras' ),
+				'label_on' 		=> esc_html__( 'Yes', MELA_TD ),
+				'label_off' 	=> esc_html__( 'No', MELA_TD ),
 				'return_value' 	=> 'yes',
 				'frontend_available'	=> true,
 			]
@@ -188,12 +154,12 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			$element->add_control(
 				'ee_display_conditions_output',
 				[
-					'label'		=> __( 'Output HTML', 'elementor-extras' ),
-					'description' => sprintf( __( 'If enabled, the HTML code will exist on the page but the %s will be hidden using CSS.', 'elementor-extras' ), $element_type ),
+					'label'		=> esc_html__( 'Output HTML', MELA_TD ),
+					'description' => sprintf( esc_html__( 'If enabled, the HTML code will exist on the page but the %s will be hidden using CSS.', MELA_TD ), $element_type ),
 					'default'	=> 'yes',
 					'type' 		=> Controls_Manager::SWITCHER,
-					'label_on' 		=> __( 'Yes', 'elementor-extras' ),
-					'label_off' 	=> __( 'No', 'elementor-extras' ),
+					'label_on' 		=> esc_html__( 'Yes', MELA_TD ),
+					'label_off' 	=> esc_html__( 'No', MELA_TD ),
 					'return_value' 	=> 'yes',
 					'frontend_available' => true,
 					'condition'	=> [
@@ -206,12 +172,12 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		$element->add_control(
 			'ee_display_conditions_relation',
 			[
-				'label'		=> __( 'Display on', 'elementor-extras' ),
+				'label'		=> esc_html__( 'Display on', MELA_TD ),
 				'type' 		=> Controls_Manager::SELECT,
 				'default' 	=> 'all',
 				'options' 	=> [
-					'all' 		=> __( 'All conditions met', 'elementor-extras' ),
-					'any' 		=> __( 'Any condition met', 'elementor-extras' ),
+					'all' 		=> esc_html__( 'All conditions met', MELA_TD ),
+					'any' 		=> esc_html__( 'Any condition met', MELA_TD ),
 				],
 				'condition'	=> [
 					'ee_display_conditions_enable' => 'yes',
@@ -238,8 +204,8 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'default' 		=> 'is',
 				'label_block' 	=> true,
 				'options' 		=> [
-					'is' 		=> __( 'Is', 'elementor-extras' ),
-					'not' 		=> __( 'Is not', 'elementor-extras' ),
+					'is' 		=> esc_html__( 'Is', MELA_TD ),
+					'not' 		=> esc_html__( 'Is not', MELA_TD ),
 				],
 			]
 		);
@@ -251,7 +217,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'default' 	=> 'authenticated',
 				'label_block' => true,
 				'options' 	=> [
-					'authenticated' => __( 'Logged in', 'elementor-extras' ),
+					'authenticated' => esc_html__( 'Logged in', MELA_TD ),
 				],
 				'condition' => [
 					'ee_condition_key' => 'authentication',
@@ -263,7 +229,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			'ee_condition_role_value',
 			[
 				'type' 			=> Controls_Manager::SELECT,
-				'description' 	=> __( 'Warning: This condition applies only to logged in visitors.', 'elementor-extras' ),
+				'description' 	=> esc_html__( 'Warning: This condition applies only to logged in visitors.', MELA_TD ),
 				'default' 		=> 'subscriber',
 				'label_block' 	=> true,
 				'options' 		=> $wp_roles->get_names(),
@@ -276,7 +242,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		$repeater->add_control(
 			'ee_condition_date_value',
 			[
-				'label'		=> __( 'In interval', 'elementor-extras' ),
+				'label'		=> esc_html__( 'In interval', MELA_TD ),
 				'type' 		=> \Elementor\Controls_Manager::DATE_TIME,
 				'picker_options' => [
 					'enableTime'	=> false,
@@ -293,7 +259,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		$repeater->add_control(
 			'ee_condition_time_value',
 			[
-				'label'		=> __( 'Before', 'elementor-extras' ),
+				'label'		=> esc_html__( 'Before', MELA_TD ),
 				'type' 		=> \Elementor\Controls_Manager::DATE_TIME,
 				'picker_options' => [
 					'dateFormat' 	=> "H:i",
@@ -311,18 +277,18 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		$repeater->add_control(
 			'ee_condition_day_value',
 			[
-				'label'			=> __( 'Before', 'elementor-extras' ),
+				'label'			=> esc_html__( 'Before', MELA_TD ),
 				'type' 			=> Controls_Manager::SELECT2,
-				'placeholder'	=> __( 'Any', 'elementor-extras' ),
+				'placeholder'	=> esc_html__( 'Any', MELA_TD ),
 				'multiple'		=> true,
 				'options' => [
-					'1' => __( 'Monday', 'elementor-extras' ),
-					'2' => __( 'Tuesday', 'elementor-extras' ),
-					'3' => __( 'Wednesday', 'elementor-extras' ),
-					'4' => __( 'Thursday', 'elementor-extras' ),
-					'5' => __( 'Friday', 'elementor-extras' ),
-					'6' => __( 'Saturday', 'elementor-extras' ),
-					'7' => __( 'Sunday', 'elementor-extras' ),
+					'1' => esc_html__( 'Monday', MELA_TD ),
+					'2' => esc_html__( 'Tuesday', MELA_TD ),
+					'3' => esc_html__( 'Wednesday', MELA_TD ),
+					'4' => esc_html__( 'Thursday', MELA_TD ),
+					'5' => esc_html__( 'Friday', MELA_TD ),
+					'6' => esc_html__( 'Saturday', MELA_TD ),
+					'7' => esc_html__( 'Sunday', MELA_TD ),
 				],
 				'label_block'	=> true,
 				'default' 		=> 'Monday',
@@ -367,8 +333,8 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			[
 				'type' 			=> 'jltma_query',
 				'default' 		=> '',
-				'placeholder'	=> __( 'Any', 'elementor-extras' ),
-				'description'	=> __( 'Leave blank for any page.', 'elementor-extras' ),
+				'placeholder'	=> esc_html__( 'Any', MELA_TD ),
+				'description'	=> esc_html__( 'Leave blank for any page.', MELA_TD ),
 				'label_block' 	=> true,
 				'multiple'		=> true,
 				'query_type'	=> 'posts',
@@ -384,8 +350,8 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			[
 				'type' 			=> 'jltma_query',
 				'default' 		=> '',
-				'placeholder'	=> __( 'Any', 'elementor-extras' ),
-				'description'	=> __( 'Leave blank for any post.', 'elementor-extras' ),
+				'placeholder'	=> esc_html__( 'Any', MELA_TD ),
+				'description'	=> esc_html__( 'Leave blank for any post.', MELA_TD ),
 				'label_block' 	=> true,
 				'multiple'		=> true,
 				'query_type'	=> 'posts',
@@ -403,10 +369,10 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'default' 		=> 'home',
 				'label_block' 	=> true,
 				'options' 		=> [
-					'home'		=> __( 'Default Homepage', 'elementor-extras' ),
-					'static'	=> __( 'Static Homepage', 'elementor-extras' ),
-					'blog'		=> __( 'Blog Page', 'elementor-extras' ),
-					'404'		=> __( '404 Page', 'elementor-extras' ),
+					'home'		=> esc_html__( 'Default Homepage', MELA_TD ),
+					'static'	=> esc_html__( 'Static Homepage', MELA_TD ),
+					'blog'		=> esc_html__( 'Blog Page', MELA_TD ),
+					'404'		=> esc_html__( '404 Page', MELA_TD ),
 				],
 				'condition' 	=> [
 					'ee_condition_key' => 'static_page',
@@ -419,8 +385,8 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			[
 				'type' 			=> Controls_Manager::SELECT2,
 				'default' 		=> '',
-				'placeholder'	=> __( 'Any', 'elementor-extras' ),
-				'description'	=> __( 'Leave blank or select all for any post type.', 'elementor-extras' ),
+				'placeholder'	=> esc_html__( 'Any', MELA_TD ),
+				'description'	=> esc_html__( 'Leave blank or select all for any post type.', MELA_TD ),
 				'label_block' 	=> true,
 				'multiple'		=> true,
 				'options' 		=> Utils::ma_el_get_post_types(),
@@ -435,8 +401,8 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			[
 				'type' 			=> Controls_Manager::SELECT2,
 				'default' 		=> '',
-				'placeholder'	=> __( 'Any', 'elementor-extras' ),
-				'description'	=> __( 'Leave blank or select all for any taxonomy archive.', 'elementor-extras' ),
+				'placeholder'	=> esc_html__( 'Any', MELA_TD ),
+				'description'	=> esc_html__( 'Leave blank or select all for any taxonomy archive.', MELA_TD ),
 				'multiple'		=> true,
 				'label_block' 	=> true,
 				'options' 		=> Utils::get_taxonomies_options(),
@@ -449,8 +415,8 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		$repeater->add_control(
 			'ee_condition_term_archive_value',
 			[
-				'label' 		=> __( 'Term', 'elementor-pro' ),
-				'description'	=> __( 'Leave blank or select all for any term archive.', 'elementor-extras' ),
+				'label' 		=> esc_html__( 'Term', 'elementor-pro' ),
+				'description'	=> esc_html__( 'Leave blank or select all for any term archive.', MELA_TD ),
 				'type' 			=> 'jltma_query',
 				'post_type' 	=> '',
 				'options' 		=> [],
@@ -469,8 +435,8 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			[
 				'type' 			=> Controls_Manager::SELECT2,
 				'default' 		=> '',
-				'placeholder'	=> __( 'Any', 'elementor-extras' ),
-				'description'	=> __( 'Leave blank or select all for any post type.', 'elementor-extras' ),
+				'placeholder'	=> esc_html__( 'Any', MELA_TD ),
+				'description'	=> esc_html__( 'Leave blank or select all for any post type.', MELA_TD ),
 				'multiple'		=> true,
 				'label_block' 	=> true,
 				'options' 		=> Utils::ma_el_get_post_types(),
@@ -485,14 +451,14 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			[
 				'type' 			=> Controls_Manager::SELECT2,
 				'default' 		=> '',
-				'placeholder'	=> __( 'Any', 'elementor-extras' ),
-				'description'	=> __( 'Leave blank or select all for any date based archive.', 'elementor-extras' ),
+				'placeholder'	=> esc_html__( 'Any', MELA_TD ),
+				'description'	=> esc_html__( 'Leave blank or select all for any date based archive.', MELA_TD ),
 				'multiple'		=> true,
 				'label_block' 	=> true,
 				'options' 		=> [
-					'day'		=> __( 'Day', 'elementor-extras' ),
-					'month'		=> __( 'Month', 'elementor-extras' ),
-					'year'		=> __( 'Year', 'elementor-extras' ),
+					'day'		=> esc_html__( 'Day', MELA_TD ),
+					'month'		=> esc_html__( 'Month', MELA_TD ),
+					'year'		=> esc_html__( 'Year', MELA_TD ),
 				],
 				'condition' 	=> [
 					'ee_condition_key' => 'date_archive',
@@ -505,8 +471,8 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			[
 				'type' 			=> 'jltma_query',
 				'default' 		=> '',
-				'placeholder'	=> __( 'Any', 'elementor-extras' ),
-				'description'	=> __( 'Leave blank for all authors.', 'elementor-extras' ),
+				'placeholder'	=> esc_html__( 'Any', MELA_TD ),
+				'description'	=> esc_html__( 'Leave blank for all authors.', MELA_TD ),
 				'multiple'		=> true,
 				'label_block' 	=> true,
 				'query_type'	=> 'authors',
@@ -521,8 +487,8 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			[
 				'type' 			=> Controls_Manager::TEXT,
 				'default' 		=> '',
-				'placeholder'	=> __( 'Keywords', 'elementor-extras' ),
-				'description'	=> __( 'Enter keywords, separated by commas, to condition the display on specific keywords and leave blank for any.', 'elementor-extras' ),
+				'placeholder'	=> esc_html__( 'Keywords', MELA_TD ),
+				'description'	=> esc_html__( 'Enter keywords, separated by commas, to condition the display on specific keywords and leave blank for any.', MELA_TD ),
 				'label_block' 	=> true,
 				'condition' 	=> [
 					'ee_condition_key' => 'search_results',
@@ -538,7 +504,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 					'default' 		=> 'empty',
 					'label_block' 	=> true,
 					'options' 		=> [
-						'empty'		=> __( 'Empty', 'elementor-extras' ),
+						'empty'		=> esc_html__( 'Empty', MELA_TD ),
 					],
 					'condition' 	=> [
 						'ee_condition_key' => 'edd_cart',
@@ -550,7 +516,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		$element->add_control(
 			'ee_display_conditions',
 			[
-				'label' 	=> __( 'Conditions', 'elementor-extras' ),
+				'label' 	=> esc_html__( 'Conditions', MELA_TD ),
 				'type' 		=> Controls_Manager::REPEATER,
 				'default' 	=> [
 					[
@@ -569,13 +535,8 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 
 	}
 
-	/**
-	 * Get OS options for control
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 */
+	
+	// Get OS options for control
 	protected function get_os_options() {
 		return [
 			'iphone' 		=> 'iPhone',
@@ -592,13 +553,8 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		];
 	}
 
-	/**
-	 * Get browser options for control
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 */
+	
+	// Get browser options for control
 	protected function get_browser_options() {
 		return [
 			'ie'			=> 'Internet Explorer',
@@ -610,13 +566,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		];
 	}
 
-	/**
-	 * Add Actions
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 */
+	// Add Actions
 	protected function add_actions() {
 
 		$this->set_conditions_options();
@@ -639,7 +589,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 
 			$settings = $element->get_settings();
 
-			if ( 'yes' === $settings[ 'ee_display_conditions_enable' ] ) {
+			if ( isset($settings[ 'ee_display_conditions_enable' ]) && 'yes' === $settings[ 'ee_display_conditions_enable' ] ) {
 
 				// Set the conditions
 				$this->set_conditions( $element->get_id(), $settings['ee_display_conditions'] );
@@ -666,9 +616,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			
 			$settings = $element->get_settings();
 
-			print_r($settings['ee_display_conditions_enable']);
-
-			if ( 'yes' === $settings['ee_display_conditions_enable'] ) {
+			if ( isset($settings[ 'ee_display_conditions_enable' ]) && 'yes' === $settings['ee_display_conditions_enable'] ) {
 
 				// Set the conditions
 				$this->set_conditions( $element->get_id(), $settings['ee_display_conditions'] );
@@ -680,12 +628,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 
 		}, 10, 1 );
 
+
 		// Conditions for sections
 		add_action( 'elementor/frontend/section/before_render', function( $element ) {
 			
 			$settings = $element->get_settings();
 
-			if ( 'yes' === $settings[ 'ee_display_conditions_enable' ] ) {
+			if ( isset($settings[ 'ee_display_conditions_enable' ]) && 'yes' === $settings[ 'ee_display_conditions_enable' ] ) {
 
 				// Set the conditions
 				$this->set_conditions( $element->get_id(), $settings['ee_display_conditions'] );
@@ -700,22 +649,15 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 	}
 
 	protected function render_editor_notice( $settings ) {
-		?><span>This widget is displayed conditionally.</span>
+		?><span>
+			<?php echo esc_html__('This widget is displayed conditionally.', MELA_TD);?></span>
 		<?php
 	}
 
+	
 	/**
 	 * Set conditions.
-	 *
 	 * Sets the conditions property to all conditions comparison values
-	 *
-	 * @since 2.0.0
-	 * @access protected
-	 * @static
-	 *
-	 * @param mixed  $conditions  The conditions from the repeater field control
-	 *
-	 * @return void
 	 */
 	protected function set_conditions( $id, $conditions = [] ) {
 		if ( ! $conditions )
@@ -733,19 +675,12 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		}
 	}
 
+
 	/**
 	 * Check conditions.
 	 *
 	 * Checks for all or any conditions and returns true or false
 	 * depending on wether the content can be shown or not
-	 *
-	 * @since 2.0.0
-	 * @access protected
-	 * @static
-	 *
-	 * @param mixed  $relation  Required conditions relation
-	 *
-	 * @return bool
 	 */
 	protected function is_visible( $id, $relation ) {
 
@@ -769,16 +704,6 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 	 * Compare conditions.
 	 *
 	 * Checks two values against an operator
-	 *
-	 * @since 2.0.0
-	 * @access protected
-	 * @static
-	 *
-	 * @param mixed  $left_value  First value to compare.
-	 * @param mixed  $right_value Second value to compare.
-	 * @param string $operator    Comparison operator.
-	 *
-	 * @return bool
 	 */
 	protected static function compare( $left_value, $right_value, $operator ) {
 		switch ( $operator ) {
