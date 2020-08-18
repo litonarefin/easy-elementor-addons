@@ -44,32 +44,6 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 	}
 
 	
-	//Add common sections
-	public function add_common_sections_actions() {
-
-		// Activate sections for widgets
-		add_action( 'elementor/element/common/section_custom_css/after_section_end', function( $element, $args ) {
-
-			$this->add_common_sections( $element, $args );
-
-		}, 10, 2 );
-
-		// Activate sections for sections
-		add_action( 'elementor/element/section/section_custom_css/after_section_end', function( $element, $args ) {
-
-			$this->add_common_sections( $element, $args );
-
-		}, 10, 2 );
-
-		// Activate sections for widgets if elementor pro
-		add_action( 'elementor/element/common/section_custom_css_pro/after_section_end', function( $element, $args ) {
-
-			$this->add_common_sections( $element, $args );
-
-		}, 10, 2 );
-
-	}
-
 
 	// Set the Conditions options array
 	private function set_conditions_options() {
@@ -138,7 +112,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		$element_type = $element->get_type();
 
 		$element->add_control(
-			'ee_display_conditions_enable',
+			'jltma_display_conditions_enable',
 			[
 				'label'			=> esc_html__( 'Display Conditions', MELA_TD ),
 				'type' 			=> Controls_Manager::SWITCHER,
@@ -152,7 +126,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 
 		if ( 'widget' === $element_type ) {
 			$element->add_control(
-				'ee_display_conditions_output',
+				'jltma_display_conditions_output',
 				[
 					'label'		=> esc_html__( 'Output HTML', MELA_TD ),
 					'description' => sprintf( esc_html__( 'If enabled, the HTML code will exist on the page but the %s will be hidden using CSS.', MELA_TD ), $element_type ),
@@ -163,14 +137,14 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 					'return_value' 	=> 'yes',
 					'frontend_available' => true,
 					'condition'	=> [
-						'ee_display_conditions_enable' => 'yes',
+						'jltma_display_conditions_enable' => 'yes',
 					],
 				]
 			);
 		}
 
 		$element->add_control(
-			'ee_display_conditions_relation',
+			'jltma_display_conditions_relation',
 			[
 				'label'		=> esc_html__( 'Display on', MELA_TD ),
 				'type' 		=> Controls_Manager::SELECT,
@@ -180,7 +154,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 					'any' 		=> esc_html__( 'Any condition met', MELA_TD ),
 				],
 				'condition'	=> [
-					'ee_display_conditions_enable' => 'yes',
+					'jltma_display_conditions_enable' => 'yes',
 				],
 			]
 		);
@@ -188,7 +162,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		$repeater = new Repeater();
 
 		$repeater->add_control(
-			'ee_condition_key',
+			'jltma_condition_key',
 			[
 				'type' 		=> Controls_Manager::SELECT,
 				'default' 	=> 'authentication',
@@ -198,7 +172,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		);
 
 		$repeater->add_control(
-			'ee_condition_operator',
+			'jltma_condition_operator',
 			[
 				'type' 			=> Controls_Manager::SELECT,
 				'default' 		=> 'is',
@@ -211,7 +185,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		);
 
 		$repeater->add_control(
-			'ee_condition_authentication_value',
+			'jltma_condition_authentication_value',
 			[
 				'type' 		=> Controls_Manager::SELECT,
 				'default' 	=> 'authenticated',
@@ -220,13 +194,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 					'authenticated' => esc_html__( 'Logged in', MELA_TD ),
 				],
 				'condition' => [
-					'ee_condition_key' => 'authentication',
+					'jltma_condition_key' => 'authentication',
 				],
 			]
 		);;
 
 		$repeater->add_control(
-			'ee_condition_role_value',
+			'jltma_condition_role_value',
 			[
 				'type' 			=> Controls_Manager::SELECT,
 				'description' 	=> esc_html__( 'Warning: This condition applies only to logged in visitors.', MELA_TD ),
@@ -234,13 +208,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'label_block' 	=> true,
 				'options' 		=> $wp_roles->get_names(),
 				'condition' 	=> [
-					'ee_condition_key' => 'role',
+					'jltma_condition_key' => 'role',
 				],
 			]
 		);
 
 		$repeater->add_control(
-			'ee_condition_date_value',
+			'jltma_condition_date_value',
 			[
 				'label'		=> esc_html__( 'In interval', MELA_TD ),
 				'type' 		=> \Elementor\Controls_Manager::DATE_TIME,
@@ -251,13 +225,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'label_block'	=> true,
 				'default' 		=> $default_interval,
 				'condition' 	=> [
-					'ee_condition_key' => 'date',
+					'jltma_condition_key' => 'date',
 				],
 			]
 		);
 
 		$repeater->add_control(
-			'ee_condition_time_value',
+			'jltma_condition_time_value',
 			[
 				'label'		=> esc_html__( 'Before', MELA_TD ),
 				'type' 		=> \Elementor\Controls_Manager::DATE_TIME,
@@ -269,13 +243,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'label_block'	=> true,
 				'default' 		=> '',
 				'condition' 	=> [
-					'ee_condition_key' => 'time',
+					'jltma_condition_key' => 'time',
 				],
 			]
 		);
 
 		$repeater->add_control(
-			'ee_condition_day_value',
+			'jltma_condition_day_value',
 			[
 				'label'			=> esc_html__( 'Before', MELA_TD ),
 				'type' 			=> Controls_Manager::SELECT2,
@@ -293,7 +267,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'label_block'	=> true,
 				'default' 		=> 'Monday',
 				'condition' 	=> [
-					'ee_condition_key' => 'day',
+					'jltma_condition_key' => 'day',
 				],
 			]
 		);
@@ -301,14 +275,14 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		$os_options = $this->get_os_options();
 
 		$repeater->add_control(
-			'ee_condition_os_value',
+			'jltma_condition_os_value',
 			[
 				'type' 			=> Controls_Manager::SELECT,
 				'default' 		=> array_keys( $os_options )[0],
 				'label_block' 	=> true,
 				'options' 		=> $os_options,
 				'condition' 	=> [
-					'ee_condition_key' => 'os',
+					'jltma_condition_key' => 'os',
 				],
 			]
 		);
@@ -316,20 +290,20 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		$browser_options = $this->get_browser_options();
 
 		$repeater->add_control(
-			'ee_condition_browser_value',
+			'jltma_condition_browser_value',
 			[
 				'type' 			=> Controls_Manager::SELECT,
 				'default' 		=> array_keys( $browser_options )[0],
 				'label_block' 	=> true,
 				'options' 		=> $browser_options,
 				'condition' 	=> [
-					'ee_condition_key' => 'browser',
+					'jltma_condition_key' => 'browser',
 				],
 			]
 		);
 
 		$repeater->add_control(
-			'ee_condition_page_value',
+			'jltma_condition_page_value',
 			[
 				'type' 			=> 'jltma_query',
 				'default' 		=> '',
@@ -340,13 +314,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'query_type'	=> 'posts',
 				'object_type'	=> 'page',
 				'condition' 	=> [
-					'ee_condition_key' => 'page',
+					'jltma_condition_key' => 'page',
 				],
 			]
 		);
 
 		$repeater->add_control(
-			'ee_condition_post_value',
+			'jltma_condition_post_value',
 			[
 				'type' 			=> 'jltma_query',
 				'default' 		=> '',
@@ -357,13 +331,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'query_type'	=> 'posts',
 				'object_type'	=> '',
 				'condition' 	=> [
-					'ee_condition_key' => 'post',
+					'jltma_condition_key' => 'post',
 				],
 			]
 		);
 
 		$repeater->add_control(
-			'ee_condition_static_page_value',
+			'jltma_condition_static_page_value',
 			[
 				'type' 			=> Controls_Manager::SELECT,
 				'default' 		=> 'home',
@@ -375,13 +349,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 					'404'		=> esc_html__( '404 Page', MELA_TD ),
 				],
 				'condition' 	=> [
-					'ee_condition_key' => 'static_page',
+					'jltma_condition_key' => 'static_page',
 				],
 			]
 		);
 
 		$repeater->add_control(
-			'ee_condition_post_type_value',
+			'jltma_condition_post_type_value',
 			[
 				'type' 			=> Controls_Manager::SELECT2,
 				'default' 		=> '',
@@ -391,13 +365,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'multiple'		=> true,
 				'options' 		=> Utils::ma_el_get_post_types(),
 				'condition' 	=> [
-					'ee_condition_key' => 'post_type',
+					'jltma_condition_key' => 'post_type',
 				],
 			]
 		);
 
 		$repeater->add_control(
-			'ee_condition_taxonomy_archive_value',
+			'jltma_condition_taxonomy_archive_value',
 			[
 				'type' 			=> Controls_Manager::SELECT2,
 				'default' 		=> '',
@@ -407,13 +381,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'label_block' 	=> true,
 				'options' 		=> Utils::get_taxonomies_options(),
 				'condition' 	=> [
-					'ee_condition_key' => 'taxonomy_archive',
+					'jltma_condition_key' => 'taxonomy_archive',
 				],
 			]
 		);
 
 		$repeater->add_control(
-			'ee_condition_term_archive_value',
+			'jltma_condition_term_archive_value',
 			[
 				'label' 		=> esc_html__( 'Term', 'elementor-pro' ),
 				'description'	=> esc_html__( 'Leave blank or select all for any term archive.', MELA_TD ),
@@ -425,13 +399,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'query_type' 	=> 'terms',
 				'include_type' 	=> true,
 				'condition' 	=> [
-					'ee_condition_key' => 'term_archive',
+					'jltma_condition_key' => 'term_archive',
 				],
 			]
 		);
 
 		$repeater->add_control(
-			'ee_condition_post_type_archive_value',
+			'jltma_condition_post_type_archive_value',
 			[
 				'type' 			=> Controls_Manager::SELECT2,
 				'default' 		=> '',
@@ -441,13 +415,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'label_block' 	=> true,
 				'options' 		=> Utils::ma_el_get_post_types(),
 				'condition' 	=> [
-					'ee_condition_key' => 'post_type_archive',
+					'jltma_condition_key' => 'post_type_archive',
 				],
 			]
 		);
 
 		$repeater->add_control(
-			'ee_condition_date_archive_value',
+			'jltma_condition_date_archive_value',
 			[
 				'type' 			=> Controls_Manager::SELECT2,
 				'default' 		=> '',
@@ -461,13 +435,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 					'year'		=> esc_html__( 'Year', MELA_TD ),
 				],
 				'condition' 	=> [
-					'ee_condition_key' => 'date_archive',
+					'jltma_condition_key' => 'date_archive',
 				],
 			]
 		);
 
 		$repeater->add_control(
-			'ee_condition_author_archive_value',
+			'jltma_condition_author_archive_value',
 			[
 				'type' 			=> 'jltma_query',
 				'default' 		=> '',
@@ -477,13 +451,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'label_block' 	=> true,
 				'query_type'	=> 'authors',
 				'condition' 	=> [
-					'ee_condition_key' => 'author_archive',
+					'jltma_condition_key' => 'author_archive',
 				],
 			]
 		);
 
 		$repeater->add_control(
-			'ee_condition_search_results_value',
+			'jltma_condition_search_results_value',
 			[
 				'type' 			=> Controls_Manager::TEXT,
 				'default' 		=> '',
@@ -491,14 +465,14 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				'description'	=> esc_html__( 'Enter keywords, separated by commas, to condition the display on specific keywords and leave blank for any.', MELA_TD ),
 				'label_block' 	=> true,
 				'condition' 	=> [
-					'ee_condition_key' => 'search_results',
+					'jltma_condition_key' => 'search_results',
 				],
 			]
 		);
 
 		if ( class_exists( 'Easy_Digital_Downloads', false ) ) {
 			$repeater->add_control(
-				'ee_condition_edd_cart_value',
+				'jltma_condition_edd_cart_value',
 				[
 					'type' 			=> Controls_Manager::SELECT,
 					'default' 		=> 'empty',
@@ -507,26 +481,26 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 						'empty'		=> esc_html__( 'Empty', MELA_TD ),
 					],
 					'condition' 	=> [
-						'ee_condition_key' => 'edd_cart',
+						'jltma_condition_key' => 'edd_cart',
 					],
 				]
 			);
 		}
 
 		$element->add_control(
-			'ee_display_conditions',
+			'jltma_display_conditions',
 			[
 				'label' 	=> esc_html__( 'Conditions', MELA_TD ),
 				'type' 		=> Controls_Manager::REPEATER,
 				'default' 	=> [
 					[
-						'ee_condition_key' 					=> 'authentication',
-						'ee_condition_operator' 			=> 'is',
-						'ee_condition_authentication_value' => 'authenticated',
+						'jltma_condition_key' 					=> 'authentication',
+						'jltma_condition_operator' 			=> 'is',
+						'jltma_condition_authentication_value' => 'authenticated',
 					],
 				],
 				'condition'		=> [
-					'ee_display_conditions_enable' => 'yes',
+					'jltma_display_conditions_enable' => 'yes',
 				],
 				'fields' 		=> array_values( $repeater->get_controls() ),
 				'title_field' 	=> 'Condition',
@@ -589,10 +563,10 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 
 			$settings = $element->get_settings();
 
-			if ( isset($settings[ 'ee_display_conditions_enable' ]) && 'yes' === $settings[ 'ee_display_conditions_enable' ] ) {
+			if ( isset($settings[ 'jltma_display_conditions_enable' ]) && 'yes' === $settings[ 'jltma_display_conditions_enable' ] ) {
 
 				// Set the conditions
-				$this->set_conditions( $element->get_id(), $settings['ee_display_conditions'] );
+				$this->set_conditions( $element->get_id(), $settings['jltma_display_conditions'] );
 
 				// if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
 				// 	ob_start();
@@ -600,8 +574,8 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 				// 	$widget_content .= ob_get_clean();
 				// }
 
-				if ( ! $this->is_visible( $element->get_id(), $settings['ee_display_conditions_relation'] ) ) { // Check the conditions
-					if ( 'yes' !== $settings['ee_display_conditions_output'] ) {
+				if ( ! $this->is_visible( $element->get_id(), $settings['jltma_display_conditions_relation'] ) ) { // Check the conditions
+					if ( 'yes' !== $settings['jltma_display_conditions_output'] ) {
 						return; // And on frontend we stop the rendering of the widget
 					}
 				}
@@ -616,13 +590,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			
 			$settings = $element->get_settings();
 
-			if ( isset($settings[ 'ee_display_conditions_enable' ]) && 'yes' === $settings['ee_display_conditions_enable'] ) {
+			if ( isset($settings[ 'jltma_display_conditions_enable' ]) && 'yes' === $settings['jltma_display_conditions_enable'] ) {
 
 				// Set the conditions
-				$this->set_conditions( $element->get_id(), $settings['ee_display_conditions'] );
+				$this->set_conditions( $element->get_id(), $settings['jltma_display_conditions'] );
 
-				if ( ! $this->is_visible( $element->get_id(), $settings['ee_display_conditions_relation'] ) ) { // Check the conditions
-					$element->add_render_attribute( '_wrapper', 'class', 'ee-conditions--hidden' );
+				if ( ! $this->is_visible( $element->get_id(), $settings['jltma_display_conditions_relation'] ) ) { // Check the conditions
+					$element->add_render_attribute( '_wrapper', 'class', 'jltma-conditions-hidden' );
 				}
 			}
 
@@ -634,13 +608,13 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			
 			$settings = $element->get_settings();
 
-			if ( isset($settings[ 'ee_display_conditions_enable' ]) && 'yes' === $settings[ 'ee_display_conditions_enable' ] ) {
+			if ( isset($settings[ 'jltma_display_conditions_enable' ]) && 'yes' === $settings[ 'jltma_display_conditions_enable' ] ) {
 
 				// Set the conditions
-				$this->set_conditions( $element->get_id(), $settings['ee_display_conditions'] );
+				$this->set_conditions( $element->get_id(), $settings['jltma_display_conditions'] );
 
-				if ( ! $this->is_visible( $element->get_id(), $settings['ee_display_conditions_relation'] ) ) { // Check the conditions
-					$element->add_render_attribute( '_wrapper', 'class', 'ee-conditions--hidden' );
+				if ( ! $this->is_visible( $element->get_id(), $settings['jltma_display_conditions_relation'] ) ) { // Check the conditions
+					$element->add_render_attribute( '_wrapper', 'class', 'jltma-conditions-hidden' );
 				}
 			}
 
@@ -664,9 +638,9 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			return;
 
 		foreach ( $conditions as $index => $condition ) {
-			$key 		= $condition['ee_condition_key'];
-			$operator 	= $condition['ee_condition_operator'];
-			$value 		= $condition['ee_condition_' . $key . '_value'];
+			$key 		= $condition['jltma_condition_key'];
+			$operator 	= $condition['jltma_condition_operator'];
+			$value 		= $condition['jltma_condition_' . $key . '_value'];
 
 			if ( method_exists( $this, 'check_' . $key ) ) {
 				$check = call_user_func( [ $this, 'check_' . $key ], $value, $operator );
@@ -700,11 +674,8 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return true;
 	}
 
-	/**
-	 * Compare conditions.
-	 *
-	 * Checks two values against an operator
-	 */
+	
+	// Compare conditions
 	protected static function compare( $left_value, $right_value, $operator ) {
 		switch ( $operator ) {
 			case 'is':
@@ -716,46 +687,21 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		}
 	}
 
-	/**
-	 * Check user login status
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string  $operator  Comparison operator.
-	 */
+	// Check user login status
 	protected static function check_authentication( $value, $operator ) {
 		return self::compare( is_user_logged_in(), true, $operator );
 	}
 
-	/**
-	 * Check user role
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string  $operator  Comparison operator.
-	 */
+	
+	// Check user role
 	protected static function check_role( $value, $operator ) {
 
 		$user = wp_get_current_user();
 		return self::compare( is_user_logged_in() && in_array( $value, $user->roles ), true, $operator );
 	}
 
-	/**
-	 * Check date interval
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string  $operator  Comparison operator.
-	 */
+
+	// Check date interval
 	protected static function check_date( $value, $operator ) {
 
 		// Split control valur into two dates
@@ -789,19 +735,8 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return self::compare( $show, true, $operator );
 	}
 
-	/**
-	 * Check time of day interval
-	 *
-	 * Checks wether current time is in given interval
-	 * in order to display element
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string  $operator  Comparison operator.
-	 */
+	
+	// Check time of day interval
 	protected static function check_time( $value, $operator ) {
 
 		// Split control valur into two dates
@@ -825,19 +760,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return self::compare( $show, true, $operator );
 	}
 
-	/**
-	 * Check day of week
-	 *
-	 * Checks wether today falls inside a
-	 * specified day of the week
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string  $operator  Comparison operator.
-	 */
+	// Check day of week
 	protected static function check_day( $value, $operator ) {
 
 		$show = false;
@@ -853,16 +776,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return self::compare( $show, true, $operator );
 	}
 
-	/**
-	 * Check operating system of visitor
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string $operator  Comparison operator.
-	 */
+	// Check operating system of visitor
 	protected static function check_os( $value, $operator ) {
 
 		$oses = [
@@ -882,16 +796,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return self::compare( preg_match('@' . $oses[ $value ] . '@', $_SERVER['HTTP_USER_AGENT'] ), true, $operator );
 	}
 
-	/**
-	 * Check browser of visitor
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string $operator  Comparison operator.
-	 */
+	// Check browser of visitor
 	protected static function check_browser( $value, $operator ) {
 
 		$browsers = [
@@ -929,16 +834,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return self::compare( $show, true, $operator );
 	}
 
-	/**
-	 * Check current page
-	 *
-	 * @since 2.1.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string $operator  Comparison operator.
-	 */
+	// Check current page
 	protected static function check_page( $value, $operator ) {
 		$show = false;
 
@@ -953,16 +849,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return self::compare( $show, true, $operator );
 	}
 
-	/**
-	 * Check current post
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string $operator  Comparison operator.
-	 */
+	// Check current post
 	protected static function check_post( $value, $operator ) {
 		$show = false;
 
@@ -977,16 +864,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return self::compare( $show, true, $operator );
 	}
 
-	/**
-	 * Check browser of visitor
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string $operator  Comparison operator.
-	 */
+	// Check browser of visitor
 	protected static function check_static_page( $value, $operator ) {
 
 		if ( 'home' === $value ) {
@@ -1000,16 +878,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		}
 	}
 
-	/**
-	 * Check current post type
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string $operator  Comparison operator.
-	 */
+	// Check current post type
 	protected static function check_post_type( $value, $operator ) {
 		$show = false;
 
@@ -1024,16 +893,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return self::compare( $show, true, $operator );
 	}
 
-	/**
-	 * Check current taxonomy archive
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string $operator  Comparison operator.
-	 */
+	// Check current taxonomy archive
 	protected static function check_taxonomy_archive( $value, $operator ) {
 		$show = false;
 
@@ -1049,15 +909,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return self::compare( $show, true, $operator );
 	}
 
-	/**
-	 * Checks a given taxonomy against the current page template
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param string  $taxonomy  The taxonomy to check against
-	 */
+	// Checks a given taxonomy against the current page template
 	protected static function check_taxonomy_archive_type( $taxonomy ) {
 		if ( 'category' === $taxonomy ) {
 			return is_category();
@@ -1072,16 +924,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return false;
 	}
 
-	/**
-	 * Check current taxonomy term archive
-	 *
-	 * @since 2.1.2
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string $operator  Comparison operator.
-	 */
+	// Check current taxonomy term archive
 	protected static function check_term_archive( $value, $operator ) {
 		$show = false;
 
@@ -1097,15 +940,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return self::compare( $show, true, $operator );
 	}
 
-	/**
-	 * Checks a given taxonomy term against the current page template
-	 *
-	 * @since 2.1.2
-	 *
-	 * @access protected
-	 *
-	 * @param string  $taxonomy  The taxonomy to check against
-	 */
+	// Checks a given taxonomy term against the current page template
 	protected static function check_term_archive_type( $term ) {
 
 		if ( is_category( $term ) ) {
@@ -1121,16 +956,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return false;
 	}
 
-	/**
-	 * Check current post type archive
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string $operator  Comparison operator.
-	 */
+	// Check current post type archive
 	protected static function check_post_type_archive( $value, $operator ) {
 		$show = false;
 
@@ -1145,16 +971,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return self::compare( $show, true, $operator );
 	}
 
-	/**
-	 * Check current date archive
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string $operator  Comparison operator.
-	 */
+	// Check current date archive
 	protected static function check_date_archive( $value, $operator ) {
 		$show = false;
 
@@ -1169,15 +986,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return self::compare( $show, true, $operator );
 	}
 
-	/**
-	 * Checks a given date type against the current page template
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param string  $type  The type of date archive to check against
-	 */
+	// Checks a given date type against the current page template
 	protected static function check_date_archive_type( $type ) {
 		if ( 'day' === $type ) { // Day
 			return is_day();
@@ -1190,16 +999,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return false;
 	}
 
-	/**
-	 * Check current author archive
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string $operator  Comparison operator.
-	 */
+	// Check current author archive
 	protected static function check_author_archive( $value, $operator ) {
 		$show = false;
 
@@ -1214,16 +1014,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return self::compare( $show, true, $operator );
 	}
 
-	/**
-	 * Check current search query
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string $operator  Comparison operator.
-	 */
+	// Check current search query
 	protected static function check_search_results( $value, $operator ) {
 		$show = false;
 
@@ -1253,16 +1044,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 		return self::compare( $show, true, $operator );
 	}
 
-	/**
-	 * Check is EDD Cart is empty
-	 *
-	 * @since 2.1.0
-	 *
-	 * @access protected
-	 *
-	 * @param mixed  $value  The control value to check
-	 * @param string $operator  Comparison operator.
-	 */
+	// Check is EDD Cart is empty
 	protected static function check_edd_cart( $value, $operator ) {
 		
 		if ( ! class_exists( 'Easy_Digital_Downloads', false ) )
@@ -1283,7 +1065,7 @@ class JLTMA_Display_Conditions extends JLTMA_Extension_Prototype {
 			self::$instance = new self;
 		}
 		return self::$instance;
-    }	
+    }
 }
 
 JLTMA_Display_Conditions::get_instance();
