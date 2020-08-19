@@ -123,7 +123,7 @@ class JLTMA_Extension_Prototype {
 
         // Check if this section exists
         $section_exists = \Elementor\Plugin::instance()->controls_manager->get_control_from_stack($element->get_unique_name(), $section_name);
-        // var_dump( $section_exists );
+        
 
         if (!is_wp_error($section_exists)) {
             // We can't and should try to add this section to the stack
