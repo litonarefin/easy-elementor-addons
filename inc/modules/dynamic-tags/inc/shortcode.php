@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Shortcode extends Tag {
+class JLTMA_Shortcode extends Tag {
 	public function get_name() {
 		return 'jltma-shortcode';
 	}

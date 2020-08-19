@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Post_Date extends Tag {
+class JLTMA_Post_Date extends Tag {
 	public function get_name() {
 		return 'jltma-post-date';
 	}

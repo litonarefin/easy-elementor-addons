@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Contact_URL extends Tag {
+class JLTMA_Contact_URL extends Tag {
 
 	public function get_name() {
 		return 'jltma-contact-url';

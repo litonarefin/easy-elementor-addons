@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Post_Gallery extends Data_Tag {
+class JLTMA_Post_Gallery extends Data_Tag {
 
 	public function get_name() {
 		return 'jltma-post-gallery';

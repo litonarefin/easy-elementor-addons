@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Comments_URL extends Data_Tag {
+class JLTMA_Comments_URL extends Data_Tag {
 
 	public function get_name() {
 		return 'jltma-comments-url';

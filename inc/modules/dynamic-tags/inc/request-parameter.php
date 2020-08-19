@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Request_Parameter extends Tag {
+class JLTMA_Request_Parameter extends Tag {
 	public function get_name() {
 		return 'jltma-request-parameter';
 	}

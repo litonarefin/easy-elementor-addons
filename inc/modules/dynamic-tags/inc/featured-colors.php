@@ -39,8 +39,8 @@ class JLTMA_Featured_Colors extends Tag {
 
 		for( $i = 1; $i <= 8 ; ++$i ) {
 			$items[$i] = [
-				'label' =>  sprintf( esc_html__( 'Color %s', THEME_DOMAIN ), $i ),
-				'color'	=> auxin_get_option( 'site_featured_color_' . $i )
+				'label' =>  sprintf( esc_html__( 'Color %s', MELA_TD ), $i ),
+				'color'	=> get_option( 'site_featured_color_' . $i, '#6a14d1' )
 			];
 		}
 
@@ -65,7 +65,7 @@ class JLTMA_Featured_Colors extends Tag {
 
 	protected function get_color() {
 		if( $key = $this->get_settings( 'key' ) ){
-			return "var( --auxin-featured-color-{$key} )";
+			return "var( --jltma-featured-color-{$key} )";
 		}
 
 		return '';

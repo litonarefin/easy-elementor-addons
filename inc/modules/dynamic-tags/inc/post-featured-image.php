@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Post_Featured_Image extends Data_Tag {
+class JLTMA_Post_Featured_Image extends Data_Tag {
 
 	public function get_name() {
 		return 'jltma-post-featured-image';

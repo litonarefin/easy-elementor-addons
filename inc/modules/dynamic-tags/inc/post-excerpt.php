@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Post_Excerpt extends Tag {
+class JLTMA_Post_Excerpt extends Tag {
 
 	public function get_name() {
 		return 'jltma-post-excerpt';

@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Archive_Meta extends Tag {
+class JLTMA_Archive_Meta extends Tag {
 
 	public function get_name() {
 		return 'jltma-archive-meta';

@@ -245,16 +245,16 @@ class Master_Addons_Helper{
 	// Master Addons Position
 	public static function ma_el_content_positions() {
 		$position_options = [
-			''              => __('Default', MELA_TD),
-			'top-left'      => __('Top Left', MELA_TD) ,
-			'top-center'    => __('Top Center', MELA_TD) ,
-			'top-right'     => __('Top Right', MELA_TD) ,
-			'center'        => __('Center', MELA_TD) ,
-			'center-left'   => __('Center Left', MELA_TD) ,
-			'center-right'  => __('Center Right', MELA_TD) ,
-			'bottom-left'   => __('Bottom Left', MELA_TD) ,
-			'bottom-center' => __('Bottom Center', MELA_TD) ,
-			'bottom-right'  => __('Bottom Right', MELA_TD) ,
+			''              => esc_html__( 'Default', MELA_TD),
+			'top-left'      => esc_html__( 'Top Left', MELA_TD) ,
+			'top-center'    => esc_html__( 'Top Center', MELA_TD),
+			'top-right'     => esc_html__( 'Top Right', MELA_TD),
+			'center'        => esc_html__( 'Center', MELA_TD),
+			'center-left'   => esc_html__( 'Center Left', MELA_TD),
+			'center-right'  => esc_html__( 'Center Right', MELA_TD),
+			'bottom-left'   => esc_html__( 'Bottom Left', MELA_TD),
+			'bottom-center' => esc_html__( 'Bottom Center', MELA_TD),
+			'bottom-right'  => esc_html__( 'Bottom Right', MELA_TD),
 		];
 
 		return $position_options;
@@ -696,6 +696,49 @@ class Master_Addons_Helper{
 	}
 
 
+    public static function jltma_post_types_category_slug() {
+
+        $post_types = [
+            'category' => esc_html__( 'Post', MELA_TD )
+        ];
+
+        if ( class_exists( 'WooCommerce' ) ) {
+            $post_types['product_cat'] = esc_html__( 'Product', MELA_TD );
+        }
+
+        //other post types taxonomies here
+
+        return apply_filters( 'jltma_post_types_category_slug', $post_types );
+    }
+
+	
+	public static function jltma_get_taxonomies( $args = [], $output = 'names', $operator = 'and' ) {
+	    global $wp_taxonomies;
+
+	    $field = ( 'names' === $output ) ? 'name' : false;
+
+	    // Handle 'object_type' separately.
+	    if ( isset( $args['object_type'] ) ) {
+	        $object_type = (array) $args['object_type'];
+	        unset( $args['object_type'] );
+	    }
+
+	    $taxonomies = wp_filter_object_list( $wp_taxonomies, $args, $operator );
+
+	    if ( isset( $object_type ) ) {
+	        foreach ( $taxonomies as $tax => $tax_data ) {
+	            if ( ! array_intersect( $object_type, $tax_data->object_type ) ) {
+	                unset( $taxonomies[ $tax ] );
+	            }
+	        }
+	    }
+
+	    if ( $field ) {
+	        $taxonomies = wp_list_pluck( $taxonomies, $field );
+	    }
+
+	    return $taxonomies;
+	}
 
 
 

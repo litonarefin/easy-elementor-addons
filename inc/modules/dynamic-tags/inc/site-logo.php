@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Site_Logo extends Data_Tag {
+class JLTMA_Site_Logo extends Data_Tag {
 	public function get_name() {
 		return 'jltma-site-logo';
 	}

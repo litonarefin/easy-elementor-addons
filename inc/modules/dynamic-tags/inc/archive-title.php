@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Archive_Title extends Tag {
+class JLTMA_Archive_Title extends Tag {
 	public function get_name() {
 		return 'jltma-archive-title';
 	}

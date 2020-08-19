@@ -4,6 +4,7 @@ namespace MasterAddons\Modules\DynamicTags\Tags;
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
+use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -35,7 +36,7 @@ class JLTMA_Taxonomies_Url extends Tag {
             '' => esc_html__( 'Select...', MELA_TD ),
         ];
 
-        $categories = auxin_general_post_types_category_slug();
+        $categories = Master_Addons_Helper::jltma_post_types_category_slug();
         foreach( $categories as $category_slug => $post_type_name ) {
             $terms = get_categories( array( 'taxonomy' => $category_slug ) );
             foreach ( $terms as $term ) {

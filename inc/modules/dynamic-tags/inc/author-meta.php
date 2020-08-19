@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Author_Meta extends Tag {
+class JLTMA_Author_Meta extends Tag {
 
 	public function get_name() {
 		return 'jltma-author-meta';

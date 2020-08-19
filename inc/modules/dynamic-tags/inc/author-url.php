@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Author_URL extends Data_Tag {
+class JLTMA_Author_URL extends Data_Tag {
 
 	public function get_name() {
 		return 'jltma-author-url';

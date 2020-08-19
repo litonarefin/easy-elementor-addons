@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Current_Date_Time extends Tag {
+class JLTMA_Current_Date_Time extends Tag {
 
 	public function get_name() {
 		return 'jltma-current-date-time';

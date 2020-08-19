@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class Post_URL extends Data_Tag {
+class JLTMA_Post_URL extends Data_Tag {
 
 	public function get_name() {
 		return 'jltma-post-url';

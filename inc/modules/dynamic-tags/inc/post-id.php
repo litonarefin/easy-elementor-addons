@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Post_ID extends Tag {
+class JLTMA_Post_ID extends Tag {
 
 	public function get_name() {
 		return 'jltma-post-id';

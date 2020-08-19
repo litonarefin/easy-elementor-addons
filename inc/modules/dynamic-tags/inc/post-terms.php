@@ -1,5 +1,6 @@
 <?php
 namespace MasterAddons\Modules\DynamicTags\Tags;
+use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -9,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Post_Terms extends Tag {
+class JLTMA_Post_Terms extends Tag {
 
 	public function get_name() {
 		return 'jltma-post-terms';
@@ -45,9 +46,9 @@ class Post_Terms extends Tag {
 		 *                                    match against the taxonomy objects inside
 		 *                                    the `get_taxonomies()` function.
 		 */
-		$taxonomy_filter_args = apply_filters( 'auxin/core_elements/dynamic_tags/post_terms/taxonomy_args', $taxonomy_filter_args );
+		$taxonomy_filter_args = apply_filters( 'jltma/dynamic_tags/post_terms/taxonomy_args', $taxonomy_filter_args );
 
-		$taxonomies = auxin_get_taxonomies( $taxonomy_filter_args, 'objects' );
+		$taxonomies = Master_Addons_Helper::jltma_get_taxonomies( $taxonomy_filter_args, 'objects' );
 
 		$options = [];
 

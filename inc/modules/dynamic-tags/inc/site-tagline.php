@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Site_Tagline extends Tag {
+class JLTMA_Site_Tagline extends Tag {
 	public function get_name() {
 		return 'jltma-site-tagline';
 	}
