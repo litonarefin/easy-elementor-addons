@@ -70,7 +70,7 @@ $jltma_elements = [
             ],
             [
                 'key'           => 'transition',
-                'title'         => esc_html__( 'Transition', MELA_TD),
+                'title'         => esc_html__( 'Entrance Animation', MELA_TD),
                 'demo_url'      => '',
                 'docs_url'      => '',
                 'tuts_url'      => ''

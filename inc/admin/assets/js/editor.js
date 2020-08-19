@@ -45,10 +45,10 @@
             view.listenTo( model.get( 'settings' ), 'change', function( changedModel ){
 
                 // Force to re-render the element if the Entrance Animation enabled for first time
-                if( '' !== model.getSetting('ma_el_animation_name') && !view.$el.hasClass('ma-el-animated') ){
+                if( '' !== model.getSetting('ma_el_animation_name') && !view.$el.hasClass('jltma-animated') ){
                     view.render();
-                    view.$el.addClass('ma-el-animated');
-                    view.$el.addClass('ma-el-animated-once');
+                    view.$el.addClass('jltma-animated');
+                    view.$el.addClass('jltma-animated-once');
                 }
 
                 // Check the changed setting value
