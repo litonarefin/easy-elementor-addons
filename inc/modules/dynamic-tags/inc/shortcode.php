@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Shortcode extends Tag {
 	public function get_name() {
-		return 'aux-shortcode';
+		return 'jltma-shortcode';
 	}
 
 	public function get_title() {
-		return __( 'Shortcode', 'auxin-elements' );
+		return esc_html__( 'Shortcode', MELA_TD );
 	}
 
 	public function get_group() {
@@ -37,7 +37,7 @@ class Shortcode extends Tag {
 		$this->add_control(
 			'shortcode',
 			[
-				'label' => __( 'Shortcode', 'auxin-elements' ),
+				'label' => esc_html__( 'Shortcode', MELA_TD ),
 				'type'  => Controls_Manager::TEXTAREA,
 			]
 		);

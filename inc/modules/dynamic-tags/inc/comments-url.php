@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Core\DynamicTags\Data_Tag;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Comments_URL extends Data_Tag {
 
 	public function get_name() {
-		return 'aux-comments-url';
+		return 'jltma-comments-url';
 	}
 
 	public function get_title() {
-		return __( 'Comments URL', 'auxin-elements' );
+		return esc_html__( 'Comments URL', MELA_TD );
 	}
 
 	public function get_group() {

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Post_Custom_Field extends Tag {
 
 	public function get_name() {
-		return 'aux-post-custom-field';
+		return 'jltma-post-custom-field';
 	}
 
 	public function get_title() {

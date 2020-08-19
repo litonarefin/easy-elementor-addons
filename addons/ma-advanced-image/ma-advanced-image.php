@@ -721,9 +721,9 @@
 					'per_page'=> $parsed_atts['loadmore_per_page']
 				);
 
-				$_css_classes[] = 'aux-ajax-type-' . $result['parsed_atts']['loadmore_type'];
+				$_css_classes[] = 'jltma-ajax-type-' . $result['parsed_atts']['loadmore_type'];
 				if ( 'infinite-scroll' === $result['parsed_atts']['loadmore_type'] ) {
-					$_css_classes[] = 'aux-ajax-type-scroll';
+					$_css_classes[] = 'jltma-ajax-type-scroll';
 				}
 			}
 
@@ -732,13 +732,13 @@
 			// Add extra class names to class list here - widget-{element_name}
 			$_css_classes[] = $result['parsed_atts']['base_class'];
 
-			$_css_classes[] = 'aux-parent-' . $result['parsed_atts']['universal_id'];
+			$_css_classes[] = 'jltma-parent-' . $result['parsed_atts']['universal_id'];
 
 			$_widget_attrs  = '';
 			$_widget_styles = '';
 
 			if( ! empty( $result['parsed_atts']['inview_transition'] ) && 'none' !== $result['parsed_atts']['inview_transition'] ){
-				$_css_classes[] = 'aux-appear-watch';
+				$_css_classes[] = 'jltma-appear-watch';
 				$_css_classes[] = esc_attr( $result['parsed_atts']['inview_transition'] );
 
 				if( ! empty( $result['parsed_atts']['inview_duration'] ) && 600 != $result['parsed_atts']['inview_duration'] ){
@@ -750,7 +750,7 @@
 					$_widget_styles .= 'transition-delay:' . esc_attr( rtrim( $result['parsed_atts']['inview_delay'], 'ms') ) . 'ms;';
 				}
 				if( ! empty( $result['parsed_atts']['inview_repeat'] ) && 'no' !== $result['parsed_atts']['inview_repeat'] ){
-					$_css_classes[] = 'aux-appear-repeat';
+					$_css_classes[] = 'jltma-appear-repeat';
 				}
 				if( ! empty( $result['parsed_atts']['inview_offset'] ) ){
 					$offset = $result['parsed_atts']['inview_offset'];
@@ -1137,7 +1137,7 @@
 			// default image attributes
 			$default_attr  = array(
 				'src'              => $src,
-				'class'            => "aux-attachment aux-featured-image attachment-$string_size aux-attachment-id-$attachment_id $extra_class",
+				'class'            => "jltma-attachment jltma-featured-image attachment-$string_size jltma-attachment-id-$attachment_id $extra_class",
 				'alt'              => trim(strip_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) )), // Use Alt field first
 				'width_attr_name'  => '',
 				'height_attr_name' => ''
@@ -1200,7 +1200,7 @@
 			// Display a blurred preview of the main image
 			if ( 'auto' === $sizes ) {
 				// add the required class name to make it visible to image size-calculation script
-				$attr['class'] .= ' aux-preload';
+				$attr['class'] .= ' jltma-preload';
 
 				if ( ! empty( $attr['src'] ) && empty( $attr['srcset'] ) ) {
 					$attr['data-src'] = $attr['src'];
@@ -1302,7 +1302,7 @@
 			$image_primary      = '';
 			$image_primary_full = '';
 			$image_secondary    = '';
-			$image_classes      = "aux-attachment aux-featured-image aux-attachment-id-$attach_id";
+			$image_classes      = "jltma-attachment jltma-featured-image jltma-attachment-id-$attach_id";
 			$frame_classes      = '';
 
 			if( empty( $size ) ){
@@ -1313,11 +1313,11 @@
 			}
 
 			if ( $add_content ) {
-				$frame_classes .= 'aux-image-box-widget-bg-cover';
+				$frame_classes .= 'jltma-image-box-widget-bg-cover';
 			}
 
 			if ( $this->ma_el_is_true( $colorized_shadow ) && empty( $attach_id_hover ) ) {
-				$image_classes .= ' aux-img-dynamic-dropshadow';
+				$image_classes .= ' jltma-img-dynamic-dropshadow';
 			}
 
 			if( ! empty( $attach_id ) && is_numeric( $attach_id ) ) {
@@ -1352,7 +1352,7 @@
 			// hover effect
 			$hover_class = '';
 			if ( !empty($anchor_link) ) {
-				$hover_class = 'aux-hover-active';
+				$hover_class = 'jltma-hover-active';
 			}
 
 			$overflow_class = '';
@@ -1387,7 +1387,7 @@
 						<?php } ?>
 
 						<?php if ( !empty( $image_secondary ) ) { ?>
-							<div class="aux-image-holder ma-el-image-has-secondary">
+							<div class="jltma-image-holder ma-el-image-has-secondary">
 								<?php echo $image_primary; ?>
 								<?php echo $image_secondary; ?>
 							</div>
@@ -1419,13 +1419,13 @@
 
 				'attach_id'        => $settings['ma_el_adv_image']['id'],
 				'size'             => $settings['ma_el_adv_image_size'],
-				'width'            => $settings['ma_el_adv_image_custom_dimension']['width'],
-				'height'           => $settings['ma_el_adv_image_custom_dimension']['height'],
+				// 'width'            => $settings['ma_el_adv_image_custom_dimension']['width'],
+				// 'height'           => $settings['ma_el_adv_image_custom_dimension']['height'],
 				'link'             => $settings['ma_el_adv_link']['url'],
 				'nofollow'         => $settings['ma_el_adv_link']['nofollow'],
 				'target'           => $link_target,
 
-				'attach_id_hover'  => $settings['ma_el_adv_hover_image']['id'],
+				// 'attach_id_hover'  => $settings['ma_el_adv_hover_image']['id'],
 
 				'display_ribbon'   => $settings['ma_el_adv_display_ribbon'],
 				'ribbon_text'      => $settings['ma_el_adv_ribbon_text'],

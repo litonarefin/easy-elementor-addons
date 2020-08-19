@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Page_Title extends Tag {
 
 	public function get_name() {
-		return 'aux-page-title';
+		return 'jltma-page-title';
 	}
 
 	public function get_title() {
-		return __( 'Page Title', 'auxin-elements' );
+		return esc_html__( 'Page Title', MELA_TD );
 	}
 
 	public function get_group() {
@@ -43,7 +43,7 @@ class Page_Title extends Tag {
 		$this->add_control(
 			'include_context',
 			[
-				'label' => __( 'Include Context', 'auxin-elements' ),
+				'label' => esc_html__( 'Include Context', MELA_TD ),
 				'type' => Controls_Manager::SWITCHER,
 			]
 		);
@@ -51,7 +51,7 @@ class Page_Title extends Tag {
 		$this->add_control(
 			'show_home_title',
 			[
-				'label' => __( 'Show Home Title', 'auxin-elements' ),
+				'label' => esc_html__( 'Show Home Title', MELA_TD ),
 				'type' => Controls_Manager::SWITCHER,
 			]
 		);

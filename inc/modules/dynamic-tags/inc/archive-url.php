@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Core\DynamicTags\Data_Tag;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Archive_URL extends Data_Tag {
 
 	public function get_name() {
-		return 'aux-archive-url';
+		return 'jltma-archive-url';
 	}
 
 	public function get_group() {
@@ -23,7 +23,7 @@ class Archive_URL extends Data_Tag {
 	}
 
 	public function get_title() {
-		return __( 'Archive URL', 'auxin-elements' );
+		return esc_html__( 'Archive URL', MELA_TD );
 	}
 
 	public function get_panel_template() {

@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Core\DynamicTags\Tag;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Archive_Description extends Tag {
 
 	public function get_name() {
-		return 'aux-archive-description';
+		return 'jltma-archive-description';
 	}
 
 	public function get_title() {
-		return __( 'Archive Description', 'auxin-elements' );
+		return esc_html__( 'Archive Description', MELA_TD );
 	}
 
 	public function get_group() {

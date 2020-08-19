@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Comments_Number extends Tag {
 
 	public function get_name() {
-		return 'aux-comments-number';
+		return 'jltma-comments-number';
 	}
 
 	public function get_title() {
-		return __( 'Comments Number', 'auxin-elements' );
+		return esc_html__( 'Comments Number', MELA_TD );
 	}
 
 	public function get_group() {
@@ -31,36 +31,36 @@ class Comments_Number extends Tag {
 		$this->add_control(
 			'format_no_comments',
 			[
-				'label' => __( 'No Comments Format', 'auxin-elements' ),
-				'default' => __( 'No Responses', 'auxin-elements' ),
+				'label' => esc_html__( 'No Comments Format', MELA_TD ),
+				'default' => esc_html__( 'No Responses', MELA_TD ),
 			]
 		);
 
 		$this->add_control(
 			'format_one_comments',
 			[
-				'label' => __( 'One Comment Format', 'auxin-elements' ),
-				'default' => __( 'One Response', 'auxin-elements' ),
+				'label' => esc_html__( 'One Comment Format', MELA_TD ),
+				'default' => esc_html__( 'One Response', MELA_TD ),
 			]
 		);
 
 		$this->add_control(
 			'format_many_comments',
 			[
-				'label' => __( 'Many Comment Format', 'auxin-elements' ),
-				'default' => __( '{number} Responses', 'auxin-elements' ),
+				'label' => esc_html__( 'Many Comment Format', MELA_TD ),
+				'default' => esc_html__( '{number} Responses', MELA_TD ),
 			]
 		);
 
 		$this->add_control(
 			'link_to',
 			[
-				'label' => __( 'Link', 'auxin-elements' ),
+				'label' => esc_html__( 'Link', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					'' => __( 'None', 'auxin-elements' ),
-					'comments_link' => __( 'Comments Link', 'auxin-elements' ),
+					'' => esc_html__( 'None', MELA_TD ),
+					'comments_link' => esc_html__( 'Comments Link', MELA_TD ),
 				],
 			]
 		);

@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Post_Terms extends Tag {
 
 	public function get_name() {
-		return 'aux-post-terms';
+		return 'jltma-post-terms';
 	}
 
 	public function get_title() {
-		return __( 'Post Terms', 'auxin-elements' );
+		return esc_html__( 'Post Terms', MELA_TD );
 	}
 
 	public function get_group() {
@@ -58,7 +58,7 @@ class Post_Terms extends Tag {
 		$this->add_control(
 			'taxonomy',
 			[
-				'label' => __( 'Taxonomy', 'auxin-elements' ),
+				'label' => esc_html__( 'Taxonomy', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'options' => $options,
 				'default' => 'post_tag',
@@ -68,7 +68,7 @@ class Post_Terms extends Tag {
 		$this->add_control(
 			'separator',
 			[
-				'label' => __( 'Separator', 'auxin-elements' ),
+				'label' => esc_html__( 'Separator', MELA_TD ),
 				'type' => Controls_Manager::TEXT,
 				'default' => ', ',
 			]

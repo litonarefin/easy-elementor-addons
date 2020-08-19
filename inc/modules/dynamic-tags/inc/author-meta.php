@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Core\DynamicTags\Tag;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Author_Meta extends Tag {
 
 	public function get_name() {
-		return 'aux-author-meta';
+		return 'jltma-author-meta';
 	}
 
 	public function get_title() {
-		return __( 'Author Meta', 'auxin-elements' );
+		return esc_html__( 'Author Meta', MELA_TD );
 	}
 
 	public function get_group() {
@@ -45,7 +45,7 @@ class Author_Meta extends Tag {
 		$this->add_control(
 			'key',
 			[
-				'label' => __( 'Meta Key', 'auxin-elements' ),
+				'label' => esc_html__( 'Meta Key', MELA_TD ),
 			]
 		);
 	}

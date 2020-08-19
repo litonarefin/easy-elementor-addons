@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -9,14 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Auxin_Taxonomies_Url extends Tag {
+class JLTMA_Taxonomies_Url extends Tag {
 
 	public function get_name() {
-		return 'aux-tax-url';
+		return 'jltma-tax-url';
 	}
 
 	public function get_title() {
-		return __( 'Taxonomies URL', 'auxin-elements' );
+		return esc_html__( 'Taxonomies URL', MELA_TD );
 	}
 
 	public function get_group() {
@@ -32,7 +32,7 @@ class Auxin_Taxonomies_Url extends Tag {
     public function get_categories_list() {
 
 		$items = [
-            '' => __( 'Select...', 'auxin-elements' ),
+            '' => esc_html__( 'Select...', MELA_TD ),
         ];
 
         $categories = auxin_general_post_types_category_slug();
@@ -54,7 +54,7 @@ class Auxin_Taxonomies_Url extends Tag {
 		$this->add_control(
 			'key',
 			[
-				'label'   => __( 'Categories URL', 'auxin-elements' ),
+				'label'   => esc_html__( 'Categories URL', MELA_TD ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => $this->get_categories_list(),
 				'default' => ''

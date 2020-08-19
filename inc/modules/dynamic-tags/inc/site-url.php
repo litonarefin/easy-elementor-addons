@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Core\DynamicTags\Data_Tag;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Site_URL extends Data_Tag {
 
 	public function get_name() {
-		return 'aux-site-url';
+		return 'jltma-site-url';
 	}
 
 	public function get_title() {
-		return __( 'Site URL', 'auxin-elements' );
+		return esc_html__( 'Site URL', MELA_TD );
 	}
 
 	public function get_group() {

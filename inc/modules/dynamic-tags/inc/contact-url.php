@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Contact_URL extends Tag {
 
 	public function get_name() {
-		return 'aux-contact-url';
+		return 'jltma-contact-url';
 	}
 
 	public function get_title() {
-		return __( 'Contact URL', 'auxin-elements' );
+		return esc_html__( 'Contact URL', MELA_TD );
 	}
 
 	public function get_group() {
@@ -31,21 +31,21 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'link_type',
 			[
-				'label' => __( 'Type', 'auxin-elements' ),
+				'label' => esc_html__( 'Type', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => '— ' . __( 'Select', 'auxin-elements' ) . ' —',
-					'email' => __( 'Email', 'auxin-elements' ),
-					'tel' => __( 'Tel', 'auxin-elements' ),
-					'sms' => __( 'SMS', 'auxin-elements' ),
-					'whatsapp' => __( 'WhatsApp', 'auxin-elements' ),
-					'skype' => __( 'Skype', 'auxin-elements' ),
-					'messenger' => __( 'Messenger', 'auxin-elements' ),
-					'viber' => __( 'Viber', 'auxin-elements' ),
-					'waze' => __( 'Waze', 'auxin-elements' ),
-					'google_calendar' => __( 'Google Calendar', 'auxin-elements' ),
-					'outlook_calendar' => __( 'Outlook Calendar', 'auxin-elements' ),
-					'yahoo_calendar' => __( 'Yahoo Calendar', 'auxin-elements' ),
+					'' => '— ' . esc_html__( 'Select', MELA_TD ) . ' —',
+					'email' => esc_html__( 'Email', MELA_TD ),
+					'tel' => esc_html__( 'Tel', MELA_TD ),
+					'sms' => esc_html__( 'SMS', MELA_TD ),
+					'whatsapp' => esc_html__( 'WhatsApp', MELA_TD ),
+					'skype' => esc_html__( 'Skype', MELA_TD ),
+					'messenger' => esc_html__( 'Messenger', MELA_TD ),
+					'viber' => esc_html__( 'Viber', MELA_TD ),
+					'waze' => esc_html__( 'Waze', MELA_TD ),
+					'google_calendar' => esc_html__( 'Google Calendar', MELA_TD ),
+					'outlook_calendar' => esc_html__( 'Outlook Calendar', MELA_TD ),
+					'yahoo_calendar' => esc_html__( 'Yahoo Calendar', MELA_TD ),
 				],
 			]
 		);
@@ -53,7 +53,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'mail_to',
 			[
-				'label' => __( 'Email', 'auxin-elements' ),
+				'label' => esc_html__( 'Email', MELA_TD ),
 				'type' => Controls_Manager::TEXT,
 				'condition' => [
 					'link_type' => 'email',
@@ -64,7 +64,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'mail_subject',
 			[
-				'label' => __( 'Subject', 'auxin-elements' ),
+				'label' => esc_html__( 'Subject', MELA_TD ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => 'true',
 				'condition' => [
@@ -76,7 +76,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'mail_body',
 			[
-				'label' => __( 'Message', 'auxin-elements' ),
+				'label' => esc_html__( 'Message', MELA_TD ),
 				'type' => Controls_Manager::TEXTAREA,
 				'label_block' => 'true',
 				'condition' => [
@@ -88,7 +88,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'tel_number',
 			[
-				'label' => __( 'Number', 'auxin-elements' ),
+				'label' => esc_html__( 'Number', MELA_TD ),
 				'type' => Controls_Manager::TEXT,
 				'condition' => [
 					'link_type' => [
@@ -104,7 +104,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'username',
 			[
-				'label' => __( 'Username', 'auxin-elements' ),
+				'label' => esc_html__( 'Username', MELA_TD ),
 				'type' => Controls_Manager::TEXT,
 				'condition' => [
 					'link_type' => [ 'skype', 'messenger' ],
@@ -115,11 +115,11 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'viber_action',
 			[
-				'label' => __( 'Action', 'auxin-elements' ),
+				'label' => esc_html__( 'Action', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'contact' => __( 'Contact', 'auxin-elements' ),
-					'add' => __( 'Add', 'auxin-elements' ),
+					'contact' => esc_html__( 'Contact', MELA_TD ),
+					'add' => esc_html__( 'Add', MELA_TD ),
 				],
 				'default' => 'contact',
 				'condition' => [
@@ -131,14 +131,14 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'skype_action',
 			[
-				'label' => __( 'Action', 'auxin-elements' ),
+				'label' => esc_html__( 'Action', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'call' => __( 'Call', 'auxin-elements' ),
-					'chat' => __( 'Chat', 'auxin-elements' ),
-					'userinfo' => __( 'Show Profile', 'auxin-elements' ),
-					'add' => __( 'Add to Contacts', 'auxin-elements' ),
-					'voicemail' => __( 'Send Voice Mail', 'auxin-elements' ),
+					'call' => esc_html__( 'Call', MELA_TD ),
+					'chat' => esc_html__( 'Chat', MELA_TD ),
+					'userinfo' => esc_html__( 'Show Profile', MELA_TD ),
+					'add' => esc_html__( 'Add to Contacts', MELA_TD ),
+					'voicemail' => esc_html__( 'Send Voice Mail', MELA_TD ),
 				],
 				'default' => 'call',
 				'condition' => [
@@ -150,7 +150,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'waze_address',
 			[
-				'label' => __( 'Location', 'auxin-elements' ),
+				'label' => esc_html__( 'Location', MELA_TD ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => 'true',
 				'condition' => [
@@ -162,7 +162,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'event_title',
 			[
-				'label' => __( 'Title', 'auxin-elements' ),
+				'label' => esc_html__( 'Title', MELA_TD ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => 'true',
 				'condition' => [
@@ -178,7 +178,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'event_description',
 			[
-				'label' => __( 'Description', 'auxin-elements' ),
+				'label' => esc_html__( 'Description', MELA_TD ),
 				'type' => Controls_Manager::TEXTAREA,
 				'condition' => [
 					'link_type' => [
@@ -193,7 +193,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'event_location',
 			[
-				'label' => __( 'Location', 'auxin-elements' ),
+				'label' => esc_html__( 'Location', MELA_TD ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => 'true',
 				'condition' => [
@@ -209,7 +209,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'event_start_date',
 			[
-				'label' => __( 'Start', 'auxin-elements' ),
+				'label' => esc_html__( 'Start', MELA_TD ),
 				'type' => Controls_Manager::DATE_TIME,
 				'condition' => [
 					'link_type' => [
@@ -224,7 +224,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'event_end_date',
 			[
-				'label' => __( 'End', 'auxin-elements' ),
+				'label' => esc_html__( 'End', MELA_TD ),
 				'type' => Controls_Manager::DATE_TIME,
 				'condition' => [
 					'link_type' => [

@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Current_Date_Time extends Tag {
 
 	public function get_name() {
-		return 'aux-current-date-time';
+		return 'jltma-current-date-time';
 	}
 
 	public function get_title() {
-		return __( 'Current Date Time', 'auxin-elements' );
+		return esc_html__( 'Current Date Time', MELA_TD );
 	}
 
 	public function get_group() {
@@ -31,16 +31,16 @@ class Current_Date_Time extends Tag {
 		$this->add_control(
 			'date_format',
 			[
-				'label' => __( 'Date Format', 'auxin-elements' ),
+				'label' => esc_html__( 'Date Format', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'default' => __( 'Default', 'auxin-elements' ),
-					'' => __( 'None', 'auxin-elements' ),
+					'default' => esc_html__( 'Default', MELA_TD ),
+					'' => esc_html__( 'None', MELA_TD ),
 					'F j, Y' => date( 'F j, Y' ),
 					'Y-m-d' => date( 'Y-m-d' ),
 					'm/d/Y' => date( 'm/d/Y' ),
 					'd/m/Y' => date( 'd/m/Y' ),
-					'custom' => __( 'Custom', 'auxin-elements' ),
+					'custom' => esc_html__( 'Custom', MELA_TD ),
 				],
 				'default' => 'default',
 			]
@@ -49,11 +49,11 @@ class Current_Date_Time extends Tag {
 		$this->add_control(
 			'time_format',
 			[
-				'label' => __( 'Time Format', 'auxin-elements' ),
+				'label' => esc_html__( 'Time Format', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'default' => __( 'Default', 'auxin-elements' ),
-					'' => __( 'None', 'auxin-elements' ),
+					'default' => esc_html__( 'Default', MELA_TD ),
+					'' => esc_html__( 'None', MELA_TD ),
 					'g:i a' => date( 'g:i a' ),
 					'g:i A' => date( 'g:i A' ),
 					'H:i' => date( 'H:i' ),
@@ -68,9 +68,9 @@ class Current_Date_Time extends Tag {
 		$this->add_control(
 			'custom_format',
 			[
-				'label' => __( 'Custom Format', 'auxin-elements' ),
+				'label' => esc_html__( 'Custom Format', MELA_TD ),
 				'default' => get_option( 'date_format' ) . ' ' . get_option( 'time_format' ),
-				'description' => sprintf( '<a href="https://codex.wordpress.org/Formatting_Date_and_Time" target="_blank">%s</a>', __( 'Documentation on date and time formatting', 'auxin-elements' ) ),
+				'description' => sprintf( '<a href="https://codex.wordpress.org/Formatting_Date_and_Time" target="_blank">%s</a>', esc_html__( 'Documentation on date and time formatting', MELA_TD ) ),
 				'condition' => [
 					'date_format' => 'custom',
 				],

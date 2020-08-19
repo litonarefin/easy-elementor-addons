@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -9,14 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class User_Info extends Tag {
+class JLTMA_User_Info extends Tag {
 
 	public function get_name() {
-		return 'aux-user-info';
+		return 'jltma-user-info';
 	}
 
 	public function get_title() {
-		return __( 'User Info', 'auxin-elements' );
+		return esc_html__( 'User Info', MELA_TD );
 	}
 
 	public function get_group() {
@@ -69,19 +69,19 @@ class User_Info extends Tag {
 		$this->add_control(
 			'type',
 			[
-				'label' => __( 'Field', 'auxin-elements' ),
+				'label' => esc_html__( 'Field', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => __( 'Choose', 'auxin-elements' ),
-					'id' => __( 'ID', 'auxin-elements' ),
-					'display_name' => __( 'Display Name', 'auxin-elements' ),
-					'login' => __( 'Username', 'auxin-elements' ),
-					'first_name' => __( 'First Name', 'auxin-elements' ),
-					'last_name' => __( 'Last Name', 'auxin-elements' ),
-					'description' => __( 'Bio', 'auxin-elements' ),
-					'email' => __( 'Email', 'auxin-elements' ),
-					'url' => __( 'Website', 'auxin-elements' ),
-					'meta' => __( 'User Meta', 'auxin-elements' ),
+					'' => esc_html__( 'Choose', MELA_TD ),
+					'id' => esc_html__( 'ID', MELA_TD ),
+					'display_name' => esc_html__( 'Display Name', MELA_TD ),
+					'login' => esc_html__( 'Username', MELA_TD ),
+					'first_name' => esc_html__( 'First Name', MELA_TD ),
+					'last_name' => esc_html__( 'Last Name', MELA_TD ),
+					'description' => esc_html__( 'Bio', MELA_TD ),
+					'email' => esc_html__( 'Email', MELA_TD ),
+					'url' => esc_html__( 'Website', MELA_TD ),
+					'meta' => esc_html__( 'User Meta', MELA_TD ),
 				],
 			]
 		);
@@ -89,7 +89,7 @@ class User_Info extends Tag {
 		$this->add_control(
 			'meta_key',
 			[
-				'label' => __( 'Meta Key', 'auxin-elements' ),
+				'label' => esc_html__( 'Meta Key', MELA_TD ),
 				'condition' => [
 					'type' => 'meta',
 				],

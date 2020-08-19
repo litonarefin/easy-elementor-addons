@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -9,14 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Auxin_Pages_Url extends Tag {
+class JLTMA_Pages_Url extends Tag {
 
 	public function get_name() {
-		return 'aux-pages-url';
+		return 'jltma-pages-url';
 	}
 
 	public function get_title() {
-		return __( 'Pages URL', 'auxin-elements' );
+		return esc_html__( 'Pages URL', MELA_TD );
 	}
 
 	public function get_group() {
@@ -32,7 +32,7 @@ class Auxin_Pages_Url extends Tag {
     public function get_pages_list() {
 
 		$items = [
-            '' => __( 'Select...', 'auxin-elements' ),
+            '' => esc_html__( 'Select...', MELA_TD ),
         ];
         $pages = get_posts( array(
             'post_type'   => 'page',
@@ -40,7 +40,7 @@ class Auxin_Pages_Url extends Tag {
 		) );
 		$home_id = get_option( 'page_on_front' );
         foreach ( $pages as $page ) {
-			$page->post_title = $home_id == $page->ID ? __( 'Home Page', 'auxin-elements' ) : $page->post_title; 
+			$page->post_title = $home_id == $page->ID ? esc_html__( 'Home Page', MELA_TD ) : $page->post_title; 
             $items[ $page->ID ] = $page->post_title;
         }
 
@@ -55,7 +55,7 @@ class Auxin_Pages_Url extends Tag {
 		$this->add_control(
 			'key',
 			[
-				'label'   => __( 'Pages URL', 'auxin-elements' ),
+				'label'   => esc_html__( 'Pages URL', MELA_TD ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => $this->get_pages_list(),
 				'default' => ''

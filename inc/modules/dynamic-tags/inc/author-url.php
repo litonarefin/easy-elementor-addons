@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Data_Tag;
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Author_URL extends Data_Tag {
 
 	public function get_name() {
-		return 'aux-author-url';
+		return 'jltma-author-url';
 	}
 
 	public function get_group() {
@@ -24,7 +24,7 @@ class Author_URL extends Data_Tag {
 	}
 
 	public function get_title() {
-		return __( 'Author URL', 'auxin-elements' );
+		return esc_html__( 'Author URL', MELA_TD );
 	}
 
 	public function get_panel_template_setting_key() {
@@ -51,12 +51,12 @@ class Author_URL extends Data_Tag {
 		$this->add_control(
 			'url',
 			[
-				'label' => __( 'URL', 'auxin-elements' ),
+				'label' => esc_html__( 'URL', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'archive',
 				'options' => [
-					'archive' => __( 'Author Archive', 'auxin-elements' ),
-					'website' => __( 'Author Website', 'auxin-elements' ),
+					'archive' => esc_html__( 'Author Archive', MELA_TD ),
+					'website' => esc_html__( 'Author Website', MELA_TD ),
 				],
 			]
 		);

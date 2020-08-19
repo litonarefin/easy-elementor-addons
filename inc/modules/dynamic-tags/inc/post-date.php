@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Post_Date extends Tag {
 	public function get_name() {
-		return 'aux-post-date';
+		return 'jltma-post-date';
 	}
 
 	public function get_title() {
-		return __( 'Post Date', 'auxin-elements' );
+		return esc_html__( 'Post Date', MELA_TD );
 	}
 
 	public function get_group() {
@@ -30,11 +30,11 @@ class Post_Date extends Tag {
 		$this->add_control(
 			'type',
 			[
-				'label' => __( 'Type', 'auxin-elements' ),
+				'label' => esc_html__( 'Type', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'post_date_gmt' => __( 'Post Published', 'auxin-elements' ),
-					'post_modified_gmt' => __( 'Post Modified', 'auxin-elements' ),
+					'post_date_gmt' => esc_html__( 'Post Published', MELA_TD ),
+					'post_modified_gmt' => esc_html__( 'Post Modified', MELA_TD ),
 				],
 				'default' => 'post_date_gmt',
 			]
@@ -43,16 +43,16 @@ class Post_Date extends Tag {
 		$this->add_control(
 			'format',
 			[
-				'label' => __( 'Format', 'auxin-elements' ),
+				'label' => esc_html__( 'Format', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'default' => __( 'Default', 'auxin-elements' ),
+					'default' => esc_html__( 'Default', MELA_TD ),
 					'F j, Y' => date( 'F j, Y' ),
 					'Y-m-d' => date( 'Y-m-d' ),
 					'm/d/Y' => date( 'm/d/Y' ),
 					'd/m/Y' => date( 'd/m/Y' ),
-					'human' => __( 'Human Readable', 'auxin-elements' ),
-					'custom' => __( 'Custom', 'auxin-elements' ),
+					'human' => esc_html__( 'Human Readable', MELA_TD ),
+					'custom' => esc_html__( 'Custom', MELA_TD ),
 				],
 				'default' => 'default',
 			]
@@ -61,9 +61,9 @@ class Post_Date extends Tag {
 		$this->add_control(
 			'custom_format',
 			[
-				'label' => __( 'Custom Format', 'auxin-elements' ),
+				'label' => esc_html__( 'Custom Format', MELA_TD ),
 				'default' => '',
-				'description' => sprintf( '<a href="https://codex.wordpress.org/Formatting_Date_and_Time" target="_blank">%s</a>', __( 'Documentation on date and time formatting', 'auxin-elements' ) ),
+				'description' => sprintf( '<a href="https://codex.wordpress.org/Formatting_Date_and_Time" target="_blank">%s</a>', esc_html__( 'Documentation on date and time formatting', MELA_TD ) ),
 				'condition' => [
 					'format' => 'custom',
 				],
@@ -77,7 +77,7 @@ class Post_Date extends Tag {
 
 		if ( 'human' === $format ) {
 			/* translators: %s: Human readable date/time. */
-			$value = sprintf( __( '%s ago', 'auxin-elements' ), human_time_diff( strtotime( get_post()->{$date_type} ) ) );
+			$value = sprintf( esc_html__( '%s ago', MELA_TD ), human_time_diff( strtotime( get_post()->{$date_type} ) ) );
 		} else {
 			switch ( $format ) {
 				case 'default':

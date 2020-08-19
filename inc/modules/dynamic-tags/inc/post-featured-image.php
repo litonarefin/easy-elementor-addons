@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Data_Tag;
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Post_Featured_Image extends Data_Tag {
 
 	public function get_name() {
-		return 'aux-post-featured-image';
+		return 'jltma-post-featured-image';
 	}
 
 	public function get_group() {
@@ -24,7 +24,7 @@ class Post_Featured_Image extends Data_Tag {
 	}
 
 	public function get_title() {
-		return __( 'Featured Image', 'auxin-elements' );
+		return esc_html__( 'Featured Image', MELA_TD );
 	}
 
 	public function get_value( array $options = [] ) {
@@ -46,7 +46,7 @@ class Post_Featured_Image extends Data_Tag {
 		$this->add_control(
 			'fallback',
 			[
-				'label' => __( 'Fallback', 'auxin-elements' ),
+				'label' => esc_html__( 'Fallback', MELA_TD ),
 				'type' => Controls_Manager::MEDIA,
 			]
 		);

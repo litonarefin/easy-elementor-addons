@@ -16,7 +16,7 @@ class JLTMA_Featured_Colors extends Tag {
 	}
 
 	public function get_title() {
-		return __( 'Featured Colors', 'auxin-elements' );
+		return esc_html__( 'Featured Colors', MELA_TD );
 	}
 
 	public function get_group() {
@@ -33,13 +33,13 @@ class JLTMA_Featured_Colors extends Tag {
 
 		$items = [
             '' => [
-				'label' => __( 'Select...', 'auxin-elements' ),
+				'label' => esc_html__( 'Select...', MELA_TD ),
 			]
         ];
 
 		for( $i = 1; $i <= 8 ; ++$i ) {
 			$items[$i] = [
-				'label' =>  sprintf( __( 'Color %s', THEME_DOMAIN ), $i ),
+				'label' =>  sprintf( esc_html__( 'Color %s', THEME_DOMAIN ), $i ),
 				'color'	=> auxin_get_option( 'site_featured_color_' . $i )
 			];
 		}
@@ -55,7 +55,7 @@ class JLTMA_Featured_Colors extends Tag {
 		$this->add_control(
 			'key',
 			[
-				'label'   => __( 'Colors', 'auxin-elements' ),
+				'label'   => esc_html__( 'Colors', MELA_TD ),
 				'type'    => 'jltma-featured-color',
 				'options' => $this->get_colors(),
 				'default' => ''

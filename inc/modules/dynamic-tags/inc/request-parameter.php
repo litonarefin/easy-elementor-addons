@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Request_Parameter extends Tag {
 	public function get_name() {
-		return 'aux-request-parameter';
+		return 'jltma-request-parameter';
 	}
 
 	public function get_title() {
-		return __( 'Request Parameter', 'auxin-elements' );
+		return esc_html__( 'Request Parameter', MELA_TD );
 	}
 
 	public function get_group() {
@@ -63,7 +63,7 @@ class Request_Parameter extends Tag {
 		$this->add_control(
 			'request_type',
 			[
-				'label'   => __( 'Type', 'auxin-elements' ),
+				'label'   => esc_html__( 'Type', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'get',
 				'options' => [
@@ -76,7 +76,7 @@ class Request_Parameter extends Tag {
 		$this->add_control(
 			'param_name',
 			[
-				'label'   => __( 'Parameter Name', 'auxin-elements' ),
+				'label'   => esc_html__( 'Parameter Name', MELA_TD ),
 				'type' => Controls_Manager::TEXT,
 			]
 		);

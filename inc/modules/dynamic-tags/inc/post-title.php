@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Core\DynamicTags\Tag;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -10,11 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Post_Title extends Tag {
 	public function get_name() {
-		return 'aux-post-title';
+		return 'jltma-post-title';
 	}
 
 	public function get_title() {
-		return __( 'Post Title', 'auxin-elements' );
+		return esc_html__( 'Post Title', MELA_TD );
 	}
 
 	public function get_group() {

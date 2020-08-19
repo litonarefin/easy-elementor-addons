@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Featured_Image_Data extends Tag {
 
 	public function get_name() {
-		return 'aux-featured-image-data';
+		return 'jltma-featured-image-data';
 	}
 
 	public function get_group() {
@@ -28,7 +28,7 @@ class Featured_Image_Data extends Tag {
 	}
 
 	public function get_title() {
-		return __( 'Featured Image Data', 'auxin-elements' );
+		return esc_html__( 'Featured Image Data', MELA_TD );
 	}
 
 	private function get_attacment() {
@@ -80,16 +80,16 @@ class Featured_Image_Data extends Tag {
 		$this->add_control(
 			'attachment_data',
 			[
-				'label' => __( 'Data', 'auxin-elements' ),
+				'label' => esc_html__( 'Data', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'title',
 				'options' => [
-					'title' => __( 'Title', 'auxin-elements' ),
-					'alt' => __( 'Alt', 'auxin-elements' ),
-					'caption' => __( 'Caption', 'auxin-elements' ),
-					'description' => __( 'Description', 'auxin-elements' ),
-					'src' => __( 'File URL', 'auxin-elements' ),
-					'href' => __( 'Attachment URL', 'auxin-elements' ),
+					'title' => esc_html__( 'Title', MELA_TD ),
+					'alt' => esc_html__( 'Alt', MELA_TD ),
+					'caption' => esc_html__( 'Caption', MELA_TD ),
+					'description' => esc_html__( 'Description', MELA_TD ),
+					'src' => esc_html__( 'File URL', MELA_TD ),
+					'href' => esc_html__( 'Attachment URL', MELA_TD ),
 				],
 			]
 		);

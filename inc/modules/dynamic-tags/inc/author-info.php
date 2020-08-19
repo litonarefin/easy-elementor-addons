@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Author_Info extends Tag {
 
 	public function get_name() {
-		return 'aux-author-info';
+		return 'jltma-author-info';
 	}
 
 	public function get_title() {
-		return __( 'Author Info', 'auxin-elements' );
+		return esc_html__( 'Author Info', MELA_TD );
 	}
 
 	public function get_group() {
@@ -47,13 +47,13 @@ class Author_Info extends Tag {
 		$this->add_control(
 			'key',
 			[
-				'label' => __( 'Field', 'auxin-elements' ),
+				'label' => esc_html__( 'Field', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'description',
 				'options' => [
-					'description' => __( 'Bio', 'auxin-elements' ),
-					'email' => __( 'Email', 'auxin-elements' ),
-					'url' => __( 'Website', 'auxin-elements' ),
+					'description' => esc_html__( 'Bio', MELA_TD ),
+					'email' => esc_html__( 'Email', MELA_TD ),
+					'url' => esc_html__( 'Website', MELA_TD ),
 				],
 			]
 		);

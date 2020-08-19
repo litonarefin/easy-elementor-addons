@@ -1,5 +1,5 @@
 <?php
-namespace Auxin\Plugin\CoreElements\Elementor\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Archive_Title extends Tag {
 	public function get_name() {
-		return 'aux-archive-title';
+		return 'jltma-archive-title';
 	}
 
 	public function get_title() {
-		return __( 'Archive Title', 'auxin-elements' );
+		return esc_html__( 'Archive Title', MELA_TD );
 	}
 
 	public function get_group() {
@@ -38,7 +38,7 @@ class Archive_Title extends Tag {
 		$this->add_control(
 			'include_context',
 			[
-				'label' => __( 'Include Context', 'auxin-elements' ),
+				'label' => esc_html__( 'Include Context', MELA_TD ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
