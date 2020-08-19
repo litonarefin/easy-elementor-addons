@@ -1,5 +1,5 @@
 <?php
-namespace MasterAddons\Inc\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags;
 
 defined( 'ABSPATH' ) || exit;
 

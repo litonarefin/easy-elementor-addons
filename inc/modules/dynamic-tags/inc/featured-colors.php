@@ -1,5 +1,5 @@
 <?php
-namespace MasterAddons\Inc\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Auxin_Featured_Colors extends Tag {
+class JLTMA_Featured_Colors extends Tag {
 
 	public function get_name() {
 		return 'aux-featured-colors';

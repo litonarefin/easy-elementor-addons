@@ -1,5 +1,5 @@
 <?php
-namespace MasterAddons\Inc\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -16,7 +16,7 @@ class Post_Custom_Field extends Tag {
 	}
 
 	public function get_title() {
-		return __( 'Post Custom Field', 'auxin-elements' );
+		return esc_html__( 'Post Custom Field', MELA_TD );
 	}
 
 	public function get_group() {
@@ -43,7 +43,7 @@ class Post_Custom_Field extends Tag {
 		$this->add_control(
 			'key',
 			[
-				'label' => __( 'Key List', 'auxin-elements' ),
+				'label' => esc_html__( 'Key List', MELA_TD ),
 				'type' => Controls_Manager::SELECT,
 				'options' => $this->get_custom_keys_array(),
 			]
@@ -51,7 +51,7 @@ class Post_Custom_Field extends Tag {
 		$this->add_control(
 			'custom_key',
 			[
-				'label' => __( 'Custom Key', 'auxin-elements' ),
+				'label' => esc_html__( 'Custom Key', MELA_TD ),
 				'type' => Controls_Manager::TEXT,
 				'options' => $this->get_custom_keys_array(),
                 'condition'    => array(
@@ -77,7 +77,7 @@ class Post_Custom_Field extends Tag {
 	private function get_custom_keys_array() {
 		$custom_keys = get_post_custom_keys();
 		$options = [
-			'' => __( 'Select...', 'auxin-elements' ),
+			'' => esc_html__( 'Select...', MELA_TD ),
 		];
 
 		if ( ! empty( $custom_keys ) ) {
@@ -90,4 +90,16 @@ class Post_Custom_Field extends Tag {
 
 		return $options;
 	}
+
+
+    public static function get_instance() {
+        if ( is_null( self::$_instance ) ) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
+
 }
+
+
+// Post_Custom_Field::get_instance();

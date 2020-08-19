@@ -299,8 +299,14 @@ function jltma_get_options( $option, $default="" ){
  */
 if ( ! function_exists( 'is_woocommerce_active' ) ) {
 	function is_woocommerce_active() {
-		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-		
-		return is_plugin_active( 'woocommerce/woocommerce.php' );
+		jltma_is_plugin_active( 'woocommerce/woocommerce.php' );
 	}
+}
+
+
+if( ! function_exists( 'jltma_is_plugin_active' ) ){
+    function jltma_is_plugin_active( $plugin_basename ){
+        include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+        return is_plugin_active( $plugin_basename );
+    }
 }
