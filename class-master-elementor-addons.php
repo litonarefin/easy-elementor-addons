@@ -80,6 +80,7 @@
 					'ma-counter-up',				// 34
 					'ma-countdown-timer',			// 35
 					['ma-toggle-content','pro'],	// 36
+					'ma-advanced-image',			// 36
 
 					// Form Elements
 					'contact-form-7',           	// 37

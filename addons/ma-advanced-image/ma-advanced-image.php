@@ -19,7 +19,7 @@
 		}
 
 		public function get_title() {
-			return esc_html__( 'MA Advaned Image', MELA_TD);
+			return esc_html__( 'MA Advanced Image', MELA_TD);
 		}
 
 		public function get_icon() {

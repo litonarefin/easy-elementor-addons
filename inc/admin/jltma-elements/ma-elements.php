@@ -257,6 +257,13 @@ $jltma_elements = [
                 'docs_url' 		=> 'https://master-addons.com/docs/addons/toggle-content/',
                 'tuts_url' 		=> ''
             ],
+            [
+                'key'           => 'ma-advanced-image',
+                'title'         => esc_html__( 'Advanced Image', MELA_TD),
+                'demo_url'      => '',
+                'docs_url'      => '',
+                'tuts_url'      => ''
+            ],
 
 
     	]

@@ -1,5 +1,5 @@
 <?php
-namespace MasterAddons\Modules;
+namespace MasterAddons\Modules\DynamicTags;
 use Elementor\Plugin;
 
 class JLTMA_Dynamic_Tags {
@@ -116,7 +116,7 @@ class JLTMA_Dynamic_Tags {
 			// ),
             'jltma-post-custom-field' => array(
                 'file'  => JLTMA_DYNAMIC_TAGS_PATH_INC . 'post-custom-field.php',
-				'class' => 'DynamicTags\Post_Custom_Field',
+				'class' => 'Tags\Post_Custom_Field',
 				'group' => 'post',
 				'title' => 'Post',
 			),
@@ -251,7 +251,7 @@ class JLTMA_Dynamic_Tags {
                 } elseif( class_exists( __NAMESPACE__ . '\\' . $tags_info['class'] ) ){
                     $class_name = __NAMESPACE__ . '\\' . $tags_info['class'];
                 }
-                
+
 				$dynamic_tags->register_tag( $class_name );
             }
         }

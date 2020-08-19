@@ -1,5 +1,5 @@
 <?php
-namespace MasterAddons\Modules\DynamicTags;
+namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class JLTMA_Featured_Colors extends Tag {
 
 	public function get_name() {
-		return 'aux-featured-colors';
+		return 'jltma-featured-colors';
 	}
 
 	public function get_title() {
@@ -56,7 +56,7 @@ class JLTMA_Featured_Colors extends Tag {
 			'key',
 			[
 				'label'   => __( 'Colors', 'auxin-elements' ),
-				'type'    => 'aux-featured-color',
+				'type'    => 'jltma-featured-color',
 				'options' => $this->get_colors(),
 				'default' => ''
             ]
