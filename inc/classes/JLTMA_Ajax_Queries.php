@@ -43,25 +43,26 @@
             // add_action('wp_ajax_jltma_instafeed_load_more_action', [$this, 'jltma_instafeed_render_items' ] );
             // add_action('wp_ajax_nopriv_jltma_instafeed_load_more_action', [$this, 'jltma_instafeed_render_items'] );
 
-            add_action( 'elementor/ajax/register_actions', [ $this, 'register_ajax_actions' ] );
+            // Elementor Ajax Requests
+            add_action( 'elementor/ajax/register_actions', [ $this, 'jltma_register_ajax_actions' ] );
 
 
         }
 
-        public function register_ajax_actions( $ajax_manager ) {
-            $ajax_manager->register_ajax_action( 'jltma_query_control_value_titles', [ $this, 'ajax_call_control_value_titles' ] );
-            $ajax_manager->register_ajax_action( 'jltma_query_control_filter_autocomplete', [ $this, 'ajax_call_filter_autocomplete' ] );
+        public function jltma_register_ajax_actions( $ajax_manager ) {
+            $ajax_manager->register_ajax_action( 'jltma_query_control_value_titles', [ $this, 'jltma_ajax_call_control_value_titles' ] );
+            $ajax_manager->register_ajax_action( 'jltma_query_control_filter_autocomplete', [ $this, 'jltma_ajax_call_filter_autocomplete' ] );
         }
 
 
-        public function ajax_call_control_value_titles( $request ) {
+        public function jltma_ajax_call_control_value_titles( $request ) {
             $results = call_user_func( [ $this, 'get_value_titles_for_' . $request['query_type'] ], $request );
 
             return $results;
         }
 
-
-        public function ajax_call_filter_autocomplete( array $data ) {
+        // Calls function depending on ajax query data
+        public function jltma_ajax_call_filter_autocomplete( array $data ) {
 
             if ( empty( $data['query_type'] ) || empty( $data['q'] ) ) {
                 throw new \Exception( 'Bad Request' );
@@ -72,8 +73,93 @@
             return [
                 'results' => $results,
             ];
-        }        
+        }    
 
+        // Gets autocomplete values for 'posts' query type
+        protected function get_autocomplete_for_posts( $data ) {
+            $results = [];
+
+            $query_params = [
+                'post_type'         => $data['object_type'],
+                's'                 => $data['q'],
+                'posts_per_page'    => -1,
+            ];
+
+            if ( 'attachment' === $query_params['post_type'] ) {
+                $query_params['post_status'] = 'inherit';
+            }
+
+            $query = new \WP_Query( $query_params );
+
+            foreach ( $query->posts as $post ) {
+                $results[] = [
+                    'id'    => $post->ID,
+                    'text'  => $post->post_title,
+                ];
+            }
+
+            return $results;
+        }
+
+        // Gets autocomplete values for taxonomy 'terms' query type
+        protected function get_autocomplete_for_terms( $data ) {
+            $results = [];
+
+            $taxonomies = get_object_taxonomies('');
+
+            $query_params = [
+                'taxonomy'      => $taxonomies,
+                'search'        => $data['q'],
+                'hide_empty'    => false,
+            ];
+
+            $terms = get_terms( $query_params );
+
+            foreach ( $terms as $term ) {
+                $taxonomy = get_taxonomy( $term->taxonomy );
+
+                $results[] = [
+                    'id'    => $term->term_id,
+                    'text'  => $taxonomy->labels->singular_name . ': ' . $term->name,
+                ];
+            }
+
+            return $results;
+        }
+
+
+        // Gets autocomplete values for 'authors' query type
+        protected function get_autocomplete_for_authors( $data ) {
+            $results = [];
+
+            $query_params = [
+                'who'                   => 'authors',
+                'has_published_posts'   => true,
+                'fields'                => [
+                    'ID',
+                    'display_name',
+                ],
+                'search'                => '*' . $data['q'] . '*',
+                'search_columns'        => [
+                    'user_login',
+                    'user_nicename',
+                ],
+            ];
+
+            $user_query = new \WP_User_Query( $query_params );
+
+            foreach ( $user_query->get_results() as $author ) {
+                $results[] = [
+                    'id'    => $author->ID,
+                    'text'  => $author->display_name,
+                ];
+            }
+
+            return $results;
+        }
+
+    
+        // Restrict Content
 		public function ma_el_restrict_content() {
 
             parse_str( $_POST['fields'], $output );
@@ -165,12 +251,11 @@
 
             }// end if fields
 
-
 		}
 
 
-
-    public function jltma_domain_checker(){
+        // Domain Checker Content
+        public function jltma_domain_checker(){
 
             require_once MELA_PLUGIN_PATH . '/inc/classes/class-jltma-domain-checker.php';
 
