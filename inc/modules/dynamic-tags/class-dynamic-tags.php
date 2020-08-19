@@ -120,12 +120,6 @@ class JLTMA_Dynamic_Tags {
 				'group' => 'post',
 				'title' => 'Post',
 			),
-			'jltma-featured-colors' => array(
-                'file'  => JLTMA_DYNAMIC_TAGS_PATH_INC . 'featured-colors.php',
-				'class' => 'Tags\JLTMA_Featured_Colors',
-				'group' => 'colors',
-				'title' => 'Colors',
-			),
 			'jltma-pages-url' => array(
                 'file'  => JLTMA_DYNAMIC_TAGS_PATH_INC . 'pages-url.php',
 				'class' => 'Tags\JLTMA_Pages_Url',
