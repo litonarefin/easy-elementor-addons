@@ -343,6 +343,18 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'jltma_toggle_content_toggle_background',
+            [
+                'label'     => esc_html__( 'Background Color', MELA_TD ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .jltma-toggle-content-controls-wrapper' => 'background-color: {{VALUE}};'
+                ],
+            ]
+        );
+
+
         $this->add_responsive_control(
             'jltma_toggle_content_toggle_align',
             [
@@ -413,23 +425,6 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'jltma_toggle_content_toggle_padding',
-            [
-                'label'                 => esc_html__( 'Padding', MELA_TD ),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => ['px', 'em', '%'],
-                'default' 	=> [
-                    'size' 	=> 6,
-                ],
-                'selectors' 	=> [
-                    '{{WRAPPER}} .jltma-toggle-content-indicator' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .jltma-toggle-content-controls-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-
         $this->add_responsive_control(
             'jltma_toggle_content_toggle_width',
             [
@@ -448,22 +443,31 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name'      => 'jltma_toggle_content_toggle_border',
+                'label'     => esc_html__( 'Border', MELA_TD ),
+                'selector'  => '{{WRAPPER}}.jltma-toggle-element--round .jltma-toggle-content-indicator, {{WRAPPER}}.jltma-toggle-element--square .jltma-toggle-content-indicator'
+            ]
+        );
+
         $this->add_responsive_control(
             'jltma_toggle_content_toggle_radius',
             [
-                'label' 	=> esc_html__( 'Border Radius', MELA_TD ),
-                'type' 		=> Controls_Manager::SLIDER,
-                'default' 	=> [
-                    'size' 	=> 4,
+                'label'     => esc_html__( 'Border Radius', MELA_TD ),
+                'type'      => Controls_Manager::SLIDER,
+                'default'   => [
+                    'size'  => 4,
                 ],
-                'range' 	=> [
-                    'px' 	=> [
-                        'max' 	=> 100,
-                        'min' 	=> 0,
-                        'step' 	=> 1,
+                'range'     => [
+                    'px'    => [
+                        'max'   => 100,
+                        'min'   => 0,
+                        'step'  => 1,
                     ],
                 ],
-                'selectors' 	=> [
+                'selectors'     => [
                     '{{WRAPPER}}.jltma-toggle-element--square .jltma-toggle-content-controls-wrapper' => 'border-radius: {{SIZE}}px;',
                     '{{WRAPPER}}.jltma-toggle-element--square .jltma-toggle-content-indicator' => 'border-radius: calc( {{SIZE}}px - 2px );',
                 ],
@@ -473,24 +477,44 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'jltma_toggle_content_toggle_background',
-            [
-                'label' 	=> esc_html__( 'Background Color', MELA_TD ),
-                'type' 		=> Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .jltma-toggle-content-controls-wrapper' => 'background-color: {{VALUE}};'
-                ],
-            ]
-        );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name' 		=> 'jltma_toggle_content_toggle',
-                'selector' 	=> '{{WRAPPER}} .jltma-toggle-content-controls-wrapper',
+                'name'      => 'jltma_toggle_content_toggle',
+                'selector'  => '{{WRAPPER}} .jltma-toggle-content-controls-wrapper',
             ]
         );
+
+        $this->add_control(
+            'jltma_toggle_content_toggle_padding',
+            [
+                'label'                 => esc_html__( 'Padding', MELA_TD ),
+                'type'                  => Controls_Manager::DIMENSIONS,
+                'size_units'            => ['px', 'em', '%'],
+                'default'   => [
+                    'size'  => 6,
+                ],
+                'selectors'     => [
+                    '{{WRAPPER}} .jltma-toggle-content-controls-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'jltma_toggle_content_toggle_margin',
+            [
+                'label'                 => esc_html__( 'Margin', MELA_TD ),
+                'type'                  => Controls_Manager::DIMENSIONS,
+                'size_units'            => ['px', 'em', '%'],
+                'default'   => [
+                    'size'  => 6,
+                ],
+                'selectors'     => [
+                    '{{WRAPPER}} .jltma-toggle-content-indicator' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
 
 		$this->end_controls_section();
 

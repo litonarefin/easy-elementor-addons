@@ -362,6 +362,9 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.4.8 (16-08-2020) =
+* Update: Toggle Content - Added Toggle Border on Style Tab
+
 = 1.4.7 (16-08-2020) =
 * Added: Header, Footer & Comment Form Builder extension added
 * Updated: Multiple Toggle Content on same page not working issue fixed
