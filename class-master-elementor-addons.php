@@ -29,7 +29,6 @@
 			public static $maad_el_default_widgets;
 			public static $maad_el_pro_widgets;
 			public static $ma_el_extensions;
-			public static $ma_el_pro_extensions;
 
 
 			public static function get_instance() {
@@ -120,16 +119,9 @@
 					'header-footer-comment',
 //					'pseudo-elements', //need to fix before and after
 					'display-conditions',
-					'dynamic-tags',
+					'dynamic-tags'
 				];
 
-				self::$ma_el_pro_extensions = [
-					'animated-gradient',
-					'rellax',
-					'reveal',
-					'transforms',
-					'transition'
-				];
 
 				$this->constants();
 				$this->maad_el_include_files();

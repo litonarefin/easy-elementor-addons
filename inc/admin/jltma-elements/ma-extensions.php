@@ -106,19 +106,49 @@ $jltma_elements = [
             [
                 'key'           => 'display-conditions',
                 'title'         => esc_html__( 'Display Conditions', MELA_TD),
-                'demo_url'      => 'https://master-addons.com/demos/header-footer-comment-builder/',
-                'docs_url'      => 'https://master-addons.com/docs/addons/header-footer-comment-builder/',
+                'demo_url'      => '',
+                'docs_url'      => '',
                 'tuts_url'      => ''
             ],
             [
                 'key'           => 'display-tags',
                 'title'         => esc_html__( 'Display Tags', MELA_TD),
-                'demo_url'      => 'https://master-addons.com/demos/header-footer-comment-builder/',
-                'docs_url'      => 'https://master-addons.com/docs/addons/header-footer-comment-builder/',
+                'demo_url'      => '',
+                'docs_url'      => '',
+                'tuts_url'      => ''
+            ],
+            [
+                'key'           => 'custom-breakpoints',
+                'title'         => esc_html__( 'Custom Breakpoints', MELA_TD),
+                'demo_url'      => '',
+                'docs_url'      => '',
                 'tuts_url'      => ''
             ]
 
 
     	]
+    ],
+
+    
+    'jltma-plugins'         => [
+        'title'                => esc_html__( 'Third Party Plugins', MELA_TD),
+        'plugin'            => [
+            [
+                'key'           => 'elementor-custom-breakpoints',
+                'title'         => esc_html__( 'Custom Breakpoints', MELA_TD),
+                'demo_url'      => '',
+                'docs_url'      => '',
+                'tuts_url'      => '',
+                'pro'           => true
+            ],
+            [
+                'key'           => 'woocommerce',
+                'title'         => esc_html__( 'WooCommerce', MELA_TD),
+                'demo_url'      => '',
+                'docs_url'      => '',
+                'tuts_url'      => ''
+            ]
+
+        ]
     ]
 ];

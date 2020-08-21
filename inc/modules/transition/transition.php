@@ -13,6 +13,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Background;
 
+use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
  * Author Name: Liton Arefin
@@ -66,94 +67,7 @@ class Master_Addons_Entrance_Animation {
 			array(
 				'label'   => __( 'Animation', MELA_TD ),
 				'type'    => Controls_Manager::SELECT,
-				'options' => array(
-					''                             => esc_html__( 'None', MELA_TD),
-					'jltma-fade-in'                =>  esc_html__( 'Fade In', MELA_TD ),
-					'jltma-fade-in-down'           =>  esc_html__( 'Fade In Down', MELA_TD ),
-					'jltma-fade-in-down-1'         =>  esc_html__( 'Fade In Down 1', MELA_TD ),
-					'jltma-fade-in-down-2'         =>  esc_html__( 'Fade In Down 2', MELA_TD ),
-					'jltma-fade-in-up'             =>  esc_html__( 'Fade In Up', MELA_TD ),
-					'jltma-fade-in-up-1'           =>  esc_html__( 'Fade In Up 1', MELA_TD ),
-					'jltma-fade-in-up-2'           =>  esc_html__( 'Fade In Up 2', MELA_TD ),
-					'jltma-fade-in-left'           =>  esc_html__( 'Fade In Left', MELA_TD ),
-					'jltma-fade-in-left-1'         =>  esc_html__( 'Fade In Left 1', MELA_TD ),
-					'jltma-fade-in-left-2'         =>  esc_html__( 'Fade In Left 2', MELA_TD ),
-					'jltma-fade-in-right'          =>  esc_html__( 'Fade In Right', MELA_TD ),
-					'jltma-fade-in-right-1'        =>  esc_html__( 'Fade In Right 1', MELA_TD ),
-					'jltma-fade-in-right-2'        =>  esc_html__( 'Fade In Right 2', MELA_TD ),
-
-					// Slide Animation
-					'jltma-slide-from-right'       =>  esc_html__( 'Slide From Right', MELA_TD ),
-					'jltma-slide-from-left'        =>  esc_html__( 'Slide From Left', MELA_TD ),
-					'jltma-slide-from-top'         =>  esc_html__( 'Slide From Top', MELA_TD ),
-					'jltma-slide-from-bot'         =>  esc_html__( 'Slide From Bottom', MELA_TD ),
-
-					// Mask Animation
-					'jltma-mask-from-top'          =>  esc_html__( 'Mask From Top', MELA_TD ),
-					'jltma-mask-from-bot'          =>  esc_html__( 'Mask From Bottom', MELA_TD ),
-					'jltma-mask-from-left'         =>  esc_html__( 'Mask From Left', MELA_TD ),
-					'jltma-mask-from-right'        =>  esc_html__( 'Mask From Right', MELA_TD ),
-
-					'jltma-rotate-in'              =>  esc_html__( 'Rotate In', MELA_TD ),
-					'jltma-rotate-in-down-left'    =>  esc_html__( 'Rotate In Down Left', MELA_TD ),
-					'jltma-rotate-in-down-left-1'  =>  esc_html__( 'Rotate In Down Left 1', MELA_TD ),
-					'jltma-rotate-in-down-left-2'  =>  esc_html__( 'Rotate In Down Left 2', MELA_TD ),
-					'jltma-rotate-in-down-right'   =>  esc_html__( 'Rotate In Down Right', MELA_TD ),
-					'jltma-rotate-in-down-right-1' =>  esc_html__( 'Rotate In Down Right 1', MELA_TD ),
-					'jltma-rotate-in-down-right-2' =>  esc_html__( 'Rotate In Down Right 2', MELA_TD ),
-					'jltma-rotate-in-up-left'      =>  esc_html__( 'Rotate In Up Left', MELA_TD ),
-					'jltma-rotate-in-up-left-1'    =>  esc_html__( 'Rotate In Up Left 1', MELA_TD ),
-					'jltma-rotate-in-up-left-2'    =>  esc_html__( 'Rotate In Up Left 2', MELA_TD ),
-					'jltma-rotate-in-up-right'     =>  esc_html__( 'Rotate In Up Right', MELA_TD ),
-					'jltma-rotate-in-up-right-1'   =>  esc_html__( 'Rotate In Up Right 1', MELA_TD ),
-					'jltma-rotate-in-up-right-2'   =>  esc_html__( 'Rotate In Up Right 2', MELA_TD ),
-
-					'jltma-zoom-in'                =>  esc_html__( 'Zoom In', MELA_TD ),
-					'jltma-zoom-in-1'              =>  esc_html__( 'Zoom In 1', MELA_TD ),
-					'jltma-zoom-in-2'              =>  esc_html__( 'Zoom In 2', MELA_TD ),
-					'jltma-zoom-in-3'              =>  esc_html__( 'Zoom In 3', MELA_TD ),
-
-					'jltma-scale-up'               =>  esc_html__( 'Scale Up', MELA_TD ),
-					'jltma-scale-up-1'             =>  esc_html__( 'Scale Up 1', MELA_TD ),
-					'jltma-scale-up-2'             =>  esc_html__( 'Scale Up 2', MELA_TD ),
-
-					'jltma-scale-down'             =>  esc_html__( 'Scale Down', MELA_TD ),
-					'jltma-scale-down-1'           =>  esc_html__( 'Scale Down 1', MELA_TD ),
-					'jltma-scale-down-2'           =>  esc_html__( 'Scale Down 2', MELA_TD ),
-
-					'jltma-flip-in-down'           =>  esc_html__( 'Flip In Down', MELA_TD ),
-					'jltma-flip-in-down-1'         =>  esc_html__( 'Flip In Down 1', MELA_TD ),
-					'jltma-flip-in-down-2'         =>  esc_html__( 'Flip In Down 2', MELA_TD ),
-					'jltma-flip-in-up'             =>  esc_html__( 'Flip In Up', MELA_TD ),
-					'jltma-flip-in-up-1'           =>  esc_html__( 'Flip In Up 1', MELA_TD ),
-					'jltma-flip-in-up-2'           =>  esc_html__( 'Flip In Up 2', MELA_TD ),
-					'jltma-flip-in-left'           =>  esc_html__( 'Flip In Left', MELA_TD ),
-					'jltma-flip-in-left-1'         =>  esc_html__( 'Flip In Left 1', MELA_TD ),
-					'jltma-flip-in-left-2'         =>  esc_html__( 'Flip In Left 2', MELA_TD ),
-					'jltma-flip-in-left-3'         =>  esc_html__( 'Flip In Left 3', MELA_TD ),
-					'jltma-flip-in-right'          =>  esc_html__( 'Flip In Right', MELA_TD ),
-					'jltma-flip-in-right-1'        =>  esc_html__( 'Flip In Right 1', MELA_TD ),
-					'jltma-flip-in-right-2'        =>  esc_html__( 'Flip In Right 2', MELA_TD ),
-					'jltma-flip-in-right-3'        =>  esc_html__( 'Flip In Right 3', MELA_TD ),
-
-					'jltma-pulse'                  =>  esc_html__( 'Pulse In 1', MELA_TD ),
-					'jltma-pulse1'                 =>  esc_html__( 'Pulse In 2', MELA_TD ),
-					'jltma-pulse2'                 =>  esc_html__( 'Pulse In 3', MELA_TD ),
-					'jltma-pulse3'                 =>  esc_html__( 'Pulse In 4', MELA_TD ),
-					'jltma-pulse4'                 =>  esc_html__( 'Pulse In 5', MELA_TD ),
-
-					'jltma-pulse-out-1'            =>  esc_html__( 'Pulse Out 1', MELA_TD ),
-					'jltma-pulse-out-2'            =>  esc_html__( 'Pulse Out 2', MELA_TD ),
-					'jltma-pulse-out-3'            =>  esc_html__( 'Pulse Out 3', MELA_TD ),
-					'jltma-pulse-out-4'            =>  esc_html__( 'Pulse Out 4', MELA_TD ),
-
-					// Specials
-					'jltma-shake'                  =>  esc_html__( 'Shake', MELA_TD ),
-					'jltma-bounce-in'              =>  esc_html__( 'Bounce In', MELA_TD ),
-					'jltma-jack-in-box'            =>  esc_html__( 'Jack In the Box', MELA_TD ),
-
-
-				),
+				'options' => Master_Addons_Helper::jltma_animation_options(),
 				'default'            => '',
 				'prefix_class'       => 'jltma-appear-watch-animation ',
 				'label_block'        => false
@@ -206,6 +120,7 @@ class Master_Addons_Entrance_Animation {
 					'initial'                =>  esc_html__( 'Initial', MELA_TD ),
 
 					'linear'                 =>  esc_html__( 'Linear', MELA_TD ),
+					'ease-in' 				 =>  esc_html__( 'Ease In', MELA_TD ),
 					'ease-out'               =>  esc_html__( 'Ease Out', MELA_TD ),
 					'0.19,1,0.22,1'          =>  esc_html__( 'Ease In Out', MELA_TD ),
 
