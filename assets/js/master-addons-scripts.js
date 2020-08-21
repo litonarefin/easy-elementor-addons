@@ -2134,17 +2134,8 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_ParticlesBG);
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_Reveal);
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_Rellax);
-        
-
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_Entrance_Animation);
 
-        // elementorFrontend.hooks.addAction( 'frontend/element_ready/global',
-        //     function( $scope ) {
-        //         $.fn.AuxinPageCoverAnimationInit( $scope );
-        //         $.fn.AuxinToggleListInit( $scope );
-        //         $.fn.AuxinAppearAnimationsInit( $scope );
-        //     }
-        // );
 
 
         //Element Scripts
