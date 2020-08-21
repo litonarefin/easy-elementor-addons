@@ -10649,6 +10649,84 @@ ul.jltma-toggle-content-controls {
 
 
 /* Start of Entrance Animation */
+.jltma-animate { animation-duration: 1s; animation-fill-mode: both; }
+
+@keyframes JltmaFlash { from,
+        50%,
+    to { opacity: 1; }
+  25%,
+    75% { opacity: 0; } }
+@keyframes JltmaPulseIn { from { transform: scale3d(1, 1, 1); }
+  50% { transform: scale3d(0.99, 0.99, 0.99); }
+  to { opacity: 1; transform: none; } }
+.jltma-anim-pulse-in, .jltma-animated.jltma-pulse { animation-name: JltmaPulseIn; }
+
+@keyframes JltmaPulseIn1 { from { transform: scale3d(1, 1, 1); }
+  50% { transform: scale3d(0.98, 0.98, 0.98); }
+  to { opacity: 1; transform: none; } }
+.jltma-anim-pulse-in-1, .jltma-animated.jltma-pulse1 { animation-name: JltmaPulseIn1; }
+
+@keyframes JltmaPulseIn2 { from { transform: scale3d(1, 1, 1); }
+  50% { transform: scale3d(0.96, 0.96, 0.96); }
+  to { opacity: 1; transform: none; } }
+.jltma-anim-pulse-in-2, .jltma-animated.jltma-pulse2 { animation-name: JltmaPulseIn2; }
+
+@keyframes JltmaPulseIn3 { from { transform: scale3d(1, 1, 1); }
+  50% { transform: scale3d(0.94, 0.94, 0.94); }
+  to { opacity: 1; transform: none; } }
+.jltma-anim-pulse-in-3, .jltma-animated.jltma-pulse3 { animation-name: JltmaPulseIn3; }
+
+@keyframes JltmaPulseIn4 { from { transform: scale3d(1, 1, 1); }
+  50% { transform: scale3d(0.9, 0.9, 0.9); }
+  to { opacity: 1; transform: none; } }
+.jltma-anim-pulse-in-4, .jltma-animated.jltma-pulse4 { animation-name: JltmaPulseIn4; }
+
+@keyframes JltmaPulseOut1 { from { transform: scale3d(1, 1, 1); }
+  50% { transform: scale3d(1.05, 1.05, 1.05); }
+  to { opacity: 1; transform: none; } }
+.jltma-anim-pulse-out-1, .jltma-animated.jltma-pulse-out-1 { animation-name: JltmaPulseOut1; }
+
+@keyframes JltmaPulseOut2 { from { transform: scale3d(1, 1, 1); }
+  50% { transform: scale3d(1.1, 1.1, 1.1); }
+  to { opacity: 1; transform: none; } }
+.jltma-anim-pulse-out-2, .jltma-animated.jltma-pulse-out-2 { animation-name: JltmaPulseOut2; }
+
+@keyframes JltmaPulseOut3 { from { transform: scale3d(1, 1, 1); }
+  50% { transform: scale3d(1.15, 1.15, 1.15); }
+  to { opacity: 1; transform: none; } }
+.jltma-anim-pulse-out-3, .jltma-animated.jltma-pulse-out-3 { animation-name: JltmaPulseOut3; }
+
+@keyframes JltmaPulseOut4 { from { transform: scale3d(1, 1, 1); }
+  50% { transform: scale3d(1.2, 1.2, 1.2); }
+  to { opacity: 1; transform: none; } }
+.jltma-anim-pulse-out-4, .jltma-animated.jltma-pulse-out-4 { animation-name: JltmaPulseOut4; }
+
+@keyframes JltmaShake { from,
+  to { transform: translate3d(0, 0, 0); }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% { transform: translate3d(-50px, 0, 0); }
+  20%,
+  40%,
+  60%,
+  80% { opacity: 1; transform: translate3d(50px, 0, 0); } }
+.jltma-anim-shake, .jltma-animated.jltma-shake { animation-name: JltmaShake; }
+
+@keyframes JltmaBounceIn { from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  0% { transform: scale3d(0.3, 0.3, 0.3); }
+  20% { transform: scale3d(1.1, 1.1, 1.1); }
+  40% { transform: scale3d(0.9, 0.9, 0.9); }
+  60% { opacity: 1; transform: scale3d(1.03, 1.03, 1.03); }
+  80% { transform: scale3d(0.97, 0.97, 0.97); }
+  to { opacity: 1; transform: none; } }
+.jltma-anim-bounce-in, .jltma-animated.jltma-bounce-in { animation-name: JltmaBounceIn; }
 @keyframes JltmaFadeIn { from { opacity: 0; }
   to { opacity: 1; } }
 .jltma-anim-fade-in, .jltma-animated.jltma-fade-in { animation-name: JltmaFadeIn; }
@@ -10899,11 +10977,11 @@ ul.jltma-toggle-content-controls {
 @keyframes JltmaLoadingWave { 0% { background-position: 0% 0; }
   100% { background-position: 66% 0; } }
 /** Appear Animations */
-/* .jltma-appear-watch-animation { animation-duration: 1s; animation-fill-mode: both; animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1); opacity: 0; }
+.jltma-appear-watch-animation { animation-duration: 1s; animation-fill-mode: both; animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1); opacity: 0; }
 .jltma-appear-watch-animation.jltma-animation-off { opacity: 1; }
 
 .jltma-animation-off { animation: none !important; }
- */
+
 .jltma-animated.jltma-slide-from-right { overflow: hidden; opacity: 1; }
 .jltma-animated.jltma-slide-from-right > .elementor-widget-container, .jltma-animated.jltma-slide-from-right > .elementor-column-wrap { animation-duration: inherit; animation-fill-mode: inherit; animation-timing-function: inherit; animation-delay: inherit; }
 .jltma-animated.jltma-slide-from-left { overflow: hidden; opacity: 1; }

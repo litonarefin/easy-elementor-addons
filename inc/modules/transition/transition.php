@@ -287,8 +287,6 @@ class Master_Addons_Entrance_Animation {
 		return self::$instance;
 	}
 
-
-
 }
 
 Master_Addons_Entrance_Animation::get_instance();

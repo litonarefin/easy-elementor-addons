@@ -1,7 +1,7 @@
 
 
 /* 
- * ================== js/libs/plugins/master/jquery.appearl.js =================== 
+ * ================== js/jquery.appearl.js =================== 
  */ 
 
 ;( function( $, window, document, undefined ) {
