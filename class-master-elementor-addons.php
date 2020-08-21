@@ -725,6 +725,7 @@
 
 
 				// Master Addons Scripts */
+				wp_enqueue_script( 'master-addons-plugins', MELA_PLUGIN_URL . '/assets/js/plugins.js', [ 'jquery' ], self::VERSION, true );
 				wp_enqueue_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', [ 'jquery' ], self::VERSION, true );
 
 				$localize_data = array(

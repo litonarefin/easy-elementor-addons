@@ -1590,6 +1590,8 @@
 
                     currentDevice = elementorFrontend.getCurrentDeviceMode();
 
+                    // console.log(currentDevice);
+
                     var setting_speed = 'speed_rellax';
                     var value_speed = 0;
 
@@ -1618,20 +1620,43 @@
 
         MA_Rellax_Final: function (panel, model, view) {
             Master_Addons.getElementSettings = getElementSettings($scope);
-
-            // Master_Addons.initRellax($scope, $);
-
-
-            // var WidgetElements_RellaxHandler = function (panel, model, view) {
-            //console.log( $scope );
-            //alert('Rellax');
             var $scope = view.$el;
             var scene = $scope.find('#scene');
-            //var parallax = new Rellax( scene[0] );
-
-            // };
+        },
 
 
+        // Entrance Animations
+        MA_Entrance_Animation: function ($scope, $) {
+
+            $scope = $scope || $(this);
+
+            var $target      = $scope.hasClass('jltma-appear-watch-animation') ? $scope: $scope.find('.jltma-appear-watch-animation'),
+                hasAnimation = $('body').hasClass('jltma-page-animation');
+
+            if( ! $target.length ){
+                return;
+            }   
+
+            if ( hasAnimation ) {
+                document.body.addEventListener( 'JltmaPageAnimationDone', function(event) { 
+                    $target.appearl({
+                        offset: '200px',
+                        insetOffset:'0px'
+                    }).one( 'appear', function(event, data) {
+                        this.classList.add('jltma-animated');
+                        this.classList.add('jltma-animated-once');
+                    });
+                });
+            } else {
+                $target.appearl({
+                    offset: '200px',
+                    insetOffset:'0px'
+                }).one( 'appear', function(event, data) {
+                    this.classList.add('jltma-animated');
+                    this.classList.add('jltma-animated-once');
+                });
+            }
+        
         },
 
         /**
@@ -2109,6 +2134,17 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_ParticlesBG);
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_Reveal);
         elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_Rellax);
+        
+
+        elementorFrontend.hooks.addAction('frontend/element_ready/global', Master_Addons.MA_Entrance_Animation);
+
+        // elementorFrontend.hooks.addAction( 'frontend/element_ready/global',
+        //     function( $scope ) {
+        //         $.fn.AuxinPageCoverAnimationInit( $scope );
+        //         $.fn.AuxinToggleListInit( $scope );
+        //         $.fn.AuxinAppearAnimationsInit( $scope );
+        //     }
+        // );
 
 
         //Element Scripts
