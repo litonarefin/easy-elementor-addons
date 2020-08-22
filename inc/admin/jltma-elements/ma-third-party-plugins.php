@@ -8,7 +8,6 @@ $jltma_elements = [
             [
                 'key'           => 'elementor-custom-breakpoints',
                 'title'         => esc_html__( 'Custom Breakpoints', MELA_TD),
-                'class'         => '\JLTMA_Master_Custom_Breakpoint',
                 'demo_url'      => '',
                 'docs_url'      => '',
                 'tuts_url'      => '',
