@@ -57,6 +57,7 @@
 									</div>
 								</div><!-- /.master-addons-dashboard-filter -->
 
+								<!-- Master Addons Extensions -->
 								<?php foreach( Master_Elementor_Addons::$ma_el_extensions as $key=>$extension ) :
 									$is_pro = "";
 								?>
@@ -141,6 +142,9 @@
 								</div>
 
 								<?php endforeach; ?>
+
+
+								<?php include_once MELA_PLUGIN_PATH . '/inc/admin/welcome/third-party-plugins.php'; ?>
 
 							</div> <!--  .master_addons_extensions-->
 

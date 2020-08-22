@@ -24,6 +24,12 @@ class Master_Addons_Admin_Settings{
 	private $maad_el_extension_settings;
 	private $maad_el_get_extension_settings;
 
+	// Master Addons Third Party Plugins Property
+	private $jltma_default_third_party_plugins_settings;
+	private $jltma_third_party_plugins_settings;
+	private $jltma_get_third_party_plugins_settings;
+
+
 	public function __construct() {
 
 		add_action( 'admin_menu', [ $this, 'master_addons_admin_menu' ],  '', 10);
@@ -36,6 +42,10 @@ class Master_Addons_Admin_Settings{
 		// Master Addons Extensions
 		add_action( 'wp_ajax_master_addons_save_extensions_settings', [ $this, 'master_addons_save_extensions_settings']);
 		add_action( 'wp_ajax_nopriv_master_addons_save_extensions_settings', [ $this, 'master_addons_save_extensions_settings']);
+
+		// Master Addons Third Party Plugins
+		// add_action( 'wp_ajax_jltma_third_party_plugins_settings', [ $this, 'jltma_third_party_plugins_settings']);
+		// add_action( 'wp_ajax_nopriv_jltma_third_party_plugins_settings', [ $this, 'jltma_third_party_plugins_settings']);
 
 		// Master Addons API Settings
 		add_action( 'wp_ajax_jltma_save_api_settings', [ $this, 'jltma_save_api_settings']);
@@ -111,13 +121,18 @@ class Master_Addons_Admin_Settings{
 
 	public function master_addons_el_page_content(){
 
-		// // Master Addons Elements Settings
+		// Master Addons Elements Settings
 		$this->maad_el_default_settings = array_fill_keys( ma_el_array_flatten( Master_Elementor_Addons::$maad_el_default_widgets ), true );
 		$this->maad_el_get_settings 	= get_option( 'maad_el_save_settings', $this->maad_el_default_settings );
 
-		// // Master Addons Extensions Settings
+		// Master Addons Extensions Settings
 		$this->ma_el_default_extensions_settings = array_fill_keys( ma_el_array_flatten(Master_Elementor_Addons::$ma_el_extensions ), true);
 		$this->maad_el_get_extension_settings = get_option( 'ma_el_extensions_save_settings', $this->ma_el_default_extensions_settings );
+
+
+		// Master Addons Third Party Plugins Settings
+		$this->jltma_default_third_party_plugins_settings = array_fill_keys( ma_el_array_flatten(Master_Elementor_Addons::$jltma_third_party_plugins ), true);
+		$this->jltma_get_third_party_plugins_settings = get_option( 'ma_el_third_party_plugins_save_settings', $this->jltma_default_third_party_plugins_settings );
 
 		// Welcome Page
 		include MELA_PLUGIN_PATH . '/inc/admin/welcome.php';
@@ -147,6 +162,21 @@ class Master_Addons_Admin_Settings{
 			}
 		}
 		update_option( 'ma_el_extensions_save_settings', $this->maad_el_extension_settings );
+
+
+		// Third Party Plugin Settings
+		$this->jltma_third_party_plugins_settings = [];
+
+		foreach( ma_el_array_flatten( Master_Elementor_Addons::$jltma_third_party_plugins ) as $value ){
+
+			if( isset( $settings[ $value ] ) ) {
+				$this->jltma_third_party_plugins_settings[ $value ] = 1;
+			} else {
+				$this->jltma_third_party_plugins_settings[ $value ] = 0;
+			}
+		}
+		update_option( 'ma_el_third_party_plugins_save_settings', $this->jltma_third_party_plugins_settings );
+
 
 		return true;
 		die();

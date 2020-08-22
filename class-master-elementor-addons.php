@@ -29,6 +29,7 @@
 			public static $maad_el_default_widgets;
 			public static $maad_el_pro_widgets;
 			public static $ma_el_extensions;
+			public static $jltma_third_party_plugins;
 
 
 			public static function get_instance() {
@@ -122,6 +123,10 @@
 					'dynamic-tags'
 				];
 
+				self::$jltma_third_party_plugins = [
+					'custom-breakpoints',
+					'woocommerce',
+				];
 
 				$this->constants();
 				$this->maad_el_include_files();
@@ -181,8 +186,6 @@
 			// Deactivation Hook
 			public static function jltma_plugin_deactivation_hook(){
 				delete_option('jltma_activation_time');
-				delete_option('maad_el_save_settings');
-				delete_option('ma_el_extensions_save_settings');
 			}
 
 			// Activation Hook
@@ -193,6 +196,7 @@
 
 				self::activated_widgets();
 				self::activated_extensions();
+				self::activated_third_party_plugins();
 		    }
 
 			// Initialize
@@ -343,6 +347,25 @@
 				update_option('ma_el_extensions_save_settings', $maad_el_updated_extension_settings);
 
 				return $maad_el_get_extension_settings;
+
+			}
+
+
+
+			public static function activated_third_party_plugins() {
+
+				$jltma_third_party_plugins_settings = array_fill_keys( ma_el_array_flatten( self::$jltma_third_party_plugins ),true );
+
+				$jltma_get_third_party_plugins_settings     = get_option( 'ma_el_third_party_plugins_save_settings', $jltma_third_party_plugins_settings );
+				$jltma_new_third_party_plugins_settings     = array_diff_key( $jltma_third_party_plugins_settings, $jltma_get_third_party_plugins_settings );
+				$maad_el_updated_extension_settings = array_merge( $jltma_get_third_party_plugins_settings,
+						$jltma_new_third_party_plugins_settings );
+
+				if ($jltma_get_third_party_plugins_settings === false)
+					$jltma_get_third_party_plugins_settings = array();
+				update_option('ma_el_third_party_plugins_save_settings', $maad_el_updated_extension_settings);
+
+				return $jltma_get_third_party_plugins_settings;
 
 			}
 
