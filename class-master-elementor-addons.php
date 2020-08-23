@@ -124,7 +124,7 @@
 				];
 
 				self::$jltma_third_party_plugins = [
-					'custom-breakpoints',
+					['custom-breakpoints', 'pro'],
 					'woocommerce',
 				];
 

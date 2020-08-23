@@ -16,11 +16,17 @@
 	<h3><?php echo esc_html__('Third Party Plugins', MELA_TD);?></h3>
 
 	<!-- Third Party Plugins -->
-	<?php 
-	foreach( Master_Elementor_Addons::$jltma_third_party_plugins as $key=>$jltma_plugins ) {
-		// $is_pro = "";
-		// print_r($jltma_plugins);
-		?>
+	<?php foreach( Master_Elementor_Addons::$jltma_third_party_plugins as $key=>$jltma_plugins ) { 
+
+		if($jltma_elements['jltma-plugins']['plugin'][$key]['key'] === "custom-breakpoints"){
+			if ( !ma_el_fs()->is_plan('developer', true) ) {
+				continue;
+			}			
+		}
+
+        $plugin_file = $jltma_elements['jltma-plugins']['plugin'][$key]['plugin_file'];
+        $plugin_slug = $jltma_elements['jltma-plugins']['plugin'][$key]['wp_slug'];
+	?>
 
 		<div class="master-addons-dashboard-checkbox col">
 			<div class="master-addons-dashboard-checkbox-content">
@@ -28,10 +34,10 @@
 				<div class="master-addons-features-ribbon">
 					<?php
 						$is_pro = "";
-						if ( isset( $extension ) ) {
-							if ( is_array( $extension ) ) {
-								$is_pro = $extension[1];
-								$extension = $extension[0];
+						if ( isset( $jltma_plugins ) ) {
+							if ( is_array( $jltma_plugins ) ) {
+								$is_pro = $jltma_plugins[1];
+								$jltma_plugins = $jltma_plugins[0];
 
 								if( !ma_el_fs()->can_use_premium_code()) {
 								echo '<span class="pro-ribbon">';
@@ -48,11 +54,28 @@
 						<?php echo $jltma_elements['jltma-plugins']['plugin'][$key]['title']; ?>
 					</div> <!-- master-addons-el-title-content -->
 					<div class="ma-el-tooltip">
-						<?php
-						Master_Addons_Helper::jltma_admin_tooltip_info('Demo',$jltma_elements['jltma-plugins']['plugin'][$key]['demo_url'], 'eicon-device-desktop' );
-						Master_Addons_Helper::jltma_admin_tooltip_info('Documentation',$jltma_elements['jltma-plugins']['plugin'][$key]['docs_url'], 'eicon-info-circle-o' );
-						Master_Addons_Helper::jltma_admin_tooltip_info('Video Tutorial',$jltma_elements['jltma-plugins']['plugin'][$key]['tuts_url'], 'eicon-video-camera' );
-						?>
+						<?php 
+							if ($plugin_slug and $plugin_file) {
+								if ( Master_Addons_Helper::is_plugin_installed($plugin_slug, $plugin_file) ) {
+									if ( ! current_user_can( 'install_plugins' ) ) { return; }
+									if( !jltma_is_plugin_active( $plugin_file ) ){
+								        $activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin_file . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin_file );
+					                    $html = '<a class="thrd-party-plgin-dnld thrd-party-plgin-dnld-active" href="' . $activation_url . '" ><span class="thrd-party-plgin-dnld thrd-party-plgin-dnld-active pr-1">' . esc_html__('Activate' MELA_TD) . '</span><i class="dashicons dashicons-yes-alt"></i></a>';
+		        					}else{
+		        						$html ='';
+		        					}
+
+		        				} else{
+
+	        						$install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $plugin_slug ), 'install-plugin_' . $plugin_slug );
+		                    		$html = '<a class="thrd-party-plgin-dnld" href="' . $install_url . '"><span class="thrd-party-plgin-dnld pr-1">' . esc_html__('Download' MELA_TD) . '</span><i class="dashicons dashicons-download"></i></a>';
+
+		                    		activate_plugin($plugin_file);
+		        					
+		        				}
+								echo $html;
+							}
+	        			?>
 					</div>
 				</div> <!-- .master-addons-el-title -->
 

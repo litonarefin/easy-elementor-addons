@@ -835,4 +835,10 @@ class Master_Addons_Helper{
 
 
 
+    public static function is_plugin_installed($plugin_slug, $plugin_file ) {
+        $installed_plugins = get_plugins();
+        return isset( $installed_plugins[ $plugin_file ] );
+    }
+
+
 }

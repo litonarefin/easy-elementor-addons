@@ -1237,3 +1237,39 @@
 .ui-accordion-header-active:before {
     content: "\f347";
 }
+
+/* Third Party Plugin */
+.thrd-party-plgin-dnld{
+    display: inline-block;
+    margin-left: 5px;
+    padding: 2px 2px 0px;
+    color: #FFFFFF;
+    background-color: #6814cd;
+    border-radius: 3px;
+    font-size: 10px;
+    line-height: 1;
+    font-weight: 700;    
+    text-decoration: none;
+}
+.thrd-party-plgin-dnld i.dashicons{
+    width: 15px;
+    height: 15px;
+    font-size: 15px;
+}
+.thrd-party-plgin-dnld-active {
+    background-color: #e61414;
+}
+a.thrd-party-plgin-dnld:focus,
+a.thrd-party-plgin-dnld:hover,
+a.thrd-party-plgin-dnld:active,
+a.thrd-party-plgin-dnld i:focus,
+a.thrd-party-plgin-dnld i:hover,
+a.thrd-party-plgin-dnld i:active{
+    color: #e2e2e2;
+}
+.thrd-party-plgin-dnld:focus,
+.thrd-party-plgin-dnld:visited,
+.thrd-party-plgin-dnld:active{
+    box-shadow: none;
+    outline: 0;
+}
