@@ -13,6 +13,7 @@ use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
 
+use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
 
 /**
  * Author Name: Liton Arefin
@@ -247,15 +248,13 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 			$this->add_control(
 				'jltma_gallery_slider_open_lightbox',
 				[
-					'label' 	=> esc_html__( 'Lightbox', MELA_TD ),
-					'type' 		=> Controls_Manager::SELECT,
-					'default' 	=> 'default',
-					'options' 	=> [
-						'default' 	=> esc_html__( 'Default', MELA_TD ),
-						'yes' 		=> esc_html__( 'Yes', MELA_TD ),
-						'no' 		=> esc_html__( 'No', MELA_TD ),
-					],
-					'condition' => [
+					'label' 			=> esc_html__( 'Lightbox', MELA_TD ),
+					'type' 				=> Controls_Manager::SWITCHER,
+					'default'           => 'no',
+					'label_on'          => esc_html__( 'Yes', MELA_TD ),
+					'label_off'         => esc_html__( 'No', MELA_TD ),
+					'return_value'      => 'yes',
+					'condition' 		=> [
 						'jltma_gallery_slider_link_to' => 'file',
 					],
 				]
@@ -264,13 +263,12 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 			$this->add_control(
 				'jltma_gallery_slider_preview_stretch',
 				[
-					'label' 	=> esc_html__( 'Image Stretch', MELA_TD ),
-					'type' 		=> Controls_Manager::SELECT,
-					'default' 	=> 'yes',
-					'options' 	=> [
-						'no' 	=> esc_html__( 'No', MELA_TD ),
-						'yes' 	=> esc_html__( 'Yes', MELA_TD ),
-					],
+					'label' 			=> esc_html__( 'Image Stretch', MELA_TD ),
+					'type' 				=> Controls_Manager::SWITCHER,
+					'default'           => 'yes',
+					'label_on'          => esc_html__( 'Yes', MELA_TD ),
+					'label_off'         => esc_html__( 'No', MELA_TD ),
+					'return_value'      => 'yes'
 				]
 			);
 
@@ -306,13 +304,12 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 			$this->add_control(
 				'jltma_gallery_slider_autoplay',
 				[
-					'label' 	=> esc_html__( 'Autoplay', MELA_TD ),
-					'type' 		=> Controls_Manager::SELECT,
-					'default' 	=> 'yes',
-					'options' 	=> [
-						'yes' 	=> esc_html__( 'Yes', MELA_TD ),
-						'no' 	=> esc_html__( 'No', MELA_TD ),
-					],
+					'label' 			=> esc_html__( 'Autoplay', MELA_TD ),
+					'type' 				=> Controls_Manager::SWITCHER,
+					'default'           => 'yes',
+					'label_on'          => esc_html__( 'Yes', MELA_TD ),
+					'label_off'         => esc_html__( 'No', MELA_TD ),
+					'return_value'      => 'yes',
 					'frontend_available' => true,
 				]
 			);
@@ -333,15 +330,14 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 			$this->add_control(
 				'jltma_gallery_slider_pause_on_hover',
 				[
-					'label' 	=> esc_html__( 'Pause on Hover', MELA_TD ),
-					'type' 		=> Controls_Manager::SELECT,
-					'default' 	=> 'yes',
-					'options' 	=> [
-						'yes' 	=> esc_html__( 'Yes', MELA_TD ),
-						'no' 	=> esc_html__( 'No', MELA_TD ),
-					],
-					'frontend_available' => true,
-					'condition'	=> [
+					'label' 				=> esc_html__( 'Pause on Hover', MELA_TD ),
+					'type' 					=> Controls_Manager::SWITCHER,
+					'default'           	=> 'yes',
+					'label_on'          	=> esc_html__( 'Yes', MELA_TD ),
+					'label_off'         	=> esc_html__( 'No', MELA_TD ),
+					'return_value'      	=> 'yes',
+					'frontend_available' 	=> true,
+					'condition'				=> [
 						'jltma_gallery_slider_autoplay' => 'yes',
 					],
 				]
@@ -350,28 +346,26 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 			$this->add_control(
 				'jltma_gallery_slider_infinite',
 				[
-					'label' 	=> esc_html__( 'Infinite Loop', MELA_TD ),
-					'type' 		=> Controls_Manager::SELECT,
-					'default' 	=> 'yes',
-					'options' 	=> [
-						'yes' 	=> esc_html__( 'Yes', MELA_TD ),
-						'no' 	=> esc_html__( 'No', MELA_TD ),
-					],
-					'frontend_available' => true,
+					'label' 				=> esc_html__( 'Infinite Loop', MELA_TD ),
+					'type' 					=> Controls_Manager::SWITCHER,
+					'default'           	=> 'yes',
+					'label_on'          	=> esc_html__( 'Yes', MELA_TD ),
+					'label_off'         	=> esc_html__( 'No', MELA_TD ),
+					'return_value'      	=> 'yes',
+					'frontend_available' 	=> true,
 				]
 			);
 
 			$this->add_control(
 				'jltma_gallery_slider_adaptive_height',
 				[
-					'label' 	=> esc_html__( 'Adaptive Height', MELA_TD ),
-					'type' 		=> Controls_Manager::SELECT,
-					'default' 	=> 'yes',
-					'options' 	=> [
-						'yes' 	=> esc_html__( 'Yes', MELA_TD ),
-						'no' 	=> esc_html__( 'No', MELA_TD ),
-					],
-					'frontend_available' => true,
+					'label' 				=> esc_html__( 'Adaptive Height', MELA_TD ),
+					'type' 					=> Controls_Manager::SWITCHER,
+					'default'           	=> 'yes',
+					'label_on'          	=> esc_html__( 'Yes', MELA_TD ),
+					'label_off'         	=> esc_html__( 'No', MELA_TD ),
+					'return_value'      	=> 'yes',
+					'frontend_available' 	=> true,
 				]
 			);
 
@@ -400,20 +394,588 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 			);
 
 			$this->add_control(
-				'jltma_gallery_slider_direction',
+	            'jltma_gallery_slider_direction',
+	            [
+	                'label' 		=> esc_html__( 'Direction', MELA_TD ),
+	                'type' 			=> Controls_Manager::CHOOSE,
+	                'label_block' 	=> false,
+	                'options' 		=> [
+	                    'ltr' 			=> [
+							'title' 		=> esc_html__( 'Left to Right', MELA_TD ),
+							'icon' 			=> 'fa fa-arrow-right',
+	                    ],
+	                    'rtl' 			=> [
+	                        'title' 		=> esc_html__( 'Right to Left', MELA_TD ),
+	                        'icon' 			=> 'fa fa-arrow-left',
+	                    ],
+	                ],
+	                'default' 		 => 'ltr',
+	                'style_transfer' => true,
+	            ]
+	        );
+
+		$this->end_controls_section();
+
+
+
+        /**
+         * Content Tab: Preview Styles
+         */
+
+
+		$this->start_controls_section(
+			'jltma_gallery_slider_section_style_preview',
+			[
+				'label' 	=> esc_html__( 'Preview', MELA_TD ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+			$this->start_controls_tabs( 'jltma_gallery_slider_preview_tabs' );
+
+				$this->start_controls_tab( 'jltma_gallery_slider_preview_layout', [ 'label' => esc_html__( 'Layout', MELA_TD ) ] );
+
+					$this->add_control(
+						'jltma_gallery_slider_preview_position',
+						[
+							'label' 	=> esc_html__( 'Position', MELA_TD ),
+							'type' 		=> Controls_Manager::SELECT,
+							'default' 	=> 'left',
+							'tablet_default' 	=> 'top',
+							'mobile_default' 	=> 'top',
+							'options' 	=> [
+								'top' 		=> esc_html__( 'Top', MELA_TD ),
+								'right' 	=> esc_html__( 'Right', MELA_TD ),
+								'left' 		=> esc_html__( 'Left', MELA_TD ),
+							],
+							'prefix_class'	=> 'ee-gallery-slider--',
+							'condition' => [
+								'jltma_gallery_slider_show_thumbnails!' => '',
+							],
+						]
+					);
+
+					$this->add_control(
+						'jltma_gallery_slider_preview_stack',
+						[
+							'label' 	=> esc_html__( 'Stack on', MELA_TD ),
+							'type' 		=> Controls_Manager::SELECT,
+							'default' 	=> 'tablet',
+							'tablet_default' 	=> 'top',
+							'mobile_default' 	=> 'top',
+							'options' 	=> [
+								'tablet' 	=> esc_html__( 'Tablet & Mobile', MELA_TD ),
+								'mobile' 	=> esc_html__( 'Mobile Only', MELA_TD ),
+							],
+							'prefix_class'	=> 'ee-gallery-slider--stack-',
+							'condition' => [
+								'jltma_gallery_slider_show_thumbnails!' => '',
+							],
+						]
+					);
+
+					$this->add_responsive_control(
+						'jltma_gallery_slider_preview_width',
+						[
+							'label' 	=> esc_html__( 'Width (%)', MELA_TD ),
+							'type' 		=> Controls_Manager::SLIDER,
+							'range' 	=> [
+								'px' 	=> [
+									'min' => 0,
+									'max' => 100,
+								],
+							],
+							'default' 	=> [
+								'size' 	=> 70,
+							],
+							'condition'	=> [
+								'jltma_gallery_slider_preview_position!' => 'top',
+								'jltma_gallery_slider_show_thumbnails!' => '',
+							],
+							'selectors'		=> [
+								'{{WRAPPER}}.ee-gallery-slider--left .ee-gallery-slider__preview' => 'width: {{SIZE}}%',
+								'{{WRAPPER}}.ee-gallery-slider--right .ee-gallery-slider__preview' => 'width: {{SIZE}}%',
+								'{{WRAPPER}}.ee-gallery-slider--left .ee-gallery-slider__gallery' => 'width: calc(100% - {{SIZE}}%)',
+								'{{WRAPPER}}.ee-gallery-slider--right .ee-gallery-slider__gallery' => 'width: calc(100% - {{SIZE}}%)',
+							],
+						]
+					);
+
+					$preview_horizontal_margin = is_rtl() ? 'margin-right' : 'margin-left';
+					$preview_horizontal_padding = is_rtl() ? 'padding-right' : 'padding-left';
+
+					$this->add_responsive_control(
+						'jltma_gallery_slider_preview_spacing',
+						[
+							'label' 	=> esc_html__( 'Spacing', MELA_TD ),
+							'type' 		=> Controls_Manager::SLIDER,
+							'range' 	=> [
+								'px' 	=> [
+									'min' => 0,
+									'max' => 200,
+								],
+							],
+							'default' 	=> [
+								'size' 	=> 24,
+							],
+							'selectors' => [
+								'{{WRAPPER}}.ee-gallery-slider--left .ee-gallery-slider > *,
+								 {{WRAPPER}}.ee-gallery-slider--right .ee-gallery-slider > *' => $preview_horizontal_padding . ': {{SIZE}}{{UNIT}};',
+
+								'{{WRAPPER}}.ee-gallery-slider--left .ee-gallery-slider,
+								 {{WRAPPER}}.ee-gallery-slider--right .ee-gallery-slider' => $preview_horizontal_margin . ': -{{SIZE}}{{UNIT}};',
+
+								'{{WRAPPER}}.ee-gallery-slider--top .ee-gallery-slider__preview' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+
+								'(tablet){{WRAPPER}}.ee-gallery-slider--stack-tablet .ee-gallery-slider__preview' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+								'(mobile){{WRAPPER}}.ee-gallery-slider--stack-mobile .ee-gallery-slider__preview' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+							],
+							'condition' => [
+								'jltma_gallery_slider_show_thumbnails!' => '',
+							],
+						]
+					);
+
+				$this->end_controls_tab();
+
+				$this->start_controls_tab( 'jltma_gallery_slider_preview_images', [ 'label' => esc_html__( 'Images', MELA_TD ) ] );
+
+					$this->add_group_control(
+						Group_Control_Border::get_type(),
+						[
+							'name' 		=> 'jltma_gallery_slider_preview_border',
+							'label' 	=> esc_html__( 'Image Border', MELA_TD ),
+							'selector' 	=> '{{WRAPPER}} .slick-slider',
+						]
+					);
+
+					$this->add_control(
+						'jltma_gallery_slider_preview_border_radius',
+						[
+							'label' 		=> esc_html__( 'Border Radius', MELA_TD ),
+							'type' 			=> Controls_Manager::DIMENSIONS,
+							'size_units' 	=> [ 'px', '%' ],
+							'selectors' 	=> [
+								'{{WRAPPER}} .slick-slide' 	=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+							],
+						]
+					);
+
+					$this->add_group_control(
+						Group_Control_Box_Shadow::get_type(),
+						[
+							'name' 		=> 'jltma_gallery_slider_preview_box_shadow',
+							'selector' 	=> '{{WRAPPER}} .slick-slider',
+							'separator'	=> '',
+						]
+					);
+
+				$this->end_controls_tab();
+
+			$this->end_controls_tabs();
+
+			$this->add_control(
+				'jltma_gallery_slider_arrows_style_heading',
 				[
-					'label' 	=> esc_html__( 'Direction', MELA_TD ),
-					'type' 		=> Controls_Manager::SELECT,
-					'default' 	=> 'ltr',
-					'options' 	=> [
-						'ltr' 	=> esc_html__( 'Left', MELA_TD ),
-						'rtl' 	=> esc_html__( 'Right', MELA_TD ),
+					'label' 	=> esc_html__( 'Arrows', MELA_TD ),
+					'separator' => 'before',
+					'type' 		=> Controls_Manager::HEADING,
+					'condition'		=> [
+						'jltma_gallery_slider_show_arrows!' => '',
+					]
+				]
+			);
+
+			$this->add_responsive_control(
+				'jltma_gallery_slider_arrows_size',
+				[
+					'label' 		=> esc_html__( 'Size', MELA_TD ),
+					'type' 			=> Controls_Manager::SLIDER,
+					'range' 		=> [
+						'px' 		=> [
+							'min' => 12,
+							'max' => 48,
+						],
 					],
-					'frontend_available' => true,
+					'selectors' 	=> [
+						'{{WRAPPER}} .ee-carousel__arrow' => 'font-size: {{SIZE}}px;',
+					],
+					'condition'		=> [
+						'jltma_gallery_slider_show_arrows!' => '',
+					]
+				]
+			);
+
+			$this->add_responsive_control(
+				'jltma_gallery_slider_arrows_padding',
+				[
+					'label' 		=> esc_html__( 'Padding', MELA_TD ),
+					'type' 			=> Controls_Manager::SLIDER,
+					'range' 		=> [
+						'px' 		=> [
+							'min' 	=> 0,
+							'max' 	=> 1,
+							'step'	=> 0.1,
+						],
+					],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ee-carousel__arrow' => 'padding: {{SIZE}}em;',
+					],
+					'condition'		=> [
+						'jltma_gallery_slider_show_arrows!' => '',
+					]
+				]
+			);
+
+			$this->add_responsive_control(
+				'jltma_gallery_slider_arrows_distance',
+				[
+					'label' 		=> esc_html__( 'Distance', MELA_TD ),
+					'type' 			=> Controls_Manager::SLIDER,
+					'range' 		=> [
+						'px' 		=> [
+							'min' => 0,
+							'max' => 100,
+						],
+					],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ee-carousel__arrow' => 'margin: {{SIZE}}px; transform: translateY( calc(-50% - {{SIZE}}px ) )',
+					],
+					'condition'		=> [
+						'jltma_gallery_slider_show_arrows!' => '',
+					]
+				]
+			);
+
+			$this->add_responsive_control(
+				'jltma_gallery_slider_arrows_border_radius',
+				[
+					'label' 		=> esc_html__( 'Border Radius', MELA_TD ),
+					'type' 			=> Controls_Manager::SLIDER,
+					'range' 		=> [
+						'px' 		=> [
+							'min' => 0,
+							'max' => 100,
+						],
+					],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ee-carousel__arrow' => 'border-radius: {{SIZE}}%;',
+					],
+					'condition'		=> [
+						'jltma_gallery_slider_show_arrows!' => '',
+					],
+					'separator'		=> 'after',
+				]
+			);
+
+			$this->add_group_control(
+				MA_Group_Control_Transition::get_type(),
+				[
+					'name' 			=> 'jltma_gallery_slider_arrows',
+					'selector' 		=> '{{WRAPPER}} .ee-carousel__arrow,
+										{{WRAPPER}} .ee-carousel__arrow:before',
+					'condition'		=> [
+						'jltma_gallery_slider_show_arrows!' => '',
+					]
+				]
+			);
+
+			$this->start_controls_tabs( 'jltma_gallery_slider_arrows_tabs_hover' );
+
+			$this->start_controls_tab( 'jltma_gallery_slider_arrows_tab_default', [
+				'label' => esc_html__( 'Default', MELA_TD ),
+				'condition'	=> [
+					'jltma_gallery_slider_show_arrows!' => '',
+				]
+			] );
+
+				$this->add_control(
+					'jltma_gallery_slider_arrows_color',
+					[
+						'label' 	=> esc_html__( 'Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .ee-carousel__arrow i:before' => 'color: {{VALUE}};',
+						],
+						'condition'		=> [
+							'jltma_gallery_slider_show_arrows!' => '',
+						]
+					]
+				);
+
+				$this->add_control(
+					'jltma_gallery_slider_arrows_background_color',
+					[
+						'label' 	=> esc_html__( 'Background Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .ee-carousel__arrow' => 'background-color: {{VALUE}};',
+						],
+						'condition'		=> [
+							'jltma_gallery_slider_show_arrows!' => '',
+						]
+					]
+				);
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab( 'jltma_gallery_slider_arrows_tab_hover', [
+				'label' => esc_html__( 'Hover', MELA_TD ),
+				'condition'	=> [
+					'jltma_gallery_slider_show_arrows!' => '',
+				]
+			] );
+
+				$this->add_control(
+					'jltma_gallery_slider_arrows_color_hover',
+					[
+						'label' 	=> esc_html__( 'Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .ee-carousel__arrow:hover i:before' => 'color: {{VALUE}};',
+						],
+						'condition'		=> [
+							'jltma_gallery_slider_show_arrows!' => '',
+						]
+					]
+				);
+
+				$this->add_control(
+					'jltma_gallery_slider_arrows_background_color_hover',
+					[
+						'label' 	=> esc_html__( 'Background Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .ee-carousel__arrow:hover' => 'background-color: {{VALUE}};',
+						],
+						'condition'		=> [
+							'jltma_gallery_slider_show_arrows!' => '',
+						]
+					]
+				);
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab( 'jltma_gallery_slider_arrows_tab_disabled', [
+				'label' => esc_html__( 'Disabled', MELA_TD ),
+				'condition'	=> [
+					'jltma_gallery_slider_show_arrows!' => '',
+				]
+			] );
+
+				$this->add_responsive_control(
+					'jltma_gallery_slider_arrows_opacity_disabled',
+					[
+						'label' 		=> esc_html__( 'Opacity', MELA_TD ),
+						'type' 			=> Controls_Manager::SLIDER,
+						'range' 		=> [
+							'px' 		=> [
+								'min' => 0,
+								'max' => 1,
+								'step'=> 0.05,
+							],
+						],
+						'selectors' 	=> [
+							'{{WRAPPER}} .ee-carousel__arrow.slick-disabled' => 'opacity: {{SIZE}};',
+						],
+						'condition'		=> [
+							'jltma_gallery_slider_show_arrows!' => '',
+						]
+					]
+				);
+
+			$this->end_controls_tab();
+
+			$this->end_controls_tabs();
+
+		$this->end_controls_section();
+
+
+
+
+        /**
+         * Content Tab: Preview Captions
+         */
+
+
+		$this->start_controls_section(
+			'jltma_gallery_slider_section_style_preview_captions',
+			[
+				'label' 	=> esc_html__( 'Preview Captions', MELA_TD ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'jltma_gallery_slider_caption_type!' => '',
+				],
+			]
+		);
+
+			$this->add_control(
+				'jltma_gallery_slider_preview_vertical_align',
+				[
+					'label' 	=> esc_html__( 'Vertical Align', MELA_TD ),
+					'type' 		=> Controls_Manager::CHOOSE,
+					'options' 	=> [
+						'top' 	=> [
+							'title' 	=> esc_html__( 'Top', MELA_TD ),
+							'icon' 		=> 'eicon-v-align-top',
+						],
+						'middle' 		=> [
+							'title' 	=> esc_html__( 'Middle', MELA_TD ),
+							'icon' 		=> 'eicon-v-align-middle',
+						],
+						'bottom' 		=> [
+							'title' 	=> esc_html__( 'Bottom', MELA_TD ),
+							'icon' 		=> 'eicon-v-align-bottom',
+						],
+					],
+					'default' 		=> 'bottom',
+					'condition' 	=> [
+						'jltma_gallery_slider_caption_type!' => '',
+					],
+				]
+			);
+
+			$this->add_control(
+				'jltma_gallery_slider_preview_horizontal_align',
+				[
+					'label' 	=> esc_html__( 'Horizontal Align', MELA_TD ),
+					'type' 		=> Controls_Manager::CHOOSE,
+					'options' 	=> [
+						'left' 	=> [
+							'title' 	=> esc_html__( 'Left', MELA_TD ),
+							'icon' 		=> 'eicon-h-align-left',
+						],
+						'center' 		=> [
+							'title' 	=> esc_html__( 'Center', MELA_TD ),
+							'icon' 		=> 'eicon-h-align-center',
+						],
+						'right' 		=> [
+							'title' 	=> esc_html__( 'Right', MELA_TD ),
+							'icon' 		=> 'eicon-h-align-right',
+						],
+						'justify' 		=> [
+							'title' 	=> esc_html__( 'Justify', MELA_TD ),
+							'icon' 		=> 'eicon-h-align-stretch',
+						],
+					],
+					'default' 		=> 'justify',
+					'condition' 	=> [
+						'jltma_gallery_slider_caption_type!' => '',
+					],
+				]
+			);
+
+			$this->add_control(
+				'jltma_gallery_slider_preview_align',
+				[
+					'label' 	=> esc_html__( 'Text Align', MELA_TD ),
+					'type' 		=> Controls_Manager::CHOOSE,
+					'options' 	=> [
+						'left' 	=> [
+							'title' 	=> esc_html__( 'Left', MELA_TD ),
+							'icon' 		=> 'fa fa-align-left',
+						],
+						'center' 		=> [
+							'title' 	=> esc_html__( 'Center', MELA_TD ),
+							'icon' 		=> 'fa fa-align-center',
+						],
+						'right' 		=> [
+							'title' 	=> esc_html__( 'Right', MELA_TD ),
+							'icon' 		=> 'fa fa-align-right',
+						],
+					],
+					'default' 	=> 'center',
+					'selectors' => [
+						'{{WRAPPER}} .ee-carousel__media__caption' => 'text-align: {{VALUE}};',
+					],
+					'condition' => [
+						'jltma_gallery_slider_thumbnails_caption_type!' => '',
+					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' 		=> 'jltma_gallery_slider_preview_typography',
+					'label' 	=> esc_html__( 'Typography', MELA_TD ),
+					'scheme' 	=> Scheme_Typography::TYPOGRAPHY_4,
+					'selector' 	=> '{{WRAPPER}} .ee-carousel__media__caption',
+					'condition' 	=> [
+						'jltma_gallery_slider_caption_type!' => '',
+					],
+				]
+			);
+
+			$this->add_control(
+				'jltma_gallery_slider_preview_text_padding',
+				[
+					'label' 		=> esc_html__( 'Padding', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ee-carousel__media__caption' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'condition' 	=> [
+						'jltma_gallery_slider_caption_type!' => '',
+					],
+				]
+			);
+
+			$this->add_control(
+				'jltma_gallery_slider_preview_text_margin',
+				[
+					'label' 		=> esc_html__( 'Margin', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ee-carousel__media__caption' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'condition' 	=> [
+						'jltma_gallery_slider_caption_type!' => '',
+					],
+					'separator'		=> 'after',
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+				[
+					'name' 		=> 'jltma_gallery_slider_preview_text_border',
+					'label' 	=> esc_html__( 'Border', MELA_TD ),
+					'selector' 	=> '{{WRAPPER}} .ee-carousel__media__caption',
+					'separator' => '',
+					'condition'	=> [
+						'jltma_gallery_slider_caption_type!' => '',
+					],
+				]
+			);
+
+			$this->add_control(
+				'jltma_gallery_slider_preview_text_border_radius',
+				[
+					'label' 		=> esc_html__( 'Border Radius', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ee-carousel__media__caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'condition' 	=> [
+						'jltma_gallery_slider_caption_type!' => '',
+					],
 				]
 			);
 
 		$this->end_controls_section();
+
+
+
+
+
+
+
+
+
 
 
 
