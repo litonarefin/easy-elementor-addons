@@ -999,7 +999,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 			);
 
 			$this->add_group_control(
-				Group_Control_Transition::get_type(),
+				MA_Group_Control_Transition::get_type(),
 				[
 					'name' 			=> 'jltma_gallery_slider_preview_caption',
 					'selector' 		=> '{{WRAPPER}} .ee-carousel__media__content,
@@ -1222,18 +1222,347 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 		$this->end_controls_section();
 
 
+        /**
+         * Style Tab: Docs Links
+         */
+
+		$this->start_controls_section(
+			'jltma_gallery_slider_section_style_thumbnails',
+			[
+				'label' 	=> esc_html__( 'Thumbnails', MELA_TD ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'show_thumbnails!' => '',
+				],
+			]
+		);
+
+			$this->add_control(
+				'jltma_gallery_slider_image_align',
+				[
+					'label' 		=> esc_html__( 'Alignment', MELA_TD ),
+					'type' 			=> Controls_Manager::CHOOSE,
+					'default' 		=> '',
+					'options' 		=> [
+						'left'    		=> [
+							'title' 	=> esc_html__( 'Left', MELA_TD ),
+							'icon' 		=> 'eicon-h-align-left',
+						],
+						'center' 		=> [
+							'title' 	=> esc_html__( 'Center', MELA_TD ),
+							'icon' 		=> 'eicon-h-align-center',
+						],
+						'right' 		=> [
+							'title' 	=> esc_html__( 'Right', MELA_TD ),
+							'icon' 		=> 'eicon-h-align-right',
+						],
+					],
+					'prefix_class'		=> 'ee-grid-halign--',
+				]
+			);
+			
+			$this->add_control(
+				'jltma_gallery_slider_image_vertical_align',
+				[
+					'label' 		=> esc_html__( 'Vertical Alignment', MELA_TD ),
+					'type' 			=> Controls_Manager::CHOOSE,
+					'default' 		=> '',
+					'options' 		=> [
+						'top'    		=> [
+							'title' 	=> esc_html__( 'Top', MELA_TD ),
+							'icon' 		=> 'eicon-v-align-top',
+						],
+						'middle' 		=> [
+							'title' 	=> esc_html__( 'Middle', MELA_TD ),
+							'icon' 		=> 'eicon-v-align-middle',
+						],
+						'bottom' 		=> [
+							'title' 	=> esc_html__( 'Bottom', MELA_TD ),
+							'icon' 		=> 'eicon-v-align-bottom',
+						],
+						'stretch' 		=> [
+							'title' 	=> esc_html__( 'Stretch', MELA_TD ),
+							'icon' 		=> 'eicon-v-align-stretch',
+						],
+					],
+					'prefix_class'		=> 'ee-grid-align--',
+				]
+			);
+
+			$this->add_responsive_control(
+				'jltma_gallery_slider_image_stretch_ratio',
+				[
+					'label' 	=> esc_html__( 'Image Size Ratio', MELA_TD ),
+					'type' 		=> Controls_Manager::SLIDER,
+					'default'	=> [
+						'size'	=> '100'
+						],
+					'range' 	=> [
+						'px' 	=> [
+							'min'	=> 10,
+							'max' 	=> 200,
+						],
+					],
+					'condition' => [
+						'jltma_gallery_slider_image_vertical_align' 	=> 'stretch',
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ee-gallery__media:before' => 'padding-bottom: {{SIZE}}%;',
+					],
+				]
+			);
+
+			$columns_horizontal_margin = is_rtl() ? 'margin-right' : 'margin-left';
+			$columns_horizontal_padding = is_rtl() ? 'padding-right' : 'padding-left';
+
+			$this->add_responsive_control(
+				'jltma_gallery_slider_image_horizontal_spacing',
+				[
+					'label' 	=> esc_html__( 'Horizontal spacing', MELA_TD ),
+					'type' 		=> Controls_Manager::SLIDER,
+					'range' 	=> [
+						'px' 	=> [
+							'min' => 0,
+							'max' => 200,
+						],
+					],
+					'default' 	=> [
+						'size' 	=> 0,
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ee-gallery__item' => $columns_horizontal_padding . ': {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .ee-gallery' 		=> $columns_horizontal_margin . ': -{{SIZE}}{{UNIT}};',
+
+						'(desktop){{WRAPPER}} .ee-gallery__item' 	=> 'max-width: calc( 100% / {{columns.SIZE}} );',
+						'(tablet){{WRAPPER}} .ee-gallery__item' 	=> 'max-width: calc( 100% / {{columns_tablet.SIZE}} );',
+						'(mobile){{WRAPPER}} .ee-gallery__item' 	=> 'max-width: calc( 100% / {{columns_mobile.SIZE}} );',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'jltma_gallery_slider_image_vertical_spacing',
+				[
+					'label' 	=> esc_html__( 'Vertical spacing', MELA_TD ),
+					'type' 		=> Controls_Manager::SLIDER,
+					'range' 	=> [
+						'px' 	=> [
+							'min' => 0,
+							'max' => 200,
+						],
+					],
+					'default' 	=> [
+						'size' 	=> '',
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ee-gallery__item' => 'padding-bottom: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .ee-gallery' 		=> 'margin-bottom: -{{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+				[
+					'name' 		=> 'jltma_gallery_slider_image_border',
+					'label' 	=> esc_html__( 'Image Border', MELA_TD ),
+					'selector' 	=> '{{WRAPPER}} .ee-gallery__media-wrapper',
+					'separator' => '',
+				]
+			);
+
+			$this->add_control(
+				'jltma_gallery_slider_image_border_radius',
+				[
+					'label' 		=> esc_html__( 'Border Radius', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ee-gallery__media-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+		$this->end_controls_section();
 
 
+        /**
+         * Style Tab: Thumbnail Captions
+         */
+
+		$this->start_controls_section(
+			'jltma_gallery_slider_section_style_captions',
+			[
+				'label' 	=> esc_html__( 'Thumbnails Captions', MELA_TD ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'thumbnails_caption_type!' => '',
+					'show_thumbnails!' => '',
+				],
+			]
+		);
+
+			$this->add_control(
+				'jltma_gallery_slider_vertical_align',
+				[
+					'label' 	=> esc_html__( 'Vertical Align', MELA_TD ),
+					'type' 		=> Controls_Manager::CHOOSE,
+					'options' 	=> [
+						'top' 	=> [
+							'title' 	=> esc_html__( 'Top', MELA_TD ),
+							'icon' 		=> 'eicon-v-align-top',
+						],
+						'middle' 		=> [
+							'title' 	=> esc_html__( 'Middle', MELA_TD ),
+							'icon' 		=> 'eicon-v-align-middle',
+						],
+						'bottom' 		=> [
+							'title' 	=> esc_html__( 'Bottom', MELA_TD ),
+							'icon' 		=> 'eicon-v-align-bottom',
+						],
+					],
+					'default' 		=> 'bottom',
+					'condition' 	=> [
+						'jltma_gallery_slider_thumbnails_caption_type!' => '',
+					],
+				]
+			);
+
+			$this->add_control(
+				'jltma_gallery_slider_horizontal_align',
+				[
+					'label' 	=> esc_html__( 'Horizontal Align', MELA_TD ),
+					'type' 		=> Controls_Manager::CHOOSE,
+					'options' 	=> [
+						'left' 	=> [
+							'title' 	=> esc_html__( 'Left', MELA_TD ),
+							'icon' 		=> 'eicon-h-align-left',
+						],
+						'center' 		=> [
+							'title' 	=> esc_html__( 'Center', MELA_TD ),
+							'icon' 		=> 'eicon-h-align-center',
+						],
+						'right' 		=> [
+							'title' 	=> esc_html__( 'Right', MELA_TD ),
+							'icon' 		=> 'eicon-h-align-right',
+						],
+						'justify' 		=> [
+							'title' 	=> esc_html__( 'Justify', MELA_TD ),
+							'icon' 		=> 'eicon-h-align-stretch',
+						],
+					],
+					'default' 		=> 'justify',
+					'condition' 	=> [
+						'jltma_gallery_slider_thumbnails_caption_type!' => '',
+					],
+				]
+			);
+
+			$this->add_control(
+				'jltma_gallery_slider_align',
+				[
+					'label' 	=> esc_html__( 'Text Align', MELA_TD ),
+					'type' 		=> Controls_Manager::CHOOSE,
+					'options' 	=> [
+						'left' 	=> [
+							'title' 	=> esc_html__( 'Left', MELA_TD ),
+							'icon' 		=> 'fa fa-align-left',
+						],
+						'center' 		=> [
+							'title' 	=> esc_html__( 'Center', MELA_TD ),
+							'icon' 		=> 'fa fa-align-center',
+						],
+						'right' 		=> [
+							'title' 	=> esc_html__( 'Right', MELA_TD ),
+							'icon' 		=> 'fa fa-align-right',
+						],
+					],
+					'default' 	=> 'center',
+					'selectors' => [
+						'{{WRAPPER}} .ee-gallery__media__caption' => 'text-align: {{VALUE}};',
+					],
+					'condition' => [
+						'jltma_gallery_slider_thumbnails_caption_type!' => '',
+					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' 		=> 'jltma_gallery_slider_typography',
+					'label' 	=> esc_html__( 'Typography', MELA_TD ),
+					'scheme' 	=> Scheme_Typography::TYPOGRAPHY_4,
+					'selector' 	=> '{{WRAPPER}} .ee-gallery__media__caption',
+					'condition' => [
+						'jltma_gallery_slider_thumbnails_caption_type!' => '',
+					],
+				]
+			);
+
+			$this->add_control(
+				'jltma_gallery_slider_text_padding',
+				[
+					'label' 		=> esc_html__( 'Padding', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ee-gallery__media__caption' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'condition' => [
+						'jltma_gallery_slider_thumbnails_caption_type!' => '',
+					],
+				]
+			);
+
+			$this->add_control(
+				'jltma_gallery_slider_text_margin',
+				[
+					'label' 		=> esc_html__( 'Margin', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ee-gallery__media__caption' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'condition' => [
+						'jltma_gallery_slider_thumbnails_caption_type!' => '',
+					],
+					'separator'		=> 'after',
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+				[
+					'name' 		=> 'jltma_gallery_slider_text_border',
+					'label' 	=> esc_html__( 'Border', MELA_TD ),
+					'selector' 	=> '{{WRAPPER}} .ee-gallery__media__caption',
+					'separator' => '',
+					'condition' => [
+						'jltma_gallery_slider_thumbnails_caption_type!' => '',
+					],
+				]
+			);
+
+			$this->add_control(
+				'jltma_gallery_slider_text_border_radius',
+				[
+					'label' 		=> esc_html__( 'Border Radius', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ee-gallery__media__caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'condition' => [
+						'jltma_gallery_slider_thumbnails_caption_type!' => '',
+					],
+				]
+			);
+
+		$this->end_controls_section();
 
 
-
-
-
-
-
-
-
-
+        
 
 
         /**
