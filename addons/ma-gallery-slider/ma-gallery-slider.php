@@ -970,7 +970,256 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 
 
 
+        /**
+         * Style Tab: Preview Hover Effects 
+         */
 
+
+
+		$this->start_controls_section(
+			'jltma_gallery_slider_section_preview_hover_effects',
+			[
+				'label' 	=> esc_html__( 'Preview Hover Effects', MELA_TD ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'jltma_gallery_slider_caption_type!' => '',
+				],
+			]
+		);
+
+			$this->add_control(
+				'jltma_gallery_slider_hover_preview_captions_heading',
+				[
+					'label' 	=> esc_html__( 'Captions', MELA_TD ),
+					'type' 		=> Controls_Manager::HEADING,
+					'condition' => [
+						'jltma_gallery_slider_caption_type!' => '',
+					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Transition::get_type(),
+				[
+					'name' 			=> 'jltma_gallery_slider_preview_caption',
+					'selector' 		=> '{{WRAPPER}} .ee-carousel__media__content,
+										{{WRAPPER}} .ee-carousel__media__caption',
+					'condition' 	=> [
+						'jltma_gallery_slider_caption_type!' => '',
+					],
+				]
+			);
+
+			$this->update_control( 'jltma_gallery_slider_preview_caption_transition', array(
+				'default' => 'custom',
+			));
+
+			$this->add_control(
+				'jltma_gallery_slider_preview_caption_effect',
+				[
+					'label' 	=> esc_html__( 'Effect', MELA_TD ),
+					'type' 		=> Controls_Manager::SELECT,
+					'default' 	=> '',
+					'options' => [
+						''					=> esc_html__( 'None', MELA_TD ),
+						'fade-in'			=> esc_html__( 'Fade In', MELA_TD ),
+						'fade-out'			=> esc_html__( 'Fade Out', MELA_TD ),
+						'from-top'			=> esc_html__( 'From Top', MELA_TD ),
+						'from-right'		=> esc_html__( 'From Right', MELA_TD ),
+						'from-bottom'		=> esc_html__( 'From Bottom', MELA_TD ),
+						'from-left'			=> esc_html__( 'From Left', MELA_TD ),
+						'fade-from-top'		=> esc_html__( 'Fade From Top', MELA_TD ),
+						'fade-from-right'	=> esc_html__( 'Fade From Right', MELA_TD ),
+						'fade-from-bottom'	=> esc_html__( 'Fade From Bottom', MELA_TD ),
+						'fade-from-left'	=> esc_html__( 'Fade From Left', MELA_TD ),
+						'to-top'			=> esc_html__( 'To Top', MELA_TD ),
+						'to-right'			=> esc_html__( 'To Right', MELA_TD ),
+						'to-bottom'			=> esc_html__( 'To Bottom', MELA_TD ),
+						'to-left'			=> esc_html__( 'To Left', MELA_TD ),
+						'fade-to-top'		=> esc_html__( 'Fade To Top', MELA_TD ),
+						'fade-to-right'		=> esc_html__( 'Fade To Right', MELA_TD ),
+						'fade-to-bottom'	=> esc_html__( 'Fade To Bottom', MELA_TD ),
+						'fade-to-left'		=> esc_html__( 'Fade To Left', MELA_TD ),
+					],
+					'condition' 	=> [
+						'jltma_gallery_slider_caption_type!' => '',
+						'jltma_gallery_slider_preview_caption_transition!' => '',
+					],
+				]
+			);
+
+			$this->start_controls_tabs( 'jltma_gallery_slider_preview_caption_style' );
+
+				$this->start_controls_tab( 'jltma_gallery_slider_preview_caption_style_default', [
+					'label' 	=> esc_html__( 'Default', MELA_TD ),
+					'condition' 	=> [
+						'jltma_gallery_slider_caption_type!' => '',
+					],
+				] );
+
+					$this->add_control(
+						'jltma_gallery_slider_preview_text_color',
+						[
+							'label' 	=> esc_html__( 'Color', MELA_TD ),
+							'type' 		=> Controls_Manager::COLOR,
+							'default' 	=> '',
+							'selectors' => [
+								'{{WRAPPER}} .ee-carousel__media__caption' => 'color: {{VALUE}};',
+							],
+							'condition' 	=> [
+								'jltma_gallery_slider_caption_type!' => '',
+							],
+						]
+					);
+
+					$this->add_group_control(
+						Group_Control_Background::get_type(),
+						[
+							'name' 		=> 'jltma_gallery_slider_preview_text_background',
+							'types' 	=> [ 'classic', 'gradient' ],
+							'selector' 	=> '{{WRAPPER}} .ee-carousel__media__caption',
+							'default'	=> 'classic',
+							'condition' => [
+								'jltma_gallery_slider_caption_type!' => '',
+							],
+							'exclude'	=> [
+								'image',
+							]
+						]
+					);
+
+					$this->add_control(
+						'jltma_gallery_slider_preview_text_opacity',
+						[
+							'label' 	=> esc_html__( 'Opacity (%)', MELA_TD ),
+							'type' 		=> Controls_Manager::SLIDER,
+							'default' 	=> [
+								'size' 	=> 1,
+							],
+							'range' 	=> [
+								'px' 	=> [
+									'max' 	=> 1,
+									'min' 	=> 0,
+									'step' 	=> 0.01,
+								],
+							],
+							'selectors' => [
+								'{{WRAPPER}} .ee-carousel__media__caption' => 'opacity: {{SIZE}}',
+							],
+							'condition'	=> [
+								'jltma_gallery_slider_caption_type!' => '',
+							],
+						]
+					);
+
+					$this->add_group_control(
+						Group_Control_Text_Shadow::get_type(),
+						[
+							'name' 		=> 'jltma_gallery_slider_preview_text_box_shadow',
+							'selector' 	=> '{{WRAPPER}} .ee-carousel__media__caption',
+							'separator'	=> '',
+							'condition'	=> [
+								'jltma_gallery_slider_caption_type!' => '',
+							],
+						]
+					);
+
+				$this->end_controls_tab();
+
+				$this->start_controls_tab( 'jltma_gallery_slider_preview_caption_style_hover', [
+					'label' 	=> esc_html__( 'Hover', MELA_TD ),
+					'condition'	=> [
+						'jltma_gallery_slider_caption_type!' => '',
+					],
+				] );
+
+					$this->add_control(
+						'jltma_gallery_slider_preview_text_color_hover',
+						[
+							'label' 	=> esc_html__( 'Color', MELA_TD ),
+							'type' 		=> Controls_Manager::COLOR,
+							'default' 	=> '',
+							'selectors' => [
+								'{{WRAPPER}} .ee-carousel__media:hover .ee-carousel__media__caption' => 'color: {{VALUE}};',
+							],
+							'condition'	=> [
+								'jltma_gallery_slider_caption_type!' => '',
+							],
+						]
+					);
+
+					$this->add_group_control(
+						Group_Control_Background::get_type(),
+						[
+							'name' 		=> 'jltma_gallery_slider_preview_text_background_hover',
+							'types' 	=> [ 'classic', 'gradient' ],
+							'selector' 	=> '{{WRAPPER}} .ee-carousel__media:hover .ee-carousel__media__caption',
+							'default'	=> 'classic',
+							'condition' => [
+								'jltma_gallery_slider_caption_type!' => '',
+							],
+							'exclude'	=> [
+								'image',
+							]
+						]
+					);
+
+					$this->add_control(
+						'jltma_gallery_slider_preview_text_opacity_hover',
+						[
+							'label' 	=> esc_html__( 'Opacity (%)', MELA_TD ),
+							'type' 		=> Controls_Manager::SLIDER,
+							'default' 	=> [
+								'size' 	=> 1,
+							],
+							'range' 	=> [
+								'px' 	=> [
+									'max' 	=> 1,
+									'min' 	=> 0,
+									'step' 	=> 0.01,
+								],
+							],
+							'selectors' => [
+								'{{WRAPPER}} .ee-carousel__media:hover .ee-carousel__media__caption' => 'opacity: {{SIZE}}',
+							],
+							'condition'	=> [
+								'jltma_gallery_slider_caption_type!' => '',
+							],
+						]
+					);
+
+					$this->add_control(
+						'jltma_gallery_slider_preview_text_border_color_hover',
+						[
+							'label' 	=> esc_html__( 'Border Color', MELA_TD ),
+							'type' 		=> Controls_Manager::COLOR,
+							'default' 	=> '',
+							'selectors' => [
+								'{{WRAPPER}} .ee-carousel__media:hover .ee-carousel__media__caption' => 'border-color: {{VALUE}};',
+							],
+							'condition'	=> [
+								'jltma_gallery_slider_caption_type!' => '',
+							],
+						]
+					);
+
+					$this->add_group_control(
+						Group_Control_Text_Shadow::get_type(),
+						[
+							'name' 		=> 'jltma_gallery_slider_preview_text_box_shadow_hover',
+							'selector' 	=> '{{WRAPPER}} .ee-carousel__media:hover .ee-carousel__media__caption',
+							'separator'	=> '',
+							'condition'	=> [
+								'jltma_gallery_slider_caption_type!' => '',
+							],
+						]
+					);
+
+				$this->end_controls_tab();
+
+			$this->end_controls_tabs();
+
+		$this->end_controls_section();
 
 
 
