@@ -1232,7 +1232,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				'label' 	=> esc_html__( 'Thumbnails', MELA_TD ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'show_thumbnails!' => '',
+					'jltma_gallery_slider_show_thumbnails!' => '',
 				],
 			]
 		);
@@ -1396,8 +1396,8 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				'label' 	=> esc_html__( 'Thumbnails Captions', MELA_TD ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'thumbnails_caption_type!' => '',
-					'show_thumbnails!' => '',
+					'jltma_gallery_slider_thumbnails_caption_type!' => '',
+					'jltma_gallery_slider_show_thumbnails!' => '',
 				],
 			]
 		);
@@ -2587,13 +2587,13 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 		} ?>
 
 			<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
-				<div <?php echo $this->get_render_attribute_string( 'preview' ); ?> dir="<?php echo $settings['direction']; ?>">
+				<div <?php echo $this->get_render_attribute_string( 'preview' ); ?> dir="<?php echo $settings['jltma_gallery_slider_direction']; ?>">
 					<div <?php echo $this->get_render_attribute_string( 'slider' ); ?>>
 						<?php echo $this->render_carousel(); ?>
 					</div>
 				</div>
 
-				<?php if ( 'yes' === $settings['show_thumbnails'] ) : ?>
+				<?php if ( 'yes' === $settings['jltma_gallery_slider_show_thumbnails'] ) : ?>
 				<div <?php echo $this->get_render_attribute_string( 'gallery-wrapper' ); ?>>
 					<div <?php echo $this->get_render_attribute_string( 'gallery' ); ?>>
 						<?php echo $this->render_wp_gallery(); ?>
