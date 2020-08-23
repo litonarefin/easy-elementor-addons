@@ -18,11 +18,11 @@
 	<!-- Third Party Plugins -->
 	<?php foreach( Master_Elementor_Addons::$jltma_third_party_plugins as $key=>$jltma_plugins ) { 
 
-		if($jltma_elements['jltma-plugins']['plugin'][$key]['key'] === "custom-breakpoints"){
-			if ( !ma_el_fs()->is_plan('developer', true) ) {
-				continue;
-			}			
-		}
+		// if($jltma_elements['jltma-plugins']['plugin'][$key]['key'] === "custom-breakpoints"){
+		// 	if ( !ma_el_fs()->is_plan('developer', true) ) {
+		// 		continue;
+		// 	}			
+		// }
 
         $plugin_file = $jltma_elements['jltma-plugins']['plugin'][$key]['plugin_file'];
         $plugin_slug = $jltma_elements['jltma-plugins']['plugin'][$key]['wp_slug'];
