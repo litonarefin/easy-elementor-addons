@@ -80,18 +80,19 @@ if( !class_exists('Master_Elementor_Addons') ){
 				'ma-counter-up',				// 34
 				'ma-countdown-timer',			// 35
 				['ma-toggle-content','pro'],	// 36
-				// 'ma-advanced-image',			// 36
+				['ma-gallery-slider','pro'],	// 37
+				// 'ma-advanced-image',			// 38
 
 				// Form Elements
-				'contact-form-7',           	// 37
-				'ninja-forms',              	// 38
-				'wpforms',                  	// 39
-				['gravity-forms','pro'],    	// 40
-				'caldera-forms',            	// 41
-				'weforms',                  	// 42
+				'contact-form-7',           	// 38
+				'ninja-forms',              	// 39
+				'wpforms',                  	// 40
+				['gravity-forms','pro'],    	// 41
+				'caldera-forms',            	// 42
+				'weforms',                  	// 43
 
 				// Marketing Addons
-				'ma-mailchimp',             	// 42
+				'ma-mailchimp',             	// 44
 			];
 
 
@@ -120,7 +121,8 @@ if( !class_exists('Master_Elementor_Addons') ){
 				'header-footer-comment',
 //					'pseudo-elements', //need to fix before and after
 				'display-conditions',
-				'dynamic-tags'
+				'dynamic-tags',
+				// 'live-copy',
 			];
 
 			self::$jltma_third_party_plugins = [
