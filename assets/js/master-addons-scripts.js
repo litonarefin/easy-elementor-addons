@@ -502,8 +502,75 @@
                 });
             }
 
+        },
+
+        // GallerySlider   
+        MA_Gallery_Slider: function($scope, $){
+
+            ee.GallerySlider.elementSettings    = ee.getElementSettings( $scope );
+
+            var $carousel       = $scope.find('.ee-gallery-slider__carousel'),
+                $preview        = $scope.find('.ee-gallery-slider__preview'),
+                $thumbs         = $scope.find('.ee-gallery .ee-gallery__item'),
+
+                start           = elementorFrontend.config.is_rtl ? 'right' : 'left',
+                end             = elementorFrontend.config.is_rtl ? 'left' : 'right',
+
+                slickArgs       = {
+                    slidesToShow    : 1,
+                    slidesToScroll  : 1,
+                    adaptiveHeight  : 'yes' === ee.GallerySlider.elementSettings.adaptive_height,
+                    autoplay        : 'yes' === ee.GallerySlider.elementSettings.autoplay,
+                    autoplaySpeed   : ee.GallerySlider.elementSettings.autoplay_speed,
+                    infinite        : 'yes' === ee.GallerySlider.elementSettings.infinite,
+                    pauseOnHover    : 'yes' === ee.GallerySlider.elementSettings.pause_on_hover,
+                    speed           : ee.GallerySlider.elementSettings.speed,
+                    arrows          : 'yes' === ee.GallerySlider.elementSettings.show_arrows,
+                    prevArrow       : '<div class="ee-carousel__arrow ee-arrow ee-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
+                    nextArrow       : '<div class="ee-carousel__arrow ee-arrow ee-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
+                    dots            : false,
+                    rtl             : 'rtl' === ee.GallerySlider.elementSettings.direction,
+                    fade            : 'fade' === ee.GallerySlider.elementSettings.effect,
+                };
+
+            ee.GallerySlider.events = function() {
+                $carousel.on( 'beforeChange', function ( event, slick, currentSlide, nextSlide ) {
+                    var currentSlide = nextSlide;
+                    $thumbs.removeClass('is--active');
+                    $thumbs.eq( currentSlide ).addClass('is--active');
+                });
+
+                $thumbs.each( function( currentSlide ) {
+                    $(this).on( 'click', function ( e ) {
+                        e.preventDefault();
+                        $carousel.slick( 'slickGoTo', currentSlide );
+                    });
+                });
+            };
+
+            ee.GallerySlider.init = function() {
+                $carousel.slick( slickArgs );
+
+                $thumbs.removeClass('is--active');
+                $thumbs.eq( 0 ).addClass('is--active');
+
+                $carousel.slick( 'setPosition' );
+
+                ee.GallerySlider.events();
+
+                if ( elementorFrontend.isEditMode() ) {
+                    $preview._resize( function() {
+                        $carousel.slick( 'setPosition' );
+                    });
+                }
+            };
+
+            ee.GallerySlider.init();
+
+
 
         },
+
 
         //Master Addons: Timeline
         MA_Timeline: function ($scope, $) {
@@ -2154,6 +2221,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-timeline.default', Master_Addons.MA_Timeline);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-image-filter-gallery.default', Master_Addons.MA_Image_Filter_Gallery);
         // elementorFrontend.hooks.addAction('frontend/element_ready/ma-image-filter-gallery.default', Master_Addons.MA_Fancybox_Popup);
+        elementorFrontend.hooks.addAction('frontend/element_ready/ma-image-filter-gallery.default', Master_Addons.MA_Gallery_Slider);
 
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-el-image-comparison.default', Master_Addons.MA_Image_Comparison);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-el-restrict-content.default', Master_Addons.MA_Restrict_Content);
