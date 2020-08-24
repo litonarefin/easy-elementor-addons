@@ -532,8 +532,6 @@
                     fade            : 'fade' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_effect,
                 };
 
-            console.log('$carousel', $carousel);    
-
             Master_Addons.MA_Gallery_Slider.events = function() {
                 $carousel.on( 'beforeChange', function ( event, slick, currentSlide, nextSlide ) {
                     var currentSlide = nextSlide;
@@ -544,9 +542,6 @@
                 $thumbs.each( function( currentSlide ) {
                     $(this).on( 'click', function ( e ) {
                         e.preventDefault();
-                        
-                        console.log('goto', slickGoTo);
-
                         $carousel.slick( 'slickGoTo', currentSlide );
                     });
                 });
@@ -723,8 +718,6 @@
                             jQuery(function ($) {
 
                                 var feed_container = $("#" + tickerid + ' .ma-el-ticker-content-inner');
-                                // console.log( li );
-
 
                                 $(feed_container).rss(feedUrl,
                                     {
@@ -984,8 +977,6 @@
 
             if ($team_preset == "-content-drawer") {
 
-                // console.log("Content Drawer Loaded");
-
                 try {
                     (function ($) {
 
@@ -1116,7 +1107,6 @@
 
             if ($scope.hasClass('ma-el-particle-yes')) {
                 let id = $scope.data('id');
-                //console.lgo(id);
                 let element_type = $scope.data('element_type');
                 let pdata = $scope.data('ma-el-particle');
                 let pdata_wrapper = $scope.find('.ma-el-particle-wrapper').data('ma-el-pdata');
@@ -1143,7 +1133,7 @@
                 } else if (typeof pdata_wrapper != 'undefined' && pdata_wrapper != '') {
 
                     // $scope.prepend('<div class="ma-el-particle-wrapper" id="ma-el-particle-'+ id +'"></div>');
-                    //console.log('calling particle js else', JSON.parse(pdata_wrapper));
+
                     if (element_type == 'column') {
                         $scope.find('.elementor-column-wrap').prepend('<div class="ma-el-particle-wrapper"' +
                             ' id="ma-el-particle-' + id + '"></div>');
@@ -1240,7 +1230,6 @@
                     color = $scope.find('.animated-gradient').data('color');
                     angle = $scope.find('.animated-gradient').data('angle');
                     let gradient_color_editor = 'linear-gradient(' + angle + ',' + color + ')';
-                    // console.log(gradient_color_editor);
                     $scope.prepend('<div class="animated-gradient" style="background-image : ' + gradient_color_editor + ' "></div>');
                     //$scope.find('.animated-gradient').css('background-image', gradient_color_editor);
                     //$scope.find('.animated-gradient').css('background-color', 'red');
@@ -1591,12 +1580,8 @@
         */
         MA_Reveal: function ($scope, $) {
             var isReveal = false;
-            // console.log('scrope', $scope );
 
             var elementSettings = getElementSettings($scope);
-            // Master_Addons.getElementSettings = getElementSettings($scope);
-            // console.log( 'ma setting', Master_Addons.getElementSettings );
-            // console.log( 'setting', getElementSettings( $scope ) );
 
             var rev1;
             var revealAction = function () {
@@ -1654,8 +1639,6 @@
                 if (elementSettings.enabled_rellax) {
 
                     currentDevice = elementorFrontend.getCurrentDeviceMode();
-
-                    // console.log(currentDevice);
 
                     var setting_speed = 'speed_rellax';
                     var value_speed = 0;
@@ -1845,8 +1828,6 @@
 
                                 try {
                                     result = jQuery.parseJSON( result );
-
-                                    // console.log(result);
 
                                     if ( result['result'] == 'success' ) {
 
