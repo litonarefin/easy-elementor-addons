@@ -11330,7 +11330,10 @@ ul.jltma-toggle-content-controls {
   font-size: 12px;
 }
 
-
+.is--active{
+  z-index: 2;
+  overflow: hidden;
+}
 .ee-gallery__item {
   z-index: 1;
 }

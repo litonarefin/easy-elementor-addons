@@ -353,8 +353,6 @@
                 }
             });
 
-
-
         },
 
 
@@ -504,10 +502,10 @@
 
         },
 
-        // GallerySlider   
+        // Gallery Slider
         MA_Gallery_Slider: function($scope, $){
 
-            ee.GallerySlider.elementSettings    = ee.getElementSettings( $scope );
+            Master_Addons.MA_Gallery_Slider.elementSettings    = getElementSettings( $scope );
 
             var $carousel       = $scope.find('.ee-gallery-slider__carousel'),
                 $preview        = $scope.find('.ee-gallery-slider__preview'),
@@ -519,21 +517,22 @@
                 slickArgs       = {
                     slidesToShow    : 1,
                     slidesToScroll  : 1,
-                    adaptiveHeight  : 'yes' === ee.GallerySlider.elementSettings.adaptive_height,
-                    autoplay        : 'yes' === ee.GallerySlider.elementSettings.autoplay,
-                    autoplaySpeed   : ee.GallerySlider.elementSettings.autoplay_speed,
-                    infinite        : 'yes' === ee.GallerySlider.elementSettings.infinite,
-                    pauseOnHover    : 'yes' === ee.GallerySlider.elementSettings.pause_on_hover,
-                    speed           : ee.GallerySlider.elementSettings.speed,
-                    arrows          : 'yes' === ee.GallerySlider.elementSettings.show_arrows,
+                    adaptiveHeight  : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_adaptive_height,
+                    autoplay        : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_autoplay,
+                    autoplaySpeed   : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_autoplay_speed,
+                    infinite        : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_infinite,
+                    pauseOnHover    : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_pause_on_hover,
+                    speed           : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_speed,
+                    arrows          : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_show_arrows,
                     prevArrow       : '<div class="ee-carousel__arrow ee-arrow ee-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
                     nextArrow       : '<div class="ee-carousel__arrow ee-arrow ee-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
                     dots            : false,
-                    rtl             : 'rtl' === ee.GallerySlider.elementSettings.direction,
-                    fade            : 'fade' === ee.GallerySlider.elementSettings.effect,
+                    rtl             : 'rtl' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_direction,
+                    fade            : 'fade' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_effect,
                 };
 
-            ee.GallerySlider.events = function() {
+
+            Master_Addons.MA_Gallery_Slider.events = function() {
                 $carousel.on( 'beforeChange', function ( event, slick, currentSlide, nextSlide ) {
                     var currentSlide = nextSlide;
                     $thumbs.removeClass('is--active');
@@ -548,7 +547,8 @@
                 });
             };
 
-            ee.GallerySlider.init = function() {
+            Master_Addons.MA_Gallery_Slider.init = function() {
+
                 $carousel.slick( slickArgs );
 
                 $thumbs.removeClass('is--active');
@@ -556,20 +556,15 @@
 
                 $carousel.slick( 'setPosition' );
 
-                ee.GallerySlider.events();
-
-                if ( elementorFrontend.isEditMode() ) {
-                    $preview._resize( function() {
-                        $carousel.slick( 'setPosition' );
-                    });
-                }
+                Master_Addons.MA_Gallery_Slider.events();
             };
 
-            ee.GallerySlider.init();
+            Master_Addons.MA_Gallery_Slider.init();
 
 
 
         },
+
 
 
         //Master Addons: Timeline
@@ -1162,8 +1157,6 @@
             //     //We can also throw from try block and catch it here
             //     // No Error Show
             // }
-
-
 
         },
 
@@ -2221,7 +2214,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-timeline.default', Master_Addons.MA_Timeline);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-image-filter-gallery.default', Master_Addons.MA_Image_Filter_Gallery);
         // elementorFrontend.hooks.addAction('frontend/element_ready/ma-image-filter-gallery.default', Master_Addons.MA_Fancybox_Popup);
-        elementorFrontend.hooks.addAction('frontend/element_ready/ma-image-filter-gallery.default', Master_Addons.MA_Gallery_Slider);
+        elementorFrontend.hooks.addAction('frontend/element_ready/jltma-gallery-slider.default', Master_Addons.MA_Gallery_Slider);
 
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-el-image-comparison.default', Master_Addons.MA_Image_Comparison);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-el-restrict-content.default', Master_Addons.MA_Restrict_Content);
@@ -2239,6 +2232,7 @@
             elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbars.default', Master_Addons.StatsBarHandler);
             elementorFrontend.hooks.addAction('frontend/element_ready/ma-news-ticker.default', Master_Addons.MA_NewsTicker);
             elementorFrontend.hooks.addAction('frontend/element_ready/ma-image-filter-gallery.default', Master_Addons.MA_Image_Filter_Gallery);
+            elementorFrontend.hooks.addAction('frontend/element_ready/jltma-gallery-slider.default', Master_Addons.MA_Gallery_Slider);
         }
 
 

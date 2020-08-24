@@ -43,11 +43,23 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 	public function get_script_depends() {
 		return [
 			'jquery-slick',
-			'master-addons-waypoints',
+			'imagesloaded',
+			'font-awesome-4-shim',
+			'elementor-waypoints',
 			'master-addons-scripts'
 		];
 	}
 
+
+    public function get_style_depends(){
+        return [
+            'fancybox',
+            'font-awesome-5-all',
+            'font-awesome-4-shim'
+        ];
+    }
+
+    
 	public function get_keywords() {
 		return [ 
 			'gallery', 
@@ -1333,9 +1345,9 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'{{WRAPPER}} .ee-gallery__item' => $columns_horizontal_padding . ': {{SIZE}}{{UNIT}};',
 						'{{WRAPPER}} .ee-gallery' 		=> $columns_horizontal_margin . ': -{{SIZE}}{{UNIT}};',
 
-						'(desktop){{WRAPPER}} .ee-gallery__item' 	=> 'max-width: calc( 100% / {{columns.SIZE}} );',
-						'(tablet){{WRAPPER}} .ee-gallery__item' 	=> 'max-width: calc( 100% / {{columns_tablet.SIZE}} );',
-						'(mobile){{WRAPPER}} .ee-gallery__item' 	=> 'max-width: calc( 100% / {{columns_mobile.SIZE}} );',
+						'(desktop){{WRAPPER}} .ee-gallery__item' 	=> 'max-width: calc( 100% / {{jltma_gallery_slider_columns.SIZE}} );',
+						'(tablet){{WRAPPER}} .ee-gallery__item' 	=> 'max-width: calc( 100% / {{jltma_gallery_slider_columns_tablet.SIZE}} );',
+						'(mobile){{WRAPPER}} .ee-gallery__item' 	=> 'max-width: calc( 100% / {{jltma_gallery_slider_columns_mobile.SIZE}} );',
 					],
 				]
 			);
@@ -2512,7 +2524,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 			'preview' => [
 				'class' => [
 					'ee-gallery-slider__preview',
-					'elementor-slick-slider',
+					// 'elementor-slick-slider',
 				],
 			],
 			'gallery-wrapper' => [
