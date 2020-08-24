@@ -42,11 +42,11 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 
 	public function get_script_depends() {
 		return [
-			'jquery-slick',
-			'imagesloaded',
-			'font-awesome-4-shim',
-			'elementor-waypoints',
-			'master-addons-scripts'
+			// 'jquery-slick',
+			// 'imagesloaded',
+			// 'font-awesome-4-shim',
+			// 'elementor-waypoints',
+			// 'master-addons-scripts'
 		];
 	}
 

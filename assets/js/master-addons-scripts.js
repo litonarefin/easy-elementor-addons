@@ -507,7 +507,8 @@
 
             Master_Addons.MA_Gallery_Slider.elementSettings    = getElementSettings( $scope );
 
-            var $carousel       = $scope.find('.ee-gallery-slider__carousel'),
+            // var $carousel       = $scope.find('.ee-gallery-slider__carousel'),
+            var $carousel       = $scope.find('.ee-gallery-slider__carousel').eq(0),
                 $preview        = $scope.find('.ee-gallery-slider__preview'),
                 $thumbs         = $scope.find('.ee-gallery .ee-gallery__item'),
 
@@ -531,6 +532,7 @@
                     fade            : 'fade' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_effect,
                 };
 
+            console.log('$carousel', $carousel);    
 
             Master_Addons.MA_Gallery_Slider.events = function() {
                 $carousel.on( 'beforeChange', function ( event, slick, currentSlide, nextSlide ) {
@@ -542,6 +544,9 @@
                 $thumbs.each( function( currentSlide ) {
                     $(this).on( 'click', function ( e ) {
                         e.preventDefault();
+                        
+                        console.log('goto', slickGoTo);
+
                         $carousel.slick( 'slickGoTo', currentSlide );
                     });
                 });

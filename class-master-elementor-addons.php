@@ -728,6 +728,12 @@ if( !class_exists('Master_Elementor_Addons') ){
 				wp_enqueue_script( 'gsap-js' );
 			}
 
+			//MA Gallery Slider
+			if ( $is_activated_widget['ma-gallery-slider'] ) {
+				wp_enqueue_script( 'jquery-slick' );
+				wp_enqueue_script( 'master-addons-scripts' );
+			}
+
 
 			//Google Maps
 			//		if ( $is_activated_widget['google-maps'] ) {
