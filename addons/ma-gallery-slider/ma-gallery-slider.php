@@ -119,20 +119,6 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				]
 			);
 
-			$this->add_group_control(
-				Group_Control_Image_Size::get_type(),
-				[
-					'name' 		=> 'jltma_gallery_slider_thumbnail',
-					'label'		=> esc_html__( 'Thumbnails Size', MELA_TD ),
-					'condition' => [
-						'jltma_gallery_slider_show_thumbnails!' => '',
-					],
-				]
-			);
-
-
-
-
 			$this->add_control(
 				'jltma_gallery_slider_thumb_type',
 				[
@@ -150,10 +136,23 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					],
 					'default' 		=> 'grid',
 					'condition' 	=> [
-						'jltma_gallery_slider_caption_type!' => '',
+						'jltma_gallery_slider_show_thumbnails!' => '',
 					],
 				]
 			);
+
+			$this->add_group_control(
+				Group_Control_Image_Size::get_type(),
+				[
+					'name' 		=> 'jltma_gallery_slider_thumbnail',
+					'label'		=> esc_html__( 'Thumbnails Size', MELA_TD ),
+					'condition' => [
+						'jltma_gallery_slider_show_thumbnails!' => '',
+					],
+				]
+			);
+
+
 			$this->add_responsive_control(
 				'jltma_gallery_slider_columns',
 				[
@@ -180,6 +179,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					'frontend_available' => true,
 					'condition' => [
 						'jltma_gallery_slider_show_thumbnails!' => '',
+						'jltma_gallery_slider_thumb_type' => 'grid',
 					],
 				]
 			);
@@ -218,25 +218,45 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				]
 			);
 
-			$this->add_control(
-				'jltma_gallery_slider_view',
-				[
-					'label' 	=> esc_html__( 'View', MELA_TD ),
-					'type' 		=> Controls_Manager::HIDDEN,
-					'default' 	=> 'traditional',
-					'condition' => [
-						'jltma_gallery_slider_show_thumbnails!' => '',
-					],
-				]
-			);	
 		
 		$this->end_controls_section();
+
+
+
+        /**
+         * Content Tab: Thumbnail Slide
+         */
+
+		$this->start_controls_section(
+			'jltma_gallery_slider_thumb_slide',
+			[
+				'label' => esc_html__( 'Thumbnail Slide', MELA_TD ),
+				'condition' => [
+					'jltma_gallery_slider_thumb_type' => 'slide',
+				],				
+			]
+		);
+
+			$this->add_control(
+				'jltma_gallery_slider_thumb_slide_link',
+				[
+					'label' 	=> esc_html__( 'Link to', MELA_TD ),
+					'type' 		=> Controls_Manager::SELECT,
+					'default' 	=> 'none',
+					'options' 	=> [
+						'none' 		=> esc_html__( 'None', MELA_TD ),
+						'file' 		=> esc_html__( 'Media File', MELA_TD ),
+						'custom' 	=> esc_html__( 'Custom URL', MELA_TD ),
+					],
+				]
+			);
+		$this->end_controls_section();
+
 
 
         /**
          * Content Tab: Previews
          */
-
 
 		$this->start_controls_section(
 			'jltma_gallery_slider_section_preview',
