@@ -34,7 +34,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 		return esc_html__( 'MA Gallery Slider', MELA_TD );
 	}
 	public function get_icon() {
-		return 'ma-el-icon eicon-slider-push';
+		return 'ma-el-icon eicon-gallery-group';
 	}
 	public function get_categories() {
 		return [ 'master-addons' ];
@@ -130,6 +130,30 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				]
 			);
 
+
+
+
+			$this->add_control(
+				'jltma_gallery_slider_thumb_type',
+				[
+					'label' 	=> esc_html__( 'Thumbnails Type', MELA_TD ),
+					'type' 		=> Controls_Manager::CHOOSE,
+					'options' 	=> [
+						'grid' 	=> [
+							'title' 	=> esc_html__( 'Grid Type', MELA_TD ),
+							'icon' 		=> 'eicon-gallery-grid',
+						],
+						'slide' 		=> [
+							'title' 	=> esc_html__( 'Slide Navigation', MELA_TD ),
+							'icon' 		=> 'eicon-slides',
+						]
+					],
+					'default' 		=> 'grid',
+					'condition' 	=> [
+						'jltma_gallery_slider_caption_type!' => '',
+					],
+				]
+			);
 			$this->add_responsive_control(
 				'jltma_gallery_slider_columns',
 				[
@@ -2523,7 +2547,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 			'preview' => [
 				'class' => [
 					'ee-gallery-slider__preview',
-					// 'elementor-slick-slider',
+					'elementor-slick-slider',
 				],
 			],
 			'gallery-wrapper' => [
@@ -2827,12 +2851,13 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 
 
 	protected function render_image_caption( $item ) {
-
+		if($this->get_settings('jltma_gallery_slider_thumbnails_caption_type') !==""){
 		?><figcaption <?php echo $this->get_render_attribute_string( 'gallery-content' ); ?>>
 			<div <?php echo $this->get_render_attribute_string( 'gallery-caption' ); ?>>
 				<?php echo $this->jltma_get_image_caption( $item['id'], $this->get_settings('jltma_gallery_slider_thumbnails_caption_type') ); ?>
 			</div>
 		</figcaption><?php
+		}
 	}
 
 
