@@ -238,19 +238,154 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 			]
 		);
 
-			$this->add_control(
-				'jltma_gallery_slider_thumb_slide_link',
+			$this->add_group_control(
+				Group_Control_Image_Size::get_type(),
 				[
-					'label' 	=> esc_html__( 'Link to', MELA_TD ),
+					'name' 		=> 'jltma_gallery_slider_thumb_size',
+					'label'		=> esc_html__( 'Thumbnail Size', MELA_TD ),
+					'default'	=> 'full',
+				]
+			);
+
+			$this->add_responsive_control(
+				'jltma_gallery_slider_thumb_items',
+				[
+					'label' 	=> esc_html__( 'No. of Items', MELA_TD ),
 					'type' 		=> Controls_Manager::SELECT,
-					'default' 	=> 'none',
-					'options' 	=> [
-						'none' 		=> esc_html__( 'None', MELA_TD ),
-						'file' 		=> esc_html__( 'Media File', MELA_TD ),
-						'custom' 	=> esc_html__( 'Custom URL', MELA_TD ),
+					'default' 	=> '5',
+					'tablet_default' 	=> '4',
+					'mobile_default' 	=> '3',
+					'options' 			=> [
+						'1' => '1',
+						'2' => '2',
+						'3' => '3',
+						'4' => '4',
+						'5' => '5',
+						'6' => '6',
+						'7' => '7',
+						'8' => '8',
+						'9' => '9',
+						'10' => '10',
+						'11' => '11',
+						'12' => '12',
+					],
+					'frontend_available' => true
+				]
+			);
+
+			$this->add_control(
+				'jltma_gallery_slider_thumb_show_arrows',
+				[
+					'type' 		=> Controls_Manager::SWITCHER,
+					'label' 	=> esc_html__( 'Arrows', MELA_TD ),
+					'default' 	=> 'yes',
+					'label_off' => esc_html__( 'Hide', MELA_TD ),
+					'label_on' 	=> esc_html__( 'Show', MELA_TD ),
+					'return_value'      => 'yes',
+					'frontend_available' => true,
+					'prefix_class' 	=> 'elementor-arrows-',
+					'render_type' 	=> 'template',
+				]
+			);
+			$this->add_control(
+				'jltma_gallery_slider_thumb_autoplay',
+				[
+					'label' 			=> esc_html__( 'Autoplay', MELA_TD ),
+					'type' 				=> Controls_Manager::SWITCHER,
+					'default'           => 'yes',
+					'label_on'          => esc_html__( 'Yes', MELA_TD ),
+					'label_off'         => esc_html__( 'No', MELA_TD ),
+					'return_value'      => 'yes',
+					'frontend_available' => true,
+				]
+			);			
+
+			$this->add_control(
+				'jltma_gallery_slider_thumb_autoplay_speed',
+				[
+					'label' 				=> esc_html__( 'Autoplay Speed', MELA_TD ),
+					'type' 					=> Controls_Manager::NUMBER,
+					'default' 				=> 5000,
+					'frontend_available' 	=> true,
+					'condition'				=> [
+						'jltma_gallery_slider_thumb_autoplay' => 'yes',
 					],
 				]
 			);
+
+			$this->add_control(
+				'jltma_gallery_slider_thumb_pause_on_hover',
+				[
+					'label' 				=> esc_html__( 'Pause on Hover', MELA_TD ),
+					'type' 					=> Controls_Manager::SWITCHER,
+					'default'           	=> 'yes',
+					'label_on'          	=> esc_html__( 'Yes', MELA_TD ),
+					'label_off'         	=> esc_html__( 'No', MELA_TD ),
+					'return_value'      	=> 'yes',
+					'frontend_available' 	=> true,
+					'condition'				=> [
+						'jltma_gallery_slider_thumb_autoplay' => 'yes',
+					],
+				]
+			);
+
+			$this->add_control(
+				'jltma_gallery_slider_thumb_infinite',
+				[
+					'label' 				=> esc_html__( 'Infinite Loop', MELA_TD ),
+					'type' 					=> Controls_Manager::SWITCHER,
+					'default'           	=> 'yes',
+					'label_on'          	=> esc_html__( 'Yes', MELA_TD ),
+					'label_off'         	=> esc_html__( 'No', MELA_TD ),
+					'return_value'      	=> 'yes',
+					'frontend_available' 	=> true,
+				]
+			);
+			$this->add_control(
+				'jltma_gallery_slider_thumb_effect',
+				[
+					'label' 	=> esc_html__( 'Effect', MELA_TD ),
+					'type' 		=> Controls_Manager::SELECT,
+					'default' 	=> 'slide',
+					'options' 	=> [
+						'slide' 	=> esc_html__( 'Slide', MELA_TD ),
+						'fade' 		=> esc_html__( 'Fade', MELA_TD ),
+					],
+					'frontend_available' => true,
+				]
+			);		
+				
+			$this->add_control(
+				'jltma_gallery_slider_thumb_speed',
+				[
+					'label' 	=> esc_html__( 'Animation Speed', MELA_TD ),
+					'type' 		=> Controls_Manager::NUMBER,
+					'default' 	=> 500,
+					'frontend_available' => true,
+				]
+			);
+
+
+			$this->add_control(
+	            'jltma_gallery_slider_thumb_direction',
+	            [
+	                'label' 		=> esc_html__( 'Direction', MELA_TD ),
+	                'type' 			=> Controls_Manager::CHOOSE,
+	                'label_block' 	=> false,
+	                'options' 		=> [
+	                    'ltr' 			=> [
+							'title' 		=> esc_html__( 'Left to Right', MELA_TD ),
+							'icon' 			=> 'fa fa-arrow-right',
+	                    ],
+	                    'rtl' 			=> [
+	                        'title' 		=> esc_html__( 'Right to Left', MELA_TD ),
+	                        'icon' 			=> 'fa fa-arrow-left',
+	                    ],
+	                ],
+	                'default' 		 => 'ltr',
+	                'style_transfer' => true,
+	            ]
+	        );
 		$this->end_controls_section();
 
 
