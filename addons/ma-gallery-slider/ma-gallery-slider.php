@@ -138,6 +138,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					'condition' 	=> [
 						'jltma_gallery_slider_show_thumbnails!' => '',
 					],
+					'frontend_available' => true,
 				]
 			);
 
@@ -348,9 +349,10 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				[
 					'type' 		=> Controls_Manager::SWITCHER,
 					'label' 	=> esc_html__( 'Arrows', MELA_TD ),
-					'default' 	=> '',
+					'default' 	=> 'yes',
 					'label_off' => esc_html__( 'Hide', MELA_TD ),
 					'label_on' 	=> esc_html__( 'Show', MELA_TD ),
+					'return_value'      => 'yes',
 					'frontend_available' => true,
 					'prefix_class' 	=> 'elementor-arrows-',
 					'render_type' 	=> 'template',
@@ -2639,6 +2641,30 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 
 		if ( 'yes' === $settings['jltma_gallery_slider_preview_stretch'] ) {
 			$this->add_render_attribute( 'slider', 'class', 'slick-image-stretch' );
+		}
+
+		// Thumbnails Position for CSS class
+		switch ($settings['jltma_gallery_slider_preview_position']) {
+			case 'top':
+				$thumb_position = "bottom";
+				break;
+			case 'right':
+				$thumb_position = "left";
+				break;
+			case 'left':
+				$thumb_position = "right";
+				break;
+			default:
+				$thumb_position = "bottom";
+				break;
+		}
+
+		if ( 'slide' === $settings['jltma_gallery_slider_thumb_type'] ) {
+			$this->add_render_attribute( 'gallery-wrapper', 'class', [
+					'jltma-thumb-slide',
+					'jltma-thumb-position-' . esc_attr($thumb_position)
+				]
+			);
 		} ?>
 
 			<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>

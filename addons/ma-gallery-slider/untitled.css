@@ -1,0 +1,35 @@
+
+/* Vertical Navigation */
+.ee-gallery-slider__gallery.jltma-thumb-slide {
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: 12.5%;
+    border-radius: 0;
+}
+.ee-gallery-slider__gallery.jltma-thumb-slide .ee-gallery{
+    cursor: pointer;
+    display: block;
+    padding: 5px 0;
+    text-align: center;
+    border-radius: inherit;
+}
+.ee-gallery-slider__gallery .ee-arrow--prev {
+    top: 0px;
+    transform: rotate(90deg);
+}
+.ee-gallery-slider__gallery .ee-arrow--next {
+    bottom: 0px;
+    transform: rotate(90deg);
+}
+.ee-gallery-slider__gallery .slick-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 1%;
+    overflow-y: scroll;
+    text-align: center;
+}
+.ee-gallery-slider__gallery .ee-arrow{
+    border-radius: inherit;
+}

@@ -510,17 +510,21 @@
             var $carousel           = $scope.find('.ee-gallery-slider__carousel').eq(0),
                 $preview            = $scope.find('.ee-gallery-slider__preview'),
                 $thumbs             = $scope.find('.ee-gallery .ee-gallery__item'),
-                $thumbnailsSlider   = $(".ee-gallery-slider__gallery .ee-gallery"),
+                $thumbnailsSlider   = $scope.find(".ee-gallery-slider__gallery .ee-gallery"),
+                $thumbtype          = Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_type,
 
                 start               = elementorFrontend.config.is_rtl ? 'right' : 'left',
-                end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',
+                end                 = elementorFrontend.config.is_rtl ? 'left' : 'right';
 
-            slickArgs       = {
+
+            // console.log('asdfasd',Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_type);    
+
+            var slickArgs       = {
                 slidesToShow    : 1,
                 slidesToScroll  : 1,
                 // cssEase         : "linear",
-                // draggable       : false,
-                asNavFor        : ".ee-gallery-slider__gallery .ee-gallery",                    
+                draggable       : true,
+                asNavFor        : ($thumbtype == "slide")?".ee-gallery-slider__gallery .ee-gallery":"",
                 adaptiveHeight  : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_adaptive_height,
                 autoplay        : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_autoplay,
                 autoplaySpeed   : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_autoplay_speed,
@@ -536,45 +540,48 @@
             };
 
 
+            if($thumbtype == "slide"){
+                // Thumbnails Slider options
+                $thumbnailsSlider.slick({
+                  speed             : 300,
+                  infinite          : true,
+                  slidesToShow      : 5,
+                  slidesToScroll    : 1,
+                  cssEase           : "linear",
+                  centerMode        : true,
+                  draggable         : false,
+                  vertical          : true,
+                  verticalSwiping   : true,
+                  focusOnSelect     : true,
+                  asNavFor          : ".ee-gallery-slider__carousel",
+                  prevArrow         : '<div class="ee-carousel__arrow ee-arrow ee-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
+                  nextArrow         : '<div class="ee-carousel__arrow ee-arrow ee-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
+                  responsive: [
+                    {
+                      breakpoint: 720,
+                      settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4
+                      }
+                    },
+                    {
+                      breakpoint: 576,
+                      settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                      }
+                    },
+                    {
+                      breakpoint: 350,
+                      settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                      }
+                    }
+                  ]
+                });
+            }
 
-            // thumbnails options
-            $thumbnailsSlider.slick({
-              speed             : 300,
-              slidesToShow      : 5,
-              slidesToScroll    : 1,
-              cssEase           : "linear",
-              centerMode        : true,
-              draggable         : false,
-              vertical          :true,
-              verticalSwiping   :true,
-              focusOnSelect     : true,
-              asNavFor          : ".ee-gallery-slider__carousel",
-              prevArrow         : '<div class="ee-carousel__arrow ee-arrow ee-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
-              nextArrow         : '<div class="ee-carousel__arrow ee-arrow ee-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
-              responsive: [
-                {
-                  breakpoint: 720,
-                  settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 4
-                  }
-                },
-                {
-                  breakpoint: 576,
-                  settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3
-                  }
-                },
-                {
-                  breakpoint: 350,
-                  settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                  }
-                }
-              ]
-            });
 
 
             Master_Addons.MA_Gallery_Slider.events = function() {
