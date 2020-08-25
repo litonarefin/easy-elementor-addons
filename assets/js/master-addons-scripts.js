@@ -508,9 +508,10 @@
             Master_Addons.MA_Gallery_Slider.elementSettings    = getElementSettings( $scope );
 
             // var $carousel       = $scope.find('.ee-gallery-slider__carousel'),
-            var $carousel       = $scope.find('.ee-gallery-slider__carousel').eq(0),
-                $preview        = $scope.find('.ee-gallery-slider__preview'),
-                $thumbs         = $scope.find('.ee-gallery .ee-gallery__item'),
+            var $carousel           = $scope.find('.ee-gallery-slider__carousel').eq(0),
+                $preview            = $scope.find('.ee-gallery-slider__preview'),
+                $thumbs             = $scope.find('.ee-gallery .ee-gallery__item'),
+                $thumbnailsSlider   = $scope.find('.ee-gallery .ee-gallery__item'),
 
                 start           = elementorFrontend.config.is_rtl ? 'right' : 'left',
                 end             = elementorFrontend.config.is_rtl ? 'left' : 'right',
@@ -531,6 +532,43 @@
                     rtl             : 'rtl' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_direction,
                     fade            : 'fade' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_effect,
                 };
+
+
+                $thumbnailsSlider.slick({
+                  speed: 300,
+                  slidesToShow: 5,
+                  slidesToScroll: 1,
+                  cssEase: "linear",
+                  centerMode: true,
+                  draggable: false,
+                  focusOnSelect: true,
+                  asNavFor: ".gallery-slider .gallery-slider__images>div",
+                  prevArrow: ".gallery-slider__thumbnails .prev-arrow",
+                  nextArrow: ".gallery-slider__thumbnails .next-arrow",
+                  responsive: [
+                    {
+                      breakpoint: 720,
+                      settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4
+                      }
+                    },
+                    {
+                      breakpoint: 576,
+                      settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                      }
+                    },
+                    {
+                      breakpoint: 350,
+                      settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                      }
+                    }
+                  ]
+                });
 
             Master_Addons.MA_Gallery_Slider.events = function() {
                 $carousel.on( 'beforeChange', function ( event, slick, currentSlide, nextSlide ) {
@@ -1430,7 +1468,7 @@
                     });
                 }
 
-                // console.log( $( "#jltma-instagram-" + $insta_data.container_id + ' .jltma-instafeed-item' ));
+
                 // Lightbox Settings
                 if( $insta_data.lightbox  == "enabled"){
                     if ($.isFunction($.fn.fancybox)) {

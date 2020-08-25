@@ -42,11 +42,11 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 
 	public function get_script_depends() {
 		return [
-			// 'jquery-slick',
-			// 'imagesloaded',
-			// 'font-awesome-4-shim',
-			// 'elementor-waypoints',
-			// 'master-addons-scripts'
+			'jquery-slick',
+			'imagesloaded',
+			'font-awesome-4-shim',
+			'elementor-waypoints',
+			'master-addons-scripts'
 		];
 	}
 
@@ -59,7 +59,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
         ];
     }
 
-    
+
 	public function get_keywords() {
 		return [ 
 			'gallery', 
@@ -2516,7 +2516,6 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 			return;
 
 
-
 		$this->add_render_attribute( [
 			'wrapper' => [
 				'class' => 'ee-gallery-slider',
@@ -2606,11 +2605,11 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				</div>
 
 				<?php if ( 'yes' === $settings['jltma_gallery_slider_show_thumbnails'] ) : ?>
-				<div <?php echo $this->get_render_attribute_string( 'gallery-wrapper' ); ?>>
-					<div <?php echo $this->get_render_attribute_string( 'gallery' ); ?>>
-						<?php echo $this->render_jltma_gallery_slider(); ?>
+					<div <?php echo $this->get_render_attribute_string( 'gallery-wrapper' ); ?>>
+						<div <?php echo $this->get_render_attribute_string( 'gallery' ); ?>>
+							<?php echo $this->render_jltma_gallery_slider(); ?>
+						</div>
 					</div>
-				</div>
 				<?php endif; ?>
 			</div>
 
