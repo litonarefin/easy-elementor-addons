@@ -154,7 +154,8 @@ if( !class_exists('Master_Elementor_Addons') ){
 			add_filter( 'elementor/utils/get_placeholder_image_src', [ $this, 'jltma_replace_placeholder_image' ] );
 
 			// Elementor Dependencies
-			add_action( 'elementor/editor/before_enqueue_scripts'  , array( $this, 'jltma_editor_scripts' ) );
+			// add_action( 'elementor/editor/before_enqueue_scripts'  , array( $this, 'jltma_editor_scripts' ) );
+			add_action( 'elementor/editor/after_enqueue_scripts'  , array( $this, 'jltma_editor_scripts' ) );
 			add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'jltma_editor_scripts' ]);
 
 			// Add Elementor Widgets
