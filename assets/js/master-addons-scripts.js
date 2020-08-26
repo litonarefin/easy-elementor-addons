@@ -622,6 +622,12 @@
                 });
             };
 
+            Master_Addons.MA_Gallery_Slider.setNavHeight = function() {
+                setTimeout(function() {
+                    $('.jltma-thumb-slide .slick-list').height($('.ee-gallery-slider__preview').find('img').height() - $('.slick-vertical .ee-carousel__arrow').height() * 2 - 20);
+                }, 250);
+            };
+
             Master_Addons.MA_Gallery_Slider.init = function() {
 
                 $carousel.slick( slickArgs );
@@ -633,11 +639,15 @@
 
                 Master_Addons.MA_Gallery_Slider.events();
 
-
                 if($thumbtype == "slide"){
                     // Thumbnails Slider options
                     $thumbnailsSlider.slick( thumbsArgs );
                 }
+
+                window.onresize = function() {
+                    Master_Addons.MA_Gallery_Slider.setNavHeight();
+                };
+
 
             };
 

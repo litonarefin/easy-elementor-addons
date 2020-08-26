@@ -8,9 +8,9 @@ $jltma_elements = [
             [
                 'key'           => 'custom-breakpoints',
                 'title'         => esc_html__( 'Custom Breakpoints', MELA_TD),
-                'wp_slug'       => 'elementor-custom-breakpoints',
+                'wp_slug'       => 'custom-breakpoints-for-elementor',
                 'download_url'  => '',
-                'plugin_file'   => 'elementor-custom-breakpoints/custom-breakpoints.php'
+                'plugin_file'   => 'custom-breakpoints-for-elementor/custom-breakpoints-for-elementor.php'
             ],
             [
                 'key'           => 'wp-disable-sitemap',
