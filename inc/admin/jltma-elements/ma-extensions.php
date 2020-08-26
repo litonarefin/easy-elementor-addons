@@ -111,20 +111,12 @@ $jltma_elements = [
                 'tuts_url'      => ''
             ],
             [
-                'key'           => 'display-tags',
-                'title'         => esc_html__( 'Display Tags', MELA_TD),
-                'demo_url'      => '',
-                'docs_url'      => '',
-                'tuts_url'      => ''
-            ],
-            [
-                'key'           => 'custom-breakpoints',
-                'title'         => esc_html__( 'Custom Breakpoints', MELA_TD),
+                'key'           => 'dynamic-tags',
+                'title'         => esc_html__( 'Dynamic Tags', MELA_TD),
                 'demo_url'      => '',
                 'docs_url'      => '',
                 'tuts_url'      => ''
             ]
-
 
     	]
     ]

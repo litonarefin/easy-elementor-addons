@@ -1,6 +1,6 @@
 === Master Addons for Elementor ===
 Contributors: jwthemeltd, litonice13
-Tags: elementor, elementor addon, elementor widget, custom css elements, essential widget, after before image comparison, image hover effects, header & footer builder, template import, elementor addons, elementor extensions,  elementor modules, elementor templates, comment form builder, mega menu, header footer builder, elements, page builder addons, addons
+Tags: elementor, elementor addon, elementor widget, custom css elements, essential widget, after before image comparison, image hover effects, header & footer builder, template import, elementor addons, elementor extensions,  elementor modules, elementor templates, comment form builder, mega menu, header footer builder, elements, page builder addons,addons, jewletheme, masteraddons
 Requires at least: 4.0
 Tested up to: 5.5
 Requires PHP: 5.3
