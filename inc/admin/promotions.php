@@ -29,14 +29,14 @@ if( !class_exists('Master_Addons_Promotions') ) {
             add_action( 'admin_notices', [$this, 'jltma_latest_blog_update'], 10 );
             
             if ( !ma_el_fs()->can_use_premium_code() ) {
+                add_action( 'admin_notices', [$this, 'jltma_request_review_after_seven_days'], 10 );            
+                add_action( 'admin_notices', [$this, 'jltma_request_review_after_fifteen_days'], 10 );
+                add_action( 'admin_notices', [$this, 'jltma_request_review_after_thirty_days'], 10 );
+            }else{
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_ten_days'], 10 );
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_tweenty_days'], 10 );
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_fourty_five_days'], 10 );
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_ninety_days'], 10 );
-            }else{
-                add_action( 'admin_notices', [$this, 'jltma_request_review_after_seven_days'], 10 );            
-                add_action( 'admin_notices', [$this, 'jltma_request_review_after_fifteen_days'], 10 );
-                add_action( 'admin_notices', [$this, 'jltma_request_review_after_thirty_days'], 10 );   
             }
 
             // Styles
