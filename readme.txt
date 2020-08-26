@@ -363,9 +363,10 @@ Paste on your Local Computer
 
 == Changelog ==
 = 1.4.8 (16-08-2020) =
-* Update: Toggle Content - Added Toggle Border on Style Tab
-* Update: Re-named extension "Transitions" to "Entrance Animation"
-* Update: All Animation effects working now on Entrance Animation, also fixed animation delay JS issues.
+* Updated: Toggle Content - Added Toggle Border on Style Tab
+* Updated: Re-named extension "Transitions" to "Entrance Animation"
+* Updated: All Animation effects working now on Entrance Animation, also fixed animation delay JS issues.
+* Updated: Notices for Pro users showing asking to purchase issue fixed
 
 = 1.4.7 (16-08-2020) =
 * Added: Header, Footer & Comment Form Builder extension added
