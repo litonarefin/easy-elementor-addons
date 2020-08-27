@@ -595,11 +595,11 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 	                'options' 		=> [
 	                    'ltr' 			=> [
 							'title' 		=> esc_html__( 'Left to Right', MELA_TD ),
-							'icon' 			=> 'fa fa-arrow-right',
+							'icon' 			=> 'fa fa-arrow-left',
 	                    ],
 	                    'rtl' 			=> [
 	                        'title' 		=> esc_html__( 'Right to Left', MELA_TD ),
-	                        'icon' 			=> 'fa fa-arrow-left',
+	                        'icon' 			=> 'fa fa-arrow-right',
 	                    ],
 	                ],
 	                'default' 		 => 'ltr',
@@ -2815,6 +2815,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							<?php echo $this->render_jltma_gallery_slider(); ?>
 						</div>
 					</div>
+					<div class="clear"></div>
 				<?php endif; ?>
 			</div>
 

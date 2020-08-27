@@ -11398,6 +11398,13 @@ ul.jltma-toggle-content-controls {
 
 
 /* Vertical Navigation */
+/* .ee-gallery-slider__gallery .ee-arrow--prev, .ee-gallery-slider__gallery .ee-arrow--next */
+.ee-gallery-slider__gallery.jltma-thumb-position-left .ee-arrow--prev, 
+.ee-gallery-slider__gallery.jltma-thumb-position-left .ee-arrow--next,
+.ee-gallery-slider__gallery.jltma-thumb-position-right .ee-arrow--prev,
+.ee-gallery-slider__gallery.jltma-thumb-position-right .ee-arrow--next {
+    position: relative;
+}
 .ee-gallery-slider__gallery.jltma-thumb-slide:not() {
     margin: 0;
     padding: 0;
@@ -11508,8 +11515,3 @@ ul.jltma-toggle-content-controls {
   }
 }
 /* End of Gallery Slider */
-
-
-
-
-
