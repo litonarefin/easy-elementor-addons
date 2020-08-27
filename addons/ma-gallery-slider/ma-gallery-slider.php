@@ -642,6 +642,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								'left' 		=> esc_html__( 'Left', MELA_TD ),
 							],
 							'prefix_class'	=> 'ee-gallery-slider--',
+							'frontend_available' => true,
 							'condition' => [
 								'jltma_gallery_slider_show_thumbnails!' => '',
 							],
@@ -1980,7 +1981,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__thumbnail img' => 'opacity: {{SIZE}}; outline:none;',
+								'{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__thumbnail img' => 'opacity: {{SIZE}}',
 							],
 						]
 					);
@@ -2705,13 +2706,11 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				'class' => [
 					'ee-gallery-slider__preview',
 					'elementor-slick-slider',
-					'jltma-gallery-slider-column',
 				],
 			],
 			'gallery-wrapper' => [
 				'class' => [
 					'ee-gallery-slider__gallery',
-					'jltma-gallery-slider-column',
 				],
 			],
 			'gallery' => [
@@ -2817,7 +2816,6 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							<?php echo $this->render_jltma_gallery_slider(); ?>
 						</div>
 					</div>
-					<div class="clear"></div>
 				<?php endif; ?>
 			</div>
 

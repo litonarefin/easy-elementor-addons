@@ -512,7 +512,7 @@
                 $thumbs             = $scope.find('.ee-gallery .ee-gallery__item'),
                 $thumbnailsSlider   = $scope.find(".ee-gallery-slider__gallery .ee-gallery"),
                 $thumbtype          = Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_type,
-                $thumbVertical      = (Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_preview_position == "bottom") ? false : true,
+                $thumbVertical      = (Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_preview_position == "top") ? false : true,
 
                 start               = elementorFrontend.config.is_rtl ? 'right' : 'left',
                 end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',
@@ -522,7 +522,6 @@
                     slidesToScroll  : 1,
                     cssEase         : "linear",
                     draggable       : true,
-                    focusOnSelect   : false,
                     asNavFor        : ($thumbtype == "slide")?".ee-gallery-slider__gallery .ee-gallery":"",
                     adaptiveHeight  : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_adaptive_height,
                     autoplay        : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_autoplay,
@@ -543,11 +542,11 @@
                   slidesToShow      : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_items,
                   slidesToScroll    : 1,
                   cssEase           : "linear",
-                  // centerMode        : true,
+                  centerMode        : true,
                   draggable         : false,
                   vertical          : $thumbVertical,
                   verticalSwiping   : $thumbVertical,
-                  focusOnSelect     : false,
+                  focusOnSelect     : true,
                   arrows            : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_show_arrows,
                   autoplay          : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_autoplay,
                   autoplaySpeed     : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_autoplay_speed,
@@ -586,29 +585,6 @@
 
 
 
-
-            // slidesToShow    : 1,
-            // slidesToScroll  : 1,
-            // // cssEase         : "linear",
-            // draggable       : true,
-            // asNavFor        : ($thumbtype == "slide")?".ee-gallery-slider__gallery .ee-gallery":"",
-            // adaptiveHeight  : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_adaptive_height,
-            // autoplay        : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_autoplay,
-            // autoplaySpeed   : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_autoplay_speed,
-            // infinite        : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_infinite,
-            // pauseOnHover    : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_pause_on_hover,
-            // speed           : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_speed,
-            // arrows          : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_show_arrows,
-            // prevArrow       : '<div class="ee-carousel__arrow ee-arrow ee-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
-            // nextArrow       : '<div class="ee-carousel__arrow ee-arrow ee-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
-            // dots            : false,
-            // rtl             : 'rtl' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_direction,
-            // fade            : 'fade' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_effect,
-
-
-
-
-
             Master_Addons.MA_Gallery_Slider.events = function() {
                 $carousel.on( 'beforeChange', function ( event, slick, currentSlide, nextSlide ) {
                     var currentSlide = nextSlide;
@@ -622,31 +598,6 @@
                         $carousel.slick( 'slickGoTo', currentSlide );
                     });
                 });
-            };
-
-            Master_Addons.MA_Gallery_Slider.setNavHeight = function() {
-                setTimeout(function() {
-                    // $('.jltma-thumb-slide .slick-list').height($('.ee-gallery-slider__preview').find('img').height() - $('.slick-vertical .ee-carousel__arrow').height() * 2 - 20);
-                        $('.ee-gallery-slider').each(function(){  
-                          
-                          // Cache the highest
-                          var highestBox = 0;
-                          
-                          // Select and loop the elements you want to equalise
-                          $('.jltma-gallery-slider-column', this).each(function(){
-                            
-                            // If this box is higher than the cached highest then store it
-                            if($(this).height() > highestBox) {
-                              highestBox = $(this).height(); 
-                            }
-                          
-                          });  
-                                
-                          // Set the height of all those children to whichever was highest 
-                          $('.jltma-gallery-slider-column',this).height(highestBox);
-                                        
-                        });                     
-                }, 250);
             };
 
             Master_Addons.MA_Gallery_Slider.init = function() {
@@ -664,11 +615,6 @@
                     // Thumbnails Slider options
                     $thumbnailsSlider.slick( thumbsArgs );
                 }
-
-                // window.onresize = function() {
-                    Master_Addons.MA_Gallery_Slider.setNavHeight();
-                // };
-
 
             };
 
