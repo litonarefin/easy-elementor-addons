@@ -11396,7 +11396,9 @@ ul.jltma-toggle-content-controls {
     left: 30%;
 }
 
-
+.ee-gallery__item.is--active .ee-gallery__media__thumbnail img{
+    outline: none;
+}
 /* Vertical Navigation */
 /* .ee-gallery-slider__gallery .ee-arrow--prev, .ee-gallery-slider__gallery .ee-arrow--next */
 .ee-gallery-slider__gallery.jltma-thumb-position-left .ee-arrow--prev, 

@@ -1980,7 +1980,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__thumbnail img' => 'opacity: {{SIZE}}',
+								'{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__thumbnail img' => 'opacity: {{SIZE}}; outline:none;',
 							],
 						]
 					);
@@ -2705,11 +2705,13 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				'class' => [
 					'ee-gallery-slider__preview',
 					'elementor-slick-slider',
+					'jltma-gallery-slider-column',
 				],
 			],
 			'gallery-wrapper' => [
 				'class' => [
 					'ee-gallery-slider__gallery',
+					'jltma-gallery-slider-column',
 				],
 			],
 			'gallery' => [

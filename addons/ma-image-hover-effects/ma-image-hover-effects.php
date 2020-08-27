@@ -189,6 +189,21 @@
 					],
 				]
 			);
+
+			$this->add_control(
+				'ma_el_main_image_size',
+				[
+					'label' 	=> esc_html__( 'Image Size', MELA_TD ),
+					'type' 		=> Controls_Manager::SELECT,
+					'options' 	=> [
+						'main' 				=> esc_html__( 'Default', MELA_TD ),
+						'custom' 			=> esc_html__( 'Custom', MELA_TD ),
+					],
+					'default' 	=> 'main'
+				]
+			);
+
+
 			$this->add_group_control(
 				Group_Control_Image_Size::get_type(),
 				[
@@ -197,8 +212,60 @@
 					'condition' => [
 						'ma_el_main_image[url]!' => '',
 					],
+					'exclude'	=> [ 'custom' ],
+					'condition' => [
+						'ma_el_main_image_size' => 'main',
+					],
 				]
 			);
+
+
+			$this->add_control('ma_el_main_image_width',
+				[
+					'label' => __( 'Width', MELA_TD ),
+					'type' => Controls_Manager::SLIDER,
+					'default' => [
+						'size' => 200
+					],					
+					'range' => [
+						'px' => [
+							'min' => 100,
+							'max' => 1000,
+							'step' => 1
+						]
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-image-hover-effect figure, {{WRAPPER}} .ma-el-image-hover-effect figure img' => 'width: {{SIZE}}px;'
+					],
+					'condition' => [
+						'ma_el_main_image_size' => 'custom',
+					],
+				]
+			);
+
+			$this->add_control('ma_el_main_image_height',
+				[
+					'label' => __( 'Height', MELA_TD ),
+					'type' => Controls_Manager::SLIDER,
+					'default' => [
+						'size' => 200
+					],
+					'range' => [
+						'px' => [
+							'min' => 100,
+							'max' => 1000,
+							'step' => 1
+						]
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-image-hover-effect figure, {{WRAPPER}} .ma-el-image-hover-effect figure img' => 'height: {{SIZE}}px;'
+					],
+					'condition' => [
+						'ma_el_main_image_size' => 'custom',
+					],
+				]
+			);
+
 
 
 			$this->add_control('ma_el_image_hover_link_type',
@@ -399,34 +466,6 @@
 			);
 
 
-
-
-			$this->add_control('ma_el_main_image_height',
-				[
-					'label'			=> __( 'Height', MELA_TD ),
-					'type'			=> Controls_Manager::SELECT,
-					'options'		=> [
-						'default'		=> __('Default', MELA_TD),
-						'custom'		=> __('Custom', MELA_TD)
-					],
-					'default'		=> 'default',
-					'description'	=> __( 'Choose if you want to set a custom height for the banner or keep it as it is', MELA_TD )
-				]
-			);
-
-			$this->add_responsive_control('ma_el_main_image_custom_height',
-				[
-					'label'			=> __( 'Min Height', MELA_TD ),
-					'type'			=> Controls_Manager::NUMBER,
-					'description'	=> __( 'Set a minimum height value in pixels', MELA_TD ),
-					'condition'		=> [
-						'ma_el_main_image_height' => 'custom'
-					],
-					'selectors'		=> [
-						'{{WRAPPER}} .ma-el-image-hover-effect' => 'height: {{VALUE}}px;'
-					]
-				]
-			);
 
 			$this->add_responsive_control('ma_el_main_image_vertical_align',
 				[
@@ -724,6 +763,7 @@
 					]
 				]
 			);
+
 
 			$this->add_control('ma_el_main_image_opacity',
 				[

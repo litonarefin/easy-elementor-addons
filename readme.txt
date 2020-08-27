@@ -362,11 +362,18 @@ Paste on your Local Computer
 
 
 == Changelog ==
-= 1.4.8 (16-08-2020) =
+= 1.5.0 (29-08-2020) =
 * Updated: Toggle Content - Added Toggle Border on Style Tab
 * Updated: Re-named extension "Transitions" to "Entrance Animation"
 * Updated: All Animation effects working now on Entrance Animation, also fixed animation delay JS issues.
 * Updated: Notices for Pro users showing asking to purchase issue fixed
+* Updated: Added Width & Height on "Image Hover Effects"
+
+
+= 1.4.8 (26-08-2020) =
+* Updated: Quick update for giving suppor Elementor v3.0
+* Updated: Editor not loading on Elementor v3.0 issue fixed
+
 
 = 1.4.7 (16-08-2020) =
 * Added: Header, Footer & Comment Form Builder extension added
