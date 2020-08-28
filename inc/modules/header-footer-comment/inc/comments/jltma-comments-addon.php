@@ -534,6 +534,20 @@
 				] );
 
 
+
+		        $this->add_control(
+		            'jltma_comment_fields_url_display',
+		            [
+						'label' 		    => esc_html__( 'Display Field?', JLTMA_TD ),
+						'type'              => Controls_Manager::SWITCHER,
+		                'default'           => 'show',
+		                'label_on'          => esc_html__( 'Show', JLTMA_TD ),
+		                'label_off'         => esc_html__( 'Hide', JLTMA_TD ),
+		                'return_value'      => 'show',
+		                'style_transfer'    => true,
+		            ]
+				);
+
 		        $this->add_control(
 		            'jltma_comment_fields_url_label_display',
 		            [
@@ -544,6 +558,9 @@
 		                'label_off'         => esc_html__( 'Hide', JLTMA_TD ),
 		                'return_value'      => 'show',
 		                'style_transfer'    => true,
+	                    'condition'				=> [
+							'jltma_comment_fields_url_display' => 'show',
+						]
 		            ]
 				);
 
@@ -555,6 +572,7 @@
 	                    'default'               => esc_html__( 'Website', JLTMA_TD ),
 	                    'condition'				=> [
 							'jltma_comment_fields_url_label_display' => 'show',
+							'jltma_comment_fields_url_display' => 'show',
 						]
 	                ]
 	            );
@@ -565,7 +583,10 @@
 	                [
 	                    'label'                 => esc_html__( 'Placeholder', JLTMA_TD ),
 	                    'type'                  => Controls_Manager::TEXT,
-	                    'default'               => esc_html__( 'Enter your Website', JLTMA_TD )
+	                    'default'               => esc_html__( 'Enter your Website', JLTMA_TD ),
+	                    'condition'				=> [
+							'jltma_comment_fields_url_display' => 'show',
+						]
 	                ]
 	            );
 

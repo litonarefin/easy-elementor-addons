@@ -63,7 +63,20 @@ if( !class_exists('JLTMA_Comments_Builder') ){
 
             //Check SPAM Protection reCaptcha
             add_action('pre_comment_on_post', [$this,'jltma_verify_google_recaptcha']);
+            
+            // Unset Default Fields
+            add_action('comment_form_default_fields', [$this,'jltma_default_comment_fields']);
 		}
+
+        public function jltma_default_comment_fields($fields){
+            $jltma_comment_fields = $this->jltma_set_var;
+            // if(isset($jltma_comment_fields['jltma_comment_fields_url_display']) && $jltma_comment_fields['jltma_comment_fields_url_display'] =="show"){
+
+            if(isset($fields['url']))
+                unset($fields['url']);
+            // }
+            return $fields;
+        }
 
 
         public function render_comment_meta_front( $jltma_comment_text, $comment ){
@@ -475,12 +488,6 @@ if( !class_exists('JLTMA_Comments_Builder') ){
 		    return $content;
 		}
 
-		function jltma_disable_comment_fields($fields) { 
-		    unset($fields['author']);
-		    unset($fields['email']);
-		    unset($fields['url']);
-		    return $fields;
-		}
 
 		// Allow Comments for Master Template by default
 		public function jltma_comments_on_by_default( $data ) {
