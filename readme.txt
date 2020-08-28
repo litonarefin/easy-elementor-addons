@@ -371,6 +371,7 @@ Paste on your Local Computer
 * Updated: Added Width & Height on "Image Hover Effects"
 * Added: Comment Form - Added 'website' field hide option on Comment form.
 * Fixed: Comment Form - Checkbox style issue fixed, placeholder not required for Checkbox(conditions fixed)
+* Info: Animated Gradient - Reapeater Field not working on Elementor v3.x.x Section/Columns and causing Section/Column Duplicate/Delete error. Details: https://github.com/elementor/elementor/issues/12270. Due to Elementor's core problem we've temporarily disabled multiple Color picker for Animated Gradient to work smoothly. While they'll fix the issue we'll enable it again.
 
 
 = 1.4.8 (26-08-2020) =
