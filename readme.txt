@@ -369,6 +369,7 @@ Paste on your Local Computer
 * Updated: Notices for Pro users showing asking to purchase issue fixed
 * Updated: Added Width & Height on "Image Hover Effects"
 * Added: Comment Form - Added 'website' field hide option on Comment form.
+* Fixed: Comment Form - Checkbox style issue fixed, placeholder not required for Checkbox(conditions fixed)
 
 
 = 1.4.8 (26-08-2020) =
