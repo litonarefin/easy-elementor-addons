@@ -363,6 +363,7 @@ Paste on your Local Computer
 
 == Changelog ==
 = 1.5.0 (29-08-2020) =
+* Fixed: "Template Import" not working on Elementor v3.0 issue fixed
 * Updated: Toggle Content - Added Toggle Border on Style Tab
 * Updated: Re-named extension "Transitions" to "Entrance Animation"
 * Updated: All Animation effects working now on Entrance Animation, also fixed animation delay JS issues.

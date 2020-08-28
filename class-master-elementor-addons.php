@@ -153,8 +153,8 @@ if( !class_exists('Master_Elementor_Addons') ){
 			add_filter( 'elementor/utils/get_placeholder_image_src', [ $this, 'jltma_replace_placeholder_image' ] );
 
 			// Elementor Dependencies
-			add_action( 'elementor/editor/after_enqueue_scripts'  , array( $this, 'jltma_editor_scripts' ) );
-			add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'jltma_editor_scripts' ]);
+			add_action( 'elementor/editor/after_enqueue_scripts'  , array( $this, 'jltma_editor_scripts_js' ) );
+			add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'jltma_editor_scripts_css' ]);
 
 			// Add Elementor Widgets
 			add_action( 'elementor/widgets/widgets_registered', [ $this, 'jltma_init_widgets' ] );
@@ -518,9 +518,13 @@ if( !class_exists('Master_Elementor_Addons') ){
 		 * Enqueue Elementor Editor Styles
 		 *
 		 */
-		public function jltma_editor_scripts() {
-			wp_enqueue_style( 'master-addons-editor', MELA_PLUGIN_URL . '/assets/css/master-addons-editor.css' );
+
+		public function jltma_editor_scripts_js() {
 			wp_enqueue_script( 'master-addons-editor', MELA_ADMIN_ASSETS . 'js/editor.js', array( 'jquery' ), MELA_VERSION, true );
+		}
+
+		public function jltma_editor_scripts_css() {
+			wp_enqueue_style( 'master-addons-editor', MELA_PLUGIN_URL . '/assets/css/master-addons-editor.css' );
 		}
 
 
