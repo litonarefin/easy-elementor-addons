@@ -11409,10 +11409,18 @@ ul.jltma-toggle-content-controls {
     top: 30%;
     left: 30%;
 }
-
 .ee-gallery__item.is--active .ee-gallery__media__thumbnail img{
     outline: none;
 }
+
+.ee-gallery-slider__gallery.jltma-thumb-position-bottom .ee-arrow--prev,
+.ee-gallery-slider__gallery.jltma-thumb-position-bottom .ee-arrow--next,
+.ee-gallery-slider__gallery.jltma-thumb-position-top .ee-arrow--prev,
+.ee-gallery-slider__gallery.jltma-thumb-position-top .ee-arrow--next{
+    top: 40% !important;
+    height: 55px;
+}
+
 /* Vertical Navigation */
 .ee-gallery-slider__gallery.jltma-thumb-position-left .ee-arrow--prev, 
 .ee-gallery-slider__gallery.jltma-thumb-position-left .ee-arrow--next,
