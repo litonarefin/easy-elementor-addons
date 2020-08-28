@@ -512,7 +512,8 @@
                 $thumbs             = $scope.find('.ee-gallery .ee-gallery__item'),
                 $thumbnailsSlider   = $scope.find(".ee-gallery-slider__gallery .ee-gallery"),
                 $thumbtype          = Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_type,
-                $thumbVertical      = (Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_preview_position == "top") ? false : true,
+                $thumbposition      = Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_preview_position,
+                $thumbVertical      = ( $thumbposition == "top" || $thumbposition == "bottom" ) ? false : true,
 
                 start               = elementorFrontend.config.is_rtl ? 'right' : 'left',
                 end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',

@@ -11052,6 +11052,20 @@ ul.jltma-toggle-content-controls {
 .ee-gallery-slider--top .ee-gallery-slider__preview {
   margin-bottom: 24px;
 }
+
+.ee-gallery-slider--bottom .ee-gallery-slider {
+  -ms-flex-flow: row;
+  flex-flow: row;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
+.ee-gallery-slider--bottom .ee-gallery-slider__gallery,
+.ee-gallery-slider--bottom .ee-gallery-slider__preview {
+  width: 100%;
+}
+.ee-gallery-slider--bottom .ee-gallery-slider__preview {
+  margin-bottom: 24px;
+}
 .ee-gallery-slider__preview .slick-slide {
   overflow: hidden;
 }
