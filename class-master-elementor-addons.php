@@ -120,13 +120,13 @@ if( !class_exists('Master_Elementor_Addons') ){
 				['reveal','pro'],
 				'header-footer-comment',
 //					'pseudo-elements', //need to fix before and after
-				'display-conditions',
+				['display-conditions','pro'],
 				'dynamic-tags',
 				// 'live-copy',
 			];
 
 			self::$jltma_third_party_plugins = [
-				['custom-breakpoints', 'pro']
+				'custom-breakpoints'
 			];
 
 			$this->constants();

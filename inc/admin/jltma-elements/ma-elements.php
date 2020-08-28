@@ -258,6 +258,13 @@ $jltma_elements = [
                 'tuts_url' 		=> ''
             ],
             [
+                'key'           => 'ma-gallery-slider',
+                'title'         => esc_html__( 'Gallery Slider', MELA_TD),
+                'demo_url'      => 'https://master-addons.com/demos/gallery-slider/',
+                'docs_url'      => '',
+                'tuts_url'      => ''
+            ],
+            [
                 'key'           => 'ma-advanced-image',
                 'title'         => esc_html__( 'Advanced Image', MELA_TD),
                 'demo_url'      => '',
