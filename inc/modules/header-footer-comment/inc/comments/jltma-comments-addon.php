@@ -719,35 +719,26 @@
 						'default'     => [
 
 							[
-								'title'                                 => esc_html__( 'City', JLTMA_TD ),
 								'label_name'                            => esc_html__( 'Cup of Tea', JLTMA_TD ),
 								'field_type'   							=> 'text',
 								'placeholder'                 			=> esc_html__( 'Living', JLTMA_TD ),
 								'error_msg'            					=> esc_html__( '', JLTMA_TD ),
 								'required'   							=> '',
-								// 'checkbox_options'   					=> '',
+								// 'multi_checkbox_options'   					=> '',
 								'display_label'   						=> 'show'
 							],
 							[
-								'title'                                 => esc_html__( 'Age', JLTMA_TD ),
 								'label_name'                            => esc_html__( 'Enter Age', JLTMA_TD ),
 								'field_type'   							=> 'text',
 								'placeholder'                 			=> esc_html__( 'Enter Your Age', JLTMA_TD ),
 								'error_msg'            					=> esc_html__( '', JLTMA_TD ),
 								'required'   							=> '',
-								// 'checkbox_options'   					=> '',
+								// 'multi_checkbox_options'   					=> '',
 								'display_label'   						=> 'show'
 							]
 
 						],
-						'fields'          => [
-							[
-								'type'          => Controls_Manager::TEXT,
-								'name'          => 'title',
-								'label_block'   => true,
-								'label'         => esc_html__( 'Title', JLTMA_TD ),
-								'default'       => esc_html__( 'Comment  Title', JLTMA_TD )
-							],				
+						'fields'          => [			
 							[
 								'name'           => 'display_label',
 								'label'        	 => esc_html__( 'Display Label?', JLTMA_TD ),
@@ -776,7 +767,6 @@
 								'default'      => 'no',
 								'return_value' => 'yes'
 							],
-
 							[
 								'name'          => 'field_type',
 								'label'         => esc_html__( 'Field Type', JLTMA_TD ),
@@ -789,21 +779,24 @@
 								'default'   => 'text'
 							],
 							// [
-							// 	'type'          => Controls_Manager::TEXT,
-							// 	'name'          => 'checkbox_options',
-							// 	'label'         => esc_html__( 'Checkbox Field', JLTMA_TD ),
+							// 	'type'          => Controls_Manager::TEXTAREA,
+							// 	'name'          => 'multi_checkbox_options',
+							// 	'label'         => esc_html__( 'Multi Checkbox Field', JLTMA_TD ),
 							// 	'label_block'   => true,
+							// 	'description'   => esc_html__( 'One Options per line', MELA_TD ),
 			    //                 'condition'     => [
 			    //                     'field_type'       => 'checkbox'
 			    //                 ]							
 							// ],
-
 							[
 								'type'          => Controls_Manager::TEXT,
 								'name'          => 'placeholder',
 								'label'         => esc_html__( 'Placeholder Text', JLTMA_TD ),
 								'label_block'   => true,
-								'default'       => esc_html__( 'Enter Age', JLTMA_TD )
+								'default'       => esc_html__( 'Enter Age', JLTMA_TD ),
+			                    'condition'     => [
+			                        'field_type!'       => 'checkbox'
+			                    ]									
 							],
 							[
 								'type'          => Controls_Manager::TEXT,
@@ -813,7 +806,7 @@
 								'default'       => esc_html__( 'Age Error', JLTMA_TD )
 							],
 						],
-						'title_field' => '{{title}}'
+						'title_field' => '{{label_name}}'
 					]
 				);
 
@@ -2623,33 +2616,34 @@
 
 
                 // URL Field
-			    $jltma_cf_url_required= esc_html__('(Required)',JLTMA_TD);
+			    $jltma_cf_url_required = esc_html__('(Required)',JLTMA_TD);
 
-			    $jltma_cf_url_label_container = "";
-				if ($settings['jltma_comment_fields_url_label_display'] == "show") {
-			    	$jltma_cf_url_label = ($settings['jltma_comment_fields_url_label']!= '') ? esc_attr($settings['jltma_comment_fields_url_label']) :'';
+			    if($settings['jltma_comment_fields_url_display'] == 'show'){
+				    $jltma_cf_url_label_container = "";
+					if ($settings['jltma_comment_fields_url_label_display'] == "show") {
+				    	$jltma_cf_url_label = ($settings['jltma_comment_fields_url_label']!= '') ? esc_attr($settings['jltma_comment_fields_url_label']) :'';
 
-			    	if($jltma_cf_url_label){
-				    	$jltma_cf_url_label_container = '<div class="jltma-url-div">	
-					        	<label>' . $jltma_cf_url_label . '</label>
-					        </div>';			    		
-			    	}
+				    	if($jltma_cf_url_label){
+					    	$jltma_cf_url_label_container = '<div class="jltma-url-div">	
+						        	<label>' . $jltma_cf_url_label . '</label>
+						        </div>';			    		
+				    	}
 
-				}
+					}
 
-            	$jltma_cf_url_placeholder = ($settings['jltma_comment_fields_url_label_placeholder']!='') ? esc_attr($settings['jltma_comment_fields_url_label_placeholder']) : '';
+	            	$jltma_cf_url_placeholder = ($settings['jltma_comment_fields_url_label_placeholder']!='') ? esc_attr($settings['jltma_comment_fields_url_label_placeholder']) : '';
 
-            	$jltma_cf_url_style = "";
+	            	$jltma_cf_url_style = "";
 
-            	$jltma_cf_url_ft = ( isset($settings['jltma_field_type']) && $settings['jltma_field_type'] ) ? $settings['jltma_field_type'] : "text";
+	            	$jltma_cf_url_ft = ( isset($settings['jltma_field_type']) && $settings['jltma_field_type'] ) ? $settings['jltma_field_type'] : "text";
 
-		        $fields .= '<div class="jltma-url-value-div jltma-url">
-						' . $jltma_cf_url_label_container . '
-						<div class="jltma-value-div">
-							<input class="form-control" type="' . $jltma_cf_url_ft . '" id="url" name="url" value="" placeholder="' . $jltma_cf_url_placeholder . '" ' . $jltma_cf_url_style . '/>
-						</div>
-					</div>';
-
+			        $fields .= '<div class="jltma-url-value-div jltma-url">
+							' . $jltma_cf_url_label_container . '
+							<div class="jltma-value-div">
+								<input class="form-control" type="' . $jltma_cf_url_ft . '" id="url" name="url" value="" placeholder="' . $jltma_cf_url_placeholder . '" ' . $jltma_cf_url_style . '/>
+							</div>
+						</div>';
+			    }
 
 
 

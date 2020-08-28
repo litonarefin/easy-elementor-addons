@@ -368,6 +368,7 @@ Paste on your Local Computer
 * Updated: All Animation effects working now on Entrance Animation, also fixed animation delay JS issues.
 * Updated: Notices for Pro users showing asking to purchase issue fixed
 * Updated: Added Width & Height on "Image Hover Effects"
+* Added: Comment Form - Added 'website' field hide option on Comment form.
 
 
 = 1.4.8 (26-08-2020) =

@@ -65,16 +65,16 @@ if( !class_exists('JLTMA_Comments_Builder') ){
             add_action('pre_comment_on_post', [$this,'jltma_verify_google_recaptcha']);
             
             // Unset Default Fields
-            add_action('comment_form_default_fields', [$this,'jltma_default_comment_fields']);
+            // add_action('comment_form_default_fields', [$this,'jltma_default_comment_fields']);
 		}
 
         public function jltma_default_comment_fields($fields){
             $jltma_comment_fields = $this->jltma_set_var;
-            // if(isset($jltma_comment_fields['jltma_comment_fields_url_display']) && $jltma_comment_fields['jltma_comment_fields_url_display'] =="show"){
+            if(isset($jltma_comment_fields['jltma_comment_fields_url_display']) && $jltma_comment_fields['jltma_comment_fields_url_display'] =="show"){
 
             if(isset($fields['url']))
                 unset($fields['url']);
-            // }
+            }
             return $fields;
         }
 
@@ -230,6 +230,7 @@ if( !class_exists('JLTMA_Comments_Builder') ){
                     $placeholder        = $value['placeholder'];
                     $error_msg          = $value['error_msg'];
                     $required           = $value['required'];
+                    // $checkbox_options   = $value['checkbox_options'];
 
                     $unique_field_id    = strtolower(str_replace(" ", "_",$label_name));
                     
@@ -291,7 +292,6 @@ if( !class_exists('JLTMA_Comments_Builder') ){
                                 <textarea class="form-control" name="jltma_'. $unique_field_id .'" id="'. $unique_field_id .'" rows="4" cols="50" placeholder="' . $jltma_cmnt_extra_placeholder .  '" aria-required="'.$required.'"></textarea>
                             </div>
                         </div>';
-
                     }
 
                     
@@ -308,22 +308,21 @@ if( !class_exists('JLTMA_Comments_Builder') ){
                         }
 
                         $jltma_cmnt_extra_placeholder = ($placeholder!='') ? esc_attr($placeholder) : '';
-                        // die();
+
                         echo '<div class="jltma-name-value-div jltma-'. $unique_field_id .'">
                                 ' . $jltma_cmnt_extra_label_container . '
-                            <div class="jltma-value-div">
-                                <input class="form-control" type="checkbox" name="jltma_'. $unique_field_id .'" id="'. $unique_field_id .'" value="" placeholder="' . $jltma_cmnt_extra_placeholder .  '" aria-required="'.$required.'"/>
-                                <label style="display:inline;" for="jltma_' . strtolower($label_name) . '"> '.esc_attr($label_name).'  &nbsp;</label>
+                            <div class="jltma-value-div mb-4 mt-2">
+                                
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" name="jltma_'. $unique_field_id .'" id="'. $unique_field_id .'">
+                                    <label class="form-check-label" for="jltma_' . strtolower($label_name) . '"> '.esc_attr($label_name).'  &nbsp;</label>
+                                </div>
                             </div>
                         </div>';
 
                     }
                     
-
                     update_option('jltma_comments', $jltma_comment_fields['jltma_comment_extra_fields_items'] );
-
-
-
                 }
             }
 
