@@ -231,7 +231,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'jltma_gallery_slider_thumb_slide',
 			[
-				'label' => esc_html__( 'Thumbnail Slide', MELA_TD ),
+				'label' => esc_html__( 'Thumbnail Slider', MELA_TD ),
 				'condition' => [
 					'jltma_gallery_slider_thumb_type' => 'slide',
 				],				
@@ -628,6 +628,22 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 
 				$this->start_controls_tab( 'jltma_gallery_slider_preview_layout', [ 'label' => esc_html__( 'Layout', MELA_TD ) ] );
 
+
+
+					$this->add_control(
+						'jltma_gallery_slider_preview_bg_color',
+						[
+							'label' 	=> esc_html__( 'Background Color', MELA_TD ),
+							'type' 		=> Controls_Manager::COLOR,
+							'selectors' => [
+								'{{WRAPPER}} .ee-gallery-slider__preview' => 'background-color: {{VALUE}};',
+							],
+							'condition'		=> [
+								'jltma_gallery_slider_show_thumbnails!' => '',
+							]
+						]
+					);
+
 					$this->add_control(
 						'jltma_gallery_slider_preview_position',
 						[
@@ -752,7 +768,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'type' 			=> Controls_Manager::DIMENSIONS,
 							'size_units' 	=> [ 'px', '%' ],
 							'selectors' 	=> [
-								'{{WRAPPER}} .slick-slide' 	=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+								'{{WRAPPER}} .slick-slider' 	=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 							],
 						]
 					);
@@ -1760,10 +1776,329 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 
 
         /**
-         * Style Tab: Thumbnail Hover Effects
+         * Style Tab: Thumbnail Slide
          */
 
+		$this->start_controls_section(
+			'jltma_gallery_slider_section_thumbnails_slide',
+			[
+				'label' 	=> esc_html__( 'Thumbnail Slider', MELA_TD ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'jltma_gallery_slider_thumb_type' => 'slide'
+				],
+			]
+		);
 
+
+			$this->add_control(
+				'jltma_gallery_thumb_slide_image_heading',
+				[
+					'label' 	=> esc_html__( 'Thumb Container', MELA_TD ),
+					'separator' => 'before',
+					'type' 		=> Controls_Manager::HEADING,
+					'condition'		=> [
+						'jltma_gallery_slider_thumb_show_arrows!' => '',
+					]
+				]
+			);
+
+
+			$this->add_control(
+				'jltma_gallery_thumb_slide_bg_color',
+				[
+					'label' 	=> esc_html__( 'Background Color', MELA_TD ),
+					'type' 		=> Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .jltma-thumb-slide .slick-slider' => 'background-color: {{VALUE}};',
+					],
+					'condition'		=> [
+						'jltma_gallery_slider_thumb_show_arrows!' => '',
+					]
+				]
+			);
+
+
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+				[
+					'name' 		=> 'jltma_gallery_thumb_slide_border',
+					'label' 	=> esc_html__( 'Border', MELA_TD ),
+					'selector' 	=> '{{WRAPPER}} .jltma-thumb-slide .slick-slider',
+				]
+			);
+
+			$this->add_control(
+				'jltma_gallery_thumb_slide_border_radius',
+				[
+					'label' 		=> esc_html__( 'Border Radius', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .jltma-thumb-slide .slick-slider' 	=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Box_Shadow::get_type(),
+				[
+					'name' 		=> 'jltma_gallery_thumb_slide_box_shadow',
+					'selector' 	=> '{{WRAPPER}} .jltma-thumb-slide .slick-slider',
+					'separator'	=> '',
+				]
+			);
+
+
+
+			$this->add_control(
+				'jltma_gallery_thumb_slide_arrow_heading',
+				[
+					'label' 	=> esc_html__( 'Arrows', MELA_TD ),
+					'separator' => 'before',
+					'type' 		=> Controls_Manager::HEADING,
+					'condition'		=> [
+						'jltma_gallery_slider_thumb_show_arrows!' => '',
+					]
+				]
+			);
+
+			$this->add_responsive_control(
+				'jltma_gallery_slider_thumb_arrows_width',
+				[
+					'label' 		=> esc_html__( 'Navigation Width', MELA_TD ),
+					'type' 			=> Controls_Manager::SLIDER,
+					'range' 		=> [
+						'px' 		=> [
+							'min' => 55,
+							'max' => 500,
+						],
+					],
+					'selectors' 	=> [
+						'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow' => 'width: {{SIZE}}px !important;',
+					],
+					'condition'		=> [
+						'jltma_gallery_slider_thumb_show_arrows!' => '',
+					]
+				]
+			);
+
+			$this->add_responsive_control(
+				'jltma_gallery_slider_thumb_arrows_height',
+				[
+					'label' 		=> esc_html__( 'Navigation Height', MELA_TD ),
+					'type' 			=> Controls_Manager::SLIDER,
+					'range' 		=> [
+						'px' 		=> [
+							'min' => 55,
+							'max' => 500,
+						],
+					],
+					'selectors' 	=> [
+						'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow' => 'height: {{SIZE}}px !important;',
+					],
+					'condition'		=> [
+						'jltma_gallery_slider_thumb_show_arrows!' => '',
+					]
+				]
+			);
+
+
+			$this->add_responsive_control(
+				'jltma_gallery_slider_thumb_arrows_size',
+				[
+					'label' 		=> esc_html__( 'Size', MELA_TD ),
+					'type' 			=> Controls_Manager::SLIDER,
+					'range' 		=> [
+						'px' 		=> [
+							'min' => 12,
+							'max' => 100,
+						],
+					],
+					'selectors' 	=> [
+						'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow' => 'font-size: {{SIZE}}px;',
+					],
+					'condition'		=> [
+						'jltma_gallery_slider_thumb_show_arrows!' => '',
+					]
+				]
+			);
+
+
+			// $this->add_responsive_control(
+			// 	'jltma_gallery_slider_thumb_arrows_distance',
+			// 	[
+			// 		'label' 		=> esc_html__( 'Distance', MELA_TD ),
+			// 		'type' 			=> Controls_Manager::SLIDER,
+			// 		'range' 		=> [
+			// 			'px' 		=> [
+			// 				'min' => 0,
+			// 				'max' => 100,
+			// 			],
+			// 		],
+			// 		'selectors' 	=> [
+			// 			'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow' => 'margin: {{SIZE}}px; transform: translateY( calc(-50% - {{SIZE}}px ) )',
+			// 		],
+			// 		'condition'		=> [
+			// 			'jltma_gallery_slider_thumb_show_arrows!' => '',
+			// 		]
+			// 	]
+			// );
+
+			$this->add_group_control(
+				MA_Group_Control_Transition::get_type(),
+				[
+					'name' 			=> 'jltma_gallery_slider_thumb_arrows',
+					'selector' 		=> '{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow,
+										{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow:before',
+					'condition'		=> [
+						'jltma_gallery_slider_thumb_show_arrows!' => '',
+					]
+				]
+			);
+
+			$this->start_controls_tabs( 'jltma_gallery_slider_thumb_tabs_hover' );
+
+			$this->start_controls_tab( 'jltma_gallery_slider_thumb_tab_default', [
+				'label' => esc_html__( 'Default', MELA_TD ),
+				'condition'	=> [
+					'jltma_gallery_slider_thumb_show_arrows!' => '',
+				]
+			] );
+
+				$this->add_control(
+					'jltma_gallery_slider_thumb_color',
+					[
+						'label' 	=> esc_html__( 'Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow i:before' => 'color: {{VALUE}};',
+						],
+						'condition'		=> [
+							'jltma_gallery_slider_thumb_show_arrows!' => '',
+						]
+					]
+				);
+
+				$this->add_control(
+					'jltma_gallery_slider_thumb_background_color',
+					[
+						'label' 	=> esc_html__( 'Background Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow' => 'background-color: {{VALUE}};',
+						],
+						'condition'		=> [
+							'jltma_gallery_slider_thumb_show_arrows!' => '',
+						]
+					]
+				);
+
+
+				$this->add_control(
+					'jltma_gallery_thumb_slide_arrow_border_radius',
+					[
+						'label' 		=> esc_html__( 'Border Radius', MELA_TD ),
+						'type' 			=> Controls_Manager::DIMENSIONS,
+						'size_units' 	=> [ 'px', '%' ],
+						'selectors' 	=> [
+							'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow' 	=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						],
+					]
+				);				
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab( 'jltma_gallery_slider_thumb_arrows_tab_hover', [
+				'label' => esc_html__( 'Hover', MELA_TD ),
+				'condition'	=> [
+					'jltma_gallery_slider_thumb_show_arrows!' => '',
+				]
+			] );
+
+				$this->add_control(
+					'jltma_gallery_slider_thumb_color_hover',
+					[
+						'label' 	=> esc_html__( 'Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow:hover i:before' => 'color: {{VALUE}};',
+						],
+						'condition'		=> [
+							'jltma_gallery_slider_thumb_show_arrows!' => '',
+						]
+					]
+				);
+
+				$this->add_control(
+					'jltma_gallery_slider_thumb_background_color_hover',
+					[
+						'label' 	=> esc_html__( 'Background Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow:hover' => 'background-color: {{VALUE}};',
+						],
+						'condition'		=> [
+							'jltma_gallery_slider_thumb_show_arrows!' => '',
+						]
+					]
+				);
+
+
+				$this->add_control(
+					'jltma_gallery_thumb_slide_arrow_hover_border_radius',
+					[
+						'label' 		=> esc_html__( 'Border Radius', MELA_TD ),
+						'type' 			=> Controls_Manager::DIMENSIONS,
+						'size_units' 	=> [ 'px', '%' ],
+						'selectors' 	=> [
+							'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow:hover' 	=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						],
+					]
+				);				
+
+			$this->end_controls_tab();
+
+
+			$this->start_controls_tab( 'jltma_gallery_slider_thumb_arrows_tab_disabled', [
+				'label' => esc_html__( 'Disabled', MELA_TD ),
+				'condition'	=> [
+					'jltma_gallery_slider_thumb_show_arrows!' => '',
+				]
+			] );
+
+				$this->add_responsive_control(
+					'jltma_gallery_slider_thumb_arrows_opacity_disabled',
+					[
+						'label' 		=> esc_html__( 'Opacity', MELA_TD ),
+						'type' 			=> Controls_Manager::SLIDER,
+						'range' 		=> [
+							'px' 		=> [
+								'min' => 0,
+								'max' => 1,
+								'step'=> 0.05,
+							],
+						],
+						'selectors' 	=> [
+							'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow.slick-disabled' => 'opacity: {{SIZE}};',
+						],
+						'condition'		=> [
+							'jltma_gallery_slider_thumb_show_arrows!' => '',
+						]
+					]
+				);
+
+			$this->end_controls_tab();
+
+			$this->end_controls_tabs();
+
+		$this->end_controls_section();
+
+
+
+        /**
+         * Style Tab: Thumbnail Hover Effects
+         */
 
 		$this->start_controls_section(
 			'jltma_gallery_slider_section_thumbnails_hover_effects',
