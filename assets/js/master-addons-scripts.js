@@ -522,7 +522,7 @@
                     slidesToScroll  : 1,
                     cssEase         : "linear",
                     draggable       : true,
-                    asNavFor        : ($thumbtype == "slide")?".ee-gallery-slider__gallery .ee-gallery":"",
+                    asNavFor        : ($thumbtype == "slide") ? ".ee-gallery-slider__gallery .ee-gallery" : "",
                     adaptiveHeight  : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_adaptive_height,
                     autoplay        : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_autoplay,
                     autoplaySpeed   : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_autoplay_speed,

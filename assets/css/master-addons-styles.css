@@ -11458,6 +11458,9 @@ ul.jltma-toggle-content-controls {
     transform: none !important;
 }
 
+.slick-vertical{
+    padding: 0;
+}
 .slick-vertical .ee-gallery__item {
     padding: 0 0 10px;
 }

@@ -429,7 +429,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				[
 					'label' 		=> 'Link to',
 					'type' 			=> Controls_Manager::URL,
-					'placeholder' 	=> esc_html__( 'http://your-link.com', MELA_TD ),
+					'placeholder' 	=> esc_html__( 'https://your-link.com', MELA_TD ),
 					'condition' 	=> [
 						'jltma_gallery_slider_link_to' 	=> 'custom',
 					],
@@ -639,6 +639,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'options' 	=> [
 								'top' 		=> esc_html__( 'Top', MELA_TD ),
 								'right' 	=> esc_html__( 'Right', MELA_TD ),
+								'bottom' 	=> esc_html__( 'Bottom', MELA_TD ),
 								'left' 		=> esc_html__( 'Left', MELA_TD ),
 							],
 							'prefix_class'	=> 'ee-gallery-slider--',
@@ -667,6 +668,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							],
 						]
 					);
+
 
 					$this->add_responsive_control(
 						'jltma_gallery_slider_preview_width',
