@@ -176,7 +176,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'11' => '11',
 						'12' => '12',
 					],
-					'prefix_class'	=> 'ee-grid-columns%s-',
+					'prefix_class'	=> 'jltma-grid-columns%s-',
 					'frontend_available' => true,
 					'condition' => [
 						'jltma_gallery_slider_show_thumbnails!' => '',
@@ -636,7 +636,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'label' 	=> esc_html__( 'Background Color', MELA_TD ),
 							'type' 		=> Controls_Manager::COLOR,
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery-slider__preview' => 'background-color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery-slider__preview' => 'background-color: {{VALUE}};',
 							],
 							'condition'		=> [
 								'jltma_gallery_slider_show_thumbnails!' => '',
@@ -658,7 +658,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								'bottom' 	=> esc_html__( 'Bottom', MELA_TD ),
 								'left' 		=> esc_html__( 'Left', MELA_TD ),
 							],
-							'prefix_class'	=> 'ee-gallery-slider--',
+							'prefix_class'	=> 'jltma-gallery-slider--',
 							'frontend_available' => true,
 							'condition' => [
 								'jltma_gallery_slider_show_thumbnails!' => '',
@@ -678,7 +678,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								'tablet' 	=> esc_html__( 'Tablet & Mobile', MELA_TD ),
 								'mobile' 	=> esc_html__( 'Mobile Only', MELA_TD ),
 							],
-							'prefix_class'	=> 'ee-gallery-slider--stack-',
+							'prefix_class'	=> 'jltma-gallery-slider--stack-',
 							'condition' => [
 								'jltma_gallery_slider_show_thumbnails!' => '',
 							],
@@ -705,10 +705,10 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								'jltma_gallery_slider_show_thumbnails!' => '',
 							],
 							'selectors'		=> [
-								'{{WRAPPER}}.ee-gallery-slider--left .ee-gallery-slider__preview' => 'width: {{SIZE}}%',
-								'{{WRAPPER}}.ee-gallery-slider--right .ee-gallery-slider__preview' => 'width: {{SIZE}}%',
-								'{{WRAPPER}}.ee-gallery-slider--left .ee-gallery-slider__gallery' => 'width: calc(100% - {{SIZE}}%)',
-								'{{WRAPPER}}.ee-gallery-slider--right .ee-gallery-slider__gallery' => 'width: calc(100% - {{SIZE}}%)',
+								'{{WRAPPER}}.jltma-gallery-slider--left .jltma-gallery-slider__preview' => 'width: {{SIZE}}%',
+								'{{WRAPPER}}.jltma-gallery-slider--right .jltma-gallery-slider__preview' => 'width: {{SIZE}}%',
+								'{{WRAPPER}}.jltma-gallery-slider--left .jltma-gallery-slider__gallery' => 'width: calc(100% - {{SIZE}}%)',
+								'{{WRAPPER}}.jltma-gallery-slider--right .jltma-gallery-slider__gallery' => 'width: calc(100% - {{SIZE}}%)',
 							],
 						]
 					);
@@ -731,16 +731,16 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								'size' 	=> 24,
 							],
 							'selectors' => [
-								'{{WRAPPER}}.ee-gallery-slider--left .ee-gallery-slider > *,
-								 {{WRAPPER}}.ee-gallery-slider--right .ee-gallery-slider > *' => $preview_horizontal_padding . ': {{SIZE}}{{UNIT}};',
+								'{{WRAPPER}}.jltma-gallery-slider--left .jltma-gallery-slider > *,
+								 {{WRAPPER}}.jltma-gallery-slider--right .jltma-gallery-slider > *' => $preview_horizontal_padding . ': {{SIZE}}{{UNIT}};',
 
-								'{{WRAPPER}}.ee-gallery-slider--left .ee-gallery-slider,
-								 {{WRAPPER}}.ee-gallery-slider--right .ee-gallery-slider' => $preview_horizontal_margin . ': -{{SIZE}}{{UNIT}};',
+								'{{WRAPPER}}.jltma-gallery-slider--left .jltma-gallery-slider,
+								 {{WRAPPER}}.jltma-gallery-slider--right .jltma-gallery-slider' => $preview_horizontal_margin . ': -{{SIZE}}{{UNIT}};',
 
-								'{{WRAPPER}}.ee-gallery-slider--top .ee-gallery-slider__preview' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+								'{{WRAPPER}}.jltma-gallery-slider--top .jltma-gallery-slider__preview' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 
-								'(tablet){{WRAPPER}}.ee-gallery-slider--stack-tablet .ee-gallery-slider__preview' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-								'(mobile){{WRAPPER}}.ee-gallery-slider--stack-mobile .ee-gallery-slider__preview' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+								'(tablet){{WRAPPER}}.jltma-gallery-slider--stack-tablet .jltma-gallery-slider__preview' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+								'(mobile){{WRAPPER}}.jltma-gallery-slider--stack-mobile .jltma-gallery-slider__preview' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 							],
 							'condition' => [
 								'jltma_gallery_slider_show_thumbnails!' => '',
@@ -810,7 +810,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						],
 					],
 					'selectors' 	=> [
-						'{{WRAPPER}} .ee-carousel__arrow' => 'font-size: {{SIZE}}px;',
+						'{{WRAPPER}} .jltma-carousel__arrow' => 'font-size: {{SIZE}}px;',
 					],
 					'condition'		=> [
 						'jltma_gallery_slider_show_arrows!' => '',
@@ -831,7 +831,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						],
 					],
 					'selectors' 	=> [
-						'{{WRAPPER}} .ee-carousel__arrow' => 'padding: {{SIZE}}em;',
+						'{{WRAPPER}} .jltma-carousel__arrow' => 'padding: {{SIZE}}em;',
 					],
 					'condition'		=> [
 						'jltma_gallery_slider_show_arrows!' => '',
@@ -851,7 +851,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						],
 					],
 					'selectors' 	=> [
-						'{{WRAPPER}} .ee-carousel__arrow' => 'margin: {{SIZE}}px; transform: translateY( calc(-50% - {{SIZE}}px ) )',
+						'{{WRAPPER}} .jltma-carousel__arrow' => 'margin: {{SIZE}}px; transform: translateY( calc(-50% - {{SIZE}}px ) )',
 					],
 					'condition'		=> [
 						'jltma_gallery_slider_show_arrows!' => '',
@@ -871,7 +871,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						],
 					],
 					'selectors' 	=> [
-						'{{WRAPPER}} .ee-carousel__arrow' => 'border-radius: {{SIZE}}%;',
+						'{{WRAPPER}} .jltma-carousel__arrow' => 'border-radius: {{SIZE}}%;',
 					],
 					'condition'		=> [
 						'jltma_gallery_slider_show_arrows!' => '',
@@ -884,8 +884,8 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				MA_Group_Control_Transition::get_type(),
 				[
 					'name' 			=> 'jltma_gallery_slider_arrows',
-					'selector' 		=> '{{WRAPPER}} .ee-carousel__arrow,
-										{{WRAPPER}} .ee-carousel__arrow:before',
+					'selector' 		=> '{{WRAPPER}} .jltma-carousel__arrow,
+										{{WRAPPER}} .jltma-carousel__arrow:before',
 					'condition'		=> [
 						'jltma_gallery_slider_show_arrows!' => '',
 					]
@@ -907,7 +907,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'label' 	=> esc_html__( 'Color', MELA_TD ),
 						'type' 		=> Controls_Manager::COLOR,
 						'selectors' => [
-							'{{WRAPPER}} .ee-carousel__arrow i:before' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .jltma-carousel__arrow i:before' => 'color: {{VALUE}};',
 						],
 						'condition'		=> [
 							'jltma_gallery_slider_show_arrows!' => '',
@@ -921,7 +921,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'label' 	=> esc_html__( 'Background Color', MELA_TD ),
 						'type' 		=> Controls_Manager::COLOR,
 						'selectors' => [
-							'{{WRAPPER}} .ee-carousel__arrow' => 'background-color: {{VALUE}};',
+							'{{WRAPPER}} .jltma-carousel__arrow' => 'background-color: {{VALUE}};',
 						],
 						'condition'		=> [
 							'jltma_gallery_slider_show_arrows!' => '',
@@ -944,7 +944,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'label' 	=> esc_html__( 'Color', MELA_TD ),
 						'type' 		=> Controls_Manager::COLOR,
 						'selectors' => [
-							'{{WRAPPER}} .ee-carousel__arrow:hover i:before' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .jltma-carousel__arrow:hover i:before' => 'color: {{VALUE}};',
 						],
 						'condition'		=> [
 							'jltma_gallery_slider_show_arrows!' => '',
@@ -958,7 +958,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'label' 	=> esc_html__( 'Background Color', MELA_TD ),
 						'type' 		=> Controls_Manager::COLOR,
 						'selectors' => [
-							'{{WRAPPER}} .ee-carousel__arrow:hover' => 'background-color: {{VALUE}};',
+							'{{WRAPPER}} .jltma-carousel__arrow:hover' => 'background-color: {{VALUE}};',
 						],
 						'condition'		=> [
 							'jltma_gallery_slider_show_arrows!' => '',
@@ -988,7 +988,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							],
 						],
 						'selectors' 	=> [
-							'{{WRAPPER}} .ee-carousel__arrow.slick-disabled' => 'opacity: {{SIZE}};',
+							'{{WRAPPER}} .jltma-carousel__arrow.slick-disabled' => 'opacity: {{SIZE}};',
 						],
 						'condition'		=> [
 							'jltma_gallery_slider_show_arrows!' => '',
@@ -1098,7 +1098,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					],
 					'default' 	=> 'center',
 					'selectors' => [
-						'{{WRAPPER}} .ee-carousel__media__caption' => 'text-align: {{VALUE}};',
+						'{{WRAPPER}} .jltma-carousel__media__caption' => 'text-align: {{VALUE}};',
 					],
 					'condition' => [
 						'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -1112,7 +1112,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					'name' 		=> 'jltma_gallery_slider_preview_typography',
 					'label' 	=> esc_html__( 'Typography', MELA_TD ),
 					'scheme' 	=> Scheme_Typography::TYPOGRAPHY_4,
-					'selector' 	=> '{{WRAPPER}} .ee-carousel__media__caption',
+					'selector' 	=> '{{WRAPPER}} .jltma-carousel__media__caption',
 					'condition' 	=> [
 						'jltma_gallery_slider_caption_type!' => '',
 					],
@@ -1126,7 +1126,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					'type' 			=> Controls_Manager::DIMENSIONS,
 					'size_units' 	=> [ 'px', '%' ],
 					'selectors' 	=> [
-						'{{WRAPPER}} .ee-carousel__media__caption' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .jltma-carousel__media__caption' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 					'condition' 	=> [
 						'jltma_gallery_slider_caption_type!' => '',
@@ -1141,7 +1141,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					'type' 			=> Controls_Manager::DIMENSIONS,
 					'size_units' 	=> [ 'px', '%' ],
 					'selectors' 	=> [
-						'{{WRAPPER}} .ee-carousel__media__caption' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .jltma-carousel__media__caption' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 					'condition' 	=> [
 						'jltma_gallery_slider_caption_type!' => '',
@@ -1155,7 +1155,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				[
 					'name' 		=> 'jltma_gallery_slider_preview_text_border',
 					'label' 	=> esc_html__( 'Border', MELA_TD ),
-					'selector' 	=> '{{WRAPPER}} .ee-carousel__media__caption',
+					'selector' 	=> '{{WRAPPER}} .jltma-carousel__media__caption',
 					'separator' => '',
 					'condition'	=> [
 						'jltma_gallery_slider_caption_type!' => '',
@@ -1170,7 +1170,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					'type' 			=> Controls_Manager::DIMENSIONS,
 					'size_units' 	=> [ 'px', '%' ],
 					'selectors' 	=> [
-						'{{WRAPPER}} .ee-carousel__media__caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .jltma-carousel__media__caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 					'condition' 	=> [
 						'jltma_gallery_slider_caption_type!' => '',
@@ -1214,8 +1214,8 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				MA_Group_Control_Transition::get_type(),
 				[
 					'name' 			=> 'jltma_gallery_slider_preview_caption',
-					'selector' 		=> '{{WRAPPER}} .ee-carousel__media__content,
-										{{WRAPPER}} .ee-carousel__media__caption',
+					'selector' 		=> '{{WRAPPER}} .jltma-carousel__media__content,
+										{{WRAPPER}} .jltma-carousel__media__caption',
 					'condition' 	=> [
 						'jltma_gallery_slider_caption_type!' => '',
 					],
@@ -1276,7 +1276,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'type' 		=> Controls_Manager::COLOR,
 							'default' 	=> '',
 							'selectors' => [
-								'{{WRAPPER}} .ee-carousel__media__caption' => 'color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-carousel__media__caption' => 'color: {{VALUE}};',
 							],
 							'condition' 	=> [
 								'jltma_gallery_slider_caption_type!' => '',
@@ -1289,7 +1289,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						[
 							'name' 		=> 'jltma_gallery_slider_preview_text_background',
 							'types' 	=> [ 'classic', 'gradient' ],
-							'selector' 	=> '{{WRAPPER}} .ee-carousel__media__caption',
+							'selector' 	=> '{{WRAPPER}} .jltma-carousel__media__caption',
 							'default'	=> 'classic',
 							'condition' => [
 								'jltma_gallery_slider_caption_type!' => '',
@@ -1316,7 +1316,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-carousel__media__caption' => 'opacity: {{SIZE}}',
+								'{{WRAPPER}} .jltma-carousel__media__caption' => 'opacity: {{SIZE}}',
 							],
 							'condition'	=> [
 								'jltma_gallery_slider_caption_type!' => '',
@@ -1328,7 +1328,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						Group_Control_Text_Shadow::get_type(),
 						[
 							'name' 		=> 'jltma_gallery_slider_preview_text_box_shadow',
-							'selector' 	=> '{{WRAPPER}} .ee-carousel__media__caption',
+							'selector' 	=> '{{WRAPPER}} .jltma-carousel__media__caption',
 							'separator'	=> '',
 							'condition'	=> [
 								'jltma_gallery_slider_caption_type!' => '',
@@ -1352,7 +1352,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'type' 		=> Controls_Manager::COLOR,
 							'default' 	=> '',
 							'selectors' => [
-								'{{WRAPPER}} .ee-carousel__media:hover .ee-carousel__media__caption' => 'color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-carousel__media:hover .jltma-carousel__media__caption' => 'color: {{VALUE}};',
 							],
 							'condition'	=> [
 								'jltma_gallery_slider_caption_type!' => '',
@@ -1365,7 +1365,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						[
 							'name' 		=> 'jltma_gallery_slider_preview_text_background_hover',
 							'types' 	=> [ 'classic', 'gradient' ],
-							'selector' 	=> '{{WRAPPER}} .ee-carousel__media:hover .ee-carousel__media__caption',
+							'selector' 	=> '{{WRAPPER}} .jltma-carousel__media:hover .jltma-carousel__media__caption',
 							'default'	=> 'classic',
 							'condition' => [
 								'jltma_gallery_slider_caption_type!' => '',
@@ -1392,7 +1392,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-carousel__media:hover .ee-carousel__media__caption' => 'opacity: {{SIZE}}',
+								'{{WRAPPER}} .jltma-carousel__media:hover .jltma-carousel__media__caption' => 'opacity: {{SIZE}}',
 							],
 							'condition'	=> [
 								'jltma_gallery_slider_caption_type!' => '',
@@ -1407,7 +1407,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'type' 		=> Controls_Manager::COLOR,
 							'default' 	=> '',
 							'selectors' => [
-								'{{WRAPPER}} .ee-carousel__media:hover .ee-carousel__media__caption' => 'border-color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-carousel__media:hover .jltma-carousel__media__caption' => 'border-color: {{VALUE}};',
 							],
 							'condition'	=> [
 								'jltma_gallery_slider_caption_type!' => '',
@@ -1419,7 +1419,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						Group_Control_Text_Shadow::get_type(),
 						[
 							'name' 		=> 'jltma_gallery_slider_preview_text_box_shadow_hover',
-							'selector' 	=> '{{WRAPPER}} .ee-carousel__media:hover .ee-carousel__media__caption',
+							'selector' 	=> '{{WRAPPER}} .jltma-carousel__media:hover .jltma-carousel__media__caption',
 							'separator'	=> '',
 							'condition'	=> [
 								'jltma_gallery_slider_caption_type!' => '',
@@ -1469,7 +1469,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'icon' 		=> 'eicon-h-align-right',
 						],
 					],
-					'prefix_class'		=> 'ee-grid-halign--',
+					'prefix_class'		=> 'jltma-grid-halign--',
 				]
 			);
 			
@@ -1497,7 +1497,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'icon' 		=> 'eicon-v-align-stretch',
 						],
 					],
-					'prefix_class'		=> 'ee-grid-align--',
+					'prefix_class'		=> 'jltma-grid-align--',
 				]
 			);
 
@@ -1519,7 +1519,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'jltma_gallery_slider_image_vertical_align' 	=> 'stretch',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .ee-gallery__media:before' => 'padding-bottom: {{SIZE}}%;',
+						'{{WRAPPER}} .jltma-gallery__media:before' => 'padding-bottom: {{SIZE}}%;',
 					],
 				]
 			);
@@ -1542,12 +1542,12 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'size' 	=> 0,
 					],
 					'selectors' => [
-						'{{WRAPPER}} .ee-gallery__item' => $columns_horizontal_padding . ': {{SIZE}}{{UNIT}};',
-						'{{WRAPPER}} .ee-gallery' 		=> $columns_horizontal_margin . ': -{{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .jltma-gallery__item' => $columns_horizontal_padding . ': {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .jltma-gallery' 		=> $columns_horizontal_margin . ': -{{SIZE}}{{UNIT}};',
 
-						'(desktop){{WRAPPER}} .ee-gallery__item' 	=> 'max-width: calc( 100% / {{jltma_gallery_slider_columns.SIZE}} );',
-						'(tablet){{WRAPPER}} .ee-gallery__item' 	=> 'max-width: calc( 100% / {{jltma_gallery_slider_columns_tablet.SIZE}} );',
-						'(mobile){{WRAPPER}} .ee-gallery__item' 	=> 'max-width: calc( 100% / {{jltma_gallery_slider_columns_mobile.SIZE}} );',
+						'(desktop){{WRAPPER}} .jltma-gallery__item' 	=> 'max-width: calc( 100% / {{jltma_gallery_slider_columns.SIZE}} );',
+						'(tablet){{WRAPPER}} .jltma-gallery__item' 	=> 'max-width: calc( 100% / {{jltma_gallery_slider_columns_tablet.SIZE}} );',
+						'(mobile){{WRAPPER}} .jltma-gallery__item' 	=> 'max-width: calc( 100% / {{jltma_gallery_slider_columns_mobile.SIZE}} );',
 					],
 				]
 			);
@@ -1567,8 +1567,8 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'size' 	=> '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .ee-gallery__item' => 'padding-bottom: {{SIZE}}{{UNIT}};',
-						'{{WRAPPER}} .ee-gallery' 		=> 'margin-bottom: -{{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .jltma-gallery__item' => 'padding-bottom: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .jltma-gallery' 		=> 'margin-bottom: -{{SIZE}}{{UNIT}};',
 					],
 				]
 			);
@@ -1578,7 +1578,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				[
 					'name' 		=> 'jltma_gallery_slider_image_border',
 					'label' 	=> esc_html__( 'Image Border', MELA_TD ),
-					'selector' 	=> '{{WRAPPER}} .ee-gallery__media-wrapper',
+					'selector' 	=> '{{WRAPPER}} .jltma-gallery__media-wrapper',
 					'separator' => '',
 				]
 			);
@@ -1590,7 +1590,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					'type' 			=> Controls_Manager::DIMENSIONS,
 					'size_units' 	=> [ 'px', '%' ],
 					'selectors' 	=> [
-						'{{WRAPPER}} .ee-gallery__media-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .jltma-gallery__media-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 				]
 			);
@@ -1691,7 +1691,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					],
 					'default' 	=> 'center',
 					'selectors' => [
-						'{{WRAPPER}} .ee-gallery__media__caption' => 'text-align: {{VALUE}};',
+						'{{WRAPPER}} .jltma-gallery__media__caption' => 'text-align: {{VALUE}};',
 					],
 					'condition' => [
 						'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -1705,7 +1705,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					'name' 		=> 'jltma_gallery_slider_typography',
 					'label' 	=> esc_html__( 'Typography', MELA_TD ),
 					'scheme' 	=> Scheme_Typography::TYPOGRAPHY_4,
-					'selector' 	=> '{{WRAPPER}} .ee-gallery__media__caption',
+					'selector' 	=> '{{WRAPPER}} .jltma-gallery__media__caption',
 					'condition' => [
 						'jltma_gallery_slider_thumbnails_caption_type!' => '',
 					],
@@ -1719,7 +1719,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					'type' 			=> Controls_Manager::DIMENSIONS,
 					'size_units' 	=> [ 'px', '%' ],
 					'selectors' 	=> [
-						'{{WRAPPER}} .ee-gallery__media__caption' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .jltma-gallery__media__caption' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 					'condition' => [
 						'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -1734,7 +1734,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					'type' 			=> Controls_Manager::DIMENSIONS,
 					'size_units' 	=> [ 'px', '%' ],
 					'selectors' 	=> [
-						'{{WRAPPER}} .ee-gallery__media__caption' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .jltma-gallery__media__caption' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 					'condition' => [
 						'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -1748,7 +1748,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				[
 					'name' 		=> 'jltma_gallery_slider_text_border',
 					'label' 	=> esc_html__( 'Border', MELA_TD ),
-					'selector' 	=> '{{WRAPPER}} .ee-gallery__media__caption',
+					'selector' 	=> '{{WRAPPER}} .jltma-gallery__media__caption',
 					'separator' => '',
 					'condition' => [
 						'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -1763,7 +1763,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					'type' 			=> Controls_Manager::DIMENSIONS,
 					'size_units' 	=> [ 'px', '%' ],
 					'selectors' 	=> [
-						'{{WRAPPER}} .ee-gallery__media__caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .jltma-gallery__media__caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 					'condition' => [
 						'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -1875,7 +1875,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						],
 					],
 					'selectors' 	=> [
-						'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow' => 'width: {{SIZE}}px !important;',
+						'{{WRAPPER}} .jltma-thumb-slide .jltma-carousel__arrow' => 'width: {{SIZE}}px !important;',
 					],
 					'condition'		=> [
 						'jltma_gallery_slider_thumb_show_arrows!' => '',
@@ -1895,7 +1895,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						],
 					],
 					'selectors' 	=> [
-						'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow' => 'height: {{SIZE}}px !important;',
+						'{{WRAPPER}} .jltma-thumb-slide .jltma-carousel__arrow' => 'height: {{SIZE}}px !important;',
 					],
 					'condition'		=> [
 						'jltma_gallery_slider_thumb_show_arrows!' => '',
@@ -1916,7 +1916,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						],
 					],
 					'selectors' 	=> [
-						'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow' => 'font-size: {{SIZE}}px;',
+						'{{WRAPPER}} .jltma-thumb-slide .jltma-carousel__arrow' => 'font-size: {{SIZE}}px;',
 					],
 					'condition'		=> [
 						'jltma_gallery_slider_thumb_show_arrows!' => '',
@@ -1929,8 +1929,8 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				MA_Group_Control_Transition::get_type(),
 				[
 					'name' 			=> 'jltma_gallery_slider_thumb_arrows',
-					'selector' 		=> '{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow,
-										{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow:before',
+					'selector' 		=> '{{WRAPPER}} .jltma-thumb-slide .jltma-carousel__arrow,
+										{{WRAPPER}} .jltma-thumb-slide .jltma-carousel__arrow:before',
 					'condition'		=> [
 						'jltma_gallery_slider_thumb_show_arrows!' => '',
 					]
@@ -1952,7 +1952,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'label' 	=> esc_html__( 'Color', MELA_TD ),
 						'type' 		=> Controls_Manager::COLOR,
 						'selectors' => [
-							'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow i:before' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .jltma-thumb-slide .jltma-carousel__arrow i:before' => 'color: {{VALUE}};',
 						],
 						'condition'		=> [
 							'jltma_gallery_slider_thumb_show_arrows!' => '',
@@ -1966,7 +1966,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'label' 	=> esc_html__( 'Background Color', MELA_TD ),
 						'type' 		=> Controls_Manager::COLOR,
 						'selectors' => [
-							'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow' => 'background-color: {{VALUE}};',
+							'{{WRAPPER}} .jltma-thumb-slide .jltma-carousel__arrow' => 'background-color: {{VALUE}};',
 						],
 						'condition'		=> [
 							'jltma_gallery_slider_thumb_show_arrows!' => '',
@@ -1982,7 +1982,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'type' 			=> Controls_Manager::DIMENSIONS,
 						'size_units' 	=> [ 'px', '%' ],
 						'selectors' 	=> [
-							'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow' 	=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+							'{{WRAPPER}} .jltma-thumb-slide .jltma-carousel__arrow' 	=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 						],
 					]
 				);				
@@ -2002,7 +2002,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'label' 	=> esc_html__( 'Color', MELA_TD ),
 						'type' 		=> Controls_Manager::COLOR,
 						'selectors' => [
-							'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow:hover i:before' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .jltma-thumb-slide .jltma-carousel__arrow:hover i:before' => 'color: {{VALUE}};',
 						],
 						'condition'		=> [
 							'jltma_gallery_slider_thumb_show_arrows!' => '',
@@ -2016,7 +2016,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'label' 	=> esc_html__( 'Background Color', MELA_TD ),
 						'type' 		=> Controls_Manager::COLOR,
 						'selectors' => [
-							'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow:hover' => 'background-color: {{VALUE}};',
+							'{{WRAPPER}} .jltma-thumb-slide .jltma-carousel__arrow:hover' => 'background-color: {{VALUE}};',
 						],
 						'condition'		=> [
 							'jltma_gallery_slider_thumb_show_arrows!' => '',
@@ -2032,7 +2032,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						'type' 			=> Controls_Manager::DIMENSIONS,
 						'size_units' 	=> [ 'px', '%' ],
 						'selectors' 	=> [
-							'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow:hover' 	=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+							'{{WRAPPER}} .jltma-thumb-slide .jltma-carousel__arrow:hover' 	=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 						],
 					]
 				);				
@@ -2060,7 +2060,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							],
 						],
 						'selectors' 	=> [
-							'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow.slick-disabled' => 'opacity: {{SIZE}};',
+							'{{WRAPPER}} .jltma-thumb-slide .jltma-carousel__arrow.slick-disabled' => 'opacity: {{SIZE}};',
 						],
 						'condition'		=> [
 							'jltma_gallery_slider_thumb_show_arrows!' => '',
@@ -2103,9 +2103,9 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				MA_Group_Control_Transition::get_type(),
 				[
 					'name' 		=> 'jltma_gallery_slider_image',
-					'selector' 	=> '{{WRAPPER}} .ee-gallery__media-wrapper,
-									{{WRAPPER}} .ee-gallery__media__thumbnail,
-									{{WRAPPER}} .ee-gallery__media__thumbnail img',
+					'selector' 	=> '{{WRAPPER}} .jltma-gallery__media-wrapper,
+									{{WRAPPER}} .jltma-gallery__media__thumbnail,
+									{{WRAPPER}} .jltma-gallery__media__thumbnail img',
 					'separator'	=> '',
 				]
 			);
@@ -2124,7 +2124,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'label' 	=> esc_html__( 'Background Color', MELA_TD ),
 							'type' 		=> Controls_Manager::COLOR,
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media-wrapper' => 'background-color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery__media-wrapper' => 'background-color: {{VALUE}};',
 							],
 						]
 					);
@@ -2145,7 +2145,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media__thumbnail img' => 'opacity: {{SIZE}}',
+								'{{WRAPPER}} .jltma-gallery__media__thumbnail img' => 'opacity: {{SIZE}}',
 							],
 						]
 					);
@@ -2163,7 +2163,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' 	=> [
-								'{{WRAPPER}} .ee-gallery__media__thumbnail img' => 'transform: scale({{SIZE}});',
+								'{{WRAPPER}} .jltma-gallery__media__thumbnail img' => 'transform: scale({{SIZE}});',
 							],
 						]
 					);
@@ -2172,7 +2172,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						Group_Control_Box_Shadow::get_type(),
 						[
 							'name' 		=> 'jltma_gallery_slider_image_box_shadow',
-							'selector' 	=> '{{WRAPPER}} .ee-gallery__media-wrapper',
+							'selector' 	=> '{{WRAPPER}} .jltma-gallery__media-wrapper',
 							'separator'	=> '',
 						]
 					);
@@ -2181,7 +2181,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						Group_Control_Css_Filter::get_type(),
 						[
 							'name' => 'jltma_gallery_slider_image_css_filters',
-							'selector' => '{{WRAPPER}} .ee-gallery__media__thumbnail img',
+							'selector' => '{{WRAPPER}} .jltma-gallery__media__thumbnail img',
 						]
 					);
 
@@ -2195,7 +2195,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'label' 	=> esc_html__( 'Background Color', MELA_TD ),
 							'type' 		=> Controls_Manager::COLOR,
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media-wrapper' => 'background-color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media-wrapper' => 'background-color: {{VALUE}};',
 							],
 						]
 					);
@@ -2216,7 +2216,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media__thumbnail img' => 'opacity: {{SIZE}}',
+								'{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media__thumbnail img' => 'opacity: {{SIZE}}',
 							],
 						]
 					);
@@ -2234,7 +2234,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' 	=> [
-								'{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media__thumbnail img' => 'transform: scale({{SIZE}});',
+								'{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media__thumbnail img' => 'transform: scale({{SIZE}});',
 							],
 						]
 					);
@@ -2243,7 +2243,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						Group_Control_Box_Shadow::get_type(),
 						[
 							'name' 		=> 'jltma_gallery_slider_image_box_shadow_hover',
-							'selector' 	=> '{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media-wrapper',
+							'selector' 	=> '{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media-wrapper',
 							'separator'	=> '',
 						]
 					);
@@ -2254,7 +2254,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'label' 	=> esc_html__( 'Border Color', MELA_TD ),
 							'type' 		=> Controls_Manager::COLOR,
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media-wrapper' => 'border-color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media-wrapper' => 'border-color: {{VALUE}};',
 							],
 						]
 					);
@@ -2263,7 +2263,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						Group_Control_Css_Filter::get_type(),
 						[
 							'name' => 'jltma_gallery_slider_image_css_filters_hover',
-							'selector' => '{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media__thumbnail img',
+							'selector' => '{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media__thumbnail img',
 						]
 					);
 
@@ -2277,7 +2277,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'label' 	=> esc_html__( 'Background Color', MELA_TD ),
 							'type' 		=> Controls_Manager::COLOR,
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media-wrapper' => 'background-color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media-wrapper' => 'background-color: {{VALUE}};',
 							],
 						]
 					);
@@ -2298,7 +2298,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__thumbnail img' => 'opacity: {{SIZE}}',
+								'{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media__thumbnail img' => 'opacity: {{SIZE}}',
 							],
 						]
 					);
@@ -2316,7 +2316,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' 	=> [
-								'{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__thumbnail img' => 'transform: scale({{SIZE}});',
+								'{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media__thumbnail img' => 'transform: scale({{SIZE}});',
 							],
 						]
 					);
@@ -2325,7 +2325,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						Group_Control_Box_Shadow::get_type(),
 						[
 							'name' 		=> 'jltma_gallery_slider_image_box_shadow_active',
-							'selector' 	=> '{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media-wrapper',
+							'selector' 	=> '{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media-wrapper',
 							'separator'	=> '',
 						]
 					);
@@ -2336,7 +2336,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'label' 	=> esc_html__( 'Border Color', MELA_TD ),
 							'type' 		=> Controls_Manager::COLOR,
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media-wrapper' => 'border-color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media-wrapper' => 'border-color: {{VALUE}};',
 							],
 						]
 					);
@@ -2345,7 +2345,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						Group_Control_Css_Filter::get_type(),
 						[
 							'name' => 'jltma_gallery_slider_image_css_filters_active',
-							'selector' => '{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__thumbnail img',
+							'selector' => '{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media__thumbnail img',
 						]
 					);
 
@@ -2369,8 +2369,8 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				MA_Group_Control_Transition::get_type(),
 				[
 					'name' 			=> 'jltma_gallery_slider_caption',
-					'selector' 		=> '{{WRAPPER}} .ee-gallery__media__content,
-										{{WRAPPER}} .ee-gallery__media__caption',
+					'selector' 		=> '{{WRAPPER}} .jltma-gallery__media__content,
+										{{WRAPPER}} .jltma-gallery__media__caption',
 					'condition' 	=> [
 						'jltma_gallery_slider_thumbnails_caption_type!' => '',
 					],
@@ -2431,7 +2431,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'type' 		=> Controls_Manager::COLOR,
 							'default' 	=> '',
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media__caption' => 'color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery__media__caption' => 'color: {{VALUE}};',
 							],
 							'condition' => [
 								'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -2446,7 +2446,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'type' 		=> Controls_Manager::COLOR,
 							'default' 	=> '',
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media__caption' => 'background-color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery__media__caption' => 'background-color: {{VALUE}};',
 							],
 							'condition' => [
 								'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -2470,7 +2470,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media__caption' => 'opacity: {{SIZE}}',
+								'{{WRAPPER}} .jltma-gallery__media__caption' => 'opacity: {{SIZE}}',
 							],
 							'condition'	=> [
 								'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -2483,7 +2483,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						Group_Control_Text_Shadow::get_type(),
 						[
 							'name' 		=> 'jltma_gallery_slider_text_box_shadow',
-							'selector' 	=> '{{WRAPPER}} .ee-gallery__media__caption',
+							'selector' 	=> '{{WRAPPER}} .jltma-gallery__media__caption',
 							'separator'	=> '',
 							'condition' => [
 								'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -2507,7 +2507,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'type' 		=> Controls_Manager::COLOR,
 							'default' 	=> '',
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media__caption' => 'color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media__caption' => 'color: {{VALUE}};',
 							],
 							'condition' => [
 								'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -2522,7 +2522,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'type' 		=> Controls_Manager::COLOR,
 							'default' 	=> '',
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media__caption' => 'background-color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media__caption' => 'background-color: {{VALUE}};',
 							],
 							'condition' => [
 								'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -2546,7 +2546,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media__caption' => 'opacity: {{SIZE}}',
+								'{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media__caption' => 'opacity: {{SIZE}}',
 							],
 							'condition'	=> [
 								'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -2562,7 +2562,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'type' 		=> Controls_Manager::COLOR,
 							'default' 	=> '',
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media__caption' => 'border-color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media__caption' => 'border-color: {{VALUE}};',
 							],
 							'condition' => [
 								'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -2574,7 +2574,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						Group_Control_Text_Shadow::get_type(),
 						[
 							'name' 		=> 'jltma_gallery_slider_text_box_shadow_hover',
-							'selector' 	=> '{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media__caption',
+							'selector' 	=> '{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media__caption',
 							'separator'	=> '',
 							'condition'	=> [
 								'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -2599,7 +2599,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'type' 		=> Controls_Manager::COLOR,
 							'default' 	=> '',
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__caption' => 'color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media__caption' => 'color: {{VALUE}};',
 							],
 							'condition' => [
 								'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -2614,7 +2614,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'type' 		=> Controls_Manager::COLOR,
 							'default' 	=> '',
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__caption' => 'background-color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media__caption' => 'background-color: {{VALUE}};',
 							],
 							'condition' => [
 								'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -2638,7 +2638,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__caption' => 'opacity: {{SIZE}}',
+								'{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media__caption' => 'opacity: {{SIZE}}',
 							],
 							'condition'	=> [
 								'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -2654,7 +2654,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'type' 		=> Controls_Manager::COLOR,
 							'default' 	=> '',
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__caption' => 'border-color: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media__caption' => 'border-color: {{VALUE}};',
 							],
 							'condition' => [
 								'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -2666,7 +2666,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						Group_Control_Text_Shadow::get_type(),
 						[
 							'name' 		=> 'jltma_gallery_slider_text_box_shadow_active',
-							'selector' 	=> '{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__caption',
+							'selector' 	=> '{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media__caption',
 							'separator'	=> '',
 							'condition' => [
 								'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -2691,7 +2691,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				MA_Group_Control_Transition::get_type(),
 				[
 					'name' 		=> 'jltma_gallery_slider_overlay',
-					'selector' 	=> '{{WRAPPER}} .ee-gallery__media__overlay',
+					'selector' 	=> '{{WRAPPER}} .jltma-gallery__media__overlay',
 					'separator'	=> 'after',
 				]
 			);
@@ -2709,7 +2709,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						[
 							'name' 		=> 'jltma_gallery_slider_overlay_background',
 							'types' 	=> [ 'classic', 'gradient' ],
-							'selector' 	=> '{{WRAPPER}} .ee-gallery__media__overlay',
+							'selector' 	=> '{{WRAPPER}} .jltma-gallery__media__overlay',
 							'default'	=> 'classic',
 							'exclude'	=> [
 								'image',
@@ -2735,7 +2735,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								'hue'				=> esc_html__( 'Hue', MELA_TD ),
 							],
 							'selectors' 	=> [
-								'{{WRAPPER}} .ee-gallery__media__overlay' => 'mix-blend-mode: {{VALUE}};',
+								'{{WRAPPER}} .jltma-gallery__media__overlay' => 'mix-blend-mode: {{VALUE}};',
 							],
 						]
 					);
@@ -2765,7 +2765,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media__overlay' => 'top: {{SIZE}}px; right: {{SIZE}}px; bottom: {{SIZE}}px; left: {{SIZE}}px',
+								'{{WRAPPER}} .jltma-gallery__media__overlay' => 'top: {{SIZE}}px; right: {{SIZE}}px; bottom: {{SIZE}}px; left: {{SIZE}}px',
 							],
 						]
 					);
@@ -2786,7 +2786,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media__overlay' => 'opacity: {{SIZE}}',
+								'{{WRAPPER}} .jltma-gallery__media__overlay' => 'opacity: {{SIZE}}',
 							],
 						]
 					);
@@ -2796,7 +2796,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						[
 							'name' 		=> 'jltma_gallery_slider_overlay_border',
 							'label' 	=> esc_html__( 'Border', MELA_TD ),
-							'selector' 	=> '{{WRAPPER}} .ee-gallery__media__overlay',
+							'selector' 	=> '{{WRAPPER}} .jltma-gallery__media__overlay',
 						]
 					);
 
@@ -2809,7 +2809,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						[
 							'name' 		=> 'jltma_gallery_slider_overlay_background_hover',
 							'types' 	=> [ 'classic', 'gradient' ],
-							'selector' 	=> '{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media__overlay',
+							'selector' 	=> '{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media__overlay',
 							'default'	=> 'classic',
 							'exclude'	=> [
 								'image',
@@ -2830,7 +2830,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media__overlay' => 'top: {{SIZE}}px; right: {{SIZE}}px; bottom: {{SIZE}}px; left: {{SIZE}}px',
+								'{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media__overlay' => 'top: {{SIZE}}px; right: {{SIZE}}px; bottom: {{SIZE}}px; left: {{SIZE}}px',
 							],
 						]
 					);
@@ -2848,7 +2848,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media__overlay' => 'opacity: {{SIZE}}',
+								'{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media__overlay' => 'opacity: {{SIZE}}',
 							],
 						]
 					);
@@ -2858,7 +2858,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						[
 							'name' 		=> 'jltma_gallery_slider_overlay_border_hover',
 							'label' 	=> esc_html__( 'Border', MELA_TD ),
-							'selector' 	=> '{{WRAPPER}} .ee-gallery__media:hover .ee-gallery__media__overlay',
+							'selector' 	=> '{{WRAPPER}} .jltma-gallery__media:hover .jltma-gallery__media__overlay',
 						]
 					);
 
@@ -2871,7 +2871,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						[
 							'name' 		=> 'jltma_gallery_slider_overlay_background_active',
 							'types' 	=> [ 'classic', 'gradient' ],
-							'selector' 	=> '{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__overlay',
+							'selector' 	=> '{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media__overlay',
 							'default'	=> 'classic',
 							'exclude'	=> [
 								'image',
@@ -2892,7 +2892,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__overlay' => 'top: {{SIZE}}px; right: {{SIZE}}px; bottom: {{SIZE}}px; left: {{SIZE}}px',
+								'{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media__overlay' => 'top: {{SIZE}}px; right: {{SIZE}}px; bottom: {{SIZE}}px; left: {{SIZE}}px',
 							],
 						]
 					);
@@ -2910,7 +2910,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 								],
 							],
 							'selectors' => [
-								'{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__overlay' => 'opacity: {{SIZE}}',
+								'{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media__overlay' => 'opacity: {{SIZE}}',
 							],
 						]
 					);
@@ -2920,7 +2920,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						[
 							'name' 		=> 'jltma_gallery_slider_overlay_border_active',
 							'label' 	=> esc_html__( 'Border', MELA_TD ),
-							'selector' 	=> '{{WRAPPER}} .ee-gallery__item.is--active .ee-gallery__media__overlay',
+							'selector' 	=> '{{WRAPPER}} .jltma-gallery__item.is--active .jltma-gallery__media__overlay',
 						]
 					);
 
@@ -3017,69 +3017,69 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 
 		$this->add_render_attribute( [
 			'wrapper' => [
-				'class' => 'ee-gallery-slider',
+				'class' => 'jltma-gallery-slider',
 			],
 			'preview' => [
 				'class' => [
-					'ee-gallery-slider__preview',
+					'jltma-gallery-slider__preview',
 					'elementor-slick-slider',
 				],
 			],
 			'gallery-wrapper' => [
 				'class' => [
-					'ee-gallery-slider__gallery',
+					'jltma-gallery-slider__gallery',
 				],
 			],
 			'gallery' => [
 				'class' => [
-					'ee-gallery',
-					'ee-grid',
-					'ee-grid--gallery',
-					'ee-gallery__gallery',
-					'ee-media-align--' . $settings['jltma_gallery_slider_vertical_align'],
-					'ee-media-align--' . $settings['jltma_gallery_slider_horizontal_align'],
-					'ee-media-effect__content--' . $settings['jltma_gallery_slider_caption_effect'],
+					'jltma-gallery',
+					'jltma-grid',
+					'jltma-grid--gallery',
+					'jltma-gallery__gallery',
+					'jltma-media-align--' . $settings['jltma_gallery_slider_vertical_align'],
+					'jltma-media-align--' . $settings['jltma_gallery_slider_horizontal_align'],
+					'jltma-media-effect__content--' . $settings['jltma_gallery_slider_caption_effect'],
 				],
 			],
 			'slider' => [
 				'class' => [
 					'elementor-image-carousel',
-					'ee-carousel',
-					'ee-gallery-slider__carousel',
-					'ee-media-align--' . $settings['jltma_gallery_slider_preview_vertical_align'],
-					'ee-media-align--' . $settings['jltma_gallery_slider_preview_horizontal_align'],
-					'ee-media-effect__content--' . $settings['jltma_gallery_slider_preview_caption_effect'],
+					'jltma-carousel',
+					'jltma-gallery-slider__carousel',
+					'jltma-media-align--' . $settings['jltma_gallery_slider_preview_vertical_align'],
+					'jltma-media-align--' . $settings['jltma_gallery_slider_preview_horizontal_align'],
+					'jltma-media-effect__content--' . $settings['jltma_gallery_slider_preview_caption_effect'],
 				],
 			],
 			'gallery-thumbnail' => [
 				'class' => [
-					'ee-media__thumbnail',
-					'ee-gallery__media__thumbnail',
+					'jltma-media__thumbnail',
+					'jltma-gallery__media__thumbnail',
 				],
 			],
 			'gallery-overlay' => [
 				'class' => [
-					'ee-media__overlay',
-					'ee-gallery__media__overlay',
+					'jltma-media__overlay',
+					'jltma-gallery__media__overlay',
 				],
 			],
 			'gallery-content' => [
 				'class' => [
-					'ee-media__content',
-					'ee-gallery__media__content',
+					'jltma-media__content',
+					'jltma-gallery__media__content',
 				],
 			],
 			'gallery-caption' => [
 				'class' => [
 					'wp-caption-text',
-					'ee-media__content__caption',
-					'ee-gallery__media__caption',
+					'jltma-media__content__caption',
+					'jltma-gallery__media__caption',
 				],
 			],
 			'gallery-item' => [
 				'class' => [
-					'ee-gallery__item',
-					'ee-grid__item',
+					'jltma-gallery__item',
+					'jltma-grid__item',
 				],
 			],
 		] );
@@ -3211,14 +3211,14 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				$slide_inner_key => [
 					'class' => [
 						'slick-slide-inner',
-						'ee-media',
-						'ee-carousel__media',
+						'jltma-media',
+						'jltma-carousel__media',
 					],
 				],
 				$thumbnail_key => [
 					'class' => [
-						'ee-media__thumbnail',
-						'ee-carousel__media__thumbnail',
+						'jltma-media__thumbnail',
+						'jltma-carousel__media__thumbnail',
 					],
 				],
 			] );
@@ -3256,14 +3256,14 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				$this->add_render_attribute( [
 					$content_key => [
 						'class' => [
-							'ee-media__content',
-							'ee-carousel__media__content',
+							'jltma-media__content',
+							'jltma-carousel__media__content',
 						],
 					],
 					$caption_key => [
 						'class' => [
-							'ee-media__content__caption',
-							'ee-carousel__media__caption',
+							'jltma-media__content__caption',
+							'jltma-carousel__media__caption',
 						],
 					],
 				] );
@@ -3304,14 +3304,14 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 			$this->add_render_attribute( [
 				$gallery_media_key => [
 					'class' => [
-						'ee-media',
-						'ee-gallery__media',
+						'jltma-media',
+						'jltma-gallery__media',
 					],
 				],
 				$gallery_media_wrapper_key => [
 					'class' => [
-						'ee-media__wrapper',
-						'ee-gallery__media-wrapper',
+						'jltma-media__wrapper',
+						'jltma-gallery__media-wrapper',
 					],
 				],
 			] );

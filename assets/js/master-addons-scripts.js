@@ -499,18 +499,19 @@
                     }
                 });
             }
-
         },
+
+
 
         // Gallery Slider
         MA_Gallery_Slider: function($scope, $){
 
             Master_Addons.MA_Gallery_Slider.elementSettings    = getElementSettings( $scope );
 
-            var $carousel           = $scope.find('.ee-gallery-slider__carousel').eq(0),
-                $preview            = $scope.find('.ee-gallery-slider__preview'),
-                $thumbs             = $scope.find('.ee-gallery .ee-gallery__item'),
-                $thumbnailsSlider   = $scope.find(".ee-gallery-slider__gallery .ee-gallery"),
+            var $carousel           = $scope.find('.jltma-gallery-slider__carousel').eq(0),
+                $preview            = $scope.find('.jltma-gallery-slider__preview'),
+                $thumbs             = $scope.find('.jltma-gallery .jltma-gallery__item'),
+                $thumbnailsSlider   = $scope.find(".jltma-gallery-slider__gallery .jltma-gallery"),
                 $thumbtype          = Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_type,
                 $thumbposition      = Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_preview_position,
                 $thumbVertical      = ( $thumbposition == "top" || $thumbposition == "bottom" ) ? false : true,
@@ -523,7 +524,7 @@
                     slidesToScroll  : 1,
                     cssEase         : "linear",
                     draggable       : true,
-                    asNavFor        : ($thumbtype == "slide") ? ".ee-gallery-slider__gallery .ee-gallery" : "",
+                    asNavFor        : ($thumbtype == "slide") ? ".jltma-gallery-slider__gallery .jltma-gallery" : "",
                     adaptiveHeight  : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_adaptive_height,
                     autoplay        : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_autoplay,
                     autoplaySpeed   : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_autoplay_speed,
@@ -531,60 +532,58 @@
                     pauseOnHover    : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_pause_on_hover,
                     speed           : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_speed,
                     arrows          : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_show_arrows,
-                    prevArrow       : '<div class="ee-carousel__arrow ee-arrow ee-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
-                    nextArrow       : '<div class="ee-carousel__arrow ee-arrow ee-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
+                    prevArrow       : '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
+                    nextArrow       : '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
                     dots            : false,
                     rtl             : 'rtl' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_direction,
                     fade            : 'fade' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_effect,
                 }, 
 
                 thumbsArgs       = {
-                  speed             : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_speed,
-                  slidesToShow      : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_items,
-                  slidesToScroll    : 1,
-                  cssEase           : "linear",
-                  centerMode        : true,
-                  draggable         : false,
-                  vertical          : $thumbVertical,
-                  verticalSwiping   : $thumbVertical,
-                  focusOnSelect     : true,
-                  arrows            : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_show_arrows,
-                  autoplay          : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_autoplay,
-                  autoplaySpeed     : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_autoplay_speed,
-                  pauseOnHover      : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_pause_on_hover,
-                  infinite          : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_infinite,
-                  asNavFor          : ".ee-gallery-slider__carousel",
-                  dots              : false,
-                  prevArrow         : '<div class="ee-carousel__arrow ee-arrow ee-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
-                  nextArrow         : '<div class="ee-carousel__arrow ee-arrow ee-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
-                  fade              : 'fade' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_effect,
-                  rtl               : 'rtl' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_direction,
-                  responsive        : [
-                    {
-                        breakpoint: 720,
-                        settings: {
-                            slidesToShow: 4,
-                            slidesToScroll: 4
-                        }
-                    },
-                    {
-                        breakpoint: 576,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3
-                        }
-                    },
-                    {
-                        breakpoint: 350,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                      }
+                    speed             : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_speed,
+                    slidesToShow      : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_items,
+                    slidesToScroll    : 1,
+                    cssEase           : "linear",
+                    centerMode        : true,
+                    draggable         : false,
+                    vertical          : $thumbVertical,
+                    verticalSwiping   : $thumbVertical,
+                    focusOnSelect     : true,
+                    arrows            : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_show_arrows,
+                    autoplay          : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_autoplay,
+                    autoplaySpeed     : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_autoplay_speed,
+                    pauseOnHover      : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_pause_on_hover,
+                    infinite          : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_infinite,
+                    asNavFor          : ".jltma-gallery-slider__carousel",
+                    dots              : false,
+                    prevArrow         : '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
+                    nextArrow         : '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
+                    fade              : 'fade' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_effect,
+                    rtl               : 'rtl' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_direction,
+                        responsive        : [
+                            {
+                                breakpoint: 720,
+                                settings: {
+                                    slidesToShow: 4,
+                                    slidesToScroll: 4
+                                }
+                            },
+                            {
+                                breakpoint: 576,
+                                settings: {
+                                    slidesToShow: 3,
+                                    slidesToScroll: 3
+                                }
+                            },
+                            {
+                                breakpoint: 350,
+                                settings: {
+                                    slidesToShow: 2,
+                                    slidesToScroll: 2
+                            }
                     }
-                  ]
-                };
-
-
+                ]
+            };
 
             Master_Addons.MA_Gallery_Slider.events = function() {
                 $carousel.on( 'beforeChange', function ( event, slick, currentSlide, nextSlide ) {
@@ -620,12 +619,6 @@
             };
 
             Master_Addons.MA_Gallery_Slider.init();
-
-
-
-
-
-
         },
 
 
