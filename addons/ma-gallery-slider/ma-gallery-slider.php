@@ -1925,26 +1925,6 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 			);
 
 
-			// $this->add_responsive_control(
-			// 	'jltma_gallery_slider_thumb_arrows_distance',
-			// 	[
-			// 		'label' 		=> esc_html__( 'Distance', MELA_TD ),
-			// 		'type' 			=> Controls_Manager::SLIDER,
-			// 		'range' 		=> [
-			// 			'px' 		=> [
-			// 				'min' => 0,
-			// 				'max' => 100,
-			// 			],
-			// 		],
-			// 		'selectors' 	=> [
-			// 			'{{WRAPPER}} .jltma-thumb-slide .ee-carousel__arrow' => 'margin: {{SIZE}}px; transform: translateY( calc(-50% - {{SIZE}}px ) )',
-			// 		],
-			// 		'condition'		=> [
-			// 			'jltma_gallery_slider_thumb_show_arrows!' => '',
-			// 		]
-			// 	]
-			// );
-
 			$this->add_group_control(
 				MA_Group_Control_Transition::get_type(),
 				[
