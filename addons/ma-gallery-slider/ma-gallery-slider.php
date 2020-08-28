@@ -3232,7 +3232,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					'class' 							=> 'elementor-clickable',
 					'data-elementor-open-lightbox' 		=> $settings['jltma_gallery_slider_open_lightbox'],
 					'data-elementor-lightbox-slideshow' => $this->get_id(),
-					'data-elementor-lightbox-index' 	=> $index,
+					'data-elementor-lightbox-index' 	=> $index
 				] );
 
 				if ( ! empty( $link['is_external'] ) ) {
