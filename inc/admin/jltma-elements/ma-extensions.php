@@ -71,9 +71,9 @@ $jltma_elements = [
             [
                 'key'           => 'transition',
                 'title'         => esc_html__( 'Entrance Animation', MELA_TD),
-                'demo_url'      => '',
-                'docs_url'      => '',
-                'tuts_url'      => ''
+                'demo_url'      => 'https://master-addons.com/demos/entrance-animation/',
+                'docs_url'      => 'https://master-addons.com/docs/addons/entrance-animation/',
+                'tuts_url'      => 'https://www.youtube.com/watch?v=kphJEszEAFQ'
             ],
             [
                 'key'           => 'transforms',
@@ -106,16 +106,16 @@ $jltma_elements = [
             [
                 'key'           => 'display-conditions',
                 'title'         => esc_html__( 'Display Conditions', MELA_TD),
-                'demo_url'      => '',
-                'docs_url'      => '',
-                'tuts_url'      => ''
+                'demo_url'      => 'https://master-addons.com/demos/display-conditions/',
+                'docs_url'      => 'https://master-addons.com/docs/addons/display-conditions/',
+                'tuts_url'      => 'https://www.youtube.com/watch?v=6hDqKVQmsr8'
             ],
             [
                 'key'           => 'dynamic-tags',
                 'title'         => esc_html__( 'Dynamic Tags', MELA_TD),
-                'demo_url'      => '',
-                'docs_url'      => '',
-                'tuts_url'      => ''
+                'demo_url'      => 'https://master-addons.com/demos/dynamic-tags/',
+                'docs_url'      => 'https://master-addons.com/docs/addons/dynamic-tags/',
+                'tuts_url'      => 'https://youtu.be/vvhhMq8uz1g'
             ]
 
     	]
