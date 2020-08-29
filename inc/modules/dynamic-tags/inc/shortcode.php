@@ -63,7 +63,7 @@ class JLTMA_Shortcode extends Tag {
 		 *
 		 * @param bool defaults to true
 		 */
-		$should_escape = apply_filters( 'auxin/core_elements/dynamic_tags/shortcode/should_escape', true );
+		$should_escape = apply_filters( 'jltma/core_elements/dynamic_tags/shortcode/should_escape', true );
 
 		if ( $should_escape ) {
 			$value = wp_kses_post( $value );

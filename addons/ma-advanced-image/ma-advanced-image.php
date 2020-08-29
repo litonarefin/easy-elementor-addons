@@ -575,7 +575,7 @@
 
 
 		public function ma_el_error( $error ){
-			if ( WP_DEBUG && apply_filters( 'auxin_trigger_error_message', true ) ) {
+			if ( WP_DEBUG && apply_filters( 'jltma_trigger_error_message', true ) ) {
 				trigger_error( $error );
 			}
 		}
