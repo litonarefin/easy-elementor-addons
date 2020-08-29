@@ -364,8 +364,11 @@ Paste on your Local Computer
 == Changelog ==
 = 1.5.0 (29-08-2020) =
 * Fixed: "Template Import" not working on Elementor v3.0 issue fixed
+* Added: Dynamic Conditions Extension Added
+* Added: Dynamic Tags Extension Added (Which is available on Elementor Pro)
+* Added: Gallery Slider Addons Added 
 * Updated: Toggle Content - Added Toggle Border on Style Tab
-* Updated: Re-named extension "Transitions" to "Entrance Animation"
+* Renamed: Re-named extension "Transitions" to "Entrance Animation"
 * Updated: All Animation effects working now on Entrance Animation, also fixed animation delay JS issues.
 * Updated: Notices for Pro users showing asking to purchase issue fixed
 * Updated: Added Width & Height on "Image Hover Effects"
