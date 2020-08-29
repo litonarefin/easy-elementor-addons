@@ -363,6 +363,7 @@ Paste on your Local Computer
 
 == Changelog ==
 = 1.5.0 (29-08-2020) =
+* Added: "Elementor Custom Breakpoints" added as Third Party Extension, which is also available on WordPress.org:https://wordpress.org/plugins/custom-breakpoints-for-elementor/
 * Fixed: "Template Import" not working on Elementor v3.0 issue fixed
 * Added: Dynamic Conditions Extension Added
 * Added: Dynamic Tags Extension Added (Which is available on Elementor Pro)
