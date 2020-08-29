@@ -3,6 +3,7 @@ namespace MasterAddons\Modules\DynamicTags\Tags;
 
 use Elementor\Core\DynamicTags\Data_Tag;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
+use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -27,7 +28,7 @@ class JLTMA_Author_Profile_Picture extends Data_Tag {
 	}
 
 	public function get_value( array $options = [] ) {
-		auxin_set_global_authordata();
+		Master_Addons_Helper::jltma_set_global_authordata();
 
 		return [
 			'id' => '',

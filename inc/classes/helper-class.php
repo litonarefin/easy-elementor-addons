@@ -805,6 +805,15 @@ class Master_Addons_Helper{
     }
 
 	
+	public static function jltma_set_global_authordata() {
+	    global $authordata;
+	    if ( ! isset( $authordata->ID ) ) {
+	        $post = get_post();
+	        $authordata = get_userdata( $post->post_author ); // WPCS: override ok.
+	    }
+	}
+
+	
 	public static function jltma_get_taxonomies( $args = [], $output = 'names', $operator = 'and' ) {
 	    global $wp_taxonomies;
 
