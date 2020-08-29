@@ -234,14 +234,16 @@ if( !class_exists('Master_Addons_Promotions') ) {
             if ( ! self::is_admin_notice_active( 'disable-done-notice-forever' ) ) { return; }
 
             $blog_update_message = sprintf(
-                __( '%1$s got HUGE Updates!!! %2$s %3$s %4$s %5$s Check Blog Post for <a href="%6$s" target="__blank">%7$s</a>', MELA_TD ),
+                __( '%1$s got HUGE Updates!!! %2$s %3$s %4$s %5$s %6$s Check Blog Post for <a href="%7$s" target="__blank">%7$s</a>', MELA_TD ),
 
                 '<strong>' . esc_html__( 'Master Addons for Elementor', MELA_TD ) . '</strong>',
-                '<br>' . __( '✅ <b>Header,Footer & Comment Form Builder</b> extension Added!!', MELA_TD ) . '<br>',
-                __( '✅ WordPress v5.5 Compatibility', MELA_TD ) . '<br>',
-                __( '✅ <b>Custom JS</b> Extension Added', MELA_TD ) . '<br>',
+                '<br>' . __( '✅ <b>Custom Breakpoint Extension</b> added !!', MELA_TD ) . '<br>',
+                __( '✅ <b>Dynamic Conditions</b> Extension Added', MELA_TD ) . '<br>',
+                __( '✅ <b>Dynamic Tags</b> Extension Added', MELA_TD ) . '<br>',
+                __( '✅ <b>Gallery Slider</b> Addon Added', MELA_TD ) . '<br>',
+                __( '✅ Elementor v3.0 Compatibility', MELA_TD ) . '<br>',
                 __( '✅ Some major fixes, check Changelogs', MELA_TD ) . '<br>',
-                esc_url_raw('https://master-addons.com/master-addons-1-4-7/'),
+                esc_url_raw('https://master-addons.com/master-addons-update-1-5-0/'),
                 esc_html__( 'More Details', MELA_TD )
             );
 
