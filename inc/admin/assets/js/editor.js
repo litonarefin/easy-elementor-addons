@@ -151,7 +151,7 @@
                     var $slider = jQuery( this ),
                         $input = $slider.next( '.elementor-slider-input' ).find( 'input' );
                         //alert(elementor.config.version);
-                        console.log(elementor.config.version);
+                        // console.log(elementor.config.version);
                         if (elementor.config.version < '2.5') {
                          $slider.slider( {
                                 value: value[ this.dataset.input ],
