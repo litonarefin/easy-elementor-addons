@@ -255,7 +255,7 @@ $jltma_elements = [
                 'title' 		=> esc_html__( 'Toggle Content', MELA_TD),
                 'demo_url' 		=> 'https://master-addons.com/demos/toggle-content/',
                 'docs_url' 		=> 'https://master-addons.com/docs/addons/toggle-content/',
-                'tuts_url' 		=> ''
+                'tuts_url' 		=> 'https://www.youtube.com/watch?v=TH6wbVuWdTA'
             ],
             [
                 'key'           => 'ma-gallery-slider',
