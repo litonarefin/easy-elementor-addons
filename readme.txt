@@ -25,21 +25,21 @@ To use Master Addons you will have to activate Elementor plugin in your WordPres
 Here is the Download link for [Elementor](https://wordpress.org/plugins/elementor/) WordPress Plugin.
 
 == Unique Features ==
-1. Header, Footer & Comment Form Builder
-2. Custom Breakpoint For Elementor
-3. Mega Menu Builder
-4. Display Conditions
-5. Entrance Animation
-6. Gallery Slider
-7. Image Hover Effects
-8. Toggle Content
+1. [Header, Footer & Comment Form Builder](https://master-addons.com/demos/header-footer-comment-builder/)
+2. [Custom Breakpoint For Elementor](https://wordpress.org/plugins/custom-breakpoints-for-elementor/)
+3. [Mega Menu Builder](https://master-addons.com/elementor-mega-menu/)
+4. [Display Conditions](https://master-addons.com/demos/display-conditions/)
+5. [Entrance Animation](https://master-addons.com/docs/addons/entrance-animation/)
+6. [Gallery Slider](https://master-addons.com/demos/gallery-slider/)
+7. [Image Hover Effects](https://master-addons.com/demos/image-hover-effects/)
+8. [Toggle Content](https://master-addons.com/demos/toggle-content/)
 9. Custom CSS & Custom JS
 10. MA Duplicator - Duplicate all kind of Posts/Pages/Custom Posts
-11. Positioning
-12. Transforms
-13. Container Extra
-14. Domain Checker
-15. Restrict Content (Age Gate, Match Captcha, User Role & Password)
+11. [Positioning](https://master-addons.com/demos/positioning/)
+12. [Transforms](https://master-addons.com/demos/transforms-extension/)
+13. Container Extras
+14. [Domain Checker](https://master-addons.com/demos/domain-search/)
+15. [Restrict Content](https://master-addons.com/demos/restrict-content-for-elementor/) (Age Gate, Match Captcha, User Role & Password)
 15. Rich Template Library ( 100+ Pre-built Designed Landing Pages/Sections/Header/Footers )
 
 
