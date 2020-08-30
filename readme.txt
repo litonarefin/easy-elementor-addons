@@ -25,17 +25,22 @@ To use Master Addons you will have to activate Elementor plugin in your WordPres
 Here is the Download link for [Elementor](https://wordpress.org/plugins/elementor/) WordPress Plugin.
 
 == Unique Features ==
-1. Header, Footer & Comment Form Builder (Coming Soon)
+1. Header, Footer & Comment Form Builder
 2. Custom Breakpoint For Elementor
 3. Mega Menu Builder
-4. Custom CSS & Custom JS
-5. MA Duplicator - Duplicate all kind of Posts/Pages/Custom Posts
-6. Positioning
-7. Transforms
-8. Container Extra
-9. Domain Checker
-10. Restrict Content (Age Gate, Match Captcha, User Role & Password)
-11. Rich Template Library ( 100+ Pre-built Designed Landing Pages/Sections/Header/Footers )
+4. Display Conditions
+5. Entrance Animation
+6. Gallery Slider
+7. Image Hover Effects
+8. Toggle Content
+9. Custom CSS & Custom JS
+10. MA Duplicator - Duplicate all kind of Posts/Pages/Custom Posts
+11. Positioning
+12. Transforms
+13. Container Extra
+14. Domain Checker
+15. Restrict Content (Age Gate, Match Captcha, User Role & Password)
+15. Rich Template Library ( 100+ Pre-built Designed Landing Pages/Sections/Header/Footers )
 
 
 == Elementor Custom Breakpoints ==
@@ -99,7 +104,8 @@ Quick Overview:
 14. [Image Hover Effects](https://master-addons.com/demos/image-hover-effects/) Unlock 22 hover effects, Border Radius and more.
 15. [Image Hotspots](https://master-addons.com/demos/image-hotspot/)
 16. [Domain Checker](https://master-addons.com/demos/domain-search/)
-17. [Toggle Content] (https://master-addons.com/demos/toggle-content/)
+17. [Toggle Content](https://master-addons.com/demos/toggle-content/)
+18. [Gallery Slider](https://master-addons.com/demos/gallery-slider/)
 
 == Form Elements ==
 1. [Contact Forms 7](https://master-addons.com/demos/contact-form-7/)
@@ -118,7 +124,8 @@ Quick Overview:
 6. [Reading Progress Bar](https://master-addons.com/100-best-elementor-addons/)
 7. [Mega Menu](https://master-addons.com/elementor-mega-menu/)
 8. [Positioning](https://master-addons.com/demos/positioning/)
-9. [Container Extras]
+9. Container Extras
+10. [Dynamic Tags](https://master-addons.com/demos/dynamic-tags/)
 
 
 == PRO Extensions ==
@@ -127,7 +134,7 @@ Quick Overview:
 3. [Reveal](https://master-addons.com/demos/reveal/)
 4. [Rellax](https://master-addons.com/demos/rellax/)
 5. [Transforms](https://master-addons.com/demos/transforms-extension/)
-6. [Transition] - On Development
+6. [Entrance Animation](https://master-addons.com/demos/entrance-animation/)
 
 ## Master Addons All Widgets ##
 This plugin gives you access to the following widgets or elements
@@ -254,6 +261,13 @@ MA Flip Box comes with a 3D effect and in a variety of options. The Variations a
 
 38. [Background Slider](https://master-addons.com/demos/background-slider/): This is a very simple background Elementor Addon that can generate a beautiful image and video sliders. You can easily customize the height, width, and padding. You can also background color overlay to make it look attractive. You can also change the alignment of the image within the slider as per your choice.
 
+39. [Gallery Slider](https://master-addons.com/demos/gallery-slider/): Gallery Slider helps you to showcase your images with the thumb. There are huge customization possibilities that will enhance your webpage quality. 
+
+40. [Display Condition](https://master-addons.com/demos/display-conditions/): If you want to block any section from a specific browser, user, operating system, etc then use this display condition system. You can arrange sections nicely for multiple types of audiences. 
+
+41. [Header, Footer, & Comment Builder](https://master-addons.com/demos/header-footer-comment-builder/): We have developed a dynamic header footer and comment builder system. Just create a template from Master Addons option and assign it as a header, or footer, or comment. Then customize it with Elementor page builder. 
+
+42. [Entrance Animation](https://master-addons.com/demos/entrance-animation/): If you want to create an eye-catching animation for your sections then you need Entrance Animation. There is a lot of pre-built animation available, you need to set duration and delay properly. 
 
 And many more that are listed at the top list.
 
@@ -335,10 +349,7 @@ We've two ways to give Supports for "Master Addons" Plugin - 1. [WordPress Suppo
 but we're Dedicated on our FB page chat [Support Forum](https://www.facebook.com/masteraddons/).
 
 
-
 We're adding new Features everyday. You'll get regular Updates also !
-
-
 
 
 == Screenshots ==
