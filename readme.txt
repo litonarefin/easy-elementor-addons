@@ -373,6 +373,10 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.5.1 (29-08-2020) =
+* Fixed: "Animated Gradient" repeater not working for Elementor v3.0 update issue fixed
+* Update: Template Importer support given for both Elementor v2.x.x and v3.x.x
+
 = 1.5.0 (29-08-2020) =
 * Added: "Elementor Custom Breakpoints" added as Third Party Extension, which is also available on WordPress.org:https://wordpress.org/plugins/custom-breakpoints-for-elementor/
 * Fixed: "Template Import" not working on Elementor v3.0 issue fixed
