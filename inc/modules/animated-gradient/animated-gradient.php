@@ -65,9 +65,9 @@ class Master_Addons_Animated_Gradient_Backgrounds  {
 				]
 			);
 
-			// $repeater = new Repeater();
+			$repeater = new Repeater();
 
-			$element->add_control(
+			$repeater->add_control(
 				'ma_el_animated_gradient_color',
 				[
 					'label' => __('Add Color' , MELA_TD),
@@ -75,34 +75,34 @@ class Master_Addons_Animated_Gradient_Backgrounds  {
 				]
 			);
 
-			// $element->add_control(
-			// 	'gradient_color_list',
-			// 	[
-			// 		'label' =>  __('Color' , MELA_TD),
-			// 		'type'  => Controls_Manager::REPEATER,
-			// 		'fields'    =>  array_values($repeater->get_controls()),
-			// 		'title_field'   =>  'Color {{{ma_el_animated_gradient_color}}}',
-			// 		'show_label'        =>  true,
+			$element->add_control(
+				'gradient_color_list',
+				[
+					'label' =>  __('Color' , MELA_TD),
+					'type'  => Controls_Manager::REPEATER,
+					'fields'    =>  array_values($repeater->get_controls()),
+					'title_field'   =>  'Color {{{ma_el_animated_gradient_color}}}',
+					'show_label'        =>  true,
 
-			// 		'default'   => [
-			// 			[
-			// 				'ma_el_animated_gradient_color'   =>  '#00a6d8'
-			// 			],
-			// 			[
-			// 				'ma_el_animated_gradient_color'   =>  '#b800c9'
-			// 			],
-			// 			[
-			// 				'ma_el_animated_gradient_color'   =>  '#e57600'
-			// 			]
-			// 		],
-			// 		'selectors' => [
-			// 			'{{WRAPPER}}' => 'background : linear-gradient({{gradient_background_angle.SIZE}}{{gradient_background_angle.UNIT}} );',
-			// 		],
-			// 		'condition' =>  [
-			// 			'ma_el_animated_gradient_enable' => 'yes',
-			// 		]
-			// 	]
-			// );
+					'default'   => [
+						[
+							'ma_el_animated_gradient_color'   =>  '#00a6d8'
+						],
+						[
+							'ma_el_animated_gradient_color'   =>  '#b800c9'
+						],
+						[
+							'ma_el_animated_gradient_color'   =>  '#e57600'
+						]
+					],
+					'selectors' => [
+						'{{WRAPPER}}' => 'background : linear-gradient({{gradient_background_angle.SIZE}}{{gradient_background_angle.UNIT}} );',
+					],
+					'condition' =>  [
+						'ma_el_animated_gradient_enable' => 'yes',
+					]
+				]
+			);
 
 			$element->end_controls_section();
 		}
