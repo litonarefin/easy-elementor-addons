@@ -11525,3 +11525,15 @@ ul.jltma-toggle-content-controls {
   }
 }
 /* End of Gallery Slider */
+
+
+
+/* Start of Fixings WooCommerce Checkout Page */
+.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1,
+.woocommerce .col2-set .col-2, .woocommerce-page .col2-set .col-2{
+    max-width: inherit;
+}
+.woocommerce .form-row{
+    display: block;
+}
+/* End of Fixings WooCommerce Checkout Page */

@@ -1,5 +1,6 @@
 <?php 
 namespace MasterHeaderFooter\Theme_Hooks;
+use MasterHeaderFooter\Master_Header_Footer;
 
 /**
  * Hello Elementor compatibility.

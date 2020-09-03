@@ -1606,6 +1606,30 @@
 			$this->end_controls_tabs();
 
 
+	        $this->add_control(
+	            'jltma_comments_show_reply_heading',
+	            [
+	                'label' => esc_html__( 'Reply/Show Replies Button', JLTMA_TD ),
+	                'type' => Controls_Manager::HEADING,
+	                'separator' => 'before',
+	            ]
+	        );
+
+			$this->add_responsive_control(
+				'jltma_comments_reply_show_pading',
+				[
+					'label'         => esc_html__( 'Padding', JLTMA_TD ),
+					'type'          => Controls_Manager::DIMENSIONS,
+					'size_units'    => [ 'px', 'em', '%' ],
+					'separator' => 'before',
+					'selectors'     => [
+						'{{WRAPPER}} .jltma-comment-style_one .jltma-body .jltma-edit-comments-wrapper, 
+						{{WRAPPER}} .jltma-comment-style_one .jltma-body .jltma-reply-button, 
+						{{WRAPPER}} .jltma-comment-style_two .jltma-body .jltma-reply-button' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					]
+				]
+			);
+
 			$this->end_controls_section();
 
 

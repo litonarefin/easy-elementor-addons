@@ -1,5 +1,6 @@
 <?php 
 namespace MasterHeaderFooter\Theme_Hooks;
+use MasterHeaderFooter\Master_Header_Footer;
 use MasterHeaderFooter\Inc\Comments;
 
 defined( 'ABSPATH' ) || exit;

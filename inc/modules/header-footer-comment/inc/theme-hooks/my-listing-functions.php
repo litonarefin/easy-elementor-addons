@@ -1,5 +1,6 @@
 <?php
 namespace MasterHeaderFooter\Theme_Hooks;
+use MasterHeaderFooter\Master_Header_Footer;
 
 if(!function_exists( 'jltma_get_hfc_render_comment' )){
     function jltma_get_hfc_render_comment( $comment_template ){
@@ -32,7 +33,7 @@ if(!function_exists( 'jltma_get_hfc_render_header' )){
 
         do_action('masteraddons/template/before_header');
         echo '<div class="jltma-template-content-markup jltma-template-content-header">';
-            echo \Master_Header_Footer::render_elementor_content($master_template_ids[0]);
+            echo \MasterHeaderFooter\Master_Header_Footer::render_elementor_content($master_template_ids[0]);
         echo '</div>';
         do_action('masteraddons/template/after_header');
     }
@@ -54,7 +55,7 @@ if(!function_exists( 'jltma_hfc_render_footer' )){
 
         do_action('masteraddons/template/before_header');
         echo '<div class="jltma-template-content-markup jltma-template-content-header">';
-            echo \Master_Header_Footer::render_elementor_content($master_template_ids[1]);
+            echo \MasterHeaderFooter\Master_Header_Footer::render_elementor_content($master_template_ids[1]);
         echo '</div>';
         do_action('masteraddons/template/after_header');
     }

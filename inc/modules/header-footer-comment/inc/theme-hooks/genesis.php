@@ -1,5 +1,6 @@
 <?php 
 namespace MasterHeaderFooter\Theme_Hooks;
+use MasterHeaderFooter\Master_Header_Footer;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -100,7 +101,7 @@ class Genesis {
     public function add_plugin_header_markup(){
 		do_action('masteraddons/template/before_header');
 		echo '<div class="jltma-template-content-markup jltma-template-content-header">';
-			echo \Master_Header_Footer::render_elementor_content($this->header); 
+			echo \MasterHeaderFooter\Master_Header_Footer::render_elementor_content($this->header); 
 		echo '</div>';
 		do_action('masteraddons/template/after_header');
     }
@@ -145,7 +146,7 @@ class Genesis {
 	public function add_plugin_footer_markup(){
 		do_action('masteraddons/template/before_footer');
 		echo '<div class="jltma-template-content-markup jltma-template-content-footer">';
-			echo \Master_Header_Footer::render_elementor_content($this->footer); 
+			echo \MasterHeaderFooter\Master_Header_Footer::render_elementor_content($this->footer); 
 		echo '</div>';
 		do_action('masteraddons/template/after_footer');
 	}

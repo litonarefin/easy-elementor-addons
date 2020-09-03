@@ -1,5 +1,6 @@
 <?php 
 namespace MasterHeaderFooter\Theme_Hooks;
+use MasterHeaderFooter\Master_Header_Footer;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -70,7 +71,7 @@ class Bbtheme {
 		?>
 			<header id="masthead" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
 				<div class="jltma-template-content-markup jltma-template-content-header">
-					<?php echo \Master_Header_Footer::render_elementor_content($this->header); ?>
+					<?php echo \MasterHeaderFooter\Master_Header_Footer::render_elementor_content($this->header); ?>
 				</div>
 			</header>
 			<style>
@@ -92,7 +93,7 @@ class Bbtheme {
 			do_action('masteraddons/template/before_footer'); ?>
 
 				<footer itemscope="itemscope" itemtype="https://schema.org/WPFooter">
-				<?php echo \Master_Header_Footer::render_elementor_content($this->footer); ; ?>
+				<?php echo \MasterHeaderFooter\Master_Header_Footer::render_elementor_content($this->footer); ; ?>
 				</footer>
 
 			<?php 
