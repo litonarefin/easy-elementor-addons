@@ -373,14 +373,18 @@ Paste on your Local Computer
 
 
 == Changelog ==
-= 1.5.1 (29-08-2020) =
+= 1.5.1 (5-09-2020) =
 * Fixed: "Animated Gradient" repeater not working for Elementor v3.0 update issue fixed
 * Update: Template Importer support given for both Elementor v2.x.x and v3.x.x
 * Fixed: WooCommerce Checkout page style issue fixed
 * Fixed: Custom Breakpoints Panel height issue fixed
+* Fixed: Custom Breakpoints updated with native Elementor support. It works exactly like default Breakpoints. 
+* Fixed: Custom Breakpoints - Section/Columns and all other elements Breakpoints support given.
+* Fixed: Custom Breakpoints - Section/Column Import Export also works now
 * Fixed: Header_Footer class not found on oceanwp and other Themes issue fixed
 * Fixed: Header_Footer class not found on oceanwp and other Themes issue fixed
 * Added: Reply and Show Replies button margin option added
+
 
 
 = 1.5.0 (29-08-2020) =
