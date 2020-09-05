@@ -382,7 +382,6 @@ Paste on your Local Computer
 * Fixed: Custom Breakpoints - Section/Columns and all other elements Breakpoints support given.
 * Fixed: Custom Breakpoints - Section/Column Import Export also works now
 * Fixed: Header_Footer class not found on oceanwp and other Themes issue fixed
-* Fixed: Header_Footer class not found on oceanwp and other Themes issue fixed
 * Added: Reply and Show Replies button margin option added
 
 
