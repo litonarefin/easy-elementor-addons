@@ -124,12 +124,15 @@
 			$this->add_control(
 				'ma_el_call_to_action_icon',
 				[
-					'label'         => esc_html__( 'Icon', MELA_TD ),
-					'type'          => Controls_Manager::ICONS,
-					'default'       => [
-						'value'     => 'fas fa-star',
+					'label'         	=> esc_html__( 'Icon', MELA_TD ),
+					'description' 		=> __('Please choose an icon from the list.', MELA_TD),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'default'       	=> [
+						'value'     => 'fas fa-bell',
 						'library'   => 'solid',
 					],
+					'render_type'      => 'template',
 					'condition' => [
 						'ma_el_call_to_action_style_preset' => [ 'style-07'],
 					],
@@ -490,7 +493,25 @@
 				'id' => 'ma-el-action-content-' . $this->get_id()
 			]);
 
-			?>
+
+
+            if ( ! isset( $settings['icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
+                $settings['icon'] = 'fas fa-bell';
+            }
+
+            $has_icon  = ! empty( $settings['icon'] );
+            if ( $has_icon and 'icon' == $settings['ma_el_call_to_action_icon'] ) {
+                $this->add_render_attribute( 'jltma-icon', 'class', $settings['ma_el_call_to_action_icon'] );
+                $this->add_render_attribute( 'jltma-icon', 'aria-hidden', 'true' );
+            }
+
+            if ( ! $has_icon && ! empty( $settings['ma_el_call_to_action_icon']['value'] ) ) {
+                $has_icon = true;
+            }
+
+            $migrated  = isset( $settings['__fa4_migrated']['ma_el_call_to_action_icon'] );
+            $is_new    = empty( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
+		?>
 
             <section <?php echo $this->get_render_attribute_string( 'ma_el_call_to_action_wrapper' ); ?>>
                 <div class="<?php echo esc_attr($settings['ma_el_call_to_action_style_preset'] );?>">
@@ -501,9 +522,15 @@
                                 <?php if( $settings['ma_el_call_to_action_style_preset'] == "style-07"){ ?>
                                     <div class="ma-cta-icon-section media">
 
-                                        <div class="ma-cta-icon media-left">
-                                            <i class="<?php echo $settings['ma_el_call_to_action_icon'];?>"></i>
-                                        </div>
+	                                    <div class="ma-cta-icon media-left">
+	                                    	<?php 
+												if ( $is_new || $migrated ) {
+												    Icons_Manager::render_icon( $settings['ma_el_call_to_action_icon'], [ 'aria-hidden' => 'true' ] );
+												} else {
+												    echo '<i ' . $this->get_render_attribute_string( 'jltma-icon' ) .'></i>';
+												}
+	                                        ?>
+	                                    </div>
 
                                         <div class="media-body">
                                             <h3 class="ma-el-action-title">
