@@ -293,107 +293,108 @@
 
 			$this->start_controls_tabs( 'ma_el_call_to_action_button_style_tabs' );
 
-			$this->start_controls_tab( 'ma_el_call_to_action_button_style_tab',
-				[ 'label' => esc_html__( 'Normal', MELA_TD )
+				$this->start_controls_tab( 'ma_el_call_to_action_button_style_tab',
+					[ 'label' => esc_html__( 'Normal', MELA_TD )
+					] );
+
+
+					$this->add_control(
+						'ma_el_call_to_action_button_bg_color',
+						[
+							'label'		=> esc_html__( 'Background Color', MELA_TD ),
+							'type'		=> Controls_Manager::COLOR,
+							'default' => '#4b00e7',
+							'selectors'	=> [
+								'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn'
+								=> 'background-color: {{VALUE}};',
+							]
+						]
+					);
+
+					$this->add_control(
+						'ma_el_call_to_action_button_color',
+						[
+							'label'		=> esc_html__( 'Text Color', MELA_TD ),
+							'type'		=> Controls_Manager::COLOR,
+							'default' => '#fff',
+							'selectors'	=> [
+								'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn'=> 'color: {{VALUE}};',
+							],
+						]
+					);
+
+					$this->add_group_control(
+						Group_Control_Border::get_type(),
+						[
+							'name'          => 'ma_el_call_to_action_button_border',
+							'selector'      => '{{WRAPPER}} .ma-el-action-content .ma-el-action-btn'
+						]
+					);
+
+					$this->add_control('ma_el_call_to_action_button_border_radius',
+						[
+							'label'         => __('Border Radius', MELA_TD),
+							'type'          => Controls_Manager::SLIDER,
+							'size_units'    => ['px', '%' ,'em'],
+							'selectors'     => [
+								'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn' => 'border-radius: {{SIZE}}{{UNIT}};'
+							]
+						]
+					);
+
+
+				$this->end_controls_tab();
+
+				$this->start_controls_tab( 'ma_el_call_to_action_button_hover', [ 'label' => esc_html__( 'Hover',
+					MELA_TD )
 				] );
 
-			$this->add_control(
-				'ma_el_call_to_action_button_color',
-				[
-					'label'		=> esc_html__( 'Button Text Color', MELA_TD ),
-					'type'		=> Controls_Manager::COLOR,
-					'default' => '#fff',
-					'selectors'	=> [
-						'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn'=> 'color: {{VALUE}};',
-					],
-				]
-			);
+					$this->add_control(
+						'ma_el_call_to_action_button_bg_hover_color',
+						[
+							'label'		=> esc_html__( 'Background Color', MELA_TD ),
+							'type'		=> Controls_Manager::COLOR,
+							'default' => '#4b00e7',
+							'selectors'	=> [
+								'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover'
+								=> 'background-color: {{VALUE}};',
+							],
+						]
+					);
 
-			$this->add_group_control(
-				Group_Control_Border::get_type(),
-				[
-					'name'          => 'ma_el_call_to_action_button_border',
-					'selector'      => '{{WRAPPER}} .ma-el-action-content .ma-el-action-btn'
-				]
-			);
+					$this->add_control(
+						'ma_el_call_to_action_button_hover_color',
+						[
+							'label'		=> esc_html__( 'Text Color', MELA_TD ),
+							'type'		=> Controls_Manager::COLOR,
+							'default' => '#fff',
+							'selectors'	=> [
+								'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover'
+								=> 'color: {{VALUE}};',
+							],
+						]
+					);
 
-			$this->add_control('ma_el_call_to_action_button_border_radius',
-				[
-					'label'         => __('Border Radius', MELA_TD),
-					'type'          => Controls_Manager::SLIDER,
-					'size_units'    => ['px', '%' ,'em'],
-					'selectors'     => [
-						'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn' => 'border-radius: {{SIZE}}{{UNIT}};'
-					]
-				]
-			);
+					$this->add_group_control(
+						Group_Control_Border::get_type(),
+						[
+							'name'          => 'ma_el_call_to_action_border_hover',
+							'selector'      => '{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover'
+						]
+					);
 
-			$this->add_control(
-				'ma_el_call_to_action_button_bg_color',
-				[
-					'label'		=> esc_html__( 'Button Background Color', MELA_TD ),
-					'type'		=> Controls_Manager::COLOR,
-					'default' => '#4b00e7',
-					'selectors'	=> [
-						'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn'
-						=> 'background-color: {{VALUE}};',
-					]
-				]
-			);
+					$this->add_control('ma_el_call_to_action_button_border_hover_radius',
+						[
+							'label'         => __('Border Radius', MELA_TD),
+							'type'          => Controls_Manager::SLIDER,
+							'size_units'    => ['px', '%' ,'em'],
+							'selectors'     => [
+								'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover' => 'border-radius: {{SIZE}}{{UNIT}};'
+							]
+						]
+					);
 
-			$this->end_controls_tab();
-
-			$this->start_controls_tab( 'ma_el_call_to_action_button_hover', [ 'label' => esc_html__( 'Hover',
-				MELA_TD )
-			] );
-
-			$this->add_control(
-				'ma_el_call_to_action_button_hover_color',
-				[
-					'label'		=> esc_html__( 'Button Text Color', MELA_TD ),
-					'type'		=> Controls_Manager::COLOR,
-					'default' => '#fff',
-					'selectors'	=> [
-						'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover'
-						=> 'color: {{VALUE}};',
-					],
-				]
-			);
-
-			$this->add_group_control(
-				Group_Control_Border::get_type(),
-				[
-					'name'          => 'ma_el_call_to_action_border_hover',
-					'selector'      => '{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover'
-				]
-			);
-
-			$this->add_control('ma_el_call_to_action_button_border_hover_radius',
-				[
-					'label'         => __('Border Radius', MELA_TD),
-					'type'          => Controls_Manager::SLIDER,
-					'size_units'    => ['px', '%' ,'em'],
-					'selectors'     => [
-						'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover' => 'border-radius: {{SIZE}}{{UNIT}};'
-					]
-				]
-			);
-
-			$this->add_control(
-				'ma_el_call_to_action_button_bg_hover_color',
-				[
-					'label'		=> esc_html__( 'Button Hover Background Color', MELA_TD ),
-					'type'		=> Controls_Manager::COLOR,
-					'default' => '#4b00e7',
-					'selectors'	=> [
-						'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover'
-						=> 'background-color: {{VALUE}};',
-					],
-				]
-			);
-
-
-			$this->end_controls_tab();
+				$this->end_controls_tab();
 			$this->end_controls_tabs();
 
 			$this->add_group_control(
