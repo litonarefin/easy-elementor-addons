@@ -378,7 +378,7 @@ Paste on your Local Computer
 * Added: Item Padding option added on Navmenu
 * Removed: Default Tablet background color removed from Navmenu
 * Added: Comment Form Submit Button - Background Color, Typography, Padding, Margin, Border, Border Radius, Box shadow added
-
+* Fixed: Progress Bars - active bar color option added, stats alignment(left,default,right) option added
 
 = 1.5.1 (5-09-2020) =
 * Fixed: "Animated Gradient" repeater not working for Elementor v3.0 update issue fixed

@@ -317,14 +317,14 @@
 	                'type' 			=> Controls_Manager::CHOOSE,
 	                'label_block' 	=> false,
 	                'options' 		=> [
-	                    'inherit' 	=> [
-								'title' 	=> esc_html__( 'Default', JLTMA_TD ),
-								'icon' 		=> 'eicon-h-align-center',
-	                    ],
 	                    'left' 	=> [
 								'title' 	=> esc_html__( 'Left', JLTMA_TD ),
 								'icon' 		=> 'eicon-h-align-left',
 	                    ],
+	                    'inherit' 	=> [
+								'title' 	=> esc_html__( 'Default', JLTMA_TD ),
+								'icon' 		=> 'eicon-h-align-center',
+	                    ],	                    
 	                    'right' 		=> [
 	                        'title' 		=> esc_html__( 'Right', JLTMA_TD ),
 	                        'icon' 			=> 'eicon-h-align-right',
