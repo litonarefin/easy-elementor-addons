@@ -2,7 +2,7 @@
 Contributors: jwthemeltd, litonice13
 Tags: elementor, elementor addon, elementor widget, custom css elements, essential widget, after before image comparison, image hover effects, header & footer builder, template import, elementor addons, elementor extensions,  elementor modules, elementor templates, comment form builder, mega menu, header footer builder, elements, page builder addons,addons, jewletheme, masteraddons
 Requires at least: 4.0
-Tested up to: 5.5
+Tested up to: 5.5.1
 Requires PHP: 5.3
 Stable tag: trunk
 License: GPLv2
@@ -373,6 +373,12 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.5.2 (5-09-2020) =
+* Fixed: Reading Progres Bar warning fixed
+* Added: Item Padding option added on Navmenu
+* Removed: Default Tablet background color removed
+
+
 = 1.5.1 (5-09-2020) =
 * Fixed: "Animated Gradient" repeater not working for Elementor v3.0 update issue fixed
 * Update: Template Importer support given for both Elementor v2.x.x and v3.x.x

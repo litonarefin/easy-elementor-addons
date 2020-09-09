@@ -207,7 +207,7 @@ class Master_Addons_Reading_Progress_Bar {
 
 	public function jltma_reading_progress_bar_render() {
 		
-		$document = \Elementor\Plugin::instance()->documents->get( get_the_ID() );
+		$document = Plugin::instance()->documents->get( get_the_ID() );
 
 		if ( ! $document ) return;
 

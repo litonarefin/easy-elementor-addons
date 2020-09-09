@@ -695,7 +695,7 @@
                 [
                     'label' => esc_html__( 'Background Color(Tablet)', MELA_TD ),
                     'type' => Controls_Manager::COLOR,
-                    'tablet_default' => '#ffffff',
+                    'tablet_default' => '',
                     'devices' => ['tablet'],
                     'selectors' => [
                         '{{WRAPPER}} .jltma-menu-container' => 'background-image: linear-gradient(180deg, {{VALUE}} 0%, {{VALUE}} 100%);',
@@ -831,6 +831,18 @@
                 ]
             );
 
+
+            $this->add_responsive_control(
+                'jltma_menu_item_padding',
+                [
+                    'label' => esc_html__( 'Item Padding', MELA_TD ),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => [ 'px', '%', 'em' ],
+                    'selectors' => [
+                        '{{WRAPPER}} .jltma-navbar-nav > li > a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
 
             $this->add_responsive_control(
                 'jltma_menu_item_icon_spacing',
