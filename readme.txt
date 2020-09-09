@@ -376,7 +376,8 @@ Paste on your Local Computer
 = 1.5.2 (5-09-2020) =
 * Fixed: Reading Progres Bar warning fixed
 * Added: Item Padding option added on Navmenu
-* Removed: Default Tablet background color removed
+* Removed: Default Tablet background color removed from Navmenu
+* Added: Comment Form Submit Button - Background Color, Typography, Padding, Margin, Border, Border Radius, Box shadow added
 
 
 = 1.5.1 (5-09-2020) =

@@ -2124,6 +2124,97 @@
 
 
 
+			// Comment Submit
+			$this->start_controls_section(
+				'jltma_comments_submit_start',
+				[
+					'label' => esc_html__( 'Comment Submit Button', JLTMA_TD ),
+					'tab' 			=> Controls_Manager::TAB_STYLE
+				]
+	        );
+
+			$this->add_group_control(
+				Group_Control_Background::get_type(),
+				[
+					'name'      => 'jltma_comments_submit_background',
+					'label'     => esc_html__( 'Background', JLTMA_TD ),
+					'types'     => [ 'classic', 'gradient' ],
+					'selector' => '{{WRAPPER}} .jltma-comment-style_one .jltma-form-submit input.jltma-comment-form-submit',
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'jltma_comments_submit_typography',
+					'selector' => '{{WRAPPER}} .jltma-comment-style_one .jltma-form-submit input.jltma-comment-form-submit',
+					'scheme' => Scheme_Typography::TYPOGRAPHY_1
+				]
+			);
+
+
+			$this->add_responsive_control(
+				'jltma_comments_submit_pading',
+				[
+					'label'         => esc_html__( 'Padding', JLTMA_TD ),
+					'type'          => Controls_Manager::DIMENSIONS,
+					'size_units'    => [ 'px', 'em', '%' ],
+					'separator' => 'before',
+					'selectors'     => [
+						'{{WRAPPER}} .jltma-comment-style_one .jltma-form-submit input.jltma-comment-form-submit' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					]
+				]
+			);
+
+			$this->add_responsive_control(
+				'jltma_comments_submit_margin',
+				[
+					'label'         => esc_html__( 'Margin', JLTMA_TD ),
+					'type'          => Controls_Manager::DIMENSIONS,
+					'size_units'    => [ 'px', 'em', '%' ],
+					'selectors'     => [
+						'{{WRAPPER}} .jltma-comment-style_one .jltma-form-submit input.jltma-comment-form-submit' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					]
+				]
+			);
+
+
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+				[
+					'name'          => 'jltma_comments_submit_border',
+					'selector'      => '{{WRAPPER}} .jltma-comment-style_one .jltma-form-submit input.jltma-comment-form-submit'
+				]
+			);
+
+			$this->add_responsive_control(
+				'jltma_comments_submit_border_radius',
+				[
+					'label' => esc_html__( 'Border Radius', JLTMA_TD ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units'    => ['px', '%' ,'em'],
+					'selectors' => [
+						'{{WRAPPER}} .jltma-comment-style_one .jltma-form-submit input.jltma-comment-form-submit' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					]
+				]
+			);
+
+
+			$this->add_group_control(
+				Group_Control_Box_Shadow::get_type(),
+				[
+					'label'             => esc_html__('Box Shadow',JLTMA_TD),
+					'name'              => 'jltma_comments_submit_box_shadow',
+					'separator' 		=> 'after',
+					'selector'          => '{{WRAPPER}} .jltma-comment-style_one .jltma-form-submit input.jltma-comment-form-submit'
+				]
+			);
+			$this->end_controls_section();
+
+
+
+
+
 	        /*
 			 * MA Comments Pagination
 			 */
