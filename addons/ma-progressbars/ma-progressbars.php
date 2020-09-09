@@ -94,7 +94,7 @@
 							'name' => 'bar_color',
 							'label' => __('Bar Color', MELA_TD),
 							'type' => Controls_Manager::COLOR,
-							'default' => '#704aff',
+							'default' => '',
 						],
 
 					],
@@ -188,11 +188,20 @@
 			$this->add_control(
 				'stats_bar_bg_color',
 				[
-					'label' => esc_html__('Stats Bar Background Color', MELA_TD),
+					'label' => esc_html__('Bar BG Color', MELA_TD),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-bar-bg' => 'background-color: {{VALUE}};',
 					],
+				]
+			);
+
+			$this->add_control(
+				'stats_bar_active_bar_bg_color',
+				[
+					'label' 		=> esc_html__('Active Bar Color', MELA_TD),
+					'type' 			=> Controls_Manager::COLOR,
+					'default'		=> '#704aff'
 				]
 			);
 
@@ -201,7 +210,7 @@
 			$this->add_control(
 				'stats_bar_spacing',
 				[
-					'label' => esc_html__('Stats Bar Spacing', MELA_TD),
+					'label' => esc_html__('Vertical Spacing', MELA_TD),
 					'type' => Controls_Manager::SLIDER,
 					'size_units' => ['px'],
 					'default' => [
@@ -223,25 +232,24 @@
 			$this->add_control(
 				'stats_bar_height',
 				[
-					'label' => __('Stats Bar Height', MELA_TD),
-					'type' => Controls_Manager::SLIDER,
-					'size_units' => ['px'],
-					'default' => [
-						'size' => 10,
+					'label' 		=> __('Bar Height', MELA_TD),
+					'type' 			=> Controls_Manager::SLIDER,
+					'size_units' 	=> ['px'],
+					'default' 		=> [
+							'size' 	=> 10,
 					],
-					'range' => [
-						'px' => [
+					'range' 		=> [
+						'px' 		=> [
 							'min' => 1,
 							'max' => 96,
 						],
 					],
-					'selectors' => [
+					'selectors' 	=> [
 						'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-bar-bg, {{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-bar-content' => 'height: {{SIZE}}{{UNIT}};',
 						'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-bar-bg' => 'margin-top: -{{SIZE}}{{UNIT}};',
 					],
 				]
 			);
-
 
 
 			$this->add_control(
@@ -290,6 +298,9 @@
 
 			$this->end_controls_section();
 
+
+
+			// Stats Percentage
 			$this->start_controls_section(
 				'section_stats_percentage',
 				[
@@ -300,9 +311,37 @@
 
 
 			$this->add_control(
+	            'stats_percentage_align',
+	            [
+	                'label' 		=> esc_html__( 'Alignment', JLTMA_TD ),
+	                'type' 			=> Controls_Manager::CHOOSE,
+	                'label_block' 	=> false,
+	                'options' 		=> [
+	                    'inherit' 	=> [
+								'title' 	=> esc_html__( 'Default', JLTMA_TD ),
+								'icon' 		=> 'eicon-h-align-center',
+	                    ],
+	                    'left' 	=> [
+								'title' 	=> esc_html__( 'Left', JLTMA_TD ),
+								'icon' 		=> 'eicon-h-align-left',
+	                    ],
+	                    'right' 		=> [
+	                        'title' 		=> esc_html__( 'Right', JLTMA_TD ),
+	                        'icon' 			=> 'eicon-h-align-right',
+	                    ],
+	                ],
+	                'default' 		 => 'inherit',
+	                'style_transfer' => true,
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-title span' => 'float: {{VALUE}};'
+					]	                
+	            ]
+	        );
+
+			$this->add_control(
 				'stats_percentage_spacing',
 				[
-					'label' => __('Spacing from Stats Title', MELA_TD),
+					'label' => __('Padding', MELA_TD),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => ['px', '%', 'em'],
 					'default' => [
@@ -325,7 +364,7 @@
 					'label' => __('Color', MELA_TD),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-title span' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-title span' => 'color: {{VALUE}};'
 					],
 				]
 			);
@@ -385,7 +424,8 @@
 			foreach ($settings['stats_bars'] as $stats_bar) :
 
 				$color_style = '';
-				$color = $stats_bar['bar_color'];
+				$color = ($stats_bar['bar_color']) ? $stats_bar['bar_color'] : $settings['stats_bar_active_bar_bg_color'];
+
 				if ($color)
 					$color_style = ' style="background:' . esc_attr($color) . ';"';
 
