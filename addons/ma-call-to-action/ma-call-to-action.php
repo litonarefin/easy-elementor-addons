@@ -29,6 +29,12 @@
 			return [ 'master-addons' ];
 		}
 
+		public function get_style_depends() {
+			return [
+				'font-awesome-5-all',
+                'font-awesome-4-shim'
+			];
+		}
 
 		public function get_help_url() {
 			return 'https://master-addons.com/demos/call-to-action/';
@@ -46,6 +52,26 @@
 					'label' => esc_html__( 'Content', MELA_TD ),
 				]
 			);
+
+
+			$this->add_control(
+				'ma_el_call_to_action_style_preset',
+				[
+					'label' 		=> esc_html__( 'Style Preset', MELA_TD ),
+					'type' 			=> Controls_Manager::SELECT,
+					'default' 		=> 'style-01',
+					'separator' 	=> 'after',
+					'options' 		=> [
+						'style-01' => esc_html__( 'Default Style', MELA_TD ),
+						'style-02' => esc_html__( 'Center Style', MELA_TD ),
+						'style-03' => esc_html__( 'Quote Style', MELA_TD ),
+						'style-04' => esc_html__( 'Quote Style 2', MELA_TD ),
+						'style-07' => esc_html__( 'Left Icon', MELA_TD )
+					],
+				]
+			);
+
+
 
 			$this->add_control(
 				'ma_el_call_to_action_title',
@@ -98,9 +124,12 @@
 			$this->add_control(
 				'ma_el_call_to_action_icon',
 				[
-					'label'     => __( 'Icon', MELA_TD ),
-					'type'      => Controls_Manager::ICON,
-					'default'   => 'fa fa-bell',
+					'label'         => esc_html__( 'Icon', MELA_TD ),
+					'type'          => Controls_Manager::ICONS,
+					'default'       => [
+						'value'     => 'fas fa-star',
+						'library'   => 'solid',
+					],
 					'condition' => [
 						'ma_el_call_to_action_style_preset' => [ 'style-07'],
 					],
@@ -117,44 +146,8 @@
 			$this->start_controls_section(
 				'ma_el_call_to_action_style',
 				[
-					'label' => esc_html__( 'Style Presets', MELA_TD ),
+					'label' => esc_html__( 'Presets Style ', MELA_TD ),
 					'tab' => Controls_Manager::TAB_STYLE,
-				]
-			);
-
-			$this->add_control(
-				'ma_el_call_to_action_style_preset',
-				[
-					'label' => esc_html__( 'Style Preset', MELA_TD ),
-					'type' => Controls_Manager::SELECT,
-					'default' => 'style-01',
-					'options' => [
-						'style-01' => __( 'Style 01', MELA_TD ),
-						'style-02' => __( 'Style 02', MELA_TD ),
-						'style-03' => __( 'Style 03', MELA_TD ),
-						'style-04' => __( 'Style 04', MELA_TD ),
-						'style-05' => __( 'Background Color', MELA_TD ),
-						'style-06' => __( 'Gradient Background', MELA_TD ),
-						'style-07' => __( 'Gradient with Icon', MELA_TD )
-					],
-				]
-			);
-
-
-			$this->add_control(
-				'ma_el_call_to_action_icon_color',
-				[
-					'label'		=> esc_html__( 'Icon Color', MELA_TD ),
-					'type'		=> Controls_Manager::COLOR,
-					'default' => '#fff',
-					'selectors'	=> [
-						'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover, 
-						{{WRAPPER}} .style-07 .media-left i' => 'color: {{VALUE}};',
-					],
-
-					'condition' => [
-						'ma_el_call_to_action_style_preset' => [ 'style-07'],
-					],
 				]
 			);
 
@@ -162,12 +155,9 @@
 				Group_Control_Background::get_type(),
 				[
 					'name' => 'ma_el_call_to_action_desc_bg',
-					'label' => __( 'Background', MELA_TD ),
+					'label' => __( 'CTA Background', MELA_TD ),
 					'types' => [ 'classic', 'gradient'],
-					'selector' => '{{WRAPPER}} .ma-el-call-to-action',
-//					'condition' => [
-//						'ma_el_call_to_action_style_preset' => ['style-06','style-07'],
-//					],
+					'selector' => '{{WRAPPER}} .ma-el-call-to-action'
 				]
 			);
 
@@ -188,6 +178,24 @@
 
 					'condition' => [
 						'ma_el_call_to_action_style_preset' => [ 'style-03', 'style-04'],
+					],
+				]
+			);
+
+
+			$this->add_control(
+				'ma_el_call_to_action_icon_color',
+				[
+					'label'		=> esc_html__( 'Icon Color', MELA_TD ),
+					'type'		=> Controls_Manager::COLOR,
+					'default' => '#fff',
+					'selectors'	=> [
+						'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover, 
+						{{WRAPPER}} .style-07 .media-left i' => 'color: {{VALUE}};',
+					],
+
+					'condition' => [
+						'ma_el_call_to_action_style_preset' => [ 'style-07'],
 					],
 				]
 			);
@@ -213,8 +221,6 @@
 					'selectors'	=> [
 
 						'{{WRAPPER}} .style-02 .ma-el-action-title' => 'color: #fff;',
-						'{{WRAPPER}} .style-05 .ma-el-action-title' => 'color: #fff;',
-
 						'{{WRAPPER}} .ma-el-action-title' => 'color: {{VALUE}} !important;',
 					],
 
@@ -253,11 +259,7 @@
 					'default' => '#78909c',
 					'selectors'	=> [
 						'{{WRAPPER}} .ma-el-action-description' => 'color: {{VALUE}};'
-					],
-//
-//					'condition' => [
-//						'ma_el_call_to_action_style_preset' => ['style-05','style-06', 'style-07'],
-//					],
+					]
 				]
 			);
 
@@ -308,10 +310,7 @@
 				Group_Control_Border::get_type(),
 				[
 					'name'          => 'ma_el_call_to_action_button_border',
-					'selector'      => '{{WRAPPER}} .ma-el-action-content .ma-el-action-btn',
-//					'condition' => [
-//						'ma_el_call_to_action_style_preset' => ['style-06','style-07'],
-//					],
+					'selector'      => '{{WRAPPER}} .ma-el-action-content .ma-el-action-btn'
 				]
 			);
 
@@ -322,10 +321,7 @@
 					'size_units'    => ['px', '%' ,'em'],
 					'selectors'     => [
 						'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn' => 'border-radius: {{SIZE}}{{UNIT}};'
-					],
-//					'condition' => [
-//						'ma_el_call_to_action_style_preset' => ['style-06','style-07'],
-//					],
+					]
 				]
 			);
 
@@ -338,11 +334,7 @@
 					'selectors'	=> [
 						'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn'
 						=> 'background-color: {{VALUE}};',
-					],
-
-//					'condition' => [
-//						'ma_el_call_to_action_style_preset' => ['style-06','style-07'],
-//					],
+					]
 				]
 			);
 
@@ -369,10 +361,7 @@
 				Group_Control_Border::get_type(),
 				[
 					'name'          => 'ma_el_call_to_action_border_hover',
-					'selector'      => '{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover',
-//					'condition' => [
-//						'ma_el_call_to_action_style_preset' => ['style-06','style-07'],
-//					],
+					'selector'      => '{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover'
 				]
 			);
 
@@ -383,10 +372,7 @@
 					'size_units'    => ['px', '%' ,'em'],
 					'selectors'     => [
 						'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover' => 'border-radius: {{SIZE}}{{UNIT}};'
-					],
-//					'condition' => [
-//						'ma_el_call_to_action_style_preset' => ['style-06','style-07'],
-//					],
+					]
 				]
 			);
 
