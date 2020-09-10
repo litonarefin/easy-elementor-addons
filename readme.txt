@@ -385,6 +385,9 @@ Paste on your Local Computer
 * Fixed: Call to Action - Background Color not changing issue fixed
 * Updated: Call to Action - Previous Icon dropdown select option replaced with Icon Picker Library.
 * Updated: Call to Action - re structured UX settings for better control. Added more controls like padding, margin, border radius, Button Style etc
+* Added: Filterable Portfolio Gallery - Image Popup Icon select option added, Added Icon size option on Style Tab
+
+
 
 = 1.5.1 (5-09-2020) =
 * Fixed: "Animated Gradient" repeater not working for Elementor v3.0 update issue fixed

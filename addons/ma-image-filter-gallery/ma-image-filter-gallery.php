@@ -292,6 +292,9 @@
 							'name'    => 'ma_el_image_gallery_img',
 							'label'   => __( 'Image', MELA_TD ),
 							'type'    => Controls_Manager::MEDIA,
+							'default' => [
+								'url' => Utils::get_placeholder_image_src(),
+							],							
 						],
 						[
 							'type'          => Controls_Manager::TEXT,
@@ -679,7 +682,7 @@
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item i' => 'font-size: {{SIZE}}px;'
+						'{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item i' => 'font-sizema: {{SIZE}}px;'
 					]
 				]
 			);
@@ -1327,7 +1330,6 @@
 			if( is_array( $settings['ma_el_image_gallery_items'] ) ):
 				$column = 12/$settings['ma_el_image_gallery_column_number'];
 
-//				echo '<div '. $this->get_render_attribute_string( 'ma_el_image_filter_gallery' ) .'>';
 				echo '<div '. $ma_el_image_filter_gallery_editor .'>';
 
 				foreach ( $settings['ma_el_image_gallery_items'] as $item ) :

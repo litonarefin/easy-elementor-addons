@@ -455,8 +455,8 @@
         //Master Addons: Image Filter Gallery
         MA_Image_Filter_Gallery: function ($scope, $) {
 
-            let $ma_el_image_filter_gallery_container = $scope.find('.ma-el-image-filter-gallery');
-            let $ma_el_image_filter_gallery_nav = $scope.find('.ma-el-image-filter-nav');
+            var $ma_el_image_filter_gallery_container = $scope.find('.ma-el-image-filter-gallery'),
+                $ma_el_image_filter_gallery_nav = $scope.find('.ma-el-image-filter-nav');
 
             if ($.isFunction($.fn.imagesLoaded)) {
                 $ma_el_image_filter_gallery_container.imagesLoaded(function () {
@@ -2255,7 +2255,6 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.MA_PiechartsHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-timeline.default', Master_Addons.MA_Timeline);
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-image-filter-gallery.default', Master_Addons.MA_Image_Filter_Gallery);
-        // elementorFrontend.hooks.addAction('frontend/element_ready/ma-image-filter-gallery.default', Master_Addons.MA_Fancybox_Popup);
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-gallery-slider.default', Master_Addons.MA_Gallery_Slider);
 
         elementorFrontend.hooks.addAction('frontend/element_ready/ma-el-image-comparison.default', Master_Addons.MA_Image_Comparison);
@@ -2273,7 +2272,7 @@
             elementorFrontend.hooks.addAction('frontend/element_ready/ma-piecharts.default', Master_Addons.MA_PiechartsHandler);
             elementorFrontend.hooks.addAction('frontend/element_ready/ma-progressbars.default', Master_Addons.StatsBarHandler);
             elementorFrontend.hooks.addAction('frontend/element_ready/ma-news-ticker.default', Master_Addons.MA_NewsTicker);
-            elementorFrontend.hooks.addAction('frontend/element_ready/ma-image-filter-gallery.default', Master_Addons.MA_Image_Filter_Gallery);
+            // elementorFrontend.hooks.addAction('frontend/element_ready/ma-image-filter-gallery.default', Master_Addons.MA_Image_Filter_Gallery);
             elementorFrontend.hooks.addAction('frontend/element_ready/jltma-gallery-slider.default', Master_Addons.MA_Gallery_Slider);
         }
 
