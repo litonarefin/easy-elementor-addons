@@ -679,7 +679,7 @@
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item i' => 'width: {{SIZE}}px; height: {{SIZE}}px;'
+						'{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item i' => 'font-size: {{SIZE}}px;'
 					]
 				]
 			);
