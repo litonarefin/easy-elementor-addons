@@ -386,8 +386,10 @@ Paste on your Local Computer
 * Updated: Call to Action - Previous Icon dropdown select option replaced with Icon Picker Library.
 * Updated: Call to Action - re structured UX settings for better control. Added more controls like padding, margin, border radius, Button Style etc
 * Added: Filterable Portfolio Gallery - Image Popup Icon select option added, Added Icon size option on Style Tab
+* Added: Filterable Portfolio Gallery - Title Typography, Description/Sub Title typography and Color not working issue fixed
 * Fixed: Team Carousel - Responsive Slider Controls on Desktop, Tablet, Mobile not working issue fixed
 * Fixed: Fully compatible "MA Editor Button" placement issue on Tweentytwenty Theme and other themes
+* Fixed: MA Counter Up - Color, Typography style not working issue fixed
 
 
 

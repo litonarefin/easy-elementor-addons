@@ -42,6 +42,15 @@ class Master_Addons_Filterable_Image_Gallery extends Widget_Base {
 		return 'ma-el-icon eicon-gallery-masonry';
 	}
 
+
+	public function get_style_depends() {
+		return [
+			'font-awesome-5-all',
+            'font-awesome-4-shim',
+            'master-addons-main-style'
+		];
+	}
+
 	public function get_script_depends() {
 		return [
 			'imagesloaded',
@@ -671,23 +680,6 @@ class Master_Addons_Filterable_Image_Gallery extends Widget_Base {
 		);
 
 
-		$this->add_control(
-			'ma_el_image_gallery_popup_icon_size',
-			[
-				'label'     => __( 'Icon Size', MELA_TD ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
-					'px'    => [
-						'max'   => 200
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item i' => 'font-sizema: {{SIZE}}px;'
-				]
-			]
-		);
-
-
 		$this->add_responsive_control(
 			'ma_el_image_gallery_item_container_padding',
 			[
@@ -795,20 +787,21 @@ class Master_Addons_Filterable_Image_Gallery extends Widget_Base {
 				],
 				'default'       => '#333',
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item .ma-el-image-hover-title' => 'color: {{VALUE}};'
+					'{{WRAPPER}} h3.ma-el-image-hover-title' => 'color: {{VALUE}};'
 				]
 			]
 		);
 
+
 		$this->add_group_control(
-			Group_Control_Typography::get_type(),
+			Group_Control_Typography:: get_type(),
 			[
-				'name'          => 'ma_el_image_gallery_image_title_typography',
-				'selectors'      => [
-					'{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item .ma-el-image-hover-title'
-				]
+				'name'     => 'ma_el_image_gallery_image_title_typography',
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} h3.ma-el-image-hover-title',
 			]
 		);
+
 
 		$this->add_control(
 			'ma_el_image_gallery_image_sub_title_style',
@@ -830,7 +823,7 @@ class Master_Addons_Filterable_Image_Gallery extends Widget_Base {
 				],
 				'default'       => '#333',
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item .ma-el-image-hover-desc' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .ma-el-image-hover-desc' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -841,7 +834,7 @@ class Master_Addons_Filterable_Image_Gallery extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'          => 'ma_el_image_gallery_image_caption_subtitle_typography',
-				'selector'      => '{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item .ma-el-image-hover-desc'
+				'selector'      => '{{WRAPPER}} .ma-el-image-hover-desc'
 			]
 		);
 
@@ -857,6 +850,24 @@ class Master_Addons_Filterable_Image_Gallery extends Widget_Base {
 
 
 		$this->add_control(
+			'ma_el_image_gallery_popup_icon_size',
+			[
+				'label'     => __( 'Icon Size', MELA_TD ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px'    => [
+						'max'   => 200
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item i' => 'font-size: {{SIZE}}px;',
+					'{{WRAPPER}} .ma-el-image-filter-item .ma-el-fancybox svg' => 'width: {{SIZE}}px; height: {{SIZE}}px;'
+				]
+			]
+		);
+
+
+		$this->add_control(
 			'ma_el_image_gallery_image_hover_icon_color',
 			[
 				'type'          => Controls_Manager::COLOR,
@@ -867,7 +878,8 @@ class Master_Addons_Filterable_Image_Gallery extends Widget_Base {
 				],
 				'default'       => '#ffffff',
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item i' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-image-filter-item .ma-el-fancybox svg' => 'fill: {{VALUE}};'
 				]
 			]
 		);
@@ -891,7 +903,8 @@ class Master_Addons_Filterable_Image_Gallery extends Widget_Base {
 			'ma_el_filter_image_button_one_style',
 			[
 				'label'         => __( 'Button One Style', MELA_TD ),
-				'type'          => Controls_Manager::HEADING
+				'type'          => Controls_Manager::HEADING,
+				'description' => esc_html__('Only works while Individual Popup set to Links', MELA_TD)
 			]
 		);
 
