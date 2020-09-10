@@ -455,8 +455,12 @@
         //Master Addons: Image Filter Gallery
         MA_Image_Filter_Gallery: function ($scope, $) {
 
-            var $ma_el_image_filter_gallery_container = $scope.find('.ma-el-image-filter-gallery'),
-                $ma_el_image_filter_gallery_nav = $scope.find('.ma-el-image-filter-nav');
+            // var $carousel           = $scope.find('.jltma-gallery-slider__carousel').eq(0),
+            //     $preview            = $scope.find('.jltma-gallery-slider__preview');
+
+            var $ma_el_image_filter_gallery_container   = $scope.find('.ma-el-image-filter-gallery').eq(0),
+                $ma_el_image_filter_gallery_nav         = $scope.find('.ma-el-image-filter-nav');
+
 
             if ($.isFunction($.fn.imagesLoaded)) {
                 $ma_el_image_filter_gallery_container.imagesLoaded(function () {

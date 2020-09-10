@@ -804,7 +804,9 @@
 				Group_Control_Typography::get_type(),
 				[
 					'name'          => 'ma_el_image_gallery_image_title_typography',
-					'selector'      => '{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item .ma-el-image-hover-title',
+					'selectors'      => [
+						'{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item .ma-el-image-hover-title'
+					]
 				]
 			);
 
