@@ -775,8 +775,9 @@
 					'type'           => Controls_Manager::SELECT,
 					'label'          => esc_html__( 'Columns', MELA_TD ),
 					'options'        => $slides_per_view,
-					'default'        => '3',
-                    'tablet_default' => '3',
+					'default'        => '4',
+					'tablet_default' 	=> '3',
+					'mobile_default' 	=> '2',
 				]
 			);
 
