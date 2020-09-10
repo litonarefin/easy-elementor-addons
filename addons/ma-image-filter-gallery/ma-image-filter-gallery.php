@@ -667,6 +667,24 @@
 				]
 			);
 
+
+			$this->add_control(
+				'ma_el_image_gallery_popup_icon_size',
+				[
+					'label'     => __( 'Icon Size', MELA_TD ),
+					'type'      => Controls_Manager::SLIDER,
+					'range'     => [
+						'px'    => [
+							'max'   => 200
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-image-filter-gallery .ma-el-image-filter-item i' => 'width: {{SIZE}}px; height: {{SIZE}}px;'
+					]
+				]
+			);
+
+
 			$this->add_responsive_control(
 				'ma_el_image_gallery_item_container_padding',
 				[
@@ -1313,39 +1331,8 @@
 				echo '<div '. $ma_el_image_filter_gallery_editor .'>';
 
 				foreach ( $settings['ma_el_image_gallery_items'] as $item ) :
-
-
-
-					// Lightbox Icon
-					$jltma_img_filter_lightbox_icon ="";
-		            if($settings['ma_el_image_gallery_hover_icon'] == "yes"){
-			            if ( ! isset( $settings['icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
-			                $settings['icon'] = 'fa-link';
-			            }
-
-			            $has_icon  = ! empty( $settings['icon'] );
-			            if ( $has_icon and 'icon' == $settings['ma_el_image_gallery_popup_icon'] ) {
-			                $this->add_render_attribute( 'jltma-icon', 'class', $settings['ma_el_image_gallery_popup_icon'] );
-			                $this->add_render_attribute( 'jltma-icon', 'aria-hidden', 'true' );
-			            }
-
-			            if ( ! $has_icon && ! empty( $settings['ma_el_image_gallery_popup_icon']['value'] ) ) {
-			                $has_icon = true;
-			            }
-
-			            $migrated  = isset( $settings['__fa4_migrated']['ma_el_image_gallery_popup_icon'] );
-			            $is_new    = empty( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
-
-
-						if ( $is_new || $migrated ) {
-						    $jltma_img_filter_lightbox_icon = Icons_Manager::render_icon( $settings['ma_el_image_gallery_popup_icon'], [ 'aria-hidden' => 'true' ] );
-						} else {
-						    $jltma_img_filter_lightbox_icon = '<i ' . $this->get_render_attribute_string( 'jltma-icon' ) .'></i>';
-						}            	
-		            } else{
-		            	$jltma_img_filter_lightbox_icon = '<?xml version="1.0" encoding="iso-8859-1"?><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M210,229.236V90H90v150h90.935L272,369.004v-52.215L210,229.236z M180,210h-60v-90h60V210z"/></g></g><g><g><path d="M0,0v512h512V0H0z M482,482H30V30h452V482z"/></g></g><g><g><path d="M330.031,272L240,142.997v52.214l62,89.135V422h120V272H330.031z M392,392h-60v-90h60V392z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>';
-		            }
-
+					
+					$has_icon = false;
 
 					if( $item['ma_el_image_gallery_img']['id'] ):
 
@@ -1376,7 +1363,44 @@
 
 						if( $item['ma_el_image_gallery_buttons'] == "popup" ){
 							echo '<a class="ma-el-fancybox elementor-clickable" href="'. esc_url(
-									$item['ma_el_image_gallery_img']['url'] ) .'" data-fancybox="gallery">' . $jltma_img_filter_lightbox_icon . '</a>';
+									$item['ma_el_image_gallery_img']['url'] ) .'" data-fancybox="gallery">';
+
+
+
+							// Lightbox Icon
+							// $jltma_img_filter_lightbox_icon ="";
+							if ( 'yes' === $settings['ma_el_image_gallery_hover_icon'] && ( ! empty( $settings['icon'] ) || ! empty( $settings['ma_el_image_gallery_popup_icon']['value'] ) ) ) {
+
+					            if ( ! isset( $settings['icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
+					                $settings['icon'] = 'fa-link';
+					            }
+
+					            $has_icon  = ! empty( $settings['icon'] );
+					            if ( $has_icon and 'icon' == $settings['ma_el_image_gallery_popup_icon'] ) {
+					                $this->add_render_attribute( 'jltma-icon', 'class', $settings['ma_el_image_gallery_popup_icon'] );
+					                $this->add_render_attribute( 'jltma-icon', 'aria-hidden', 'true' );
+					            }
+
+					            if ( ! $has_icon && ! empty( $settings['ma_el_image_gallery_popup_icon']['value'] ) ) {
+					                $has_icon = true;
+					            }
+
+					            $migrated  = isset( $settings['__fa4_migrated']['ma_el_image_gallery_popup_icon'] );
+					            $is_new    = empty( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
+
+
+								if ( $is_new || $migrated ) {
+								    Icons_Manager::render_icon( $settings['ma_el_image_gallery_popup_icon'], [ 'aria-hidden' => 'true' ] );
+								} else {
+								    echo '<i ' . $this->get_render_attribute_string( 'jltma-icon' ) .'></i>';
+								}            	
+				            } else{
+				            	echo '<?xml version="1.0" encoding="iso-8859-1"?><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M210,229.236V90H90v150h90.935L272,369.004v-52.215L210,229.236z M180,210h-60v-90h60V210z"/></g></g><g><g><path d="M0,0v512h512V0H0z M482,482H30V30h452V482z"/></g></g><g><g><path d="M330.031,272L240,142.997v52.214l62,89.135V422h120V272H330.031z M392,392h-60v-90h60V392z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>';
+				            }
+
+
+
+							echo '</a>';
 
 						} elseif( $item['ma_el_image_gallery_buttons'] == "links" ){
 
