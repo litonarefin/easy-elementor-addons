@@ -153,13 +153,40 @@
 			$this->add_control(
 				'ma_el_image_gallery_tooltip',
 				[
-					'label'        => __( 'Filter Tooltip?', MELA_TD ),
+					'label'        => esc_html__( 'Filter Tooltip?', MELA_TD ),
 					'type'         => Controls_Manager::SWITCHER,
 					'default'      => 'no',
 					'return_value' => 'yes'
 				]
 			);
 
+			$this->add_control(
+				'ma_el_image_gallery_hover_icon',
+				[
+					'label'        => esc_html__( 'Hover Icon?', MELA_TD ),
+					'type'         => Controls_Manager::SWITCHER,
+					'default'      => 'no',
+					'return_value' => 'yes'
+				]
+			);
+
+			$this->add_control(
+				'ma_el_image_gallery_popup_icon',
+				[
+					'label'         	=> esc_html__( 'Lightbox Icon', MELA_TD ),
+					'description' 		=> __('Please choose an icon from the list.', MELA_TD),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'default'       	=> [
+						'value'     => 'fas fa-link',
+						'library'   => 'solid',
+					],
+					'render_type'      => 'template',
+					'condition' => [
+						'ma_el_image_gallery_hover_icon' => [ 'yes'],
+					],
+				]
+			);
 
 			$this->add_control(
 				'ma_el_image_gallery_items',
@@ -1274,7 +1301,6 @@
 				echo '</div>';
 
 				endif;
-
 			}
 
 
@@ -1287,6 +1313,39 @@
 				echo '<div '. $ma_el_image_filter_gallery_editor .'>';
 
 				foreach ( $settings['ma_el_image_gallery_items'] as $item ) :
+
+
+
+					// Lightbox Icon
+					$jltma_img_filter_lightbox_icon ="";
+		            if($settings['ma_el_image_gallery_hover_icon'] == "yes"){
+			            if ( ! isset( $settings['icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
+			                $settings['icon'] = 'fa-link';
+			            }
+
+			            $has_icon  = ! empty( $settings['icon'] );
+			            if ( $has_icon and 'icon' == $settings['ma_el_image_gallery_popup_icon'] ) {
+			                $this->add_render_attribute( 'jltma-icon', 'class', $settings['ma_el_image_gallery_popup_icon'] );
+			                $this->add_render_attribute( 'jltma-icon', 'aria-hidden', 'true' );
+			            }
+
+			            if ( ! $has_icon && ! empty( $settings['ma_el_image_gallery_popup_icon']['value'] ) ) {
+			                $has_icon = true;
+			            }
+
+			            $migrated  = isset( $settings['__fa4_migrated']['ma_el_image_gallery_popup_icon'] );
+			            $is_new    = empty( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
+
+
+						if ( $is_new || $migrated ) {
+						    $jltma_img_filter_lightbox_icon = Icons_Manager::render_icon( $settings['ma_el_image_gallery_popup_icon'], [ 'aria-hidden' => 'true' ] );
+						} else {
+						    $jltma_img_filter_lightbox_icon = '<i ' . $this->get_render_attribute_string( 'jltma-icon' ) .'></i>';
+						}            	
+		            } else{
+		            	$jltma_img_filter_lightbox_icon = '<?xml version="1.0" encoding="iso-8859-1"?><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M210,229.236V90H90v150h90.935L272,369.004v-52.215L210,229.236z M180,210h-60v-90h60V210z"/></g></g><g><g><path d="M0,0v512h512V0H0z M482,482H30V30h452V482z"/></g></g><g><g><path d="M330.031,272L240,142.997v52.214l62,89.135V422h120V272H330.031z M392,392h-60v-90h60V392z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>';
+		            }
+
 
 					if( $item['ma_el_image_gallery_img']['id'] ):
 
@@ -1317,12 +1376,7 @@
 
 						if( $item['ma_el_image_gallery_buttons'] == "popup" ){
 							echo '<a class="ma-el-fancybox elementor-clickable" href="'. esc_url(
-									$item['ma_el_image_gallery_img']['url'] ) .'" data-fancybox="gallery">
-
-										<?xml version="1.0" encoding="iso-8859-1"?><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-		viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M210,229.236V90H90v150h90.935L272,369.004v-52.215L210,229.236z M180,210h-60v-90h60V210z"/></g></g><g><g><path d="M0,0v512h512V0H0z M482,482H30V30h452V482z"/></g></g><g><g><path d="M330.031,272L240,142.997v52.214l62,89.135V422h120V272H330.031z M392,392h-60v-90h60V392z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-
-	 							</a>';
+									$item['ma_el_image_gallery_img']['url'] ) .'" data-fancybox="gallery">' . $jltma_img_filter_lightbox_icon . '</a>';
 
 						} elseif( $item['ma_el_image_gallery_buttons'] == "links" ){
 

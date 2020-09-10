@@ -379,6 +379,12 @@ Paste on your Local Computer
 * Removed: Default Tablet background color removed from Navmenu
 * Added: Comment Form Submit Button - Background Color, Typography, Padding, Margin, Border, Border Radius, Box shadow added
 * Fixed: Progress Bars - active bar color option added, stats alignment(left,default,right) option added
+* Fixed: Call to Action - Background Color not changing issue fixed
+* Removed: Call to Action - Background Color Style Preset not required, already it has options and removed
+* Removed: Call to Action - Gradient Background Color Style Preset not required, already it has options and removed
+* Fixed: Call to Action - Background Color not changing issue fixed
+* Updated: Call to Action - Previous Icon dropdown select option replaced with Icon Picker Library.
+* Updated: Call to Action - re structured UX settings for better control. Added more controls like padding, margin, border radius, Button Style etc
 
 = 1.5.1 (5-09-2020) =
 * Fixed: "Animated Gradient" repeater not working for Elementor v3.0 update issue fixed

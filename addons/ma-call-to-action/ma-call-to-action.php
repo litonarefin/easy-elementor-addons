@@ -331,17 +331,17 @@
 						]
 					);
 
-					$this->add_control('ma_el_call_to_action_button_border_radius',
-						[
-							'label'         => __('Border Radius', MELA_TD),
-							'type'          => Controls_Manager::SLIDER,
-							'size_units'    => ['px', '%' ,'em'],
-							'selectors'     => [
-								'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn' => 'border-radius: {{SIZE}}{{UNIT}};'
-							]
-						]
+					$this->add_responsive_control(
+						'ma_el_call_to_action_button_border_radius',
+						array(
+							'label'      => esc_html__( 'Border Radius', MELA_TD ),
+							'type'       => Controls_Manager::DIMENSIONS,
+							'size_units' => array( 'px', '%' ),
+							'selectors'  => array(
+								'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+							),
+						)
 					);
-
 
 				$this->end_controls_tab();
 
@@ -383,15 +383,16 @@
 						]
 					);
 
-					$this->add_control('ma_el_call_to_action_button_border_hover_radius',
-						[
-							'label'         => __('Border Radius', MELA_TD),
-							'type'          => Controls_Manager::SLIDER,
-							'size_units'    => ['px', '%' ,'em'],
-							'selectors'     => [
-								'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover' => 'border-radius: {{SIZE}}{{UNIT}};'
-							]
-						]
+					$this->add_responsive_control(
+						'ma_el_call_to_action_button_border_hover_radius',
+						array(
+							'label'      => esc_html__( 'Border Radius', MELA_TD ),
+							'type'       => Controls_Manager::DIMENSIONS,
+							'size_units' => array( 'px', '%' ),
+							'selectors'  => array(
+								'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+							),
+						)
 					);
 
 				$this->end_controls_tab();
