@@ -1030,8 +1030,10 @@
         /**** MA Team Slider ****/
 
         MA_TeamSlider: function ($scope, $) {
+            
+            Master_Addons.MA_TeamSlider.elementSettings    = getElementSettings( $scope );
 
-            let $teamCarouselWrapper = $scope.find('.ma-el-team-members-slider-section').eq(0),
+            var $teamCarouselWrapper = $scope.find('.ma-el-team-members-slider-section').eq(0),
                 $team_preset = $teamCarouselWrapper.data("team-preset"),
                 $ma_el_team_circle_image_animation = $teamCarouselWrapper.data("ma_el_team_circle_image_animation");
 
@@ -1109,36 +1111,36 @@
                             rows: 0,
                             responsive: [
 
-                                    {
-                                        breakpoint: 480,
-                                        settings: {
-                                            dots: dots,
-                                            arrow: arrows,
-                                            rows:1,
-                                            slidesToShow: $slidesToShow,
-                                            slidesToScroll: $slidesToScroll
-                                        }
-                                    },
-                                    {
-                                        breakpoint: 600,
-                                        settings: {
-                                            dots: dots,
-                                            arrow: arrows,
-                                            slidesToShow: $slidesToShow,
-                                            slidesToScroll: $slidesToScroll
-                                        }
-                                    },
-                                    {
-                                        breakpoint: 1024,
-                                        settings: {
-                                            slidesToShow: $slidesToShow,
-                                            slidesToScroll: $slidesToScroll,
-                                            infinite: true,
-                                            centerMode: false,
-                                            dots: dots,
-                                            arrow: arrows
-                                        }
-                                    },
+                                {
+                                    breakpoint: 350,
+                                    settings: {
+                                        dots: dots,
+                                        arrow: arrows,
+                                        rows:1,
+                                        slidesToShow: Master_Addons.MA_TeamSlider.elementSettings.ma_el_team_per_view_mobile,
+                                        slidesToScroll: $slidesToScroll
+                                    }
+                                },
+                                {
+                                    breakpoint: 576,
+                                    settings: {
+                                        dots: dots,
+                                        arrow: arrows,
+                                        slidesToShow: Master_Addons.MA_TeamSlider.elementSettings.ma_el_team_per_view_tablet,
+                                        slidesToScroll: $slidesToScroll
+                                    }
+                                },
+                                {
+                                    breakpoint: 720,
+                                    settings: {
+                                        slidesToShow: $slidesToShow,
+                                        slidesToScroll: $slidesToScroll,
+                                        infinite: true,
+                                        centerMode: false,
+                                        dots: dots,
+                                        arrow: arrows
+                                    }
+                                },
 
                             ],
                         });

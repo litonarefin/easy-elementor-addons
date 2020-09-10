@@ -772,12 +772,13 @@
 			$this->add_responsive_control(
 				'ma_el_team_per_view',
 				[
-					'type'           => Controls_Manager::SELECT,
-					'label'          => esc_html__( 'Columns', MELA_TD ),
-					'options'        => $slides_per_view,
-					'default'        => '4',
-					'tablet_default' 	=> '3',
-					'mobile_default' 	=> '2',
+					'type'           		=> Controls_Manager::SELECT,
+					'label'          		=> esc_html__( 'Columns', MELA_TD ),
+					'options'        		=> $slides_per_view,
+					'default'        		=> '4',
+					'tablet_default' 		=> '3',
+					'mobile_default' 		=> '2',
+					'frontend_available' 	=> true,
 				]
 			);
 
