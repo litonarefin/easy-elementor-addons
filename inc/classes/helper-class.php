@@ -981,11 +981,6 @@ class Master_Addons_Helper{
 	// Font Awesome Icon Picker
 	public static function jltma_fa_icon_picker( $font_name ='fab fa-elementor', $fa4_name = "", $control_name = "", $attr_name = "" ){
 
-		// $font_name ='fab fa-elementor',
-		// $fa4_name = $settings['icon'],
-		// $control_name = $control_name,
-		// $attr_name = 'jltma-icon'
-
 	    if ( ! isset( $settings[$fa4_name] ) && ! Icons_Manager::is_migration_allowed() ) {
 	        $settings[$fa4_name] = 'fab fa-elementor';
 	    }
