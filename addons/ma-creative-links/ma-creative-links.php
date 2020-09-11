@@ -196,12 +196,12 @@
 
 
 			/*
-			 * Master Addons: Creative Link Controls
+			 * Master Addons: Creative Link Contents
 			 */
 			$this->start_controls_section(
 				'ma_el_creative_link_content',
 				[
-					'label' => esc_html__( 'Creative Link Controls', MELA_TD )
+					'label' => esc_html__( 'Contents', MELA_TD )
 				]
 			);
 
