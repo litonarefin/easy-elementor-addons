@@ -349,17 +349,25 @@
 					'default'       => 'icon',
 				]
 			);
+
 			$repeater->add_control(
 				'ma_el_tab_title_icon',
 				[
-					'label' => esc_html__( 'Icon', MELA_TD ),
-					'type' => Controls_Manager::ICON,
-					'default' => 'fa fa-home',
+					'label'         	=> esc_html__( 'Icon', MELA_TD ),
+					'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'default'       	=> [
+						'value'     => 'fas fa-home',
+						'library'   => 'solid',
+					],
+					'render_type'      => 'template',
 					'condition' => [
 						'ma_el_tabs_icon_type' => 'icon'
-					]
+					]			
 				]
 			);
+
 			$repeater->add_control(
 				'ma_el_tab_title_image',
 				[
@@ -1036,7 +1044,7 @@
 									<li class="<?php echo esc_attr( $tab['ma_el_tab_show_as_default'] ); ?>" data-tab data-tab-id="jltma-tab-<?php echo $this->get_id() . $key;?>">
 										<?php if( $settings['ma_el_tabs_icon_show'] === 'yes' ) :
 											if( $tab['ma_el_tabs_icon_type'] === 'icon' ) : ?>
-												<i class="<?php echo esc_attr( $tab['ma_el_tab_title_icon'] ); ?>"></i>
+												<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-home', 'icon', $tab['ma_el_tab_title_icon'], 'ma_el_tab_title_icon' ); ?>
 											<?php elseif( $tab['ma_el_tabs_icon_type'] === 'image' ) : ?>
 												<img src="<?php echo esc_attr( $tab['ma_el_tab_title_image']['url'] );
 												?>">

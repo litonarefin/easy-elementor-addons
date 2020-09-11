@@ -1429,11 +1429,14 @@ figure.effect-hera p a:focus {
 	opacity: 0.6;
 }
 
-figure.effect-hera p a span {
+figure.effect-hera p a span i{
 	width:1.6em;
 	opacity: 0;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
+}
+figure.effect-hera:hover p a span i{
+	opacity: 1;
 }
 
 figure.effect-hera p a:first-child i {
@@ -1532,12 +1535,15 @@ figure.effect-winston a:focus {
 	color: #cc6055;
 }
 
-figure.effect-winston p a span {
+figure.effect-winston p a span i{
 	opacity: 0;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
 	-webkit-transform: translate3d(0,50px,0);
 	transform: translate3d(0,50px,0);
+}
+figure.effect-winston:hover p a span i{
+	opacity: 1;
 }
 
 figure.effect-winston:hover img {

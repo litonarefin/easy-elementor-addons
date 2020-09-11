@@ -49,6 +49,12 @@
 			table'];
 		}
 
+		public function get_style_depends() {
+			return [
+				'font-awesome-5-all',
+	            'font-awesome-4-shim'
+			];
+		}
 
 		public function get_help_url() {
 			return 'https://master-addons.com/demos/pricing-table/';
@@ -154,12 +160,19 @@
 			$this->add_control(
 				'ma_el_pricing_table_icon',
 				[
-					'label'   => __( 'Icon', MELA_TD ),
-					'type'    => Controls_Manager::ICON,
-					'default' => 'fa fa-lightbulb-o',
-					'condition' => ['ma_el_pricing_table_layout' => 'four'],
+					'label'         	=> esc_html__( 'Icon', MELA_TD ),
+					'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'default'       	=> [
+						'value'     => 'far fa-lightbulb',
+						'library'   => 'regular',
+					],
+					'render_type'      => 'template',
+					'condition' => ['ma_el_pricing_table_layout' => 'four'],				
 				]
 			);
+
 
 			$this->add_control(
 				'ma_el_pricing_table_heading',
@@ -318,11 +331,18 @@
 			$repeater->add_control(
 				'ma_el_pricing_table_item_icon',
 				[
-					'label'   => __( 'Icon', MELA_TD ),
-					'type'    => Controls_Manager::ICON,
-					'default' => 'fa fa-check',
+					'label'         	=> esc_html__( 'Icon', MELA_TD ),
+					'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'default'       	=> [
+						'value'     => 'fas fa-check',
+						'library'   => 'solid',
+					],
+					'render_type'      => 'template'
 				]
 			);
+
 
 			$repeater->add_control(
 				'ma_el_pricing_table_item_icon_color',
@@ -2083,7 +2103,7 @@
 			if ( $settings['ma_el_pricing_table_heading'] || $settings['ma_el_pricing_table_sub_heading'] ){ ?>
 
                 <?php if($ma_el_pricing_table_layout=='four'){?>
-                    <i class="<?php echo $settings['ma_el_pricing_table_icon'];?> header-icon"></i>
+                    <?php Master_Addons_Helper::jltma_fa_icon_picker( 'far fa-lightbulb', 'icon', $settings['ma_el_pricing_table_icon'], 'ma_el_pricing_table_icon', 'header-icon' ); ?>
                 <?php }?>
 
 				<?php if ( ! empty( $settings['ma_el_pricing_table_heading'] ) ) : ?>
@@ -2280,7 +2300,7 @@
                         ?> elementor-repeater-item-<?php echo esc_attr($item['_id']); ?>">
 
 	                        <?php if ( ! empty( $item['ma_el_pricing_table_item_icon'] ) ) { ?>
-                                <i class="<?php echo esc_attr( $item['ma_el_pricing_table_item_icon'] ); ?>"></i>
+                                <?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-check', 'icon', $item['ma_el_pricing_table_item_icon'], 'ma_el_pricing_table_item_icon' ); ?>
 	                        <?php } ?>
 
 	                        <?php if ( ! empty( $item['ma_el_pricing_table_item_text'] ) ) { ?>

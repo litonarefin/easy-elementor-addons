@@ -39,6 +39,13 @@
 			return 'ma-el-icon eicon-post-list';
 		}
 
+		public function get_style_depends() {
+			return [
+				'font-awesome-5-all',
+	            'font-awesome-4-shim'
+			];
+		}
+
 		public function get_script_depends() {
 			return ['tocbot', 'master-addons-scripts'];
 		}
@@ -287,25 +294,38 @@
 				]
 			);
 
+
 			$this->add_control(
 				'ma_el_toc_button_icon',
 				[
-					'label'       => __( 'Button Icon', MELA_TD ),
-					'type'        => Controls_Manager::ICON,
-					'label_block' => true,
-					'default'     => 'fa fa-book',
+					'label'       		=> __( 'Button Icon', MELA_TD ),
+					'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'default'       	=> [
+						'value'     => 'fas fa-book',
+						'library'   => 'solid',
+					],
+					'render_type'      => 'template'
 				]
 			);
+
 
 			$this->add_control(
 				'ma_el_toc_button_close_icon',
 				[
 					'label'       => __( 'Button Close Icon', MELA_TD ),
-					'type'        => Controls_Manager::ICON,
-					'label_block' => true,
-					'default'     => 'fa fa-close',
+					'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'default'       	=> [
+						'value'     => 'fas fa-times',
+						'library'   => 'solid',
+					],
+					'render_type'      => 'template',
 				]
 			);
+
 
 			$this->add_control(
 				'ma_el_toc_button_icon_align',
@@ -939,10 +959,9 @@
 
 				<div <?php echo $this->get_render_attribute_string( 'offcanvas' ); ?>>
 					<div class="ma-el-offcanvas-bar ma-el-offcanvas-push">
-						<button class="ma-el-offcanvas-close ma-el-close" type="button" > <i class="<?php echo
-						$settings['ma_el_toc_button_close_icon'];?>"></i> </button>
-
-
+						<button class="ma-el-offcanvas-close ma-el-close" type="button" >
+							<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-times', 'icon', $settings['ma_el_toc_button_close_icon'], 'ma_el_toc_button_close_icon' ); ?>						
+						</button>
 						<?php $this->ma_el_toc_table_of_content(); ?>
 					</div>
 				</div>
@@ -978,7 +997,7 @@
 				<?php if ($ma_el_toc_button_icon) : ?>
                     <span class="ma-el-toc-toggle-button-icon elementor-button-icon ma-el-toc-button-icon-align-<?php
                         echo esc_attr($settings['ma_el_toc_button_icon_align']); ?>">
-					<i class="<?php echo esc_attr( $ma_el_toc_button_icon ); ?>" aria-hidden="true"></i>
+					<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fa fa-bars', 'icon', $settings['ma_el_toc_button_icon'], 'ma_el_toc_button_icon' ); ?>					
 				</span>
 				<?php endif; ?>
 

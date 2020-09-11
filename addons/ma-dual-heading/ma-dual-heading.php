@@ -615,7 +615,7 @@
                     <div class="ma-el-dual-heading-wrapper">
 						<?php if ( $settings['ma_el_dual_heading_icon_show'] == 'yes' ) : ?>
                             <span class="ma-el-dual-heading-icon">
-								<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fab fa-elementor', 'icon', $settings['ma_el_dual_heading_icon'], 'ma_el_dual_heading_icon' ); ?>                            	
+								<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fab fa-elementor', 'icon', $settings['ma_el_dual_heading_icon'], 'ma_el_dual_heading_icon' ); ?>
                             </span>
 						<?php endif; ?>
                         <<?php echo $settings['title_html_tag']; ?> class="ma-el-dual-heading-title">

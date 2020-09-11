@@ -508,7 +508,7 @@
 				[
 					'label'			=> __( 'Title', MELA_TD ),
 					'placeholder'	=> __( 'Title for this Image', MELA_TD ),
-					'type'			=> Controls_Manager::TEXT,
+					'type'			=> Controls_Manager::TEXTAREA,
 					'dynamic'       => [ 'active' => true ],
 					'default'		=> __( 'Master <span>Addons</span>', MELA_TD ),
 					'label_block'	=> false
@@ -699,15 +699,21 @@
 			);
 			$repeater = new Repeater();
 
-
 			$repeater->add_control(
 				'ma_el_main_image_icon',
 				[
-					'label'     => __( 'Icon', MELA_TD ),
-					'type'      => Controls_Manager::ICON,
-					'default'   => 'fa fa-wordpress'
+					'label'         	=> esc_html__( 'Icon', MELA_TD ),
+					'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'default'       	=> [
+						'value'     => 'fab fa-elementor',
+						'library'   => 'brand',
+					],
+					'render_type'      => 'template'
 				]
 			);
+
 
 			$repeater->add_control(
 				'ma_el_main_image_icon_link',
@@ -728,13 +734,13 @@
 				[
 					'type'                  => Controls_Manager::REPEATER,
 					'default'               => [
-						[ 'ma_el_main_image_icon' => 'fa fa-wordpress' ],
-						[ 'ma_el_main_image_icon' => 'fa fa-facebook' ],
-						[ 'ma_el_main_image_icon' => 'fa fa-twitter' ],
-						[ 'ma_el_main_image_icon' => 'fa fa-instagram' ],
+						[ 'ma_el_main_image_icon' => 'fab fa-wordpress' ],
+						[ 'ma_el_main_image_icon' => 'fab fa-facebook' ],
+						[ 'ma_el_main_image_icon' => 'fab fa-twitter' ],
+						[ 'ma_el_main_image_icon' => 'fab fa-instagram' ],
 					],
 					'fields'                => array_values( $repeater->get_controls() ),
-					'title_field'           => '{{ma_el_main_image_icon}}'
+					'title_field'           => 'Social Icon'
 				]
 			);
 
@@ -1399,7 +1405,7 @@
                                     <p class="icon-links">
                                         <?php foreach( $settings['ma_el_main_image_icon_tabs'] as $index => $tab ) { ?>
                                             <a href="<?php echo esc_url_raw( $tab['ma_el_main_image_icon_link']['url'] );?>">
-                                                <span class="<?php echo $tab['ma_el_main_image_icon']; ?>"></span>
+                                                <span><?php Master_Addons_Helper::jltma_fa_icon_picker( 'fab fa-elementor', 'icon', $tab['ma_el_main_image_icon'], 'ma_el_main_image_icon' ); ?></span>
                                             </a>
                                         <?php } ?>
                                     </p>

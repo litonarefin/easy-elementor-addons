@@ -7,6 +7,7 @@
 	 */
 
 	use Elementor\Widget_Base;
+	use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 	if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
@@ -30,7 +31,6 @@
                 'font-awesome-4-shim'
 			];
 		}
-
         public function get_help_url(){
             return 'https://master-addons.com/demos/infobox/';
 		}
@@ -46,6 +46,90 @@
 					'label' => esc_html__( 'Content', MELA_TD )
 				]
 			);
+
+
+			// Premium Version Codes
+			if ( ma_el_fs()->can_use_premium_code() ) {
+
+
+				$this->add_control(
+                    'ma_el_infobox_preset',
+                    [
+                        'label' => esc_html__( 'Style Preset', MELA_TD ),
+                        'type' => Controls_Manager::SELECT,
+                        'default' => 'one',
+                        'options' => [
+                            'one'           => esc_html__( 'Variation One', MELA_TD ),
+                            'two'           => esc_html__( 'Variation Two', MELA_TD ),
+                            'three'         => esc_html__( 'Variation Three', MELA_TD ),
+                            'four'          => esc_html__( 'Variation Four', MELA_TD ),
+                            'five'          => esc_html__( 'Variation Five', MELA_TD ),
+                            'six'           => esc_html__( 'Variation Six', MELA_TD ),
+                            'seven'         => esc_html__( 'Variation Seven', MELA_TD ),
+                            'eight'         => esc_html__( 'Variation Eight', MELA_TD ),
+                            'nine'          => esc_html__( 'Variation Nine', MELA_TD ),
+                            'ten'           => esc_html__( 'Variation Ten', MELA_TD ),
+                        ],
+                    ]
+                );
+
+
+                $this->add_control(
+                    'ma_el_infobox_gradient_bg_heading',
+                    [
+                        'label' => __( 'Icon Color', MELA_TD ),
+                        'type' => Controls_Manager::HEADING,
+                        'separator' => 'after',
+                        'condition' => [
+                            'ma_el_infobox_preset' => 'six'
+                        ],
+
+                    ]
+                );
+
+
+
+                $this->add_group_control(
+                    Group_Control_Background::get_type(),
+                    [
+                        'name' => 'ma_el_infobox_gradient_color_scheme',
+                        'label' => __( 'Background Color', MELA_TD ),
+                        'types' => [ 'gradient' ],
+                        'selector' => '{{WRAPPER}} .ma-el-infobox.six .ma-el-infobox-item .ma-el-infobox-icon',
+                        'condition' => [
+                            'ma_el_infobox_preset' => 'six'
+                        ],
+                    ]
+                );
+
+            //Free Version Codes
+			} else{
+				$this->add_control(
+					'ma_el_infobox_preset',
+					[
+						'label' => esc_html__( 'Style Preset', MELA_TD ),
+						'type' => Controls_Manager::SELECT,
+						'default' => 'one',
+						'options' => [
+							'one'           => esc_html__( 'Variation One', MELA_TD ),
+							'two'           => esc_html__( 'Variation Two', MELA_TD ),
+							'three'         => esc_html__( 'Variation Three', MELA_TD ),
+							'four'          => esc_html__( 'Variation Four', MELA_TD ),
+							'five'          => esc_html__( 'Variation Five', MELA_TD ),
+							'info-pro-1'    => esc_html__( 'Variation Six (Pro)', MELA_TD ),
+							'info-pro-2'    => esc_html__( 'Variation Seven (Pro)', MELA_TD ),
+							'info-pro-3'    => esc_html__( 'Variation Eight (Pro)', MELA_TD ),
+							'info-pro-4'    => esc_html__( 'Variation Nine (Pro)', MELA_TD ),
+							'info-pro-5'    => esc_html__( 'Variation Ten (Pro)', MELA_TD ),
+						],
+						'description' => sprintf( '5+ more Variations on <a href="%s" target="_blank">%s</a>',
+							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
+							__( 'Upgrade Now', MELA_TD ) )
+					]
+				);
+
+			}
+
 
 			$this->add_control(
 				'ma_el_infobox_img_or_icon',
@@ -72,18 +156,23 @@
 			);
 
 
-
 			$this->add_control(
 				'ma_el_infobox_icon',
 				[
-					'label' => esc_html__( 'Icon', MELA_TD ),
-					'type' => Controls_Manager::ICON,
-					'default' => 'fa fa-tag',
+					'label'         	=> esc_html__( 'Icon', MELA_TD ),
+					'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'default'       	=> [
+						'value'     => 'fas fa-tag',
+						'library'   => 'solid',
+					],
+					'render_type'      => 'template',
 					'condition' => [
 						'ma_el_infobox_img_or_icon' => 'icon'
 					]
 				]
-			);
+			);			
 
 			$this->add_control(
 				'ma_el_infobox_image',
@@ -189,90 +278,6 @@
 					'tab' => Controls_Manager::TAB_STYLE
 				]
 			);
-
-
-			// Premium Version Codes
-			if ( ma_el_fs()->can_use_premium_code() ) {
-
-
-				$this->add_control(
-                    'ma_el_infobox_preset',
-                    [
-                        'label' => esc_html__( 'Design Variations', MELA_TD ),
-                        'type' => Controls_Manager::SELECT,
-                        'default' => 'one',
-                        'options' => [
-                            'one'           => esc_html__( 'Variation One', MELA_TD ),
-                            'two'           => esc_html__( 'Variation Two', MELA_TD ),
-                            'three'         => esc_html__( 'Variation Three', MELA_TD ),
-                            'four'          => esc_html__( 'Variation Four', MELA_TD ),
-                            'five'          => esc_html__( 'Variation Five', MELA_TD ),
-                            'six'           => esc_html__( 'Variation Six', MELA_TD ),
-                            'seven'         => esc_html__( 'Variation Seven', MELA_TD ),
-                            'eight'         => esc_html__( 'Variation Eight', MELA_TD ),
-                            'nine'          => esc_html__( 'Variation Nine', MELA_TD ),
-                            'ten'           => esc_html__( 'Variation Ten', MELA_TD ),
-                        ],
-                    ]
-                );
-
-
-                $this->add_control(
-                    'ma_el_infobox_gradient_bg_heading',
-                    [
-                        'label' => __( 'Icon Color', MELA_TD ),
-                        'type' => Controls_Manager::HEADING,
-                        'separator' => 'after',
-                        'condition' => [
-                            'ma_el_infobox_preset' => 'six'
-                        ],
-
-                    ]
-                );
-
-
-
-                $this->add_group_control(
-                    Group_Control_Background::get_type(),
-                    [
-                        'name' => 'ma_el_infobox_gradient_color_scheme',
-                        'label' => __( 'Background Color', MELA_TD ),
-                        'types' => [ 'gradient' ],
-                        'selector' => '{{WRAPPER}} .ma-el-infobox.six .ma-el-infobox-item .ma-el-infobox-icon',
-                        'condition' => [
-                            'ma_el_infobox_preset' => 'six'
-                        ],
-                    ]
-                );
-
-            //Free Version Codes
-			} else{
-				$this->add_control(
-					'ma_el_infobox_preset',
-					[
-						'label' => esc_html__( 'Design Variations', MELA_TD ),
-						'type' => Controls_Manager::SELECT,
-						'default' => 'one',
-						'options' => [
-							'one'           => esc_html__( 'Variation One', MELA_TD ),
-							'two'           => esc_html__( 'Variation Two', MELA_TD ),
-							'three'         => esc_html__( 'Variation Three', MELA_TD ),
-							'four'          => esc_html__( 'Variation Four', MELA_TD ),
-							'five'          => esc_html__( 'Variation Five', MELA_TD ),
-							'info-pro-1'    => esc_html__( 'Variation Six (Pro)', MELA_TD ),
-							'info-pro-2'    => esc_html__( 'Variation Seven (Pro)', MELA_TD ),
-							'info-pro-3'    => esc_html__( 'Variation Eight (Pro)', MELA_TD ),
-							'info-pro-4'    => esc_html__( 'Variation Nine (Pro)', MELA_TD ),
-							'info-pro-5'    => esc_html__( 'Variation Ten (Pro)', MELA_TD ),
-						],
-						'description' => sprintf( '5+ more Variations on <a href="%s" target="_blank">%s</a>',
-							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
-							__( 'Upgrade Now', MELA_TD ) )
-					]
-				);
-
-			}
-
 
 			$this->add_group_control(
 				Group_Control_Border::get_type(),
@@ -757,9 +762,6 @@ Customization Options.</span>'
 			// 	$this->add_render_attribute( 'ma_el_infobox_readmore', 'rel', 'nofollow' );
 			// }
 
-
-
-
 			if ( ! empty( $settings['ma_el_infobox_readmore_link']['url'] ) ) {
 				$this->add_render_attribute( 'ma_el_infobox_readmore_link', 'href', $settings['ma_el_infobox_readmore_link']['url'] );
 
@@ -805,13 +807,13 @@ Customization Options.</span>'
 
 						<?php if($settings['ma_el_infobox_preset']=="two"){ ?>
                             <div class="bg-fade-icon">
-                                <i class="<?php echo esc_attr( $settings['ma_el_infobox_icon'] ); ?>"></i>
+								<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-tag', 'icon', $settings['ma_el_infobox_icon'], 'ma_el_infobox_icon' ); ?>
                             </div>
 						<?php }?>
 
 						<?php if($settings['ma_el_infobox_preset']=="three"){ ?>
                             <div class="bg-fade-icon">
-                                <i class="<?php echo esc_attr( $settings['ma_el_infobox_icon'] ); ?>"></i>
+                                <?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-tag', 'icon', $settings['ma_el_infobox_icon'], 'ma_el_infobox_icon' ); ?>
                             </div>
 
 						<?php }?>
@@ -820,13 +822,13 @@ Customization Options.</span>'
 
                         <div class="ma-el-infobox-icon">
 	                        <?php if( $settings['ma_el_infobox_preset']=="five"){ ?>
-                                <i class="<?php echo esc_attr( $settings['ma_el_infobox_icon'] ); ?>"></i>
+                                <?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-tag', 'icon', $settings['ma_el_infobox_icon'], 'ma_el_infobox_icon' ); ?>
 	                        <?php } ?>
 
                             <div class="inner-content">
 
 								<?php if( 'icon' == $settings['ma_el_infobox_img_or_icon']) { ?>
-                                    <i class="<?php echo esc_attr( $settings['ma_el_infobox_icon'] ); ?>"></i>
+                                    <?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-tag', 'icon', $settings['ma_el_infobox_icon'], 'ma_el_infobox_icon' ); ?>
 								<?php } ?>
 
 								<?php if( 'img' == $settings['ma_el_infobox_img_or_icon'] ) : ?>
@@ -908,7 +910,7 @@ Customization Options.</span>'
                     <div class="ma-el-infobox-icon">
 
                         <# if( 'icon' == settings.ma_el_infobox_img_or_icon ) { #>
-                        <i class="{{{ settings.ma_el_infobox_icon }}}"></i>
+                        <i class="{{{ settings.ma_el_infobox_icon.value }}}"></i>
                         <# } #>
 
                         <# if( 'img' == settings.ma_el_infobox_img_or_icon ) { #>
