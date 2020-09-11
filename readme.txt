@@ -407,6 +407,10 @@ Paste on your Local Computer
 * Updated: Table of Contents - Icons Library Updated to latest Fontawesome 5 Icons support.
 * Updated: MA Tabs - Icons Library Updated to latest Fontawesome 5 Icons support. 
 * Updated: MA Team Members - Icons Library Updated to latest Fontawesome 5 Icons support. 
+* Updated: MA Tooltips - Icons Library Updated to latest Fontawesome 5 Icons support. 
+* Added: MA Toggle Content - Icon options added on Repeater field and given compatibility.
+* Updated: MA Toggle Content - Icons Library Updated to latest Fontawesome 5 Icons support. 
+
  
 
 

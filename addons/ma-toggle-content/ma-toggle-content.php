@@ -115,12 +115,27 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         //         'type'					=> Controls_Manager::ICONS,
         //         'fa4compatibility'      => 'icon',
         //         'default' => [
-        //             'value'     => 'fa fa-search',
-        //             'library'   => 'fa-solid',
+        //             'value'     => 'fas fa-search',
+        //             'library'   => 'solid',
         //         ],
         //         'label_block' 	        => false,
         //     ]
         // );
+
+        $repeater->add_control(
+            'jltma_toggle_content_icon',
+            [
+                'label'             => esc_html__( 'Icon', MELA_TD ),
+                'description'       => esc_html__('Please choose an icon from the list.', MELA_TD),
+                'type'              => Controls_Manager::ICONS,
+                'fa4compatibility'  => 'icon',
+                'default'           => [
+                    'value'     => 'fas fa-search',
+                    'library'   => 'solid',
+                ],
+                'render_type'      => 'template'
+            ]
+        );
 
         $repeater->add_control(
             'jltma_toggle_content_icon_position',
@@ -1034,7 +1049,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
 			'jltma-toggle-content-controls__icon',
 			'jltma-icon',
 			'jltma-icon-support--svg',
-			'jltma-icon--' . $item['icon_align'],
+			'jltma-icon--' . $item['jltma_toggle_content_icon_align'],
 		] );
 
 		if ( '' === $item['jltma_toggle_content_text'] ) {
@@ -1043,13 +1058,11 @@ class Master_Addons_Toggle_Content extends Widget_Base {
 			] );
 		}
 
-		?><span <?php echo $this->get_render_attribute_string( $icon_key ); ?>><?php
-			if ( $is_new || $migrated ) {
-				Icons_Manager::render_icon( $item['jltma_toggle_content_icon'], [ 'aria-hidden' => 'true' ] );
-			} else {
-				?><i class="<?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i><?php
-			}
-		?></span><?php
+		?>
+            <span <?php echo $this->get_render_attribute_string( $icon_key ); ?>>
+                <?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-search', 'icon', $item['jltma_toggle_content_icon'], 'jltma_toggle_content_icon' ); ?>
+            </span>
+        <?php
 	}
 
     protected function render_text( $index, $item ) {

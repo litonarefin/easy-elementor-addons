@@ -1,6 +1,7 @@
 <?php
 	namespace Elementor;
 	use Elementor\Widget_Base;
+	use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 	if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
@@ -25,6 +26,14 @@
 		public function get_keywords() {
 			return [ 'tooltip', 'tooltips', 'image tooltips', 'icon tooltip', 'icons', 'hover content', 'content'];
 		}
+
+        public function get_style_depends(){
+            return [
+                'bootstrap',
+                'font-awesome-5-all',
+                'font-awesome-4-shim'
+            ];
+        }
 
 		public function get_help_url() {
 			return 'https://master-addons.com/demos/tooltip/';
@@ -78,18 +87,24 @@
 				]
 			);
 
-
 			$this->add_control(
 				'ma_el_tooltip_icon_content',
 				[
-					'label' => esc_html__( 'Icon', MELA_TD ),
-					'type' => Controls_Manager::ICON,
-					'default' => 'fa fa-linux',
+					'label'         	=> esc_html__( 'Icon', MELA_TD ),
+					'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'default'       	=> [
+						'value'     => 'fab fa-linux',
+						'library'   => 'brand',
+					],
+					'render_type'      => 'template',
 					'condition' => [
 						'ma_el_tooltip_type' => [ 'icon' ]
 					]
 				]
 			);
+
 			$this->add_control(
 				'ma_el_tooltip_img_content',
 				[
@@ -671,7 +686,7 @@ Customization Options.</span>'
 								<?php if( $settings['ma_el_tooltip_enable_link'] === 'yes' ) : ?>
 									<a href="<?php echo esc_url( $settings['ma_el_tooltip_link']['url'] ); ?>">
 								<?php endif; ?>
-								<i class="<?php echo esc_attr( $settings['ma_el_tooltip_icon_content'] ); ?>"></i>
+								<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fab fa-linux', 'icon', $settings['ma_el_tooltip_icon_content'], 'ma_el_tooltip_icon_content' ); ?>
 								<?php if( $settings['ma_el_tooltip_enable_link'] === 'yes' ) : ?>
 									</a>
 								<?php endif; ?>
