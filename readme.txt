@@ -394,6 +394,7 @@ Paste on your Local Computer
 * Fixed: MA Flipbox - Front Box description not showing issue fixed
 * Fixed: MA Flipbox - Title's changed from TEXT to TEXTAREA for better visibility. Design Styles bring to front for better UX, re-arranged controls for better usablity.
 * Fixed: MA Flipbox - Added more controls on Action Button Style Tabs - Normal and Hover Settings
+* Fixed: Main Navigation style breaking with some Themes has been fixed. 
 
 
 
