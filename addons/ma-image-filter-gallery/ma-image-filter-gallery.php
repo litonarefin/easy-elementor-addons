@@ -1385,7 +1385,6 @@ class Master_Addons_Filterable_Image_Gallery extends Widget_Base {
 
 
 						// Lightbox Icon
-						// $jltma_img_filter_lightbox_icon ="";
 						if ( 'yes' === $settings['ma_el_image_gallery_hover_icon'] && ( ! empty( $settings['icon'] ) || ! empty( $settings['ma_el_image_gallery_popup_icon']['value'] ) ) ) {
 
 				            if ( ! isset( $settings['icon'] ) && ! Icons_Manager::is_migration_allowed() ) {

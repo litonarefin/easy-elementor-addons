@@ -390,6 +390,9 @@ Paste on your Local Computer
 * Fixed: Team Carousel - Responsive Slider Controls on Desktop, Tablet, Mobile not working issue fixed
 * Fixed: Fully compatible "MA Editor Button" placement issue on Tweentytwenty Theme and other themes
 * Fixed: MA Counter Up - Color, Typography style not working issue fixed
+* Fixed: MA Flipbox - Icon Picker changed on both Front and Back box from dropdown to Elementor Icon Library
+* Fixed: MA Flipbox - Front Box description not showing issue fixed
+* Fixed: MA Flipbox - Title Changed to textarea for better visibility. Design Styles bring to front for better UX, re-arranged controls for better usablity.
 
 
 

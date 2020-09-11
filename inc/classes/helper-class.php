@@ -1,5 +1,6 @@
 <?php
 namespace MasterAddons\Inc\Helper;
+use \Elementor\Icons_Manager;
 
 class Master_Addons_Helper{
 
@@ -975,6 +976,39 @@ class Master_Addons_Helper{
 	    }
 
 	    return $url;
+	}
+
+	// Font Awesome Icon Picker
+	public static function jltma_fa_icon_picker( $font_name ='fab fa-elementor', $fa4_name = "", $control_name = "", $attr_name = "" ){
+
+		// $font_name ='fab fa-elementor',
+		// $fa4_name = $settings['icon'],
+		// $control_name = $control_name,
+		// $attr_name = 'jltma-icon'
+
+	    if ( ! isset( $settings[$fa4_name] ) && ! Icons_Manager::is_migration_allowed() ) {
+	        $settings[$fa4_name] = 'fab fa-elementor';
+	    }
+
+	    $has_icon  = ! empty( $settings[$fa4_name] );
+	    if ( $has_icon and 'icon' == $control_name ) {
+	        $this->add_render_attribute( $attr_name, 'class', $control_name );
+	        $this->add_render_attribute( $attr_name, 'aria-hidden', 'true' );
+	    }
+
+	    if ( ! $has_icon && ! empty( $control_name['value'] ) ) {
+	        $has_icon = true;
+	    }
+
+	    $migrated  = isset( $settings['__fa4_migrated']['front_icon'] );
+	    $is_new    = empty( $settings[$fa4_name] ) && Icons_Manager::is_migration_allowed();
+
+
+		if ( $is_new || $migrated ) {
+		    Icons_Manager::render_icon( $control_name, [ 'aria-hidden' => 'true' ] );
+		} else {
+		    echo '<i ' . $this->get_render_attribute_string( $attr_name ) .'></i>';
+		}
 	}
 
 
