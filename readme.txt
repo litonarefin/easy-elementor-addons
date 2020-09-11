@@ -398,6 +398,7 @@ Paste on your Local Computer
 * Fixed: Advanced Acordion - Collapse, Open icons changed from Dropdown to Icons Library. Repeater Icon also changed
 * Fixed: Blog Element - Excerpt Icon changed from Dropdown to Icons Library, Icon alignment issue fixed
 * Fixed: Business Hours - Icon dropdown changed to Icon Library Picker, Checked other compatibility
+* Fixed: Creative Icons - Design Style Presets bring on front instead of Style Tab. Icon dropdown changed to Icon Library Picker, Icon Alignement issue fixed. 
  
 
 

@@ -35,6 +35,14 @@
 			return [ 'master-addons' ];
 		}
 
+		public function get_style_depends() {
+			return [
+				'font-awesome-5-all',
+                'font-awesome-4-shim'
+			];
+		}
+
+
 		public function get_help_url() {
 			return 'https://master-addons.com/demos/advanced-accordion/';
 		}
@@ -211,17 +219,6 @@
 				]
 			);
 
-			// $repeater->add_control(
-			// 	'accordion_tab_title_icon',
-			// 	[
-			// 		'label'                 => esc_html__( 'Icon', MELA_TD ),
-			// 		'type'                  => Controls_Manager::ICON,
-			// 		'default'               => 'fa fa-plus',
-			// 		'condition'             => [
-			// 			'accordion_tab_icon_show' => 'yes'
-			// 		]
-			// 	]
-			// );
 
 			$repeater->add_control(
 				'accordion_tab_title_icon',

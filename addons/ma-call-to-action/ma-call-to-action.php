@@ -2,6 +2,7 @@
 	namespace Elementor;
 
 	use Elementor\Widget_Base;
+	use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 	/**
 	 * Author Name: Liton Arefin
