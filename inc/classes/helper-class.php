@@ -543,10 +543,11 @@ class Master_Addons_Helper{
 		$the_excerpt = strip_tags( strip_shortcodes( $the_excerpt ) );
 
 		$words = explode( ' ', $the_excerpt, $excerpt_length + 1 );
-//
-//			if( $excerpt_icon){
-//				$excerpt_icon = $excerpt_icon;
-//			}
+
+		if( $excerpt_icon){
+			// $excerpt_icon = $excerpt_icon;
+			$excerpt_icon = self::jltma_fa_icon_picker( 'fas fa-chevron-right', 'icon', $excerpt_icon, 'blog_excerpt_icon' ); 
+		}
 
 		if( count( $words ) > $excerpt_length ) :
 			array_pop( $words );

@@ -1306,21 +1306,28 @@
 			$this->add_control(
 				'ma_el_blog_read_more_icon',
 				[
-					'label'     => __( 'Icon', MELA_TD ),
-					'type'      => Controls_Manager::ICON,
-					'default'   => 'fa fa-chevron-right',
-					'condition'     => [
+					'label'         	=> esc_html__( 'Icon', MELA_TD ),
+					'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'default'       	=> [
+						'value'     => 'fas fa-chevron-right',
+						'library'   => 'solid',
+					],
+					'render_type'      => 'template',
+					'condition' => [
 						'ma_el_post_grid_excerpt_type' => 'read_more_link'
-					]
+					],
 				]
 			);
+
 
 			$this->add_responsive_control(
 				'ma_el_blog_read_more_icon_alignment',
 				[
 					'label' => esc_html__( 'Icon Alignment', MELA_TD ),
 					'type' => Controls_Manager::CHOOSE,
-					'label_block' => true,
+					'label_block' => false,
 					'options' => [
 						'left' => [
 							'title' => esc_html__( 'Left', MELA_TD ),

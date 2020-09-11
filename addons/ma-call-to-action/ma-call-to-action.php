@@ -125,7 +125,7 @@
 				'ma_el_call_to_action_icon',
 				[
 					'label'         	=> esc_html__( 'Icon', MELA_TD ),
-					'description' 		=> __('Please choose an icon from the list.', MELA_TD),
+					'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
 					'type'          	=> Controls_Manager::ICONS,
 					'fa4compatibility' 	=> 'icon',
 					'default'       	=> [
