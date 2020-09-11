@@ -261,7 +261,6 @@
 			);
 
 
-
 			$this->add_control(
 				'ma_el_creative_link_icon_alignment',
 				[
@@ -731,7 +730,7 @@ Customization Options.</span>'
 
 
 								<?php if ( ! empty( $settings['ma_el_creative_link_icon'] ) && $settings['ma_el_creative_link_icon_alignment'] == 'right' ) : ?>
-									<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-external-link-alt', 'icon', $settings['ma_el_creative_link_icon'], 'ma_el_creative_link_icon', 'ma-el-creative-link-icon-right' ); ?>									
+									<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-external-link-alt', 'icon', $settings['ma_el_creative_link_icon'], 'ma_el_creative_link_icon', 'ma-el-creative-link-icon-right' ); ?>
 								<?php endif; ?>
 
 							<?php if(( $settings['creative_link_effect'] == "cl-effect-2")  ||

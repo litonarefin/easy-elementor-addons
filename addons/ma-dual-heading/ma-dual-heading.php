@@ -23,6 +23,12 @@
 			return [ 'master-addons' ];
 		}
 
+		public function get_style_depends() {
+			return [
+				'font-awesome-5-all',
+	            'font-awesome-4-shim'
+			];
+		}
 
 		public function get_help_url() {
 			return 'https://master-addons.com/demos/dual-heading/';
@@ -42,14 +48,46 @@
 			);
 
 			$this->add_control(
-				'title_html_tag',
+				'ma_el_dual_heading_styles_preset',
 				[
-					'label'   => __( 'Heading HTML Tag', MELA_TD ),
-					'type'    => Controls_Manager::SELECT,
-					'options' => Master_Addons_Helper::ma_el_title_tags(),
-					'default' => 'h1',
+					'label' => esc_html__( 'Style Preset', MELA_TD ),
+					'type' => Controls_Manager::SELECT,
+					'default' => '-style2',
+					'options' => [
+						'-style1' => esc_html__( 'Style 1', MELA_TD ),
+						'-style2' => esc_html__( 'Style 2', MELA_TD ),
+					],
 				]
 			);
+
+			$this->add_responsive_control(
+				'ma_el_dual_heading_alignment',
+				[
+					'label' => esc_html__( 'Alignment', MELA_TD ),
+					'type' => Controls_Manager::CHOOSE,
+					'label_block' => false,
+					'options' => [
+						'left' => [
+							'title' => esc_html__( 'Left', MELA_TD ),
+							'icon' => 'fa fa-align-left',
+						],
+						'center' => [
+							'title' => esc_html__( 'Center', MELA_TD ),
+							'icon' => 'fa fa-align-center',
+						],
+						'right' => [
+							'title' => esc_html__( 'Right', MELA_TD ),
+							'icon' => 'fa fa-align-right',
+						],
+					],
+					'default' => 'center',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper,
+						{{WRAPPER}} .ma-el-sec-head-style' => 'text-align: {{VALUE}};',
+					],
+				]
+			);
+
 
 
 			$this->add_control(
@@ -80,7 +118,7 @@
 				[
 					'label' 		=> esc_html__( 'Heading URL', MELA_TD ),
 					'type' 			=> Controls_Manager::URL,
-					'placeholder' 	=> esc_html__( 'https://your-link.com', MELA_TD ),
+					'placeholder' 	=> esc_html__( 'https://master-addons.com', MELA_TD ),
 					'label_block' 	=> true,
 					'default' => [
 						'url' => '#',
@@ -95,7 +133,7 @@
 			$this->add_control(
 				'ma_el_dual_heading_description',
 				[
-					'label'       => __( 'Sub Heading', MELA_TD ),
+					'label'       => esc_html__( 'Sub Heading', MELA_TD ),
 					'type'        => Controls_Manager::TEXTAREA,
 					'label_block' => true,
 					'dynamic'     => [ 'active' => true ],
@@ -108,7 +146,7 @@
 				[
 					'label' => esc_html__( 'Enable Icon', MELA_TD ),
 					'type' => Controls_Manager::SWITCHER,
-					'default' => 'yes',
+					'default' => 'no',
 					'return_value' => 'yes',
 					'condition' => [
 						'ma_el_dual_heading_styles_preset' => '-style2',
@@ -119,15 +157,31 @@
 			$this->add_control(
 				'ma_el_dual_heading_icon',
 				[
-					'label'     => __( 'Icon', MELA_TD ),
-					'type'      => Controls_Manager::ICON,
-					'default'   => 'fa fa-wordpress',
+					'label'         	=> esc_html__( 'Icon', MELA_TD ),
+					'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'default'       	=> [
+						'value'     => 'fab fa-elementor',
+						'library'   => 'brand',
+					],
+					'render_type'      => 'template',
 					'condition' => [
 						'ma_el_dual_heading_icon_show' => 'yes'
-					]
+					]					
 				]
 			);
 
+
+			$this->add_control(
+				'title_html_tag',
+				[
+					'label'   => __( 'Heading Tag', MELA_TD ),
+					'type'    => Controls_Manager::SELECT,
+					'options' => Master_Addons_Helper::ma_el_title_tags(),
+					'default' => 'h1',
+				]
+			);
 
 			$this->end_controls_section();
 
@@ -143,18 +197,6 @@
 				]
 			);
 
-			$this->add_control(
-				'ma_el_dual_heading_styles_preset',
-				[
-					'label' => esc_html__( 'Style Preset', MELA_TD ),
-					'type' => Controls_Manager::SELECT,
-					'default' => '-style2',
-					'options' => [
-						'-style1' => esc_html__( 'Style 1', MELA_TD ),
-						'-style2' => esc_html__( 'Style 2', MELA_TD ),
-					],
-				]
-			);
 
 			$this->add_control(
 				'ma_el_dual_heading_icon_color',
@@ -167,34 +209,6 @@
 					],
 					'condition' => [
 						'ma_el_dual_heading_styles_preset' => '-style1',
-					],
-				]
-			);
-
-			$this->add_responsive_control(
-				'ma_el_dual_heading_alignment',
-				[
-					'label' => esc_html__( 'Alignment', MELA_TD ),
-					'type' => Controls_Manager::CHOOSE,
-					'label_block' => true,
-					'options' => [
-						'left' => [
-							'title' => esc_html__( 'Left', MELA_TD ),
-							'icon' => 'fa fa-align-left',
-						],
-						'center' => [
-							'title' => esc_html__( 'Center', MELA_TD ),
-							'icon' => 'fa fa-align-center',
-						],
-						'right' => [
-							'title' => esc_html__( 'Right', MELA_TD ),
-							'icon' => 'fa fa-align-right',
-						],
-					],
-					'default' => 'center',
-					'selectors' => [
-						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper,
-						{{WRAPPER}} .ma-el-sec-head-style' => 'text-align: {{VALUE}};',
 					],
 				]
 			);
@@ -600,7 +614,9 @@
                 <div id="ma-el-heading-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-dual-heading">
                     <div class="ma-el-dual-heading-wrapper">
 						<?php if ( $settings['ma_el_dual_heading_icon_show'] == 'yes' ) : ?>
-                            <span class="ma-el-dual-heading-icon"><i class="<?php echo esc_attr( $settings['ma_el_dual_heading_icon'] ); ?>"></i></span>
+                            <span class="ma-el-dual-heading-icon">
+								<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fab fa-elementor', 'icon', $settings['ma_el_dual_heading_icon'], 'ma_el_dual_heading_icon' ); ?>                            	
+                            </span>
 						<?php endif; ?>
                         <<?php echo $settings['title_html_tag']; ?> class="ma-el-dual-heading-title">
 
@@ -654,7 +670,7 @@
                 <div id="ma-el-heading" class="ma-el-dual-heading">
                     <div class="ma-el-dual-heading-wrapper">
                         <# if ( settings.ma_el_dual_heading_icon_show == 'yes' ) { #>
-                        <span class="ma-el-dual-heading-icon"><i class="{{ settings.ma_el_dual_heading_icon }}"></i></span>
+                        <span class="ma-el-dual-heading-icon"><i class="{{ settings.ma_el_dual_heading_icon.value }}"></i></span>
                         <# } #>
                         <h1 class="ma-el-dual-heading-title">
                             <a href="{{{ settings.ma_el_dual_heading_title_link }}}">

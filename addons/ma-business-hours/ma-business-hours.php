@@ -192,18 +192,6 @@ class Master_Addons_Business_Hours extends Widget_Base {
 		    ]
 	    );
 
-	    // $this->add_control(
-		   //  'ma_el_bh_day_icon',
-		   //  [
-			  //   'label'       => __( 'Day Icon', MELA_TD ),
-			  //   'type'        => Controls_Manager::ICON,
-			  //   'label_block' => true,
-			  //   'default'     => 'fa fa-clock',
-			  //   'condition'        => [
-				 //    'ma_el_bh_show_day_icon'   =>  'yes'
-			  //   ],
-		   //  ]
-	    // );
 
 		$this->add_control(
 			'ma_el_bh_day_icon',
