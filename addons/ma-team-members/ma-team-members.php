@@ -1,6 +1,7 @@
 <?php
 	namespace Elementor;
 	use Elementor\Widget_Base;
+	use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 	if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
@@ -22,6 +23,13 @@
 			return [ 'master-addons' ];
 		}
 
+        public function get_style_depends(){
+            return [
+                'bootstrap',
+                'font-awesome-5-all',
+                'font-awesome-4-shim'
+            ];
+        }
 
 		public function get_help_url() {
 			return 'https://master-addons.com/demos/team-member/';
@@ -134,51 +142,14 @@
 					],
 					'fields' => [
 						[
-							'name' => 'social',
-							'label' => esc_html__( 'Icon', MELA_TD ),
-							'type' => Controls_Manager::ICON,
-							'label_block' => true,
-							'default' => 'fa fa-wordpress',
-							'include' => [
-								'fa fa-apple',
-								'fa fa-behance',
-								'fa fa-bitbucket',
-								'fa fa-codepen',
-								'fa fa-delicious',
-								'fa fa-digg',
-								'fa fa-dribbble',
-								'fa fa-envelope',
-								'fa fa-facebook',
-								'fa fa-flickr',
-								'fa fa-foursquare',
-								'fa fa-github',
-								'fa fa-google-plus',
-								'fa fa-houzz',
-								'fa fa-instagram',
-								'fa fa-jsfiddle',
-								'fa fa-linkedin',
-								'fa fa-medium',
-								'fa fa-pinterest',
-								'fa fa-product-hunt',
-								'fa fa-reddit',
-								'fa fa-shopping-cart',
-								'fa fa-slideshare',
-								'fa fa-snapchat',
-								'fa fa-soundcloud',
-								'fa fa-spotify',
-								'fa fa-stack-overflow',
-								'fa fa-tripadvisor',
-								'fa fa-tumblr',
-								'fa fa-twitch',
-								'fa fa-twitter',
-								'fa fa-vimeo',
-								'fa fa-vk',
-								'fa fa-whatsapp',
-								'fa fa-wordpress',
-								'fa fa-xing',
-								'fa fa-yelp',
-								'fa fa-youtube',
-							],
+							'name' 				=> 'social',
+							'label'         	=> esc_html__( 'Icon', MELA_TD ),
+							'type'          	=> Controls_Manager::ICONS,
+							'fa4compatibility' 	=> 'icon',
+							'default'       	=> [
+								'value'     => 'fab fa-wordpress',
+								'library'   => 'brand',
+							]
 						],
 						[
 							'name' => 'link',
@@ -192,7 +163,8 @@
 							'placeholder' => esc_html__( 'Place URL here', MELA_TD ),
 						],
 					],
-					'title_field' => '<i class="{{ social }}"></i> {{{ social.replace( \'fa fa-\', \'\' ).replace( \'-\', \' \' ).replace( /\b\w/g, function( letter ){ return letter.toUpperCase() } ) }}}',
+					// 'title_field' => '<i class="{{ social }}"></i> {{{ social.replace( \'fab fa-\', \'\' ).replace( \'-\', \' \' ).replace( /\b\w/g, function( letter ){ return letter.toUpperCase() } ) }}}',
+					'title_field' => 'Social Icon',
 				]
 			);
 			$this->end_controls_section();
@@ -678,7 +650,7 @@ Customization Options.</span>'
 											<?php $target = $item['link']['is_external'] ? ' target="_blank"' : ''; ?>
                                             <a href="<?php echo esc_attr( $item['link']['url'] ); ?>"
 												<?php echo $target; ?>>
-                                                <i class="<?php echo esc_attr($item['social'] ); ?>"></i>
+                                                <?php Master_Addons_Helper::jltma_fa_icon_picker( 'fab fa-wordpress', 'icon', $item['social'], 'social' ); ?>
                                             </a>
 										<?php endforeach; ?>
 									<?php endif; ?>
@@ -732,7 +704,9 @@ Customization Options.</span>'
 
 										<?php $target = $item['link']['is_external'] ? ' target="_blank"' : ''; ?>
                                         <li>
-                                            <a href="<?php echo esc_attr( $item['link']['url'] ); ?>"<?php echo $target; ?>><i class="<?php echo esc_attr($item['social'] ); ?>"></i></a>
+                                            <a href="<?php echo esc_attr( $item['link']['url'] ); ?>"<?php echo $target; ?>>
+                                            	<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fab fa-wordpress', 'icon', $item['social'], 'social' ); ?>
+                                            </a>
                                         </li>
 
 									<?php endforeach; ?>
@@ -789,7 +763,7 @@ Customization Options.</span>'
 
                                     <# var target = item.link.is_external ? ' target="_blank"' : '' #>
 
-                                    <a href="{{ item.link.url }}" {{{ target }}}><i class="{{ item.social }}"></i></a>
+                                    <a href="{{ item.link.url }}" {{{ target }}}><i class="{{ item.social.value }}"></i></a>
 
                                     <# }); #>
 
@@ -836,7 +810,7 @@ Customization Options.</span>'
 
                             <# var target = item.link.is_external ? ' target="_blank"' : '' #>
                             <li>
-                                <a href="{{ item.link.url }}" {{{ target }}}><i class="{{ item.social }}"></i></a>
+                                <a href="{{ item.link.url }}" {{{ target }}}><i class="{{ item.social.value }}"></i></a>
                             </li>
 
                             <# }); #>

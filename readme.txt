@@ -399,13 +399,14 @@ Paste on your Local Computer
 * Updated: Blog Element - Excerpt Icon changed from Dropdown to Icons Library, Icon alignment issue fixed
 * Updated: Business Hours - Icon dropdown changed to Icon Library Picker, Checked other compatibility
 * Updated: Creative Icons - Design Style Presets bring on front instead of Style Tab. Icon dropdown changed to Icon Library Picker, Icon Alignement issue fixed. 
-* Updated: Creative Links - Icons Library Updated to lateset Fontawesome 5 Icons support. Alignement block issue fixed, brought Style Presets in fornt for better usability
-* Updated: Dual Heading - Icons Library Updated to lateset Fontawesome 5 Icons support. Alignement block issue fixed, brought Style Presets in fornt for better usability. Conditional Icons select option fixed
-* Updated: Image Hover Effects - Icons Library Updated to lateset Fontawesome 5 Icons support.
-* Updated: MA Infobox - Icons Library Updated to lateset Fontawesome 5 Icons support. Style Presets brought on Content Section for better experience.
-* Updated: Pricing Table - Icons Library Updated to lateset Fontawesome 5 Icons support. Style Presets brought on Content Section for better experience.
-* Updated: Table of Contents - Icons Library Updated to lateset Fontawesome 5 Icons support.
-* Updated: MA Tabs - Icons Library Updated to lateset Fontawesome 5 Icons support. 
+* Updated: Creative Links - Icons Library Updated to latest Fontawesome 5 Icons support. Alignement block issue fixed, brought Style Presets in fornt for better usability
+* Updated: Dual Heading - Icons Library Updated to latest Fontawesome 5 Icons support. Alignement block issue fixed, brought Style Presets in fornt for better usability. Conditional Icons select option fixed
+* Updated: Image Hover Effects - Icons Library Updated to latest Fontawesome 5 Icons support.
+* Updated: MA Infobox - Icons Library Updated to latest Fontawesome 5 Icons support. Style Presets brought on Content Section for better experience.
+* Updated: Pricing Table - Icons Library Updated to latest Fontawesome 5 Icons support. Style Presets brought on Content Section for better experience.
+* Updated: Table of Contents - Icons Library Updated to latest Fontawesome 5 Icons support.
+* Updated: MA Tabs - Icons Library Updated to latest Fontawesome 5 Icons support. 
+* Updated: MA Team Members - Icons Library Updated to latest Fontawesome 5 Icons support. 
  
 
 
