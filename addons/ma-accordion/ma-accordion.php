@@ -90,12 +90,18 @@
 				]
 			);
 
+
 			$this->add_control(
 				'toggle_icon',
 				[
-					'label'                 => esc_html__( 'Icon', MELA_TD ),
-					'type'                  => Controls_Manager::ICON,
-					'default'               => 'fa fa-minus',
+					'label'         	=> esc_html__( 'Collapse Icon', MELA_TD ),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'render_type'      	=> 'template',
+					'default'       	=> [
+						'value'     => 'fas fa-minus',
+						'library'   => 'solid',
+					],
 					'include'               => [
 						'fa fa-minus',
 						'fa fa-minus-circle',
@@ -116,16 +122,23 @@
 					],
 					'condition'             => [
 						'toggle_icon_show' => 'yes'
-					]
+					]					
+					
 				]
 			);
+
 
 			$this->add_control(
 				'active_icon',
 				[
-					'label'                 => esc_html__( 'Active Icon', MELA_TD ),
-					'type'                  => Controls_Manager::ICON,
-					'default'               => 'fa fa-plus',
+					'label'         	=> esc_html__( 'Open Icon', MELA_TD ),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'render_type'      	=> 'template',
+					'default'       	=> [
+						'value'     => 'fas fa-plus',
+						'library'   => 'solid',
+					],
 					'include'               => [
 						'fa fa-minus',
 						'fa fa-minus-circle',
@@ -146,9 +159,11 @@
 					],
 					'condition'             => [
 						'toggle_icon_show' => 'yes'
-					]
+					]					
+					
 				]
 			);
+
 
 			$this->add_control(
 				'toggle_speed',
@@ -1165,8 +1180,11 @@
                                 </span>
 								<?php if ( $settings['toggle_icon_show'] === 'yes' ) { ?>
                                     <span class="ma-accordion-toggle-icon">
-                                        <i class="ma-el-accordion-icon-closed <?php echo esc_attr( $settings['toggle_icon'] ); ?>"></i>
-                                        <i class="ma-el-accordion-icon-opened <?php echo esc_attr( $settings['active_icon'] ); ?>"></i>
+                                        <?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-minus', 'icon', $settings['toggle_icon'], 'toggle_minus_icon', 'ma-el-accordion-icon-closed' ); 
+                                        ?>
+
+                                        <?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-plus', 'icon', $settings['active_icon'], 'toggle_active_icon', 'ma-el-accordion-icon-opened' ); 
+                                        ?>
                                     </span>
 
 
