@@ -646,7 +646,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 			//Animated Headlines
 			if ( $is_activated_widget['ma-animated-headlines'] ) {
 				wp_enqueue_style( 'master-addons-headlines' );
-				wp_enqueue_script( 'ma-animated-headlines' );
+				// wp_enqueue_script( 'ma-animated-headlines' );
 			}
 
 			//Creative Buttons
