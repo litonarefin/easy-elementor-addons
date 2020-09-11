@@ -48,6 +48,153 @@
 		}		
 
 		protected function _register_controls() {
+
+
+
+			// Style Presets
+			$this->start_controls_section(
+				'ma_el_creative_link_content_style_presets',
+				[
+					'label' => esc_html__( 'Style Presets', MELA_TD )
+				]
+			);
+
+
+			// Premium Version Codes
+			if ( ma_el_fs()->can_use_premium_code() ) {
+
+				$this->add_control(
+					'creative_link_effect',
+					[
+						'label'       => esc_html__( 'Effects', MELA_TD ),
+						'type'        => Controls_Manager::SELECT,
+						'default'     => 'cl-effect-1',
+						'options'     => [
+							'cl-effect-1' 	=> esc_html__( 'Brackets', 	                                MELA_TD ),
+							'cl-effect-2' 	=> esc_html__( '3D Effect', 	                            MELA_TD ),
+							'cl-effect-3' 	=> esc_html__( 'Bottom Line Slide', 	                    MELA_TD ),
+							'cl-effect-4' 	=> esc_html__( 'Bottom Border Enlarge', 	                MELA_TD ),
+							'cl-effect-5' 	=> esc_html__( 'Slide In', 	                                MELA_TD ),
+							'cl-effect-6' 	=> esc_html__( 'Border Slide Down', 	                    MELA_TD ),
+							'cl-effect-7' 	=> esc_html__( '2nd Border Slide Up', 	                    MELA_TD ),
+							'cl-effect-8' 	=> esc_html__( 'Border Translate', 	                        MELA_TD ),
+							'cl-effect-9' 	=> esc_html__( '2nd Text and Border', 	                    MELA_TD ),
+							'cl-effect-10' 	=> esc_html__( 'Reveal Push Out', 	                        MELA_TD ),
+							'cl-effect-11' 	=> esc_html__( 'Text Fill', 	                            MELA_TD ), //problem
+							'cl-effect-12' 	=> esc_html__( 'Circle ', 	                                MELA_TD ),
+							'cl-effect-13' 	=> esc_html__( 'Three Dots', 	                            MELA_TD ),
+							'cl-effect-14' 	=> esc_html__( 'Border Switch', 	                        MELA_TD ),
+							'cl-effect-15' 	=> esc_html__( 'Scale Down', 	                            MELA_TD ),
+							'cl-effect-16' 	=> esc_html__( 'Fall Down', 	                            MELA_TD ),
+							'cl-effect-17' 	=> esc_html__( 'Move Up', 	                                MELA_TD ),
+							'cl-effect-18' 	=> esc_html__( 'Cross', 	                                MELA_TD ),
+							'cl-effect-19' 	=> esc_html__( '3D Slide', 	                                MELA_TD ),
+							'cl-effect-20' 	=> esc_html__( '3D Slide Down', 	                        MELA_TD ),
+							'cl-effect-21' 	=> esc_html__( 'Effect 21', 	                            MELA_TD ),
+							// 'cl-effect-22' 	=> esc_html__( 'Effect 22', 	                            MELA_TD ),
+						],
+
+					]
+				);
+
+
+			//Free Version Codes
+			} else {
+
+				$this->add_control(
+					'creative_link_effect',
+					[
+						'label'       => esc_html__( 'Effects', MELA_TD ),
+						'type'        => Controls_Manager::SELECT,
+						'default'     => 'cl-effect-1',
+						'options'     => [
+							'cl-effect-1' 	=> esc_html__( 'Brackets', 	                    MELA_TD ),
+							'cl-effect-3' 	=> esc_html__( 'Bottom Line Slide', 	        MELA_TD ),
+							'cl-effect-4' 	=> esc_html__( 'Bottom Border Enlarge', 	    MELA_TD ),
+							'cl-effect-13' 	=> esc_html__( 'Three Dots', 	                MELA_TD ),
+							'cl-effect-11' 	=> esc_html__( 'Text Fill', 	                MELA_TD ), //problem
+							'cl-effect-17' 	=> esc_html__( 'Move Up', 	                    MELA_TD ),
+							'cl-effect-15' 	=> esc_html__( 'Scale Down', 	                MELA_TD ),
+							'cl-effect-21' 	=> esc_html__( 'Basic Effect', 	                MELA_TD ),
+							'cl-pro-link-1' => esc_html__( '3D Effect (Pro)', 	            MELA_TD ),
+							'cl-pro-link-2' => esc_html__( 'Slide In (Pro)', 	            MELA_TD ),
+							'cl-pro-link-3' => esc_html__( 'Border Slide Down (Pro)', 	    MELA_TD ),
+							'cl-effect-7' 	=> esc_html__( '2nd Border Slide Up', 	        MELA_TD ),
+							'cl-pro-link-4' => esc_html__( 'Border Translate (Pro)', 	    MELA_TD ),
+							'cl-pro-link-5' => esc_html__( '2nd Text and Border (Pro)', 	MELA_TD ),
+							'cl-pro-link-6' => esc_html__( 'Reveal Push Out (Pro)', 	    MELA_TD ),
+							'cl-pro-link-7' => esc_html__( 'Circle (Pro)', 	                MELA_TD ),
+							'cl-pro-link' 	=> esc_html__( 'Border Switch (Pro)', 	        MELA_TD ),
+							'cl-pro-link-8' => esc_html__( 'Fall Down (Pro)', 	            MELA_TD ),
+							'cl-pro-link-9' => esc_html__( 'Cross (Pro)', 	                MELA_TD ),
+							'cl-pro-link-10'=> esc_html__( '3D Slide (Pro)', 	            MELA_TD ),
+							'cl-pro-link-11'=> esc_html__( '3D Slide Down (Pro)', 	        MELA_TD ),
+							// 'cl-effect-22' 	=> esc_html__( 'Effect 22', 	                MELA_TD ),
+						],
+
+
+						'description' => sprintf( '20+ more effects on <a href="%s" target="_blank">%s</a>',
+							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
+							__( 'Upgrade Now', MELA_TD ) )
+					]
+				);
+
+			}
+
+
+
+
+			$this->add_responsive_control(
+				'ma_el_creative_link_alignment',
+				[
+					'label'       => esc_html__( 'Link Alignment', MELA_TD ),
+					'type'        => Controls_Manager::CHOOSE,
+					'label_block' => false,
+					'options'     => [
+						'left' => [
+							'title' => esc_html__( 'Left', MELA_TD ),
+							'icon'  => 'fa fa-align-left',
+						],
+						'center' => [
+							'title' => esc_html__( 'Center', MELA_TD ),
+							'icon'  => 'fa fa-align-center',
+						],
+						'right' => [
+							'title' => esc_html__( 'Right', MELA_TD ),
+							'icon'  => 'fa fa-align-right',
+						],
+					],
+					'default'   => 'center',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-creative-links.cl-effect-1 .ma-el-creative-link .ma-el-creative-link-item,
+						{{WRAPPER}} .ma-el-creative-links.cl-effect-2 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-2 .ma-el-creative-link .ma-el-creative-link-item span,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-3 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-4 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-5 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-6 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-7 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-8 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-9 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-10 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-11 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-12 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-13 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-14 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-17 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-18 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-19 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-20 .ma-el-creative-link .ma-el-creative-link-item,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-20 .ma-el-creative-link span,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-21 .ma-el-creative-link .ma-el-creative-link-item' => 'text-align: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->end_controls_section();
+
+
+
 			/*
 			 * Master Addons: Creative Link Controls
 			 */
@@ -236,139 +383,8 @@
 			$this->start_controls_section(
 				'ma_el_creative_link_settings',
 				[
-					'label' => esc_html__( 'Link Effects &amp; Styles', MELA_TD ),
+					'label' => esc_html__( 'Link Styles', MELA_TD ),
 					'tab'   => Controls_Manager::TAB_STYLE
-				]
-			);
-
-			// Premium Version Codes
-			if ( ma_el_fs()->can_use_premium_code() ) {
-
-				$this->add_control(
-					'creative_link_effect',
-					[
-						'label'       => esc_html__( 'Set Link Effect', MELA_TD ),
-						'type'        => Controls_Manager::SELECT,
-						'default'     => 'cl-effect-1',
-						'options'     => [
-							'cl-effect-1' 	=> esc_html__( 'Brackets', 	                                MELA_TD ),
-							'cl-effect-2' 	=> esc_html__( '3D Effect', 	                            MELA_TD ),
-							'cl-effect-3' 	=> esc_html__( 'Bottom Line Slide', 	                    MELA_TD ),
-							'cl-effect-4' 	=> esc_html__( 'Bottom Border Enlarge', 	                MELA_TD ),
-							'cl-effect-5' 	=> esc_html__( 'Slide In', 	                                MELA_TD ),
-							'cl-effect-6' 	=> esc_html__( 'Border Slide Down', 	                    MELA_TD ),
-							'cl-effect-7' 	=> esc_html__( '2nd Border Slide Up', 	                    MELA_TD ),
-							'cl-effect-8' 	=> esc_html__( 'Border Translate', 	                        MELA_TD ),
-							'cl-effect-9' 	=> esc_html__( '2nd Text and Border', 	                    MELA_TD ),
-							'cl-effect-10' 	=> esc_html__( 'Reveal Push Out', 	                        MELA_TD ),
-							'cl-effect-11' 	=> esc_html__( 'Text Fill', 	                            MELA_TD ), //problem
-							'cl-effect-12' 	=> esc_html__( 'Circle ', 	                                MELA_TD ),
-							'cl-effect-13' 	=> esc_html__( 'Three Dots', 	                            MELA_TD ),
-							'cl-effect-14' 	=> esc_html__( 'Border Switch', 	                        MELA_TD ),
-							'cl-effect-15' 	=> esc_html__( 'Scale Down', 	                            MELA_TD ),
-							'cl-effect-16' 	=> esc_html__( 'Fall Down', 	                            MELA_TD ),
-							'cl-effect-17' 	=> esc_html__( 'Move Up', 	                                MELA_TD ),
-							'cl-effect-18' 	=> esc_html__( 'Cross', 	                                MELA_TD ),
-							'cl-effect-19' 	=> esc_html__( '3D Slide', 	                                MELA_TD ),
-							'cl-effect-20' 	=> esc_html__( '3D Slide Down', 	                        MELA_TD ),
-							'cl-effect-21' 	=> esc_html__( 'Effect 21', 	                            MELA_TD ),
-							// 'cl-effect-22' 	=> esc_html__( 'Effect 22', 	                            MELA_TD ),
-						],
-
-					]
-				);
-
-
-			//Free Version Codes
-			} else {
-
-				$this->add_control(
-					'creative_link_effect',
-					[
-						'label'       => esc_html__( 'Set Link Effect', MELA_TD ),
-						'type'        => Controls_Manager::SELECT,
-						'default'     => 'cl-effect-1',
-						'options'     => [
-							'cl-effect-1' 	=> esc_html__( 'Brackets', 	                    MELA_TD ),
-							'cl-effect-3' 	=> esc_html__( 'Bottom Line Slide', 	        MELA_TD ),
-							'cl-effect-4' 	=> esc_html__( 'Bottom Border Enlarge', 	    MELA_TD ),
-							'cl-effect-13' 	=> esc_html__( 'Three Dots', 	                MELA_TD ),
-							'cl-effect-11' 	=> esc_html__( 'Text Fill', 	                MELA_TD ), //problem
-							'cl-effect-17' 	=> esc_html__( 'Move Up', 	                    MELA_TD ),
-							'cl-effect-15' 	=> esc_html__( 'Scale Down', 	                MELA_TD ),
-							'cl-effect-21' 	=> esc_html__( 'Basic Effect', 	                MELA_TD ),
-							'cl-pro-link-1' => esc_html__( '3D Effect (Pro)', 	            MELA_TD ),
-							'cl-pro-link-2' => esc_html__( 'Slide In (Pro)', 	            MELA_TD ),
-							'cl-pro-link-3' => esc_html__( 'Border Slide Down (Pro)', 	    MELA_TD ),
-							'cl-effect-7' 	=> esc_html__( '2nd Border Slide Up', 	        MELA_TD ),
-							'cl-pro-link-4' => esc_html__( 'Border Translate (Pro)', 	    MELA_TD ),
-							'cl-pro-link-5' => esc_html__( '2nd Text and Border (Pro)', 	MELA_TD ),
-							'cl-pro-link-6' => esc_html__( 'Reveal Push Out (Pro)', 	    MELA_TD ),
-							'cl-pro-link-7' => esc_html__( 'Circle (Pro)', 	                MELA_TD ),
-							'cl-pro-link' 	=> esc_html__( 'Border Switch (Pro)', 	        MELA_TD ),
-							'cl-pro-link-8' => esc_html__( 'Fall Down (Pro)', 	            MELA_TD ),
-							'cl-pro-link-9' => esc_html__( 'Cross (Pro)', 	                MELA_TD ),
-							'cl-pro-link-10'=> esc_html__( '3D Slide (Pro)', 	            MELA_TD ),
-							'cl-pro-link-11'=> esc_html__( '3D Slide Down (Pro)', 	        MELA_TD ),
-							// 'cl-effect-22' 	=> esc_html__( 'Effect 22', 	                MELA_TD ),
-						],
-
-
-						'description' => sprintf( '20+ more effects on <a href="%s" target="_blank">%s</a>',
-							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
-							__( 'Upgrade Now', MELA_TD ) )
-					]
-				);
-
-			}
-
-
-
-
-			$this->add_responsive_control(
-				'ma_el_creative_link_alignment',
-				[
-					'label'       => esc_html__( 'Link Alignment', MELA_TD ),
-					'type'        => Controls_Manager::CHOOSE,
-					'label_block' => true,
-					'options'     => [
-						'left' => [
-							'title' => esc_html__( 'Left', MELA_TD ),
-							'icon'  => 'fa fa-align-left',
-						],
-						'center' => [
-							'title' => esc_html__( 'Center', MELA_TD ),
-							'icon'  => 'fa fa-align-center',
-						],
-						'right' => [
-							'title' => esc_html__( 'Right', MELA_TD ),
-							'icon'  => 'fa fa-align-right',
-						],
-					],
-					'default'   => 'center',
-					'selectors' => [
-						'{{WRAPPER}} .ma-el-creative-links.cl-effect-1 .ma-el-creative-link .ma-el-creative-link-item,
-						{{WRAPPER}} .ma-el-creative-links.cl-effect-2 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-2 .ma-el-creative-link .ma-el-creative-link-item span,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-3 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-4 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-5 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-6 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-7 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-8 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-9 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-10 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-11 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-12 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-13 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-14 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-17 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-18 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-19 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-20 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-20 .ma-el-creative-link span,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-21 .ma-el-creative-link .ma-el-creative-link-item' => 'text-align: {{VALUE}};',
-					],
 				]
 			);
 
