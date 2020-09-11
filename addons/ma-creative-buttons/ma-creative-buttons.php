@@ -625,7 +625,7 @@ Customization Options.</span>'
 						<span>
 							<?php if ( ! empty( $settings['ma_el_creative_button_icon'] ) && $settings['ma_el_creative_button_icon_alignment'] == 'left' ) : ?>
 								
-							<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-external-link-alt', 'icon', $settings['ma_el_creative_button_icon'], 'ma_el_creative_button_icon', 'ma-el-creative-button-icon-left' ); ?>								
+							<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-external-link-alt', 'icon', $settings['ma_el_creative_button_icon'], 'ma_el_creative_button_icon', 'ma-el-creative-button-icon-left' ); ?>							
 							<?php endif; ?>
 
 							<?php echo  $settings['creative_button_text'];?>

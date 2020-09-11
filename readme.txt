@@ -393,12 +393,13 @@ Paste on your Local Computer
 * Fixed: MA Flipbox - Icon Picker changed on both Front and Back box from dropdown to Elementor Icon Library
 * Fixed: MA Flipbox - Front Box description not showing issue fixed
 * Fixed: MA Flipbox - Title's changed from TEXT to TEXTAREA for better visibility. Design Styles bring to front for better UX, re-arranged controls for better usablity.
-* Fixed: MA Flipbox - Added more controls on Action Button Style Tabs - Normal and Hover Settings
-* Fixed: Main Navigation style breaking with some Themes has been fixed. 
-* Fixed: Advanced Acordion - Collapse, Open icons changed from Dropdown to Icons Library. Repeater Icon also changed
-* Fixed: Blog Element - Excerpt Icon changed from Dropdown to Icons Library, Icon alignment issue fixed
-* Fixed: Business Hours - Icon dropdown changed to Icon Library Picker, Checked other compatibility
-* Fixed: Creative Icons - Design Style Presets bring on front instead of Style Tab. Icon dropdown changed to Icon Library Picker, Icon Alignement issue fixed. 
+* Updated: MA Flipbox - Added more controls on Action Button Style Tabs - Normal and Hover Settings
+* Updated: Main Navigation style breaking with some Themes has been fixed. 
+* Updated: Advanced Acordion - Collapse, Open icons changed from Dropdown to Icons Library. Repeater Icon also changed
+* Updated: Blog Element - Excerpt Icon changed from Dropdown to Icons Library, Icon alignment issue fixed
+* Updated: Business Hours - Icon dropdown changed to Icon Library Picker, Checked other compatibility
+* Updated: Creative Icons - Design Style Presets bring on front instead of Style Tab. Icon dropdown changed to Icon Library Picker, Icon Alignement issue fixed. 
+* Updated: Creative Links - Icons Library Updated to lateset Fontawesome 5 Icons support
  
 
 

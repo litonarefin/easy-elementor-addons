@@ -6,6 +6,7 @@
 	use \Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
 	use \Elementor\Group_Control_Typography as Group_Control_Typography;
 	use \Elementor\Scheme_Typography as Scheme_Typography;
+	use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 	/**
 	 * Author Name: Liton Arefin
@@ -33,6 +34,14 @@
 		public function get_categories() {
 			return [ 'master-addons' ];
 		}
+
+		public function get_style_depends() {
+			return [
+				'font-awesome-5-all',
+                'font-awesome-4-shim'
+			];
+		}
+
 
 		public function get_help_url() {
 			return 'https://master-addons.com/demos/creative-link/';
@@ -92,10 +101,19 @@
 			$this->add_control(
 				'ma_el_creative_link_icon',
 				[
-					'label' => esc_html__( 'Icon', MELA_TD ),
-					'type'  => Controls_Manager::ICON,
+					'label'         	=> esc_html__( 'Icon', MELA_TD ),
+					'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'default'       	=> [
+						'value'     => 'fas fa-external-link-alt',
+						'library'   => 'solid',
+					],
+					'render_type'      => 'template'
 				]
 			);
+
+
 
 			$this->add_control(
 				'ma_el_creative_link_icon_alignment',
@@ -681,8 +699,7 @@ Customization Options.</span>'
 
 
 								<?php if ( ! empty( $settings['ma_el_creative_link_icon'] ) && $settings['ma_el_creative_link_icon_alignment'] == 'left' ) : ?>
-									<i class="<?php echo esc_attr($settings['ma_el_creative_link_icon'] ); ?>
-									ma-el-creative-link-icon-left" aria-hidden="true"></i>
+									<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-external-link-alt', 'icon', $settings['ma_el_creative_link_icon'], 'ma_el_creative_link_icon', 'ma-el-creative-link-icon-left' ); ?>								
 								<?php endif; ?>
 
 
@@ -698,8 +715,7 @@ Customization Options.</span>'
 
 
 								<?php if ( ! empty( $settings['ma_el_creative_link_icon'] ) && $settings['ma_el_creative_link_icon_alignment'] == 'right' ) : ?>
-									<i class="<?php echo esc_attr($settings['ma_el_creative_link_icon'] ); ?>
-									ma-el-creative-link-icon-right" aria-hidden="true"></i>
+									<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-external-link-alt', 'icon', $settings['ma_el_creative_link_icon'], 'ma_el_creative_link_icon', 'ma-el-creative-link-icon-right' ); ?>									
 								<?php endif; ?>
 
 							<?php if(( $settings['creative_link_effect'] == "cl-effect-2")  ||
