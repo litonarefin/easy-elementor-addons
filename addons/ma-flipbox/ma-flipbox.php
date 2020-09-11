@@ -700,7 +700,7 @@ class Master_Addons_Flip_Box extends Widget_Base {
 					'type' => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_1,
 				],
-				'default' => '#4b00e7',
+				'default' => '#41dcab',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-fb-icon-view-stacked' => 'background-color: {{VALUE}};',
 				],
@@ -955,78 +955,176 @@ class Master_Addons_Flip_Box extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'button_text_color',
-			[
-				'label' => __( 'Text Color', MELA_TD ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#fff',
-				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'color: {{VALUE}};',
-				],
-			]
-		);
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name' => 'typography',
-				'label' => __( 'Typography', MELA_TD ),
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button',
-			]
-		);
+		$this->start_controls_tabs( 'jltma_flipbox_action_btn_style' );
 
-		$this->add_control(
-			'background_color',
-			[
-				'label' => __( 'Background Color', MELA_TD ),
-				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
-				],
-				'default' => '#4b00e7',
-				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'background: {{VALUE}};',
-				],
-			]
-		);
+			$this->start_controls_tab( 'jltma_flipbox_action_btn_style_normal', 
+				[ 
+					'label' => esc_html__( 'Normal', MELA_TD ) 
+				] 
+			);
 
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name' => 'border',
-				'label' => __( 'Border', MELA_TD ),
-				'placeholder' => '1px',
-				'default' => '1px',
-				'selector' => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button',
-			]
-		);
+				$this->add_control(
+					'button_text_color',
+					[
+						'label' => __( 'Text Color', MELA_TD ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#fff',
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'color: {{VALUE}};',
+						],
+					]
+				);
 
-		$this->add_control(
-			'border_radius',
-			[
-				'label' => __( 'Border Radius', MELA_TD ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
-				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
+				$this->add_group_control(
+					Group_Control_Typography::get_type(),
+					[
+						'name' => 'typography',
+						'label' => __( 'Typography', MELA_TD ),
+						'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+						'selector' => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button',
+					]
+				);
 
-		$this->add_control(
-			'text_padding',
-			[
-				'label' => __( 'Text Padding', MELA_TD ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', 'em', '%' ],
-				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
+				$this->add_control(
+					'background_color',
+					[
+						'label' => __( 'Background Color', MELA_TD ),
+						'type' => Controls_Manager::COLOR,
+						'scheme' => [
+							'type' => Scheme_Color::get_type(),
+							'value' => Scheme_Color::COLOR_4,
+						],
+						'default' => '#4b00e7',
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'background: {{VALUE}};',
+						],
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Border::get_type(),
+					[
+						'name' => 'border',
+						'label' => __( 'Border', MELA_TD ),
+						'placeholder' => '1px',
+						'default' => '1px',
+						'selector' => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button',
+					]
+				);
+
+				$this->add_control(
+					'border_radius',
+					[
+						'label' => __( 'Border Radius', MELA_TD ),
+						'type' => Controls_Manager::DIMENSIONS,
+						'size_units' => [ 'px', '%' ],
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						],
+					]
+				);
+
+				$this->add_control(
+					'text_padding',
+					[
+						'label' => __( 'Padding', MELA_TD ),
+						'type' => Controls_Manager::DIMENSIONS,
+						'size_units' => [ 'px', 'em', '%' ],
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						],
+					]
+				);
+
+
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab( 'jltma_flipbox_action_btn_style_hover', 
+				[ 
+					'label' => esc_html__( 'Hover', MELA_TD ) 
+				] 
+			);
+
+
+				$this->add_control(
+					'button_text_color_hover',
+					[
+						'label' => __( 'Text Color', MELA_TD ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#fff',
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover' => 'color: {{VALUE}};',
+						],
+					]
+				);
+
+				// $this->add_group_control(
+				// 	Group_Control_Typography::get_type(),
+				// 	[
+				// 		'name' => 'typography',
+				// 		'label' => __( 'Typography', MELA_TD ),
+				// 		'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+				// 		'selector' => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover',
+				// 	]
+				// );
+
+				$this->add_control(
+					'background_color_hover',
+					[
+						'label' => __( 'Background Color', MELA_TD ),
+						'type' => Controls_Manager::COLOR,
+						'scheme' => [
+							'type' => Scheme_Color::get_type(),
+							'value' => Scheme_Color::COLOR_4,
+						],
+						'default' => '#4b00e7',
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover' => 'background: {{VALUE}};',
+						],
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Border::get_type(),
+					[
+						'name' => 'border_hover',
+						'label' => __( 'Border', MELA_TD ),
+						'placeholder' => '1px',
+						'default' => '1px',
+						'selector' => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover',
+					]
+				);
+
+				$this->add_control(
+					'border_radius_hover',
+					[
+						'label' => __( 'Border Radius', MELA_TD ),
+						'type' => Controls_Manager::DIMENSIONS,
+						'size_units' => [ 'px', '%' ],
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						],
+					]
+				);
+
+				$this->add_control(
+					'text_padding_hover',
+					[
+						'label' => __( 'Padding', MELA_TD ),
+						'type' => Controls_Manager::DIMENSIONS,
+						'size_units' => [ 'px', 'em', '%' ],
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						],
+					]
+				);
+
+			$this->end_controls_tab();
+		$this->end_controls_tabs();	
+
+
 
 
 		$this->end_controls_section();
@@ -1262,7 +1360,9 @@ Customization Options.</span>'
                             <?php if(!empty($settings['action_text'])){ ?>
                                 <div class="ma-el-fb-button-wrapper">
                                     <a <?php echo $this->get_render_attribute_string( 'button' ); ?>>
-                                        <span class="elementor-button-text"><?php echo $settings['action_text']; ?></span>
+                                        <span class="elementor-button-text">
+                                        	<?php echo $settings['action_text']; ?>		
+                                        </span>
                                     </a>
                                 </div>
                             <?php  }  ?>

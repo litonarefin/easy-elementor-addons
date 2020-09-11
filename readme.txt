@@ -392,7 +392,8 @@ Paste on your Local Computer
 * Fixed: MA Counter Up - Color, Typography style not working issue fixed
 * Fixed: MA Flipbox - Icon Picker changed on both Front and Back box from dropdown to Elementor Icon Library
 * Fixed: MA Flipbox - Front Box description not showing issue fixed
-* Fixed: MA Flipbox - Title Changed to textarea for better visibility. Design Styles bring to front for better UX, re-arranged controls for better usablity.
+* Fixed: MA Flipbox - Title's changed from TEXT to TEXTAREA for better visibility. Design Styles bring to front for better UX, re-arranged controls for better usablity.
+* Fixed: MA Flipbox - Added more controls on Action Button Style Tabs - Normal and Hover Settings
 
 
 

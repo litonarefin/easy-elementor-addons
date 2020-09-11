@@ -3948,6 +3948,9 @@
     background-color: #fff;
 }
 
+.ma-el-flip-box-wrapper .ma-el-fb-button{
+    cursor: pointer;
+}
 .ma-el-flip-box-wrapper.one .ma-el-flip-box-front,
 .ma-el-flip-box-wrapper.one .ma-el-flip-box-back {
     text-align: left;
