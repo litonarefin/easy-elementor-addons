@@ -133,6 +133,7 @@
                 (function ($) {
 
                     /*----------- Animated Headlines --------------*/
+
                     //set animation timing
                     var animationDelay = 2500,
                         //loading bar effect
@@ -149,6 +150,7 @@
                         revealAnimationDelay = 1500;
 
                     Master_Addons.MA_Animated_Headlines.initHeadline();
+
 
                     Master_Addons.MA_Animated_Headlines.initHeadline = function() {
                         //insert <i> element for each letter of a changing word
@@ -196,13 +198,12 @@
                             };
 
                             //trigger animation
-                            setTimeout(function () { Master_Addons.MA_Animated_Headlines.hideWord(headline.find('.is-visible').eq(0)) }, duration);
+                            setTimeout(function () { hideWord(headline.find('.is-visible').eq(0)) }, duration);
                         });
                     }
 
-
-                    Master_Addons.MA_Animated_Headlines.hideWord = function($word) {                         
-                        var nextWord = Master_Addons.MA_Animated_Headlines.takeNext($word);
+                    function hideWord($word) {
+                        var nextWord = takeNext($word);
 
                         if ($word.parents('.cd-headline').hasClass('type')) {
                             var parentSpan = $word.parent('.cd-words-wrapper');
@@ -211,78 +212,78 @@
                                 parentSpan.removeClass('selected');
                                 $word.removeClass('is-visible').addClass('is-hidden').children('i').removeClass('in').addClass('out');
                             }, selectionDuration);
-                            setTimeout(function () { Master_Addons.MA_Animated_Headlines.showWord(nextWord, typeLettersDelay) }, typeAnimationDelay);
+                            setTimeout(function () { showWord(nextWord, typeLettersDelay) }, typeAnimationDelay);
 
                         } else if ($word.parents('.cd-headline').hasClass('letters')) {
                             var bool = ($word.children('i').length >= nextWord.children('i').length) ? true : false;
-                            Master_Addons.MA_Animated_Headlines.hideLetter($word.find('i').eq(0), $word, bool, lettersDelay);
-                            Master_Addons.MA_Animated_Headlines.showLetter(nextWord.find('i').eq(0), nextWord, bool, lettersDelay);
+                            hideLetter($word.find('i').eq(0), $word, bool, lettersDelay);
+                            showLetter(nextWord.find('i').eq(0), nextWord, bool, lettersDelay);
 
                         } else if ($word.parents('.cd-headline').hasClass('clip')) {
                             $word.parents('.cd-words-wrapper').animate({ width: '2px' }, revealDuration, function () {
                                 switchWord($word, nextWord);
-                                Master_Addons.MA_Animated_Headlines.showWord(nextWord);
+                                showWord(nextWord);
                             });
 
                         } else if ($word.parents('.cd-headline').hasClass('loading-bar')) {
                             $word.parents('.cd-words-wrapper').removeClass('is-loading');
                             switchWord($word, nextWord);
-                            setTimeout(function () { Master_Addons.MA_Animated_Headlines.hideWord(nextWord) }, barAnimationDelay);
+                            setTimeout(function () { hideWord(nextWord) }, barAnimationDelay);
                             setTimeout(function () { $word.parents('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
 
                         } else {
                             switchWord($word, nextWord);
-                            setTimeout(function () { Master_Addons.MA_Animated_Headlines.hideWord(nextWord) }, animationDelay);
+                            setTimeout(function () { hideWord(nextWord) }, animationDelay);
                         }
                     }
 
-                    Master_Addons.MA_Animated_Headlines.showWord = function($word, $duration) {                         
+                    function showWord($word, $duration) {
                         if ($word.parents('.cd-headline').hasClass('type')) {
-                            Master_Addons.MA_Animated_Headlines.showLetter($word.find('i').eq(0), $word, false, $duration);
+                            showLetter($word.find('i').eq(0), $word, false, $duration);
                             $word.addClass('is-visible').removeClass('is-hidden');
 
                         } else if ($word.parents('.cd-headline').hasClass('clip')) {
                             $word.parents('.cd-words-wrapper').animate({ 'width': $word.width() + 10 }, revealDuration, function () {
-                                setTimeout(function () { Master_Addons.MA_Animated_Headlines.hideWord($word) }, revealAnimationDelay);
+                                setTimeout(function () { hideWord($word) }, revealAnimationDelay);
                             });
                         }
                     }
 
-                    Master_Addons.MA_Animated_Headlines.hideLetter = function($letter, $word, $bool, $duration) {
+                    function hideLetter($letter, $word, $bool, $duration) {
                         $letter.removeClass('in').addClass('out');
 
                         if (!$letter.is(':last-child')) {
-                            setTimeout(function () { Master_Addons.MA_Animated_Headlines.hideLetter($letter.next(), $word, $bool, $duration); }, $duration);
+                            setTimeout(function () { hideLetter($letter.next(), $word, $bool, $duration); }, $duration);
                         } else if ($bool) {
-                            setTimeout(function () { Master_Addons.MA_Animated_Headlines.hideWord(Master_Addons.MA_Animated_Headlines.takeNext($word)) }, animationDelay);
+                            setTimeout(function () { hideWord(takeNext($word)) }, animationDelay);
                         }
 
                         if ($letter.is(':last-child') && $('html').hasClass('no-csstransitions')) {
-                            var nextWord = Master_Addons.MA_Animated_Headlines.takeNext($word);
+                            var nextWord = takeNext($word);
                             switchWord($word, nextWord);
                         }
                     }
 
-                    Master_Addons.MA_Animated_Headlines.showLetter = function($letter, $word, $bool, $duration) {
+                    function showLetter($letter, $word, $bool, $duration) {
                         $letter.addClass('in').removeClass('out');
 
                         if (!$letter.is(':last-child')) {
-                            setTimeout(function () { Master_Addons.MA_Animated_Headlines.showLetter($letter.next(), $word, $bool, $duration); }, $duration);
+                            setTimeout(function () { showLetter($letter.next(), $word, $bool, $duration); }, $duration);
                         } else {
                             if ($word.parents('.cd-headline').hasClass('type')) { setTimeout(function () { $word.parents('.cd-words-wrapper').addClass('waiting'); }, 200); }
-                            if (!$bool) { setTimeout(function () { Master_Addons.MA_Animated_Headlines.hideWord($word) }, animationDelay) }
+                            if (!$bool) { setTimeout(function () { hideWord($word) }, animationDelay) }
                         }
                     }
 
-                    Master_Addons.MA_Animated_Headlines.takeNext = function($word) {
+                    function takeNext($word) {
                         return (!$word.is(':last-child')) ? $word.next() : $word.parent().children().eq(0);
                     }
 
-                    Master_Addons.MA_Animated_Headlines.takePrev = function($word) {
+                    function takePrev($word) {
                         return (!$word.is(':first-child')) ? $word.prev() : $word.parent().children().last();
                     }
 
-                    Master_Addons.MA_Animated_Headlines.switchWord = function($oldWord, $newWord) {
+                    function switchWord($oldWord, $newWord) {
                         $oldWord.removeClass('is-visible').addClass('is-hidden');
                         $newWord.removeClass('is-hidden').addClass('is-visible');
                     }

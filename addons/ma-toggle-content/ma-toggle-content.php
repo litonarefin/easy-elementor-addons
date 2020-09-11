@@ -1048,8 +1048,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
 		$this->add_render_attribute( $icon_key, 'class', [
 			'jltma-toggle-content-controls__icon',
 			'jltma-icon',
-			'jltma-icon-support--svg',
-			'jltma-icon--' . $item['jltma_toggle_content_icon_align'],
+			'jltma-icon-support--svg'
 		] );
 
 		if ( '' === $item['jltma_toggle_content_text'] ) {
