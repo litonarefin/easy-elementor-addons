@@ -9,6 +9,7 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
+use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -37,6 +38,12 @@ class Master_Addons_Business_Hours extends Widget_Base {
 		return [  'office', 'business', 'hours', 'time', 'duty', 'schedule', 'clock', 'alarm' ];
 	}
 
+	public function get_style_depends() {
+		return [
+			'font-awesome-5-all',
+            'font-awesome-4-shim'
+		];
+	}
 
 	public function get_help_url() {
 		return 'https://master-addons.com/demos/business-hours/';
@@ -185,19 +192,36 @@ class Master_Addons_Business_Hours extends Widget_Base {
 		    ]
 	    );
 
-	    $this->add_control(
-		    'ma_el_bh_day_icon',
-		    [
-			    'label'       => __( 'Day Icon', MELA_TD ),
-			    'type'        => Controls_Manager::ICON,
-			    'label_block' => true,
-			    'default'     => 'fa fa-clock-o',
-			    'condition'        => [
-				    'ma_el_bh_show_day_icon'   =>  'yes'
-			    ],
-		    ]
-	    );
+	    // $this->add_control(
+		   //  'ma_el_bh_day_icon',
+		   //  [
+			  //   'label'       => __( 'Day Icon', MELA_TD ),
+			  //   'type'        => Controls_Manager::ICON,
+			  //   'label_block' => true,
+			  //   'default'     => 'fa fa-clock',
+			  //   'condition'        => [
+				 //    'ma_el_bh_show_day_icon'   =>  'yes'
+			  //   ],
+		   //  ]
+	    // );
 
+		$this->add_control(
+			'ma_el_bh_day_icon',
+			[
+				'label'         	=> esc_html__( 'Day Icon', MELA_TD ),
+				'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+				'type'          	=> Controls_Manager::ICONS,
+				'fa4compatibility' 	=> 'icon',
+				'default'       	=> [
+					'value'     => 'far fa-clock',
+					'library'   => 'regular',
+				],
+				'render_type'      => 'template',
+				'condition' => [
+					'ma_el_bh_show_day_icon'   =>  'yes'
+				],
+			]
+		);
 
 	    $repeater = new Repeater();
 
@@ -1274,7 +1298,7 @@ class Master_Addons_Business_Hours extends Widget_Base {
 		    <li <?php echo $this->get_render_attribute_string( 'row' . $i ); ?>>
                     <span class="ma-el-business-day-name float-left">
                         <?php if($settings['ma_el_bh_show_day_icon'] == "yes"){
-	                        echo '<i class="' . $settings['ma_el_bh_day_icon'] .'"></i>';
+	                        Master_Addons_Helper::jltma_fa_icon_picker( 'far fa-clock', 'icon', $settings['ma_el_bh_day_icon'], 'ma_el_bh_day_icon' ); 
                         }?>
 
                         <?php
@@ -1337,7 +1361,8 @@ class Master_Addons_Business_Hours extends Widget_Base {
             <li <?php echo $this->get_render_attribute_string( 'row' . $i ); ?>>
                     <span class="ma-el-business-day-name float-left">
                         <?php if($settings['ma_el_bh_show_day_icon'] == "yes"){
-	                        echo '<i class="' . $settings['ma_el_bh_day_icon'] .'"></i>';
+	                        // echo '<i class="' . $settings['ma_el_bh_day_icon'] .'"></i>';
+	                        Master_Addons_Helper::jltma_fa_icon_picker( 'far fa-clock', 'icon', $settings['ma_el_bh_day_icon'], 'ma_el_bh_day_icon' ); 
                         }?>
 
                         <?php
@@ -1436,7 +1461,8 @@ class Master_Addons_Business_Hours extends Widget_Base {
                     <span class="ma-el-business-day-name float-left">
                         <?php
                             if($settings['ma_el_bh_show_day_icon'] == "yes"){
-                            echo '<i class="' . $settings['ma_el_bh_day_icon'] .'"></i>';
+                            // echo '<i class="' . $settings['ma_el_bh_day_icon'] .'"></i>';
+                            Master_Addons_Helper::jltma_fa_icon_picker( 'far fa-clock', 'icon', $settings['ma_el_bh_day_icon'], 'ma_el_bh_day_icon' ); 
                         }?>
                         <?php
                             echo esc_attr( $item['ma_el_bh_custom_day'] );

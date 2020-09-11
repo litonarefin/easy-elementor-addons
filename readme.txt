@@ -395,8 +395,9 @@ Paste on your Local Computer
 * Fixed: MA Flipbox - Title's changed from TEXT to TEXTAREA for better visibility. Design Styles bring to front for better UX, re-arranged controls for better usablity.
 * Fixed: MA Flipbox - Added more controls on Action Button Style Tabs - Normal and Hover Settings
 * Fixed: Main Navigation style breaking with some Themes has been fixed. 
-* Fixed: Advanced Acordion - Collapse, Open icons changed from Dropdown to Icons Library. 
+* Fixed: Advanced Acordion - Collapse, Open icons changed from Dropdown to Icons Library. Repeater Icon also changed
 * Fixed: Blog Element - Excerpt Icon changed from Dropdown to Icons Library, Icon alignment issue fixed
+* Fixed: Business Hours - Icon dropdown changed to Icon Library Picker, Checked other compatibility
  
 
 

@@ -211,18 +211,35 @@
 				]
 			);
 
+			// $repeater->add_control(
+			// 	'accordion_tab_title_icon',
+			// 	[
+			// 		'label'                 => esc_html__( 'Icon', MELA_TD ),
+			// 		'type'                  => Controls_Manager::ICON,
+			// 		'default'               => 'fa fa-plus',
+			// 		'condition'             => [
+			// 			'accordion_tab_icon_show' => 'yes'
+			// 		]
+			// 	]
+			// );
+
 			$repeater->add_control(
 				'accordion_tab_title_icon',
 				[
-					'label'                 => esc_html__( 'Icon', MELA_TD ),
-					'type'                  => Controls_Manager::ICON,
-					'default'               => 'fa fa-plus',
-					'condition'             => [
+					'label'         	=> esc_html__( 'Icon', MELA_TD ),
+					'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+					'type'          	=> Controls_Manager::ICONS,
+					'fa4compatibility' 	=> 'icon',
+					'default'       	=> [
+						'value'     => 'fas fa-plus',
+						'library'   => 'solid',
+					],
+					'render_type'      => 'template',
+					'condition' => [
 						'accordion_tab_icon_show' => 'yes'
-					]
+					],
 				]
 			);
-
 
 
 			// Premium Version Codes
@@ -1170,7 +1187,8 @@
 
                                     <?php if ( $tab['accordion_tab_icon_show'] === 'yes' ) { ?>
                                         <span class="ma-accordion-tab-icon">
-                                            <i class="<?php echo esc_attr( $tab['accordion_tab_title_icon'] ); ?> fa-accordion-icon"></i>
+                                            <?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-plus', 'icon', $tab['accordion_tab_title_icon'], 'accordion_tab_title_icon', 'fa-accordion-icon' ); 
+                                        ?>
                                         </span>
                                     <?php } ?>
 
