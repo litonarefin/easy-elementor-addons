@@ -1830,12 +1830,12 @@
                 'button_wrapper' =>[
                         'class'	=> [
 							'ma-el-btn',
-							'btn',
-							'btn-primary',
+							'jltma-btn',
+							'jltma-btn-primary',
 							'mb-2',
 							'mt-3'
 						],
-						'id' 			=> 'ma-el-btn',
+						'id' => 'ma-el-btn',
 					],
 			]);
 
@@ -1844,8 +1844,8 @@
                         'class'	=> [
 							'ma-el-exit',
 							'ma-el-btn',
-							'btn',
-							'btn-danger',
+							'jltma-btn',
+							'jltma-btn-danger',
 							'mb-2',
 							'mt-3'
 						],
@@ -1927,12 +1927,12 @@
                 'button_wrapper' =>[
                         'class'	=> [
 							'ma-el-btn',
-							'btn',
-							'btn-primary',
+							'jltma-btn',
+							'jltma-btn-primary',
 							'mb-2',
 							'mt-3'
 						],
-						'id' 			=> 'ma-el-btn'
+						'id' => 'ma-el-btn'
 					],
 			]);
 
@@ -2240,7 +2240,7 @@
 												}
 											}'
 											href="javascript:;"
-											class="btn ma-el-rc-button"
+											class="jltma-btn ma-el-rc-button"
 
 											id="<?php if( $settings['ma_el_restrict_content_popup_type'] =="windowload" || $settings['ma_el_restrict_content_popup_type'] =="windowloadfullscreen"){
 													echo "ma-el-rc-modal-hidden";

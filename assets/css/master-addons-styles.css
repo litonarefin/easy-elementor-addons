@@ -8,7 +8,7 @@
     background-image: linear-gradient(to left, #e4f1f9 0%, #e1f9f1 100%);
   }
 
-  .btn {
+  .jltma-btn {
     background: #8dc63f;
     border: none;
     border-radius: 5px;
@@ -23,7 +23,7 @@
     text-decoration:none;
   }
 
-  .btn:hover {
+  .jltma-btn:hover {
     background: #8dc63f;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25) inset !important;
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25) inset !important;
@@ -732,11 +732,9 @@
 .ma-el-advance-tab.five .ma-el-advance-tab-content {
     padding-left: 60px;
 }
-.ma-el-advance-tab.five .btn {
+.ma-el-advance-tab.five .jltma-btn {
     margin-top: 35px;
 }
-
-
 
 
 @media only screen and (max-width: 768px){

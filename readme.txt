@@ -410,7 +410,7 @@ Paste on your Local Computer
 * Updated: MA Tooltips - Icons Library Updated to latest Fontawesome 5 Icons support. 
 * Added: MA Toggle Content - Icon options added on Repeater field and given compatibility.
 * Updated: MA Toggle Content - Icons Library Updated to latest Fontawesome 5 Icons support. 
-
+* Updated: Bootstrap's default classes changed for conflicting issues with other themes - container, navbar, btn classes changed to "jltma-" prefix.
  
 
 
