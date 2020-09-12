@@ -251,8 +251,7 @@ class Master_Addons_Headlines extends Widget_Base {
 						],
 					],
 					'default' => '1',
-					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with
-Customization Options.</span>'
+					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 				]
 			);
 
@@ -273,40 +272,96 @@ Customization Options.</span>'
 		);
 
 
-		$this->add_control(
-			'ma_el_headlines_first_text_color',
-			[
-				'label'		=> esc_html__( 'Text Color', MELA_TD ),
-				'type'		=> Controls_Manager::COLOR,
-				'default' => '#ffffff',
-				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading'
-					=> 'color: {{VALUE}};',
-				],
-			]
-		);
+			$this->add_control(
+				'ma_el_headlines_first_text_color',
+				[
+					'label'		=> esc_html__( 'Text Color', MELA_TD ),
+					'type'		=> Controls_Manager::COLOR,
+					'default' => '#ffffff',
+					'selectors'	=> [
+						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading'
+						=> 'color: {{VALUE}};',
+					],
+				]
+			);
 
-		$this->add_control(
-			'ma_el_headlines_first_bg_color',
-			[
-				'label' => __( 'Background', MELA_TD ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#704aff',
-				'selectors' => [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading'
-					=> 'background-color: {{VALUE}};',
-				],
-			]
-		);
+			$this->add_control(
+				'ma_el_headlines_first_bg_color',
+				[
+					'label' => __( 'Background', MELA_TD ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#704aff',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading'
+						=> 'background-color: {{VALUE}};',
+					],
+				]
+			);
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name' => 'ma_el_headlines_first_heading_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading',
-			]
-		);
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'ma_el_headlines_first_heading_typography',
+					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+					'selector' => '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading',
+				]
+			);
+
+
+			$this->add_control(
+				'ma_el_headlines_first_heading_padding',
+				[
+					'label' 		=> esc_html__( 'Padding', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					]
+				]
+			);
+
+			$this->add_control(
+				'ma_el_headlines_first_heading_margin',
+				[
+					'label' 		=> esc_html__( 'Margin', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					]
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+				[
+					'name' 		=> 'ma_el_headlines_first_heading_border',
+					'label' 	=> esc_html__( 'Border', MELA_TD ),
+					'selector' 	=> '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading',
+					'separator' => ''
+				]
+			);
+
+			$this->add_control(
+				'ma_el_headlines_first_heading_radius',
+				[
+					'label' 		=> esc_html__( 'Border Radius', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					]
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Box_Shadow::get_type(),
+				[
+					'name' 		=> 'ma_el_headlines_first_heading_box_shadow',
+					'selector' 	=> '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading',
+					'separator'	=> ''
+				]
+			);
 
 		$this->end_controls_section();
 
@@ -321,39 +376,94 @@ Customization Options.</span>'
 			]
 		);
 
-		$this->add_control(
-			'ma_el_headlines_second_text_color',
-			[
-				'label'		=> esc_html__( 'Text Color', MELA_TD ),
-				'type'		=> Controls_Manager::COLOR,
-				'default' => '#132C47',
-				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' =>
-						'color: {{VALUE}}; font-style: normal; font-weight: normal;',
-				],
-			]
-		);
+			$this->add_control(
+				'ma_el_headlines_second_text_color',
+				[
+					'label'		=> esc_html__( 'Text Color', MELA_TD ),
+					'type'		=> Controls_Manager::COLOR,
+					'default' => '#132C47',
+					'selectors'	=> [
+						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' =>
+							'color: {{VALUE}}; font-style: normal; font-weight: normal;',
+					],
+				]
+			);
 
-		$this->add_control(
-			'ma_el_headlines_second_bg_color',
-			[
-				'label' => __( 'Background', MELA_TD ),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' =>
-						'background-color: {{VALUE}}; line-height:1.3;',
-				],
-			]
-		);
+			$this->add_control(
+				'ma_el_headlines_second_bg_color',
+				[
+					'label' => __( 'Background', MELA_TD ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' =>
+							'background-color: {{VALUE}}; line-height:1.3;',
+					],
+				]
+			);
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name' => 'ma_el_headlines_second_heading_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading',
-			]
-		);
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'ma_el_headlines_second_heading_typography',
+					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+					'selector' => '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading',
+				]
+			);
+
+			$this->add_control(
+				'ma_el_headlines_second_heading_padding',
+				[
+					'label' 		=> esc_html__( 'Padding', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					]
+				]
+			);
+
+			$this->add_control(
+				'ma_el_headlines_second_heading_margin',
+				[
+					'label' 		=> esc_html__( 'Margin', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					]
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+				[
+					'name' 		=> 'ma_el_headlines_second_heading_border',
+					'label' 	=> esc_html__( 'Border', MELA_TD ),
+					'selector' 	=> '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading',
+					'separator' => ''
+				]
+			);
+
+			$this->add_control(
+				'ma_el_headlines_second_heading_radius',
+				[
+					'label' 		=> esc_html__( 'Border Radius', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					]
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Box_Shadow::get_type(),
+				[
+					'name' 		=> 'ma_el_headlines_second_heading_box_shadow',
+					'selector' 	=> '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading',
+					'separator'	=> ''
+				]
+			);
 
 
 		$this->end_controls_section();
