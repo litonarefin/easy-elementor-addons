@@ -2528,7 +2528,7 @@
                     <?php } ?>
 
                     <?php if( $settings['ma_el_post_grid_layout'] == 'grid' && $settings['ma_el_blog_cards_skin']=='full_banner' ) { ?>
-                        <div class="container">
+                        <div class="jltma-container">
                     <?php } ?>
 
                     <?php
