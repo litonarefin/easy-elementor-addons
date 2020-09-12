@@ -536,44 +536,44 @@ pre code {
     padding-right: 15px;
     padding-left: 15px;
 }
-.col {
+.jltma-col {
     -ms-flex-preferred-size: 0;
     flex-basis: 0%;
     -ms-flex-positive: 1;
     flex-grow: 1;
     max-width: 100%;
 }
-.row-cols-1 > * {
+.jltma-row-cols-1 > * {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
 }
-.row-cols-2 > * {
+.jltma-row-cols-2 > * {
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 50%;
 }
-.row-cols-3 > * {
+.jltma-row-cols-3 > * {
     -ms-flex: 0 0 33.333333%;
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
 }
-.row-cols-4 > * {
+.jltma-row-cols-4 > * {
     -ms-flex: 0 0 25%;
     flex: 0 0 25%;
     max-width: 25%;
 }
-.row-cols-5 > * {
+.jltma-row-cols-5 > * {
     -ms-flex: 0 0 20%;
     flex: 0 0 20%;
     max-width: 20%;
 }
-.row-cols-6 > * {
+.jltma-row-cols-6 > * {
     -ms-flex: 0 0 16.666667%;
     flex: 0 0 16.666667%;
     max-width: 16.666667%;
 }
-.col-auto {
+.jltma-col-auto {
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
     width: auto;
@@ -1152,88 +1152,88 @@ pre code {
         flex: 0 0 50%;
         max-width: 50%;
     }
-    .row-cols-lg-3 > * {
+    .jltma-row-cols-lg-3 > * {
         -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
         max-width: 33.333333%;
     }
-    .row-cols-lg-4 > * {
+    .jltma-row-cols-lg-4 > * {
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%;
     }
-    .row-cols-lg-5 > * {
+    .jltma-row-cols-lg-5 > * {
         -ms-flex: 0 0 20%;
         flex: 0 0 20%;
         max-width: 20%;
     }
-    .row-cols-lg-6 > * {
+    .jltma-row-cols-lg-6 > * {
         -ms-flex: 0 0 16.666667%;
         flex: 0 0 16.666667%;
         max-width: 16.666667%;
     }
-    .col-lg-auto {
+    .jltma-col-lg-auto {
         -ms-flex: 0 0 auto;
         flex: 0 0 auto;
         width: auto;
         max-width: 100%;
     }
-    .col-lg-1 {
+    .jltma-col-lg-1 {
         -ms-flex: 0 0 8.333333%;
         flex: 0 0 8.333333%;
         max-width: 8.333333%;
     }
-    .col-lg-2 {
+    .jltma-col-lg-2 {
         -ms-flex: 0 0 16.666667%;
         flex: 0 0 16.666667%;
         max-width: 16.666667%;
     }
-    .col-lg-3 {
+    .jltma-col-lg-3 {
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%;
     }
-    .col-lg-4 {
+    .jltma-col-lg-4 {
         -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
         max-width: 33.333333%;
     }
-    .col-lg-5 {
+    .jltma-col-lg-5 {
         -ms-flex: 0 0 41.666667%;
         flex: 0 0 41.666667%;
         max-width: 41.666667%;
     }
-    .col-lg-6 {
+    .jltma-col-lg-6 {
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%;
     }
-    .col-lg-7 {
+    .jltma-col-lg-7 {
         -ms-flex: 0 0 58.333333%;
         flex: 0 0 58.333333%;
         max-width: 58.333333%;
     }
-    .col-lg-8 {
+    .jltma-col-lg-8 {
         -ms-flex: 0 0 66.666667%;
         flex: 0 0 66.666667%;
         max-width: 66.666667%;
     }
-    .col-lg-9 {
+    .jltma-col-lg-9 {
         -ms-flex: 0 0 75%;
         flex: 0 0 75%;
         max-width: 75%;
     }
-    .col-lg-10 {
+    .jltma-col-lg-10 {
         -ms-flex: 0 0 83.333333%;
         flex: 0 0 83.333333%;
         max-width: 83.333333%;
     }
-    .col-lg-11 {
+    .jltma-col-lg-11 {
         -ms-flex: 0 0 91.666667%;
         flex: 0 0 91.666667%;
         max-width: 91.666667%;
     }
-    .col-lg-12 {
+    .jltma-col-lg-12 {
         -ms-flex: 0 0 100%;
         flex: 0 0 100%;
         max-width: 100%;
@@ -1336,105 +1336,105 @@ pre code {
     }
 }
 @media (min-width: 1200px) {
-    .col-xl {
+    .jltma-col-xl {
         -ms-flex-preferred-size: 0;
         flex-basis: 0%;
         -ms-flex-positive: 1;
         flex-grow: 1;
         max-width: 100%;
     }
-    .row-cols-xl-1 > * {
+    .jltma-row-cols-xl-1 > * {
         -ms-flex: 0 0 100%;
         flex: 0 0 100%;
         max-width: 100%;
     }
-    .row-cols-xl-2 > * {
+    .jltma-row-cols-xl-2 > * {
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%;
     }
-    .row-cols-xl-3 > * {
+    .jltma-row-cols-xl-3 > * {
         -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
         max-width: 33.333333%;
     }
-    .row-cols-xl-4 > * {
+    .jltma-row-cols-xl-4 > * {
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%;
     }
-    .row-cols-xl-5 > * {
+    .jltma-row-cols-xl-5 > * {
         -ms-flex: 0 0 20%;
         flex: 0 0 20%;
         max-width: 20%;
     }
-    .row-cols-xl-6 > * {
+    .jltma-row-cols-xl-6 > * {
         -ms-flex: 0 0 16.666667%;
         flex: 0 0 16.666667%;
         max-width: 16.666667%;
     }
-    .col-xl-auto {
+    .jltma-col-xl-auto {
         -ms-flex: 0 0 auto;
         flex: 0 0 auto;
         width: auto;
         max-width: 100%;
     }
-    .col-xl-1 {
+    .jltma-col-xl-1 {
         -ms-flex: 0 0 8.333333%;
         flex: 0 0 8.333333%;
         max-width: 8.333333%;
     }
-    .col-xl-2 {
+    .jltma-col-xl-2 {
         -ms-flex: 0 0 16.666667%;
         flex: 0 0 16.666667%;
         max-width: 16.666667%;
     }
-    .col-xl-3 {
+    .jltma-col-xl-3 {
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%;
     }
-    .col-xl-4 {
+    .jltma-col-xl-4 {
         -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
         max-width: 33.333333%;
     }
-    .col-xl-5 {
+    .jltma-col-xl-5 {
         -ms-flex: 0 0 41.666667%;
         flex: 0 0 41.666667%;
         max-width: 41.666667%;
     }
-    .col-xl-6 {
+    .jltma-col-xl-6 {
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%;
     }
-    .col-xl-7 {
+    .jltma-col-xl-7 {
         -ms-flex: 0 0 58.333333%;
         flex: 0 0 58.333333%;
         max-width: 58.333333%;
     }
-    .col-xl-8 {
+    .jltma-col-xl-8 {
         -ms-flex: 0 0 66.666667%;
         flex: 0 0 66.666667%;
         max-width: 66.666667%;
     }
-    .col-xl-9 {
+    .jltma-col-xl-9 {
         -ms-flex: 0 0 75%;
         flex: 0 0 75%;
         max-width: 75%;
     }
-    .col-xl-10 {
+    .jltma-col-xl-10 {
         -ms-flex: 0 0 83.333333%;
         flex: 0 0 83.333333%;
         max-width: 83.333333%;
     }
-    .col-xl-11 {
+    .jltma-col-xl-11 {
         -ms-flex: 0 0 91.666667%;
         flex: 0 0 91.666667%;
         max-width: 91.666667%;
     }
-    .col-xl-12 {
+    .jltma-col-xl-12 {
         -ms-flex: 0 0 100%;
         flex: 0 0 100%;
         max-width: 100%;

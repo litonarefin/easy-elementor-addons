@@ -1353,7 +1353,7 @@ class Master_Addons_Filterable_Image_Gallery extends Widget_Base {
 
 				if( $item['ma_el_image_gallery_img']['id'] ):
 
-					echo '<div class="ma-el-image-filter-item col-lg-'. esc_attr($column). ' col-md-6 '.						     ma_el_image_filter_gallery_category_classes( $item['gallery_category_name'],$this->get_id()) .'">';
+					echo '<div class="ma-el-image-filter-item jltma-col-lg-'. esc_attr($column). ' jltma-col-md-6 '.						     ma_el_image_filter_gallery_category_classes( $item['gallery_category_name'],$this->get_id()) .'">';
 					echo '<div class="ma-image-hover-thumb">';
 
 					echo $this->render_image( $item['ma_el_image_gallery_img']['id'], $settings );

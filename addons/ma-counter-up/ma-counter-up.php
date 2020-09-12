@@ -591,7 +591,7 @@ class Master_Addons_Counter_Up extends Widget_Base {
 
 		if( is_array( $settings['jltma_counterup_contents'] ) ):
 			$column = 12/$settings['column'];
-			$column = 'col-lg-'.esc_attr( $column ). ' col-md-6';
+			$column = 'jltma-col-lg-'.esc_attr( $column ). ' jltma-col-md-6';
 			echo '<div class="jltma-counterup-items jltma-row">';
 			foreach ( $settings['jltma_counterup_contents'] as $list ) :
 

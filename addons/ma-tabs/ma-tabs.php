@@ -1032,7 +1032,7 @@
 				<div <?php echo $this->get_render_attribute_string('ma_el_tab_wrapper'); ?> data-tabs>
 
 					<?php if(isset( $settings['ma_el_tabs_preset']) && $settings['ma_el_tabs_preset'] == "five"){ ?>
-						<div class="col-md-<?php echo esc_attr($ma_el_tabs_left_cols[0]);?> <?php if($column_order=="float-left") {
+						<div class="jltma-col-md-<?php echo esc_attr($ma_el_tabs_left_cols[0]);?> <?php if($column_order=="float-left") {
 								echo "order-1";
 							}else{
 								echo "order-2";
@@ -1058,7 +1058,7 @@
 						<?php if($settings['ma_el_tabs_preset'] == "five"){ ?>
 							</div>
 
-						<div class="col-md-<?php echo esc_attr($ma_el_tabs_left_cols[1]);?> <?php if($column_order=="float-left") {
+						<div class="jltma-col-md-<?php echo esc_attr($ma_el_tabs_left_cols[1]);?> <?php if($column_order=="float-left") {
 								echo "order-2";
 							}else{
 								echo "order-1";

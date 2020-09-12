@@ -1708,11 +1708,11 @@
 
                         <div class="jltma-instafeed-item jltma-lightbox p-0 clearfix" style="background:#fff;">
 
-                            <div class="float-left text-light col-6 p-0">
+                            <div class="float-left text-light jltma-col-6 p-0">
                                 <img class="jltma-instafeed-card-img card-img" src="<?php echo esc_url( $item['images'][$settings['jltma_instafeed_image_size']]['url']);?>">
                             </div>
 
-                            <div class="float-right col-6 pt-0 px-0 pb-4">
+                            <div class="float-right jltma-col-6 pt-0 px-0 pb-4">
                                 <header class="jltma-instafeed-item-header media">
 
                                     <div class="jltma-instafeed-item-user clearfix media-left m-3 float-left">

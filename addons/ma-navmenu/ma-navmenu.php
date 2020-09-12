@@ -1830,7 +1830,7 @@
 
             if($settings['jltma_nav_menu'] != '' && wp_get_nav_menu_items($settings['jltma_nav_menu']) !== false && count(wp_get_nav_menu_items($settings['jltma_nav_menu'])) > 0){
 
-                $this->add_render_attribute( 'menu_link', 'class', [ 'jltma-nav-logo', 'navbar-brand', 'col-xs-3', 'col-sm-3' ]);
+                $this->add_render_attribute( 'menu_link', 'class', [ 'jltma-nav-logo', 'navbar-brand', 'jltma-col-xs-3', 'jltma-col-sm-3' ]);
 
                 if ($settings['jltma_nav_menu_logo_link_to'] == 'home') {
 

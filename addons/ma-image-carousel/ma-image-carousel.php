@@ -556,7 +556,7 @@
 
 					if( $item['ma_el_image_carousel_img']['id'] ):
 
-						echo '<div class="ma-el-image-filter-item col-lg-'. esc_attr($settings['ma_el_image_carousel_per_view']). ' col-md-6">';
+						echo '<div class="ma-el-image-filter-item jltma-col-lg-'. esc_attr($settings['ma_el_image_carousel_per_view']). ' jltma-col-md-6">';
 
 						echo '<div class="ma-image-hover-thumb">';
 

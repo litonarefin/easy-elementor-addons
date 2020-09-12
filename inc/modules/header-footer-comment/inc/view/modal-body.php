@@ -16,25 +16,25 @@
                         <div class="option-table jltma-label-container">
                             <div class="jltma-row">
 
-                                <div class="form-group mb-2 col-6">
+                                <div class="form-group mb-2 jltma-col-6">
                                     <label for="jltma-mobile-submenu-type">
                                         <strong>
                                             <?php esc_html_e('Template Title', JLTMA_TD); ?>
                                         </strong>
                                     </label>
                                 </div>
-                                <div class="form-group mb-2 col-6">
+                                <div class="form-group mb-2 jltma-col-6">
                                     <input required type="text" name="title" class="jltma_hf_modal-title form-control" placeholder="<?php echo esc_html__('Template Title here', JLTMA_TD);?>">
                                 </div>
 
-                                <div class="form-group mb-2 col-6">
+                                <div class="form-group mb-2 jltma-col-6">
                                     <label for="jltma-hf-trigger-effect">
                                         <strong>
                                             <?php esc_html_e('Template Type', JLTMA_TD); ?>
                                         </strong>
                                     </label>
                                 </div>
-                                <div class="form-group mb-2 col-6">
+                                <div class="form-group mb-2 jltma-col-6">
                                     <select name="type" class="form-control jltma_hfc_type form-control">
                                         <option value="header" selected="selected">
                                             <?php esc_html_e('Header', JLTMA_TD); ?>
@@ -52,14 +52,14 @@
                                 </div>
 
 
-                                <div class="form-group mb-2 col-6 jltma-hfc-hide-item-label">
+                                <div class="form-group mb-2 jltma-col-6 jltma-hfc-hide-item-label">
                                     <label for="jltma-hf-hide-item-label">
                                         <strong>
                                             <?php esc_html_e('Display Conditions', JLTMA_TD); ?>
                                         </strong>
                                     </label>
                                 </div>
-                                <div class="form-group mb-2 col-6 jltma_hf_options_container">
+                                <div class="form-group mb-2 jltma-col-6 jltma_hf_options_container">
                                     <select name="jltma_hf_conditions" class="jltma_hf_modal-jltma_hf_conditions form-control">
                                         <option value="entire_site">
                                             <?php esc_html_e('Entire Site', JLTMA_TD); ?>
@@ -114,7 +114,7 @@
                                 </div>
 
 
-                                <div class="form-group mb-2 col-6">
+                                <div class="form-group mb-2 jltma-col-6">
                                     <label for="jltma-hf-hide-item-label">
                                         <strong>
                                             <?php esc_html_e('Enable Settings?', JLTMA_TD); ?>
@@ -122,7 +122,7 @@
                                     </label>
                                 </div>
 
-                                <div class="form-group mb-2 col-6 jtlma-mega-switcher">
+                                <div class="form-group mb-2 jltma-col-6 jtlma-mega-switcher">
                                     <input checked="" type="checkbox" value="yes"
                                         class="jltma-admin-control-input jltma-enable-switcher"
                                         name="activation" id="jltma_activation_modal_input">

@@ -520,7 +520,7 @@
                 <div class="<?php echo esc_attr($settings['ma_el_call_to_action_style_preset'] );?>">
                     <div class="ma-el-action-content">
                         <div class="jltma-row">
-                            <div class="col-lg-9">
+                            <div class="jltma-col-lg-9">
 
                                 <?php if( $settings['ma_el_call_to_action_style_preset'] == "style-07"){ ?>
                                     <div class="ma-cta-icon-section media">
@@ -555,7 +555,7 @@
                                     </p>
                                 <?php } ?>
                             </div>
-                            <div class="col-lg-3 text-right">
+                            <div class="jltma-col-lg-3 text-right">
                                 <a href="<?php echo esc_url( $settings['ma_el_call_to_action_button_link']['url'] ); ?>" class="ma-el-action-btn">
                                     <?php echo esc_html( $settings['ma_el_call_to_action_button_text'] ); ?>
                                 </a>
