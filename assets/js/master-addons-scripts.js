@@ -137,7 +137,9 @@
 
                     /*----------- Animated Headlines --------------*/
                     //set animation timing
-                    var animationDelay = 2500,
+                    var $animatedHeaderContainer     = $scope.find('.ma-el-animated-headline').eq(0),
+
+                        animationDelay = 2500,
 
                         //loading bar effect
                         barAnimationDelay = 3800,
@@ -155,35 +157,14 @@
                         revealDuration = 600,
                         revealAnimationDelay = 1500;
 
-                    
-
-                    var $animatedHeaderContainer     = $scope.find('.ma-el-animated-headline').eq(0);
-
-                    console.log('wrapper', $animatedHeaderContainer);
-
-                    // $animatedHeaderContainer.waypoint(function () {
-                    //     var element = $(this.element);
-                    //     var id = element.data('id');
-                    //     var type = element.data('type');
-                    //     var value = element.data('progress-bar-value');
-                    //     var strokeWidth = element.data('progress-bar-stroke-width');
-                    //     var strokeTrailWidth = element.data('progress-bar-stroke-trail-width');
-                    //     var color = element.data('stroke-color');
-                    //     var trailColor = element.data('stroke-trail-color');
-                    //     animatedProgressbar(id, type, value, color, trailColor, strokeWidth, strokeTrailWidth);
-
-                        
-                    // });
-
-                    // function singleLetters($words) {
                     Master_Addons.MA_Animated_Headlines.singleLetters = function($words) {
-                        // console.log('singleLetters');
                         $words.each(function(){
                             var word = $(this),
-                                letters = word.text().split(''),
+                                letters = word.text().trim().split(''),
                                 selected = word.hasClass('is-visible');
-                            for (i in letters) {
-                                if(word.parents('.rotate-2').length > 0) letters[i] = '<em>' + letters[i] + '</em>';
+
+                            for( var i=0; i<letters.length; i++){
+                                if(word.parents('.rotate-2').length > 0){ letters[i] = '<em>' + letters[i] + '</em>'; }
                                 letters[i] = (selected) ? '<i class="in">' + letters[i] + '</i>': '<i>' + letters[i] + '</i>';
                             }
                             var newLetters = letters.join('');
@@ -192,9 +173,8 @@
                     }
 
                     // function animateHeadline($headlines) {
-                    Master_Addons.MA_Animated_Headlines.animateHeadline = function($words) {
-                        console.log('animateHeadline');
-
+                    Master_Addons.MA_Animated_Headlines.animateHeadline = function($headlines) {
+                        
                         var duration = animationDelay;
 
                         $headlines.each(function(){
@@ -211,6 +191,7 @@
                                 //assign to .ma-el-words-wrapper the width of its longest word
                                 var words = headline.find('.ma-el-words-wrapper b'),
                                     width = 0;
+
                                 words.each(function(){
                                     var wordWidth = $(this).width();
                                     if (wordWidth > width) width = wordWidth;
@@ -224,9 +205,7 @@
                     }
 
 
-                    // function hideWord($word) {
-                    Master_Addons.MA_Animated_Headlines.hideWord = function($words) {
-                        console.log('hideWord');
+                    Master_Addons.MA_Animated_Headlines.hideWord = function($word) {
 
                         var nextWord = Master_Addons.MA_Animated_Headlines.takeNext($word);
 
@@ -262,10 +241,7 @@
                         }
                     }
 
-                    // function showWord($word, $duration) {
                     Master_Addons.MA_Animated_Headlines.showWord = function($word, $duration) {
-                        console.log('showWord');
-
                         if($word.parents('.ma-el-animated-headline').hasClass('type')) {
                             Master_Addons.MA_Animated_Headlines.showLetter($word.find('i').eq(0), $word, false, $duration);
                             $word.addClass('is-visible').removeClass('is-hidden');
@@ -277,10 +253,7 @@
                         }
                     }
 
-                    // function hideLetter($letter, $word, $bool, $duration) {
                     Master_Addons.MA_Animated_Headlines.hideLetter = function($letter, $word, $bool, $duration) {
-                        console.log('hideLetter');
-
                         $letter.removeClass('in').addClass('out');
 
                         if(!$letter.is(':last-child')) {
@@ -295,10 +268,7 @@
                         }
                     }
 
-                    // function showLetter($letter, $word, $bool, $duration) {
                     Master_Addons.MA_Animated_Headlines.showLetter = function($letter, $word, $bool, $duration) {
-                        console.log('showLetter');
-
                         $letter.addClass('in').removeClass('out');
 
                         if(!$letter.is(':last-child')) {
@@ -309,45 +279,27 @@
                         }
                     }
 
-                    // function takeNext($word) {
                     Master_Addons.MA_Animated_Headlines.takeNext = function($word) {
-                        console.log('takeNext');
-
                         return (!$word.is(':last-child')) ? $word.next() : $word.parent().children().eq(0);
                     }
 
-                    // function takePrev($word) {
                     Master_Addons.MA_Animated_Headlines.takePrev = function($word) {
-                        console.log('takePrev');
                         return (!$word.is(':first-child')) ? $word.prev() : $word.parent().children().last();
                     }
 
-                    // function switchWord($oldWord, $newWord) {
-                    Master_Addons.MA_Animated_Headlines.switchWord = function($word) {
-                        console.log('switchWord');
-
+                    Master_Addons.MA_Animated_Headlines.switchWord = function($oldWord, $newWord) {
                         $oldWord.removeClass('is-visible').addClass('is-hidden');
                         $newWord.removeClass('is-hidden').addClass('is-visible');
                     }
 
-
                     Master_Addons.MA_Animated_Headlines.initHeadline = function() {
-                        console.log('changed main filess sss');
                         //insert <i> element for each letter of a changing word
                         Master_Addons.MA_Animated_Headlines.singleLetters($('.ma-el-animated-headline.letters').find('b'));
                         //initialise headline animation
                         Master_Addons.MA_Animated_Headlines.animateHeadline($('.ma-el-animated-headline'));
                     }
 
-
-                    $animatedHeaderContainer.waypoint(function () {
-                        Master_Addons.MA_Animated_Headlines.initHeadline();
-                    });
-
-
-                    
-
-
+                    Master_Addons.MA_Animated_Headlines.initHeadline();
 
                 })(jQuery);
             } catch (e) {
