@@ -26,7 +26,7 @@ class Master_Addons_Headlines extends Widget_Base {
 
 	public function get_script_depends() {
 		return [
-			// 'ma-animated-headlines',
+			'ma-animated-headlines',
 			'master-addons-scripts',
 		];
 	}
