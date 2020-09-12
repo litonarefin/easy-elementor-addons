@@ -48,6 +48,148 @@
 				]
 			);
 
+
+			// Premium Version Codes
+			if ( ma_el_fs()->can_use_premium_code() ) {
+				$this->add_control(
+					'ma_el_team_carousel_preset',
+					[
+						'label' => esc_html__( 'Style Preset', MELA_TD ),
+						'type' => Controls_Manager::SELECT,
+						'default' => '-default',
+						'options' => [
+							'-default'              => __( 'Team Carousel', MELA_TD ),
+							'-circle'               => __( 'Circle Gradient', MELA_TD ),
+							'-circle-animation'     => __( 'Circle Animation', MELA_TD ),
+							'-social-left'          => __( 'Social Left on Hover', MELA_TD ),
+							'-content-hover'        => __( 'Content on Hover', MELA_TD ),
+							'-content-drawer'       => __( 'Content Drawer', MELA_TD ),
+						],
+					]
+				);
+
+			} else{
+				$this->add_control(
+					'ma_el_team_carousel_preset',
+					[
+						'label' => __( 'Style Preset', MELA_TD ),
+						'type' => Controls_Manager::SELECT,
+						'default' => '-default',
+						'options' => [
+							'-default'                    => __( 'Team Carousel', MELA_TD ),
+							'-circle'                     => __( 'Circle Gradient', MELA_TD ),
+							'-content-hover'              => __( 'Content on Hover', MELA_TD ),
+							'-pro-team-slider-1'          => __( 'Social Left on Hover (Pro)', MELA_TD ),
+							'-pro-team-slider-2'          => __( 'Content Drawer (Pro)', MELA_TD ),
+							'-pro-team-slider-3'          => __( 'Circle Animation (Pro)', MELA_TD )
+						],
+						'description' => sprintf( '5+ more Variations on <a href="%s" target="_blank">%s</a>',
+							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
+							__( 'Upgrade Now', MELA_TD ) )
+					]
+				);
+
+			}
+
+
+
+
+			if ( ma_el_fs()->can_use_premium_code() ) {
+				$this->add_control(
+					'ma_el_team_circle_image',
+					[
+						'label' => esc_html__( 'Circle Gradient Image', MELA_TD ),
+						'type' => Controls_Manager::SELECT,
+						'default' => 'circle_01',
+						'options' => [
+							'circle_01'                   => esc_html__( 'Circle 01', MELA_TD ),
+							'circle_02'                   => esc_html__( 'Circle 02', MELA_TD ),
+							'circle_03'                   => esc_html__( 'Circle 03', MELA_TD ),
+							'circle_04'                   => esc_html__( 'Circle 04', MELA_TD ),
+							'circle_05'                   => esc_html__( 'Circle 05', MELA_TD ),
+							'circle_06'                   => esc_html__( 'Circle 06', MELA_TD ),
+							'circle_07'                   => esc_html__( 'Circle 07', MELA_TD ),
+						],
+						'condition' => [
+							'ma_el_team_carousel_preset' => '-circle'
+						]
+					]
+				);
+			}else{
+				$this->add_control(
+					'ma_el_team_circle_image',
+					[
+						'label' => esc_html__( 'Circle Gradient Image', MELA_TD ),
+						'type' => Controls_Manager::SELECT,
+						'default' => 'circle_01',
+						'options' => [
+							'circle_01'                   	 => esc_html__( 'Circle 01', MELA_TD ),
+							'circle_02'                   	 => esc_html__( 'Circle 02', MELA_TD ),
+							'circle_03'                   	 => esc_html__( 'Circle 03', MELA_TD ),
+							'circle-pro-1'                   => esc_html__( 'Circle 04 (Pro)', MELA_TD ),
+							'circle-pro-2'                   => esc_html__( 'Circle 05 (Pro)', MELA_TD ),
+							'circle-pro-3'                   => esc_html__( 'Circle 06 (Pro)', MELA_TD ),
+							'circle-pro-4'                   => esc_html__( 'Circle 07 (Pro)', MELA_TD ),
+						],
+						'condition' => [
+							'ma_el_team_carousel_preset' => '-circle'
+						],
+						'description' => '<span class="pro-feature">Animated Variations are Pro Features. Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
+					]
+				);
+			}
+
+
+			// Premium Version Codes
+			if ( !ma_el_fs()->can_use_premium_code() ) {
+				$this->add_control(
+					'ma_el_team_circle_image_animation',
+					[
+						'label'       => esc_html__( 'Animation Style', MELA_TD ),
+						'type'        => Controls_Manager::SELECT,
+						'default'     => 'animation_svg_01',
+						'options'     => [
+							'animation_svg_01' 		=> esc_html__( 'Animation 1', MELA_TD ),
+							'animation_svg_02' 		=> esc_html__( 'Animation 2', MELA_TD ),
+							'animation_svg_03' 		=> esc_html__( 'Animation 3', MELA_TD ),
+							'svg_animated_pro_1' 	=> esc_html__( 'Animation 4 (Pro)', MELA_TD ),
+							'svg_animated_pro_2' 	=> esc_html__( 'Animation 5 (Pro)', MELA_TD ),
+							'svg_animated_pro_3' 	=> esc_html__( 'Animation 6 (Pro)', MELA_TD ),
+							'svg_animated_pro_4' 	=> esc_html__( 'Animation 7 (Pro)', MELA_TD ),
+						],
+						'condition'   => [
+							'ma_el_team_carousel_preset' => '-circle-animation'
+						],
+						'description' => sprintf( '5+ More Animated Variations Available on Pro Version <a href="%s" target="_blank">%s</a>', esc_url_raw( admin_url( 'admin.php?page=master-addons-settings-pricing' ) ),
+							__( 'Upgrade Now', MELA_TD ) )						
+					]
+				);
+			}else{
+				$this->add_control(
+					'ma_el_team_circle_image_animation',
+					[
+						'label'       => esc_html__( 'Animation Style', MELA_TD ),
+						'type'        => Controls_Manager::SELECT,
+						'default'     => 'animation_svg_01',
+						'options'     => [
+							'animation_svg_01' => esc_html__( 'Animation 1', MELA_TD ),
+							'animation_svg_02' => esc_html__( 'Animation 2', MELA_TD ),
+							'animation_svg_03' => esc_html__( 'Animation 3', MELA_TD ),
+							'animation_svg_04' => esc_html__( 'Animation 4', MELA_TD ),
+							'animation_svg_05' => esc_html__( 'Animation 5', MELA_TD ),
+							'animation_svg_06' => esc_html__( 'Animation 6', MELA_TD ),
+							'animation_svg_07' => esc_html__( 'Animation 7', MELA_TD ),
+						],
+						'condition'   => [
+							'ma_el_team_carousel_preset' => '-circle-animation'
+						]
+					]
+				);
+
+			}
+
+
+
 			$team_repeater = new Repeater();
 
 			/*
@@ -254,146 +396,6 @@
 					'tab' => Controls_Manager::TAB_STYLE
 				]
 			);
-
-			// Premium Version Codes
-			if ( ma_el_fs()->can_use_premium_code() ) {
-				$this->add_control(
-					'ma_el_team_carousel_preset',
-					[
-						'label' => esc_html__( 'Style Preset', MELA_TD ),
-						'type' => Controls_Manager::SELECT,
-						'default' => '-default',
-						'options' => [
-							'-default'              => __( 'Team Carousel', MELA_TD ),
-							'-circle'               => __( 'Circle Gradient', MELA_TD ),
-							'-circle-animation'     => __( 'Circle Animation', MELA_TD ),
-							'-social-left'          => __( 'Social Left on Hover', MELA_TD ),
-							'-content-hover'        => __( 'Content on Hover', MELA_TD ),
-							'-content-drawer'       => __( 'Content Drawer', MELA_TD ),
-						],
-					]
-				);
-
-			} else{
-				$this->add_control(
-					'ma_el_team_carousel_preset',
-					[
-						'label' => __( 'Style Preset', MELA_TD ),
-						'type' => Controls_Manager::SELECT,
-						'default' => '-default',
-						'options' => [
-							'-default'                    => __( 'Team Carousel', MELA_TD ),
-							'-circle'                     => __( 'Circle Gradient', MELA_TD ),
-							'-content-hover'              => __( 'Content on Hover', MELA_TD ),
-							'-pro-team-slider-1'          => __( 'Social Left on Hover (Pro)', MELA_TD ),
-							'-pro-team-slider-2'          => __( 'Content Drawer (Pro)', MELA_TD ),
-							'-pro-team-slider-3'          => __( 'Circle Animation (Pro)', MELA_TD )
-						],
-						'description' => sprintf( '5+ more Variations on <a href="%s" target="_blank">%s</a>',
-							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
-							__( 'Upgrade Now', MELA_TD ) )
-					]
-				);
-
-			}
-
-
-
-
-			if ( ma_el_fs()->can_use_premium_code() ) {
-				$this->add_control(
-					'ma_el_team_circle_image',
-					[
-						'label' => esc_html__( 'Circle Gradient Image', MELA_TD ),
-						'type' => Controls_Manager::SELECT,
-						'default' => 'circle_01',
-						'options' => [
-							'circle_01'                   => esc_html__( 'Circle 01', MELA_TD ),
-							'circle_02'                   => esc_html__( 'Circle 02', MELA_TD ),
-							'circle_03'                   => esc_html__( 'Circle 03', MELA_TD ),
-							'circle_04'                   => esc_html__( 'Circle 04', MELA_TD ),
-							'circle_05'                   => esc_html__( 'Circle 05', MELA_TD ),
-							'circle_06'                   => esc_html__( 'Circle 06', MELA_TD ),
-							'circle_07'                   => esc_html__( 'Circle 07', MELA_TD ),
-						],
-						'condition' => [
-							'ma_el_team_carousel_preset' => '-circle'
-						]
-					]
-				);
-			}else{
-				$this->add_control(
-					'ma_el_team_circle_image',
-					[
-						'label' => esc_html__( 'Circle Gradient Image', MELA_TD ),
-						'type' => Controls_Manager::SELECT,
-						'default' => 'circle_01',
-						'options' => [
-							'circle_01'                   	 => esc_html__( 'Circle 01', MELA_TD ),
-							'circle_02'                   	 => esc_html__( 'Circle 02', MELA_TD ),
-							'circle_03'                   	 => esc_html__( 'Circle 03', MELA_TD ),
-							'circle-pro-1'                   => esc_html__( 'Circle 04 (Pro)', MELA_TD ),
-							'circle-pro-2'                   => esc_html__( 'Circle 05 (Pro)', MELA_TD ),
-							'circle-pro-3'                   => esc_html__( 'Circle 06 (Pro)', MELA_TD ),
-							'circle-pro-4'                   => esc_html__( 'Circle 07 (Pro)', MELA_TD ),
-						],
-						'condition' => [
-							'ma_el_team_carousel_preset' => '-circle'
-						],
-						'description' => '<span class="pro-feature">Animated Variations are Pro Features. Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
-					]
-				);
-			}
-
-
-			// Premium Version Codes
-			if ( ma_el_fs()->can_use_premium_code() ) {
-				$this->add_control(
-					'ma_el_team_circle_image_animation',
-					[
-						'label'       => esc_html__( 'Animation Style', MELA_TD ),
-						'type'        => Controls_Manager::SELECT,
-						'default'     => 'animation_svg_01',
-						'options'     => [
-							'animation_svg_01' 		=> esc_html__( 'Animation 1', MELA_TD ),
-							'animation_svg_02' 		=> esc_html__( 'Animation 2', MELA_TD ),
-							'animation_svg_03' 		=> esc_html__( 'Animation 3', MELA_TD ),
-							'svg_animated_pro_1' 	=> esc_html__( 'Animation 4 (Pro)', MELA_TD ),
-							'svg_animated_pro_2' 	=> esc_html__( 'Animation 5 (Pro)', MELA_TD ),
-							'svg_animated_pro_3' 	=> esc_html__( 'Animation 6 (Pro)', MELA_TD ),
-							'svg_animated_pro_4' 	=> esc_html__( 'Animation 7 (Pro)', MELA_TD ),
-						],
-						'condition'   => [
-							'ma_el_team_carousel_preset' => '-circle-animation'
-						]
-					]
-				);
-			}else{
-				$this->add_control(
-					'ma_el_team_circle_image_animation',
-					[
-						'label'       => esc_html__( 'Animation Style', MELA_TD ),
-						'type'        => Controls_Manager::SELECT,
-						'default'     => 'animation_svg_01',
-						'options'     => [
-							'animation_svg_01' => esc_html__( 'Animation 1', MELA_TD ),
-							'animation_svg_02' => esc_html__( 'Animation 2', MELA_TD ),
-							'animation_svg_03' => esc_html__( 'Animation 3', MELA_TD ),
-							'animation_svg_04' => esc_html__( 'Animation 4', MELA_TD ),
-							'animation_svg_05' => esc_html__( 'Animation 5', MELA_TD ),
-							'animation_svg_06' => esc_html__( 'Animation 6', MELA_TD ),
-							'animation_svg_07' => esc_html__( 'Animation 7', MELA_TD ),
-						],
-						'condition'   => [
-							'ma_el_team_carousel_preset' => '-circle-animation'
-						],
-						'description' => sprintf( '5+ More Animated Variations Available on Pro Version <a href="%s" target="_blank">%s</a>', esc_url_raw( admin_url( 'admin.php?page=master-addons-settings-pricing' ) ),
-							__( 'Upgrade Now', MELA_TD ) )
-					]
-				);
-
-			}
-
 
 			$this->add_responsive_control(
 				'ma_el_team_image_bg_size',

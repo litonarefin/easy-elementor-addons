@@ -598,7 +598,7 @@
                                 <div class="input-group mb-3">
                                     <input type="text" placeholder="<?php echo esc_attr( $settings['palceholder_text'] ); ?>" class="form-control ma-el-domain-name" autocomplete="off">
                                     <div class="input-group-append">
-                                        <button type="submit" class="btn btn-dark ma-el-button ma-el-btn-loader">
+                                        <button type="submit" class="jltma-btn jltma-btn-dark ma-el-button ma-el-btn-loader">
                                             <span>
                                                 <?php if ( $has_icon and 'icon' == $settings['ma_el_domain_checker_submit_type'] ){
                                                     if ( $is_new || $migrated ) {

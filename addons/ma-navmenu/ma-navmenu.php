@@ -1876,7 +1876,7 @@
                                     aria-label="Toggle Navigation">
                                     <div class="jltma-burger ' . $settings['burger_btn_style'] . '"><span class="mid-line"></span></div>
                                 </button>
-                                <button class="jltma-close btn-close ' . $jltma_offcanvas_align .'"> X </button>
+                                <button class="jltma-close ' . $jltma_offcanvas_align .'"> X </button>
                             </div>';
 
 
@@ -1907,12 +1907,12 @@
                         break;
 
                     case 'offcanvas':
-                        $offcanvas_output = '<button class="jltma-close btn-close float-right"> X </button>';
+                        $offcanvas_output = '<button class="jltma-close float-right"> X </button>';
                         break;
 
                     case 'toggle-bar':
                         $toggle_bar_output = '<div class="offcanvas-header mt-3">
-                        <button class="btn btn-outline-danger btn-close float-right"> X </button>
+                        <button class="jltma-btn jltma-btn-outline-danger jltma-close float-right"> X </button>
                         <h5 class="py-2 text-white">Main navbar</h5>
                     </div>';
                         break;
@@ -2053,7 +2053,7 @@
                         transition: transform .2s;
                     }
 
-                    .offcanvas .btn-close{ position: absolute; right:15px; top:15px; }
+                    .offcanvas .jltma-close{ position: absolute; right:15px; top:15px; }
 
                     </style>';
                 }

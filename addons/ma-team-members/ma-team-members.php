@@ -48,6 +48,60 @@
 				]
 			);
 
+
+			// Premium Version Codes
+			if ( ma_el_fs()->can_use_premium_code() ) {
+
+				$this->add_control(
+					'ma_el_team_members_preset',
+					[
+						'label' => esc_html__( 'Design Variations', MELA_TD ),
+						'type' => Controls_Manager::SELECT,
+						'default' => '-basic',
+						'options' => [
+							'-basic'            => esc_html__( 'Basic One', MELA_TD ),
+							'-basic-2'          => esc_html__( 'Basic Two', MELA_TD ),
+							'-basic-3'          => esc_html__( 'Basic Three', MELA_TD ),
+							'-basic-4'          => esc_html__( 'Basic Four', MELA_TD ),
+							'-basic-5'          => esc_html__( 'Basic Five', MELA_TD ),
+							'-circle'           => esc_html__( 'Circle Gradient', MELA_TD ),
+							'-circle-2'         => esc_html__( 'Circle No Gradient', MELA_TD ),
+							'-social-left'      => esc_html__( 'Social Left on Hover', MELA_TD ),
+							'-social-right'     => esc_html__( 'Social Right on Hover', MELA_TD ),
+							'-rounded'          => esc_html__( 'Rounded', MELA_TD ),
+							'-content-hover'    => esc_html__( 'Content on Hover', MELA_TD )
+						],
+					]
+				);
+
+			} else{
+				$this->add_control(
+					'ma_el_team_members_preset',
+					[
+						'label' => esc_html__( 'Design Variations', MELA_TD ),
+						'type' => Controls_Manager::SELECT,
+						'default' => '-basic',
+						'options' => [
+							'-basic'            => esc_html__( 'Basic One', MELA_TD ),
+							'-basic-2'          => esc_html__( 'Basic Two', MELA_TD ),
+							'-basic-3'          => esc_html__( 'Basic Three', MELA_TD ),
+							'-basic-4'          => esc_html__( 'Basic Four', MELA_TD ),
+							'-basic-5'          => esc_html__( 'Basic Five', MELA_TD ),
+							'-rounded'          => esc_html__( 'Rounded', MELA_TD ),
+							'-pro-team-1'       => esc_html__( 'Circle Gradient (Pro)', MELA_TD ),
+							'-pro-team-2'       => esc_html__( 'Circle No Gradient (Pro)', MELA_TD ),
+							'-pro-team-3'       => esc_html__( 'Social Left on Hover (Pro)', MELA_TD ),
+							'-pro-team-4'       => esc_html__( 'Social Right on Hover (Pro)', MELA_TD ),
+							'-pro-team-5'       => esc_html__( 'Content on Hover (Pro)', MELA_TD )
+						],
+						'description' => sprintf( '5+ more Variations on <a href="%s" target="_blank">%s</a>',
+							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
+							__( 'Upgrade Now', MELA_TD ) )
+
+					]
+				);
+            }
+
 			$this->add_control(
 				'ma_el_team_member_image',
 				[
@@ -98,6 +152,34 @@
 					'default' => esc_html__( 'Add team member details here', MELA_TD ),
 				]
 			);
+
+
+
+			$this->add_control('ma_el_team_members_content_align',
+				[
+					'label'         => __( 'Content Alignment', MELA_TD ),
+					'type'          => Controls_Manager::CHOOSE,
+					'options'       => [
+						'left'      => [
+							'title'=> __( 'Left', MELA_TD ),
+							'icon' => 'fa fa-align-left',
+						],
+						'center'    => [
+							'title'=> __( 'Center', MELA_TD ),
+							'icon' => 'fa fa-align-center',
+						],
+						'right'     => [
+							'title'=> __( 'Right', MELA_TD ),
+							'icon' => 'fa fa-align-right',
+						],
+					],
+					'default'       => 'left',
+					'selectors'     => [
+						'{{WRAPPER}} .ma-el-team-member-content' => 'text-align: {{VALUE}};',
+					],
+				]
+			);
+
 			$this->end_controls_section();
 			/*
 			* Team member Social profiles section
@@ -256,60 +338,6 @@ Customization Options.</span>'
 				]
 			);
 
-			// Premium Version Codes
-			if ( ma_el_fs()->can_use_premium_code() ) {
-
-				$this->add_control(
-					'ma_el_team_members_preset',
-					[
-						'label' => esc_html__( 'Design Variations', MELA_TD ),
-						'type' => Controls_Manager::SELECT,
-						'default' => '-basic',
-						'options' => [
-							'-basic'            => esc_html__( 'Basic One', MELA_TD ),
-							'-basic-2'          => esc_html__( 'Basic Two', MELA_TD ),
-							'-basic-3'          => esc_html__( 'Basic Three', MELA_TD ),
-							'-basic-4'          => esc_html__( 'Basic Four', MELA_TD ),
-							'-basic-5'          => esc_html__( 'Basic Five', MELA_TD ),
-							'-circle'           => esc_html__( 'Circle Gradient', MELA_TD ),
-							'-circle-2'         => esc_html__( 'Circle No Gradient', MELA_TD ),
-							'-social-left'      => esc_html__( 'Social Left on Hover', MELA_TD ),
-							'-social-right'     => esc_html__( 'Social Right on Hover', MELA_TD ),
-							'-rounded'          => esc_html__( 'Rounded', MELA_TD ),
-							'-content-hover'    => esc_html__( 'Content on Hover', MELA_TD )
-						],
-					]
-				);
-
-			} else{
-				$this->add_control(
-					'ma_el_team_members_preset',
-					[
-						'label' => esc_html__( 'Design Variations', MELA_TD ),
-						'type' => Controls_Manager::SELECT,
-						'default' => '-basic',
-						'options' => [
-							'-basic'            => esc_html__( 'Basic One', MELA_TD ),
-							'-basic-2'          => esc_html__( 'Basic Two', MELA_TD ),
-							'-basic-3'          => esc_html__( 'Basic Three', MELA_TD ),
-							'-basic-4'          => esc_html__( 'Basic Four', MELA_TD ),
-							'-basic-5'          => esc_html__( 'Basic Five', MELA_TD ),
-							'-rounded'          => esc_html__( 'Rounded', MELA_TD ),
-							'-pro-team-1'       => esc_html__( 'Circle Gradient (Pro)', MELA_TD ),
-							'-pro-team-2'       => esc_html__( 'Circle No Gradient (Pro)', MELA_TD ),
-							'-pro-team-3'       => esc_html__( 'Social Left on Hover (Pro)', MELA_TD ),
-							'-pro-team-4'       => esc_html__( 'Social Right on Hover (Pro)', MELA_TD ),
-							'-pro-team-5'       => esc_html__( 'Content on Hover (Pro)', MELA_TD )
-						],
-						'description' => sprintf( '5+ more Variations on <a href="%s" target="_blank">%s</a>',
-							esc_url_raw( admin_url('admin.php?page=master-addons-settings-pricing') ),
-							__( 'Upgrade Now', MELA_TD ) )
-
-					]
-				);
-            }
-
-
 			$this->add_control(
 				'ma_el_team_members_avatar_bg',
 				[
@@ -338,32 +366,6 @@ Customization Options.</span>'
 						{{WRAPPER}} .ma-el-team-member-basic-4:hover .ma-el-team-member-content:before,
 						{{WRAPPER}} .ma-el-team-member-rounded' => 'background: {{VALUE}};',
 						'{{WRAPPER}} .bb' => 'border-bottom: {{VALUE}};'
-					],
-				]
-			);
-
-
-			$this->add_control('ma_el_team_members_content_align',
-				[
-					'label'         => __( 'Content Alignment', MELA_TD ),
-					'type'          => Controls_Manager::CHOOSE,
-					'options'       => [
-						'left'      => [
-							'title'=> __( 'Left', MELA_TD ),
-							'icon' => 'fa fa-align-left',
-						],
-						'center'    => [
-							'title'=> __( 'Center', MELA_TD ),
-							'icon' => 'fa fa-align-center',
-						],
-						'right'     => [
-							'title'=> __( 'Right', MELA_TD ),
-							'icon' => 'fa fa-align-right',
-						],
-					],
-					'default'       => 'left',
-					'selectors'     => [
-						'{{WRAPPER}} .ma-el-team-member-content' => 'text-align: {{VALUE}};',
 					],
 				]
 			);
@@ -487,7 +489,7 @@ Customization Options.</span>'
 				[
 					'label' => esc_html__( 'Icon Color', MELA_TD ),
 					'type' => Controls_Manager::COLOR,
-					'default' => '#FFF',
+					'default' => '#999',
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-team-member-social-left .ma-el-team-member-social li a' => 'color: {{VALUE}};',
 					],
@@ -502,7 +504,7 @@ Customization Options.</span>'
 				[
 					'label' => esc_html__( 'Background Color', MELA_TD ),
 					'type' => Controls_Manager::COLOR,
-					'default' => '#FFF',
+					'default' => '#4b00e7',
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-team-member-social-left .ma-el-team-member-social li a' => 'background: {{VALUE}};',
 					],

@@ -8366,7 +8366,7 @@ figure .ma-el-lightbox-btn {
 	flex-direction: column;
 }
 
-.btn:focus {
+.btn:focus,.jltma-btn:focus {
 	outline: none;
 }
 .btn--search {
@@ -10358,7 +10358,7 @@ blockquote.jltma-blockquote cite{
 /* End of Instagram Feed */
 
 /* Start of Domain Search */
-.ma-el-domain-checker .btn.ma-el-button{
+.ma-el-domain-checker .jltma-btn.ma-el-button{
     background: #222;
     font-weight: 400;
     padding: 8px 27px;
