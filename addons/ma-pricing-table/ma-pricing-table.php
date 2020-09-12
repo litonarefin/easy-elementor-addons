@@ -45,8 +45,19 @@
 		}
 
 		public function get_keywords() {
-			return [ 'pricing', 'price', 'cost', 'table', 'value', 'pricing table', 'pricingtable', 'rate', 'comparision
-			table'];
+			return [ 
+				'pricing', 
+				'price', 
+				'cost table', 
+				'data table', 
+				'money table', 
+				'table', 
+				'value', 
+				'pricing table', 
+				'pricingtable', 
+				'rate', 
+				'comparision table'
+			];
 		}
 
 		public function get_style_depends() {
