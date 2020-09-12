@@ -174,9 +174,9 @@
 					'type'		=> Controls_Manager::COLOR,
 					'default' => '#4b00e7',
 					'selectors'	=> [
-						'{{WRAPPER}} .style-03 .ma-el-action-content .row' => 'border-left: 10px solid {{VALUE}};',
+						'{{WRAPPER}} .style-03 .ma-el-action-content .jltma-row' => 'border-left: 10px solid {{VALUE}};',
 
-						'{{WRAPPER}} .style-04 .ma-el-action-content .row' => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} .style-04 .ma-el-action-content .jltma-row' => 'border-color: {{VALUE}};',
                         '{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover' => 'color: {{VALUE}};',
 					],
 
@@ -192,7 +192,7 @@
 				[
 					'label'		=> esc_html__( 'Icon Color', MELA_TD ),
 					'type'		=> Controls_Manager::COLOR,
-					'default' => '#fff',
+					'default' => '#4b00e7',
 					'selectors'	=> [
 						'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover, 
 						{{WRAPPER}} .style-07 .media-left i' => 'color: {{VALUE}};',

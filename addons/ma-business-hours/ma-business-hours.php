@@ -1277,13 +1277,13 @@ class Master_Addons_Business_Hours extends Widget_Base {
 
 	    <?php foreach ( $settings['ma_el_business_hours'] as $index => $item ) : ?>
 		    <?php
-		    $this->add_render_attribute( 'row' . $i,
+		    $this->add_render_attribute( 'jltma-row' . $i,
                 'class','ma-el-business-hour-item clearfix elementor-repeater-item-' . esc_attr( $item['_id'] ));
 		    if ( $item['ma_el_bh_closed'] != 'no' ) {
-			    $this->add_render_attribute( 'row' . $i, 'class', 'ma-el-bh-closed' );
+			    $this->add_render_attribute( 'jltma-row' . $i, 'class', 'ma-el-bh-closed' );
 		    }
 		    ?>
-		    <li <?php echo $this->get_render_attribute_string( 'row' . $i ); ?>>
+		    <li <?php echo $this->get_render_attribute_string( 'jltma-row' . $i ); ?>>
                     <span class="ma-el-business-day-name float-left">
                         <?php if($settings['ma_el_bh_show_day_icon'] == "yes"){
 	                        Master_Addons_Helper::jltma_fa_icon_picker( 'far fa-clock', 'icon', $settings['ma_el_bh_day_icon'], 'ma_el_bh_day_icon' ); 
@@ -1339,14 +1339,14 @@ class Master_Addons_Business_Hours extends Widget_Base {
 
 	    foreach ( $settings['ma_el_business_hours'] as $index => $item ) :
 
-		    $this->add_render_attribute( 'row','class','ma-el-business-hour-item clearfix elementor-repeater-item-'. esc_attr( $item['_id'] ));
+		    $this->add_render_attribute( 'jltma-row','class','ma-el-business-hour-item clearfix elementor-repeater-item-'. esc_attr( $item['_id'] ));
 //		    if ( $item['ma_el_bh_closed'] != 'no' ) {
-//			    $this->add_render_attribute( 'row', 'class', 'ma-el-bh-closed' );
+//			    $this->add_render_attribute( 'jltma-row', 'class', 'ma-el-bh-closed' );
 //		    }
 		    ?>
 
 
-            <li <?php echo $this->get_render_attribute_string( 'row' . $i ); ?>>
+            <li <?php echo $this->get_render_attribute_string( 'jltma-row' . $i ); ?>>
                     <span class="ma-el-business-day-name float-left">
                         <?php if($settings['ma_el_bh_show_day_icon'] == "yes"){
 	                        // echo '<i class="' . $settings['ma_el_bh_day_icon'] .'"></i>';
@@ -1438,12 +1438,12 @@ class Master_Addons_Business_Hours extends Widget_Base {
 
 	    <?php foreach ( $settings['ma_el_business_custom_hours'] as $index => $item ) : ?>
 		    <?php
-		    $this->add_render_attribute( 'row' . $i, 'class', 'ma-el-business-hour-item clearfix elementor-repeater-item-' . esc_attr( $item['_id'] ) );
+		    $this->add_render_attribute( 'jltma-row' . $i, 'class', 'ma-el-business-hour-item clearfix elementor-repeater-item-' . esc_attr( $item['_id'] ) );
 		    if ( $item['ma_el_bh_custom_closed'] != 'no' ) {
-			    $this->add_render_attribute( 'row' . $i, 'class', 'ma-el-bh-closed' );
+			    $this->add_render_attribute( 'jltma-row' . $i, 'class', 'ma-el-bh-closed' );
 		    }
 		    ?>
-		    <li <?php echo $this->get_render_attribute_string( 'row' . $i ); ?>>
+		    <li <?php echo $this->get_render_attribute_string( 'jltma-row' . $i ); ?>>
 
                 <?php if ( $item['ma_el_bh_custom_day'] != '' ) { ?>
                     <span class="ma-el-business-day-name float-left">

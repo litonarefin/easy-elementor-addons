@@ -2667,7 +2667,7 @@
 			$this->add_render_attribute('ma_el_blog', 'class', [
 					'ma-el-blog-wrapper',
 					'ma-el-blog-' . $settings['ma_el_post_grid_layout'],
-                    'row'
+                    'jltma-row'
 				]
 			);
 

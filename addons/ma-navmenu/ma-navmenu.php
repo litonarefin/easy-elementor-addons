@@ -368,7 +368,7 @@
                     'type'          => Controls_Manager::CHOOSE,
                     'default'       => 'flex-end',
                     'options'       => [
-                        'row'  => [
+                        'jltma-row'  => [
                             'title' => __( 'Left', MELA_TD ),
                             'icon'  => 'fa fa-align-left',
                         ],
@@ -376,7 +376,7 @@
                             'title' => __( 'Center', MELA_TD ),
                             'icon'  => 'fa fa-align-center',
                         ],
-                        'row-reverse'     => [
+                        'jltma-row-reverse'     => [
                             'title' => __( 'Right', MELA_TD ),
                             'icon'  => 'fa fa-align-right',
                         ],

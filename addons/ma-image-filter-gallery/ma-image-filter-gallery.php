@@ -1340,7 +1340,7 @@ class Master_Addons_Filterable_Image_Gallery extends Widget_Base {
 		}
 
 
-		$ma_el_image_filter_gallery_editor = ( $this->get_render_attribute_string( 'ma_el_image_filter_gallery' ) )?$this->get_render_attribute_string( 'ma_el_image_filter_gallery' ) :"class='row'";
+		$ma_el_image_filter_gallery_editor = ( $this->get_render_attribute_string( 'ma_el_image_filter_gallery' ) )?$this->get_render_attribute_string( 'ma_el_image_filter_gallery' ) :"class='jltma-row'";
 
 		if( is_array( $settings['ma_el_image_gallery_items'] ) ):
 			$column = 12/$settings['ma_el_image_gallery_column_number'];
