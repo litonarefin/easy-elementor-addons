@@ -1009,7 +1009,7 @@
 
 		protected function render() {
 			$settings = $this->get_settings_for_display();
-			$column_order = ( isset( $settings['ma_el_tabs_left_cols'] ) ) ? 'row d-flex' : '';
+			$column_order = ( isset( $settings['ma_el_tabs_left_cols'] ) ) ? 'jltma-row d-flex' : '';
 			$this->add_render_attribute(
 				'ma_el_tab_wrapper',
 				[

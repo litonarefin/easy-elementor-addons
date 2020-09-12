@@ -2533,7 +2533,7 @@
 
                     <?php
                     //( $settings['ma_el_blog_cards_skin'] == 'full_banner' && $settings['ma_el_post_grid_layout'] =='grid' ) ? "ma-el-post-corner-content" : ""
-//						    if( $settings['ma_el_blog_cards_skin'] == 'full_banner' && $settings['ma_el_post_grid_layout'] =='grid' ){ echo '<div class="container">'; }
+//						    if( $settings['ma_el_blog_cards_skin'] == 'full_banner' && $settings['ma_el_post_grid_layout'] =='grid' ){ echo '<div class="jltma-container">'; }
                     ?>
 					<div <?php echo $this->get_render_attribute_string( $content_key ); ?>>
 
