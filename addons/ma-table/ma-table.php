@@ -905,7 +905,7 @@
                             $colspan = ( $thead['colspannumber'] ) ? 'colSpan="'.$thead['colspannumber'].'"' : '';
                             ?>
                             
-                            <th scope="row" class="elementor-inline-editing elementor-repeater-item-<?php echo $thead['_id'];?>" <?php echo $colspan;?> <?php echo $this->get_render_attribute_string( $repeater_setting_key );?>>
+                            <th scope="jltma-row" class="elementor-inline-editing elementor-repeater-item-<?php echo $thead['_id'];?>" <?php echo $colspan;?> <?php echo $this->get_render_attribute_string( $repeater_setting_key );?>>
                                 
                                 <?php if ( 'icon' === $thead['icon_type'] && ( ! empty( $thead['header_icon'] ) || ! empty( $thead['header_icon']['value'] ) ) ) {
                                         $migrated = isset( $thead['__fa4_migrated']['header_icon'] );

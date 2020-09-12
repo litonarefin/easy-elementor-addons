@@ -14,7 +14,7 @@
                     <div role="tabpanel" class="tab-pane active" id="general_tab" aria-labelledby="general-tab">
 
                         <div class="option-table jltma-label-container">
-                            <div class="row">
+                            <div class="jltma-row">
 
                                 <div class="form-group mb-2 col-6">
                                     <label for="jltma-mobile-submenu-type">

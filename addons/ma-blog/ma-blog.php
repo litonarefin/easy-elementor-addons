@@ -2339,16 +2339,16 @@
 
 			switch( $settings['ma_el_blog_cols'] ) {
 				case '100%' :
-					$col_number = 'col-sm-12';
+					$col_number = 'jltma-col-sm-12';
 					break;
 				case '50%' :
-					$col_number = 'col-sm-6';
+					$col_number = 'jltma-col-sm-6';
 					break;
 				case '33.33%' :
-					$col_number = 'col-sm-4';
+					$col_number = 'jltma-col-sm-4';
 					break;
 				case '25%' :
-					$col_number = 'col-sm-3';
+					$col_number = 'jltma-col-sm-3';
 					break;
 			}
 
@@ -2427,7 +2427,7 @@
 			?>
 
 			<?php if($settings['ma_el_blog_thumbnail_position'] == 'left' && $settings['ma_el_post_grid_layout'] == 'grid'){ ?>
-                <div class="col-lg-6">
+                <div class="jltma-col-lg-6">
 			<?php } else{ ?>
                 <div <?php echo $this->get_render_attribute_string( $tax_key ); ?>>
             <?php } ?>
@@ -2440,23 +2440,23 @@
                             ($settings['ma_el_post_grid_layout'] == 'list' && $settings['ma_el_post_list_layout'] == 'button_right')||
                             ($settings['ma_el_post_grid_layout'] == 'list' && $settings['ma_el_post_list_layout'] == 'content_overlap')
                             ){ ?>
-                        <div class="row">
-                            <div class="col-md-6">
+                        <div class="jltma-row">
+                            <div class="jltma-col-md-6">
                     <?php } ?>
 
                     <?php if(
                             ( $settings['ma_el_post_grid_layout'] == 'list' && $settings['ma_el_post_list_layout']=='classic' ) ||
                             ( $settings['ma_el_post_grid_layout'] == 'list' && $settings['ma_el_post_list_layout']=='meta_bg' )
                             ){ ?>
-                        <div class="row">
+                        <div class="jltma-row">
                     <?php } ?>
 
                     <?php if($settings['ma_el_post_grid_layout'] == 'list' && $settings['ma_el_post_list_layout']=='classic'){ ?>
-                        <div class="col-md-4">
+                        <div class="jltma-col-md-4">
                     <?php } ?>
 
                     <?php if( $settings['ma_el_post_grid_layout'] == 'list' && $settings['ma_el_post_list_layout']=='meta_bg' ) { ?>
-                        <div class="col-md-5">
+                        <div class="jltma-col-md-5">
                     <?php } ?>
 
                     <?php if( $settings['ma_el_post_grid_thumbnail'] == 'yes' ) { ?>
@@ -2508,7 +2508,7 @@
                                 ($settings['ma_el_post_grid_layout'] == 'list' && $settings['ma_el_post_list_layout']== 'content_overlap')
                             ){ ?>
                         </div>
-                        <div class="col-md-6">
+                        <div class="jltma-col-md-6">
                     <?php } ?>
 
                     <?php if( 'cards' === $skin && $settings['ma_el_blog_author_avatar'] == "yes") : ?>
@@ -2520,11 +2520,11 @@
 
 
                     <?php if($settings['ma_el_post_grid_layout'] == 'list' && $settings['ma_el_post_list_layout']=='classic'){ ?>
-                        <div class="col-md-8">
+                        <div class="jltma-col-md-8">
                     <?php } ?>
 
                     <?php if( $settings['ma_el_post_grid_layout'] == 'list' && $settings['ma_el_post_list_layout']=='meta_bg' ) { ?>
-                        <div class="col-md-7">
+                        <div class="jltma-col-md-7">
                     <?php } ?>
 
                     <?php if( $settings['ma_el_post_grid_layout'] == 'grid' && $settings['ma_el_blog_cards_skin']=='full_banner' ) { ?>

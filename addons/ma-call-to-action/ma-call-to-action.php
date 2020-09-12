@@ -519,7 +519,7 @@
             <section <?php echo $this->get_render_attribute_string( 'ma_el_call_to_action_wrapper' ); ?>>
                 <div class="<?php echo esc_attr($settings['ma_el_call_to_action_style_preset'] );?>">
                     <div class="ma-el-action-content">
-                        <div class="row">
+                        <div class="jltma-row">
                             <div class="col-lg-9">
 
                                 <?php if( $settings['ma_el_call_to_action_style_preset'] == "style-07"){ ?>

@@ -1517,7 +1517,7 @@ class Master_Addons_Business_Hours extends Widget_Base {
             <div <?php echo $this->get_render_attribute_string( 'ma_el_business_hours' ); ?>>
 
                 <?php if ( ($settings['ma_el_business_hours_style'] == 'content-corner-btn') || ($settings['ma_el_business_hours_style'] == 'table-reservation') ) {?>
-                    <div class="row">
+                    <div class="jltma-row">
 						<div class="<?php echo ($settings['ma_el_business_hours_style'] == 'table-reservation')?"col-lg-8":"col-lg-6";?>">
 							<?php echo $this->render_image( $settings['ma_el_business_bg_image']['id'], $settings );?>
 

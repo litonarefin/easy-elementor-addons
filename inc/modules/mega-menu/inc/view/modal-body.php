@@ -105,30 +105,30 @@
                 <div role="tabpanel" class="tab-pane" id="general_tab" aria-labelledby="general-tab">
 
                     <div class="option-table jltma-label-container">
-                        <div class="row">
+                        <div class="jltma-row">
 
-                            <div class="form-group mb-2 col-7">
+                            <div class="form-group mb-2 jltma-col-7">
                                 <label for="jltma-mobile-submenu-type">
                                     <strong>
                                         <?php esc_html_e('Mobile Menu', MELA_TD); ?>
                                     </strong>
                                 </label>
                             </div>
-                            <div class="form-group mb-2 col-5">
+                            <div class="form-group mb-2 jltma-col-5">
                                 <select class="form-control" id="jltma-mobile-submenu-type">
                                     <option value="submenu_list"><?php esc_html_e('WP Menu List', MELA_TD); ?></option>
                                     <option value="builder_content" selected="selected"><?php esc_html_e('Builder Content', MELA_TD); ?></option>
                                 </select>
                             </div>
 
-                            <div class="form-group mb-2 col-7">
+                            <div class="form-group mb-2 jltma-col-7">
                                 <label for="mega-menu-trigger-effect">
                                     <strong>
                                         <?php esc_html_e('Trigger Effect', MELA_TD); ?>
                                     </strong>
                                 </label>
                             </div>
-                            <div class="form-group mb-2 col-5">
+                            <div class="form-group mb-2 jltma-col-5">
                                 <select class="form-control" id="mega-menu-trigger-effect">
                                     <option value="" selected="selected"><?php esc_html_e('Hover', MELA_TD); ?></option>
                                     <option value="click"><?php esc_html_e('Click', MELA_TD); ?></option>
@@ -136,14 +136,14 @@
                             </div>
 
 
-                            <!-- <div class="form-group mb-2 col-7">
+                            <!-- <div class="form-group mb-2 jltma-col-7">
                                 <label for="mega-menu-transition-effect">
                                     <strong>
                                     <?php //esc_html_e('Transition', MELA_TD); ?>
                                     </strong>
                                 </label>
                             </div>
-                            <div class="form-group mb-2 col-5">
+                            <div class="form-group mb-2 jltma-col-5">
                                 <select class="form-control" id="mega-menu-transition-effect">
                                     <option value="" selected="selected"><?php //echo esc_html__('Fade', MELA_TD); ?></option>
                                     <option value="slide"><?php //esc_html_e('Slide Left', MELA_TD); ?></option>
@@ -162,14 +162,14 @@
 
 
 
-                            <div class="form-group mb-2 col-8 <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
+                            <div class="form-group mb-2 jltma-col-8 <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
                                 <label for="mega-menu-hide-item-label">
                                     <strong>
                                         <?php esc_html_e('Show Menu Label', MELA_TD); ?>
                                     </strong>
                                 </label>
                             </div>
-                            <div class="form-group mb-2 col-4 jtlma-mega-switcher <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
+                            <div class="form-group mb-2 jltma-col-4 jtlma-mega-switcher <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
                                 <input type='checkbox' id="mega-menu-hide-item-label" class='mega-menu-hide-item-label' name='mega-menu-hide-item-label' value='1'/>
                                 <label for="mega-menu-hide-item-label">
                                     <?php _e("NO", MELA_TD) ?>
@@ -182,14 +182,14 @@
 
 
 
-                            <div class="form-group mb-2 col-8 <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
+                            <div class="form-group mb-2 jltma-col-8 <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
                                 <label for="mega-menu-hide-item-label">
                                     <strong>
                                         <?php esc_html_e('Show Description', MELA_TD); ?>
                                     </strong>
                                 </label>
                             </div>
-                            <div class="form-group mb-2 col-4 jtlma-mega-switcher <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
+                            <div class="form-group mb-2 jltma-col-4 jtlma-mega-switcher <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
                                 <input type='checkbox' id="jltma-menu-disable-description" class='jltma-menu-disable-description' name='jltma-menu-disable-description' value='1'/>
                                 <label for="jltma-menu-disable-description">
                                     <?php _e("NO", MELA_TD) ?>
@@ -206,9 +206,9 @@
                 <div role="tabpanel" class="tab-pane" id="icon_tab" aria-labelledby="icon-tab">
 
                     <div class="option-table jltma-label-container">
-                        <div class="row">
+                        <div class="jltma-row">
 
-                            <div class="form-group mb-2 col-7 <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
+                            <div class="form-group mb-2 jltma-col-7 <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
                                 <label for="jltma-menu-icon-field">
                                     <strong>
                                         <?php esc_html_e('Menu Icon', MELA_TD); ?>
@@ -216,7 +216,7 @@
                                 </label>
                             </div>
 
-                            <div class="form-group mb-2 col-5 <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
+                            <div class="form-group mb-2 jltma-col-5 <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
                                 <div data-target="icon-picker" class="button icon-picker"></div>
                                 <input id="jltma-menu-icon-field" class="icon-picker-input" type="text" placeholder="Click Icon for Picker" />
                             </div>
@@ -224,14 +224,14 @@
                             <?php if( !ma_el_fs()->can_use_premium_code()) { echo '<span class="jltma-pro-badge top-badge eicon-pro-icon"></span>'; }?>
 
 
-                            <div class="form-group mb-2 col-7 <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
+                            <div class="form-group mb-2 jltma-col-7 <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
                                 <label for="jltma-menu-icon-color-field">
                                     <strong>
                                         <?php esc_html_e('Icon Color', MELA_TD); ?>
                                     </strong>
                                 </label>
                             </div>
-                            <div class="form-group mb-2 col-5 <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
+                            <div class="form-group mb-2 jltma-col-5 <?php if( !ma_el_fs()->can_use_premium_code()) { echo "jltma-disabled"; }?>">
                                 <input type="text" value="#6f10b5" class="jltma-menu-wpcolor-picker"
                                         id="jltma-menu-icon-color-field" />
                             </div>
@@ -248,41 +248,41 @@
 
 
                     <div class="option-table jltma-label-container">
-                        <div class="row">
+                        <div class="jltma-row">
 
-                            <div class="form-group mb-2 col-7">
+                            <div class="form-group mb-2 jltma-col-7">
                                 <label for="jltma-menu-badge-text-field">
                                     <strong>
                                         <?php esc_html_e('Badge Text', MELA_TD); ?>
                                     </strong>
                                 </label>
                             </div>
-                            <div class="form-group mb-2 col-5">
+                            <div class="form-group mb-2 jltma-col-5">
                                 <input type="text" placeholder="<?php esc_html_e('Badge Text', MELA_TD); ?>" id="jltma-menu-badge-text-field" />
                             </div>
 
 
-                            <div class="form-group mb-2 col-7">
+                            <div class="form-group mb-2 jltma-col-7">
                                 <label for="jltma-menu-badge-color-field">
                                     <strong>
                                         <?php esc_html_e('Badge Color', MELA_TD); ?>
                                     </strong>
                                 </label>
                             </div>
-                            <div class="form-group mb-2 col-5">
+                            <div class="form-group mb-2 jltma-col-5">
                                 <input type="text" class="jltma-menu-wpcolor-picker" value="#6f10b5"
                                         id="jltma-menu-badge-color-field" />
                             </div>
 
 
-                            <div class="form-group mb-2 col-7">
+                            <div class="form-group mb-2 jltma-col-7">
                                 <label for="jltma-menu-badge-background-field">
                                     <strong>
                                         <?php esc_html_e('Background', MELA_TD); ?>
                                     </strong>
                                 </label>
                             </div>
-                            <div class="form-group mb-2 col-5">
+                            <div class="form-group mb-2 jltma-col-5">
                                 <input type="text" class="jltma-menu-wpcolor-picker" value="#6f10b5"
                                     id="jltma-menu-badge-background-field" />
                             </div>
