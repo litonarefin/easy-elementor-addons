@@ -26,7 +26,7 @@ class Master_Addons_Headlines extends Widget_Base {
 
 	public function get_script_depends() {
 		return [
-			'ma-animated-headlines',
+			// 'ma-animated-headlines',
 			'master-addons-scripts',
 		];
 	}
@@ -394,32 +394,43 @@ Customization Options.</span>'
 	}
 
 	protected function render() {
-		$settings = $this->get_settings_for_display();
+		
+			$settings = $this->get_settings_for_display();
 
-		switch ($settings['ma_el_headlines_style_preset']){
-			case "rotate-2":
-				$letters_class = "letters";
-				break;
-			case "rotate-3":
-				$letters_class = "letters";
-				break;
-			case "type":
-				$letters_class = "letters";
-				break;
-			case "scale":
-				$letters_class = "letters";
-				break;
-			default:
-				$letters_class = "";
-		}
+			switch ($settings['ma_el_headlines_style_preset']){
+				case "rotate-2":
+					$letters_class = "letters";
+					break;
+				case "rotate-3":
+					$letters_class = "letters";
+					break;
+				case "type":
+					$letters_class = "letters";
+					break;
+				case "scale":
+					$letters_class = "letters";
+					break;
+				default:
+					$letters_class = "";
+			}
+
+			$this->add_render_attribute( 'jltma_animated_header_wrapper', [
+				'class'	=> [
+					'ma-el-animated-heading-title',
+					'ma-el-animated-headline',
+					$letters_class,
+					$settings['ma_el_headlines_style_preset'],
+					'main-title'
+				],
+				'id' => 'ma-el-animated-heading-' . $this->get_id()
+			]);
+
 
 		?>
 
             <div id="ma-el-heading-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-animated-heading">
                 <div class="ma-el-animated-heading-wrapper">
-                    <<?php echo $settings['title_html_tag']; ?>
-                        class="ma-el-animated-heading-title ma-el-animated-headline <?php echo esc_html(
-                                $letters_class . ' ' . $settings['ma_el_headlines_style_preset'] ); ?> main-title">
+					<<?php echo $settings['title_html_tag'] . ' ' . $this->get_render_attribute_string('jltma_animated_header_wrapper'); ?>>
                         <span class="first-heading">
                             <?php echo esc_html( $settings['ma_el_headlines_first_heading'] ); ?>
                         </span>

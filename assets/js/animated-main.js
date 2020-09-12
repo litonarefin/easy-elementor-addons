@@ -18,6 +18,7 @@ jQuery(document).ready(function($){
 
 
     function initHeadline() {
+        console.log('changed main file');
         //insert <i> element for each letter of a changing word
         singleLetters($('.ma-el-animated-headline.letters').find('b'));
         //initialise headline animation

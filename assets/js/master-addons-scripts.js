@@ -132,119 +132,134 @@
             try {
                 (function ($) {
 
-                    /*----------- Animated Headlines --------------*/
+                    Master_Addons.MA_Animated_Headlines.elementSettings    = getElementSettings( $scope );
 
+
+                    /*----------- Animated Headlines --------------*/
                     //set animation timing
                     var animationDelay = 2500,
+
                         //loading bar effect
                         barAnimationDelay = 3800,
                         barWaiting = barAnimationDelay - 3000, //3000 is the duration of the transition on the loading bar - set in the scss/css file
+                        
                         //letters effect
                         lettersDelay = 50,
+
                         //type effect
                         typeLettersDelay = 150,
                         selectionDuration = 500,
                         typeAnimationDelay = selectionDuration + 800,
+                        
                         //clip effect
                         revealDuration = 600,
                         revealAnimationDelay = 1500;
 
-                    Master_Addons.MA_Animated_Headlines.initHeadline();
+                    
 
+                    // var $animatedHeaderContainer     = $scope.find('.ma-el-animated-headline').eq(0);
 
-                    Master_Addons.MA_Animated_Headlines.initHeadline = function() {
-                        //insert <i> element for each letter of a changing word
-                        Master_Addons.MA_Animated_Headlines.singleLetters($('.cd-headline.letters').find('b'));
-                        //initialise headline animation
-                        Master_Addons.MA_Animated_Headlines.animateHeadline($('.cd-headline'));
-                    }
+                    // console.log('wrapper', $animatedHeaderContainer);
 
+                    // $animatedHeaderContainer.waypoint(function () {
+                        // var element = $(this.element);
+                        // var id = element.data('id');
+                        // var type = element.data('type');
+                        // var value = element.data('progress-bar-value');
+                        // var strokeWidth = element.data('progress-bar-stroke-width');
+                        // var strokeTrailWidth = element.data('progress-bar-stroke-trail-width');
+                        // var color = element.data('stroke-color');
+                        // var trailColor = element.data('stroke-trail-color');
+                        // animatedProgressbar(id, type, value, color, trailColor, strokeWidth, strokeTrailWidth);
 
-                    Master_Addons.MA_Animated_Headlines.singleLetters = function($words) {
-                        $words.each(function () {
-                            var word = $(this),
+                        
+                    // });
+
+                    function singleLetters($words) {
+                        $words.each(function(){
+                            let word = $(this),
                                 letters = word.text().split(''),
                                 selected = word.hasClass('is-visible');
                             for (i in letters) {
-                                if (word.parents('.rotate-2').length > 0) letters[i] = '<em>' + letters[i] + '</em>';
-                                letters[i] = (selected) ? '<i class="in">' + letters[i] + '</i>' : '<i>' + letters[i] + '</i>';
+                                if(word.parents('.rotate-2').length > 0) letters[i] = '<em>' + letters[i] + '</em>';
+                                letters[i] = (selected) ? '<i class="in">' + letters[i] + '</i>': '<i>' + letters[i] + '</i>';
                             }
-                            var newLetters = letters.join('');
+                            let newLetters = letters.join('');
                             word.html(newLetters).css('opacity', 1);
                         });
                     }
 
-                    Master_Addons.MA_Animated_Headlines.animateHeadline = function($headlines) {                        
-                        var duration = animationDelay;
-                        $headlines.each(function () {
-                            var headline = $(this);
+                    function animateHeadline($headlines) {
+                        let duration = animationDelay;
+                        $headlines.each(function(){
+                            let headline = $(this);
 
-                            if (headline.hasClass('loading-bar')) {
+                            if(headline.hasClass('loading-bar')) {
                                 duration = barAnimationDelay;
-                                setTimeout(function () { headline.find('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
-                            } else if (headline.hasClass('clip')) {
-                                var spanWrapper = headline.find('.cd-words-wrapper'),
+                                setTimeout(function(){ headline.find('.ma-el-words-wrapper').addClass('is-loading') }, barWaiting);
+                            } else if (headline.hasClass('clip')){
+                                let spanWrapper = headline.find('.ma-el-words-wrapper'),
                                     newWidth = spanWrapper.width() + 10
                                 spanWrapper.css('width', newWidth);
-                            } else if (!headline.hasClass('type')) {
-                                //assign to .cd-words-wrapper the width of its longest word
-                                var words = headline.find('.cd-words-wrapper b'),
+                            } else if (!headline.hasClass('type') ) {
+                                //assign to .ma-el-words-wrapper the width of its longest word
+                                let words = headline.find('.ma-el-words-wrapper b'),
                                     width = 0;
-                                words.each(function () {
-                                    var wordWidth = $(this).width();
+                                words.each(function(){
+                                    let wordWidth = $(this).width();
                                     if (wordWidth > width) width = wordWidth;
                                 });
-                                headline.find('.cd-words-wrapper').css('width', width);
+                                headline.find('.ma-el-words-wrapper').css('width', width);
                             };
 
                             //trigger animation
-                            setTimeout(function () { hideWord(headline.find('.is-visible').eq(0)) }, duration);
+                            setTimeout(function(){ hideWord( headline.find('.is-visible').eq(0) ) }, duration);
                         });
                     }
 
                     function hideWord($word) {
-                        var nextWord = takeNext($word);
+                        let nextWord = takeNext($word);
 
-                        if ($word.parents('.cd-headline').hasClass('type')) {
-                            var parentSpan = $word.parent('.cd-words-wrapper');
+                        if($word.parents('.ma-el-animated-headline').hasClass('type')) {
+                            let parentSpan = $word.parent('.ma-el-words-wrapper');
                             parentSpan.addClass('selected').removeClass('waiting');
-                            setTimeout(function () {
+                            setTimeout(function(){
                                 parentSpan.removeClass('selected');
                                 $word.removeClass('is-visible').addClass('is-hidden').children('i').removeClass('in').addClass('out');
                             }, selectionDuration);
-                            setTimeout(function () { showWord(nextWord, typeLettersDelay) }, typeAnimationDelay);
+                            setTimeout(function(){ showWord(nextWord, typeLettersDelay) }, typeAnimationDelay);
 
-                        } else if ($word.parents('.cd-headline').hasClass('letters')) {
-                            var bool = ($word.children('i').length >= nextWord.children('i').length) ? true : false;
+                        } else if($word.parents('.ma-el-animated-headline').hasClass('letters')) {
+                            let bool = ($word.children('i').length >= nextWord.children('i').length) ? true : false;
                             hideLetter($word.find('i').eq(0), $word, bool, lettersDelay);
                             showLetter(nextWord.find('i').eq(0), nextWord, bool, lettersDelay);
 
-                        } else if ($word.parents('.cd-headline').hasClass('clip')) {
-                            $word.parents('.cd-words-wrapper').animate({ width: '2px' }, revealDuration, function () {
+                        }  else if($word.parents('.ma-el-animated-headline').hasClass('clip')) {
+                            $word.parents('.ma-el-words-wrapper').animate({ width : '2px' }, revealDuration, function(){
                                 switchWord($word, nextWord);
                                 showWord(nextWord);
                             });
 
-                        } else if ($word.parents('.cd-headline').hasClass('loading-bar')) {
-                            $word.parents('.cd-words-wrapper').removeClass('is-loading');
+                        } else if ($word.parents('.ma-el-animated-headline').hasClass('loading-bar')){
+                            $word.parents('.ma-el-words-wrapper').removeClass('is-loading');
                             switchWord($word, nextWord);
-                            setTimeout(function () { hideWord(nextWord) }, barAnimationDelay);
-                            setTimeout(function () { $word.parents('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
+                            setTimeout(function(){ hideWord(nextWord) }, barAnimationDelay);
+                            setTimeout(function(){ $word.parents('.ma-el-words-wrapper').addClass('is-loading') }, barWaiting);
 
                         } else {
                             switchWord($word, nextWord);
-                            setTimeout(function () { hideWord(nextWord) }, animationDelay);
+                            setTimeout(function(){ hideWord(nextWord) }, animationDelay);
                         }
                     }
 
                     function showWord($word, $duration) {
-                        if ($word.parents('.cd-headline').hasClass('type')) {
+                        if($word.parents('.ma-el-animated-headline').hasClass('type')) {
                             showLetter($word.find('i').eq(0), $word, false, $duration);
                             $word.addClass('is-visible').removeClass('is-hidden');
 
-                        } else if ($word.parents('.cd-headline').hasClass('clip')) {
-                            $word.parents('.cd-words-wrapper').animate({ 'width': $word.width() + 10 }, revealDuration, function () {
-                                setTimeout(function () { hideWord($word) }, revealAnimationDelay);
+                        }  else if($word.parents('.ma-el-animated-headline').hasClass('clip')) {
+                            $word.parents('.ma-el-words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){
+                                setTimeout(function(){ hideWord($word) }, revealAnimationDelay);
                             });
                         }
                     }
@@ -252,14 +267,14 @@
                     function hideLetter($letter, $word, $bool, $duration) {
                         $letter.removeClass('in').addClass('out');
 
-                        if (!$letter.is(':last-child')) {
-                            setTimeout(function () { hideLetter($letter.next(), $word, $bool, $duration); }, $duration);
-                        } else if ($bool) {
-                            setTimeout(function () { hideWord(takeNext($word)) }, animationDelay);
+                        if(!$letter.is(':last-child')) {
+                            setTimeout(function(){ hideLetter($letter.next(), $word, $bool, $duration); }, $duration);
+                        } else if($bool) {
+                            setTimeout(function(){ hideWord(takeNext($word)) }, animationDelay);
                         }
 
-                        if ($letter.is(':last-child') && $('html').hasClass('no-csstransitions')) {
-                            var nextWord = takeNext($word);
+                        if($letter.is(':last-child') && $('html').hasClass('no-csstransitions')) {
+                            let nextWord = takeNext($word);
                             switchWord($word, nextWord);
                         }
                     }
@@ -267,11 +282,11 @@
                     function showLetter($letter, $word, $bool, $duration) {
                         $letter.addClass('in').removeClass('out');
 
-                        if (!$letter.is(':last-child')) {
-                            setTimeout(function () { showLetter($letter.next(), $word, $bool, $duration); }, $duration);
+                        if(!$letter.is(':last-child')) {
+                            setTimeout(function(){ showLetter($letter.next(), $word, $bool, $duration); }, $duration);
                         } else {
-                            if ($word.parents('.cd-headline').hasClass('type')) { setTimeout(function () { $word.parents('.cd-words-wrapper').addClass('waiting'); }, 200); }
-                            if (!$bool) { setTimeout(function () { hideWord($word) }, animationDelay) }
+                            if($word.parents('.ma-el-animated-headline').hasClass('type')) { setTimeout(function(){ $word.parents('.ma-el-words-wrapper').addClass('waiting'); }, 200);}
+                            if(!$bool) { setTimeout(function(){ hideWord($word) }, animationDelay) }
                         }
                     }
 
@@ -287,6 +302,17 @@
                         $oldWord.removeClass('is-visible').addClass('is-hidden');
                         $newWord.removeClass('is-hidden').addClass('is-visible');
                     }
+
+
+                    Master_Addons.MA_Animated_Headlines.initHeadline = function() {
+                        console.log('changed main filess sss');
+                        //insert <i> element for each letter of a changing word
+                        singleLetters($('.ma-el-animated-headline.letters').find('b'));
+                        //initialise headline animation
+                        animateHeadline($('.ma-el-animated-headline'));
+                    }
+                    Master_Addons.MA_Animated_Headlines.initHeadline();
+
 
 
                 })(jQuery);
