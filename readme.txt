@@ -415,6 +415,7 @@ Paste on your Local Computer
 * Updated: Bootstrap's default classes changed for conflicting issues with other themes - container, navbar, btn classes changed to "jltma-" prefix.
 * Updated: Default button color updated to Master Addons brand color also removed default font size, font family etc.
 * Supported: AcmePhoto Theme navigation broken style issue fixed
+* Supported: Comment Form - warning message showing for Hello Elementor Theme has been fixed
 
  
 

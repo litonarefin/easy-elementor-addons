@@ -86,7 +86,7 @@ if( !class_exists('JLTMA_Comments_Builder') ){
 
             $comment_extra ="";
 
-            if(isset($comment_meta )){
+            if(isset($comment_meta) && !empty($comment_meta)){
 
                 if( is_admin()){
                     $jltma_extra_field_heading = esc_html__('Extra Fields:', JLTMA_TD);
