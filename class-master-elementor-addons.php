@@ -9,7 +9,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 		static public $class_namespace = '\\MasterAddons\\Inc\\Classes\\';
 		public $controls_manager;
 
-		const VERSION = "1.5.1";
+		const VERSION = "1.5.2";
 
 		const MINIMUM_PHP_VERSION = '5.4';
 

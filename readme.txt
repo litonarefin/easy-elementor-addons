@@ -373,7 +373,7 @@ Paste on your Local Computer
 
 
 == Changelog ==
-= 1.5.2 (5-09-2020) =
+= 1.5.2 (13-09-2020) =
 * Fixed: Animated Headlines - Backend not working issue has been fixed. Now, working perfectly on both backend and frontend.
 * Added: Animated Headlines - Added Padding, Margin, Border, Border Radius and Box shadow for more controls on animated headlines
 * Fixed: Reading Progres Bar warning fixed
