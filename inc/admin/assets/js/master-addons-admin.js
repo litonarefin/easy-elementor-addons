@@ -300,15 +300,17 @@
         $( '.jltma-rollback-button' ).on( 'click', function( event ) {
             event.preventDefault();
 
+            console.log('clicked');
+            
             var $this = $( this ),
                 dialogsManager = new DialogsManager.Instance();
 
             dialogsManager.createWidget( 'confirm', {
-                headerMessage: premiumRollBackConfirm.i18n.rollback_to_previous_version,
-                message: premiumRollBackConfirm.i18n.rollback_confirm,
+                headerMessage: jltmaRollBackConfirm.i18n.rollback_to_previous_version,
+                message: jltmaRollBackConfirm.i18n.rollback_confirm,
                 strings: {
-                    cancel: premiumRollBackConfirm.i18n.cancel,
-                    confirm: premiumRollBackConfirm.i18n.yes,
+                    cancel: jltmaRollBackConfirm.i18n.cancel,
+                    confirm: jltmaRollBackConfirm.i18n.yes,
                 },
                 onConfirm: function() {
                     $this.addClass( 'loading' );

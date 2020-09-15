@@ -120,7 +120,7 @@ class Master_Addons_Admin_Settings{
 			           <tr class="jltma-roll-row">
 			              <th><?php echo __('Rollback Version', MELA_TD); ?></th>
 			              <td>
-			                 <div><?php echo  sprintf( '<a target="_blank" href="%1$s" class="button jltma-btn jltma-rollback-button elementor-button-spinner">%2$s</a>', wp_nonce_url( admin_url( 'admin-post.php?action=master_addons_rollback' ), 'master_addons_rollback' ), __('Rollback to Version ' . JLTMA_STABLE_VERSION, MELA_TD) ); ?></div>
+			                 <div><?php echo  sprintf( '<a href="%1$s" class="button jltma-btn jltma-rollback-button elementor-button-spinner">%2$s</a>', wp_nonce_url( admin_url( 'admin-post.php?action=master_addons_rollback' ), 'master_addons_rollback' ), __('Rollback to Version ' . JLTMA_STABLE_VERSION, MELA_TD) ); ?></div>
 			                 <p class="jltma-roll-desc">
 			                     <span><?php echo __('Warning: Please backup your database before making the rollback.', MELA_TD); ?></span>
 			                 </p>
@@ -159,12 +159,34 @@ class Master_Addons_Admin_Settings{
 				'ajaxurl' 				=> admin_url( 'admin-ajax.php' ),
 				'ajax_nonce' 			=> wp_create_nonce( 'maad_el_settings_nonce_action' ),
 				'ajax_extensions_nonce' => wp_create_nonce( 'ma_el_extensions_settings_nonce_action' ),
-				'ajax_api_nonce' 		=> wp_create_nonce( 'jltma_api_settings_nonce_action' )
+				'ajax_api_nonce' 		=> wp_create_nonce( 'jltma_api_settings_nonce_action' )			
 			);
 			wp_localize_script( 'master-addons-el-admin', 'js_maad_el_settings', $jltma_localize_admin_script );
 
 
+
 		}
+
+		// Rollback Version
+		if($screen->id == 'master-addons_page_master-addons-version-control'){
+			wp_enqueue_script( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'js/master-addons-admin.js', ['jquery'], MELA_VERSION, true );
+
+	        wp_localize_script(
+	            'master-addons-el-admin',
+	            'jltmaRollBackConfirm',
+	            [
+	                'home_url'  => home_url(),
+	                'i18n' => [
+						'rollback_confirm' => __( 'Are you sure you want to reinstall version ' . JLTMA_STABLE_VERSION . ' ?', MELA_TD ),
+						'rollback_to_previous_version' => __( 'Rollback to Previous Version', MELA_TD ),
+						'yes' => __( 'Yes', MELA_TD ),
+						'cancel' => __( 'Cancel', MELA_TD ),
+					],
+	            ]
+	        );			
+		}
+
+
 
 		// Admin Notice Dismiss
 		wp_enqueue_script( 'jltma-dismiss-notice', MELA_ADMIN_ASSETS . 'js/dismiss-notice.js', ['jquery'], MELA_VERSION, true );
