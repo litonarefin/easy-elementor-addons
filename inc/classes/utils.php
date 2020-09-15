@@ -320,21 +320,21 @@ function jltma_post_addons_rollback() {
     
     check_admin_referer( 'master_addons_rollback' );
     
-    $plugin_slug = basename( PREMIUM_ADDONS_FILE, '.php' );
+    $plugin_slug = basename( MELA_FILE, '.php' );
     
-    $pa_rollback = new PA_Rollback(
+    $jltma_rollback = new \MasterAddons\Inc\Master_Addons_Rollback(
         [
-            'version' => PREMIUM_ADDONS_STABLE_VERSION,
-            'plugin_name' => PREMIUM_ADDONS_BASENAME,
+            'version' => JLTMA_STABLE_VERSION,
+            'plugin_name' => plugin_basename( MELA_FILE ),
             'plugin_slug' => $plugin_slug,
-            'package_url' => sprintf( 'https://downloads.wordpress.org/plugin/%s.%s.zip', $plugin_slug, PREMIUM_ADDONS_STABLE_VERSION ),
+            'package_url' => sprintf( 'https://downloads.wordpress.org/plugin/%s.%s.zip', $plugin_slug, JLTMA_STABLE_VERSION ),
         ]
     );
 
-    $pa_rollback->run();
+    $jltma_rollback->run();
 
     wp_die(
-        '', __( 'Rollback to Previous Version', 'premium-addons-for-elementor' ), [
+        '', __( 'Rollback to Previous Version', MELA_TD ), [
         'response' => 200,
         ]
     );

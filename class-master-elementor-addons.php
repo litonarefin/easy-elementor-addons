@@ -164,7 +164,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 			add_action( 'elementor/controls/controls_registered'   , array( $this, 'jltma_register_controls' ) );
 
 			add_action( 'admin_post_master_addons_rollback', 'jltma_post_addons_rollback' );
-			
+
 			//		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'ma_el_enqueue_frontend_scripts' ] );
 			//		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'ma_el_enqueue_frontend_styles' ] );
 
@@ -868,6 +868,9 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			// Dashboard Settings
 			include_once MELA_PLUGIN_PATH . '/inc/admin/dashboard-settings.php';
+
+			//Utils
+			include_once MELA_PLUGIN_PATH . '/inc/classes/rollback.php';
 
 			//Utils
 			include_once MELA_PLUGIN_PATH . '/inc/classes/utils.php';
