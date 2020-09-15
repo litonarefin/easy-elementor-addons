@@ -111,7 +111,7 @@ class Master_Addons_Admin_Settings{
 
         </div>
 
-		<div class="master_addons_contents">
+		<div class="master_addons_contents" style="margin-top: -20px;">
 			
 			<div class="response-wrap"></div>
 
@@ -123,7 +123,7 @@ class Master_Addons_Admin_Settings{
 			</div>				
 
 
-			<div class="jltma-container border border-muted p-3 mt-4">
+			<div class="border border-muted p-3 mt-4 mb-4 align-left">
 				<div class="jltma-row">
 						
 					<div class="jltma-col-4">
