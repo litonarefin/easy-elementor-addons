@@ -107,27 +107,27 @@ class Master_Addons_Admin_Settings{
 	       </div>
 
 
-			<div class="pa-settings-tabs">
-			  <div id="pa-maintenance" class="pa-settings-tab">
-			     <div class="pa-row">
-			        <table class="pa-beta-table">
+			<div class="jltma-settings-tabs">
+			  <div id="jltma-maintenance" class="jltma-settings-tab">
+			     <div class="jltma-row">
+			        <table class="jltma-beta-table">
 			           <tr>
 			              <th>
-			                 <h4 class="pa-roll-back"><?php echo __('Rollback to Previous Version', MELA_TD); ?></h4>
-			                 <span class="pa-roll-back-span"><?php echo sprintf( __('Experiencing an issue with Master Addons for Elementor version %s? Rollback to a previous version before the issue appeared.', MELA_TD), MELA_VERSION ); ?></span>
+			                 <h4 class="jltma-roll-back"><?php echo __('Rollback to Previous Version', MELA_TD); ?></h4>
+			                 <span class="jltma-roll-back-span"><?php echo sprintf( __('Experiencing an issue with Master Addons for Elementor version %s? Rollback to a previous version before the issue appeared.', MELA_TD), MELA_VERSION ); ?></span>
 			              </th>
 			           </tr>
-			           <tr class="pa-roll-row">
+			           <tr class="jltma-roll-row">
 			              <th><?php echo __('Rollback Version', MELA_TD); ?></th>
 			              <td>
-			                 <div><?php echo  sprintf( '<a target="_blank" href="%1$s" class="button pa-btn pa-rollback-button elementor-button-spinner">%2$s</a>', wp_nonce_url( admin_url( 'admin-post.php?action=master_addons_rollback' ), 'master_addons_rollback' ), __('Rollback to Version ' . JLTMA_STABLE_VERSION, MELA_TD) ); ?></div>
-			                 <p class="pa-roll-desc">
+			                 <div><?php echo  sprintf( '<a target="_blank" href="%1$s" class="button jltma-btn jltma-rollback-button elementor-button-spinner">%2$s</a>', wp_nonce_url( admin_url( 'admin-post.php?action=master_addons_rollback' ), 'master_addons_rollback' ), __('Rollback to Version ' . JLTMA_STABLE_VERSION, MELA_TD) ); ?></div>
+			                 <p class="jltma-roll-desc">
 			                     <span><?php echo __('Warning: Please backup your database before making the rollback.', MELA_TD); ?></span>
 			                 </p>
 			              </td>
 			           </tr>
 			        </table>
-			        <input type="submit" value="<?php echo __('Save Settings', MELA_TD); ?>" class="button pa-btn pa-save-button">
+			        <input type="submit" value="<?php echo __('Save Settings', MELA_TD); ?>" class="button jltma-btn jltma-save-button">
 			     </div>
 			  </div>
 			</div>	       

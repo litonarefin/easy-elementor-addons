@@ -320,12 +320,16 @@ function jltma_post_addons_rollback() {
     
     check_admin_referer( 'master_addons_rollback' );
     
-    $plugin_slug = basename( MELA_FILE, '.php' );
+    $plugin_slug = basename( MELA_DIR, '.php' );
+
+    print_r( basename(MELA_DIR, '.php'));
+    print_r(\MasterAddons\Master_Elementor_Addons::$plugin_name);
+    exit;
     
     $jltma_rollback = new \MasterAddons\Inc\Master_Addons_Rollback(
         [
             'version' => JLTMA_STABLE_VERSION,
-            'plugin_name' => plugin_basename( MELA_FILE ),
+            'plugin_name' => \MasterAddons\Master_Elementor_Addons::$plugin_name,
             'plugin_slug' => $plugin_slug,
             'package_url' => sprintf( 'https://downloads.wordpress.org/plugin/%s.%s.zip', $plugin_slug, JLTMA_STABLE_VERSION ),
         ]
