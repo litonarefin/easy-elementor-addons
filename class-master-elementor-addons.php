@@ -123,6 +123,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 //					'pseudo-elements', //need to fix before and after
 				['display-conditions','pro'],
 				'dynamic-tags',
+				['floating-effects','pro']
 				// 'live-copy',
 			];
 
@@ -405,33 +406,16 @@ if( !class_exists('Master_Elementor_Addons') ){
 					'class' => 'MasterAddons\Inc\Controls\MA_Control_Visual_Select',
 					'type'  => 'single'
 				),
-				'transforms' => array(
-					'file'  => MELA_PLUGIN_PATH . '/inc/controls/transforms.php',
-					'class' => 'MasterAddons\Inc\Controls\MA_Control_Transforms',
-					'type'  => 'single'
-				),
-				'transform-element' => array(
-					'file'  => MELA_PLUGIN_PATH . '/inc/controls/group/transforms.php',
-					'class' => 'MasterAddons\Inc\Controls\MA_Transform_Element',
-					'type'  => 'group'
-				),
 				'jltma-transitions' => array(
 					'file'  => MELA_PLUGIN_PATH . '/inc/controls/group/transitions.php',
 					'class' => 'MasterAddons\Inc\Controls\MA_Group_Control_Transition',
 					'type'  => 'group'
-				),
-				'xy_positions' => array(
-					'file'  => MELA_PLUGIN_PATH . '/inc/controls/xy-position.php',
-					'class' => 'MasterAddons\Inc\Controls\MA_XY_Position',
-					'type'  => 'single'
 				),
 				'jltma_query' => array(
 					'file'  => MELA_PLUGIN_PATH . '/inc/controls/jltma-query.php',
 					'class' => 'MasterAddons\Inc\Controls\JLTMA_Control_Query',
 					'type'  => 'single'
 				)
-
-
 			);
 
 			foreach ( $controls as $control_type => $control_info ) {

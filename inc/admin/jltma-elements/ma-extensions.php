@@ -116,6 +116,13 @@ $jltma_elements = [
                 'demo_url'      => 'https://master-addons.com/demos/dynamic-tags/',
                 'docs_url'      => 'https://master-addons.com/docs/addons/dynamic-tags/',
                 'tuts_url'      => 'https://youtu.be/vvhhMq8uz1g'
+            ],
+            [
+                'key'           => 'floating-effects',
+                'title'         => esc_html__( 'Floating Effects', MELA_TD),
+                'demo_url'      => '',
+                'docs_url'      => '',
+                'tuts_url'      => ''
             ]
 
     	]

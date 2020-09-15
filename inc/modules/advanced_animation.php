@@ -915,4 +915,24 @@ class Advanced_Animation {
 		);
 	}
 
+	/**
+	 * Before section render.
+	 *
+	 * @param Object $element Elementor instance.
+	 *
+	 * @return bool
+	 */
+	public function before_render( $element ) {
+
+		$settings = $element->get_settings();
+		if ( ! isset( $settings['neb_floating_fx'] ) ) {
+			return false;
+		}
+		if ( $settings['neb_floating_fx'] === 'yes' ) {
+			wp_enqueue_script( 'neb-animations' );
+		}
+
+		return true;
+
+	}
 }

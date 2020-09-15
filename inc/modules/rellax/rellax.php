@@ -2,7 +2,6 @@
 namespace MasterAddons\Inc\Extensions;
 
 use \Elementor\Controls_Manager;
-use \MasterAddons\Inc\Controls\MA_Transform_Element;
 use \MasterAddons\Inc\Classes\JLTMA_Extension_Prototype;
 
 // Exit if accessed directly.
