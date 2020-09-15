@@ -614,6 +614,15 @@ if( !class_exists('Master_Elementor_Addons') ){
 				wp_register_script( 'google-recaptcha', 'https://www.google.com/recaptcha/api.js', ['jquery'], null, true );
 			}
 
+
+			// Advanced Animations
+			wp_register_script( 'jltma-anime', MELA_PLUGIN_URL . '/assets/vendor/floating-effects/anime.min.js', array(), self::VERSION );
+			wp_register_script( 'jltma-animations', MELA_PLUGIN_URL . '/assets/vendor/floating-effects/advanced-animations.js', array( 'jltma-anime', 'jquery' ), self::VERSION );
+			if ( \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+				wp_enqueue_script( 'jltma-animations' );
+			}
+
+
 			// Addons specific Script/Styles Dependencies
 
 			//Progressbar
