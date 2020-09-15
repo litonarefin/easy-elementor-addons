@@ -299,7 +299,7 @@ function jltma_get_options( $option, $default="" ){
  */
 if ( ! function_exists( 'is_woocommerce_active' ) ) {
 	function is_woocommerce_active() {
-		jltma_is_plugin_active( 'woocommerce/woocommerce.php' );
+		return jltma_is_plugin_active( 'woocommerce/woocommerce.php' );
 	}
 }
 
@@ -310,3 +310,33 @@ if( ! function_exists( 'jltma_is_plugin_active' ) ){
         return is_plugin_active( $plugin_basename );
     }
 }
+
+
+
+/**
+ *  Rollback function
+*/
+function jltma_post_addons_rollback() {
+    
+    check_admin_referer( 'master_addons_rollback' );
+    
+    $plugin_slug = basename( PREMIUM_ADDONS_FILE, '.php' );
+    
+    $pa_rollback = new PA_Rollback(
+        [
+            'version' => PREMIUM_ADDONS_STABLE_VERSION,
+            'plugin_name' => PREMIUM_ADDONS_BASENAME,
+            'plugin_slug' => $plugin_slug,
+            'package_url' => sprintf( 'https://downloads.wordpress.org/plugin/%s.%s.zip', $plugin_slug, PREMIUM_ADDONS_STABLE_VERSION ),
+        ]
+    );
+
+    $pa_rollback->run();
+
+    wp_die(
+        '', __( 'Rollback to Previous Version', 'premium-addons-for-elementor' ), [
+        'response' => 200,
+        ]
+    );
+}
+

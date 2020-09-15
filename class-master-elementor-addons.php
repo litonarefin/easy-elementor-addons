@@ -9,7 +9,8 @@ if( !class_exists('Master_Elementor_Addons') ){
 		static public $class_namespace = '\\MasterAddons\\Inc\\Classes\\';
 		public $controls_manager;
 
-		const VERSION = "1.5.2";
+		const VERSION = "1.5.2.1";
+		const JLTMA_STABLE_VERSION = "1.5.2.1";
 
 		const MINIMUM_PHP_VERSION = '5.4';
 
@@ -162,6 +163,8 @@ if( !class_exists('Master_Elementor_Addons') ){
 			//Register Controls
 			add_action( 'elementor/controls/controls_registered'   , array( $this, 'jltma_register_controls' ) );
 
+			add_action( 'admin_post_master_addons_rollback', 'jltma_post_addons_rollback' );
+			
 			//		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'ma_el_enqueue_frontend_scripts' ] );
 			//		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'ma_el_enqueue_frontend_styles' ] );
 
@@ -239,6 +242,10 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			if ( ! defined( 'MELA_VERSION' ) ) {
 				define( 'MELA_VERSION', self::version() );
+			}
+
+			if ( ! defined( 'JLTMA_STABLE_VERSION' ) ) {
+				define( 'JLTMA_STABLE_VERSION', self::JLTMA_STABLE_VERSION );
 			}
 
 			if ( ! defined( 'MA_EL_SCRIPT_SUFFIX' ) ) {

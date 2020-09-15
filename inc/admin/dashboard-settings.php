@@ -76,7 +76,65 @@ class Master_Addons_Admin_Settings{
 			MELA_IMAGE_DIR . 'icon.png',
 			57
 		);
+
+        add_submenu_page(
+            'master-addons-settings',
+            esc_html__('Version Controls', JLTMA_MCB_TD),
+            esc_html__('Version Control', JLTMA_MCB_TD),
+            'manage_options',
+            'master-addons-version-control',
+            array( $this, 'jltma_version_control'),
+            3
+        );
+
 	}
+
+
+	public function jltma_version_control(){ ?>
+
+		<div class="wrap">
+        	<div class="response-wrap"></div>
+
+	       <div class="ma-el-header-wr apper">
+	          <div class="ma-el-title-left">
+	             <h1 class="ma-el-title-main"><?php echo Master_Elementor_Addons::$plugin_name; ?></h1>
+	             <h3 class="ma-el-title-sub"><?php echo sprintf(__('Thank you for using %s. This plugin has been developed by %s and we hope you enjoy using it.',MELA_TD), Master_Elementor_Addons::$plugin_name,Master_Elementor_Addons::$plugin_name ); ?></h3>
+	          </div>
+	          
+                <div class="ma-el-title-right">
+                    <img class="ma-el-logo" src="<?php echo MELA_IMAGE_DIR . 'logo.png'; ?>">
+                </div>
+	       </div>
+
+
+			<div class="pa-settings-tabs">
+			  <div id="pa-maintenance" class="pa-settings-tab">
+			     <div class="pa-row">
+			        <table class="pa-beta-table">
+			           <tr>
+			              <th>
+			                 <h4 class="pa-roll-back"><?php echo __('Rollback to Previous Version', MELA_TD); ?></h4>
+			                 <span class="pa-roll-back-span"><?php echo sprintf( __('Experiencing an issue with Master Addons for Elementor version %s? Rollback to a previous version before the issue appeared.', MELA_TD), MELA_VERSION ); ?></span>
+			              </th>
+			           </tr>
+			           <tr class="pa-roll-row">
+			              <th><?php echo __('Rollback Version', MELA_TD); ?></th>
+			              <td>
+			                 <div><?php echo  sprintf( '<a target="_blank" href="%1$s" class="button pa-btn pa-rollback-button elementor-button-spinner">%2$s</a>', wp_nonce_url( admin_url( 'admin-post.php?action=master_addons_rollback' ), 'master_addons_rollback' ), __('Rollback to Version ' . JLTMA_STABLE_VERSION, MELA_TD) ); ?></div>
+			                 <p class="pa-roll-desc">
+			                     <span><?php echo __('Warning: Please backup your database before making the rollback.', MELA_TD); ?></span>
+			                 </p>
+			              </td>
+			           </tr>
+			        </table>
+			        <input type="submit" value="<?php echo __('Save Settings', MELA_TD); ?>" class="button pa-btn pa-save-button">
+			     </div>
+			  </div>
+			</div>	       
+		
+		</div>	       
+
+	<?php }
 
 
 	public function master_addons_el_admin_scripts( $hook ) {

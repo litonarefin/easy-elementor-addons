@@ -373,6 +373,9 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.5.2.1 (14-09-2020) =
+* Fixed: is_woocommerce_active() function return missing issue fixed
+
 = 1.5.2 (13-09-2020) =
 * Fixed: Animated Headlines - Backend not working issue has been fixed. Now, working perfectly on both backend and frontend.
 * Added: Animated Headlines - Added Padding, Margin, Border, Border Radius and Box shadow for more controls on animated headlines

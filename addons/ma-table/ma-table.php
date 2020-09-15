@@ -14,6 +14,8 @@
 	use Elementor\Group_Control_Box_Shadow;
 	use Elementor\Group_Control_Css_Filter;
 	use Elementor\Scheme_Color;
+    
+    use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 	/**
 	 * Author Name: Liton Arefin
@@ -45,6 +47,13 @@
 		public function get_icon() {
 			return 'ma-el-icon eicon-table';
 		}
+
+        public function get_style_depends() {
+            return [
+                'font-awesome-5-all',
+                'font-awesome-4-shim'
+            ];
+        }
 
 		public function get_keywords() {
 			return [ 'table', 'tables', 'data tables', 'responsive table', 'pricing table', 'comparison table' ];
@@ -102,15 +111,22 @@
                 ]
             );            
 
+
             $repeater->add_control(
-                'header_icon',[   
-                    'label' 		=> __( 'Icon', MELA_TD ),
-                    'type' 			=> Controls_Manager::ICONS,
-                    'fa4compatibility' => 'icon',
-                    'label_block' 	=> false,
-                    'condition'		=> [
-                        'icon_type'	=> 'icon'
+                'header_icon',
+                [
+                    'label'             => esc_html__( 'Icon', MELA_TD ),
+                    'description'       => esc_html__('Please choose an icon from the list.', MELA_TD),
+                    'type'              => Controls_Manager::ICONS,
+                    'fa4compatibility'  => 'icon',
+                    'default'           => [
+                        'value'     => 'fab fa-elementor',
+                        'library'   => 'brand',
                     ],
+                    'render_type'      => 'template',
+                    'condition'      => [
+                        'icon_type'  => 'icon'
+                    ],                    
                 ]
             );
 
@@ -325,17 +341,25 @@
                 ]
             );
 
+
             $repeater->add_control(
-                'body_icon',[
-                    'label' 		=> __( 'Icon', MELA_TD ),
-                    'type' 			=> Controls_Manager::ICONS,
-                    'fa4compatibility' => 'icon',
-                    'label_block' 	=> false,
-                    'condition'		=> [
-                        'icon_type'	=> 'icon'
+                'body_icon',
+                [
+                    'label'             => esc_html__( 'Icon', MELA_TD ),
+                    'description'       => esc_html__('Please choose an icon from the list.', MELA_TD),
+                    'type'              => Controls_Manager::ICONS,
+                    'fa4compatibility'  => 'icon',
+                    'default'           => [
+                        'value'     => 'fab fa-elementor',
+                        'library'   => 'brand',
                     ],
+                    'render_type'      => 'template',
+                    'condition'      => [
+                        'icon_type'  => 'icon'
+                    ],                    
                 ]
             );
+
 
             $repeater->add_control(
                 'body_image',[
@@ -907,22 +931,9 @@
                             
                             <th scope="jltma-row" class="elementor-inline-editing elementor-repeater-item-<?php echo $thead['_id'];?>" <?php echo $colspan;?> <?php echo $this->get_render_attribute_string( $repeater_setting_key );?>>
                                 
-                                <?php if ( 'icon' === $thead['icon_type'] && ( ! empty( $thead['header_icon'] ) || ! empty( $thead['header_icon']['value'] ) ) ) {
-                                        $migrated = isset( $thead['__fa4_migrated']['header_icon'] );
-                                        $is_new = empty( $thead['icon'] ) && Icons_Manager::is_migration_allowed();
-        
-                                        if ( ! empty( $thead['icon'] ) ) {
-                                            $this->add_render_attribute( $icon_key, [
-                                                'class' => esc_attr( $thead['header_icon'] ),
-                                                'aria-hidden' => 'true',
-                                            ] );
-                                        }?>
+                                <?php if ( 'icon' === $thead['icon_type'] && ( ! empty( $thead['header_icon'] ) || ! empty( $thead['header_icon']['value'] ) ) ) { ?>
                                     <span <?php echo $this->get_render_attribute_string( $repeater_setting_key ); ?>>
-                                        <?php if ( $is_new || $migrated ) {
-                                            Icons_Manager::render_icon( $thead['header_icon'], [ 'aria-hidden' => 'true' ] );
-                                        } else { ?>
-                                            <i <?php echo $this->get_render_attribute_string( $icon_key ); ?>></i>
-                                        <?php } ?>
+                                        <?php Master_Addons_Helper::jltma_fa_icon_picker( 'fab fa-elementor', 'icon', $thead['header_icon'], 'header_icon' );?>
                                     </span>
 
                                 <?php } elseif('image' === $thead['icon_type']){
@@ -971,24 +982,10 @@
 
                                     <?php echo $tbody['text'];?>
 
-                                <?php if ( 'icon' === $tbody['icon_type'] && ( ! empty( $tbody['body_icon'] ) || ! empty( $tbody['body_icon']['value'] ) ) ) {
-                                        $migrated = isset( $tbody['__fa4_migrated']['body_icon'] );
-                                        $is_new = empty( $tbody['icon'] ) && Icons_Manager::is_migration_allowed();
-        
-                                        if ( ! empty( $tbody['icon'] ) ) {
-                                            $this->add_render_attribute( $icon_key, [
-                                                'class' => esc_attr( $tbody['body_icon'] ),
-                                                'aria-hidden' => 'true',
-                                            ] );
-                                        }?>
+                                <?php if ( 'icon' === $tbody['icon_type'] && ( ! empty( $tbody['body_icon'] ) || ! empty( $tbody['body_icon']['value'] ) ) ) { ?>
                                     <span <?php echo $this->get_render_attribute_string( $table_body_key ); ?>>
-                                        <?php if ( $is_new || $migrated ) {
-                                            Icons_Manager::render_icon( $tbody['body_icon'], [ 'aria-hidden' => 'true' ] );
-                                        } else { ?>
-                                            <i <?php echo $this->get_render_attribute_string( $icon_key ); ?>></i>
-                                        <?php } ?>
+                                        <?php Master_Addons_Helper::jltma_fa_icon_picker( 'fab fa-elementor', 'icon', $tbody['body_icon'], 'body_icon' );?>
                                     </span>
-
                                 <?php } elseif('image' === $tbody['icon_type']){
                                     
                                         $this->add_render_attribute('ma_el_tbody_img'.$index, [
