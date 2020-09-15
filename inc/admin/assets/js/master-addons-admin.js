@@ -299,8 +299,6 @@
 
         $( '.jltma-rollback-button' ).on( 'click', function( event ) {
             event.preventDefault();
-
-            console.log('clicked');
             
             var $this = $( this ),
                 dialogsManager = new DialogsManager.Instance();

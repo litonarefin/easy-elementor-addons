@@ -79,8 +79,8 @@ class Master_Addons_Admin_Settings{
 
         add_submenu_page(
             'master-addons-settings',
-            esc_html__('Version Controls', JLTMA_MCB_TD),
-            esc_html__('Version Control', JLTMA_MCB_TD),
+            esc_html__('Version Controls', MELA_TD),
+            esc_html__('Version Control', MELA_TD),
             'manage_options',
             'master-addons-version-control',
             array( $this, 'jltma_version_control'),

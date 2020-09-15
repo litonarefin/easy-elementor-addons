@@ -321,10 +321,6 @@ function jltma_post_addons_rollback() {
     check_admin_referer( 'master_addons_rollback' );
     
     $plugin_slug = basename( MELA_DIR, '.php' );
-
-    // print_r( basename(MELA_DIR, '.php'));
-    // print_r(\MasterAddons\Master_Elementor_Addons::$plugin_name);
-    exit;
     
     $jltma_rollback = new \MasterAddons\Inc\Master_Addons_Rollback(
         [
