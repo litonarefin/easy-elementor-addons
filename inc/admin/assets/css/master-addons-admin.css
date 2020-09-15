@@ -124,6 +124,7 @@
     margin: 0;
     padding: 0;
     position: inherit;
+    cursor: pointer;
 }
 .master_addons .about-wrap h1 {
     color: #fff;
@@ -1116,7 +1117,7 @@
     font-size: 15px;
     line-height: 22px;
     margin: 0 7.5px 15px;
-    max-width: 840px;
+    /* max-width: 840px; */
 }
 .master_addons #changelogs pre{
     overflow-x:hidden;

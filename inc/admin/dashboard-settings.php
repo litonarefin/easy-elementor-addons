@@ -80,11 +80,11 @@ class Master_Addons_Admin_Settings{
         add_submenu_page(
             'master-addons-settings',
             esc_html__('Version Controls', MELA_TD),
-            esc_html__('Version Control', MELA_TD),
+            esc_html__('Version Controls', MELA_TD),
             'manage_options',
             'master-addons-version-control',
             array( $this, 'jltma_version_control'),
-            3
+            
         );
 
 	}
@@ -92,47 +92,61 @@ class Master_Addons_Admin_Settings{
 
 	public function jltma_version_control(){ ?>
 
-		<div class="wrap">
-        	<div class="response-wrap"></div>
+<div class="master_addons">
+	<div class="wrappper about-wrap">
 
-	       <div class="ma-el-header-wr apper">
-	          <div class="ma-el-title-left">
-	             <h1 class="ma-el-title-main"><?php echo Master_Elementor_Addons::$plugin_name; ?></h1>
-	             <h3 class="ma-el-title-sub"><?php echo sprintf(__('Thank you for using %s. This plugin has been developed by %s and we hope you enjoy using it.',MELA_TD), Master_Elementor_Addons::$plugin_name,Master_Elementor_Addons::$plugin_name ); ?></h3>
-	          </div>
-	          
-                <div class="ma-el-title-right">
-                    <img class="ma-el-logo" src="<?php echo MELA_IMAGE_DIR . 'logo.png'; ?>">
-                </div>
-	       </div>
+        <div class="intro_wrapper">
+
+            <header class="header">
+				<a class="ma_el_logo" href="https://wordpress.org/plugins/master-addons" target="_blank">
+                    <div class="wp-badge welcome__logo ma_logo"></div>
+				</a>
+
+                <h1 class="ma_title">
+			        <?php printf( __( '%s <small>v %s</small>'), MELA, JLTMA_PLUGIN_VERSION ); ?>
+				</h1>
+
+                <div class="about-text"></div>
+            </header>
+
+        </div>
+
+		<div class="master_addons_contents">
+			
+			<div class="response-wrap"></div>
+
+			<div class="mb-4">
+				<h2 class="jltma-roll-back" style="text-align: left; margin-bottom: 5px; margin-left: 5px;">
+					<?php echo __('Rollback to Previous Version', MELA_TD); ?>
+				</h2>
+				<p class="jltma-roll-back-span"><?php echo sprintf( __('Experiencing an issue with Master Addons for Elementor version <strong>%s</strong>? Rollback to a previous version before the issue appeared.', MELA_TD), MELA_VERSION ); ?></p>
+			</div>				
 
 
-			<div class="jltma-settings-tabs">
-			  <div id="jltma-maintenance" class="jltma-settings-tab">
-			     <div class="jltma-row">
-			        <table class="jltma-beta-table">
-			           <tr>
-			              <th>
-			                 <h4 class="jltma-roll-back"><?php echo __('Rollback to Previous Version', MELA_TD); ?></h4>
-			                 <span class="jltma-roll-back-span"><?php echo sprintf( __('Experiencing an issue with Master Addons for Elementor version %s? Rollback to a previous version before the issue appeared.', MELA_TD), MELA_VERSION ); ?></span>
-			              </th>
-			           </tr>
-			           <tr class="jltma-roll-row">
-			              <th><?php echo __('Rollback Version', MELA_TD); ?></th>
-			              <td>
-			                 <div><?php echo  sprintf( '<a href="%1$s" class="button jltma-btn jltma-rollback-button elementor-button-spinner">%2$s</a>', wp_nonce_url( admin_url( 'admin-post.php?action=master_addons_rollback' ), 'master_addons_rollback' ), __('Rollback to Version ' . JLTMA_STABLE_VERSION, MELA_TD) ); ?></div>
-			                 <p class="jltma-roll-desc">
-			                     <span><?php echo __('Warning: Please backup your database before making the rollback.', MELA_TD); ?></span>
-			                 </p>
-			              </td>
-			           </tr>
-			        </table>
-			        <input type="submit" value="<?php echo __('Save Settings', MELA_TD); ?>" class="button jltma-btn jltma-save-button">
-			     </div>
-			  </div>
-			</div>	       
+			<div class="jltma-container border border-muted p-3 mt-4">
+				<div class="jltma-row">
+						
+					<div class="jltma-col-4">
+						<h3><?php echo __('Rollback Version', MELA_TD); ?></h3> 	
+					</div>
+					<div class="jltma-col-8">
+					 	<div class="pt-4">
+					 		<?php echo  sprintf( '<a href="%1$s" class="button jltma-btn jltma-rollback-button elementor-button-spinner">%2$s</a>', wp_nonce_url( admin_url( 'admin-post.php?action=master_addons_rollback' ), 'master_addons_rollback' ), __('Rollback to Version ' . JLTMA_STABLE_VERSION, MELA_TD) ); ?>		
+					 	</div>
+						<p class="jltma-roll-desc pt-2 text-danger">
+						    <?php echo __('Warning: Please backup your database before making the rollback.', MELA_TD); ?>
+						</p>				 	
+					</div>
+
+				</div>
+			</div>		
 		
-		</div>	       
+		</div> <!-- .master_addons_contents -->
+
+	</div>
+</div>
+
+    
 
 	<?php }
 
@@ -144,7 +158,7 @@ class Master_Addons_Admin_Settings{
 		if($screen->id == 'toplevel_page_master-addons-settings'){
 
 			//CSS
-			wp_enqueue_style( 'master-addons-notice', MELA_ADMIN_ASSETS . 'css/master-addons-notice.css' );
+			// wp_enqueue_style( 'master-addons-notice', MELA_ADMIN_ASSETS . 'css/master-addons-notice.css' );
 			wp_enqueue_style( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'css/master-addons-admin.css' );
 			wp_enqueue_style( 'sweetalert', MELA_ADMIN_ASSETS .'css/sweetalert2.min.css');
 			wp_enqueue_style( 'master-addons-el-switch', MELA_ADMIN_ASSETS .'css/switch.css');
@@ -169,6 +183,12 @@ class Master_Addons_Admin_Settings{
 
 		// Rollback Version
 		if($screen->id == 'master-addons_page_master-addons-version-control'){
+
+			//CSS
+			wp_enqueue_style( 'bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css');
+			wp_enqueue_style( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'css/master-addons-admin.css' );
+
+			//JS
 			wp_enqueue_script( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'js/master-addons-admin.js', ['jquery'], MELA_VERSION, true );
 
 	        wp_localize_script(

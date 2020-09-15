@@ -9,7 +9,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 		static public $class_namespace = '\\MasterAddons\\Inc\\Classes\\';
 		public $controls_manager;
 
-		const VERSION = "1.5.2.1";
+		const VERSION = "1.5.3";
 		const JLTMA_STABLE_VERSION = "1.5.2.1";
 
 		const MINIMUM_PHP_VERSION = '5.4';
@@ -546,8 +546,6 @@ if( !class_exists('Master_Elementor_Addons') ){
 			$jltma_api_settings = get_option( 'jltma_api_save_settings' );
 
 			wp_enqueue_style( 'bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css' );
-
-			wp_enqueue_style( 'bootstrap' );
 			wp_enqueue_style( 'master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css' );
 
 
