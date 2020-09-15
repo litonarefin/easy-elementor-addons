@@ -304,11 +304,11 @@
                 dialogsManager = new DialogsManager.Instance();
 
             dialogsManager.createWidget( 'confirm', {
-                headerMessage: jltmaRollBackConfirm.i18n.rollback_to_previous_version,
-                message: jltmaRollBackConfirm.i18n.rollback_confirm,
+                headerMessage: js_maad_el_settings.rollback.rollback_to_previous_version,
+                message: js_maad_el_settings.rollback.rollback_confirm,
                 strings: {
-                    cancel: jltmaRollBackConfirm.i18n.cancel,
-                    confirm: jltmaRollBackConfirm.i18n.yes,
+                    cancel: js_maad_el_settings.rollback.cancel,
+                    confirm: js_maad_el_settings.rollback.yes,
                 },
                 onConfirm: function() {
                     $this.addClass( 'loading' );

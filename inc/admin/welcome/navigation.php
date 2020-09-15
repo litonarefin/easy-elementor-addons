@@ -35,6 +35,12 @@
 	<?php //} ?>
 
 	<li>
+		<a href="#version">
+			<?php _e( 'Version', MELA_TD ); ?>
+		</a>
+	</li>
+
+	<li>
 		<a href="#changelogs">
 			<?php _e( 'Changelogs', MELA_TD ); ?>
 		</a>
