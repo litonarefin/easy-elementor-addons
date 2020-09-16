@@ -897,22 +897,21 @@ class Advanced_Animation {
 
 		$element->end_popover();
 
-		$element->add_control(
-			'neb_transform_reduced_motion_switch',
-			[
-				'label'              => sprintf(
-					/* translators: %s is reduce motion link */
-					__( 'Disable effect on %s devices', 'neve' ),
-					sprintf(
-						/* translators: %s is educe motion label */
-						'<a target="_blank" href="https://a11y-101.com/development/reduced-motion">%s</a>',
-						__( 'reduce motion', 'neve' )
-					)
-				),
-				'type'               => Controls_Manager::SWITCHER,
-				'frontend_available' => true,
-			]
-		);
+
+		// $element->add_control(
+		// 	'neb_transform_reduced_motion_switch',
+		// 	[
+		// 		'label'              => sprintf(
+		// 			__( 'Disable effect on %s devices', 'neve' ),
+		// 			sprintf(
+		// 				'<a target="_blank" href="https://a11y-101.com/development/reduced-motion">%s</a>',
+		// 				__( 'reduce motion', 'neve' )
+		// 			)
+		// 		),
+		// 		'type'               => Controls_Manager::SWITCHER,
+		// 		'frontend_available' => true,
+		// 	]
+		// );
 	}
 
 	/**

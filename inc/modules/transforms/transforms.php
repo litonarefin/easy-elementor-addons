@@ -415,7 +415,26 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
 
         $element->end_popover();
 
+
+        $element->add_control(
+            'jltma_transform_reduced_motion',
+            [
+                'label'              => sprintf(
+                    /* translators: %s is reduce motion link */
+                    __( 'Disable effect on %s devices', MELA_TD ),
+                    sprintf(
+                        /* translators: %s is educe motion label */
+                        '<a target="_blank" href="https://a11y-101.com/development/reduced-motion">%s</a>',
+                        __( 'reduce motion', MELA_TD )
+                    )
+                ),
+                'type'               => Controls_Manager::SWITCHER,
+                'frontend_available' => true,
+            ]
+        );
+
     }
+
 
     protected function add_actions() {
         add_action('elementor/element/common/jltma_section_transforms_advanced/before_section_end', function( $element, $args ) {
