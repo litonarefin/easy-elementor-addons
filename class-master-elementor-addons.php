@@ -123,7 +123,8 @@ if( !class_exists('Master_Elementor_Addons') ){
 //					'pseudo-elements', //need to fix before and after
 				['display-conditions','pro'],
 				'dynamic-tags',
-				['floating-effects','pro']
+				['floating-effects','pro'],
+				['morphing-effects','pro'],
 				// 'live-copy',
 			];
 

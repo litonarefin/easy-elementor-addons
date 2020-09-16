@@ -123,6 +123,13 @@ $jltma_elements = [
                 'demo_url'      => '',
                 'docs_url'      => '',
                 'tuts_url'      => ''
+            ],
+            [
+                'key'           => 'morphing-effects',
+                'title'         => esc_html__( 'Morphing Effects', MELA_TD),
+                'demo_url'      => '',
+                'docs_url'      => '',
+                'tuts_url'      => ''
             ]
 
     	]

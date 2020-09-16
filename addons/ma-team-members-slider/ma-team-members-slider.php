@@ -1317,7 +1317,7 @@ Customization Options.</span>'
                                             if( $team_preset == '-circle' && isset( $settings['ma_el_team_circle_image'] )) {
                                                 $file_path =  MELA_PLUGIN_PATH . '/assets/images/circlesvg/' . $settings['ma_el_team_circle_image'] . '.svg';
                                                 echo file_get_contents($file_path);
-	                                        echo '<img src="' . esc_url($team_carousel_image_url) .'" class="circled" alt="' . $member['ma_el_team_carousel_name'] .'">';
+	                                        	echo '<img src="' . esc_url($team_carousel_image_url) .'" class="circled" alt="' . $member['ma_el_team_carousel_name'] .'">';
 
                                             } elseif ( $team_preset == '-circle-animation' && isset( $settings['ma_el_team_circle_image_animation'] )) {
 
