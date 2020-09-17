@@ -75,16 +75,17 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 				'label' 		=> esc_html__( 'Blob Animation', MELA_TD ),
 				'type' 			=> Controls_Manager::SELECT,
 				'options' 		=> [
-					'1'			=> esc_html__( 'Effect One', MELA_TD ),
-					'2' 		=> esc_html__( 'Effect Two', MELA_TD ),
-					'3' 		=> esc_html__( 'Effect Three', MELA_TD ),
-					'4' 		=> esc_html__( 'Effect Four', MELA_TD )
+					'animation_svg_01'		=> esc_html__( 'Effect One', MELA_TD ),
+					'animation_svg_02' 		=> esc_html__( 'Effect Two', MELA_TD ),
+					'animation_svg_03' 		=> esc_html__( 'Effect Three', MELA_TD ),
+					'animation_svg_04' 		=> esc_html__( 'Effect Four', MELA_TD )
 				],
-				'default' 		=> '1',
+				'default' 		=> 'animation_svg_02',
+				'frontend_available' 	=> true,
+				'prefix_class' 			=> '',
 				'condition'          => [
 					'jltma_morphing_effects_switch' => 'yes'
-				],
-				'prefix_class' 			=> 'animation_svg_0'
+				]
 			]
 		);
 
@@ -95,11 +96,12 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 				'label' 		=> esc_html__( 'Blob Type', MELA_TD ),
 				'type' 			=> Controls_Manager::SELECT,
 				'options' 		=> [
-					'color'			=> esc_html__( 'Color/Gradient', MELA_TD ),
+					'color'			=> esc_html__( 'Color', MELA_TD ),
+					'gradient'			=> esc_html__( 'Gradient', MELA_TD ),
 					'lottie' 		=> esc_html__( 'Lottie', MELA_TD )
 				],
 				'default' 		=> 'gradient',
-				'condition'          => [
+				'condition'     => [
 					'jltma_morphing_effects_switch' => 'yes'
 				]
 			]
@@ -121,23 +123,50 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 			]
 		);
 
+
+		$element->add_control(
+			'ma_el_dual_heading_icon_color',
+			[
+				'label'		=> esc_html__( 'Icon Color', MELA_TD ),
+				'type'		=> Controls_Manager::COLOR,
+				'default' => '#4b00e7',
+				'selectors'	=> [
+					'{{WRAPPER}}.animation_svg_01,
+					 {{WRAPPER}}.animation_svg_02,
+					 {{WRAPPER}}.animation_svg_03,
+					 {{WRAPPER}}.animation_svg_04' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'jltma_morphing_blob_type' => 'color',
+					'jltma_morphing_effects_switch' => 'yes'
+				],
+			]
+		);
+
         $element->add_group_control(
             Group_Control_Background::get_type(),
             [
                 'name' 		=> 'jltma_morphing_effects_background',
-                'selector' 	=> '{{WRAPPER}} .elementor-widget-container',
-                'types' 	=> [ 'classic', 'gradient' ],
-                'default'	=> 'classic',
+                'types' 	=> [ 'gradient' ],
+                // 'exclude'	=> ['classic','video'],
+				'frontend_available' 	=> true,
+				'selectors' => [
+					'{{WRAPPER}}.animation_svg_01',
+					'{{WRAPPER}}.animation_svg_02',
+					'{{WRAPPER}}.animation_svg_03',
+					'{{WRAPPER}}.animation_svg_04',
+				],
 				'condition'          => [
-					'jltma_morphing_blob_type' => 'color'
-				]
+					'jltma_morphing_blob_type' => 'gradient',
+					'jltma_morphing_effects_switch' => 'yes'
+				],				
             ]
         );
 
 		$element->add_responsive_control(
-			'jltma_morphing_effects_maxwidth',
+			'jltma_morphing_effects_width',
 			[
-				'label' => esc_html__( 'Max Width', MELA_TD ),
+				'label' => esc_html__( 'Width', MELA_TD ),
 				'type' => Controls_Manager::SLIDER,
 				// 'default' => [
 				// 	'size' => '100',
@@ -150,15 +179,21 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .elementor-widget-container' => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.animation_svg_01,
+					 {{WRAPPER}}.animation_svg_02,
+					 {{WRAPPER}}.animation_svg_03,
+					 {{WRAPPER}}.animation_svg_04' => 'width: {{SIZE}}{{UNIT}}  !important;',
 				],
+				'condition'          => [
+					'jltma_morphing_effects_switch' => 'yes'
+				]
 			]
 		);
 
 		$element->add_responsive_control(
-			'jltma_morphing_effects_maxheight',
+			'jltma_morphing_effects_height',
 			[
-				'label' => esc_html__( 'Maximum Height', MELA_TD ),
+				'label' => esc_html__( 'Height', MELA_TD ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -168,8 +203,14 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .elementor-widget-container' => 'max-height: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}}.animation_svg_01,
+					 {{WRAPPER}}.animation_svg_02,
+					 {{WRAPPER}}.animation_svg_03,
+					 {{WRAPPER}}.animation_svg_04' => 'height: {{SIZE}}{{UNIT}} !important;'
 				],
+				'condition'          => [
+					'jltma_morphing_effects_switch' => 'yes'
+				]
 			]
 		);
 
