@@ -11450,10 +11450,10 @@ ul.jltma-toggle-content-controls {
     overflow: hidden;
 }
 
-.jltma-morphing-fx-yes > .elementor-widget-container,
+/* animation: jltma-morphing-anim 9s linear infinite alternate forwards; */
+/* .jltma-morphing-fx-yes > .elementor-widget-container,
 .jltma-morphing-fx {
-    /* animation: jltma-morphing-anim 9s linear infinite alternate forwards; */
-    animation: animation_svg_01_from0to360 15s linear infinite;
+    animation: jltma-morphing-anim 15s linear infinite;
     rx: 120;
     ry: 100;
     cx: 150;
@@ -11476,4 +11476,12 @@ ul.jltma-toggle-content-controls {
     75% {
         border-radius: 30% 65% 55% 40%/60% 65% 30% 35%;
     }
+} */
+
+
+.jltma-morphing-fx-yes.animation_svg_02{
+    height: inherit;
+}
+.jltma-morphing-fx-yes.animation_svg_02 img{
+    position: relative;
 }

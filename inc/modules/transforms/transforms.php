@@ -104,6 +104,35 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
 
         $element->end_popover();
 
+
+
+        // $element->add_responsive_control(
+        //     'jltma_transform_fx_perspective',
+        //     [
+        //         'label' => esc_html__( 'Perspective Size', MELA_TD ),
+        //         'type' => Controls_Manager::SLIDER,
+        //         'range' => [
+        //             'px' => [
+        //                 'step' => 1,
+        //                 'min' => 0,
+        //                 'max' => 10000,
+        //             ],
+        //         ],
+        //         'default' => [
+        //             'size' => '1000',
+        //         ],
+        //         'condition' => [
+        //             'enabled_transform' => 'yes',
+        //             // 'jltma_morphing_effects' => ['rotateX', 'rotateY'],
+        //         ],
+        //         'selectors' => [
+        //             '{{WRAPPER}}' => 'perspective: {{SIZE}}px;',
+        //         ],
+        //     ]
+        // );
+
+
+
         $element->add_control(
             'jltma_transform_fx_rotate_toggle',
             [
