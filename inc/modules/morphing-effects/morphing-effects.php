@@ -127,7 +127,7 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 		$element->add_control(
 			'ma_el_dual_heading_icon_color',
 			[
-				'label'		=> esc_html__( 'Icon Color', MELA_TD ),
+				'label'		=> esc_html__( 'Background Color', MELA_TD ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#4b00e7',
 				'selectors'	=> [
@@ -143,12 +143,12 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 			]
 		);
 
+
         $element->add_group_control(
             Group_Control_Background::get_type(),
             [
                 'name' 		=> 'jltma_morphing_effects_background',
                 'types' 	=> [ 'gradient' ],
-                // 'exclude'	=> ['classic','video'],
 				'frontend_available' 	=> true,
 				'selectors' => [
 					'{{WRAPPER}}.animation_svg_01',
@@ -162,6 +162,42 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 				],				
             ]
         );
+
+		$element->add_control(
+			'jltma_morphing_blob_blend_mode',
+			[
+				'label' 		=> esc_html__( 'Blend Mode', MELA_TD ),
+				'type' 			=> Controls_Manager::SELECT,
+				'options' 		=> [
+					'normal'			=> 'Normal',
+					'color'				=> 'Color',
+					'multiply'			=> 'Multiply',
+					'screen'			=> 'Screen',
+					'overlay'			=> 'Overlay',
+					'darken'			=> 'Darken',
+					'lighten'			=> 'Lighten',
+					'color-dodge'		=> 'Color Dodge',
+					'color-burn'		=> 'Color Burn',
+					'hard-light'		=> 'Hard Light',
+					'soft-light'		=> 'Soft Light',
+					'difference'		=> 'Difference',
+					'exclusion'			=> 'Exclusion',
+					'hue'				=> 'Hue',
+					'saturation'		=> 'Saturation',
+					'luminosity'		=> 'Luminosity',
+				],
+				'default' 				=> 'multiply',
+				'frontend_available' 	=> true,
+				'separator'         	=> 'before',
+				'selectors'				=> [
+					'{{WRAPPER}} .elementor-widget-container' => 'mix-blend-mode: {{VALUE}};',
+				],
+				'condition'          => [
+					'jltma_morphing_effects_switch' => 'yes'
+				]
+			]
+		);
+
 
 		$element->add_responsive_control(
 			'jltma_morphing_effects_width',
