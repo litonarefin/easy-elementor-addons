@@ -62,25 +62,6 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 		$element->add_control(
 			'jltma_morphing_blob_animation',
 			[
-				'label' 		=> esc_html__( 'Select Type', MELA_TD ),
-				'type' 			=> Controls_Manager::SELECT,
-				'options' 		=> [
-					'color'			=> esc_html__( 'Color', MELA_TD ),
-					'gradient' 		=> esc_html__( 'Gradient', MELA_TD ),
-					'image' 		=> esc_html__( 'Image', MELA_TD ),
-					'lottie' 		=> esc_html__( 'Lottie', MELA_TD )
-				],
-				'default' 		=> 'color',
-				'condition'          => [
-					'jltma_morphing_effects_switch' => 'yes'
-				],
-				'prefix_class' 			=> 'animation_svg_0'
-			]
-		);
-
-		$element->add_control(
-			'jltma_morphing_blob_animation',
-			[
 				'label' 		=> esc_html__( 'Blob Animation', MELA_TD ),
 				'type' 			=> Controls_Manager::SELECT,
 				'options' 		=> [
@@ -98,6 +79,27 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 		);
 
 
+		$element->add_control(
+			'jltma_morphing_blob_type',
+			[
+				'label' 		=> esc_html__( 'Select Type', MELA_TD ),
+				'type' 			=> Controls_Manager::SELECT,
+				'options' 		=> [
+					'color'			=> esc_html__( 'Color', MELA_TD ),
+					'gradient' 		=> esc_html__( 'Gradient', MELA_TD ),
+					'image' 		=> esc_html__( 'Image', MELA_TD ),
+					'lottie' 		=> esc_html__( 'Lottie', MELA_TD )
+				],
+				'default' 		=> 'color',
+				'condition'          => [
+					'jltma_morphing_effects_switch' => 'yes'
+				]
+			]
+		);
+
+
+
+
 		$element->start_controls_tabs( 'jltma_morphing_effects_tabs' );
 
 		$element->start_controls_tab(
@@ -108,6 +110,45 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 					'jltma_morphing_effects_switch' => 'yes'
 				]
 
+			]
+		);
+
+		$element->add_responsive_control(
+			'jltma_morphing_effects_maxwidth',
+			[
+				'label' => esc_html__( 'Max Width', MELA_TD ),
+				'type' => Controls_Manager::SLIDER,
+				// 'default' => [
+				// 	'size' => '100',
+				// ],
+				'range' => [
+					'px' => [
+						'min' => 100,
+						'max' => 2000,
+						'step' => 2,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-widget-container' => 'max-width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$element->add_responsive_control(
+			'jltma_morphing_effects_maxheight',
+			[
+				'label' => esc_html__( 'Maximum Height', MELA_TD ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 100,
+						'max' => 1000,
+						'step' => 2,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-widget-container' => 'max-height: {{SIZE}}{{UNIT}}',
+				],
 			]
 		);
 
