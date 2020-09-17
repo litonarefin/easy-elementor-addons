@@ -3,14 +3,24 @@ namespace MasterAddons\Inc\Extensions;
 
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Css_Filter;
+use \Elementor\Group_Control_Background;
 
 use \MasterAddons\Inc\Classes\JLTMA_Extension_Prototype;
+use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
+
 /**
- * Reveals - Opening effect
+ * Author Name: Liton Arefin
+ * Author URL: https://jeweltheme.com
+ * Date: 17/09/2020
+ */
+
+
+/**
+ * Blob - Morphing Animation
 */
 
 class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
@@ -82,15 +92,13 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 		$element->add_control(
 			'jltma_morphing_blob_type',
 			[
-				'label' 		=> esc_html__( 'Select Type', MELA_TD ),
+				'label' 		=> esc_html__( 'Blob Type', MELA_TD ),
 				'type' 			=> Controls_Manager::SELECT,
 				'options' 		=> [
-					'color'			=> esc_html__( 'Color', MELA_TD ),
-					'gradient' 		=> esc_html__( 'Gradient', MELA_TD ),
-					'image' 		=> esc_html__( 'Image', MELA_TD ),
+					'color'			=> esc_html__( 'Color/Gradient', MELA_TD ),
 					'lottie' 		=> esc_html__( 'Lottie', MELA_TD )
 				],
-				'default' 		=> 'color',
+				'default' 		=> 'gradient',
 				'condition'          => [
 					'jltma_morphing_effects_switch' => 'yes'
 				]
@@ -112,6 +120,19 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 
 			]
 		);
+
+        $element->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' 		=> 'jltma_morphing_effects_background',
+                'selector' 	=> '{{WRAPPER}} .elementor-widget-container',
+                'types' 	=> [ 'classic', 'gradient' ],
+                'default'	=> 'classic',
+				'condition'          => [
+					'jltma_morphing_blob_type' => 'color'
+				]
+            ]
+        );
 
 		$element->add_responsive_control(
 			'jltma_morphing_effects_maxwidth',
@@ -164,26 +185,36 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 			]
 		);
 
-		$element->add_control(
-			'jltma_morphing_effects_transition_duration',
-			[
-				'label' => esc_html__( 'Transition Duration', MELA_TD ),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
-					'px' => [
-						'step' => 100,
-						'min' => 0,
-						'max' => 10000,
-					],
-				],
-				'default' => [
-					'size' => '400',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-widget-container' => 'transition: all {{SIZE}}ms;',
-				],
-			]
-		);		
+
+        $element->add_group_control(
+            MA_Group_Control_Transition::get_type(),
+            [
+                'name' 			=> 'jltma_morphing_effects_transition',
+                'selector' 		=> '{{WRAPPER}} .elementor-widget-container',
+            ]
+        );
+
+
+		// $element->add_control(
+		// 	'jltma_morphing_effects_transition_duration',
+		// 	[
+		// 		'label' => esc_html__( 'Transition Duration', MELA_TD ),
+		// 		'type' => Controls_Manager::SLIDER,
+		// 		'range' => [
+		// 			'px' => [
+		// 				'step' => 100,
+		// 				'min' => 0,
+		// 				'max' => 10000,
+		// 			],
+		// 		],
+		// 		'default' => [
+		// 			'size' => '400',
+		// 		],
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} .elementor-widget-container' => 'transition: all {{SIZE}}ms;',
+		// 		],
+		// 	]
+		// );		
 
 		$element->end_controls_tab();
 
@@ -210,26 +241,38 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 				]
 			]
 		);
-		$element->add_control(
-			'jltma_morphing_effects_transition_hover_duration',
-			[
-				'label' => esc_html__( 'Transition Duration', MELA_TD ),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
-					'px' => [
-						'step' => 100,
-						'min' => 0,
-						'max' => 10000,
-					],
-				],
-				'default' => [
-					'size' => '400',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-widget-container:hover' => 'transition: all {{SIZE}}ms;',
-				],
-			]
-		);
+
+
+        $element->add_group_control(
+            MA_Group_Control_Transition::get_type(),
+            [
+                'name' 			=> 'jltma_morphing_effects_hover_transition',
+                'selector' 		=> '{{WRAPPER}} .elementor-widget-container',
+            ]
+        );
+
+
+
+		// $element->add_control(
+		// 	'jltma_morphing_effects_transition_hover_duration',
+		// 	[
+		// 		'label' => esc_html__( 'Transition Duration', MELA_TD ),
+		// 		'type' => Controls_Manager::SLIDER,
+		// 		'range' => [
+		// 			'px' => [
+		// 				'step' => 100,
+		// 				'min' => 0,
+		// 				'max' => 10000,
+		// 			],
+		// 		],
+		// 		'default' => [
+		// 			'size' => '400',
+		// 		],
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} .elementor-widget-container:hover' => 'transition: all {{SIZE}}ms;',
+		// 		],
+		// 	]
+		// );
 
 		$element->end_controls_tab();
 
