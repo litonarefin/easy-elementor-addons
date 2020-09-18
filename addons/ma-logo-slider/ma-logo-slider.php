@@ -19,7 +19,7 @@ class Logo_Box extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Logo Box', 'exclusive-addons-elementor' );
+		return esc_html__( 'Logo Box', MELA_TD );
 	}
 
 	public function get_icon() {
@@ -27,7 +27,7 @@ class Logo_Box extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'exclusive-addons-elementor' ];
+		return [ 'master-addons' ];
 	}
 
 	protected function _register_controls() {
@@ -38,14 +38,14 @@ class Logo_Box extends Widget_Base {
         $this->start_controls_section(
             'exad_section_logo_image',
             [
-                'label' => esc_html__( 'Content', 'exclusive-addons-elementor' )
+                'label' => esc_html__( 'Content', MELA_TD )
             ]
         );
 
         $this->add_control(
             'exad_logo_image',
             [
-                'label'   => esc_html__( 'Logo Image', 'exclusive-addons-elementor' ),
+                'label'   => esc_html__( 'Logo Image', MELA_TD ),
                 'type'    => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src()
@@ -67,10 +67,10 @@ class Logo_Box extends Widget_Base {
         $this->add_control(
             'exad_logo_box_enable_link',
             [
-                'label'        => __( 'Enable Link', 'exclusive-addons-elementor' ),
+                'label'        => __( 'Enable Link', MELA_TD ),
                 'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => __( 'Show', 'exclusive-addons-elementor' ),
-                'label_off'    => __( 'Hide', 'exclusive-addons-elementor' ),
+                'label_on'     => __( 'Show', MELA_TD ),
+                'label_off'    => __( 'Hide', MELA_TD ),
                 'return_value' => 'yes',
                 'default'      => 'no'
             ]
@@ -79,9 +79,9 @@ class Logo_Box extends Widget_Base {
         $this->add_control(
             'exad_logo_box_link',
             [
-                'label'         => __( 'Link', 'exclusive-addons-elementor' ),
+                'label'         => __( 'Link', MELA_TD ),
                 'type'          => Controls_Manager::URL,
-                'placeholder'   => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
+                'placeholder'   => __( 'https://your-link.com', MELA_TD ),
                 'show_external' => true,
                 'default'       => [
                     'url'         => '',
@@ -102,7 +102,7 @@ class Logo_Box extends Widget_Base {
     	$this->start_controls_section(
     		'exad_section_logo_style',
     		[
-                'label' => esc_html__( 'Style', 'exclusive-addons-elementor' ),
+                'label' => esc_html__( 'Style', MELA_TD ),
                 'tab'   => Controls_Manager::TAB_STYLE
     		]
         );
@@ -110,12 +110,12 @@ class Logo_Box extends Widget_Base {
         $this->start_controls_tabs( 'exad_logo_tabs' );
 
     	# Normal tab
-        $this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+        $this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', MELA_TD ) ] );
 
             $this->add_control(
         		'exad_logo_background_style',
         			[
-                    'label' => __( 'Background Style', 'exclusive-addons-elementor' ),
+                    'label' => __( 'Background Style', MELA_TD ),
                     'type'  => Controls_Manager::HEADING
         			]
             );
@@ -133,7 +133,7 @@ class Logo_Box extends Widget_Base {
             $this->add_control(
         		'exad_logo_opacity_style',
         		[
-                    'label' => __( 'Opacity', 'exclusive-addons-elementor' ),
+                    'label' => __( 'Opacity', MELA_TD ),
                     'type'  => Controls_Manager::HEADING
         		]
             );
@@ -141,7 +141,7 @@ class Logo_Box extends Widget_Base {
             $this->add_control(
                 'exad_logo_opacity',
                 [
-                    'label' => __('Opacity', 'exclusive-addons-elementor'),
+                    'label' => __('Opacity', MELA_TD),
                     'type'  => Controls_Manager::NUMBER,
                     'range' => [
                         'min'   => 0,
@@ -156,7 +156,7 @@ class Logo_Box extends Widget_Base {
             $this->add_control(
     			'exad_logo_shadow_style',
     			[
-                    'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+                    'label' => __( 'Box Shadow', MELA_TD ),
                     'type'  => Controls_Manager::HEADING
     			]
             );
@@ -172,12 +172,12 @@ class Logo_Box extends Widget_Base {
         $this->end_controls_tab();
 
     	# Hover tab
-        $this->start_controls_tab( 'exad_exclusive_button_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+        $this->start_controls_tab( 'exad_exclusive_button_hover', [ 'label' => esc_html__( 'Hover', MELA_TD ) ] );
 
             $this->add_control(
     			'exad_logo_hover_background',
     			[
-                    'label' => __( 'Background Style', 'exclusive-addons-elementor' ),
+                    'label' => __( 'Background Style', MELA_TD ),
                     'type'  => Controls_Manager::HEADING
     			]
             );
@@ -195,7 +195,7 @@ class Logo_Box extends Widget_Base {
             $this->add_control(
         		'exad_logo_opacity_hover_style',
         		[
-                    'label' => __( 'Opacity', 'exclusive-addons-elementor' ),
+                    'label' => __( 'Opacity', MELA_TD ),
                     'type'  => Controls_Manager::HEADING
         		]
             );
@@ -203,13 +203,13 @@ class Logo_Box extends Widget_Base {
             $this->add_control(
                 'exad_logo_hover_opacity',
                 [
-                    'label'     => __('Opacity', 'exclusive-addons-elementor'),
+                    'label'     => __('Opacity', MELA_TD),
                     'type'      => Controls_Manager::NUMBER,
                     'range'     => [
                         'min'   => 0,
                         'max'   => 1
                     ],
-                    'default'   => __( 'From 0.1 to 1', 'exclusive-addons-elementor' ),
+                    'default'   => __( 'From 0.1 to 1', MELA_TD ),
                     'selectors' => [
                         '{{WRAPPER}} .exad-logo .exad-logo-item:hover img' => 'opacity: {{VALUE}};'
                     ]
@@ -219,7 +219,7 @@ class Logo_Box extends Widget_Base {
             $this->add_control(
                 'exad_logo_shadow_hover_style',
                 [
-                    'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+                    'label' => __( 'Box Shadow', MELA_TD ),
                     'type'  => Controls_Manager::HEADING
                 ]
             );
@@ -239,7 +239,7 @@ class Logo_Box extends Widget_Base {
         $this->add_control(
             'exad_logo_padding',
             [
-                'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
+                'label'      => __( 'Padding', MELA_TD ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'separator'  => 'before',
@@ -266,7 +266,7 @@ class Logo_Box extends Widget_Base {
         $this->add_control(
     		'exad_logo_border_radius',
             [
-                'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
+                'label'      => __( 'Border Radius', MELA_TD ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [

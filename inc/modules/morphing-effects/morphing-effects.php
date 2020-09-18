@@ -269,6 +269,9 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
             [
                 'name' 			=> 'jltma_morphing_effects_transition',
                 'selector' 		=> '{{WRAPPER}} .elementor-widget-container',
+				'condition'          => [
+					'jltma_morphing_effects_switch' => 'yes'
+				]                
             ]
         );
 
@@ -368,7 +371,7 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
             $this->add_controls($element, $args);
         }, 10, 2);
 
-        add_filter('elementor/widget/print_template', array($this, 'jltma_morphing_print_template'), 11, 2);
+        // add_filter('elementor/widget/print_template', array($this, 'jltma_morphing_print_template'), 11, 2);
         add_action('elementor/widget/render_content', array($this, 'jltma_morphing_render_template'), 11, 2);
 
     }
@@ -391,7 +394,7 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 
 
         // $content = "<# if ( '' !== settings.jltma_morphing_effects_switch ) { #><div id=\"rellax-{{id}}\" class=\"rellax\" data-rellax-percentage=\"{{ settings.percentage_rellax.size }}\" data-rellax-zindex=\"{{ settings.zindex_rellax }}\">" . $content . "</div><# } else { #>" . $content . "<# } #>";
-        $content = "<# if ( '' !== settings.jltma_morphing_effects_switch ) { #><div class=\"jltma-blob\" style=\"--time: 20s; --amount: 5; --fill: #56cbb9;\">" . $svg_shape . $content . "</div><# } else { #>" . $content . "<# } #>";
+        $content = "<# if ( '' !== settings.jltma_morphing_effects_switch ) { #><div class='jltma-blob' style='--time: 20s; --amount: 5; --fill: #56cbb9;'>" . $svg_shape . '<div class="jltma-morphing-content"> ' . $content . "</div></div><# } else { #>" . $content . "<# } #>";
         return $content;
     }
     
@@ -416,7 +419,7 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 				</svg>';
 	        }
             
-            $content = '<div class=\"jltma-blob\" style=\"--time: 20s; --amount: 5; --fill: #56cbb9;\">' . $svg_shape . $content . '</div>';
+            $content = '<div class="jltma-blob" style="--time: 20s; --amount: 5; --fill: #56cbb9;">' . $svg_shape  . '<div class="jltma-morphing-content"> ' . $content . '</div></div>';
         }
         return $content;
     }

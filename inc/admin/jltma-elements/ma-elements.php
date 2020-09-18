@@ -271,6 +271,20 @@ $jltma_elements = [
             //     'docs_url'      => '',
             //     'tuts_url'      => ''
             // ],
+            // [
+            //     'key'           => 'ma-image-cascading',
+            //     'title'         => esc_html__( 'Advanced Image', MELA_TD),
+            //     'demo_url'      => '',
+            //     'docs_url'      => '',
+            //     'tuts_url'      => ''
+            // ],
+            [
+                'key'           => 'ma-logo-slider',
+                'title'         => esc_html__( 'Advanced Image', MELA_TD),
+                'demo_url'      => '',
+                'docs_url'      => '',
+                'tuts_url'      => ''
+            ],
 
 
     	]
