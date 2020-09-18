@@ -601,8 +601,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 
 			// Advanced Animations
-			wp_register_script( 'jltma-anime', MELA_PLUGIN_URL . '/assets/vendor/floating-effects/anime.min.js', array(), self::VERSION );
-			wp_register_script( 'jltma-floating-effects', MELA_PLUGIN_URL . '/assets/vendor/floating-effects/floating-effects.js', array( 'jltma-anime', 'jquery' ), self::VERSION );
+			wp_register_script( 'jltma-floating-effects', MELA_PLUGIN_URL . '/assets/vendor/floating-effects/floating-effects.js', array( 'ma-el-anime-lib', 'jquery' ), self::VERSION );
 			if ( \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
 				wp_enqueue_script( 'jltma-floating-effects' );
 			}

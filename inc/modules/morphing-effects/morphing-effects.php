@@ -75,10 +75,11 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 				'label' 		=> esc_html__( 'Blob Animation', MELA_TD ),
 				'type' 			=> Controls_Manager::SELECT,
 				'options' 		=> [
-					'animation_svg_01'		=> esc_html__( 'Effect One', MELA_TD ),
+					'jltma_blob_anim_01'	=> esc_html__( 'Effect One', MELA_TD ),
 					'animation_svg_02' 		=> esc_html__( 'Effect Two', MELA_TD ),
 					'animation_svg_03' 		=> esc_html__( 'Effect Three', MELA_TD ),
-					'animation_svg_04' 		=> esc_html__( 'Effect Four', MELA_TD )
+					'animation_svg_04' 		=> esc_html__( 'Effect Four', MELA_TD ),
+					'animation_svg_05' 		=> esc_html__( 'Effect Five', MELA_TD ),
 				],
 				'default' 		=> 'animation_svg_02',
 				'frontend_available' 	=> true,
@@ -131,7 +132,7 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#4b00e7',
 				'selectors'	=> [
-					'{{WRAPPER}}.animation_svg_01,
+					'{{WRAPPER}}.jltma_blob_anim_01,
 					 {{WRAPPER}}.animation_svg_02,
 					 {{WRAPPER}}.animation_svg_03,
 					 {{WRAPPER}}.animation_svg_04' => 'background: {{VALUE}};',
@@ -151,7 +152,7 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
                 'types' 	=> [ 'gradient' ],
 				'frontend_available' 	=> true,
 				'selectors' => [
-					'{{WRAPPER}}.animation_svg_01',
+					'{{WRAPPER}}.jltma_blob_anim_01',
 					'{{WRAPPER}}.animation_svg_02',
 					'{{WRAPPER}}.animation_svg_03',
 					'{{WRAPPER}}.animation_svg_04',
@@ -215,7 +216,7 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}}.animation_svg_01,
+					'{{WRAPPER}}.jltma_blob_anim_01,
 					 {{WRAPPER}}.animation_svg_02,
 					 {{WRAPPER}}.animation_svg_03,
 					 {{WRAPPER}}.animation_svg_04' => 'width: {{SIZE}}{{UNIT}}  !important;',
@@ -239,7 +240,7 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}}.animation_svg_01,
+					'{{WRAPPER}}.jltma_blob_anim_01,
 					 {{WRAPPER}}.animation_svg_02,
 					 {{WRAPPER}}.animation_svg_03,
 					 {{WRAPPER}}.animation_svg_04' => 'height: {{SIZE}}{{UNIT}} !important;'
@@ -358,7 +359,8 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
    
     }
 
-	
+
+
     protected function add_actions() {
 
         // Activate controls for widgets
@@ -366,8 +368,58 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
             $this->add_controls($element, $args);
         }, 10, 2);
 
+        add_filter('elementor/widget/print_template', array($this, 'jltma_morphing_print_template'), 11, 2);
+        add_action('elementor/widget/render_content', array($this, 'jltma_morphing_render_template'), 11, 2);
+
     }
 
+
+    public function jltma_morphing_print_template($content, $widget){
+        if (!$content)
+            return '';
+
+        $settings = $widget->get_settings_for_display();
+
+        $id_item = $widget->get_id();
+
+        $svg_shape = "";
+        if($settings['jltma_morphing_blob_animation'] == "animation_svg_05"){
+        	$svg_shape = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 747.2 726.7">
+				<path d="M539.8 137.6c98.3 69 183.5 124 203 198.4 19.3 74.4-27.1 168.2-93.8 245-66.8 76.8-153.8 136.6-254.2 144.9-100.6 8.2-214.7-35.1-292.7-122.5S-18.1 384.1 7.4 259.8C33 135.6 126.3 19 228.5 2.2c102.1-16.8 213.2 66.3 311.3 135.4z"/>
+			</svg>';
+        }
+
+
+        // $content = "<# if ( '' !== settings.jltma_morphing_effects_switch ) { #><div id=\"rellax-{{id}}\" class=\"rellax\" data-rellax-percentage=\"{{ settings.percentage_rellax.size }}\" data-rellax-zindex=\"{{ settings.zindex_rellax }}\">" . $content . "</div><# } else { #>" . $content . "<# } #>";
+        $content = "<# if ( '' !== settings.jltma_morphing_effects_switch ) { #><div class=\"jltma-blob\" style=\"--time: 20s; --amount: 5; --fill: #56cbb9;\">" . $svg_shape . $content . "</div><# } else { #>" . $content . "<# } #>";
+        return $content;
+    }
+    
+
+    public function jltma_morphing_render_template($content, $widget){
+        $settings = $widget->get_settings_for_display();
+        
+        if (isset($settings['jltma_morphing_effects_switch']) && $settings['jltma_morphing_effects_switch'] == 'yes') {
+            
+            $this->_enqueue_alles();
+
+            if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {}
+
+            $id_item = $widget->get_id();
+            
+            echo 'Morphing is enabled';
+
+	        $svg_shape = "";
+	        if($settings['jltma_morphing_blob_animation'] == "animation_svg_05"){
+	        	$svg_shape .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 747.2 726.7">
+					<path d="M539.8 137.6c98.3 69 183.5 124 203 198.4 19.3 74.4-27.1 168.2-93.8 245-66.8 76.8-153.8 136.6-254.2 144.9-100.6 8.2-214.7-35.1-292.7-122.5S-18.1 384.1 7.4 259.8C33 135.6 126.3 19 228.5 2.2c102.1-16.8 213.2 66.3 311.3 135.4z"/>
+				</svg>';
+	        }
+            
+            $content = '<div class=\"jltma-blob\" style=\"--time: 20s; --amount: 5; --fill: #56cbb9;\">' . $svg_shape . $content . '</div>';
+        }
+        return $content;
+    }
 
     public static function get_instance() {
 		if ( ! self::$instance ) {
