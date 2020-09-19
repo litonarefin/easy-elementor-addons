@@ -214,6 +214,75 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             );
 
 
+
+            $this->add_control(
+                'jltma_logo_slider_transition_duration',
+                [
+                    'label'   => esc_html__( 'Transition Duration', MELA_TD ),
+                    'type'    => Controls_Manager::NUMBER,
+                    'default' => 1000,
+                    'separator' => 'before',
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_autoplay',
+                [
+                    'label'     => esc_html__( 'Autoplay', MELA_TD ),
+                    'type'      => Controls_Manager::SWITCHER,
+                    'default'   => 'no',
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_autoplay_speed',
+                [
+                    'label'     => esc_html__( 'Autoplay Speed', MELA_TD ),
+                    'type'      => Controls_Manager::NUMBER,
+                    'default'   => 5000,
+                    'condition' => [
+                        'jltma_logo_slider_autoplay' => 'yes',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_loop',
+                [
+                    'label'   => esc_html__( 'Infinite Loop', MELA_TD ),
+                    'type'    => Controls_Manager::SWITCHER,
+                    'default' => 'yes',
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_pause',
+                [
+                    'label'     => esc_html__( 'Pause on Hover', MELA_TD ),
+                    'type'      => Controls_Manager::SWITCHER,
+                    'default'   => 'yes',
+                    'condition' => [
+                        'jltma_logo_slider_autoplay' => 'yes',
+                    ],
+                ]
+            );
+
+        $this->end_controls_section();
+
+
+
+        /*
+        * Tooltips
+        */
+        $this->start_controls_section(
+            'jltma_logo_slider_section_navigation',
+            [
+                'label' => esc_html__( 'Navigation', MELA_TD ),
+            ]
+        );
+
+
+
             $this->add_control(
                 'jltma_logo_slider_nav',
                 [
@@ -391,64 +460,13 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
             $this->end_controls_tabs();
 
-
-
-
-            $this->add_control(
-                'jltma_logo_slider_transition_duration',
-                [
-                    'label'   => esc_html__( 'Transition Duration', MELA_TD ),
-                    'type'    => Controls_Manager::NUMBER,
-                    'default' => 1000,
-                    'separator' => 'before',
-                ]
-            );
-
-            $this->add_control(
-                'jltma_logo_slider_autoplay',
-                [
-                    'label'     => esc_html__( 'Autoplay', MELA_TD ),
-                    'type'      => Controls_Manager::SWITCHER,
-                    'default'   => 'no',
-                ]
-            );
-
-            $this->add_control(
-                'jltma_logo_slider_autoplay_speed',
-                [
-                    'label'     => esc_html__( 'Autoplay Speed', MELA_TD ),
-                    'type'      => Controls_Manager::NUMBER,
-                    'default'   => 5000,
-                    'condition' => [
-                        'jltma_logo_slider_autoplay' => 'yes',
-                    ],
-                ]
-            );
-
-            $this->add_control(
-                'jltma_logo_slider_loop',
-                [
-                    'label'   => esc_html__( 'Infinite Loop', MELA_TD ),
-                    'type'    => Controls_Manager::SWITCHER,
-                    'default' => 'yes',
-                ]
-            );
-
-            $this->add_control(
-                'jltma_logo_slider_pause',
-                [
-                    'label'     => esc_html__( 'Pause on Hover', MELA_TD ),
-                    'type'      => Controls_Manager::SWITCHER,
-                    'default'   => 'yes',
-                    'condition' => [
-                        'jltma_logo_slider_autoplay' => 'yes',
-                    ],
-                ]
-            );
-
         $this->end_controls_section();
 
 
+
+        /*
+        * Tooltips
+        */
         $this->start_controls_section(
             'jltma_logo_slider_section_tooltip_settings',
             [
@@ -569,10 +587,53 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         $this->start_controls_section(
             'jltma_section_logo_style',
             [
-                'label' => esc_html__( 'Style', MELA_TD ),
+                'label' => esc_html__( 'Logo Carousel', MELA_TD ),
                 'tab'   => Controls_Manager::TAB_STYLE
             ]
         );
+
+
+            $this->add_responsive_control(
+                'jltma_logo_slider_item_gap',
+                [
+                    'label'   => esc_html__( 'Column Gap', MELA_TD ),
+                    'type'    => Controls_Manager::SLIDER,
+                    'default' => [
+                        'size' => 10,
+                    ],
+                    'range' => [
+                        'px' => [
+                            'min'  => 0,
+                            'max'  => 100,
+                            'step' => 5,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .bdt-logo-carousel-wrapper.bdt-grid'     => 'margin-left: -{{SIZE}}px',
+                        '{{WRAPPER}} .bdt-logo-carousel-wrapper.bdt-grid > *' => 'padding-left: {{SIZE}}px',
+                    ],
+                ]
+            );
+
+
+            $this->add_responsive_control(
+                'jltma_logo_slider_item_height',
+                [
+                    'label' => __( 'Item Height', MELA_TD ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => ['px'],
+                    'range' => [
+                        'px' => [
+                            'max' => 500,
+                            'min' => 100,
+                        ]
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .bdt-logo-carousel-item' => 'height: {{SIZE}}{{UNIT}};'
+                    ],
+                ]
+            );
+            
 
             $this->start_controls_tabs( 'jltma_logo_slider_tabs' );
 
