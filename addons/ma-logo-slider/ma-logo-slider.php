@@ -181,8 +181,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
     	$this->start_controls_section(
     		'jltma_logo_slider_settings_section',
     		[
-                'label' => esc_html__( 'Slider Settings', MELA_TD ),
-                'tab'   => Controls_Manager::TAB_STYLE
+                'label' => esc_html__( 'Slider Settings', MELA_TD )
     		]
         );
 
@@ -216,7 +215,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
 
             $this->add_control(
-                'jltma_logo_slider_slides_carousel_nav',
+                'jltma_logo_slider_nav',
                 [
                     'label' => esc_html__( 'Navigation Style', MELA_TD ),
                     'type' => Controls_Manager::SELECT,
@@ -241,7 +240,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     'default'   => 'center',
                     'options'   => Master_Addons_Helper::jltma_carousel_navigation_position(),
                     'condition' => [
-                        'jltma_logo_slider_slides_carousel_nav' => 'both',
+                        'jltma_logo_slider_nav' => 'both',
                     ],
                 ]
             );
@@ -255,7 +254,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     'default'   => 'center',
                     'options'   => Master_Addons_Helper::jltma_carousel_navigation_position(),
                     'condition' => [
-                        'jltma_logo_slider_slides_carousel_nav' => 'arrows',
+                        'jltma_logo_slider_nav' => 'arrows',
                     ],              
                 ]
             );
@@ -268,10 +267,179 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     'default'   => 'bottom-center',
                     'options'   => Master_Addons_Helper::jltma_carousel_navigation_position(),
                     'condition' => [
-                        'jltma_logo_slider_slides_carousel_nav' => 'dots',
+                        'jltma_logo_slider_nav' => 'dots',
                     ],              
                 ]
-            );            
+            );  
+
+
+
+            $this->start_controls_tabs( 'jltma_logo_slider_navigation_tabs' );
+
+            $this->start_controls_tab( 
+                'jltma_logo_slider_navigation_control', 
+                [ 
+                    'label' => esc_html__( 'Normal', MELA_TD),
+                    'condition' => [
+                        'jltma_logo_slider_nav!' => 'none'
+                    ]
+                ] );
+
+            $this->add_control(
+                'jltma_logo_slider_arrow_color',
+                [
+                    'label' => esc_html__( 'Arrow Background', MELA_TD ),
+                    'type' => Controls_Manager::COLOR,
+                    'default' => '#b8bfc7',
+                    'selectors' => [
+                        '{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next' => 'background: {{VALUE}};',
+                    ],
+                    'condition' => [
+                        'jltma_logo_slider_nav' => 'arrows',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_dot_color',
+                [
+                    'label' => esc_html__( 'Dot Color', MELA_TD ),
+                    'type' => Controls_Manager::COLOR,
+                    'default' => '#8a8d91',
+                    'selectors' => [
+                        '{{WRAPPER}} .ma-el-team-carousel-wrapper .slick-dots li button' => 'background-color: {{VALUE}};',
+                    ],
+                    'condition' => [
+                        'jltma_logo_slider_nav' => 'dots',
+                    ],
+                ]
+            );
+
+
+            $this->add_group_control(
+                Group_Control_Border::get_type(),
+                [
+                    'name'        => 'jltma_logo_slider_border',
+                    'placeholder' => '1px',
+                    'default'     => '0px',
+                    'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next'
+                ]
+            );
+
+
+            $this->end_controls_tab();
+
+            $this->start_controls_tab( 
+                'jltma_logo_slider_social_icon_hover', 
+                [ 
+                    'label' => esc_html__( 'Hover', MELA_TD ),
+                    'condition' => [
+                        'jltma_logo_slider_nav!' => 'none'
+                    ],                    
+                ] 
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_arrow_hover_color',
+                [
+                    'label' => esc_html__( 'Arrow Hover', MELA_TD ),
+                    'type' => Controls_Manager::COLOR,
+                    'default' => '#917cff',
+                    'selectors' => [
+                        '{{WRAPPER}} .ma-el-team-carousel-prev:hover, {{WRAPPER}} .ma-el-team-carousel-next:hover' =>
+                            'background: {{VALUE}};',
+                    ],
+                    'condition' => [
+                        'jltma_logo_slider_nav' => 'arrows',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_dot_hover_color',
+                [
+                    'label' => esc_html__( 'Dot Hover', MELA_TD ),
+                    'type' => Controls_Manager::COLOR,
+                    'default' => '#8a8d91',
+                    'selectors' => [
+                        '{{WRAPPER}} .ma-el-team-carousel-wrapper .slick-dots li.slick-active button, {{WRAPPER}} .ma-el-team-carousel-wrapper .slick-dots li button:hover' => 'background: {{VALUE}};',
+                    ],
+                    'condition' => [
+                        'jltma_logo_slider_nav' => 'dots',
+                    ],
+                ]
+            );
+
+
+            $this->add_group_control(
+                Group_Control_Border::get_type(),
+                [
+                    'name'        => 'jltma_logo_slider_hover_border',
+                    'placeholder' => '1px',
+                    'default'     => '0px',
+                    'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev:hover, {{WRAPPER}} .ma-el-team-carousel-next:hover'
+                ]
+            );
+
+            $this->end_controls_tab();
+
+            $this->end_controls_tabs();
+
+
+
+
+            $this->add_control(
+                'jltma_logo_slider_transition_duration',
+                [
+                    'label'   => esc_html__( 'Transition Duration', MELA_TD ),
+                    'type'    => Controls_Manager::NUMBER,
+                    'default' => 1000,
+                    'separator' => 'before',
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_autoplay',
+                [
+                    'label'     => esc_html__( 'Autoplay', MELA_TD ),
+                    'type'      => Controls_Manager::SWITCHER,
+                    'default'   => 'no',
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_autoplay_speed',
+                [
+                    'label'     => esc_html__( 'Autoplay Speed', MELA_TD ),
+                    'type'      => Controls_Manager::NUMBER,
+                    'default'   => 5000,
+                    'condition' => [
+                        'jltma_logo_slider_autoplay' => 'yes',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_loop',
+                [
+                    'label'   => esc_html__( 'Infinite Loop', MELA_TD ),
+                    'type'    => Controls_Manager::SWITCHER,
+                    'default' => 'yes',
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_pause',
+                [
+                    'label'     => esc_html__( 'Pause on Hover', MELA_TD ),
+                    'type'      => Controls_Manager::SWITCHER,
+                    'default'   => 'yes',
+                    'condition' => [
+                        'jltma_logo_slider_autoplay' => 'yes',
+                    ],
+                ]
+            );
+
         $this->end_controls_section();
 
         /*
@@ -468,6 +636,82 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             );
 
         $this->end_controls_section();
+
+
+
+
+
+            /**
+             * Content Tab: Docs Links
+             */
+            $this->start_controls_section(
+                'jltma_section_help_docs',
+                [
+                    'label' => esc_html__( 'Help Docs', MELA_TD ),
+                ]
+            );
+
+
+            $this->add_control(
+                'help_doc_1',
+                [
+                    'type'            => Controls_Manager::RAW_HTML,
+                    'raw'             => sprintf( esc_html__( '%1$s Live Demo %2$s', MELA_TD ), '<a href="https://master-addons.com/demos/team-carousel/" target="_blank" rel="noopener">', '</a>' ),
+                    'content_classes' => 'jltma-editor-doc-links',
+                ]
+            );
+
+            $this->add_control(
+                'help_doc_2',
+                [
+                    'type'            => Controls_Manager::RAW_HTML,
+                    'raw'             => sprintf( esc_html__( '%1$s Documentation %2$s', MELA_TD ), '<a href="https://master-addons.com/docs/addons/team-members-carousel/?utm_source=widget&utm_medium=panel&utm_campaign=dashboard" target="_blank" rel="noopener">', '</a>' ),
+                    'content_classes' => 'jltma-editor-doc-links',
+                ]
+            );
+
+            $this->add_control(
+                'help_doc_3',
+                [
+                    'type'            => Controls_Manager::RAW_HTML,
+                    'raw'             => sprintf( esc_html__( '%1$s Watch Video Tutorial %2$s', MELA_TD ), '<a href="https://www.youtube.com/watch?v=ubP_h86bP-c" target="_blank" rel="noopener">', '</a>' ),
+                    'content_classes' => 'jltma-editor-doc-links',
+                ]
+            );
+            $this->end_controls_section();
+
+
+
+
+            if ( ma_el_fs()->is_not_paying() ) {
+
+                $this->start_controls_section(
+                    'jltma_section_pro',
+                    [
+                        'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD )
+                    ]
+                );
+
+                $this->add_control(
+                    'jltma_control_get_pro',
+                    [
+                        'label' => esc_html__( 'Unlock more possibilities', MELA_TD ),
+                        'type' => Controls_Manager::CHOOSE,
+                        'options' => [
+                            '1' => [
+                                'title' => esc_html__( '', MELA_TD ),
+                                'icon' => 'fa fa-unlock-alt',
+                            ],
+                        ],
+                        'default' => '1',
+                        'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+                    ]
+                );
+
+                $this->end_controls_section();
+            }
+
+
 	}
 
 
