@@ -84,6 +84,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 				['ma-gallery-slider','pro'],	// 37
 				// 'ma-advanced-image',			// 38
 				// 'ma-image-cascading',			// 39
+				'ma-image-carousel',			// 39
 				'ma-logo-slider',				// 40
 
 				// Form Elements

@@ -273,14 +273,21 @@ $jltma_elements = [
             // ],
             // [
             //     'key'           => 'ma-image-cascading',
-            //     'title'         => esc_html__( 'Advanced Image', MELA_TD),
+            //     'title'         => esc_html__( 'Cascading Image', MELA_TD),
             //     'demo_url'      => '',
             //     'docs_url'      => '',
             //     'tuts_url'      => ''
             // ],
             [
+                'key'           => 'ma-image-carousel',
+                'title'         => esc_html__( 'Image Carousel', MELA_TD),
+                'demo_url'      => '',
+                'docs_url'      => '',
+                'tuts_url'      => ''
+            ],
+            [
                 'key'           => 'ma-logo-slider',
-                'title'         => esc_html__( 'Advanced Image', MELA_TD),
+                'title'         => esc_html__( 'Logo Slider', MELA_TD),
                 'demo_url'      => '',
                 'docs_url'      => '',
                 'tuts_url'      => ''
