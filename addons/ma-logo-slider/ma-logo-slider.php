@@ -195,7 +195,9 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     'type'                  => Controls_Manager::SELECT,
                     'label'                 => esc_html__( 'Columns', MELA_TD ),
                     'options'               => $slides_per_view,
+                    'devices'               => [ 'desktop', 'tablet', 'mobile' ],
                     'default'               => '4',
+                    'desktop_default'       => '4',
                     'tablet_default'        => '3',
                     'mobile_default'        => '2',
                     'frontend_available'    => true,
@@ -322,7 +324,10 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     'name'        => 'jltma_logo_slider_border',
                     'placeholder' => '1px',
                     'default'     => '0px',
-                    'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next'
+                    'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next',
+                    'condition' => [
+                        'jltma_logo_slider_nav!' => 'none',
+                    ]
                 ]
             );
 
@@ -377,7 +382,10 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     'name'        => 'jltma_logo_slider_hover_border',
                     'placeholder' => '1px',
                     'default'     => '0px',
-                    'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev:hover, {{WRAPPER}} .ma-el-team-carousel-next:hover'
+                    'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev:hover, {{WRAPPER}} .ma-el-team-carousel-next:hover',
+                    'condition' => [
+                        'jltma_logo_slider_nav!' => 'none',
+                    ]
                 ]
             );
 
