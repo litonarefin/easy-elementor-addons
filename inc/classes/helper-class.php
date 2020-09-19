@@ -1012,4 +1012,19 @@ class Master_Addons_Helper{
 	}
 
 
+	public static function jltma_carousel_navigation_position() {
+	    $position_options = [
+	        'top-left'      => esc_html__('Top Left', MELA_TD) ,
+	        'top-center'    => esc_html__('Top Center', MELA_TD) ,
+	        'top-right'     => esc_html__('Top Right', MELA_TD) ,
+	        'center'        => esc_html__('Center', MELA_TD) ,
+	        'bottom-left'   => esc_html__('Bottom Left', MELA_TD) ,
+	        'bottom-center' => esc_html__('Bottom Center', MELA_TD) ,
+	        'bottom-right'  => esc_html__('Bottom Right', MELA_TD) ,
+	    ];
+
+	    return $position_options;
+	}
+
+
 }

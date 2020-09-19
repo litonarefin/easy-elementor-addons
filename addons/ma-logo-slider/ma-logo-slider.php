@@ -12,6 +12,8 @@ use \Elementor\Control_Media;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
 
+use MasterAddons\Inc\Helper\Master_Addons_Helper;
+
 class Master_Addons_Logo_Slider extends Widget_Base {
 
 	public function get_name() {
@@ -158,6 +160,18 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 ]
             );
 
+
+            $this->add_control(
+                'title_html_tag',
+                [
+                    'label'   => esc_html__( 'Title HTML Tag', MELA_TD ),
+                    'type'    => Controls_Manager::SELECT,
+                    'options' => Master_Addons_Helper::ma_el_title_tags(),
+                    'default' => 'h3',
+                ]
+            );
+
+
         $this->end_controls_section();
 
         /*
@@ -173,6 +187,91 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         );
 
 
+            $slides_per_view = range( 1, 6 );
+            $slides_per_view = array_combine( $slides_per_view, $slides_per_view );
+
+            $this->add_responsive_control(
+                'jltma_logo_slider_slides_to_show',
+                [
+                    'type'                  => Controls_Manager::SELECT,
+                    'label'                 => esc_html__( 'Columns', MELA_TD ),
+                    'options'               => $slides_per_view,
+                    'default'               => '4',
+                    'tablet_default'        => '3',
+                    'mobile_default'        => '2',
+                    'frontend_available'    => true,
+                ]
+            );
+
+
+            $this->add_responsive_control(
+                'jltma_logo_slider_slides_to_scroll',
+                [
+                    'type'      => Controls_Manager::SELECT,
+                    'label'     => esc_html__( 'Items to Scroll', MELA_TD ),
+                    'options'   => $slides_per_view,
+                    'default'   => '1',
+                ]
+            );
+
+
+            $this->add_control(
+                'jltma_logo_slider_slides_carousel_nav',
+                [
+                    'label' => esc_html__( 'Navigation Style', MELA_TD ),
+                    'type' => Controls_Manager::SELECT,
+                    'default' => 'arrows',
+                    'separator' => 'before',
+                    'options' => [
+                        'both'   => esc_html__( 'Arrows and Dots', MELA_TD ),
+                        'arrows' => esc_html__( 'Arrows', MELA_TD ),
+                        'dots'   => esc_html__( 'Dots', MELA_TD ),
+                        'none'   => esc_html__( 'None', MELA_TD )
+                    ],
+                    'prefix_class' => 'jltma-navigation-type-',
+                    'render_type'  => 'template',
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_nav_both_position',
+                [
+                    'label'     => esc_html__( 'Arrows and Dots Position', MELA_TD ),
+                    'type'      => Controls_Manager::SELECT,
+                    'default'   => 'center',
+                    'options'   => Master_Addons_Helper::jltma_carousel_navigation_position(),
+                    'condition' => [
+                        'jltma_logo_slider_slides_carousel_nav' => 'both',
+                    ],
+                ]
+            );
+
+
+            $this->add_control(
+                'arrows_position',
+                [
+                    'label'     => esc_html__( 'Arrows Position', MELA_TD ),
+                    'type'      => Controls_Manager::SELECT,
+                    'default'   => 'center',
+                    'options'   => Master_Addons_Helper::jltma_carousel_navigation_position(),
+                    'condition' => [
+                        'jltma_logo_slider_slides_carousel_nav' => 'arrows',
+                    ],              
+                ]
+            );
+
+            $this->add_control(
+                'dots_position',
+                [
+                    'label'     => esc_html__( 'Dots Position', MELA_TD ),
+                    'type'      => Controls_Manager::SELECT,
+                    'default'   => 'bottom-center',
+                    'options'   => Master_Addons_Helper::jltma_carousel_navigation_position(),
+                    'condition' => [
+                        'jltma_logo_slider_slides_carousel_nav' => 'dots',
+                    ],              
+                ]
+            );            
         $this->end_controls_section();
 
         /*
@@ -331,8 +430,21 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         'unit'   => 'px'
                     ],
                     'selectors'  => [
-                        '{{WRAPPER}} .exad-logo .exad-logo-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                        '{{WRAPPER}} .slick-slider' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                     ]
+                ]
+            );
+
+
+            $this->add_control(
+                'jltma_logo_slider_margin',
+                [
+                    'label'         => esc_html__( 'Margin', MELA_TD ),
+                    'type'          => Controls_Manager::DIMENSIONS,
+                    'size_units'    => [ 'px', '%' ],
+                    'selectors'     => [
+                        '{{WRAPPER}} .slick-slider'     => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
                 ]
             );
 
