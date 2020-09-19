@@ -40,7 +40,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         $this->start_controls_section(
             'jltma_logo_slider_section_logos',
             [
-                'label' => esc_html__( 'Logo\'s', MELA_TD )
+                'label' => esc_html__( 'Logo Items', MELA_TD )
             ]
         );
 
@@ -62,15 +62,6 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             $repeater = new Repeater();
 
             $repeater->add_control(
-                'jltma_logo_slider_list_title', [
-                    'label' => esc_html__( 'Client Name', MELA_TD ),
-                    'type' => Controls_Manager::TEXT,
-                    'default' => esc_html__( 'List Title' , MELA_TD ),
-                    'label_block' => true,
-                ]
-            );
-
-            $repeater->add_control(
                 'jltma_logo_slider_image_normal',
                 [
                     'label' => esc_html__( 'Client Logo', MELA_TD ),
@@ -81,10 +72,40 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 ]
             );
 
+
+            $repeater->add_control(
+                'jltma_logo_slider_brand_name',
+                [
+                    'label' => __('Brand Name', MELA_TD),
+                    'type' => Controls_Manager::TEXT,
+                    'default' => __('Brand Name', MELA_TD),
+                ]
+            );
+
+            $repeater->add_control(
+                'jltma_logo_slider_brand_description',
+                [
+                    'label' => __('Description', MELA_TD),
+                    'type' => Controls_Manager::TEXTAREA,
+                    'default' => __('Brand Short Description Type Here.', MELA_TD),
+                ]
+            );
+
+            $repeater->add_control(
+                'jltma_logo_slider_website_link',
+                [
+                    'label' => esc_html__( 'Link', MELA_TD ),
+                    'type' => Controls_Manager::URL,
+                    'placeholder' => esc_html__( 'https://your-link.com', MELA_TD ),
+                    'show_external' => true
+                ]
+            );
+
+
             $repeater->add_control(
                 'jltma_logo_slider_enable_hover_logo',
                 [
-                    'label' => esc_html__( 'Enable Hover on Logo?', MELA_TD ),
+                    'label' => esc_html__( 'Image Hover on Logo?', MELA_TD ),
                     'type' => Controls_Manager::SWITCHER,
                     'label_on' => esc_html__( 'Yes', MELA_TD ),
                     'label_off' => esc_html__( 'No', MELA_TD ),
@@ -108,55 +129,32 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 ]
             );
 
-            $repeater->add_control(
-                'jltma_logo_slider_enable_link',
-                [
-                    'label' => esc_html__( 'Enable Link', MELA_TD ),
-                    'type' => Controls_Manager::SWITCHER,
-                    'label_on' => esc_html__( 'Yes', MELA_TD ),
-                    'label_off' => esc_html__( 'No', MELA_TD ),
-                    'return_value' => 'yes',
-                ]
-            );
-
-            $repeater->add_control(
-                'jltma_logo_slider_website_link',
-                [
-                    'label' => esc_html__( 'Link', MELA_TD ),
-                    'type' => Controls_Manager::URL,
-                    'placeholder' => esc_html__( 'https://your-link.com', MELA_TD ),
-                    'show_external' => true,
-                    'condition' => [
-                        'jltma_logo_slider_enable_link' => 'yes'
-                    ],
-                ]
-            );
 
 
             $this->add_control(
                 'jltma_logo_slider_repeater',
                 [
-                    'label' => esc_html__( 'Logo List', MELA_TD ),
+                    'label' => esc_html__( '', MELA_TD ),
                     'type' => Controls_Manager::REPEATER,
                     'fields' => $repeater->get_controls(),
                     'default' => [
                         [
-                            'jltma_logo_slider_list_title' => esc_html__( 'Logo Title #1', MELA_TD ),
+                            'jltma_logo_slider_brand_name' => esc_html__( 'Brand Name 1', MELA_TD ),
                         ],
                         [
-                            'jltma_logo_slider_list_title' => esc_html__( 'Logo Title #2', MELA_TD ),
+                            'jltma_logo_slider_brand_name' => esc_html__( 'Brand Name 2', MELA_TD ),
                         ],
                         [
-                            'jltma_logo_slider_list_title' => esc_html__( 'Logo Title #3', MELA_TD ),
+                            'jltma_logo_slider_brand_name' => esc_html__( 'Brand Name 3', MELA_TD ),
                         ],
                         [
-                            'jltma_logo_slider_list_title' => esc_html__( 'Logo Title #4', MELA_TD ),
+                            'jltma_logo_slider_brand_name' => esc_html__( 'Brand Name 4', MELA_TD ),
                         ],
                         [
-                            'jltma_logo_slider_list_title' => esc_html__( 'Logo Title #5', MELA_TD ),
+                            'jltma_logo_slider_brand_name' => esc_html__( 'Brand Name 5', MELA_TD ),
                         ],
                     ],
-                    'title_field' => '{{{ jltma_logo_slider_list_title }}}',
+                    'title_field' => '{{{ jltma_logo_slider_brand_name }}}',
                 ]
             );
 
@@ -449,6 +447,120 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             );
 
         $this->end_controls_section();
+
+
+        $this->start_controls_section(
+            'jltma_logo_slider_section_tooltip_settings',
+            [
+                'label' => esc_html__( 'Tooltip Settings', MELA_TD ),
+            ]
+        );
+
+
+            $this->add_control(
+                'jltma_logo_slider_tooltip',
+                [
+                    'label'   => esc_html__( 'Tooltip', MELA_TD ),
+                    'type'    => Controls_Manager::SWITCHER,
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_tooltip_placement',                       
+                [
+                    'label'   => esc_html__( 'Placement', MELA_TD ),
+                    'type'    => Controls_Manager::SELECT,
+                    'default' => 'top',
+                    'options' => [
+                        'top-start'    => esc_html__( 'Top Left', MELA_TD ),
+                        'top'          => esc_html__( 'Top', MELA_TD ),
+                        'top-end'      => esc_html__( 'Top Right', MELA_TD ),
+                        'bottom-start' => esc_html__( 'Bottom Left', MELA_TD ),
+                        'bottom'       => esc_html__( 'Bottom', MELA_TD ),
+                        'bottom-end'   => esc_html__( 'Bottom Right', MELA_TD ),
+                        'left'         => esc_html__( 'Left', MELA_TD ),
+                        'right'        => esc_html__( 'Right', MELA_TD ),
+                    ],
+                    'condition'   => [
+                        'jltma_logo_slider_tooltip' => 'yes',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_tooltip_animation',
+                [
+                    'label'   => esc_html__( 'Animation', MELA_TD ),
+                    'type'    => Controls_Manager::SELECT,
+                    'default' => 'shift-toward',
+                    'options' => [
+                        'shift-away'   => esc_html__( 'Shift-Away', MELA_TD ),
+                        'shift-toward' => esc_html__( 'Shift-Toward', MELA_TD ),
+                        'fade'         => esc_html__( 'Fade', MELA_TD ),
+                        'scale'        => esc_html__( 'Scale', MELA_TD ),
+                        'perspective'  => esc_html__( 'Perspective', MELA_TD ),
+                    ],
+                    'render_type'  => 'template',
+                    'condition'   => [
+                        'jltma_logo_slider_tooltip' => 'yes',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_tooltip_x_offset',
+                [
+                    'label'   => esc_html__( 'Offset', MELA_TD ),
+                    'type'    => Controls_Manager::SLIDER,
+                    'default' => [
+                        'size' => 0,
+                    ],
+                    'condition'   => [
+                        'jltma_logo_slider_tooltip' => 'yes',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_tooltip_y_offset',
+                [
+                    'label'   => esc_html__( 'Distance', MELA_TD ),
+                    'type'    => Controls_Manager::SLIDER,
+                    'default' => [
+                        'size' => 0,
+                    ],
+                    'condition'   => [
+                        'jltma_logo_slider_tooltip' => 'yes',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_tooltip_arrow',
+                [
+                    'label'        => esc_html__( 'Arrow', MELA_TD ),
+                    'type'         => Controls_Manager::SWITCHER,
+                    'condition'   => [
+                        'jltma_logo_slider_tooltip' => 'yes',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_tooltip_trigger',
+                [
+                    'label'       => esc_html__( 'Trigger on Click', MELA_TD ),
+                    'description' => esc_html__( 'Don\'t set yes when you set lightbox image with marker.', MELA_TD ),
+                    'type'        => Controls_Manager::SWITCHER,
+                    'condition'   => [
+                        'jltma_logo_slider_tooltip' => 'yes',
+                    ],
+                ]
+            );
+
+        $this->end_controls_section();
+
+
 
         /*
         * Logo Style
