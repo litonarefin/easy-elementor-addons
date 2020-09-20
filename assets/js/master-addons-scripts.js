@@ -1174,6 +1174,140 @@
 
         },
 
+        /**** MA Logo Slider ****/
+
+        MA_Logo_Slider: function ($scope, $) {
+            
+            Master_Addons.MA_Logo_Slider.elementSettings    = getElementSettings( $scope );
+
+            var $teamCarouselWrapper = $scope.find('.ma-el-team-members-slider-section').eq(0),
+                $team_preset = $teamCarouselWrapper.data("team-preset"),
+                $ma_el_team_circle_image_animation = $teamCarouselWrapper.data("ma_el_team_circle_image_animation");
+
+            if ($team_preset == "-content-drawer") {
+
+                try {
+                    (function ($) {
+
+                        $('.gridder').gridderExpander({
+                            scroll: false,
+                            scrollOffset: 0,
+                            scrollTo: "panel",                  // panel or listitem
+                            animationSpeed: 400,
+                            animationEasing: "easeInOutExpo",
+                            showNav: true, // Show Navigation
+                            nextText: "<span></span>", // Next button text
+                            prevText: "<span></span>", // Previous button text
+                            closeText: "", // Close button text
+                            onStart: function () {
+                                //Gridder Inititialized
+                            },
+                            onContent: function () {
+                                //Gridder Content Loaded
+                            },
+                            onClosed: function () {
+                                //Gridder Closed
+                            }
+                        });
+
+                    })(jQuery);
+                } catch (e) {
+                    //We can also throw from try block and catch it here
+                    // No Error Show
+                }
+
+
+            } else {
+
+                try {
+                    (function ($) {
+
+                        var $teamCarouselWrapper = $scope.find('.ma-el-team-members-slider-section').eq(0),
+                            $carousel_nav = $teamCarouselWrapper.data("carousel-nav"),
+                            $loop = ($teamCarouselWrapper.data("loop") !== undefined) ? $teamCarouselWrapper.data("loop") : false,
+                            $slidesToShow = $teamCarouselWrapper.data("slidestoshow"),
+                            $slidesToScroll = $teamCarouselWrapper.data("slidestoscroll"),
+                            $autoPlay = ($teamCarouselWrapper.data("autoplay") !== undefined) ? $teamCarouselWrapper.data("autoplay") : false,
+                            $autoplaySpeed = ($teamCarouselWrapper.data("autoplayspeed") !== undefined) ? $teamCarouselWrapper.data("autoplayspeed") : false,
+                            $transitionSpeed = $teamCarouselWrapper.data("speed"),
+                            $pauseOnHover = ($teamCarouselWrapper.data("pauseonhover") !== undefined) ? $teamCarouselWrapper.data("pauseonhover") : false
+
+
+                        // Team Carousel
+                        if ($carousel_nav == "arrows") {
+                            var arrows = true;
+                            var dots = false;
+                        } else {
+                            var arrows = false;
+                            var dots = true;
+                        }
+
+                        $teamCarouselWrapper.slick({
+                            infinite: $loop,
+                            slidesToShow: $slidesToShow,
+                            slidesToScroll: $slidesToScroll,
+                            autoplay: $autoPlay,
+                            autoplaySpeed: $autoplaySpeed,
+                            speed: $transitionSpeed,
+                            mobileFirst:true,
+                            pauseOnHover: $pauseOnHover,
+                            dots: dots,
+                            arrows: arrows,
+                            prevArrow: "<div class='ma-el-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
+                            nextArrow: "<div class='ma-el-team-carousel-next'><i class='fa fa-angle-right'></i></div>",
+                            rows: 0,
+                            responsive: [
+
+                                {
+                                    breakpoint: 350,
+                                    settings: {
+                                        dots: dots,
+                                        arrow: arrows,
+                                        rows:1,
+                                        slidesToShow: Master_Addons.MA_TeamSlider.elementSettings.ma_el_team_per_view_mobile,
+                                        slidesToScroll: $slidesToScroll
+                                    }
+                                },
+                                {
+                                    breakpoint: 576,
+                                    settings: {
+                                        dots: dots,
+                                        arrow: arrows,
+                                        slidesToShow: Master_Addons.MA_TeamSlider.elementSettings.ma_el_team_per_view_tablet,
+                                        slidesToScroll: $slidesToScroll
+                                    }
+                                },
+                                {
+                                    breakpoint: 720,
+                                    settings: {
+                                        slidesToShow: $slidesToShow,
+                                        slidesToScroll: $slidesToScroll,
+                                        infinite: true,
+                                        centerMode: false,
+                                        dots: dots,
+                                        arrow: arrows
+                                    }
+                                },
+
+                            ],
+                        });
+
+                    })(jQuery);
+                } catch (e) {
+                    //We can also throw from try block and catch it here
+                    // No Error Show
+                }
+
+            }
+
+            // else if ($team_preset == "-circle-animation"){
+            //     if($ma_el_team_circle_image_animation == "animation_svg_04"){
+            //
+            //     }
+            // }
+
+        },
+
 
         MA_ParticlesBG: function ($scope, $) {
 
@@ -2285,6 +2419,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-instagram-feed.default', Master_Addons.MA_Instagram_Feed);
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-toggle-content.default', Master_Addons.MA_Toggle_Content);
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-comments.default', Master_Addons.MA_Comment_Form_reCaptcha);
+        elementorFrontend.hooks.addAction('frontend/element_ready/jltma-logo-slider.default', Master_Addons.MA_Logo_Slider);
 
 
         if (elementorFrontend.isEditMode()) {

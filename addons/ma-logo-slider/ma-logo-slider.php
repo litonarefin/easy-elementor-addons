@@ -17,7 +17,7 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 class Master_Addons_Logo_Slider extends Widget_Base {
 
 	public function get_name() {
-		return 'ma-logo-slider';
+		return 'jltma-logo-slider';
 	}
 
 	public function get_title() {
@@ -69,6 +69,18 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     'default' => [
                         'url' => Utils::get_placeholder_image_src(),
                     ],
+                ]
+            );
+
+            $repeater->add_group_control(
+                Group_Control_Image_Size::get_type(),
+                [
+                    'name'      => 'normal_img_thumb',
+                    'default'   => 'large',
+                    'separator' => 'before',
+                    'exclude' => [
+                        'custom'
+                    ]
                 ]
             );
 
@@ -129,6 +141,21 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 ]
             );
 
+            $repeater->add_group_control(
+                Group_Control_Image_Size::get_type(),
+                [
+                    'name'      => 'hover_img_thumb',
+                    'default'   => 'large',
+                    'separator' => 'before',
+                    'exclude' => [
+                        'custom'
+                    ],
+                    'condition' => [
+                        'jltma_logo_slider_enable_hover_logo' => 'yes'
+                    ]
+                ]
+            );
+
 
             $repeater->add_control(
                 'jltma_logo_slider_item_logo_tooltip',
@@ -161,7 +188,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             );
 
             $this->add_control(
-                'jltma_logo_slider_repeater',
+                'jltma_logo_slider_items',
                 [
                     'label' => esc_html__( '', MELA_TD ),
                     'type' => Controls_Manager::REPEATER,
@@ -229,8 +256,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         ],
                     ],
                     'selectors' => [
-                        '{{WRAPPER}} .bdt-logo-carousel-wrapper.bdt-grid'     => 'margin-left: -{{SIZE}}px',
-                        '{{WRAPPER}} .bdt-logo-carousel-wrapper.bdt-grid > *' => 'padding-left: {{SIZE}}px',
+                        '{{WRAPPER}} .jltma-logo-slider-wrapper.bdt-grid'     => 'margin-left: -{{SIZE}}px',
+                        '{{WRAPPER}} .jltma-logo-slider-wrapper.bdt-grid > *' => 'padding-left: {{SIZE}}px',
                     ],
                 ]
             );
@@ -249,7 +276,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         ]
                     ],
                     'selectors' => [
-                        '{{WRAPPER}} .bdt-logo-carousel-item' => 'height: {{SIZE}}{{UNIT}};'
+                        '{{WRAPPER}} .jltma-logo-slider-item' => 'height: {{SIZE}}{{UNIT}};'
                     ],
                 ]
             );
@@ -289,29 +316,32 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             $this->add_control(
                 'jltma_logo_slider_transition_duration',
                 [
-                    'label'   => esc_html__( 'Transition Duration', MELA_TD ),
-                    'type'    => Controls_Manager::NUMBER,
-                    'default' => 1000,
-                    'separator' => 'before',
+                    'label'                 => esc_html__( 'Transition Duration', MELA_TD ),
+                    'type'                  => Controls_Manager::NUMBER,
+                    'default'               => 1000,
+                    'separator'             => 'before',
+                    'frontend_available'    => true,
                 ]
             );
 
             $this->add_control(
                 'jltma_logo_slider_autoplay',
                 [
-                    'label'     => esc_html__( 'Autoplay', MELA_TD ),
-                    'type'      => Controls_Manager::SWITCHER,
-                    'default'   => 'no',
+                    'label'                 => esc_html__( 'Autoplay', MELA_TD ),
+                    'type'                  => Controls_Manager::SWITCHER,
+                    'default'               => 'no',
+                    'frontend_available'    => true,
                 ]
             );
 
             $this->add_control(
                 'jltma_logo_slider_autoplay_speed',
                 [
-                    'label'     => esc_html__( 'Autoplay Speed', MELA_TD ),
-                    'type'      => Controls_Manager::NUMBER,
-                    'default'   => 5000,
-                    'condition' => [
+                    'label'                 => esc_html__( 'Autoplay Speed', MELA_TD ),
+                    'type'                  => Controls_Manager::NUMBER,
+                    'default'               => 5000,
+                    'frontend_available'    => true,
+                    'condition'             => [
                         'jltma_logo_slider_autoplay' => 'yes',
                     ],
                 ]
@@ -320,19 +350,21 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             $this->add_control(
                 'jltma_logo_slider_loop',
                 [
-                    'label'   => esc_html__( 'Infinite Loop', MELA_TD ),
-                    'type'    => Controls_Manager::SWITCHER,
-                    'default' => 'yes',
+                    'label'                 => esc_html__( 'Infinite Loop', MELA_TD ),
+                    'type'                  => Controls_Manager::SWITCHER,
+                    'default'               => 'yes',
+                    'frontend_available'    => true,
                 ]
             );
 
             $this->add_control(
                 'jltma_logo_slider_pause',
                 [
-                    'label'     => esc_html__( 'Pause on Hover', MELA_TD ),
-                    'type'      => Controls_Manager::SWITCHER,
-                    'default'   => 'yes',
-                    'condition' => [
+                    'label'                 => esc_html__( 'Pause on Hover', MELA_TD ),
+                    'type'                  => Controls_Manager::SWITCHER,
+                    'default'               => 'yes',
+                    'frontend_available'    => true,
+                    'condition'             => [
                         'jltma_logo_slider_autoplay' => 'yes',
                     ],
                 ]
@@ -341,8 +373,9 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             $this->add_control(
                 'jltma_logo_slider_center_mode',
                 [
-                    'label' => esc_html__( 'Center Mode', MELA_TD ),
-                    'type'  => Controls_Manager::SWITCHER,
+                    'label'                 => esc_html__( 'Center Mode', MELA_TD ),
+                    'type'                  => Controls_Manager::SWITCHER,
+                    'frontend_available'    => true,
                 ]
             );
         $this->end_controls_section();
@@ -714,7 +747,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     [
                         'name'        => 'jltma_logo_slider_carousel_item_border',
                         'label'       => esc_html__( 'Border', MELA_TD ),
-                        'selector'    => '{{WRAPPER}} .bdt-logo-carousel-figure',
+                        'selector'    => '{{WRAPPER}} .jltma-logo-slider-figure',
                     ]
                 );
 
@@ -726,7 +759,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         'type'       => Controls_Manager::DIMENSIONS,
                         'size_units' => [ 'px', '%' ],
                         'selectors'  => [
-                            '{{WRAPPER}} .bdt-logo-carousel-figure' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                            '{{WRAPPER}} .jltma-logo-slider-figure' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                         ],
                     ]
                 );
@@ -738,7 +771,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         'type' => Controls_Manager::DIMENSIONS,
                         'size_units' => [ 'px', 'em', '%' ],
                         'selectors' => [
-                            '{{WRAPPER}} .bdt-logo-carousel-figure' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                            '{{WRAPPER}} .jltma-logo-slider-figure' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                         ],
                     ]
                 );
@@ -756,7 +789,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     Group_Control_Css_Filter::get_type(),
                     [
                         'name' => 'jltma_logo_slider_carousel_image_css_filters',
-                        'selector' => '{{WRAPPER}} .bdt-logo-carousel-figure img',
+                        'selector' => '{{WRAPPER}} .jltma-logo-slider-figure img',
                     ]
                 );
             $this->end_controls_tab();
@@ -795,7 +828,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     [
                         'name'        => 'jltma_logo_slider_carousel_hover_item_border',
                         'label'       => esc_html__( 'Border', MELA_TD ),
-                        'selector'    => '{{WRAPPER}} .bdt-logo-carousel-figure',
+                        'selector'    => '{{WRAPPER}} .jltma-logo-slider-figure',
                     ]
                 );
 
@@ -807,7 +840,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         'type'       => Controls_Manager::DIMENSIONS,
                         'size_units' => [ 'px', '%' ],
                         'selectors'  => [
-                            '{{WRAPPER}} .bdt-logo-carousel-figure' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                            '{{WRAPPER}} .jltma-logo-slider-figure' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                         ],
                     ]
                 );
@@ -819,7 +852,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         'type' => Controls_Manager::DIMENSIONS,
                         'size_units' => [ 'px', 'em', '%' ],
                         'selectors' => [
-                            '{{WRAPPER}} .bdt-logo-carousel-figure' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                            '{{WRAPPER}} .jltma-logo-slider-figure' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                         ],
                     ]
                 );
@@ -837,9 +870,36 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     Group_Control_Css_Filter::get_type(),
                     [
                         'name' => 'jltma_logo_slider_carousel_hover_image_css_filters',
-                        'selector' => '{{WRAPPER}} .bdt-logo-carousel-figure img',
+                        'selector' => '{{WRAPPER}} .jltma-logo-slider-figure img',
                     ]
                 );
+
+
+            $this->add_control(
+                'jltma_logo_slider_carousel_hover_image_hover_transition',
+                [
+                    'label' => __( 'Transition Duration', MELA_TD ),
+                    'type' => Controls_Manager::SLIDER,
+                    'range' => [
+                        'px' => [
+                            'max' => 3,
+                            'step' => 0.1,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .bdt-logo-carousel-figure:hover img' => 'transition-duration: {{SIZE}}s;',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_carousel_hover_animation',
+                [
+                    'label' => __( 'Hover Animation', MELA_TD ),
+                    'type' => Controls_Manager::HOVER_ANIMATION,
+                ]
+            );
+
             $this->end_controls_tab();
 
             $this->end_controls_tabs();
@@ -1345,17 +1405,6 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         ( 'both' == $settings['jltma_logo_slider_nav'] ) ? 'jltma-arrows-dots-align-' . $settings['jltma_logo_slider_nav_both_position'] : '',
                         ( 'arrows' == $settings['jltma_logo_slider_nav'] ) ? 'jltma-arrows-align-' . $settings['jltma_logo_slider_nav_arrows_position'] : '',
                         ( 'dots' == $settings['jltma_logo_slider_nav'] ) ? 'jltma-dots-align-'. $settings['jltma_logo_slider_nav_dots_position'] : '',
-                    ],
-                    
-                    'jltma-logo-slider-controls' => [
-                        wp_json_encode(array_filter([
-                            "autoplay"          => ( $settings["jltma_logo_slider_autoplay"] ) ? true : false,
-                            "autoplay-speed"    => $settings["jltma_logo_slider_autoplay_speed"],
-                            "transition"        => $settings["jltma_logo_slider_transition_duration"],
-                            "loop"              => ($settings["jltma_logo_slider_loop"]) ? false : true,
-                            "pause-on-hover"    => ( $settings["jltma_logo_slider_pause"] ) ? true : false,
-                            "center-mode"       => ( $settings["jltma_logo_slider_center_mode"] ) ? true : false
-                        ]))
                     ]
                 ]
             ]
@@ -1376,9 +1425,89 @@ class Master_Addons_Logo_Slider extends Widget_Base {
     * Render Logo Loop
     */
 
-    public function jltma_render_logo_slider_loop_item(){ ?>
+    public function jltma_render_logo_slider_loop_item( $settings ){ 
+        $settings = $this->get_settings_for_display();
 
-    <?php }
+        if ( empty($settings['jltma_logo_slider_items'] ) ) {
+            return;
+        } 
+
+        foreach ( $settings['jltma_logo_slider_items'] as $index => $item ) {
+            $slider_image = wp_get_attachment_image_url( $item['jltma_logo_slider_image_normal']['id'], $item['normal_img_thumb_size'] );
+            // $slider_hover_image = wp_get_attachment_image_url( $item['jltma_logo_slider_image_hover']['id'], $item['hover_img_thumb_size'] );
+            $repeater_key = 'carousel_item' . $index;
+            $tag = 'div';
+            $image_alt = esc_html($item['jltma_logo_slider_brand_name']) . ' : ' . esc_html($item['jltma_logo_slider_brand_description']); 
+            $title_html_tag = ($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
+            $this->add_render_attribute( $repeater_key, 'class', 'jltma-logo-slider-item' );
+
+
+            if ( $item['jltma_logo_slider_website_link']['url'] ) {
+                $tag = 'a';
+                $this->add_render_attribute( $repeater_key, 'class', 'jltma-logo-slider-link' );
+                $this->add_render_attribute( $repeater_key, 'target', '_blank' );
+                $this->add_render_attribute( $repeater_key, 'rel', 'noopener' );
+                $this->add_render_attribute( $repeater_key, 'href', esc_url( $item['jltma_logo_slider_website_link']['url'] ) );
+                $this->add_render_attribute( $repeater_key, 'title', $item['jltma_logo_slider_brand_name'] );
+            }
+
+            if ($item['jltma_logo_slider_brand_name'] and $item['jltma_logo_slider_brand_description'] and $item['jltma_logo_slider_item_logo_tooltip']) {
+
+                $tooltip_content = '<'. $title_html_tag .'>' . $item['jltma_logo_slider_brand_name'] . '</'. $title_html_tag .'>' . $item['jltma_logo_slider_brand_description']; 
+                $this->add_render_attribute( $repeater_key, 'data-tippy-content', $tooltip_content, true);
+                
+                $this->add_render_attribute( $repeater_key, 'class', 'bdt-tippy-tooltip' );
+                $this->add_render_attribute( $repeater_key, 'data-tippy', '', true );
+
+                if ($item['jltma_logo_slider_item_logo_tooltip_placement']) {
+                    $this->add_render_attribute( $repeater_key, 'data-tippy-placement', $item['jltma_logo_slider_item_logo_tooltip_placement'], true );
+                }
+
+                if ($settings['jltma_logo_slider_tooltip_animation']) {
+                    $this->add_render_attribute( $repeater_key, 'data-tippy-animation', $settings['jltma_logo_slider_tooltip_animation'], true );
+                }
+
+                if ($settings['jltma_logo_slider_tooltip_x_offset']['size'] or $settings['jltma_logo_slider_tooltip_y_offset']['size']) {
+                    $this->add_render_attribute( $repeater_key, 'data-tippy-offset', $settings['jltma_logo_slider_tooltip_x_offset']['size'] .','. $settings['jltma_logo_slider_tooltip_y_offset']['size'], true );
+                }
+
+                if ('yes' == $settings['jltma_logo_slider_tooltip_arrow']) {
+                    $this->add_render_attribute( $repeater_key, 'data-tippy-arrow', 'true', true );
+                }
+
+                if ('yes' == $settings['jltma_logo_slider_tooltip_trigger']) {
+                    $this->add_render_attribute( $repeater_key, 'data-tippy-trigger', 'click', true );
+                }
+            }
+            ?>
+            
+                <<?php echo $tag; ?> <?php $this->print_render_attribute_string( $repeater_key ); ?>>
+                    <figure class="jltma-logo-slider-figure">
+                        
+                        <?php if ( $slider_image ) {
+
+                                echo wp_get_attachment_image(
+                                    $item['jltma_logo_slider_image_normal']['id'],
+                                    $item['normal_img_thumb_size'],
+                                    false,
+                                    [
+                                        'class' => 'jltma-logo-slider-img elementor-animation-' . esc_attr( $settings['jltma_logo_slider_carousel_hover_animation'] ),
+                                        'alt'=> esc_attr( $image_alt ),
+                                    ]
+                                );
+                            }
+                        ?>
+
+                    </figure>
+                </<?php echo $tag; ?>>
+
+            <?php 
+
+        }  // end of foreach
+
+
+
+    }
     
 
 
@@ -1448,24 +1577,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         $this->jltma_render_logo_slider_header($settings);
-        // $this->jltma_render_logo_slider_loop_item($settings);
+        $this->jltma_render_logo_slider_loop_item($settings);
         $this->jltma_render_logo_slider_footer($settings);
-        ?>
-
-
-                <div class="jltma-slider-item col-sm-3 col-xs-6">
-                    <a href="#"><img src="images/clients/1.png" alt="client"></a>
-                    <h3 class="jltma-slider-item-title">Company Name 01</h3><!-- /.item-title -->
-                </div><!-- /.client -->
-
-                <div class="jltma-slider-item col-sm-3 col-xs-6">
-                    <a href="#"><img src="images/clients/2.png" alt="client"></a>
-                    <h3 class="jltma-slider-item-title">Company Name 02</h3><!-- /.item-title -->
-                </div><!-- /.client -->
-
-            
-
-        <?php 
     }
 
 

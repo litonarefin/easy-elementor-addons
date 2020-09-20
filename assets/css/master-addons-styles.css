@@ -11548,23 +11548,23 @@ ul.jltma-toggle-content-controls {
 
 
 /* Start of Logo Slider */
-.jltma-logo-slider .jltma-slider-item {
+.jltma-logo-slider .jltma-logo-slider-item {
     margin-bottom: 117px;
     padding: 0 3px;
 }
-.jltma-logo-slider .jltma-slider-item-title {
+.jltma-logo-slider .jltma-logo-slider-item-title {
     color: #8c8c8c;
     font-size: 18px;
     padding-top: 27px;
 }
-.jltma-logo-slider .jltma-slider-item img {
+.jltma-logo-slider .jltma-logo-slider-item img {
     -webkit-filter: grayscale(1);
     -moz-filter: grayscale(1);
     -ms-filter: grayscale(1);
     -o-filter: grayscale(1);
     filter: grayscale(1);
 }
-.jltma-logo-slider .jltma-slider-item img:hover {
+.jltma-logo-slider .jltma-logo-slider-item img:hover {
     -webkit-filter: grayscale(0);
     -moz-filter: grayscale(0);
     -ms-filter: grayscale(0);
