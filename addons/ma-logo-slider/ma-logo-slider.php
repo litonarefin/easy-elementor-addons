@@ -348,7 +348,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         $this->start_controls_section(
             'jltma_logo_slider_section_navigation',
             [
-                'label' => esc_html__( 'Navigation', MELA_TD ),
+                'label'     => esc_html__( 'Navigation', MELA_TD ),
+                'separator' => 'after',
             ]
         );
 
@@ -386,7 +387,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
 
             $this->add_control(
-                'arrows_position',
+                'jltma_logo_slider_nav_arrows_position',
                 [
                     'label'     => esc_html__( 'Arrows Position', MELA_TD ),
                     'type'      => Controls_Manager::SELECT,
@@ -399,7 +400,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             );
 
             $this->add_control(
-                'dots_position',
+                'jltma_logo_slider_nav_dots_position',
                 [
                     'label'     => esc_html__( 'Dots Position', MELA_TD ),
                     'type'      => Controls_Manager::SELECT,
@@ -413,122 +414,564 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
 
 
-            $this->start_controls_tabs( 'jltma_logo_slider_navigation_tabs' );
+            $this->add_control(
+                'jltma_logo_slider_nav_arrows_space',
+                [
+                    'label' => __( 'Space', MELA_TD ),
+                    'type'  => Controls_Manager::SLIDER,
+                    'range' => [
+                        'px' => [
+                            'min' => 0,
+                            'max' => 100,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .bdt-navigation-prev' => 'margin-right: {{SIZE}}px;',
+                        '{{WRAPPER}} .bdt-navigation-next' => 'margin-left: {{SIZE}}px;',
+                    ],
+                    'conditions'   => [
+                        'terms' => [
+                            [
+                                'name'  => 'jltma_logo_slider_nav',
+                                'value' => 'both',
+                            ],
+                            [
+                                'name'     => 'jltma_logo_slider_nav_both_position',
+                                'operator' => '!=',
+                                'value'    => 'center',
+                            ],
+                        ],
+                    ],
+                ]
+            );
 
-            $this->start_controls_tab( 
-                'jltma_logo_slider_navigation_control', 
-                [ 
-                    'label' => esc_html__( 'Normal', MELA_TD),
-                    'condition' => [
-                        'jltma_logo_slider_nav!' => 'none'
+
+
+
+            $this->start_controls_tabs( 'jltma_logo_slider_nav_tabs' );
+
+                $this->start_controls_tab( 
+                    'jltma_logo_slider_nav_normal_control', 
+                    [ 
+                        'label' => esc_html__( 'Normal', MELA_TD),
+                        'condition' => [
+                            'jltma_logo_slider_nav!' => 'none'
+                        ]
+                    ] );
+
+                    $this->add_control(
+                        'jltma_logo_slider_nav_arrows_size',
+                        [
+                            'label' => __( 'Arrows Size', MELA_TD ),
+                            'type'  => Controls_Manager::SLIDER,
+                            'range' => [
+                                'px' => [
+                                    'min' => 20,
+                                    'max' => 100,
+                                ],
+                            ],
+                            'selectors' => [
+                                '{{WRAPPER}} .bdt-navigation-prev svg,
+                                {{WRAPPER}} .bdt-navigation-next svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+                            ],
+                            'condition' => [
+                                'jltma_logo_slider_nav' => [ 'arrows', 'both' ],
+                            ],
+                        ]
+                    );
+
+                    $this->add_control(
+                        'jltma_logo_slider_nav_arrows_color',
+                        [
+                            'label'     => __( 'Arrows Color', MELA_TD ),
+                            'type'      => Controls_Manager::COLOR,
+                            'selectors' => [
+                                '{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next' => 'color: {{VALUE}};',
+                            ],
+                            'condition' => [
+                                'jltma_logo_slider_nav' => [ 'arrows', 'both' ],
+                            ],
+                        ]
+                    );
+
+                    $this->add_control(
+                        'jltma_logo_slider_nav_normal_arrow_color',
+                        [
+                            'label' => esc_html__( 'Arrows Background', MELA_TD ),
+                            'type' => Controls_Manager::COLOR,
+                            'default' => '#b8bfc7',
+                            'selectors' => [
+                                '{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next' => 'background: {{VALUE}};',
+                            ],
+                            'condition' => [
+                                'jltma_logo_slider_nav' => [ 'arrows', 'both' ],
+                            ],
+                        ]
+                    );
+
+
+
+                    $this->add_control(
+                        'jltma_logo_slider_nav_dots_size',
+                        [
+                            'label' => __( 'Dots Size', MELA_TD ),
+                            'type'  => Controls_Manager::SLIDER,
+                            'range' => [
+                                'px' => [
+                                    'min' => 5,
+                                    'max' => 20,
+                                ],
+                            ],
+                            'selectors' => [
+                                '{{WRAPPER}} .bdt-slider-dotnav a' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+                            ],
+                            'condition' => [
+                                'jltma_logo_slider_nav' => [ 'dots', 'both' ],
+                            ],
+                        ]
+                    );
+
+                    $this->add_control(
+                        'jltma_logo_slider_nav_dots_color',
+                        [
+                            'label'     => __( 'Dots Color', MELA_TD ),
+                            'type'      => Controls_Manager::COLOR,
+                            'selectors' => [
+                                '{{WRAPPER}} .ma-el-team-carousel-wrapper .slick-dots li button' => 'background-color: {{VALUE}};',
+                            ],
+                            'condition' => [
+                                'jltma_logo_slider_nav' => [ 'dots', 'both' ],
+                            ],
+                        ]
+                    );
+
+
+                    $this->add_group_control(
+                        Group_Control_Border::get_type(),
+                        [
+                            'name'        => 'jltma_logo_slider_nav_arrows_border',
+                            'label'       => esc_html__( 'Border', MELA_TD ),
+                            'condition' => [
+                                'jltma_logo_slider_nav' => [ 'arrows', 'both' ],
+                            ],
+                            'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next',
+                        ]
+                    );
+
+                    $this->add_control(
+                        'jltma_logo_slider_nav_border_radius',
+                        [
+                            'label'      => __( 'Border Radius', MELA_TD ),
+                            'type'       => Controls_Manager::DIMENSIONS,
+                            'size_units' => [ 'px', '%' ],
+                            'selectors'  => [
+                                '{{WRAPPER}} .bdt-navigation-prev,
+                                {{WRAPPER}} .bdt-navigation-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                            ],
+                            'condition' => [
+                                'jltma_logo_slider_nav' => [ 'arrows', 'both' ],
+                            ],
+                        ]
+                    );
+                    
+                    $this->add_responsive_control(
+                        'jltma_logo_slider_nav_arrows_padding',
+                        [
+                            'label'      => esc_html__( 'Padding', MELA_TD ),
+                            'type'       => Controls_Manager::DIMENSIONS,
+                            'size_units' => [ 'px', 'em', '%' ],
+                            'selectors'  => [
+                                '{{WRAPPER}} .bdt-navigation-prev,
+                                {{WRAPPER}} .bdt-navigation-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                            ],
+                        ]
+                    );
+                $this->end_controls_tab();
+
+
+                $this->start_controls_tab( 
+                    'jltma_logo_slider_nav_hover_tab', 
+                    [ 
+                        'label' => esc_html__( 'Hover', MELA_TD ),
+                        'condition' => [
+                            'jltma_logo_slider_nav!' => 'none'
+                        ],                    
+                    ] 
+                );
+
+                $this->add_control(
+                    'jltma_logo_slider_nav_arrows_hover_bg',
+                    [
+                        'label'     => __( 'Arow Background', MELA_TD ),
+                        'type'      => Controls_Manager::COLOR,
+                        'selectors' => [
+                            '{{WRAPPER}} .ma-el-team-carousel-prev:hover, {{WRAPPER}} .ma-el-team-carousel-next:hover' =>
+                                'background: {{VALUE}};',
+                        ],
+                        'condition' => [
+                            'jltma_logo_slider_nav' => [ 'arrows', 'both' ],
+                        ],
                     ]
-                ] );
-
-            $this->add_control(
-                'jltma_logo_slider_arrow_color',
-                [
-                    'label' => esc_html__( 'Arrow Background', MELA_TD ),
-                    'type' => Controls_Manager::COLOR,
-                    'default' => '#b8bfc7',
-                    'selectors' => [
-                        '{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next' => 'background: {{VALUE}};',
-                    ],
-                    'condition' => [
-                        'jltma_logo_slider_nav' => 'arrows',
-                    ],
-                ]
-            );
-
-            $this->add_control(
-                'jltma_logo_slider_dot_color',
-                [
-                    'label' => esc_html__( 'Dot Color', MELA_TD ),
-                    'type' => Controls_Manager::COLOR,
-                    'default' => '#8a8d91',
-                    'selectors' => [
-                        '{{WRAPPER}} .ma-el-team-carousel-wrapper .slick-dots li button' => 'background-color: {{VALUE}};',
-                    ],
-                    'condition' => [
-                        'jltma_logo_slider_nav' => 'dots',
-                    ],
-                ]
-            );
+                );
 
 
-            $this->add_group_control(
-                Group_Control_Border::get_type(),
-                [
-                    'name'        => 'jltma_logo_slider_border',
-                    'placeholder' => '1px',
-                    'default'     => '0px',
-                    'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next',
-                    'condition' => [
-                        'jltma_logo_slider_nav!' => 'none',
+                $this->add_control(
+                    'jltma_logo_slider_nav_arrows_hover_color',
+                    [
+                        'label'     => __( 'Arrows Color', MELA_TD ),
+                        'type'      => Controls_Manager::COLOR,
+                        'selectors' => [
+                            '{{WRAPPER}} .bdt-navigation-prev:hover svg,
+                            {{WRAPPER}} .bdt-navigation-next:hover svg' => 'color: {{VALUE}}',
+                        ],
+                        'condition' => [
+                            'jltma_logo_slider_nav' => [ 'arrows', 'both' ],
+                        ],
                     ]
-                ]
-            );
+                );                
 
 
-            $this->end_controls_tab();
-
-            $this->start_controls_tab( 
-                'jltma_logo_slider_social_icon_hover', 
-                [ 
-                    'label' => esc_html__( 'Hover', MELA_TD ),
-                    'condition' => [
-                        'jltma_logo_slider_nav!' => 'none'
-                    ],                    
-                ] 
-            );
-
-            $this->add_control(
-                'jltma_logo_slider_arrow_hover_color',
-                [
-                    'label' => esc_html__( 'Arrow Hover', MELA_TD ),
-                    'type' => Controls_Manager::COLOR,
-                    'default' => '#917cff',
-                    'selectors' => [
-                        '{{WRAPPER}} .ma-el-team-carousel-prev:hover, {{WRAPPER}} .ma-el-team-carousel-next:hover' =>
-                            'background: {{VALUE}};',
-                    ],
-                    'condition' => [
-                        'jltma_logo_slider_nav' => 'arrows',
-                    ],
-                ]
-            );
-
-            $this->add_control(
-                'jltma_logo_slider_dot_hover_color',
-                [
-                    'label' => esc_html__( 'Dot Hover', MELA_TD ),
-                    'type' => Controls_Manager::COLOR,
-                    'default' => '#8a8d91',
-                    'selectors' => [
-                        '{{WRAPPER}} .ma-el-team-carousel-wrapper .slick-dots li.slick-active button, {{WRAPPER}} .ma-el-team-carousel-wrapper .slick-dots li button:hover' => 'background: {{VALUE}};',
-                    ],
-                    'condition' => [
-                        'jltma_logo_slider_nav' => 'dots',
-                    ],
-                ]
-            );
-
-
-            $this->add_group_control(
-                Group_Control_Border::get_type(),
-                [
-                    'name'        => 'jltma_logo_slider_hover_border',
-                    'placeholder' => '1px',
-                    'default'     => '0px',
-                    'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev:hover, {{WRAPPER}} .ma-el-team-carousel-next:hover',
-                    'condition' => [
-                        'jltma_logo_slider_nav!' => 'none',
+                $this->add_control(
+                    'jltma_logo_slider_nav_active_dot_color',
+                    [
+                        'label'     => __( 'Active Dots Color', MELA_TD ),
+                        'type'      => Controls_Manager::COLOR,
+                        'default' => '#8a8d91',
+                        'selectors' => [
+                            '{{WRAPPER}} .ma-el-team-carousel-wrapper .slick-dots li.slick-active button, {{WRAPPER}} .ma-el-team-carousel-wrapper .slick-dots li button:hover' => 'background: {{VALUE}};',
+                        ],
+                        'condition' => [
+                            'jltma_logo_slider_nav' => [ 'dots', 'both' ],
+                        ],
                     ]
-                ]
-            );
+                );
+                $this->add_group_control(
+                    Group_Control_Border::get_type(),
+                    [
+                        'name'        => 'jltma_logo_slider_nav_hover_border',
+                        'placeholder' => '1px',
+                        'default'     => '0px',
+                        'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev:hover, {{WRAPPER}} .ma-el-team-carousel-next:hover',
+                        'condition' => [
+                            'jltma_logo_slider_nav!' => 'none',
+                        ]
+                    ]
+                );
 
-            $this->end_controls_tab();
+
+                $this->add_control(
+                    'jltma_logo_slider_nav_arrows_border_hover_color',
+                    [
+                        'label' => __( 'Border Hover Color', MELA_TD ),
+                        'type' => Controls_Manager::COLOR,
+                        'selectors' => [
+                            'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev:hover, {{WRAPPER}} .ma-el-team-carousel-next:hover',
+                        ],
+                        'condition' => [
+                            'jltma_logo_slider_nav_arrows_border_border!' => '',
+                        ],
+                    ]
+                );
+
+
+                $this->end_controls_tab();
 
             $this->end_controls_tabs();
+
+
+
+
+
+            $this->add_responsive_control(
+                'jltma_logo_slider_nav_arrows_ncx_position',
+                [
+                    'label'   => __( 'Horizontal Offset', MELA_TD ),
+                    'type'    => Controls_Manager::SLIDER,
+                    'default' => [
+                        'size' => 0,
+                    ],
+                    'range' => [
+                        'px' => [
+                            'min' => -200,
+                            'max' => 200,
+                        ],
+                    ],
+                    'conditions'   => [
+                        'terms' => [
+                            [
+                                'name'  => 'jltma_logo_slider_nav',
+                                'value' => 'arrows',
+                            ],
+                            [
+                                'name'     => 'jltma_logo_slider_nav_arrows_position',
+                                'operator' => '!=',
+                                'value'    => 'center',
+                            ],
+                        ],
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'jltma_logo_slider_arrows_ncy_position',
+                [
+                    'label'   => __( 'Vertical Offset', MELA_TD ),
+                    'type'    => Controls_Manager::SLIDER,
+                    'default' => [
+                        'size' => 40,
+                    ],
+                    'range' => [
+                        'px' => [
+                            'min' => -200,
+                            'max' => 200,
+                        ],
+                    ],
+                    'selectors' => [
+                        '(desktop){{WRAPPER}} .bdt-arrows-container' => 'transform: translate({{arrows_ncx_position.SIZE || 0}}px, {{arrows_ncy_position.SIZE || 0}}px);',
+                        '(tablet){{WRAPPER}} .bdt-arrows-container' => 'transform: translate({{arrows_ncx_position_tablet.SIZE || 0}}px, {{arrows_ncy_position_tablet.SIZE || 0}}px);',
+                        '(mobile){{WRAPPER}} .bdt-arrows-container' => 'transform: translate({{arrows_ncx_position_mobile.SIZE || 0}}px, {{arrows_ncy_position_mobile.SIZE || 0}}px);',
+                    ],
+                    'conditions'   => [
+                        'terms' => [
+                            [
+                                'name'  => 'jltma_logo_slider_nav',
+                                'value' => 'arrows',
+                            ],
+                            [
+                                'name'     => 'jltma_logo_slider_nav_arrows_position',
+                                'operator' => '!=',
+                                'value'    => 'center',
+                            ],
+                        ],
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'jltma_logo_slider_nav_arrows_acx_position',
+                [
+                    'label'   => __( 'Horizontal Offset', MELA_TD ),
+                    'type'    => Controls_Manager::SLIDER,
+                    'default' => [
+                        'size' => -60,
+                    ],
+                    'range' => [
+                        'px' => [
+                            'min' => -200,
+                            'max' => 200,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .bdt-navigation-prev' => 'left: {{SIZE}}px;',
+                        '{{WRAPPER}} .bdt-navigation-next' => 'right: {{SIZE}}px;',
+                    ],
+                    'conditions' => [
+                        'terms' => [
+                            [
+                                'name'  => 'jltma_logo_slider_nav',
+                                'value' => 'arrows',
+                            ],
+                            [
+                                'name'  => 'jltma_logo_slider_nav_arrows_position',
+                                'value' => 'center',
+                            ],
+                        ],
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'jltma_logo_slider_nav_dots_nnx_position',
+                [
+                    'label'   => __( 'Horizontal Offset', MELA_TD ),
+                    'type'    => Controls_Manager::SLIDER,
+                    'default' => [
+                        'size' => 0,
+                    ],
+                    'range' => [
+                        'px' => [
+                            'min' => -200,
+                            'max' => 200,
+                        ],
+                    ],
+                    'conditions'   => [
+                        'terms' => [
+                            [
+                                'name'  => 'jltma_logo_slider_nav',
+                                'value' => 'dots',
+                            ],
+                            [
+                                'name'     => 'jltma_logo_slider_nav_dots_position',
+                                'operator' => '!=',
+                                'value'    => '',
+                            ],
+                        ],
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'jltma_logo_slider_nav_dots_nny_position',
+                [
+                    'label'   => __( 'Vertical Offset', MELA_TD ),
+                    'type'    => Controls_Manager::SLIDER,
+                    'default' => [
+                        'size' => 30,
+                    ],
+                    'range' => [
+                        'px' => [
+                            'min' => -200,
+                            'max' => 200,
+                        ],
+                    ],
+                    'selectors' => [
+                        '(desktop){{WRAPPER}} .bdt-dots-container' => 'transform: translate({{dots_nnx_position.SIZE || 0}}px, {{dots_nny_position.SIZE || 0}}px);',
+                        '(tablet){{WRAPPER}} .bdt-dots-container' => 'transform: translate({{dots_nnx_position_tablet.SIZE || 0}}px, {{dots_nny_position_tablet.SIZE || 0}}px);',
+                        '(mobile){{WRAPPER}} .bdt-dots-container' => 'transform: translate({{dots_nnx_position_mobile.SIZE || 0}}px, {{dots_nny_position_mobile.SIZE || 0}}px);',
+                    ],
+                    'conditions'   => [
+                        'terms' => [
+                            [
+                                'name'  => 'jltma_logo_slider_nav',
+                                'value' => 'dots',
+                            ],
+                            [
+                                'name'     => 'jltma_logo_slider_nav_dots_position',
+                                'operator' => '!=',
+                                'value'    => '',
+                            ],
+                        ],
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_nav_both_ncx_position',
+                [
+                    'label'   => __( 'Horizontal Offset', MELA_TD ),
+                    'type'    => Controls_Manager::SLIDER,
+                    'default' => [
+                        'size' => 0,
+                    ],
+                    'range' => [
+                        'px' => [
+                            'min' => -200,
+                            'max' => 200,
+                        ],
+                    ],
+                    'conditions'   => [
+                        'terms' => [
+                            [
+                                'name'  => 'jltma_logo_slider_nav',
+                                'value' => 'both',
+                            ],
+                            [
+                                'name'     => 'jltma_logo_slider_nav_both_position',
+                                'operator' => '!=',
+                                'value'    => 'center',
+                            ],
+                        ],
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'jltma_logo_slider_nav_both_ncy_position',
+                [
+                    'label'   => __( 'Vertical Offset', MELA_TD ),
+                    'type'    => Controls_Manager::SLIDER,
+                    'default' => [
+                        'size' => 40,
+                    ],
+                    'range' => [
+                        'px' => [
+                            'min' => -200,
+                            'max' => 200,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .bdt-arrows-dots-container' => 'transform: translate({{both_ncx_position.size}}px, {{SIZE}}px);',
+                    ],
+                    'conditions'   => [
+                        'terms' => [
+                            [
+                                'name'  => 'jltma_logo_slider_nav',
+                                'value' => 'both',
+                            ],
+                            [
+                                'name'     => 'jltma_logo_slider_nav_both_position',
+                                'operator' => '!=',
+                                'value'    => 'center',
+                            ],
+                        ],
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'jltma_logo_slider_nav_both_cx_position',
+                [
+                    'label'   => __( 'Arrows Offset', MELA_TD ),
+                    'type'    => Controls_Manager::SLIDER,
+                    'default' => [
+                        'size' => -60,
+                    ],
+                    'range' => [
+                        'px' => [
+                            'min' => -200,
+                            'max' => 200,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .bdt-navigation-prev' => 'left: {{SIZE}}px;',
+                        '{{WRAPPER}} .bdt-navigation-next' => 'right: {{SIZE}}px;',
+                    ],
+                    'conditions' => [
+                        'terms' => [
+                            [
+                                'name'  => 'jltma_logo_slider_nav',
+                                'value' => 'both',
+                            ],
+                            [
+                                'name'  => 'jltma_logo_slider_nav_both_position',
+                                'value' => 'center',
+                            ],
+                        ],
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'jltma_logo_slider_nav_both_cy_position',
+                [
+                    'label'   => __( 'Dots Offset', MELA_TD ),
+                    'type'    => Controls_Manager::SLIDER,
+                    'default' => [
+                        'size' => 30,
+                    ],
+                    'range' => [
+                        'px' => [
+                            'min' => -200,
+                            'max' => 200,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .bdt-dots-container' => 'transform: translateY({{SIZE}}px);',
+                    ],
+                    'conditions' => [
+                        'terms' => [
+                            [
+                                'name'  => 'jltma_logo_slider_nav',
+                                'value' => 'both',
+                            ],
+                            [
+                                'name'  => 'jltma_logo_slider_nav_both_position',
+                                'value' => 'center',
+                            ],
+                        ],
+                    ],
+                ]
+            );
 
         $this->end_controls_section();
 
@@ -655,7 +1098,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         *
         */
         $this->start_controls_section(
-            'jltma_section_logo_style',
+            'jltma_logo_slider_sesction_style_carousel',
             [
                 'label' => esc_html__( 'Logo Carousel', MELA_TD ),
                 'tab'   => Controls_Manager::TAB_STYLE
@@ -664,7 +1107,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
 
 
-            $this->start_controls_tabs( 'jltma_logo_slider_tabs' );
+            $this->start_controls_tabs( 'jltma_logo_slider_carousel_tabs' );
 
         	# Normal tab
             $this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', MELA_TD ) ] );
@@ -672,7 +1115,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 $this->add_group_control(
             		Group_Control_Background::get_type(),
         			[
-                        'name'      => 'jltma_logo_slider_normal_background',
+                        'name'      => 'jltma_logo_slider_carousel_normal_background',
                         'types'     => [ 'classic', 'gradient' ],
                         'separator' => 'before',
                         'selector'  => '{{WRAPPER}} .exad-logo .exad-logo-item'
@@ -680,7 +1123,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 );
 
                 $this->add_control(
-                    'jltma_logo_slider_normal_opacity',
+                    'jltma_logo_slider_carousel_opacity',
                     [
                         'label' => __('Opacity', MELA_TD),
                         'type'  => Controls_Manager::NUMBER,
@@ -698,7 +1141,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Border::get_type(),
                     [
-                        'name'        => 'jltma_logo_slider_normal_item_border',
+                        'name'        => 'jltma_logo_slider_carousel_item_border',
                         'label'       => esc_html__( 'Border', MELA_TD ),
                         'selector'    => '{{WRAPPER}} .bdt-logo-carousel-figure',
                     ]
@@ -706,7 +1149,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
 
                 $this->add_control(
-                    'jltma_logo_slider_normal_item_border_radius',
+                    'jltma_logo_slider_carousel_item_border_radius',
                     [
                         'label'      => esc_html__( 'Border Radius', MELA_TD ),
                         'type'       => Controls_Manager::DIMENSIONS,
@@ -718,7 +1161,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 );
 
                 $this->add_responsive_control(
-                    'jltma_logo_slider_normal_padding',
+                    'jltma_logo_slider_carousel_padding',
                     [
                         'label' => __( 'Padding', MELA_TD ),
                         'type' => Controls_Manager::DIMENSIONS,
@@ -733,7 +1176,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Box_Shadow::get_type(),
                     [
-                        'name'     => 'jltma_logo_slider_normal_box_shadow',
+                        'name'     => 'jltma_logo_slider_carousel_box_shadow',
                         'selector' => '{{WRAPPER}} .exad-logo .exad-logo-item'
                     ]
                 );
@@ -741,19 +1184,19 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Css_Filter::get_type(),
                     [
-                        'name' => 'jltma_logo_slider_normal_image_css_filters',
+                        'name' => 'jltma_logo_slider_carousel_image_css_filters',
                         'selector' => '{{WRAPPER}} .bdt-logo-carousel-figure img',
                     ]
                 );
             $this->end_controls_tab();
 
         	# Hover tab
-            $this->start_controls_tab( 'jltma_logo_slider_hover_tab', [ 'label' => esc_html__( 'Hover', MELA_TD ) ] );
+            $this->start_controls_tab( 'jltma_logo_slider_carousel_hover_tab', [ 'label' => esc_html__( 'Hover', MELA_TD ) ] );
 
                 $this->add_group_control(
                     Group_Control_Background::get_type(),
                     [
-                        'name'      => 'jltma_logo_slider_hover_background',
+                        'name'      => 'jltma_logo_slider_carousel_hover_background',
                         'types'     => [ 'classic', 'gradient' ],
                         'separator' => 'before',
                         'selector'  => '{{WRAPPER}} .exad-logo .exad-logo-item'
@@ -761,7 +1204,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 );
 
                 $this->add_control(
-                    'jltma_logo_slider_hover_opacity',
+                    'jltma_logo_slider_carousel_hover_opacity',
                     [
                         'label' => __('Opacity', MELA_TD),
                         'type'  => Controls_Manager::NUMBER,
@@ -779,7 +1222,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Border::get_type(),
                     [
-                        'name'        => 'jltma_logo_slider_hover_item_border',
+                        'name'        => 'jltma_logo_slider_carousel_hover_item_border',
                         'label'       => esc_html__( 'Border', MELA_TD ),
                         'selector'    => '{{WRAPPER}} .bdt-logo-carousel-figure',
                     ]
@@ -787,7 +1230,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
 
                 $this->add_control(
-                    'jltma_logo_slider_hover_item_border_radius',
+                    'jltma_logo_slider_carousel_hover_item_border_radius',
                     [
                         'label'      => esc_html__( 'Border Radius', MELA_TD ),
                         'type'       => Controls_Manager::DIMENSIONS,
@@ -799,7 +1242,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 );
 
                 $this->add_responsive_control(
-                    'jltma_logo_slider_hover_padding',
+                    'jltma_logo_slider_carousel_hover_padding',
                     [
                         'label' => __( 'Padding', MELA_TD ),
                         'type' => Controls_Manager::DIMENSIONS,
@@ -814,7 +1257,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Box_Shadow::get_type(),
                     [
-                        'name'     => 'jltma_logo_slider_hover_box_shadow',
+                        'name'     => 'jltma_logo_slider_carousel_hover_box_shadow',
                         'selector' => '{{WRAPPER}} .exad-logo .exad-logo-item'
                     ]
                 );
@@ -822,7 +1265,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Css_Filter::get_type(),
                     [
-                        'name' => 'jltma_logo_slider_hover_image_css_filters',
+                        'name' => 'jltma_logo_slider_carousel_hover_image_css_filters',
                         'selector' => '{{WRAPPER}} .bdt-logo-carousel-figure img',
                     ]
                 );
@@ -836,7 +1279,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
 
         $this->start_controls_section(
-            'section_style_tooltip',
+            'jltma_logo_slider_section_style_tooltip',
             [
                 'label' => esc_html__( 'Tooltip', MELA_TD ),
                 'tab'   => Controls_Manager::TAB_STYLE,
@@ -844,7 +1287,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'logo_tooltip_width',
+            'jltma_logo_slider_tooltip_logo_width',
             [
                 'label'      => esc_html__( 'Width', MELA_TD ),
                 'type'       => Controls_Manager::SLIDER,
@@ -867,13 +1310,13 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'     => 'logo_tooltip_typography',
+                'name'     => 'jltma_logo_slider_tooltip_typography',
                 'selector' => '{{WRAPPER}} .tippy-tooltip .tippy-content',
             ]
         );
 
         $this->add_control(
-            'logo_tooltip_color',
+            'jltma_logo_slider_tooltip_color',
             [
                 'label'     => esc_html__( 'Text Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
@@ -884,7 +1327,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         );
 
         $this->add_control(
-            'logo_tooltip_text_align',
+            'jltma_logo_slider_tooltip_text_align',
             [
                 'label'   => esc_html__( 'Text Alignment', MELA_TD ),
                 'type'    => Controls_Manager::CHOOSE,
@@ -912,13 +1355,13 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
-                'name'     => 'logo_tooltip_background',
+                'name'     => 'jltma_logo_slider_tooltip_background',
                 'selector' => '{{WRAPPER}} .tippy-tooltip, {{WRAPPER}} .tippy-tooltip .tippy-backdrop',
             ]
         );
 
         $this->add_control(
-            'logo_tooltip_arrow_color',
+            'jltma_logo_slider_tooltip_arrow_color',
             [
                 'label'     => esc_html__( 'Arrow Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
@@ -932,7 +1375,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'logo_tooltip_padding',
+            'jltma_logo_slider_tooltip_padding',
             [
                 'label'      => __( 'Padding', MELA_TD ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -947,7 +1390,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name'        => 'logo_tooltip_border',
+                'name'        => 'jltma_logo_slider_tooltip_border',
                 'label'       => esc_html__( 'Border', MELA_TD ),
                 'placeholder' => '1px',
                 'default'     => '1px',
@@ -956,7 +1399,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'logo_tooltip_border_radius',
+            'jltma_logo_slider_tooltip_border_radius',
             [
                 'label'      => __( 'Border Radius', MELA_TD ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -970,539 +1413,15 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name'     => 'logo_tooltip_box_shadow',
+                'name'     => 'jltma_logo_slider_tooltip_box_shadow',
                 'selector' => '{{WRAPPER}} .tippy-tooltip',
             ]
         );
 
         $this->end_controls_section();
         
-        $this->start_controls_section(
-            'section_style_navigation',
-            [
-                'label'      => __( 'Navigation', MELA_TD ),
-                'tab'        => Controls_Manager::TAB_STYLE,
-                'conditions' => [
-                    'terms' => [
-                        [
-                            'name'     => 'navigation',
-                            'operator' => '!=',
-                            'value'    => 'none',
-                        ],
-                    ],
-                ],
-            ]
-        );
 
-        $this->add_control(
-            'arrows_size',
-            [
-                'label' => __( 'Arrows Size', MELA_TD ),
-                'type'  => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 20,
-                        'max' => 100,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-navigation-prev svg,
-                    {{WRAPPER}} .bdt-navigation-next svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
-                ],
-                'condition' => [
-                    'navigation' => [ 'arrows', 'both' ],
-                ],
-            ]
-        );
 
-        $this->add_control(
-            'arrows_background',
-            [
-                'label'     => __( 'Background Color', MELA_TD ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-navigation-prev,
-                    {{WRAPPER}} .bdt-navigation-next' => 'background-color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'navigation' => [ 'arrows', 'both' ],
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'arrows_hover_background',
-            [
-                'label'     => __( 'Hover Background Color', MELA_TD ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-navigation-prev:hover,
-                    {{WRAPPER}} .bdt-navigation-next:hover' => 'background-color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'navigation' => [ 'arrows', 'both' ],
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'arrows_color',
-            [
-                'label'     => __( 'Arrows Color', MELA_TD ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-navigation-prev svg,
-                    {{WRAPPER}} .bdt-navigation-next svg' => 'color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'navigation' => [ 'arrows', 'both' ],
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'arrows_hover_color',
-            [
-                'label'     => __( 'Arrows Hover Color', MELA_TD ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-navigation-prev:hover svg,
-                    {{WRAPPER}} .bdt-navigation-next:hover svg' => 'color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'navigation' => [ 'arrows', 'both' ],
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'arrows_space',
-            [
-                'label' => __( 'Space', MELA_TD ),
-                'type'  => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-navigation-prev' => 'margin-right: {{SIZE}}px;',
-                    '{{WRAPPER}} .bdt-navigation-next' => 'margin-left: {{SIZE}}px;',
-                ],
-                'conditions'   => [
-                    'terms' => [
-                        [
-                            'name'  => 'navigation',
-                            'value' => 'both',
-                        ],
-                        [
-                            'name'     => 'both_position',
-                            'operator' => '!=',
-                            'value'    => 'center',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name'        => 'arrows_border',
-                'label'       => esc_html__( 'Border', MELA_TD ),
-                'condition' => [
-                    'navigation' => [ 'arrows', 'both' ],
-                ],
-                'selector'    => '{{WRAPPER}} .bdt-navigation-prev,
-                {{WRAPPER}} .bdt-navigation-next',
-            ]
-        );
-
-        $this->add_control(
-            'arrows_border_hover_color',
-            [
-                'label' => __( 'Border Hover Color', MELA_TD ),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-navigation-prev:hover,
-                    {{WRAPPER}} .bdt-navigation-next:hover' => 'border-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'arrows_border_border!' => '',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'border_radius',
-            [
-                'label'      => __( 'Border Radius', MELA_TD ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%' ],
-                'selectors'  => [
-                    '{{WRAPPER}} .bdt-navigation-prev,
-                    {{WRAPPER}} .bdt-navigation-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'condition' => [
-                    'navigation' => [ 'arrows', 'both' ],
-                ],
-            ]
-        );
-        
-        $this->add_responsive_control(
-            'arrows_padding',
-            [
-                'label'      => esc_html__( 'Padding', MELA_TD ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ],
-                'selectors'  => [
-                    '{{WRAPPER}} .bdt-navigation-prev,
-                    {{WRAPPER}} .bdt-navigation-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'dots_size',
-            [
-                'label' => __( 'Dots Size', MELA_TD ),
-                'type'  => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 5,
-                        'max' => 20,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-slider-dotnav a' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-                ],
-                'condition' => [
-                    'navigation' => [ 'dots', 'both' ],
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'dots_color',
-            [
-                'label'     => __( 'Dots Color', MELA_TD ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-slider-dotnav a' => 'background-color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'navigation' => [ 'dots', 'both' ],
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'active_dot_color',
-            [
-                'label'     => __( 'Active Dots Color', MELA_TD ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-slider-dotnav.bdt-active a' => 'background-color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'navigation' => [ 'dots', 'both' ],
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'arrows_ncx_position',
-            [
-                'label'   => __( 'Horizontal Offset', MELA_TD ),
-                'type'    => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 0,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => -200,
-                        'max' => 200,
-                    ],
-                ],
-                'conditions'   => [
-                    'terms' => [
-                        [
-                            'name'  => 'navigation',
-                            'value' => 'arrows',
-                        ],
-                        [
-                            'name'     => 'arrows_position',
-                            'operator' => '!=',
-                            'value'    => 'center',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'arrows_ncy_position',
-            [
-                'label'   => __( 'Vertical Offset', MELA_TD ),
-                'type'    => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 40,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => -200,
-                        'max' => 200,
-                    ],
-                ],
-                'selectors' => [
-                    '(desktop){{WRAPPER}} .bdt-arrows-container' => 'transform: translate({{arrows_ncx_position.SIZE || 0}}px, {{arrows_ncy_position.SIZE || 0}}px);',
-                    '(tablet){{WRAPPER}} .bdt-arrows-container' => 'transform: translate({{arrows_ncx_position_tablet.SIZE || 0}}px, {{arrows_ncy_position_tablet.SIZE || 0}}px);',
-                    '(mobile){{WRAPPER}} .bdt-arrows-container' => 'transform: translate({{arrows_ncx_position_mobile.SIZE || 0}}px, {{arrows_ncy_position_mobile.SIZE || 0}}px);',
-                ],
-                'conditions'   => [
-                    'terms' => [
-                        [
-                            'name'  => 'navigation',
-                            'value' => 'arrows',
-                        ],
-                        [
-                            'name'     => 'arrows_position',
-                            'operator' => '!=',
-                            'value'    => 'center',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'arrows_acx_position',
-            [
-                'label'   => __( 'Horizontal Offset', MELA_TD ),
-                'type'    => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => -60,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => -200,
-                        'max' => 200,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-navigation-prev' => 'left: {{SIZE}}px;',
-                    '{{WRAPPER}} .bdt-navigation-next' => 'right: {{SIZE}}px;',
-                ],
-                'conditions' => [
-                    'terms' => [
-                        [
-                            'name'  => 'navigation',
-                            'value' => 'arrows',
-                        ],
-                        [
-                            'name'  => 'arrows_position',
-                            'value' => 'center',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'dots_nnx_position',
-            [
-                'label'   => __( 'Horizontal Offset', MELA_TD ),
-                'type'    => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 0,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => -200,
-                        'max' => 200,
-                    ],
-                ],
-                'conditions'   => [
-                    'terms' => [
-                        [
-                            'name'  => 'navigation',
-                            'value' => 'dots',
-                        ],
-                        [
-                            'name'     => 'dots_position',
-                            'operator' => '!=',
-                            'value'    => '',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'dots_nny_position',
-            [
-                'label'   => __( 'Vertical Offset', MELA_TD ),
-                'type'    => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 30,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => -200,
-                        'max' => 200,
-                    ],
-                ],
-                'selectors' => [
-                    '(desktop){{WRAPPER}} .bdt-dots-container' => 'transform: translate({{dots_nnx_position.SIZE || 0}}px, {{dots_nny_position.SIZE || 0}}px);',
-                    '(tablet){{WRAPPER}} .bdt-dots-container' => 'transform: translate({{dots_nnx_position_tablet.SIZE || 0}}px, {{dots_nny_position_tablet.SIZE || 0}}px);',
-                    '(mobile){{WRAPPER}} .bdt-dots-container' => 'transform: translate({{dots_nnx_position_mobile.SIZE || 0}}px, {{dots_nny_position_mobile.SIZE || 0}}px);',
-                ],
-                'conditions'   => [
-                    'terms' => [
-                        [
-                            'name'  => 'navigation',
-                            'value' => 'dots',
-                        ],
-                        [
-                            'name'     => 'dots_position',
-                            'operator' => '!=',
-                            'value'    => '',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'both_ncx_position',
-            [
-                'label'   => __( 'Horizontal Offset', MELA_TD ),
-                'type'    => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 0,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => -200,
-                        'max' => 200,
-                    ],
-                ],
-                'conditions'   => [
-                    'terms' => [
-                        [
-                            'name'  => 'navigation',
-                            'value' => 'both',
-                        ],
-                        [
-                            'name'     => 'both_position',
-                            'operator' => '!=',
-                            'value'    => 'center',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'both_ncy_position',
-            [
-                'label'   => __( 'Vertical Offset', MELA_TD ),
-                'type'    => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 40,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => -200,
-                        'max' => 200,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-arrows-dots-container' => 'transform: translate({{both_ncx_position.size}}px, {{SIZE}}px);',
-                ],
-                'conditions'   => [
-                    'terms' => [
-                        [
-                            'name'  => 'navigation',
-                            'value' => 'both',
-                        ],
-                        [
-                            'name'     => 'both_position',
-                            'operator' => '!=',
-                            'value'    => 'center',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'both_cx_position',
-            [
-                'label'   => __( 'Arrows Offset', MELA_TD ),
-                'type'    => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => -60,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => -200,
-                        'max' => 200,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-navigation-prev' => 'left: {{SIZE}}px;',
-                    '{{WRAPPER}} .bdt-navigation-next' => 'right: {{SIZE}}px;',
-                ],
-                'conditions' => [
-                    'terms' => [
-                        [
-                            'name'  => 'navigation',
-                            'value' => 'both',
-                        ],
-                        [
-                            'name'  => 'both_position',
-                            'value' => 'center',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'both_cy_position',
-            [
-                'label'   => __( 'Dots Offset', MELA_TD ),
-                'type'    => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 30,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => -200,
-                        'max' => 200,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-dots-container' => 'transform: translateY({{SIZE}}px);',
-                ],
-                'conditions' => [
-                    'terms' => [
-                        [
-                            'name'  => 'navigation',
-                            'value' => 'both',
-                        ],
-                        [
-                            'name'  => 'both_position',
-                            'value' => 'center',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
 
         /**
          * Content Tab: Docs Links
