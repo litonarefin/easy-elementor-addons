@@ -338,6 +338,13 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 ]
             );
 
+            $this->add_control(
+                'jltma_logo_slider_center_mode',
+                [
+                    'label' => esc_html__( 'Center Mode', MELA_TD ),
+                    'type'  => Controls_Manager::SWITCHER,
+                ]
+            );
         $this->end_controls_section();
 
 
@@ -1318,33 +1325,120 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
 
 
-    public function jltma_render_logo_header(){
+    /*
+    * Logo Slider: Render Header
+    */
+    public function jltma_render_logo_slider_header($settings){
         $settings = $this->get_settings_for_display();
         $id       = $this->get_id();
 
+
+        $this->add_render_attribute('jltma-logo-slider', 'id', 'jltma-logo-slider-' . esc_attr($id) );
+        $this->add_render_attribute('jltma-logo-slider', 'class', ['jltma-logo-slider-wrapper'] );
+        $this->add_render_attribute('jltma-logo-slider', 'class', 'slider-items');
+
+        $this->add_render_attribute(
+            [
+                'jltma-logo-slider-settings' => [
+                    'class' => [
+                        'jltma-logo-slider',
+                        ( 'both' == $settings['jltma_logo_slider_nav'] ) ? 'jltma-arrows-dots-align-' . $settings['jltma_logo_slider_nav_both_position'] : '',
+                        ( 'arrows' == $settings['jltma_logo_slider_nav'] ) ? 'jltma-arrows-align-' . $settings['jltma_logo_slider_nav_arrows_position'] : '',
+                        ( 'dots' == $settings['jltma_logo_slider_nav'] ) ? 'jltma-dots-align-'. $settings['jltma_logo_slider_nav_dots_position'] : '',
+                    ],
+                    
+                    'jltma-logo-slider-controls' => [
+                        wp_json_encode(array_filter([
+                            "autoplay"          => ( $settings["jltma_logo_slider_autoplay"] ) ? true : false,
+                            "autoplay-speed"    => $settings["jltma_logo_slider_autoplay_speed"],
+                            "transition"        => $settings["jltma_logo_slider_transition_duration"],
+                            "loop"              => ($settings["jltma_logo_slider_loop"]) ? false : true,
+                            "pause-on-hover"    => ( $settings["jltma_logo_slider_pause"] ) ? true : false,
+                            "center-mode"       => ( $settings["jltma_logo_slider_center_mode"] ) ? true : false
+                        ]))
+                    ]
+                ]
+            ]
+        );
+
+        ?>
+            <div <?php echo ( $this->get_render_attribute_string( 'jltma-logo-slider-settings' ) ); ?>>
+                <div <?php echo $this->get_render_attribute_string( 'jltma-logo-slider' ); ?>>
+        <?php
+
+
+
     }
     
 
-    public function jltma_render_logo_loop_item(){?>
 
-    <? }
+    /*
+    * Render Logo Loop
+    */
+
+    public function jltma_render_logo_slider_loop_item(){ ?>
+
+    <?php }
     
 
-    public function jltma_render_logo_footer(){
+
+    /*
+    * Render Footer
+    */
+    public function jltma_render_logo_slider_footer($settings){ 
+
+        $settings = $this->get_settings_for_display();
+
+                if ('both' == $settings['jltma_logo_slider_nav']){
+                
+                    $this->jltma_render_logo_slider_navigation($settings);
+
+                    if ( 'center' === $settings['jltma_logo_slider_nav_both_position'] ){
+                        $this->render_dotnavs($settings);
+                    }
+                
+                } elseif ('arrows' == $settings['jltma_logo_slider_nav']){
+
+                    $this->render_navigation($settings);
+
+                } elseif ('dots' == $settings['jltma_logo_slider_nav']){
+
+                    $this->render_dotnavs($settings);
+
+                }?>
+            </div> 
+            
+        </div><!--/.jltma-logo-slider-->
+
+    <?php }
+
+
+    /*
+    * Arrow & Dots Navigation 
+    */
+    public function jltma_render_logo_slider_navigation(){
 
     }
 
-
+    /*
+    * Arrow Navigation 
+    */
     public function render_arrow_navigation(){
 
     }
 
 
-    public function render_dot_navigation(){
+    /*
+    * Dots Navigation 
+    */
+    public function render_dots_navigation(){
 
     }
 
 
+    /*
+    * Render Navigation
+    */
     public function render_navigation(){
         
     }
@@ -1353,12 +1447,11 @@ class Master_Addons_Logo_Slider extends Widget_Base {
     public function render() {
         $settings = $this->get_settings_for_display();
 
-        // $this->jltma_render_logo_header();
-        // $this->jltma_render_logo_loop_item($settings);
-        // $this->jltma_render_logo_footer($settings);
+        $this->jltma_render_logo_slider_header($settings);
+        // $this->jltma_render_logo_slider_loop_item($settings);
+        $this->jltma_render_logo_slider_footer($settings);
         ?>
-        
-            <section class="jltma-logo-slider">
+
 
                 <div class="jltma-slider-item col-sm-3 col-xs-6">
                     <a href="#"><img src="images/clients/1.png" alt="client"></a>
@@ -1370,7 +1463,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     <h3 class="jltma-slider-item-title">Company Name 02</h3><!-- /.item-title -->
                 </div><!-- /.client -->
 
-            </section><!--/.Clients-->
+            
 
         <?php 
     }
