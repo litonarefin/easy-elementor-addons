@@ -45,20 +45,6 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         );
 
 
-            $this->add_control(
-                'jltma_logo_slider_style',
-                [
-                    'label' => esc_html__( 'Style Preset ', MELA_TD ),
-                    'type' => Controls_Manager::SELECT,
-                    'default' => 'style_one',
-                    'options' => [
-                        'style_one'         => esc_html__( 'Default', MELA_TD ),
-                        'style_two'         => esc_html__( 'Banner', MELA_TD ),
-                    ],
-                ]
-            );        
-
-
             $repeater = new Repeater();
 
             $repeater->add_control(
@@ -347,6 +333,18 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 ]
             );
 
+
+            $this->add_control(
+                'jltma_logo_slider_animation_speed',
+                [
+                    'label'     => esc_html__( 'Animation Speed', MELA_TD ),
+                    'type'      => Controls_Manager::NUMBER,
+                    'default'   => 500,
+                    'frontend_available' => true,
+                ]
+            );
+
+
             $this->add_control(
                 'jltma_logo_slider_loop',
                 [
@@ -373,8 +371,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             $this->add_control(
                 'jltma_logo_slider_center_mode',
                 [
-                    'label'                 => esc_html__( 'Center Mode', MELA_TD ),
-                    'type'                  => Controls_Manager::SWITCHER,
+                    'label'             => esc_html__( 'Center Mode', MELA_TD ),
+                    'type'  => Controls_Manager::SWITCHER,
                     'frontend_available'    => true,
                 ]
             );
@@ -547,8 +545,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         'label'     => __( 'Arrows Color', MELA_TD ),
                         'type'      => Controls_Manager::COLOR,
                         'selectors' => [
-                            '{{WRAPPER}} .bdt-navigation-prev:hover svg,
-                            {{WRAPPER}} .bdt-navigation-next:hover svg' => 'color: {{VALUE}}',
+                            '{{WRAPPER}} .jltma-ls-prev:hover svg,
+                            {{WRAPPER}} .jltma-ls-next:hover svg' => 'color: {{VALUE}}',
                         ],
                         'condition' => [
                             'jltma_logo_slider_nav' => [ 'arrows', 'both' ],
@@ -1103,8 +1101,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                             ],
                         ],
                         'selectors' => [
-                            '{{WRAPPER}} .bdt-navigation-prev svg,
-                            {{WRAPPER}} .bdt-navigation-next svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+                            '{{WRAPPER}} .jltma-ls-prev svg,
+                            {{WRAPPER}} .jltma-ls-next svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
                         ],
                         'condition' => [
                             'jltma_logo_slider_nav' => [ 'arrows', 'both' ],
@@ -1143,8 +1141,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         'condition' => [
                             'jltma_logo_slider_nav' => [ 'arrows', 'both' ],
                         ],
-                        'selector'    => '{{WRAPPER}} .bdt-navigation-prev,
-                        {{WRAPPER}} .bdt-navigation-next',
+                        'selector'    => '{{WRAPPER}} .jltma-ls-prev,
+                        {{WRAPPER}} .jltma-ls-next',
                     ]
                 );
 
@@ -1156,8 +1154,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         'type'       => Controls_Manager::DIMENSIONS,
                         'size_units' => [ 'px', '%' ],
                         'selectors'  => [
-                            '{{WRAPPER}} .bdt-navigation-prev,
-                            {{WRAPPER}} .bdt-navigation-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                            '{{WRAPPER}} .jltma-ls-prev,
+                            {{WRAPPER}} .jltma-ls-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                         ],
                         'condition' => [
                             'jltma_logo_slider_nav' => [ 'arrows', 'both' ],
@@ -1172,8 +1170,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         'type'       => Controls_Manager::DIMENSIONS,
                         'size_units' => [ 'px', 'em', '%' ],
                         'selectors'  => [
-                            '{{WRAPPER}} .bdt-navigation-prev,
-                            {{WRAPPER}} .bdt-navigation-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                            '{{WRAPPER}} .jltma-ls-prev,
+                            {{WRAPPER}} .jltma-ls-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                         ],
                     ]
                 );
@@ -1202,8 +1200,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         'type'       => Controls_Manager::DIMENSIONS,
                         'size_units' => [ 'px', '%' ],
                         'selectors'  => [
-                            '{{WRAPPER}} .bdt-navigation-prev,
-                            {{WRAPPER}} .bdt-navigation-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                            '{{WRAPPER}} .jltma-ls-prev,
+                            {{WRAPPER}} .jltma-ls-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                         ],
                         'condition' => [
                             'jltma_logo_slider_nav' => [ 'arrows', 'both' ],
@@ -1233,8 +1231,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         'type'       => Controls_Manager::DIMENSIONS,
                         'size_units' => [ 'px', 'em', '%' ],
                         'selectors'  => [
-                            '{{WRAPPER}} .bdt-navigation-prev,
-                            {{WRAPPER}} .bdt-navigation-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                            '{{WRAPPER}} .jltma-ls-prev,
+                            {{WRAPPER}} .jltma-ls-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                         ],
                     ]
                 );
@@ -1256,8 +1254,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-navigation-prev' => 'margin-right: {{SIZE}}px;',
-                    '{{WRAPPER}} .bdt-navigation-next' => 'margin-left: {{SIZE}}px;',
+                    '{{WRAPPER}} .jltma-ls-prev' => 'margin-right: {{SIZE}}px;',
+                    '{{WRAPPER}} .jltma-ls-next' => 'margin-left: {{SIZE}}px;',
                 ],
                 'conditions'   => [
                     'terms' => [
@@ -1399,7 +1397,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
         $this->add_render_attribute(
             [
-                'jltma-logo-slider-settings' => [
+                'jltma-logo-slider' => [
                     'class' => [
                         'jltma-logo-slider',
                         ( 'both' == $settings['jltma_logo_slider_nav'] ) ? 'jltma-arrows-dots-align-' . $settings['jltma_logo_slider_nav_both_position'] : '',
@@ -1411,12 +1409,10 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         );
 
         ?>
-            <div <?php echo ( $this->get_render_attribute_string( 'jltma-logo-slider-settings' ) ); ?>>
-                <div <?php echo $this->get_render_attribute_string( 'jltma-logo-slider' ); ?>>
+            
+            <div <?php echo $this->get_render_attribute_string( 'jltma-logo-slider' ); ?>>
+
         <?php
-
-
-
     }
     
 
@@ -1523,19 +1519,18 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     $this->jltma_render_logo_slider_navigation($settings);
 
                     if ( 'center' === $settings['jltma_logo_slider_nav_both_position'] ){
-                        $this->render_dotnavs($settings);
+                        $this->jltma_logo_slider_render_dots_navigation($settings);
                     }
                 
                 } elseif ('arrows' == $settings['jltma_logo_slider_nav']){
 
-                    $this->render_navigation($settings);
+                    $this->jltma_logo_slider_render_navigation($settings);
 
                 } elseif ('dots' == $settings['jltma_logo_slider_nav']){
 
-                    $this->render_dotnavs($settings);
+                    $this->jltma_logo_slider_render_dots_navigation($settings);
 
                 }?>
-            </div> 
             
         </div><!--/.jltma-logo-slider-->
 
@@ -1545,14 +1540,44 @@ class Master_Addons_Logo_Slider extends Widget_Base {
     /*
     * Arrow & Dots Navigation 
     */
-    public function jltma_render_logo_slider_navigation(){
+    public function jltma_render_logo_slider_navigation( $settings ){ ?>
 
-    }
+        <div class="jltma-logo-slider-nav jltma-position-<?php echo esc_attr($settings['jltma_logo_slider_nav_both_position']); ?>">
+            <div class="jltma-ls-arrows-dots-container jltma-ls-container">
+                
+                <div class="d-flex flex-row justify-content-center">
+                    <div>
+                        <a href="" class="jltma-ls-prev ma-el-team-carousel-prev bdt-slidenav"></a>                        
+                    </div>
+
+                    <?php if ('center' !== $settings['jltma_logo_slider_nav_both_position']) : ?>
+                        <div class="bdt-dotnav-wrapper bdt-dots-container">
+                            <ul class="bdt-dotnav">
+                                <?php       
+                                $bdt_counter = 0;
+
+                                foreach ( $settings['jltma_logo_slider_items'] as $index => $item ) :                                   
+                                    echo '<li class="bdt-slider-dotnav bdt-active" bdt-slider-item="' . esc_attr($bdt_counter) . '"><a href="#"></a></li>';
+                                    $bdt_counter++;
+                                endforeach; ?>
+
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+                    
+                    <div>
+                        <a href="" class="jltma-ls-next ma-el-team-carousel-prev bdt-slidenav"></a>                       
+                    </div>
+                    
+                </div>
+            </div>
+        </div>  
+    <?php }
 
     /*
     * Arrow Navigation 
     */
-    public function render_arrow_navigation(){
+    public function jltma_logo_slider_render_arrow_navigation(){
 
     }
 
@@ -1560,7 +1585,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
     /*
     * Dots Navigation 
     */
-    public function render_dots_navigation(){
+    public function jltma_logo_slider_render_dots_navigation(){
 
     }
 
@@ -1568,7 +1593,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
     /*
     * Render Navigation
     */
-    public function render_navigation(){
+    public function jltma_logo_slider_render_navigation(){
         
     }
 

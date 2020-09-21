@@ -1180,131 +1180,140 @@
             
             Master_Addons.MA_Logo_Slider.elementSettings    = getElementSettings( $scope );
 
-            var $teamCarouselWrapper = $scope.find('.ma-el-team-members-slider-section').eq(0),
-                $team_preset = $teamCarouselWrapper.data("team-preset"),
-                $ma_el_team_circle_image_animation = $teamCarouselWrapper.data("ma_el_team_circle_image_animation");
+            var $logSliderWrapper   = $scope.find('.jltma-logo-slider').eq(0),
+                $logo_slider_nav    = Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_nav,
+                // $loop = ($logSliderWrapper.data("loop") !== undefined) ? $logSliderWrapper.data("loop") : false,
+                $slidesToShow       = Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_show,
+                start               = elementorFrontend.config.is_rtl ? 'right' : 'left',
+                end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',                
+                $slidesToScroll     = Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_scroll;
+                // $autoPlay = ($logSliderWrapper.data("autoplay") !== undefined) ? $logSliderWrapper.data("autoplay") : false,
+                // $autoplaySpeed = ($logSliderWrapper.data("autoplayspeed") !== undefined) ? $logSliderWrapper.data("autoplayspeed") : false,
+                // $transitionSpeed = $logSliderWrapper.data("speed"),
+                // $pauseOnHover = ($logSliderWrapper.data("pauseonhover") !== undefined) ? $logSliderWrapper.data("pauseonhover") : false,
 
-            if ($team_preset == "-content-drawer") {
 
-                try {
-                    (function ($) {
-
-                        $('.gridder').gridderExpander({
-                            scroll: false,
-                            scrollOffset: 0,
-                            scrollTo: "panel",                  // panel or listitem
-                            animationSpeed: 400,
-                            animationEasing: "easeInOutExpo",
-                            showNav: true, // Show Navigation
-                            nextText: "<span></span>", // Next button text
-                            prevText: "<span></span>", // Previous button text
-                            closeText: "", // Close button text
-                            onStart: function () {
-                                //Gridder Inititialized
-                            },
-                            onContent: function () {
-                                //Gridder Content Loaded
-                            },
-                            onClosed: function () {
-                                //Gridder Closed
-                            }
-                        });
-
-                    })(jQuery);
-                } catch (e) {
-                    //We can also throw from try block and catch it here
-                    // No Error Show
+                // Logo Slider Navigation
+                if ($logo_slider_nav == "arrows") {
+                    var arrows = true;
+                    var dots = false;
+                } else {
+                    var arrows = false;
+                    var dots = true;
                 }
+                
+
+                var logoSlickArgs       = {
+                        slidesToShow    : $slidesToShow,
+                        slidesToScroll  : $slidesToScroll,
+                        cssEase         : "linear",
+                        draggable       : false,
+                        // asNavFor        : ($thumbtype == "slide") ? ".jltma-gallery-slider__gallery .jltma-gallery" : "",
+                        // adaptiveHeight  : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltMA_Logo_Slider_adaptive_height,
+                        autoplay        : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_autoplay,
+                        autoplaySpeed   : Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_autoplay_speed,
+                        infinite        : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_loop,
+                        pauseOnHover    : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_pause,
+                        speed           : Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_animation_speed,
+                        arrows          : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_nav,
+                        // prevArrow       : '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
+                        // nextArrow       : '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
+                        prevArrow       : "<div class='ma-el-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
+                        nextArrow       : "<div class='ma-el-team-carousel-next'><i class='fa fa-angle-right'></i></div>",                        
+                        dots            : false,
+                        rtl             : 'rtl' === Master_Addons.MA_Logo_Slider.elementSettings.jltMA_Logo_Slider_direction,
+                        fade            : 'fade' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_gallery_slider_effect,
+                        responsive: [
+
+                            {
+                                breakpoint: 350,
+                                settings: {
+                                    dots: dots,
+                                    arrow: arrows,
+                                    rows:1,
+                                    slidesToShow: Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_show_mobile,
+                                    slidesToScroll: $slidesToScroll
+                                }
+                            },
+                            {
+                                breakpoint: 576,
+                                settings: {
+                                    dots: dots,
+                                    arrow: arrows,
+                                    slidesToShow: Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_show_tablet,
+                                    slidesToScroll: $slidesToScroll
+                                }
+                            },
+                            {
+                                breakpoint: 720,
+                                settings: {
+                                    slidesToShow: $slidesToShow,
+                                    slidesToScroll: $slidesToScroll,
+                                    infinite: true,
+                                    centerMode: false,
+                                    dots: dots,
+                                    arrow: arrows
+                                }
+                            },
+
+                        ],                        
+                };
 
 
-            } else {
-
-                try {
-                    (function ($) {
-
-                        var $teamCarouselWrapper = $scope.find('.ma-el-team-members-slider-section').eq(0),
-                            $carousel_nav = $teamCarouselWrapper.data("carousel-nav"),
-                            $loop = ($teamCarouselWrapper.data("loop") !== undefined) ? $teamCarouselWrapper.data("loop") : false,
-                            $slidesToShow = $teamCarouselWrapper.data("slidestoshow"),
-                            $slidesToScroll = $teamCarouselWrapper.data("slidestoscroll"),
-                            $autoPlay = ($teamCarouselWrapper.data("autoplay") !== undefined) ? $teamCarouselWrapper.data("autoplay") : false,
-                            $autoplaySpeed = ($teamCarouselWrapper.data("autoplayspeed") !== undefined) ? $teamCarouselWrapper.data("autoplayspeed") : false,
-                            $transitionSpeed = $teamCarouselWrapper.data("speed"),
-                            $pauseOnHover = ($teamCarouselWrapper.data("pauseonhover") !== undefined) ? $teamCarouselWrapper.data("pauseonhover") : false
 
 
-                        // Team Carousel
-                        if ($carousel_nav == "arrows") {
-                            var arrows = true;
-                            var dots = false;
-                        } else {
-                            var arrows = false;
-                            var dots = true;
-                        }
+            $logSliderWrapper.slick( logoSlickArgs );
 
-                        $teamCarouselWrapper.slick({
-                            infinite: $loop,
-                            slidesToShow: $slidesToShow,
-                            slidesToScroll: $slidesToScroll,
-                            autoplay: $autoPlay,
-                            autoplaySpeed: $autoplaySpeed,
-                            speed: $transitionSpeed,
-                            mobileFirst:true,
-                            pauseOnHover: $pauseOnHover,
-                            dots: dots,
-                            arrows: arrows,
-                            prevArrow: "<div class='ma-el-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-                            nextArrow: "<div class='ma-el-team-carousel-next'><i class='fa fa-angle-right'></i></div>",
-                            rows: 0,
-                            responsive: [
+            // $logSliderWrapper.slick({
+            //     infinite: $loop,
+            //     slidesToShow: $slidesToShow,
+            //     slidesToScroll: $slidesToScroll,
+            //     autoplay: $autoPlay,
+            //     autoplaySpeed: $autoplaySpeed,
+            //     speed: $transitionSpeed,
+            //     mobileFirst:true,
+            //     pauseOnHover: $pauseOnHover,
+            //     dots: dots,
+            //     arrows: arrows,
+            //     prevArrow: "<div class='ma-el-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
+            //     nextArrow: "<div class='ma-el-team-carousel-next'><i class='fa fa-angle-right'></i></div>",
+            //     rows: 0,
+            //     responsive: [
 
-                                {
-                                    breakpoint: 350,
-                                    settings: {
-                                        dots: dots,
-                                        arrow: arrows,
-                                        rows:1,
-                                        slidesToShow: Master_Addons.MA_TeamSlider.elementSettings.ma_el_team_per_view_mobile,
-                                        slidesToScroll: $slidesToScroll
-                                    }
-                                },
-                                {
-                                    breakpoint: 576,
-                                    settings: {
-                                        dots: dots,
-                                        arrow: arrows,
-                                        slidesToShow: Master_Addons.MA_TeamSlider.elementSettings.ma_el_team_per_view_tablet,
-                                        slidesToScroll: $slidesToScroll
-                                    }
-                                },
-                                {
-                                    breakpoint: 720,
-                                    settings: {
-                                        slidesToShow: $slidesToShow,
-                                        slidesToScroll: $slidesToScroll,
-                                        infinite: true,
-                                        centerMode: false,
-                                        dots: dots,
-                                        arrow: arrows
-                                    }
-                                },
+            //         {
+            //             breakpoint: 350,
+            //             settings: {
+            //                 dots: dots,
+            //                 arrow: arrows,
+            //                 rows:1,
+            //                 slidesToShow: Master_Addons.MA_TeamSlider.elementSettings.jltma_logo_slider_slides_to_show_mobile,
+            //                 slidesToScroll: $slidesToScroll
+            //             }
+            //         },
+            //         {
+            //             breakpoint: 576,
+            //             settings: {
+            //                 dots: dots,
+            //                 arrow: arrows,
+            //                 slidesToShow: Master_Addons.MA_TeamSlider.elementSettings.jltma_logo_slider_slides_to_show_tablet,
+            //                 slidesToScroll: $slidesToScroll
+            //             }
+            //         },
+            //         {
+            //             breakpoint: 720,
+            //             settings: {
+            //                 slidesToShow: $slidesToShow,
+            //                 slidesToScroll: $slidesToScroll,
+            //                 infinite: true,
+            //                 centerMode: false,
+            //                 dots: dots,
+            //                 arrow: arrows
+            //             }
+            //         },
 
-                            ],
-                        });
+            //     ],
+            // });
 
-                    })(jQuery);
-                } catch (e) {
-                    //We can also throw from try block and catch it here
-                    // No Error Show
-                }
-
-            }
-
-            // else if ($team_preset == "-circle-animation"){
-            //     if($ma_el_team_circle_image_animation == "animation_svg_04"){
-            //
-            //     }
-            // }
 
         },
 
