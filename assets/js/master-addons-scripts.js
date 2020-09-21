@@ -1197,7 +1197,10 @@
                 if ($logo_slider_nav == "arrows") {
                     var arrows = true;
                     var dots = false;
-                } else {
+                } else if($logo_slider_nav == "both") {
+                    var arrows = true;
+                    var dots = true;                    
+                } else if($logo_slider_nav == "dots") {
                     var arrows = false;
                     var dots = true;
                 }
@@ -1215,20 +1218,25 @@
                         infinite        : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_loop,
                         pauseOnHover    : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_pause,
                         speed           : Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_animation_speed,
-                        arrows          : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_nav,
+                        arrows          : arrows,
+                        centerMode      : Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_center_mode,
+                        // centerPadding: '60px',
                         // prevArrow       : '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
                         // nextArrow       : '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
-                        prevArrow       : "<div class='ma-el-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-                        nextArrow       : "<div class='ma-el-team-carousel-next'><i class='fa fa-angle-right'></i></div>",                        
+                        // prevArrow       : "<div class='jltma-slide-prev'><i class='fas fa-angle-left'></i></div>",
+                        // nextArrow       : "<div class='jltma-slide-next'><i class='fas fa-angle-right'></i></div>",                        
+                        prevArrow       : $('.jltma-slide-prev'),
+                        nextArrow       : $('.jltma-slide-next'),
                         dots            : false,
-                        rtl             : 'rtl' === Master_Addons.MA_Logo_Slider.elementSettings.jltMA_Logo_Slider_direction,
-                        fade            : 'fade' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_gallery_slider_effect,
+                        dotsClass       : 'jltma-slide-dotnav',
+                        // rtl             : 'rtl' === Master_Addons.MA_Logo_Slider.elementSettings.jltMA_Logo_Slider_direction,
+                        // fade            : 'fade' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_gallery_slider_effect,
                         responsive: [
 
                             {
                                 breakpoint: 350,
                                 settings: {
-                                    dots: dots,
+                                    dots: false,
                                     arrow: arrows,
                                     rows:1,
                                     slidesToShow: Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_show_mobile,
@@ -1238,7 +1246,7 @@
                             {
                                 breakpoint: 576,
                                 settings: {
-                                    dots: dots,
+                                    dots: false,
                                     arrow: arrows,
                                     slidesToShow: Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_show_tablet,
                                     slidesToScroll: $slidesToScroll
@@ -1250,8 +1258,9 @@
                                     slidesToShow: $slidesToShow,
                                     slidesToScroll: $slidesToScroll,
                                     infinite: true,
-                                    centerMode: false,
-                                    dots: dots,
+                                    // centerMode: false,
+                                    // centerPadding: '40px',                                    
+                                    dots: false,
                                     arrow: arrows
                                 }
                             },
@@ -1264,56 +1273,11 @@
 
             $logSliderWrapper.slick( logoSlickArgs );
 
-            // $logSliderWrapper.slick({
-            //     infinite: $loop,
-            //     slidesToShow: $slidesToShow,
-            //     slidesToScroll: $slidesToScroll,
-            //     autoplay: $autoPlay,
-            //     autoplaySpeed: $autoplaySpeed,
-            //     speed: $transitionSpeed,
-            //     mobileFirst:true,
-            //     pauseOnHover: $pauseOnHover,
-            //     dots: dots,
-            //     arrows: arrows,
-            //     prevArrow: "<div class='ma-el-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-            //     nextArrow: "<div class='ma-el-team-carousel-next'><i class='fa fa-angle-right'></i></div>",
-            //     rows: 0,
-            //     responsive: [
 
-            //         {
-            //             breakpoint: 350,
-            //             settings: {
-            //                 dots: dots,
-            //                 arrow: arrows,
-            //                 rows:1,
-            //                 slidesToShow: Master_Addons.MA_TeamSlider.elementSettings.jltma_logo_slider_slides_to_show_mobile,
-            //                 slidesToScroll: $slidesToScroll
-            //             }
-            //         },
-            //         {
-            //             breakpoint: 576,
-            //             settings: {
-            //                 dots: dots,
-            //                 arrow: arrows,
-            //                 slidesToShow: Master_Addons.MA_TeamSlider.elementSettings.jltma_logo_slider_slides_to_show_tablet,
-            //                 slidesToScroll: $slidesToScroll
-            //             }
-            //         },
-            //         {
-            //             breakpoint: 720,
-            //             settings: {
-            //                 slidesToShow: $slidesToShow,
-            //                 slidesToScroll: $slidesToScroll,
-            //                 infinite: true,
-            //                 centerMode: false,
-            //                 dots: dots,
-            //                 arrow: arrows
-            //             }
-            //         },
-
-            //     ],
-            // });
-
+            $(".jltma-slide-dotnav li a").click(function(e){
+                var slideIndex = $(this).parent().index();
+                $logSliderWrapper.slick('slickGoTo', parseInt(slideIndex));
+            });
 
         },
 

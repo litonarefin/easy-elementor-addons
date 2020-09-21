@@ -11571,4 +11571,48 @@ ul.jltma-toggle-content-controls {
     -o-filter: grayscale(0);
     filter: grayscale(0);
 }
+.jltma-position-top-right{
+    top: 0;
+    right: 0;
+}
+.jltma-position-top-center {
+    top: 0;
+}
+.jltma-slide-dotnav {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-left: -12px;
+}
+.jltma-slide-dotnav>* {
+    flex: none;
+    padding-left: 12px;
+}
+.jltma-slide-dotnav>*>* {
+    display: block;
+    box-sizing: border-box;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(102,102,102,0.2);
+    text-indent: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer; 
+}
+
+.jltma-position-top-center, .jltma-position-bottom-center {
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.jltma-position-z-index{
+    z-index: 1;
+}
+
+
 /* End of Logo Slider */

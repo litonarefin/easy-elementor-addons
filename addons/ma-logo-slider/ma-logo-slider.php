@@ -371,8 +371,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             $this->add_control(
                 'jltma_logo_slider_center_mode',
                 [
-                    'label'             => esc_html__( 'Center Mode', MELA_TD ),
-                    'type'  => Controls_Manager::SWITCHER,
+                    'label'                 => esc_html__( 'Center Mode', MELA_TD ),
+                    'type'                  => Controls_Manager::SWITCHER,
                     'frontend_available'    => true,
                 ]
             );
@@ -1391,9 +1391,9 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         $id       = $this->get_id();
 
 
-        $this->add_render_attribute('jltma-logo-slider', 'id', 'jltma-logo-slider-' . esc_attr($id) );
-        $this->add_render_attribute('jltma-logo-slider', 'class', ['jltma-logo-slider-wrapper'] );
-        $this->add_render_attribute('jltma-logo-slider', 'class', 'slider-items');
+        $this->add_render_attribute('jltma-ls-wrapper', 'id', 'jltma-logo-slider-' . esc_attr($id) );
+        $this->add_render_attribute('jltma-ls-wrapper', 'class', ['jltma-logo-slider-wrapper'] );
+        $this->add_render_attribute('jltma-ls-wrapper', 'class', 'slider-items');
 
         $this->add_render_attribute(
             [
@@ -1410,7 +1410,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
         ?>
             
-            <div <?php echo $this->get_render_attribute_string( 'jltma-logo-slider' ); ?>>
+            <div <?php echo $this->get_render_attribute_string( 'jltma-ls-wrapper' ); ?>>
+                <div <?php echo $this->get_render_attribute_string( 'jltma-logo-slider' ); ?>>
 
         <?php
     }
@@ -1501,8 +1502,6 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
         }  // end of foreach
 
-
-
     }
     
 
@@ -1513,7 +1512,10 @@ class Master_Addons_Logo_Slider extends Widget_Base {
     public function jltma_render_logo_slider_footer($settings){ 
 
         $settings = $this->get_settings_for_display();
+        ?>
+            </div>
 
+        <?php
                 if ('both' == $settings['jltma_logo_slider_nav']){
                 
                     $this->jltma_render_logo_slider_navigation($settings);
@@ -1542,31 +1544,31 @@ class Master_Addons_Logo_Slider extends Widget_Base {
     */
     public function jltma_render_logo_slider_navigation( $settings ){ ?>
 
-        <div class="jltma-logo-slider-nav jltma-position-<?php echo esc_attr($settings['jltma_logo_slider_nav_both_position']); ?>">
+        <div class="jltma-position-z-index jltma-position-<?php echo esc_attr($settings['jltma_logo_slider_nav_both_position']); ?>">
             <div class="jltma-ls-arrows-dots-container jltma-ls-container">
                 
                 <div class="d-flex flex-row justify-content-center">
                     <div>
-                        <a href="" class="jltma-ls-prev ma-el-team-carousel-prev bdt-slidenav"></a>                        
+                        <a href="#" class="jltma-ls-prev jltma-slide-prev slick-arrow">
+                            <svg width="38" height="38" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="13 16 7 10 13 4"></polyline></svg>
+                        </a>                        
                     </div>
 
                     <?php if ('center' !== $settings['jltma_logo_slider_nav_both_position']) : ?>
-                        <div class="bdt-dotnav-wrapper bdt-dots-container">
-                            <ul class="bdt-dotnav">
-                                <?php       
-                                $bdt_counter = 0;
-
-                                foreach ( $settings['jltma_logo_slider_items'] as $index => $item ) :                                   
-                                    echo '<li class="bdt-slider-dotnav bdt-active" bdt-slider-item="' . esc_attr($bdt_counter) . '"><a href="#"></a></li>';
-                                    $bdt_counter++;
-                                endforeach; ?>
-
-                            </ul>
-                        </div>
+                        <ul class="jltma-slide-dotnav">
+                            <?php       
+                            $jltma_ls_counter = 0;
+                            foreach ( $settings['jltma_logo_slider_items'] as $index => $item ){
+                                echo '<li class="jltma-ls-dot" slick-slider-item="' . esc_attr($jltma_ls_counter) . '"><a></a></li>';
+                                $jltma_ls_counter++;
+                            } ?>
+                        </ul>
                     <?php endif; ?>
                     
                     <div>
-                        <a href="" class="jltma-ls-next ma-el-team-carousel-prev bdt-slidenav"></a>                       
+                        <a href="" class="jltma-ls-next jltma-slide-next slick-arrow">
+                            <svg width="38" height="38" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="7 4 13 10 7 16"></polyline></svg>
+                        </a>
                     </div>
                     
                 </div>
