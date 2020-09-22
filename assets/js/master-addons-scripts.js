@@ -1227,8 +1227,9 @@
                         // nextArrow       : "<div class='jltma-slide-next'><i class='fas fa-angle-right'></i></div>",                        
                         prevArrow       : $('.jltma-slide-prev'),
                         nextArrow       : $('.jltma-slide-next'),
-                        dots            : false,
-                        dotsClass       : 'jltma-slide-dotnav',
+                        dots            : true,
+                        dotsClass       : $('.jltma-slide-dotnav'),
+                        appendDots      : $('.jltma-slide-dotnav'),
                         // rtl             : 'rtl' === Master_Addons.MA_Logo_Slider.elementSettings.jltMA_Logo_Slider_direction,
                         // fade            : 'fade' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_gallery_slider_effect,
                         responsive: [
@@ -1236,7 +1237,7 @@
                             {
                                 breakpoint: 350,
                                 settings: {
-                                    dots: false,
+                                    dots: dots,
                                     arrow: arrows,
                                     rows:1,
                                     slidesToShow: Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_show_mobile,
@@ -1246,7 +1247,7 @@
                             {
                                 breakpoint: 576,
                                 settings: {
-                                    dots: false,
+                                    dots: dots,
                                     arrow: arrows,
                                     slidesToShow: Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_show_tablet,
                                     slidesToScroll: $slidesToScroll
@@ -1260,7 +1261,7 @@
                                     infinite: true,
                                     // centerMode: false,
                                     // centerPadding: '40px',                                    
-                                    dots: false,
+                                    dots: dots,
                                     arrow: arrows
                                 }
                             },
@@ -1274,8 +1275,13 @@
             $logSliderWrapper.slick( logoSlickArgs );
 
 
+            // $('.jltma-slide-dotnav li a').removeClass('active');
             $(".jltma-slide-dotnav li a").click(function(e){
+                e.preventDefault();
+
                 var slideIndex = $(this).parent().index();
+                $('.jltma-slide-dotnav li a.active').removeClass('active');
+                // $(this).addClass('active');
                 $logSliderWrapper.slick('slickGoTo', parseInt(slideIndex));
             });
 
