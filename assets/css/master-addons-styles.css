@@ -11621,17 +11621,12 @@ ul.jltma-toggle-content-controls {
     position: absolute;
     transform: translateY(-50%);
 }
-.jltma-position-top-center, .jltma-position-bottom-center {
-    left: 50%;
-    transform: translateX(-50%);
-    width: max-content;
-    max-width: 100%;
-    box-sizing: border-box;
+.jltma-position-bottom-center {
+    bottom: 0;
 }
 .jltma-arrows-align-center .jltma-position-center, .jltma-arrows-dots-align-center .jltma-position-center {
     width: 100%;
 }
-
 .jltma-slide-dotnav {
     display: flex;
     flex-wrap: wrap;

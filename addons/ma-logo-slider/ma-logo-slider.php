@@ -146,8 +146,9 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             $repeater->add_control(
                 'jltma_logo_slider_item_logo_tooltip',
                 [
-                    'label'   => __( 'Tooltip', MELA_TD ),
-                    'type'    => Controls_Manager::SWITCHER,
+                    'label'         => esc_html__( 'Tooltip', MELA_TD ),
+                    'type'          => Controls_Manager::SWITCHER,
+                    'return_value'  => 'yes',
                 ]
             );
 
@@ -156,19 +157,15 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 [
                     'label'   => esc_html__( 'Placement', MELA_TD ),
                     'type'    => Controls_Manager::SELECT,
-                    'default' => 'top',
+                    'default' => 'tooltip-right',
                     'options' => [
-                        'top-start'    => esc_html__( 'Top Left', MELA_TD ),
-                        'top'          => esc_html__( 'Top', MELA_TD ),
-                        'top-end'      => esc_html__( 'Top Right', MELA_TD ),
-                        'bottom-start' => esc_html__( 'Bottom Left', MELA_TD ),
-                        'bottom'       => esc_html__( 'Bottom', MELA_TD ),
-                        'bottom-end'   => esc_html__( 'Bottom Right', MELA_TD ),
-                        'left'         => esc_html__( 'Left', MELA_TD ),
-                        'right'        => esc_html__( 'Right', MELA_TD ),
+                        'tooltip-left'      => esc_html__( 'Left', MELA_TD ),
+                        'tooltip-right'     => esc_html__( 'Right', MELA_TD ),
+                        'tooltip-top'       => esc_html__( 'Top', MELA_TD ),
+                        'tooltip-bottom'    => esc_html__( 'Bottom', MELA_TD ),
                     ],
                     'condition'   => [
-                        'logo_tooltip' => 'yes',
+                        'jltma_logo_slider_item_logo_tooltip' => 'yes',
                     ],
                 ]
             );
@@ -442,7 +439,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     'label'     => esc_html__( 'Dots Position', MELA_TD ),
                     'type'      => Controls_Manager::SELECT,
                     'default'   => 'bottom-center',
-                    'options'   => Master_Addons_Helper::jltma_carousel_navigation_position(),
+                    'options'   => Master_Addons_Helper::jltma_carousel_pagination_position(),
                     'condition' => [
                         'jltma_logo_slider_nav' => 'dots',
                     ],              
@@ -577,121 +574,6 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
         $this->end_controls_section();
 
-
-
-        /*
-        * Tooltips
-        */
-        $this->start_controls_section(
-            'jltma_logo_slider_section_tooltip_settings',
-            [
-                'label' => esc_html__( 'Tooltip', MELA_TD ),
-            ]
-        );
-
-
-            $this->add_control(
-                'jltma_logo_slider_tooltip',
-                [
-                    'label'   => esc_html__( 'Tooltip', MELA_TD ),
-                    'type'    => Controls_Manager::SWITCHER,
-                ]
-            );
-
-            $this->add_control(
-                'jltma_logo_slider_tooltip_placement',                       
-                [
-                    'label'   => esc_html__( 'Placement', MELA_TD ),
-                    'type'    => Controls_Manager::SELECT,
-                    'default' => 'top',
-                    'options' => [
-                        'top-start'    => esc_html__( 'Top Left', MELA_TD ),
-                        'top'          => esc_html__( 'Top', MELA_TD ),
-                        'top-end'      => esc_html__( 'Top Right', MELA_TD ),
-                        'bottom-start' => esc_html__( 'Bottom Left', MELA_TD ),
-                        'bottom'       => esc_html__( 'Bottom', MELA_TD ),
-                        'bottom-end'   => esc_html__( 'Bottom Right', MELA_TD ),
-                        'left'         => esc_html__( 'Left', MELA_TD ),
-                        'right'        => esc_html__( 'Right', MELA_TD ),
-                    ],
-                    'condition'   => [
-                        'jltma_logo_slider_tooltip' => 'yes',
-                    ],
-                ]
-            );
-
-            $this->add_control(
-                'jltma_logo_slider_tooltip_animation',
-                [
-                    'label'   => esc_html__( 'Animation', MELA_TD ),
-                    'type'    => Controls_Manager::SELECT,
-                    'default' => 'shift-toward',
-                    'options' => [
-                        'shift-away'   => esc_html__( 'Shift-Away', MELA_TD ),
-                        'shift-toward' => esc_html__( 'Shift-Toward', MELA_TD ),
-                        'fade'         => esc_html__( 'Fade', MELA_TD ),
-                        'scale'        => esc_html__( 'Scale', MELA_TD ),
-                        'perspective'  => esc_html__( 'Perspective', MELA_TD ),
-                    ],
-                    'render_type'  => 'template',
-                    'condition'   => [
-                        'jltma_logo_slider_tooltip' => 'yes',
-                    ],
-                ]
-            );
-
-            $this->add_control(
-                'jltma_logo_slider_tooltip_x_offset',
-                [
-                    'label'   => esc_html__( 'Offset', MELA_TD ),
-                    'type'    => Controls_Manager::SLIDER,
-                    'default' => [
-                        'size' => 0,
-                    ],
-                    'condition'   => [
-                        'jltma_logo_slider_tooltip' => 'yes',
-                    ],
-                ]
-            );
-
-            $this->add_control(
-                'jltma_logo_slider_tooltip_y_offset',
-                [
-                    'label'   => esc_html__( 'Distance', MELA_TD ),
-                    'type'    => Controls_Manager::SLIDER,
-                    'default' => [
-                        'size' => 0,
-                    ],
-                    'condition'   => [
-                        'jltma_logo_slider_tooltip' => 'yes',
-                    ],
-                ]
-            );
-
-            $this->add_control(
-                'jltma_logo_slider_tooltip_arrow',
-                [
-                    'label'        => esc_html__( 'Arrow', MELA_TD ),
-                    'type'         => Controls_Manager::SWITCHER,
-                    'condition'   => [
-                        'jltma_logo_slider_tooltip' => 'yes',
-                    ],
-                ]
-            );
-
-            $this->add_control(
-                'jltma_logo_slider_tooltip_trigger',
-                [
-                    'label'       => esc_html__( 'Trigger on Click', MELA_TD ),
-                    'description' => esc_html__( 'Don\'t set yes when you set lightbox image with marker.', MELA_TD ),
-                    'type'        => Controls_Manager::SWITCHER,
-                    'condition'   => [
-                        'jltma_logo_slider_tooltip' => 'yes',
-                    ],
-                ]
-            );
-
-        $this->end_controls_section();
 
 
 
@@ -916,7 +798,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'jltma_logo_slider_tooltip_logo_width',
+            'jltma_logo_slider_tooltip_width',
             [
                 'label'      => esc_html__( 'Width', MELA_TD ),
                 'type'       => Controls_Manager::SLIDER,
@@ -1399,6 +1281,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 ( 'arrows' == $settings['jltma_logo_slider_nav'] ) ? 'jltma-arrows-align-' . $settings['jltma_logo_slider_nav_arrows_position'] : '',
                 ( 'dots' == $settings['jltma_logo_slider_nav'] ) ? 'jltma-dots-align-'. $settings['jltma_logo_slider_nav_dots_position'] : '',
             ] );
+        
 
         $this->add_render_attribute(
             [
@@ -1440,6 +1323,10 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             $title_html_tag = ($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
             $this->add_render_attribute( $repeater_key, 'class', 'jltma-logo-slider-item' );
 
+            // if($item['jltma_logo_slider_item_logo_tooltip'] == "yes"){
+            //     $this->add_render_attribute( $repeater_key, 'class', 'ma-el-tooltip' );
+            // }
+
 
             if ( $item['jltma_logo_slider_website_link']['url'] ) {
                 $tag = 'a';
@@ -1450,37 +1337,49 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 $this->add_render_attribute( $repeater_key, 'title', $item['jltma_logo_slider_brand_name'] );
             }
 
-            if ($item['jltma_logo_slider_brand_name'] and $item['jltma_logo_slider_brand_description'] and $item['jltma_logo_slider_item_logo_tooltip']) {
+            if ($item['jltma_logo_slider_brand_name'] and $item['jltma_logo_slider_brand_description'] and $item['jltma_logo_slider_item_logo_tooltip'] == "yes") {
 
-                $tooltip_content = '<'. $title_html_tag .'>' . $item['jltma_logo_slider_brand_name'] . '</'. $title_html_tag .'>' . $item['jltma_logo_slider_brand_description']; 
-                $this->add_render_attribute( $repeater_key, 'data-tippy-content', $tooltip_content, true);
+                // $tooltip_content .= '<'. $title_html_tag .'>' . $item['jltma_logo_slider_brand_name'] . '</'. $title_html_tag .'>' . $item['jltma_logo_slider_brand_description']; 
                 
-                $this->add_render_attribute( $repeater_key, 'class', 'bdt-tippy-tooltip' );
-                $this->add_render_attribute( $repeater_key, 'data-tippy', '', true );
+                // $this->add_render_attribute( $repeater_key, 'data-tippy-content', $tooltip_content, true);
+                
+                // $this->add_render_attribute( $repeater_key, 'class', 'ma-el-tooltip' );
+                // print_r($item['jltma_logo_slider_item_logo_tooltip']);
+                if($item['jltma_logo_slider_item_logo_tooltip'] == "yes"){
+                    
+                    // $tooltip_content .= '<div class="ma-el-tooltip-item  ' . esc_attr( $settings['ma_el_tooltip_direction'] ) .'">';
+                    // jltma_logo_slider_item_logo_tooltip_placement
+                    echo '<div class="ma-el-tooltip"><div class="ma-el-tooltip-item ' . esc_attr($item['jltma_logo_slider_item_logo_tooltip_placement']) . '">';
+                    $this->add_render_attribute( $repeater_key, 'class', 'ma-el-tooltip-content' );
 
-                if ($item['jltma_logo_slider_item_logo_tooltip_placement']) {
-                    $this->add_render_attribute( $repeater_key, 'data-tippy-placement', $item['jltma_logo_slider_item_logo_tooltip_placement'], true );
                 }
 
-                if ($settings['jltma_logo_slider_tooltip_animation']) {
-                    $this->add_render_attribute( $repeater_key, 'data-tippy-animation', $settings['jltma_logo_slider_tooltip_animation'], true );
-                }
 
-                if ($settings['jltma_logo_slider_tooltip_x_offset']['size'] or $settings['jltma_logo_slider_tooltip_y_offset']['size']) {
-                    $this->add_render_attribute( $repeater_key, 'data-tippy-offset', $settings['jltma_logo_slider_tooltip_x_offset']['size'] .','. $settings['jltma_logo_slider_tooltip_y_offset']['size'], true );
-                }
+                // $this->add_render_attribute( $repeater_key, 'data-tippy', '', true );
 
-                if ('yes' == $settings['jltma_logo_slider_tooltip_arrow']) {
-                    $this->add_render_attribute( $repeater_key, 'data-tippy-arrow', 'true', true );
-                }
+                // if ($item['jltma_logo_slider_item_logo_tooltip_placement']) {
+                //     $this->add_render_attribute( $repeater_key, 'data-tippy-placement', $item['jltma_logo_slider_item_logo_tooltip_placement'], true );
+                // }
 
-                if ('yes' == $settings['jltma_logo_slider_tooltip_trigger']) {
-                    $this->add_render_attribute( $repeater_key, 'data-tippy-trigger', 'click', true );
-                }
+                // if ($settings['jltma_logo_slider_tooltip_animation']) {
+                //     $this->add_render_attribute( $repeater_key, 'data-tippy-animation', $settings['jltma_logo_slider_tooltip_animation'], true );
+                // }
+
+                // if ($settings['jltma_logo_slider_tooltip_x_offset']['size'] or $settings['jltma_logo_slider_tooltip_y_offset']['size']) {
+                //     $this->add_render_attribute( $repeater_key, 'data-tippy-offset', $settings['jltma_logo_slider_tooltip_x_offset']['size'] .','. $settings['jltma_logo_slider_tooltip_y_offset']['size'], true );
+                // }
+
+                // if ('yes' == $settings['jltma_logo_slider_tooltip_arrow']) {
+                //     $this->add_render_attribute( $repeater_key, 'data-tippy-arrow', 'true', true );
+                // }
+
+                // if ('yes' == $settings['jltma_logo_slider_tooltip_trigger']) {
+                //     $this->add_render_attribute( $repeater_key, 'data-tippy-trigger', 'click', true );
+                // }
             }
             ?>
             
-                <<?php echo $tag; ?> <?php $this->print_render_attribute_string( $repeater_key ); ?>>
+                <div <?php $this->print_render_attribute_string( $repeater_key ); ?>>
                     <figure class="jltma-logo-slider-figure">
                         
                         <?php if ( $slider_image ) {
@@ -1498,9 +1397,13 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         ?>
 
                     </figure>
-                </<?php echo $tag; ?>>
+                </div>
 
             <?php 
+
+            if($item['jltma_logo_slider_item_logo_tooltip'] == "yes"){
+                echo '<div class="ma-el-tooltip-text">' . esc_html( $item['jltma_logo_slider_brand_description'] ) .'</div></div></div>';
+            }
 
         }  // end of foreach
 
@@ -1604,9 +1507,23 @@ class Master_Addons_Logo_Slider extends Widget_Base {
     /*
     * Dots Navigation 
     */
-    public function jltma_logo_slider_render_dots_navigation(){
+    public function jltma_logo_slider_render_dots_navigation( $settings ){
 
-    }
+        if (('both' == $settings['jltma_logo_slider_nav']) and ('center' == $settings['jltma_logo_slider_nav_both_position'])) {
+            $dots_position = 'bottom-center';
+        } else {
+            $dots_position = $settings['jltma_logo_slider_nav_dots_position'];
+        } ?>        
+
+            <div class="jltma-position-z-index jltma-position-<?php echo esc_attr( $dots_position ); ?>">
+                <div class="jltma-ls-arrows-dots-container jltma-ls-container">
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="jltma-slide-dotnav d-flex align-items-center"></div>
+                    </div>
+                </div>
+            </div>
+
+    <?php  }
 
 
 
