@@ -1316,10 +1316,10 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
         foreach ( $settings['jltma_logo_slider_items'] as $index => $item ) {
             $slider_image = wp_get_attachment_image_url( $item['jltma_logo_slider_image_normal']['id'], $item['normal_img_thumb_size'] );
-            // $slider_hover_image = wp_get_attachment_image_url( $item['jltma_logo_slider_image_hover']['id'], $item['hover_img_thumb_size'] );
+
             $repeater_key = 'carousel_item' . $index;
             $tag = 'div';
-            $image_alt = esc_html($item['jltma_logo_slider_brand_name']) . ' : ' . esc_html($item['jltma_logo_slider_brand_description']); 
+            $image_alt = esc_html($item['jltma_logo_slider_brand_name']) . ' : ' . esc_html($item['jltma_logo_slider_brand_description']);
             $title_html_tag = ($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
             $this->add_render_attribute( $repeater_key, 'class', 'jltma-logo-slider-item' );
 
@@ -1382,8 +1382,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 <div <?php $this->print_render_attribute_string( $repeater_key ); ?>>
                     <figure class="jltma-logo-slider-figure">
                         
-                        <?php if ( $slider_image ) {
-
+                        <?php 
+                            if ( $slider_image ) {
                                 echo wp_get_attachment_image(
                                     $item['jltma_logo_slider_image_normal']['id'],
                                     $item['normal_img_thumb_size'],
@@ -1397,8 +1397,32 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         ?>
 
                     </figure>
-                </div>
 
+                    <figcaption>
+                        <?php 
+                            // Hover Logo Image
+                            if( (isset($item['jltma_logo_slider_enable_hover_logo']) && $item['jltma_logo_slider_enable_hover_logo'] == "yes") && $item['jltma_logo_slider_image_hover']['url'] ){
+
+                                $slider_hover_image = wp_get_attachment_image_url( $item['jltma_logo_slider_image_hover']['id'], $item['hover_img_thumb_size'] );
+                                $image_hover_alt = esc_html($item['jltma_logo_slider_brand_name']) . ' : ' . esc_html($item['jltma_logo_slider_brand_description']);
+
+                                if($slider_hover_image){ 
+                                    echo wp_get_attachment_image(
+                                        $item['jltma_logo_slider_image_hover']['id'],
+                                        $item['hover_img_thumb_size'],
+                                        false,
+                                        [
+                                            'class' => 'jltma-logo-slider-hover-img elementor-animation-' . esc_attr( $settings['jltma_logo_slider_carousel_hover_animation'] ),
+                                            'alt'=> esc_attr( $image_hover_alt ),
+                                        ]
+                                    );
+                                } 
+                            } 
+                        ?>                        
+                    </figcaption>
+
+                </div>
+                
             <?php 
 
             if($item['jltma_logo_slider_item_logo_tooltip'] == "yes"){

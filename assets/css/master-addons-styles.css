@@ -11557,20 +11557,37 @@ ul.jltma-toggle-content-controls {
     font-size: 18px;
     padding-top: 27px;
 }
-.jltma-logo-slider .jltma-logo-slider-item img {
+.jltma-logo-slider .jltma-logo-slider-item figure img {
     -webkit-filter: grayscale(1);
     -moz-filter: grayscale(1);
     -ms-filter: grayscale(1);
     -o-filter: grayscale(1);
     filter: grayscale(1);
 }
-.jltma-logo-slider .jltma-logo-slider-item img:hover {
+.jltma-logo-slider .jltma-logo-slider-figure img:hover {
     -webkit-filter: grayscale(0);
     -moz-filter: grayscale(0);
     -ms-filter: grayscale(0);
     -o-filter: grayscale(0);
     filter: grayscale(0);
+    z-index: 6;
 }
+.jltma-logo-slider .jltma-logo-slider-figure img:hover figcaption img {
+    opacity: 1;
+    filter: alpha(opacity=1);
+}
+.jltma-logo-slider .jltma-logo-slider-item figcaption img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+
 .jltma-position-z-index{
     z-index: 1;
 }
@@ -11665,6 +11682,5 @@ ul.jltma-toggle-content-controls {
 .jltma-slide-dotnav .slick-active{
     background-color:rgba(102,102,102,0.6);
 }
-
 
 /* End of Logo Slider */
