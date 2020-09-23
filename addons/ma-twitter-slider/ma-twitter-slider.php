@@ -102,7 +102,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 ],
             ]
         );
-        
+
         $this->add_control(
             'jltma_ts_tweet_num',
             [
@@ -296,7 +296,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_speed',
             [
-                'label'   => __( 'Animation Speed (ms)', MELA_TD ),
+                'label'   => esc_html__( 'Animation Speed (ms)', MELA_TD ),
                 'type'    => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 500,
@@ -345,7 +345,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->start_controls_section(
             'jltma_ts_section_style_layout',
             [
-                'label' => __( 'Items', MELA_TD ),
+                'label' => esc_html__( 'Items', MELA_TD ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -353,7 +353,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_item_color',
             [
-                'label'     => __( 'Color', MELA_TD ),
+                'label'     => esc_html__( 'Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .bdt-twitter-slider .bdt-carousel-item .bdt-twitter-text,
@@ -365,20 +365,20 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_alignment',
             [
-                'label'   => __( 'Alignment', MELA_TD ),
+                'label'   => esc_html__( 'Alignment', MELA_TD ),
                 'type'    => Controls_Manager::CHOOSE,
                 'default' => 'center',
                 'options' => [
                     'left'    => [
-                        'title' => __( 'Left', MELA_TD ),
+                        'title' => esc_html__( 'Left', MELA_TD ),
                         'icon'  => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => __( 'Center', MELA_TD ),
+                        'title' => esc_html__( 'Center', MELA_TD ),
                         'icon'  => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => __( 'Right', MELA_TD ),
+                        'title' => esc_html__( 'Right', MELA_TD ),
                         'icon'  => 'fa fa-align-right',
                     ],
                 ],
@@ -390,13 +390,711 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
 
         $this->end_controls_section();
 
-        /*
-        * STYLE: Items
-        */
 
         /*
-        * STYLE: Slider Setting
+        * STYLE: Avatar
         */
+
+
+        $this->start_controls_section(
+            'jltma_ts_section_style_avatar',
+            [
+                'label'     => esc_html__( 'Avatar', MELA_TD ),
+                'tab'       => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'show_avatar' => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_avatar_width',
+            [
+                'label' => esc_html__( 'Width', MELA_TD ),
+                'type'  => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'max' => 48,
+                        'min' => 15,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb-wrapper img' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+
+        $this->add_control(
+            'jltma_ts_avatar_align',
+            [
+                'label'   => esc_html__( 'Alignment', MELA_TD ),
+                'type'    => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left'    => [
+                        'title' => esc_html__( 'Left', MELA_TD ),
+                        'icon'  => 'fa fa-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__( 'Center', MELA_TD ),
+                        'icon'  => 'fa fa-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__( 'Right', MELA_TD ),
+                        'icon'  => 'fa fa-align-right',
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb' => 'text-align: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_avatar_background',
+            [
+                'label'     => esc_html__( 'Background', MELA_TD ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb-wrapper' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'jltma_ts_avatar_padding',
+            [
+                'label'      => esc_html__( 'Padding', MELA_TD ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em' ],
+                'selectors'  => [
+                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'jltma_ts_avatar_margin',
+            [
+                'label'      => esc_html__( 'Margin', MELA_TD ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em' ],
+                'selectors'  => [
+                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'jltma_ts_avatar_radius',
+            [
+                'label'      => esc_html__( 'Border Radius', MELA_TD ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors'  => [
+                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb-wrapper,
+                    {{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb-wrapper img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_avatar_opacity',
+            [
+                'label'   => esc_html__( 'Opacity (%)', MELA_TD ),
+                'type'    => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 1,
+                ],
+                'range' => [
+                    'px' => [
+                        'max'  => 1,
+                        'min'  => 0.10,
+                        'step' => 0.01,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb-wrapper img' => 'opacity: {{SIZE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();      
+
+
+
+        /*
+        * STYLE: Execute Button
+        */
+
+        $this->start_controls_section(
+            'jltma_ts_section_style_meta',
+            [
+                'label'     => esc_html__( 'Execute Buttons', MELA_TD ),
+                'tab'       => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'jltma_ts_show_meta_button' => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_meta_color',
+            [
+                'label'     => esc_html__( 'Color', MELA_TD ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-meta-button > a' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_meta_hover_color',
+            [
+                'label'     => esc_html__( 'Hover Color', MELA_TD ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-meta-button > a:hover' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+
+        /*
+        * STYLE: Time
+        */
+
+        $this->start_controls_section(
+            'jltma_ts_section_style_time',
+            [
+                'label'     => esc_html__( 'Time', MELA_TD ),
+                'tab'       => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'jltma_ts_show_time' => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_time_color',
+            [
+                'label'     => esc_html__( 'Color', MELA_TD ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-meta-wrapper a.bdt-twitter-time-link' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_time_hover_color',
+            [
+                'label'     => esc_html__( 'Hover Color', MELA_TD ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-meta-wrapper a.bdt-twitter-time-link:hover' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();     
+
+
+        /*
+        * STYLE: Navigation
+        */ 
+
+        $this->start_controls_section(
+            'jltma_ts_section_style_navigation',
+            [
+                'label'     => __( 'Navigation', 'bdthemes-element-pack' ),
+                'tab'       => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'navigation' => [ 'arrows', 'dots', 'both' ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_arrows_size',
+            [
+                'label' => __( 'Arrows Size', 'bdthemes-element-pack' ),
+                'type'  => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 20,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev svg,
+                    {{WRAPPER}} .bdt-carousel .bdt-navigation-next svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+                ],
+                'condition' => [
+                    'jltma_ts_navigation' => [ 'arrows', 'both' ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_arrows_background',
+            [
+                'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev,
+                    {{WRAPPER}} .bdt-carousel .bdt-navigation-next' => 'background-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'jltma_ts_navigation' => [ 'arrows', 'both' ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_arrows_hover_background',
+            [
+                'label'     => __( 'Hover Background Color', 'bdthemes-element-pack' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev:hover, {{WRAPPER}} .bdt-carousel .bdt-navigation-next:hover' => 'background-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'jltma_ts_navigation' => [ 'arrows', 'both' ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_arrows_color',
+            [
+                'label'     => __( 'Arrows Color', 'bdthemes-element-pack' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev svg, {{WRAPPER}} .bdt-carousel .bdt-navigation-next svg' => 'color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'jltma_ts_navigation' => [ 'arrows', 'both' ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_arrows_hover_color',
+            [
+                'label'     => __( 'Arrows Hover Color', 'bdthemes-element-pack' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev:hover svg,
+                    {{WRAPPER}} .bdt-carousel .bdt-navigation-next:hover svg' => 'color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'jltma_ts_navigation' => [ 'arrows', 'both' ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_arrows_space',
+            [
+                'label' => __( 'Space', 'bdthemes-element-pack' ),
+                'type'  => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev' => 'margin-right: {{SIZE}}px;',
+                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-next' => 'margin-left: {{SIZE}}px;',
+                ],
+                'conditions'   => [
+                    'terms' => [
+                        [
+                            'name'  => 'jltma_ts_navigation',
+                            'value' => 'both',
+                        ],
+                        [
+                            'name'     => 'jltma_ts_both_position',
+                            'operator' => '!=',
+                            'value'    => 'center',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'jltma_ts_arrows_padding',
+            [
+                'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],
+                'selectors'  => [
+                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev,
+                    {{WRAPPER}} .bdt-carousel .bdt-navigation-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_radius',
+            [
+                'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'separator'  => 'after',
+                'selectors'  => [
+                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev,
+                    {{WRAPPER}} .bdt-carousel .bdt-navigation-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'jltma_ts_navigation' => [ 'arrows', 'both' ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_dots_size',
+            [
+                'label' => __( 'Dots Size', 'bdthemes-element-pack' ),
+                'type'  => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 5,
+                        'max' => 20,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'jltma_ts_navigation' => [ 'dots', 'both' ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_dots_color',
+            [
+                'label'     => __( 'Dots Color', 'bdthemes-element-pack' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'navigation' => [ 'dots', 'both' ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_active_dot_color',
+            [
+                'label'     => __( 'Active Dots Color', 'bdthemes-element-pack' ),
+                'type'      => Controls_Manager::COLOR,
+                'separator' => 'after',
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .swiper-pagination-bullet-active' => 'background-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'navigation' => [ 'dots', 'both' ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_arrows_ncx_position',
+            [
+                'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+                'type'    => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 0,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                    ],
+                ],
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name'  => 'jltma_ts_navigation',
+                            'value' => 'arrows',
+                        ],
+                        [
+                            'name'     => 'jltma_ts_arrows_position',
+                            'operator' => '!=',
+                            'value'    => 'center',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_arrows_ncy_position',
+            [
+                'label'   => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+                'type'    => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 40,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .bdt-arrows-container' => 'transform: translate({{arrows_ncx_position.size}}px, {{SIZE}}px);',
+                ],
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name'  => 'jltma_ts_navigation',
+                            'value' => 'arrows',
+                        ],
+                        [
+                            'name'     => 'jltma_ts_arrows_position',
+                            'operator' => '!=',
+                            'value'    => 'center',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_arrows_acx_position',
+            [
+                'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+                'type'    => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => -60,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev' => 'left: {{SIZE}}px;',
+                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-next' => 'right: {{SIZE}}px;',
+                ],
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name'  => 'jltma_ts_navigation',
+                            'value' => 'arrows',
+                        ],
+                        [
+                            'name'  => 'jltma_ts_arrows_position',
+                            'value' => 'center',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_dots_nnx_position',
+            [
+                'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+                'type'    => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 0,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                    ],
+                ],
+                'conditions'   => [
+                    'terms' => [
+                        [
+                            'name'  => 'jltma_ts_navigation',
+                            'value' => 'dots',
+                        ],
+                        [
+                            'name'     => 'jltma_ts_dots_position',
+                            'operator' => '!=',
+                            'value'    => '',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_dots_nny_position',
+            [
+                'label'   => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+                'type'    => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 30,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .bdt-dots-container' => 'transform: translate({{dots_nnx_position.size}}px, {{SIZE}}px);',
+                ],
+                'conditions'   => [
+                    'terms' => [
+                        [
+                            'name'  => 'jltma_ts_navigation',
+                            'value' => 'dots',
+                        ],
+                        [
+                            'name'     => 'jltma_ts_dots_position',
+                            'operator' => '!=',
+                            'value'    => '',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_both_ncx_position',
+            [
+                'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+                'type'    => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 0,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                    ],
+                ],
+                'conditions'   => [
+                    'terms' => [
+                        [
+                            'name'  => 'jltma_ts_navigation',
+                            'value' => 'both',
+                        ],
+                        [
+                            'name'     => 'jltma_ts_both_position',
+                            'operator' => '!=',
+                            'value'    => 'center',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_both_ncy_position',
+            [
+                'label'   => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+                'type'    => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 40,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .bdt-arrows-dots-container' => 'transform: translate({{both_ncx_position.size}}px, {{SIZE}}px);',
+                ],
+                'conditions'   => [
+                    'terms' => [
+                        [
+                            'name'  => 'jltma_ts_navigation',
+                            'value' => 'both',
+                        ],
+                        [
+                            'name'     => 'jltma_ts_both_position',
+                            'operator' => '!=',
+                            'value'    => 'center',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_both_cx_position',
+            [
+                'label'   => __( 'Arrows Offset', 'bdthemes-element-pack' ),
+                'type'    => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => -60,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev' => 'left: {{SIZE}}px;',
+                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-next' => 'right: {{SIZE}}px;',
+                ],
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name'  => 'jltma_ts_navigation',
+                            'value' => 'both',
+                        ],
+                        [
+                            'name'  => 'jltma_ts_both_position',
+                            'value' => 'center',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_ts_both_cy_position',
+            [
+                'label'   => __( 'Dots Offset', 'bdthemes-element-pack' ),
+                'type'    => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 30,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-carousel .bdt-dots-container' => 'transform: translateY({{SIZE}}px);',
+                ],
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name'  => 'jltma_ts_navigation',
+                            'value' => 'both',
+                        ],
+                        [
+                            'name'  => 'jltma_ts_both_position',
+                            'value' => 'center',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
 
 	}
 
