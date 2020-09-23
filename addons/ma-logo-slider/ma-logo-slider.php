@@ -32,6 +32,22 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 		return [ 'master-addons' ];
 	}
 
+    public function get_style_depends() {
+        return [
+            'font-awesome-5-all',
+            'font-awesome-4-shim'
+        ];
+    }
+
+    public function get_script_depends() {
+        return [ 'jquery-slick', 'master-addons-scripts' ];
+    }
+
+
+    public function get_help_url(){
+        return 'https://master-addons.com/demos/logo-slider/';
+    }
+
 	protected function _register_controls() {
 
         /*

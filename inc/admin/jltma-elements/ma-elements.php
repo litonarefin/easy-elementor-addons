@@ -292,6 +292,13 @@ $jltma_elements = [
                 'docs_url'      => '',
                 'tuts_url'      => ''
             ],
+            [
+                'key'           => 'ma-twitter-slider',
+                'title'         => esc_html__( 'Twitter Slider', MELA_TD),
+                'demo_url'      => '',
+                'docs_url'      => '',
+                'tuts_url'      => ''
+            ],
 
 
     	]

@@ -83,9 +83,10 @@ if( !class_exists('Master_Elementor_Addons') ){
 				['ma-toggle-content','pro'],	// 36
 				['ma-gallery-slider','pro'],	// 37
 				// 'ma-advanced-image',			// 38
-				// 'ma-image-cascading',			// 39
-				'ma-image-carousel',			// 39
-				'ma-logo-slider',				// 40
+				// 'ma-image-cascading',		// 39
+				'ma-image-carousel',			// 40
+				'ma-logo-slider',				// 41
+				'ma-twitter-slider',			// 42
 
 				// Form Elements
 				'contact-form-7',           	// 38
