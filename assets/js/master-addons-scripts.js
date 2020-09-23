@@ -1187,10 +1187,6 @@
                 start               = elementorFrontend.config.is_rtl ? 'right' : 'left',
                 end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',                
                 $slidesToScroll     = Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_scroll;
-                // $autoPlay = ($logSliderWrapper.data("autoplay") !== undefined) ? $logSliderWrapper.data("autoplay") : false,
-                // $autoplaySpeed = ($logSliderWrapper.data("autoplayspeed") !== undefined) ? $logSliderWrapper.data("autoplayspeed") : false,
-                // $transitionSpeed = $logSliderWrapper.data("speed"),
-                // $pauseOnHover = ($logSliderWrapper.data("pauseonhover") !== undefined) ? $logSliderWrapper.data("pauseonhover") : false,
 
 
                 // Logo Slider Navigation
@@ -1207,69 +1203,61 @@
                 
 
                 var logoSlickArgs       = {
-                        slidesToShow    : $slidesToShow,
-                        slidesToScroll  : $slidesToScroll,
-                        cssEase         : "linear",
-                        draggable       : false,
-                        // asNavFor        : ($thumbtype == "slide") ? ".jltma-gallery-slider__gallery .jltma-gallery" : "",
-                        // adaptiveHeight  : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltMA_Logo_Slider_adaptive_height,
-                        autoplay        : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_autoplay,
-                        autoplaySpeed   : Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_autoplay_speed,
-                        infinite        : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_loop,
-                        pauseOnHover    : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_pause,
-                        speed           : Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_animation_speed,
-                        arrows          : arrows,
-                        centerMode      : Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_center_mode,
-                        // centerPadding: '60px',
-                        // prevArrow       : '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
-                        // nextArrow       : '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
-                        // prevArrow       : "<div class='jltma-slide-prev'><i class='fas fa-angle-left'></i></div>",
-                        // nextArrow       : "<div class='jltma-slide-next'><i class='fas fa-angle-right'></i></div>",                        
-                        prevArrow       : $('.jltma-slide-prev'),
-                        nextArrow       : $('.jltma-slide-next'),
-                        dots            : true,
-                        dotsClass       : $('.jltma-slide-dotnav'),
-                        appendDots      : $('.jltma-slide-dotnav'),
-                        // rtl             : 'rtl' === Master_Addons.MA_Logo_Slider.elementSettings.jltMA_Logo_Slider_direction,
-                        // fade            : 'fade' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_gallery_slider_effect,
-                        responsive: [
 
-                            {
-                                breakpoint: 350,
-                                settings: {
-                                    dots: dots,
-                                    arrow: arrows,
-                                    rows:1,
-                                    slidesToShow: Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_show_mobile,
-                                    slidesToScroll: $slidesToScroll
-                                }
-                            },
-                            {
-                                breakpoint: 576,
-                                settings: {
-                                    dots: dots,
-                                    arrow: arrows,
-                                    slidesToShow: Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_show_tablet,
-                                    slidesToScroll: $slidesToScroll
-                                }
-                            },
-                            {
-                                breakpoint: 720,
-                                settings: {
-                                    slidesToShow: $slidesToShow,
-                                    slidesToScroll: $slidesToScroll,
-                                    infinite: true,
-                                    // centerMode: false,
-                                    // centerPadding: '40px',                                    
-                                    dots: dots,
-                                    arrow: arrows
-                                }
-                            },
+                    slidesToShow    : $slidesToShow,
+                    slidesToScroll  : $slidesToScroll,
+                    cssEase         : "linear",
+                    draggable       : false,
+                    // autoplayspeed
+                    autoplay        : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_autoplay,
+                    autoplaySpeed   : Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_autoplay_speed,
+                    infinite        : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_loop,
+                    pauseOnHover    : 'yes' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_pause,
+                    speed           : Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_animation_speed,
+                    arrows          : arrows,
+                    centerMode      : Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_center_mode,
+                    // centerPadding: '60px',
+                    prevArrow       : $('.jltma-slide-prev'),
+                    nextArrow       : $('.jltma-slide-next'),
+                    dots            : true,
+                    dotsClass       : $('.jltma-slide-dotnav'),
+                    appendDots      : $('.jltma-slide-dotnav'),
+                    // rtl             : 'rtl' === Master_Addons.MA_Logo_Slider.elementSettings.jltMA_Logo_Slider_direction,
+                    // fade            : 'fade' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_gallery_slider_effect,
+                    responsive: [
 
-                        ],                        
-                };
+                        {
+                            breakpoint: 350,
+                            settings: {
+                                dots: dots,
+                                arrow: arrows,
+                                rows:1,
+                                slidesToShow: Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_show_mobile,
+                                slidesToScroll: $slidesToScroll
+                            }
+                        },
+                        {
+                            breakpoint: 576,
+                            settings: {
+                                dots: dots,
+                                arrow: arrows,
+                                slidesToShow: Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_show_tablet,
+                                slidesToScroll: $slidesToScroll
+                            }
+                        },
+                        {
+                            breakpoint: 720,
+                            settings: {
+                                slidesToShow: $slidesToShow,
+                                slidesToScroll: $slidesToScroll,
+                                infinite: true,                                    
+                                dots: dots,
+                                arrow: arrows
+                            }
+                        },
 
-
+                    ],                        
+            };
 
 
             $logSliderWrapper.slick( logoSlickArgs );

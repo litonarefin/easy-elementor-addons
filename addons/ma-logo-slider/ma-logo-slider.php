@@ -1323,6 +1323,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             $title_html_tag = ($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
             $this->add_render_attribute( $repeater_key, 'class', 'jltma-logo-slider-item' );
 
+            // Website Links
             if ( $item['jltma_logo_slider_website_link']['url'] ) {
                 $tag = 'a';
                 $this->add_render_attribute( $repeater_key, 'class', 'jltma-logo-slider-link' );
@@ -1332,45 +1333,14 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 $this->add_render_attribute( $repeater_key, 'title', $item['jltma_logo_slider_brand_name'] );
             }
 
+            // Tooltips
             if ($item['jltma_logo_slider_brand_name'] and $item['jltma_logo_slider_brand_description'] and $item['jltma_logo_slider_item_logo_tooltip'] == "yes") {
 
-                // $tooltip_content .= '<'. $title_html_tag .'>' . $item['jltma_logo_slider_brand_name'] . '</'. $title_html_tag .'>' . $item['jltma_logo_slider_brand_description']; 
-                
-                // $this->add_render_attribute( $repeater_key, 'data-tippy-content', $tooltip_content, true);
-                
-                // $this->add_render_attribute( $repeater_key, 'class', 'ma-el-tooltip' );
-                // print_r($item['jltma_logo_slider_item_logo_tooltip']);
                 if($item['jltma_logo_slider_item_logo_tooltip'] == "yes"){
-                    
-                    // $tooltip_content .= '<div class="ma-el-tooltip-item  ' . esc_attr( $settings['ma_el_tooltip_direction'] ) .'">';
-                    // jltma_logo_slider_item_logo_tooltip_placement
                     echo '<div class="ma-el-tooltip"><div class="ma-el-tooltip-item ' . esc_attr($item['jltma_logo_slider_item_logo_tooltip_placement']) . '">';
                     $this->add_render_attribute( $repeater_key, 'class', 'ma-el-tooltip-content' );
 
                 }
-
-
-                // $this->add_render_attribute( $repeater_key, 'data-tippy', '', true );
-
-                // if ($item['jltma_logo_slider_item_logo_tooltip_placement']) {
-                //     $this->add_render_attribute( $repeater_key, 'data-tippy-placement', $item['jltma_logo_slider_item_logo_tooltip_placement'], true );
-                // }
-
-                // if ($settings['jltma_logo_slider_tooltip_animation']) {
-                //     $this->add_render_attribute( $repeater_key, 'data-tippy-animation', $settings['jltma_logo_slider_tooltip_animation'], true );
-                // }
-
-                // if ($settings['jltma_logo_slider_tooltip_x_offset']['size'] or $settings['jltma_logo_slider_tooltip_y_offset']['size']) {
-                //     $this->add_render_attribute( $repeater_key, 'data-tippy-offset', $settings['jltma_logo_slider_tooltip_x_offset']['size'] .','. $settings['jltma_logo_slider_tooltip_y_offset']['size'], true );
-                // }
-
-                // if ('yes' == $settings['jltma_logo_slider_tooltip_arrow']) {
-                //     $this->add_render_attribute( $repeater_key, 'data-tippy-arrow', 'true', true );
-                // }
-
-                // if ('yes' == $settings['jltma_logo_slider_tooltip_trigger']) {
-                //     $this->add_render_attribute( $repeater_key, 'data-tippy-trigger', 'click', true );
-                // }
             }
             ?>
             
