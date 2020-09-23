@@ -1323,11 +1323,6 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             $title_html_tag = ($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
             $this->add_render_attribute( $repeater_key, 'class', 'jltma-logo-slider-item' );
 
-            // if($item['jltma_logo_slider_item_logo_tooltip'] == "yes"){
-            //     $this->add_render_attribute( $repeater_key, 'class', 'ma-el-tooltip' );
-            // }
-
-
             if ( $item['jltma_logo_slider_website_link']['url'] ) {
                 $tag = 'a';
                 $this->add_render_attribute( $repeater_key, 'class', 'jltma-logo-slider-link' );
@@ -1379,7 +1374,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
             }
             ?>
             
-                <div <?php $this->print_render_attribute_string( $repeater_key ); ?>>
+                <<?php echo $tag; ?> <?php $this->print_render_attribute_string( $repeater_key ); ?>>
                     <figure class="jltma-logo-slider-figure">
                         
                         <?php 
@@ -1421,8 +1416,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                         ?>                        
                     </figcaption>
 
-                </div>
-                
+                </<?php echo $tag; ?>>
+
             <?php 
 
             if($item['jltma_logo_slider_item_logo_tooltip'] == "yes"){
