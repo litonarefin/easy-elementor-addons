@@ -1452,7 +1452,7 @@
 										echo 'href="'. esc_url(
 											$settings['popup_image']['url'] ) .'" data-fancybox="images"';
 									}?>
-									class="ma-el-fancybox elementor-clickable"></a>
+									class="ma-el-fancybox elementor-clickable" aria-label="Fancybox Popup"></a>
 
 								<div style="display: none;" id="jltma-image-hover-<?php echo $this->get_id();?>">
 

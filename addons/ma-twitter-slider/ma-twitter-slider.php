@@ -1098,9 +1098,34 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
 
 	}
 
+
+    // Render
 	protected function render() {
 
+        if ( ! class_exists('TwitterOAuth') ) {
+            include_once MELA_PLUGIN_PATH . '/inc/classes/twitteroauth/twitteroauth.php';
+        }
+
+        $settings          = $this->get_settings();
+        $options           = get_option( 'element_pack_api_settings' );
+        
+        $consumerKey       = (!empty($options['twitter_consumer_key'])) ? $options['twitter_consumer_key'] : '';
+        $consumerSecret    = (!empty($options['twitter_consumer_secret'])) ? $options['twitter_consumer_secret'] : '';
+        $accessToken       = (!empty($options['twitter_access_token'])) ? $options['twitter_access_token'] : '';
+        $accessTokenSecret = (!empty($options['twitter_access_token_secret'])) ? $options['twitter_access_token_secret'] : '';
+        $twitter_name      = (!empty($options['twitter_name'])) ? $options['twitter_name'] : '';
+
+        $this->jltma_ts_loop_header();
+
+
 	}
+
+    
+    // Twitter Slider : Header
+    protected function jltma_ts_loop_header(){
+
+    }
+    
 
 }
 

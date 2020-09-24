@@ -1380,7 +1380,7 @@ class Master_Addons_Filterable_Image_Gallery extends Widget_Base {
 
 					if( $item['ma_el_image_gallery_buttons'] == "popup" ){
 						echo '<a class="ma-el-fancybox elementor-clickable" href="'. esc_url(
-								$item['ma_el_image_gallery_img']['url'] ) .'" data-fancybox="gallery">';
+								$item['ma_el_image_gallery_img']['url'] ) .'" data-fancybox="gallery" aria-label="Fancybox Popup">';
 
 
 

@@ -566,7 +566,7 @@
 
 						if( $item['ma_el_image_carousel_buttons'] == "popup" ){
 							echo '<a class="ma-el-fancybox elementor-clickable" href="'. esc_url(
-									$item['ma_el_image_carousel_img']['url'] ) .'" data-fancybox="gallery"><i class="eicon-preview"></i></a>';
+									$item['ma_el_image_carousel_img']['url'] ) .'" data-fancybox="gallery" aria-label="Fancybox Popup"><i class="eicon-preview"></i></a>';
 
 						} elseif( $item['ma_el_image_carousel_buttons'] == "links" ){
 
