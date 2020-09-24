@@ -610,7 +610,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->start_controls_section(
             'jltma_ts_section_style_navigation',
             [
-                'label'     => __( 'Navigation', 'bdthemes-element-pack' ),
+                'label'     => __( 'Navigation', MELA_TD ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'navigation' => [ 'arrows', 'dots', 'both' ],
@@ -621,7 +621,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_arrows_size',
             [
-                'label' => __( 'Arrows Size', 'bdthemes-element-pack' ),
+                'label' => __( 'Arrows Size', MELA_TD ),
                 'type'  => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -642,7 +642,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_arrows_background',
             [
-                'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+                'label'     => __( 'Background Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev,
@@ -657,7 +657,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_arrows_hover_background',
             [
-                'label'     => __( 'Hover Background Color', 'bdthemes-element-pack' ),
+                'label'     => __( 'Hover Background Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev:hover, {{WRAPPER}} .bdt-carousel .bdt-navigation-next:hover' => 'background-color: {{VALUE}}',
@@ -671,7 +671,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_arrows_color',
             [
-                'label'     => __( 'Arrows Color', 'bdthemes-element-pack' ),
+                'label'     => __( 'Arrows Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev svg, {{WRAPPER}} .bdt-carousel .bdt-navigation-next svg' => 'color: {{VALUE}}',
@@ -685,7 +685,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_arrows_hover_color',
             [
-                'label'     => __( 'Arrows Hover Color', 'bdthemes-element-pack' ),
+                'label'     => __( 'Arrows Hover Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev:hover svg,
@@ -700,7 +700,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_arrows_space',
             [
-                'label' => __( 'Space', 'bdthemes-element-pack' ),
+                'label' => __( 'Space', MELA_TD ),
                 'type'  => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -731,7 +731,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_responsive_control(
             'jltma_ts_arrows_padding',
             [
-                'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+                'label'      => esc_html__( 'Padding', MELA_TD ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
@@ -744,7 +744,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_radius',
             [
-                'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+                'label'      => __( 'Border Radius', MELA_TD ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'separator'  => 'after',
@@ -761,7 +761,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_dots_size',
             [
-                'label' => __( 'Dots Size', 'bdthemes-element-pack' ),
+                'label' => __( 'Dots Size', MELA_TD ),
                 'type'  => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -781,7 +781,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_dots_color',
             [
-                'label'     => __( 'Dots Color', 'bdthemes-element-pack' ),
+                'label'     => __( 'Dots Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .bdt-carousel .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
@@ -795,7 +795,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_active_dot_color',
             [
-                'label'     => __( 'Active Dots Color', 'bdthemes-element-pack' ),
+                'label'     => __( 'Active Dots Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'separator' => 'after',
                 'selectors' => [
@@ -810,7 +810,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_arrows_ncx_position',
             [
-                'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+                'label'   => __( 'Horizontal Offset', MELA_TD ),
                 'type'    => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
@@ -840,7 +840,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_arrows_ncy_position',
             [
-                'label'   => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+                'label'   => __( 'Vertical Offset', MELA_TD ),
                 'type'    => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 40,
@@ -873,7 +873,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_arrows_acx_position',
             [
-                'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+                'label'   => __( 'Horizontal Offset', MELA_TD ),
                 'type'    => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => -60,
@@ -906,7 +906,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_dots_nnx_position',
             [
-                'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+                'label'   => __( 'Horizontal Offset', MELA_TD ),
                 'type'    => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
@@ -936,7 +936,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_dots_nny_position',
             [
-                'label'   => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+                'label'   => __( 'Vertical Offset', MELA_TD ),
                 'type'    => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 30,
@@ -969,7 +969,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_both_ncx_position',
             [
-                'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+                'label'   => __( 'Horizontal Offset', MELA_TD ),
                 'type'    => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
@@ -999,7 +999,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_both_ncy_position',
             [
-                'label'   => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+                'label'   => __( 'Vertical Offset', MELA_TD ),
                 'type'    => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 40,
@@ -1032,7 +1032,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_both_cx_position',
             [
-                'label'   => __( 'Arrows Offset', 'bdthemes-element-pack' ),
+                'label'   => __( 'Arrows Offset', MELA_TD ),
                 'type'    => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => -60,
@@ -1065,7 +1065,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_both_cy_position',
             [
-                'label'   => __( 'Dots Offset', 'bdthemes-element-pack' ),
+                'label'   => __( 'Dots Offset', MELA_TD ),
                 'type'    => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 30,
@@ -1106,16 +1106,32 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
             include_once MELA_PLUGIN_PATH . '/inc/classes/twitteroauth/twitteroauth.php';
         }
 
-        $settings          = $this->get_settings();
-        $options           = get_option( 'element_pack_api_settings' );
+        $settings               = $this->get_settings();
+        $jltma_api_settings     = get_option( 'jltma_api_save_settings' );
         
-        $consumerKey       = (!empty($options['twitter_consumer_key'])) ? $options['twitter_consumer_key'] : '';
-        $consumerSecret    = (!empty($options['twitter_consumer_secret'])) ? $options['twitter_consumer_secret'] : '';
-        $accessToken       = (!empty($options['twitter_access_token'])) ? $options['twitter_access_token'] : '';
-        $accessTokenSecret = (!empty($options['twitter_access_token_secret'])) ? $options['twitter_access_token_secret'] : '';
-        $twitter_name      = (!empty($options['twitter_name'])) ? $options['twitter_name'] : '';
+        $twitter_username       = (!empty($jltma_api_settings['twitter_username'])) ? $jltma_api_settings['twitter_username'] : '';
+        
+        $twitter_consumer_key   = (!empty($jltma_api_settings['twitter_consumer_key'])) ? $jltma_api_settings['twitter_consumer_key'] : '';
+        $consumer_secret        = (!empty($jltma_api_settings['twitter_consumer_secret'])) ? $jltma_api_settings['twitter_consumer_secret'] : '';
+        $access_token           = (!empty($jltma_api_settings['twitter_access_token'])) ? $jltma_api_settings['twitter_access_token'] : '';
+        $access_token_secret    = (!empty($jltma_api_settings['twitter_access_token_secret'])) ? $jltma_api_settings['twitter_access_token_secret'] : '';
+        
 
         $this->jltma_ts_loop_header();
+
+
+        if ( $twitter_consumer_key and $consumer_secret and $access_token and $access_token_secret  ) {
+            $this->render_loop_twitter( $twitter_consumer_key, $consumer_secret, $access_token, $access_token_secret, $twitter_username );
+        } else { ?>
+
+            <div class="ma-el-alert elementor-alert elementor-alert-warning" role="alert">                
+                <a class="elementor-alert-dismiss"></a>
+                <?php $ep_setting_url = esc_url( admin_url('admin.php?page=master-addons-settings#ma_api_keys')); ?>
+                <p><?php printf(__( 'Please set your twitter API settings from here <a href="%s" target="_blank">Master Addons Settings</a> to show your map correctly.', MELA_TD ), $ep_setting_url); ?></p>
+            </div>
+            <?php
+        }
+
 
 
 	}
@@ -1125,7 +1141,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
     protected function jltma_ts_loop_header(){
 
     }
-    
+
 
 }
 

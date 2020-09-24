@@ -51,23 +51,40 @@
 					<div class="api-forms">
 
 						<div class="form-group">
-							<label for="twitter_site_key">
-								<?php echo esc_html__('Twitter Site key', MELA_TD);?>
+							<label for="twitter_username">
+								<?php echo esc_html__('Username', MELA_TD);?>
 							</label>
-							<input name="twitter_site_key" type="text" class="form-control twitter_site_key" value="<?php echo isset($jltma_api_options['twitter_site_key'])?$jltma_api_options['twitter_site_key']:"" ;?>">
+							<input name="twitter_username" type="text" class="form-control twitter_username" value="<?php echo isset($jltma_api_options['twitter_username'])?$jltma_api_options['twitter_username']:"" ;?>">
 						</div>
 
 						<div class="form-group">
-							<label for="twitter_secret_key">
-								<?php echo esc_html__('Twitter Secret key', MELA_TD);?>
+							<label for="twitter_consumer_key">
+								<?php echo esc_html__('Consumer Key', MELA_TD);?>
 							</label>
-							<input type="text" name="twitter_secret_key" class="form-control twitter_secret_key" value="<?php echo isset($jltma_api_options['twitter_secret_key'])?$jltma_api_options['twitter_secret_key']:"";?>">
+							<input name="twitter_consumer_key" type="text" class="form-control twitter_consumer_key" value="<?php echo isset($jltma_api_options['twitter_consumer_key'])?$jltma_api_options['twitter_consumer_key']:"" ;?>">
 						</div>
 
-						<p>
-							<?php echo sprintf( __( 'Go to your Google <a href="%1$s" target="_blank"> Twitter</a> > Account > Generate Keys (Twitter V2 > Invisible) and Copy and Paste here.', MELA_TD ), esc_url('https://www.google.com/twitter/about/') );
-							?>
-						</p>
+						<div class="form-group">
+							<label for="twitter_consumer_secret">
+								<?php echo esc_html__('Consumer Secret', MELA_TD);?>
+							</label>
+							<input type="text" name="twitter_consumer_secret" class="form-control twitter_consumer_secret" value="<?php echo isset($jltma_api_options['twitter_consumer_secret'])?$jltma_api_options['twitter_consumer_secret']:"";?>">
+						</div>
+
+						<div class="form-group">
+							<label for="twitter_access_token">
+								<?php echo esc_html__('Access Token', MELA_TD);?>
+							</label>
+							<input type="text" name="twitter_access_token" class="form-control twitter_access_token" value="<?php echo isset($jltma_api_options['twitter_access_token'])?$jltma_api_options['twitter_access_token']:"";?>">
+						</div>
+
+						<div class="form-group">
+							<label for="twitter_access_token_secret">
+								<?php echo esc_html__('Access Token Secret', MELA_TD);?>
+							</label>
+							<input type="text" name="twitter_access_token_secret" class="form-control twitter_access_token_secret" value="<?php echo isset($jltma_api_options['twitter_access_token_secret'])?$jltma_api_options['twitter_access_token_secret']:"";?>">
+						</div>
+
 					</div>
 				</div><!-- /.api-element-inner -->
 			</div><!-- /.api-settings-element -->
