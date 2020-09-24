@@ -270,6 +270,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'   => esc_html__( 'Auto Play', MELA_TD ),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'yes',
+                'frontend_available'    => true,
             ]
         );
 
@@ -282,6 +283,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'condition' => [
                     'jltma_ts_autoplay' => 'yes',
                 ],
+                'frontend_available'    => true,
             ]
         );
 
@@ -290,6 +292,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
             [
                 'label' => esc_html__( 'Pause on Hover', MELA_TD ),
                 'type'  => Controls_Manager::SWITCHER,
+                'frontend_available'    => true,
             ]
         );
 
@@ -306,6 +309,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     'max'  => 5000,
                     'step' => 50,
                 ],
+                'frontend_available'    => true,
             ]
         );
 
@@ -315,6 +319,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'   => esc_html__( 'Loop', MELA_TD ),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'yes',
+                'frontend_available'    => true,
             ]
         );
 
@@ -331,6 +336,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     'coverflow' => esc_html__( 'Coverflow', MELA_TD ),
                     'flip'      => esc_html__( 'Flip', MELA_TD ),
                 ],
+                'frontend_available'    => true,
             ]
         );        
         $this->end_controls_section();
@@ -402,7 +408,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'     => esc_html__( 'Avatar', MELA_TD ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
-                    'show_avatar' => 'yes',
+                    'jltma_ts_show_avatar' => 'yes',
                 ],
             ]
         );
@@ -1098,6 +1104,160 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
 
 	}
 
+    // Twitter Slider: Loop
+    public function jltma_ts_loop_twitter( $twitter_consumer_key, $consumer_secret, $access_token, $access_token_secret, $twitter_username  ) {
+        
+        $settings          = $this->get_settings();
+
+        $name              = $twitter_username;
+        $exclude_replies   = ('yes' === $settings['jltma_ts_exclude_replies'] ) ? true : false;
+        $transName         = 'bdt-tweets-'.$name; // Name of value in database. [added $name for multiple account use]
+        $backupName        = $transName . '-backup'; // Name of backup value in database.
+
+
+        if(false === ($tweets = get_transient( $name ) ) ) :
+        
+            $connection = new \TwitterOAuth( $twitter_consumer_key, $consumer_secret, $access_token, $access_token_secret );
+
+            $totalToFetch = ($exclude_replies) ? max(50, $settings['jltma_ts_tweet_num'] * 3) : $settings['jltma_ts_tweet_num'];
+
+            $fetchedTweets = $connection->get(
+                'statuses/user_timeline',
+                array(
+                    'screen_name'     => $name,
+                    'count'           => $totalToFetch,
+                    'exclude_replies' => $exclude_replies
+                )
+            );
+
+            // Did the fetch fail?
+            if($connection->http_code != 200) :
+                $tweets = get_option($backupName); // False if there has never been data saved.
+            else :
+                // Fetch succeeded.
+                // Now update the array to store just what we need.
+                // (Done here instead of PHP doing this for every page load)
+                $limitToDisplay = min($settings['jltma_ts_tweet_num'], count($fetchedTweets));
+
+                for($i = 0; $i < $limitToDisplay; $i++) :
+                    $tweet = $fetchedTweets[$i];
+
+                        // Core info.
+                        $name = $tweet->user->name;
+                        $screen_name = $tweet->user->screen_name;
+                        $permalink = 'https://twitter.com/'. $screen_name .'/status/'. $tweet->id_str;
+                        $tweet_id = $tweet->id_str;
+
+                        /* Alternative image sizes method: http://dev.twitter.com/doc/get/users/profile_image/:screen_name */
+                        //  Check for SSL via protocol https then display relevant image - thanks SO - this should do
+                        if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+                            // $protocol = 'https://';
+                            $image = $tweet->user->profile_image_url_https;
+                        }
+                        else {
+                            // $protocol = 'http://';
+                            $image = $tweet->user->profile_image_url;
+                        }
+
+                        // Process Tweets - Use Twitter entities for correct URL, hash and mentions
+                        $text  = $this->process_links($tweet);
+                        // lets strip 4-byte emojis
+                        $text  = $this->twitter_api_strip_emoji( $text );
+                        
+                        // Need to get time in Unix format.
+                        $time  = $tweet->created_at;
+                        $time  = date_parse($time);
+                        $uTime = mktime($time['hour'], $time['minute'], $time['second'], $time['month'], $time['day'], $time['year']);
+
+                        // Now make the new array.
+                        $tweets[] = array(
+                            'text'      => $text,
+                            'name'      => $name,
+                            'permalink' => $permalink,
+                            'image'     => $image,
+                            'time'      => $uTime,
+                            'tweet_id'  => $tweet_id
+                            );
+                endfor;
+
+                set_transient($transName, $tweets, 60 * $settings['jltma_ts_cache_time']);
+                update_option($backupName, $tweets );
+            endif;
+        endif;
+
+        ?>
+        
+        <?php
+
+        // Now display the tweets, if we can.
+        if($tweets) : ?>
+            <?php foreach( (array) $tweets as $t) : // casting array to array just in case it's empty - then prevents PHP warning ?>
+                    <div class="bdt-carousel-item swiper-slide">
+                        <div class="bdt-card">
+                            <div class="bdt-card-body">
+                                <?php if ('yes' === $settings['jltma_ts_show_avatar']) : ?>
+
+                                    <?php if ('yes' === $settings['jltma_ts_avatar_link']) : ?>
+                                        <a href="https://twitter.com/<?php echo esc_attr( $name ); ?>">
+                                    <?php endif; ?>
+
+                                        <div class="bdt-twitter-thumb">
+                                            <div class="bdt-twitter-thumb-wrapper">
+                                                <img src="<?php echo esc_url($t['image']); ?>" alt="<?php echo esc_html($t['name']); ?>" />
+                                            </div>
+                                        </div>
+
+                                    <?php if ('yes' === $settings['jltma_ts_avatar_link']) : ?>                                  
+                                        </a>
+                                    <?php endif; ?>
+
+                                <?php endif; ?>
+
+                                <div class="bdt-twitter-text bdt-clearfix">         
+                                    <?php echo wp_kses_post($t['text']); ?>
+                                </div>
+
+                                <div class="bdt-twitter-meta-wrapper">
+                                    
+                                    <?php if('yes' === $settings['jltma_ts_show_time']) : ?>
+                                    <a href="<?php echo $t['permalink']; ?>" target="_blank" class="bdt-twitter-time-link">
+                                        <?php
+                                            // Original - long time ref: hours...
+                                            if('yes' === $settings['jltma_ts_long_time_format']){
+                                                // New - short Twitter style time ref: h...
+                                                $timeDisplay = human_time_diff($t['time'], current_time('timestamp'));
+                                            } else {
+                                                $timeDisplay = $this->twitter_time_diff($t['time'], current_time('timestamp'));
+                                            }
+                                            $displayAgo = _x('ago', 'leading space is required', 'bdthemes-element-pack');
+                                            // Use to make il8n compliant
+                                            printf(__( '%1$s %2$s', 'bdthemes-element-pack' ), $timeDisplay, $displayAgo);
+                                        ?>
+                                    </a>
+                                    <?php endif; ?> 
+
+
+                                    <?php if ('yes' === $settings['jltma_ts_show_meta_button']) : ?>
+                                    <div class="bdt-twitter-meta-button">
+                                        <a href="https://twitter.com/intent/tweet?in_reply_to=<?php echo $t['tweet_id']; ?>" data-lang="en" class="bdt-tmb-reply" title="<?php _e('Reply','bdthemes-element-pack'); ?>" target="_blank">
+                                            <span aria-hidden="true" bdt-icon="icon: reply; ratio: 0.7;"></span>
+                                        </a>
+                                        <a href="https://twitter.com/intent/retweet?tweet_id=<?php echo $t['tweet_id']; ?>" data-lang="en" class="bdt-tmb-retweet" title="<?php _e('Retweet','bdthemes-element-pack'); ?>" target="_blank">
+                                            <span aria-hidden="true" bdt-icon="icon: refresh; ratio: 0.7;"></span>
+                                        </a>
+                                        <a href="https://twitter.com/intent/favorite?tweet_id=<?php echo $t['tweet_id']; ?>" data-lang="en" class="bdt-tmb-favorite" title="<?php _e('Favourite','bdthemes-element-pack'); ?>" target="_blank">
+                                            <span aria-hidden="true" bdt-icon="icon: star; ratio: 0.7;"></span>
+                                        </a>
+                                    </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <?php endforeach;
+        endif;
+    }
+
 
     // Render
 	protected function render() {
@@ -1121,26 +1281,178 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
 
 
         if ( $twitter_consumer_key and $consumer_secret and $access_token and $access_token_secret  ) {
-            $this->render_loop_twitter( $twitter_consumer_key, $consumer_secret, $access_token, $access_token_secret, $twitter_username );
+            $this->jltma_ts_loop_twitter( $twitter_consumer_key, $consumer_secret, $access_token, $access_token_secret, $twitter_username );
         } else { ?>
 
             <div class="ma-el-alert elementor-alert elementor-alert-warning" role="alert">                
                 <a class="elementor-alert-dismiss"></a>
-                <?php $ep_setting_url = esc_url( admin_url('admin.php?page=master-addons-settings#ma_api_keys')); ?>
-                <p><?php printf(__( 'Please set your twitter API settings from here <a href="%s" target="_blank">Master Addons Settings</a> to show your map correctly.', MELA_TD ), $ep_setting_url); ?></p>
+                <?php $jltma_admin_api_url = esc_url( admin_url('admin.php?page=master-addons-settings#ma_api_keys')); ?>
+                <p><?php printf(__( 'Please set Twitter API settings from here <a href="%s" target="_blank">Master Addons Settings</a> to show Tweet data correctly.', MELA_TD ), $jltma_admin_api_url); ?></p>
             </div>
             <?php
         }
 
-
+        $this->jltma_ts_loop_footer();
 
 	}
 
-    
-    // Twitter Slider : Header
+
+    // Twitter Slider: Header
     protected function jltma_ts_loop_header(){
+        $id = 'bdt-twitter-slider-' . $this->get_id();
+        $settings = $this->get_settings();
+        
+        $this->add_render_attribute( 'slider', 'id', $id );
+        $this->add_render_attribute( 'slider', 'class', 'bdt-twitter-slider bdt-carousel' );
+
+        if ('arrows' == $settings['jltma_ts_navigation']) {
+            $this->add_render_attribute( 'slider', 'class', 'bdt-arrows-align-'. $settings['jltma_ts_arrows_position'] );
+            
+        }
+        if ('dots' == $settings['jltma_ts_navigation']) {
+            $this->add_render_attribute( 'slider', 'class', 'bdt-dots-align-'. $settings['jltma_ts_dots_position'] );
+        }
+        if ('both' == $settings['jltma_ts_navigation']) {
+            $this->add_render_attribute( 'slider', 'class', 'bdt-arrows-dots-align-'. $settings['jltma_ts_both_position'] );
+        }
+        ?>
+        
+        <div <?php echo $this->get_render_attribute_string( 'slider' ); ?>>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+        <?php
+    }
+
+    // Twitter Slider: Footer
+    protected function jltma_ts_loop_footer(){
+        $id       = 'bdt-twitter-slider-' . $this->get_id();
+        $settings = $this->get_settings();
+
+        ?>
+                </div>
+            </div>
+            
+            <?php if ('both' == $settings['jltma_ts_navigation']) : ?>
+                <?php $this->render_both_navigation(); ?>
+                <?php if ('center' === $settings['jltma_ts_both_position']) : ?>
+                    <div class="bdt-dots-container">
+                        <div class="swiper-pagination"></div>
+                    </div>
+                <?php endif; ?>
+            <?php else : ?>         
+                <?php $this->render_pagination(); ?>
+                <?php $this->render_navigation(); ?>
+            <?php endif; ?>
+            
+        </div>
+        <?php
+    }
+
+
+
+    protected function render_both_navigation() {
+        $settings = $this->get_settings();
+
+        ?>
+        <div class="bdt-position-z-index bdt-position-<?php echo esc_attr($settings['jltma_ts_both_position']); ?>">
+            <div class="bdt-arrows-dots-container bdt-slidenav-container ">
+                
+                <div class="bdt-flex bdt-flex-middle">
+                    <div class="bdt-visible@m">
+                        <a href="" class="bdt-navigation-prev bdt-slidenav-previous bdt-icon bdt-slidenav" bdt-icon="icon: chevron-left; ratio: 1.9"></a>   
+                    </div>
+
+                    <?php if ('center' !== $settings['jltma_ts_both_position']) : ?>
+                        <div class="swiper-pagination"></div>
+                    <?php endif; ?>
+                    
+                    <div class="bdt-visible@m">
+                        <a href="" class="bdt-navigation-next bdt-slidenav-next bdt-icon bdt-slidenav" bdt-icon="icon: chevron-right; ratio: 1.9"></a>      
+                    </div>
+                    
+                </div>
+            </div>
+        </div>      
+        <?php
+    }
+
+
+
+    protected function render_navigation() {
+        $settings = $this->get_settings();
+
+        if ( 'arrows' == $settings['jltma_ts_navigation'] ) : ?>
+            <div class="bdt-position-z-index bdt-visible@m bdt-position-<?php echo esc_attr($settings['jltma_ts_arrows_position']); ?>">
+                <div class="bdt-arrows-container bdt-slidenav-container">
+                    <a href="" class="bdt-navigation-prev bdt-slidenav-previous bdt-icon bdt-slidenav" bdt-icon="icon: chevron-left; ratio: 1.9"></a>
+                    <a href="" class="bdt-navigation-next bdt-slidenav-next bdt-icon bdt-slidenav" bdt-icon="icon: chevron-right; ratio: 1.9"></a>
+                </div>
+            </div>
+        <?php endif;
+    }
+
+
+    protected function render_pagination() {
+        $settings = $this->get_settings();
+        
+        if ( 'dots' == $settings['jltma_ts_navigation'] ) : ?>
+            <?php if ( 'arrows' !== $settings['jltma_ts_navigation'] ) : ?>
+                <div class="bdt-position-z-index bdt-position-<?php echo esc_attr($settings['jltma_ts_dots_position']); ?>">
+                    <div class="bdt-dots-container">
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            <?php endif; ?>
+            
+        <?php endif;
+    }
+
+    private function twitter_api_strip_emoji( $text ){
+        // four byte utf8: 11110www 10xxxxxx 10yyyyyy 10zzzzzz
+        return preg_replace('/[\xF0-\xF7][\x80-\xBF]{3}/', '', $text );
+    }
+
+
+    private function process_links($tweet) {
+
+        // Is the Tweet a ReTweet - then grab the full text of the original Tweet
+        if(isset($tweet->retweeted_status)) {
+            // Split it so indices count correctly for @mentions etc.
+            $rt_section = current(explode(":", $tweet->text));
+            $text = $rt_section.": ";
+            // Get Text
+            $text .= $tweet->retweeted_status->text;
+        } else {
+            // Not a retweet - get Tweet
+            $text = $tweet->text;
+        }
+
+        // NEW Link Creation from clickable items in the text
+        $text = preg_replace('/((http)+(s)?:\/\/[^<>\s]+)/i', '<a href="$0" target="_blank" rel="nofollow">$0</a>', $text );
+        // Clickable Twitter names
+        $text = preg_replace('/[@]+([A-Za-z0-9-_]+)/', '<a href="http://twitter.com/$1" target="_blank" rel="nofollow">@$1</a>', $text );
+        // Clickable Twitter hash tags
+        $text = preg_replace('/[#]+([A-Za-z0-9-_]+)/', '<a href="http://twitter.com/search?q=%23$1" target="_blank" rel="nofollow">$0</a>', $text );
+        // END TWEET CONTENT REGEX
+        return $text;
 
     }
+
+    private function twitter_time_diff( $from, $to = '' ) {
+        $diff = human_time_diff($from,$to);
+        $replace = array(
+                ' hour'    => 'h',
+                ' hours'   => 'h',
+                ' day'     => 'd',
+                ' days'    => 'd',
+                ' minute'  => 'm',
+                ' minutes' => 'm',
+                ' second'  => 's',
+                ' seconds' => 's',
+        );
+        return strtr($diff,$replace);
+    }
+
 
 
 }

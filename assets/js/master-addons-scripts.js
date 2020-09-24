@@ -1174,6 +1174,7 @@
 
         },
 
+
         /**** MA Logo Slider ****/
 
         MA_Logo_Slider: function ($scope, $) {
@@ -1271,6 +1272,108 @@
                 $('.jltma-slide-dotnav li a.active').removeClass('active');
                 // $(this).addClass('active');
                 $logSliderWrapper.slick('slickGoTo', parseInt(slideIndex));
+            });
+
+        },
+
+
+        /**** MA Twitter Slider ****/
+
+        MA_Twitter_Slider: function ($scope, $) {
+            
+            Master_Addons.MA_Twitter_Slider.elementSettings    = getElementSettings( $scope );
+
+            var $TwitterSliderWrapper   = $scope.find('.jltma-twitter-slider').eq(0),
+                $twitter_slider_nav    = Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_navigation,
+                // $loop = ($TwitterSliderWrapper.data("loop") !== undefined) ? $TwitterSliderWrapper.data("loop") : false,
+                $slidesToShow       = Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_columns,
+                start               = elementorFrontend.config.is_rtl ? 'right' : 'left',
+                end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',                
+                $slidesToScroll     = Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_tweet_num;
+
+
+                // Logo Slider Navigation
+                if ($twitter_slider_nav == "arrows") {
+                    var arrows = true;
+                    var dots = false;
+                } else if($twitter_slider_nav == "both") {
+                    var arrows = true;
+                    var dots = true;                    
+                } else if($twitter_slider_nav == "dots") {
+                    var arrows = false;
+                    var dots = true;
+                }
+                
+
+                var twitterSlickArgs       = {
+
+                    slidesToShow    : $slidesToShow,
+                    slidesToScroll  : $slidesToScroll,
+                    cssEase         : "linear",
+                    draggable       : false,
+                    // autoplayspeed
+                    autoplay        : 'yes' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_logo_slider_autoplay,
+                    autoplaySpeed   : Master_Addons.MA_Twitter_Slider.elementSettings.jltma_logo_slider_autoplay_speed,
+                    infinite        : 'yes' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_logo_slider_loop,
+                    pauseOnHover    : 'yes' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_logo_slider_pause,
+                    speed           : Master_Addons.MA_Twitter_Slider.elementSettings.jltma_logo_slider_animation_speed,
+                    arrows          : arrows,
+                    centerMode      : Master_Addons.MA_Twitter_Slider.elementSettings.jltma_logo_slider_center_mode,
+                    // centerPadding: '60px',
+                    prevArrow       : $('.jltma-slide-prev'),
+                    nextArrow       : $('.jltma-slide-next'),
+                    dots            : true,
+                    dotsClass       : $('.jltma-slide-dotnav'),
+                    appendDots      : $('.jltma-slide-dotnav'),
+                    // rtl             : 'rtl' === Master_Addons.MA_Twitter_Slider.elementSettings.jltMA_Logo_Slider_direction,
+                    // fade            : 'fade' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_gallery_slider_effect,
+                    responsive: [
+
+                        {
+                            breakpoint: 350,
+                            settings: {
+                                dots: dots,
+                                arrow: arrows,
+                                rows:1,
+                                slidesToShow: Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_columns_mobile,
+                                slidesToScroll: $slidesToScroll
+                            }
+                        },
+                        {
+                            breakpoint: 576,
+                            settings: {
+                                dots: dots,
+                                arrow: arrows,
+                                slidesToShow: Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_columns_tablet,
+                                slidesToScroll: $slidesToScroll
+                            }
+                        },
+                        {
+                            breakpoint: 720,
+                            settings: {
+                                slidesToShow: $slidesToShow,
+                                slidesToScroll: $slidesToScroll,
+                                infinite: true,                                    
+                                dots: dots,
+                                arrow: arrows
+                            }
+                        },
+
+                    ],                        
+            };
+
+
+            $TwitterSliderWrapper.slick( twitterSlickArgs );
+
+
+            // $('.jltma-slide-dotnav li a').removeClass('active');
+            $(".jltma-slide-dotnav li a").click(function(e){
+                e.preventDefault();
+
+                var slideIndex = $(this).parent().index();
+                $('.jltma-slide-dotnav li a.active').removeClass('active');
+                // $(this).addClass('active');
+                $TwitterSliderWrapper.slick('slickGoTo', parseInt(slideIndex));
             });
 
         },
@@ -2387,6 +2490,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-toggle-content.default', Master_Addons.MA_Toggle_Content);
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-comments.default', Master_Addons.MA_Comment_Form_reCaptcha);
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-logo-slider.default', Master_Addons.MA_Logo_Slider);
+        elementorFrontend.hooks.addAction('frontend/element_ready/jltma-twitter-slider.default', Master_Addons.MA_Twitter_Slider);
 
 
         if (elementorFrontend.isEditMode()) {
