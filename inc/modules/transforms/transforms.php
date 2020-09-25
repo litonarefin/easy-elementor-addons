@@ -869,6 +869,32 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->end_popover();
 
 
+
+        $element->add_control(
+            'jltma_transform_fx_transition_duration',
+            [
+                'label' => __( 'Transition Duration', MELA_TD ),
+                'type' => Controls_Manager::SLIDER,
+                'separator' => 'before',
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 3,
+                        'step' => .1,
+                    ]
+                ],
+                'condition' => [
+                    'enabled_transform' => 'yes',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}}'       => '',
+                    '{{WRAPPER}}:hover' => ''
+                ],
+            ]
+        );
+
+
         $element->end_controls_tab();
         $element->end_controls_tabs();
 
