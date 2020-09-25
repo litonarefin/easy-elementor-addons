@@ -1312,7 +1312,7 @@
                     cssEase         : "linear",
                     draggable       : false,
                     // autoplayspeed
-                    autoplay        : 'yes' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_logo_slider_autoplay,
+                    autoplay        : 'yes' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_autoplay,
                     autoplaySpeed   : Master_Addons.MA_Twitter_Slider.elementSettings.jltma_logo_slider_autoplay_speed,
                     infinite        : 'yes' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_logo_slider_loop,
                     pauseOnHover    : 'yes' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_logo_slider_pause,
