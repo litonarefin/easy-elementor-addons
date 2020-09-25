@@ -316,7 +316,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $this->add_control(
             'jltma_ts_loop',
             [
-                'label'   => esc_html__( 'Loop', MELA_TD ),
+                'label'   => esc_html__( 'Infinite Loop', MELA_TD ),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'yes',
                 'frontend_available'    => true,
