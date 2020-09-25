@@ -52,7 +52,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
     }
 
     public function get_help_url(){
-        return 'https://master-addons.com/demos/logo-slider/';
+        return 'https://master-addons.com/demos/twitter-slider/';
     }
 
     public function on_import( $element ) {
@@ -362,8 +362,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'     => esc_html__( 'Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-twitter-slider .bdt-carousel-item .bdt-twitter-text,
-                    {{WRAPPER}} .bdt-twitter-slider .bdt-carousel-item .bdt-twitter-text *' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-twitter-slider-item .bdt-twitter-text,
+                    {{WRAPPER}} .jltma-twitter-slider .jltma-twitter-slider-item .bdt-twitter-text *' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -389,7 +389,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-twitter-slider .bdt-carousel-item .bdt-card-body' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-twitter-slider-item .bdt-card-body' => 'text-align: {{VALUE}};',
                 ],
             ]
         );
@@ -425,7 +425,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb-wrapper img' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .jltma-twitter-slider .bdt-twitter-thumb-wrapper img' => 'width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -451,7 +451,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .jltma-twitter-slider .bdt-twitter-thumb' => 'text-align: {{VALUE}};',
                 ],
             ]
         );
@@ -462,7 +462,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'     => esc_html__( 'Background', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb-wrapper' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .jltma-twitter-slider .bdt-twitter-thumb-wrapper' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -474,7 +474,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                    '{{WRAPPER}} .jltma-twitter-slider .bdt-twitter-thumb-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                 ],
             ]
         );
@@ -486,7 +486,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                    '{{WRAPPER}} .jltma-twitter-slider .bdt-twitter-thumb-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                 ],
             ]
         );
@@ -498,8 +498,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb-wrapper,
-                    {{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb-wrapper img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+                    '{{WRAPPER}} .jltma-twitter-slider .bdt-twitter-thumb-wrapper,
+                    {{WRAPPER}} .jltma-twitter-slider .bdt-twitter-thumb-wrapper img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
                 ],
             ]
         );
@@ -520,7 +520,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-thumb-wrapper img' => 'opacity: {{SIZE}};',
+                    '{{WRAPPER}} .jltma-twitter-slider .bdt-twitter-thumb-wrapper img' => 'opacity: {{SIZE}};',
                 ],
             ]
         );
@@ -550,7 +550,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'     => esc_html__( 'Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-meta-button > a' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .jltma-twitter-slider .bdt-twitter-meta-button > a' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -561,7 +561,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'     => esc_html__( 'Hover Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-meta-button > a:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .jltma-twitter-slider .bdt-twitter-meta-button > a:hover' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -590,7 +590,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'     => esc_html__( 'Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-meta-wrapper a.bdt-twitter-time-link' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .jltma-twitter-slider .bdt-twitter-meta-wrapper a.bdt-twitter-time-link' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -601,7 +601,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'     => esc_html__( 'Hover Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-twitter-slider .bdt-twitter-meta-wrapper a.bdt-twitter-time-link:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .jltma-twitter-slider .bdt-twitter-meta-wrapper a.bdt-twitter-time-link:hover' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -1191,18 +1191,19 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
 
         // Now display the tweets, if we can.
         if($tweets) : ?>
+
             <?php foreach( (array) $tweets as $t) : // casting array to array just in case it's empty - then prevents PHP warning ?>
-                    <div class="bdt-carousel-item swiper-slide">
-                        <div class="bdt-card">
-                            <div class="bdt-card-body">
+                    <div class="jltma-twitter-slider-item swiper-slide">
+                        <div class="card text-center">
+                            <div class="card-body">
                                 <?php if ('yes' === $settings['jltma_ts_show_avatar']) : ?>
 
                                     <?php if ('yes' === $settings['jltma_ts_avatar_link']) : ?>
                                         <a href="https://twitter.com/<?php echo esc_attr( $name ); ?>">
                                     <?php endif; ?>
 
-                                        <div class="bdt-twitter-thumb">
-                                            <div class="bdt-twitter-thumb-wrapper">
+                                        <div class="jltma-twitter-thumb">
+                                            <div class="jltma-twitter-thumb-wrapper">
                                                 <img src="<?php echo esc_url($t['image']); ?>" alt="<?php echo esc_html($t['name']); ?>" />
                                             </div>
                                         </div>
@@ -1213,43 +1214,44 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
 
                                 <?php endif; ?>
 
-                                <div class="bdt-twitter-text bdt-clearfix">         
+                                <div class="jltma-twitter-text jltma-clearfix">         
                                     <?php echo wp_kses_post($t['text']); ?>
                                 </div>
 
-                                <div class="bdt-twitter-meta-wrapper">
+                                <div class="jltma-twitter-meta-wrapper">
                                     
-                                    <?php if('yes' === $settings['jltma_ts_show_time']) : ?>
-                                    <a href="<?php echo $t['permalink']; ?>" target="_blank" class="bdt-twitter-time-link">
-                                        <?php
-                                            // Original - long time ref: hours...
-                                            if('yes' === $settings['jltma_ts_long_time_format']){
-                                                // New - short Twitter style time ref: h...
-                                                $timeDisplay = human_time_diff($t['time'], current_time('timestamp'));
-                                            } else {
-                                                $timeDisplay = $this->twitter_time_diff($t['time'], current_time('timestamp'));
-                                            }
-                                            $displayAgo = _x('ago', 'leading space is required', 'bdthemes-element-pack');
-                                            // Use to make il8n compliant
-                                            printf(__( '%1$s %2$s', 'bdthemes-element-pack' ), $timeDisplay, $displayAgo);
-                                        ?>
-                                    </a>
-                                    <?php endif; ?> 
+                                    <?php if('yes' === $settings['jltma_ts_show_time']) { ?>
+                                        <a href="<?php echo $t['permalink']; ?>" target="_blank" class="jltma-twitter-time-link">
+                                            <?php
+                                                // Original - long time ref: hours...
+                                                if('yes' === $settings['jltma_ts_long_time_format']){
+                                                    // Short Twitter style time ref: h...
+                                                    $timeDisplay = human_time_diff($t['time'], current_time('timestamp'));
+                                                } else {
+                                                    $timeDisplay = $this->twitter_time_diff($t['time'], current_time('timestamp'));
+                                                }
+                                                $displayAgo = _x('ago', 'leading space is required', MELA_TD);
+                                                // Use to make il8n compliant
+                                                printf(__( '%1$s %2$s', MELA_TD ), $timeDisplay, $displayAgo);
+                                            ?>
+                                        </a>
+                                    <?php } ?> 
 
 
-                                    <?php if ('yes' === $settings['jltma_ts_show_meta_button']) : ?>
-                                    <div class="bdt-twitter-meta-button">
-                                        <a href="https://twitter.com/intent/tweet?in_reply_to=<?php echo $t['tweet_id']; ?>" data-lang="en" class="bdt-tmb-reply" title="<?php _e('Reply','bdthemes-element-pack'); ?>" target="_blank">
-                                            <span aria-hidden="true" bdt-icon="icon: reply; ratio: 0.7;"></span>
-                                        </a>
-                                        <a href="https://twitter.com/intent/retweet?tweet_id=<?php echo $t['tweet_id']; ?>" data-lang="en" class="bdt-tmb-retweet" title="<?php _e('Retweet','bdthemes-element-pack'); ?>" target="_blank">
-                                            <span aria-hidden="true" bdt-icon="icon: refresh; ratio: 0.7;"></span>
-                                        </a>
-                                        <a href="https://twitter.com/intent/favorite?tweet_id=<?php echo $t['tweet_id']; ?>" data-lang="en" class="bdt-tmb-favorite" title="<?php _e('Favourite','bdthemes-element-pack'); ?>" target="_blank">
-                                            <span aria-hidden="true" bdt-icon="icon: star; ratio: 0.7;"></span>
-                                        </a>
-                                    </div>
-                                    <?php endif; ?>
+                                    <?php if ('yes' === $settings['jltma_ts_show_meta_button']) { ?>
+                                        <div class="jltma-twitter-meta-button">
+                                            <a href="https://twitter.com/intent/tweet?in_reply_to=<?php echo $t['tweet_id']; ?>" data-lang="en" class="jltma-tmb-reply" title="<?php _e('Reply',MELA_TD); ?>" target="_blank">
+                                                <i class="fas fa-reply"></i>
+                                            </a>
+                                            <a href="https://twitter.com/intent/retweet?tweet_id=<?php echo $t['tweet_id']; ?>" data-lang="en" class="jltma-tmb-retweet" title="<?php _e('Retweet',MELA_TD); ?>" target="_blank">
+                                                <i class="fas fa-sync"></i>
+                                            </a>
+                                            <a href="https://twitter.com/intent/favorite?tweet_id=<?php echo $t['tweet_id']; ?>" data-lang="en" class="jltma-tmb-favorite" title="<?php _e('Favourite',MELA_TD); ?>" target="_blank">
+                                                <i class="far fa-star"></i>
+                                            </a>
+                                        </div>
+                                    <?php } ?>
+
                                 </div>
                             </div>
                         </div>
@@ -1301,10 +1303,13 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
     protected function jltma_ts_loop_header(){
         
         $settings = $this->get_settings();
-        $id = 'jltma-twitter-slider-' . $this->get_id();
 
-        $this->add_render_attribute( 'jltma_twitter_slider', 'id', $id );
+        $this->add_render_attribute( 'jltma_twitter_slider', 'id', 'jltma-twitter-slider-' . $this->get_id() );
         $this->add_render_attribute( 'jltma_twitter_slider', 'class', 'jltma-twitter-slider jltma-carousel' );
+
+        if ('both' == $settings['jltma_ts_navigation']) {
+            $this->add_render_attribute( 'jltma_twitter_slider', 'class', 'jltma-arrows-dots-align-'. $settings['jltma_ts_both_position'] );
+        }
 
         if ('arrows' == $settings['jltma_ts_navigation']) {
             $this->add_render_attribute( 'jltma_twitter_slider', 'class', 'jltma-arrows-align-'. $settings['jltma_ts_arrows_position'] );
@@ -1314,9 +1319,6 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
             $this->add_render_attribute( 'jltma_twitter_slider', 'class', 'jltma-dots-align-'. $settings['jltma_ts_dots_position'] );
         }
 
-        if ('both' == $settings['jltma_ts_navigation']) {
-            $this->add_render_attribute( 'jltma_twitter_slider', 'class', 'jltma-arrows-dots-align-'. $settings['jltma_ts_both_position'] );
-        }
         ?>
 
         <div <?php echo $this->get_render_attribute_string( 'jltma_twitter_slider' ); ?>>
@@ -1327,87 +1329,122 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
 
     // Twitter Slider: Footer
     protected function jltma_ts_loop_footer(){
-        $id       = 'bdt-twitter-slider-' . $this->get_id();
+        $id       = 'jltma-twitter-slider-' . $this->get_id();
         $settings = $this->get_settings();
 
         ?>
                 </div>
             </div>
             
-            <?php if ('both' == $settings['jltma_ts_navigation']) : ?>
-                <?php $this->jltma_render_both_navigation(); ?>
-                <?php if ('center' === $settings['jltma_ts_both_position']) : ?>
-                    <div class="bdt-dots-container">
-                        <div class="swiper-pagination"></div>
-                    </div>
-                <?php endif; ?>
-            <?php else : ?>         
-                <?php $this->render_pagination(); ?>
-                <?php $this->render_navigation(); ?>
-            <?php endif; ?>
+
+        <?php
+            if ('both' == $settings['jltma_ts_navigation']){
             
+                $this->jltma_ts_render_both_navigation($settings);
+
+                if ( 'center' === $settings['jltma_ts_both_position'] ){
+                    $this->jltma_ts_render_dots_navigation($settings);
+                }
+            
+            } elseif ('arrows' == $settings['jltma_ts_navigation']){
+
+                $this->jltma_ts_render_arrow_navigation($settings);
+
+            } elseif ('dots' == $settings['jltma_ts_navigation']){
+
+                $this->jltma_ts_render_dots_navigation($settings);
+
+            }?>
+
+
         </div>
         <?php
     }
 
 
 
-    protected function jltma_render_both_navigation() {
-        $settings = $this->get_settings();
+    /*
+    * Arrow & Dots Navigation 
+    */
+    public function jltma_ts_render_both_navigation( $settings ){ ?>
 
-        ?>
-        <div class="bdt-position-z-index bdt-position-<?php echo esc_attr($settings['jltma_ts_both_position']); ?>">
-            <div class="bdt-arrows-dots-container bdt-slidenav-container ">
+        <div class="jltma-position-z-index jltma-position-<?php echo esc_attr($settings['jltma_ts_both_position']); ?>">
+            <div class="jltma-ls-arrows-dots-container jltma-ls-container">
                 
-                <div class="bdt-flex bdt-flex-middle">
-                    <div class="bdt-visible@m">
-                        <a href="" class="bdt-navigation-prev bdt-slidenav-previous bdt-icon bdt-slidenav" bdt-icon="icon: chevron-left; ratio: 1.9"></a>   
-                    </div>
+                <div class="d-flex flex-row justify-content-center">
+
+                    <a href="#" class="jltma-ls-prev jltma-slide-prev slick-arrow">
+                        <svg width="38" height="38" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="13 16 7 10 13 4"></polyline></svg>
+                    </a>
 
                     <?php if ('center' !== $settings['jltma_ts_both_position']) : ?>
-                        <div class="swiper-pagination"></div>
+                        <div class="jltma-slide-dotnav d-flex align-items-center"></div>
                     <?php endif; ?>
                     
-                    <div class="bdt-visible@m">
-                        <a href="" class="bdt-navigation-next bdt-slidenav-next bdt-icon bdt-slidenav" bdt-icon="icon: chevron-right; ratio: 1.9"></a>      
-                    </div>
-                    
+                    <a href="" class="jltma-ls-next jltma-slide-next slick-arrow">
+                        <svg width="38" height="38" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="7 4 13 10 7 16"></polyline></svg>
+                    </a>
+
                 </div>
             </div>
-        </div>      
+        </div>
+
+    <?php }
+
+
+
+    /*
+    * Arrow Navigation 
+    */
+    public function jltma_ts_render_arrow_navigation( $settings ){
+
+        if (('both' == $settings['jltma_ts_navigation']) and ('center' == $settings['jltma_ts_both_position'])) {
+            $arrows_position = 'center';
+        } else {
+            $arrows_position = $settings['jltma_ts_arrows_position'];
+        } ?>
+
+            <div class="jltma-position-z-index jltma-position-<?php echo esc_attr( $arrows_position ); ?>">
+                <div class="jltma-ls-arrows-dots-container jltma-ls-container">
+                    <div class="d-flex flex-row justify-content-center">
+
+                        <a href="#" class="jltma-ls-prev jltma-slide-prev slick-arrow">
+                            <svg width="38" height="38" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="13 16 7 10 13 4"></polyline></svg>
+                        </a>
+                        <a href="" class="jltma-ls-next jltma-slide-next slick-arrow">
+                            <svg width="38" height="38" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="7 4 13 10 7 16"></polyline></svg>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
         <?php
     }
 
 
+    /*
+    * Dots Navigation 
+    */
+    public function jltma_ts_render_dots_navigation( $settings ){
 
-    protected function render_navigation() {
-        $settings = $this->get_settings();
+        if (('both' == $settings['jltma_ts_navigation']) and ('center' == $settings['jltma_ts_both_position'])) {
+            $dots_position = 'bottom-center';
+        } else {
+            $dots_position = $settings['jltma_ts_dots_position'];
+        } ?>        
 
-        if ( 'arrows' == $settings['jltma_ts_navigation'] ) : ?>
-            <div class="bdt-position-z-index bdt-visible@m bdt-position-<?php echo esc_attr($settings['jltma_ts_arrows_position']); ?>">
-                <div class="bdt-arrows-container bdt-slidenav-container">
-                    <a href="" class="bdt-navigation-prev bdt-slidenav-previous bdt-icon bdt-slidenav" bdt-icon="icon: chevron-left; ratio: 1.9"></a>
-                    <a href="" class="bdt-navigation-next bdt-slidenav-next bdt-icon bdt-slidenav" bdt-icon="icon: chevron-right; ratio: 1.9"></a>
-                </div>
-            </div>
-        <?php endif;
-    }
-
-
-    protected function render_pagination() {
-        $settings = $this->get_settings();
-        
-        if ( 'dots' == $settings['jltma_ts_navigation'] ) : ?>
-            <?php if ( 'arrows' !== $settings['jltma_ts_navigation'] ) : ?>
-                <div class="bdt-position-z-index bdt-position-<?php echo esc_attr($settings['jltma_ts_dots_position']); ?>">
-                    <div class="bdt-dots-container">
-                        <div class="swiper-pagination"></div>
+            <div class="jltma-position-z-index jltma-position-<?php echo esc_attr( $dots_position ); ?>">
+                <div class="jltma-ls-arrows-dots-container jltma-ls-container">
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="jltma-slide-dotnav d-flex align-items-center"></div>
                     </div>
                 </div>
-            <?php endif; ?>
-            
-        <?php endif;
-    }
+            </div>
+
+    <?php  }
+
+
 
     private function twitter_api_strip_emoji( $text ){
         // four byte utf8: 11110www 10xxxxxx 10yyyyyy 10zzzzzz
