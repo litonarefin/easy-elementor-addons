@@ -27,6 +27,27 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
             ]
         );
 
+        $element->start_controls_tabs(
+            'jltma_transform_fx_tabs',
+            [
+                'condition' => [
+                    'enabled_transform' => 'yes',
+                ],
+            ]
+        );
+
+
+        $element->start_controls_tab(
+            'jltma_transform_fx_tab_normal',
+            [
+                'label' => __( 'Normal', MELA_TD ),
+                'condition' => [
+                    'enabled_transform' => 'yes',
+                ],
+            ]
+        );
+        
+
         $element->add_control(
             'jltma_transform_fx_translate_toggle',
             [
@@ -443,6 +464,413 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         );
 
         $element->end_popover();
+
+        $element->end_controls_tab();
+
+
+        // Hover Transforms
+        $element->start_controls_tab(
+            'jltma_transform_fx_tab_hover',
+            [
+                'label' => __( 'Hover', MELA_TD ),
+                'condition' => [
+                    'enabled_transform' => 'yes',
+                ],
+            ]
+        );
+
+        $element->add_control(
+            'jltma_transform_fx_translate_toggle_hover',
+            [
+                'label'        => __( 'Translate', MELA_TD ),
+                'type'         => Controls_Manager::POPOVER_TOGGLE,
+                'return_value' => 'yes',
+                'condition'    => [
+                    'enabled_transform' => 'yes',
+                ],
+            ]
+        );
+
+        $element->start_popover();
+
+        $element->add_responsive_control(
+            'jltma_transform_fx_translate_x_hover',
+            [
+                'label'      => __( 'Translate X', MELA_TD ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+                'range'      => [
+                    'px' => [
+                        'min' => - 1000,
+                        'max' => 1000,
+                    ],
+                ],
+                'condition'  => [
+                    'jltma_transform_fx_translate_toggle_hover' => 'yes',
+                    'enabled_transform'                         => 'yes',
+                ],
+            ]
+        );
+
+        $element->add_responsive_control(
+            'jltma_transform_fx_translate_y_hover',
+            [
+                'label'      => __( 'Translate Y', MELA_TD ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+                'range'      => [
+                    'px' => [
+                        'min' => - 1000,
+                        'max' => 1000,
+                    ],
+                ],
+                'condition'  => [
+                    'jltma_transform_fx_translate_toggle_hover' => 'yes',
+                    'enabled_transform'                         => 'yes',
+                ],
+                'selectors'  => [
+                    '(desktop){{WRAPPER}}:hover' =>
+                        '-ms-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px);'
+                        . '-webkit-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px);'
+                        . 'transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px);',
+                    '(tablet){{WRAPPER}}:hover'  =>
+                        '-ms-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px);'
+                        . '-webkit-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px);'
+                        . 'transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px);',
+                    '(mobile){{WRAPPER}}:hover'  =>
+                        '-ms-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px);'
+                        . '-webkit-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px);'
+                        . 'transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px);',
+                ],
+            ]
+        );
+
+        $element->end_popover();
+
+
+        $element->add_control(
+            'jltma_transform_fx_rotate_toggle_hover',
+            [
+                'label'     => __( 'Rotate', MELA_TD ),
+                'type'      => Controls_Manager::POPOVER_TOGGLE,
+                'condition' => [
+                    'enabled_transform' => 'yes',
+                ],
+            ]
+        );
+
+        $element->start_popover();
+
+        $element->add_responsive_control(
+            'jltma_transform_fx_rotate_x_hover',
+            [
+                'label'      => __( 'Rotate X', MELA_TD ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+                'range'      => [
+                    'px' => [
+                        'min' => - 180,
+                        'max' => 180,
+                    ],
+                ],
+                'condition'  => [
+                    'jltma_transform_fx_rotate_toggle_hover' => 'yes',
+                    'enabled_transform'               => 'yes',
+                ],
+            ]
+        );
+
+        $element->add_responsive_control(
+            'jltma_transform_fx_rotate_y_hover',
+            [
+                'label'      => __( 'Rotate Y', MELA_TD ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+                'range'      => [
+                    'px' => [
+                        'min' => - 180,
+                        'max' => 180,
+                    ],
+                ],
+                'condition'  => [
+                    'jltma_transform_fx_rotate_toggle_hover' => 'yes',
+                    'enabled_transform'               => 'yes',
+                ],
+            ]
+        );
+
+        $element->add_responsive_control(
+            'jltma_transform_fx_rotate_z_hover',
+            [
+                'label'      => __( 'Rotate Z', MELA_TD ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+                'range'      => [
+                    'px' => [
+                        'min' => - 180,
+                        'max' => 180,
+                    ],
+                ],
+                'condition'  => [
+                    'jltma_transform_fx_rotate_toggle_hover' => 'yes',
+                    'enabled_transform'               => 'yes',
+                ],
+                'selectors'  => [
+                    '(desktop){{WRAPPER}}:hover' =>
+                        '-ms-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg);'
+                        . '-webkit-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg);'
+                        . 'transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg);',
+                    '(tablet){{WRAPPER}}:hover'  =>
+                        '-ms-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg);'
+                        . '-webkit-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg);'
+                        . 'transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg);',
+                    '(mobile){{WRAPPER}}:hover'  =>
+                        '-ms-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg);'
+                        . '-webkit-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg);'
+                        . 'transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg);',
+                ],
+            ]
+        );
+
+        $element->end_popover();
+
+        $element->add_control(
+            'jltma_transform_fx_scale_toggle_hover',
+            [
+                'label'        => __( 'Scale', MELA_TD ),
+                'type'         => Controls_Manager::POPOVER_TOGGLE,
+                'return_value' => 'yes',
+                'condition'    => [
+                    'enabled_transform' => 'yes',
+                ],
+            ]
+        );
+
+        $element->start_popover();
+
+        $element->add_responsive_control(
+            'jltma_transform_fx_scale_x_hover',
+            [
+                'label'      => __( 'Scale X', MELA_TD ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+                'default'    => [
+                    'size' => 1,
+                ],
+                'range'      => [
+                    'px' => [
+                        'min'  => 0,
+                        'max'  => 5,
+                        'step' => .1,
+                    ],
+                ],
+                'condition'  => [
+                    'jltma_transform_fx_scale_toggle_hover' => 'yes',
+                    'enabled_transform'              => 'yes',
+                ],
+            ]
+        );
+
+        $element->add_responsive_control(
+            'jltma_transform_fx_scale_y_hover',
+            [
+                'label'      => __( 'Scale Y', MELA_TD ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+                'default'    => [
+                    'size' => 1,
+                ],
+                'range'      => [
+                    'px' => [
+                        'min'  => 0,
+                        'max'  => 5,
+                        'step' => .1,
+                    ],
+                ],
+                'condition'  => [
+                    'jltma_transform_fx_scale_toggle_hover' => 'yes',
+                    'enabled_transform'                     => 'yes',
+                ],
+                'selectors'  => [
+                    '(desktop){{WRAPPER}}:hover' =>
+                        '-ms-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover.SIZE || 1}});'
+                        . '-webkit-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover.SIZE || 1}});'
+                        . 'transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover.SIZE || 1}});',
+                    '(tablet){{WRAPPER}}:hover'  =>
+                        '-ms-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_tablet.SIZE || 1}});'
+                        . '-webkit-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_tablet.SIZE || 1}});'
+                        . 'transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_tablet.SIZE || 1}});',
+                    '(mobile){{WRAPPER}}:hover'  =>
+                        '-ms-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_mobile.SIZE || 1}});'
+                        . '-webkit-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_mobile.SIZE || 1}});'
+                        . 'transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_mobile.SIZE || 1}});',
+                ],
+            ]
+        );
+
+        $element->end_popover();
+
+        $element->add_control(
+            'jltma_transform_fx_skew_toggle_hover',
+            [
+                'label'        => __( 'Skew', MELA_TD ),
+                'type'         => Controls_Manager::POPOVER_TOGGLE,
+                'return_value' => 'yes',
+                'condition'    => [
+                    'enabled_transform' => 'yes',
+                ],
+            ]
+        );
+
+        $element->start_popover();
+
+        $element->add_responsive_control(
+            'jltma_transform_fx_skew_x_hover',
+            [
+                'label'      => __( 'Skew X', MELA_TD ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'deg' ],
+                'range'      => [
+                    'px' => [
+                        'min' => - 180,
+                        'max' => 180,
+                    ],
+                ],
+                'condition'  => [
+                    'jltma_transform_fx_skew_toggle_hover'  => 'yes',
+                    'enabled_transform'                     => 'yes',
+                ],
+            ]
+        );
+
+        $element->add_responsive_control(
+            'jltma_transform_fx_skew_y_hover',
+            [
+                'label'      => __( 'Skew Y', MELA_TD ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'deg' ],
+                'range'      => [
+                    'px' => [
+                        'min' => - 180,
+                        'max' => 180,
+                    ],
+                ],
+                'condition'  => [
+                    'jltma_transform_fx_skew_toggle_hover' => 'yes',
+                    'enabled_transform'             => 'yes',
+                ],
+                'selectors'  => [
+                    '(desktop){{WRAPPER}}:hover' =>
+                        '-ms-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover.SIZE || 1}}) '
+                        . 'skew({{jltma_transform_fx_skew_x_hover.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover.SIZE || 0}}deg);'
+                        . '-webkit-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover.SIZE || 1}}) '
+                        . 'skew({{jltma_transform_fx_skew_x_hover.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover.SIZE || 0}}deg);'
+                        . 'transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover.SIZE || 1}}) '
+                        . 'skew({{jltma_transform_fx_skew_x_hover.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover.SIZE || 0}}deg);',
+                    '(tablet){{WRAPPER}}:hover'  =>
+                        '-ms-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_tablet.SIZE || 1}}) '
+                        . 'skew({{jltma_transform_fx_skew_x_hover_tablet.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover_tablet.SIZE || 0}}deg);'
+                        . '-webkit-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_tablet.SIZE || 1}}) '
+                        . 'skew({{jltma_transform_fx_skew_x_hover_tablet.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover_tablet.SIZE || 0}}deg);'
+                        . 'transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_tablet.SIZE || 1}}) '
+                        . 'skew({{jltma_transform_fx_skew_x_hover_tablet.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover_tablet.SIZE || 0}}deg);',
+                    '(mobile){{WRAPPER}}:hover'  =>
+                        '-ms-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_mobile.SIZE || 1}}) '
+                        . 'skew({{jltma_transform_fx_skew_x_hover_mobile.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover_mobile.SIZE || 0}}deg);'
+                        . '-webkit-transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_mobile.SIZE || 1}}) '
+                        . 'skew({{jltma_transform_fx_skew_x_hover_mobile.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover_mobile.SIZE || 0}}deg);'
+                        . 'transform:'
+                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
+                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg) '
+                        . 'scaleX({{jltma_transform_fx_scale_x_hover_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_mobile.SIZE || 1}}) '
+                        . 'skew({{jltma_transform_fx_skew_x_hover_mobile.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover_mobile.SIZE || 0}}deg);',
+                ],
+            ]
+        );
+
+        $element->end_popover();
+
+
+        $element->end_controls_tab();
+        $element->end_controls_tabs();
 
     }
 
