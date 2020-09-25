@@ -467,21 +467,7 @@ class JLTMA_Extension_Floating_Effects extends JLTMA_Extension_Prototype {
 		);
 
 		$element->end_popover();
-
-		$element->add_control(
-			'jltma_floating_effects_reduced_motion_switch',
-			[
-				'label'              => sprintf(
-					__( 'Disable effect on %s devices', MELA_TD ),
-					sprintf(
-						'<a target="_blank" href="https://a11y-101.com/development/reduced-motion">%s</a>',
-						__( 'reduce motion', MELA_TD )
-					)
-				),
-				'type'               => Controls_Manager::SWITCHER,
-				'frontend_available' => true,
-			]
-		);		
+	
    
     }
 

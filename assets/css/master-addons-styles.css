@@ -11548,7 +11548,8 @@ ul.jltma-toggle-content-controls {
 
 
 /* Start of Logo Slider */
-.jltma-logo-slider .jltma-logo-slider-item {
+.jltma-logo-slider .jltma-logo-slider-item,
+.jltma-twitter-slider .jltma-twitter-slider-item {
     margin-bottom: 20px;
     padding: 0 3px;
 }
