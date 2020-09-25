@@ -1299,25 +1299,27 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
 
     // Twitter Slider: Header
     protected function jltma_ts_loop_header(){
-        $id = 'bdt-twitter-slider-' . $this->get_id();
-        $settings = $this->get_settings();
         
-        $this->add_render_attribute( 'slider', 'id', $id );
-        $this->add_render_attribute( 'slider', 'class', 'bdt-twitter-slider bdt-carousel' );
+        $settings = $this->get_settings();
+        $id = 'jltma-twitter-slider-' . $this->get_id();
+
+        $this->add_render_attribute( 'jltma_twitter_slider', 'id', $id );
+        $this->add_render_attribute( 'jltma_twitter_slider', 'class', 'jltma-twitter-slider jltma-carousel' );
 
         if ('arrows' == $settings['jltma_ts_navigation']) {
-            $this->add_render_attribute( 'slider', 'class', 'bdt-arrows-align-'. $settings['jltma_ts_arrows_position'] );
-            
+            $this->add_render_attribute( 'jltma_twitter_slider', 'class', 'jltma-arrows-align-'. $settings['jltma_ts_arrows_position'] );
         }
+
         if ('dots' == $settings['jltma_ts_navigation']) {
-            $this->add_render_attribute( 'slider', 'class', 'bdt-dots-align-'. $settings['jltma_ts_dots_position'] );
+            $this->add_render_attribute( 'jltma_twitter_slider', 'class', 'jltma-dots-align-'. $settings['jltma_ts_dots_position'] );
         }
+
         if ('both' == $settings['jltma_ts_navigation']) {
-            $this->add_render_attribute( 'slider', 'class', 'bdt-arrows-dots-align-'. $settings['jltma_ts_both_position'] );
+            $this->add_render_attribute( 'jltma_twitter_slider', 'class', 'jltma-arrows-dots-align-'. $settings['jltma_ts_both_position'] );
         }
         ?>
-        
-        <div <?php echo $this->get_render_attribute_string( 'slider' ); ?>>
+
+        <div <?php echo $this->get_render_attribute_string( 'jltma_twitter_slider' ); ?>>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
         <?php
@@ -1333,7 +1335,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
             </div>
             
             <?php if ('both' == $settings['jltma_ts_navigation']) : ?>
-                <?php $this->render_both_navigation(); ?>
+                <?php $this->jltma_render_both_navigation(); ?>
                 <?php if ('center' === $settings['jltma_ts_both_position']) : ?>
                     <div class="bdt-dots-container">
                         <div class="swiper-pagination"></div>
@@ -1350,7 +1352,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
 
 
 
-    protected function render_both_navigation() {
+    protected function jltma_render_both_navigation() {
         $settings = $this->get_settings();
 
         ?>

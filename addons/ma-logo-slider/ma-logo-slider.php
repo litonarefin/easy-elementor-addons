@@ -1357,8 +1357,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                     $this->add_render_attribute( $repeater_key, 'class', 'ma-el-tooltip-content' );
 
                 }
-            }
-            ?>
+            } ?>
             
                 <<?php echo $tag; ?> <?php $this->print_render_attribute_string( $repeater_key ); ?>>
                     <figure class="jltma-logo-slider-figure">
