@@ -1196,8 +1196,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
 
             <?php foreach( (array) $tweets as $t) : // casting array to array just in case it's empty - then prevents PHP warning ?>
                     <div class="jltma-twitter-slider-item swiper-slide">
-                        <!-- <div class="card text-center"> -->
-                            <!-- <div class="card-body"> -->
+                        <div class="card text-center">
+                            <div class="card-body">
                                 <?php if ('yes' === $settings['jltma_ts_show_avatar']) : ?>
 
                                     <?php if ('yes' === $settings['jltma_ts_avatar_link']) : ?>
@@ -1255,8 +1255,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                                     <?php } ?>
 
                                 </div>
-                            <!-- </div>
-                        </div> -->
+                            </div>
+                        </div>
                     </div>
             <?php endforeach;
         endif;
