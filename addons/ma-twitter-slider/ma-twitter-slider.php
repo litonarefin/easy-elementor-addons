@@ -619,7 +619,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'     => __( 'Navigation', MELA_TD ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
-                    'navigation' => [ 'arrows', 'dots', 'both' ],
+                    'jltma_ts_navigation' => [ 'arrows', 'dots', 'both' ],
                 ],
             ]
         );
@@ -636,8 +636,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev svg,
-                    {{WRAPPER}} .bdt-carousel .bdt-navigation-next svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-slide-prev,
+                    {{WRAPPER}} .jltma-twitter-slider .jltma-slide-prev' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
                 ],
                 'condition' => [
                     'jltma_ts_navigation' => [ 'arrows', 'both' ],
@@ -651,8 +651,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'     => __( 'Background Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev,
-                    {{WRAPPER}} .bdt-carousel .bdt-navigation-next' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-slide-prev,
+                    {{WRAPPER}} .jltma-twitter-slider .jltma-slide-next' => 'background-color: {{VALUE}}',
                 ],
                 'condition' => [
                     'jltma_ts_navigation' => [ 'arrows', 'both' ],
@@ -666,7 +666,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'     => __( 'Hover Background Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev:hover, {{WRAPPER}} .bdt-carousel .bdt-navigation-next:hover' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-slide-prev:hover, 
+                    {{WRAPPER}} .jltma-twitter-slider .jltma-slide-next:hover' => 'background-color: {{VALUE}}',
                 ],
                 'condition' => [
                     'jltma_ts_navigation' => [ 'arrows', 'both' ],
@@ -680,7 +681,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'     => __( 'Arrows Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev svg, {{WRAPPER}} .bdt-carousel .bdt-navigation-next svg' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-slide-prev, 
+                    {{WRAPPER}} .jltma-twitter-slider .jltma-slide-next' => 'color: {{VALUE}}',
                 ],
                 'condition' => [
                     'jltma_ts_navigation' => [ 'arrows', 'both' ],
@@ -694,8 +696,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'     => __( 'Arrows Hover Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev:hover svg,
-                    {{WRAPPER}} .bdt-carousel .bdt-navigation-next:hover svg' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-slide-prev:hover,
+                    {{WRAPPER}} .jltma-twitter-slider .jltma-slide-next:hover' => 'color: {{VALUE}}',
                 ],
                 'condition' => [
                     'jltma_ts_navigation' => [ 'arrows', 'both' ],
@@ -715,8 +717,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev' => 'margin-right: {{SIZE}}px;',
-                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-next' => 'margin-left: {{SIZE}}px;',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-slide-prev' => 'margin-right: {{SIZE}}px;',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-slide-next' => 'margin-left: {{SIZE}}px;',
                 ],
                 'conditions'   => [
                     'terms' => [
@@ -741,8 +743,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev,
-                    {{WRAPPER}} .bdt-carousel .bdt-navigation-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-slide-prev,
+                    {{WRAPPER}} .jltma-twitter-slider .jltma-slide-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -755,8 +757,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'size_units' => [ 'px', '%' ],
                 'separator'  => 'after',
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev,
-                    {{WRAPPER}} .bdt-carousel .bdt-navigation-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-slide-prev,
+                    {{WRAPPER}} .jltma-twitter-slider .jltma-slide-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
                     'jltma_ts_navigation' => [ 'arrows', 'both' ],
@@ -776,7 +778,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .jltma-slide-dotnav li' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'jltma_ts_navigation' => [ 'dots', 'both' ],
@@ -790,10 +792,10 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'label'     => __( 'Dots Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .jltma-slide-dotnav li' => 'background-color: {{VALUE}}',
                 ],
                 'condition' => [
-                    'navigation' => [ 'dots', 'both' ],
+                    'jltma_ts_navigation' => [ 'dots', 'both' ],
                 ],
             ]
         );
@@ -805,10 +807,10 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                 'type'      => Controls_Manager::COLOR,
                 'separator' => 'after',
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .swiper-pagination-bullet-active' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .jltma-slide-dotnav li.slick-active' => 'background-color: {{VALUE}}',
                 ],
                 'condition' => [
-                    'navigation' => [ 'dots', 'both' ],
+                    'jltma_ts_navigation' => [ 'dots', 'both' ],
                 ],
             ]
         );
@@ -858,7 +860,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .bdt-arrows-container' => 'transform: translate({{arrows_ncx_position.size}}px, {{SIZE}}px);',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-ts-container' => 'transform: translate({{jltma_ts_arrows_ncx_position.size}}px, {{SIZE}}px);',
                 ],
                 'conditions' => [
                     'terms' => [
@@ -891,8 +893,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev' => 'left: {{SIZE}}px;',
-                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-next' => 'right: {{SIZE}}px;',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-slide-prev' => 'left: {{SIZE}}px;',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-slide-next' => 'right: {{SIZE}}px;',
                 ],
                 'conditions' => [
                     'terms' => [
@@ -954,7 +956,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .bdt-dots-container' => 'transform: translate({{dots_nnx_position.size}}px, {{SIZE}}px);',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-ts-dots-container' => 'transform: translate({{dots_nnx_position.size}}px, {{SIZE}}px);',
                 ],
                 'conditions'   => [
                     'terms' => [
@@ -1017,7 +1019,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .bdt-arrows-dots-container' => 'transform: translate({{both_ncx_position.size}}px, {{SIZE}}px);',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-ts-dots-container' => 'transform: translate({{both_ncx_position.size}}px, {{SIZE}}px);',
                 ],
                 'conditions'   => [
                     'terms' => [
@@ -1050,8 +1052,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-prev' => 'left: {{SIZE}}px;',
-                    '{{WRAPPER}} .bdt-carousel .bdt-navigation-next' => 'right: {{SIZE}}px;',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-slide-prev' => 'left: {{SIZE}}px;',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-slide-next' => 'right: {{SIZE}}px;',
                 ],
                 'conditions' => [
                     'terms' => [
@@ -1083,7 +1085,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-carousel .bdt-dots-container' => 'transform: translateY({{SIZE}}px);',
+                    '{{WRAPPER}} .jltma-twitter-slider .jltma-ts-dots-container' => 'transform: translateY({{SIZE}}px);',
                 ],
                 'conditions' => [
                     'terms' => [
@@ -1194,8 +1196,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
 
             <?php foreach( (array) $tweets as $t) : // casting array to array just in case it's empty - then prevents PHP warning ?>
                     <div class="jltma-twitter-slider-item swiper-slide">
-                        <div class="card text-center">
-                            <div class="card-body">
+                        <!-- <div class="card text-center"> -->
+                            <!-- <div class="card-body"> -->
                                 <?php if ('yes' === $settings['jltma_ts_show_avatar']) : ?>
 
                                     <?php if ('yes' === $settings['jltma_ts_avatar_link']) : ?>
@@ -1253,8 +1255,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                                     <?php } ?>
 
                                 </div>
-                            </div>
-                        </div>
+                            <!-- </div>
+                        </div> -->
                     </div>
             <?php endforeach;
         endif;
@@ -1305,7 +1307,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $settings = $this->get_settings();
 
         $this->add_render_attribute( 'jltma_twitter_slider', 'id', 'jltma-twitter-slider-' . $this->get_id() );
-        $this->add_render_attribute( 'jltma_twitter_slider', 'class', 'jltma-twitter-slider jltma-carousel' );
+        $this->add_render_attribute( 'jltma_twitter_slider', 'class', 'jltma-twitter-slider jltma-carousel text-center' );
 
         if ('both' == $settings['jltma_ts_navigation']) {
             $this->add_render_attribute( 'jltma_twitter_slider', 'class', 'jltma-arrows-dots-align-'. $settings['jltma_ts_both_position'] );
@@ -1330,8 +1332,8 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
     // Twitter Slider: Footer
     protected function jltma_ts_loop_footer($settings){
         $settings = $this->get_settings();
-
         ?>
+
                 </div>
             </div>
             
@@ -1404,7 +1406,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         } ?>
 
             <div class="jltma-position-z-index jltma-position-<?php echo esc_attr( $arrows_position ); ?>">
-                <div class="jltma-ts-arrows-dots-container jltma-ts-container">
+                <div class="jltma-ts-arrows-container jltma-ts-container">
                     <div class="d-flex flex-row justify-content-center">
 
                         <a href="#" class="jltma-ts-prev jltma-slide-prev slick-arrow">
@@ -1434,7 +1436,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         } ?>        
 
             <div class="jltma-position-z-index jltma-position-<?php echo esc_attr( $dots_position ); ?>">
-                <div class="jltma-ts-arrows-dots-container jltma-ts-container">
+                <div class="jltma-ts-dots-container jltma-ts-container">
                     <div class="d-flex flex-row justify-content-center">
                         <div class="jltma-slide-dotnav d-flex align-items-center"></div>
                     </div>

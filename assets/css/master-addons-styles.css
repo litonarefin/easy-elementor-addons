@@ -11645,6 +11645,9 @@ ul.jltma-toggle-content-controls {
 .jltma-arrows-align-center .jltma-position-center, .jltma-arrows-dots-align-center .jltma-position-center {
     width: 100%;
 }
+.jltma-ts-container [type=button]{
+    border: 0 !important;
+}
 .jltma-slide-dotnav {
     display: flex;
     flex-wrap: wrap;
@@ -11677,7 +11680,7 @@ ul.jltma-toggle-content-controls {
     white-space: nowrap;
     cursor: pointer; 
     color: inherit;
-    padding-left: 12px;
+    padding-left: 15px;
     align-items: center;
 }
 .jltma-slide-dotnav .slick-active{

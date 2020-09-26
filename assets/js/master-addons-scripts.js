@@ -1265,11 +1265,11 @@
 
 
             // $('.jltma-slide-dotnav li a').removeClass('active');
-            $(".jltma-slide-dotnav li a").click(function(e){
+            $(".jltma-logo-slider .jltma-slide-dotnav li a").click(function(e){
                 e.preventDefault();
 
                 var slideIndex = $(this).parent().index();
-                $('.jltma-slide-dotnav li a.active').removeClass('active');
+                $('.jltma-logo-slider .jltma-slide-dotnav li a.active').removeClass('active');
                 // $(this).addClass('active');
                 $logSliderWrapper.slick('slickGoTo', parseInt(slideIndex));
             });
@@ -1283,7 +1283,7 @@
             
             Master_Addons.MA_Twitter_Slider.elementSettings    = getElementSettings( $scope );
 
-            var $TwitterSliderWrapper   = $scope.find('.jltma-twitter-slider').eq(0),
+            var $TwitterSliderWrapper   = $scope.find('.jltma-twitter-slider .swiper-wrapper').eq(0),
                 $twitter_slider_nav    = Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_navigation,
                 // $loop = ($TwitterSliderWrapper.data("loop") !== undefined) ? $TwitterSliderWrapper.data("loop") : false,
                 $slidesToShow       = Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_columns,
@@ -1317,7 +1317,7 @@
                     infinite        : 'yes' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_loop,
                     pauseOnHover    : 'yes' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_pauseonhover,
                     speed           : Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_speed.size,
-                    arrows          : arrows,
+                    arrows          : true,
                     // centerMode      : Master_Addons.MA_Twitter_Slider.elementSettings.jltma_logo_slider_center_mode,
                     // centerPadding: '60px',
                     prevArrow       : $('.jltma-twitter-slider .jltma-slide-prev'),
@@ -1363,18 +1363,15 @@
             };
 
 
-            $TwitterSliderWrapper.find('.jltma-twitter-slider-item').slick( twitterSlickArgs );
+            $TwitterSliderWrapper.slick( twitterSlickArgs );
 
+            $('.jltma-twitter-slider .jltma-slide-dotnav li a').click(function(e){
+                e.preventDefault();
 
-            // $('.jltma-slide-dotnav li a').removeClass('active');
-            // $(".jltma-slide-dotnav li a").click(function(e){
-            //     e.preventDefault();
-
-            //     var slideIndex = $(this).parent().index();
-            //     $('.jltma-slide-dotnav li a.active').removeClass('active');
-            //     // $(this).addClass('active');
-            //     $TwitterSliderWrapper.slick('slickGoTo', parseInt(slideIndex));
-            // });
+                var slideIndex = $(this).parent().index();
+                $('.jltma-twitter-slider .jltma-slide-dotnav li a.active').removeClass('active');
+                $TwitterSliderWrapper.slick('slickGoTo', parseInt(slideIndex));
+            });
 
         },
 
