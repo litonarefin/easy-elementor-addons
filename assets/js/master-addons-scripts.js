@@ -1218,11 +1218,11 @@
                     arrows          : arrows,
                     centerMode      : Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_center_mode,
                     // centerPadding: '60px',
-                    prevArrow       : $('.jltma-slide-prev'),
-                    nextArrow       : $('.jltma-slide-next'),
+                    prevArrow       : $('.jltma-logo-slider .jltma-slide-prev'),
+                    nextArrow       : $('.jltma-logo-slider .jltma-slide-next'),
                     dots            : true,
-                    dotsClass       : $('.jltma-slide-dotnav'),
-                    appendDots      : $('.jltma-slide-dotnav'),
+                    dotsClass       : $('.jltma-logo-slider .jltma-slide-dotnav'),
+                    appendDots      : $('.jltma-logo-slider .jltma-slide-dotnav'),
                     // rtl             : 'rtl' === Master_Addons.MA_Logo_Slider.elementSettings.jltMA_Logo_Slider_direction,
                     // fade            : 'fade' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_gallery_slider_effect,
                     responsive: [
@@ -1316,15 +1316,15 @@
                     autoplaySpeed   : Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_autoplay_speed,
                     infinite        : 'yes' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_loop,
                     pauseOnHover    : 'yes' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_pauseonhover,
-                    speed           : Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_speed,
+                    speed           : Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_speed.size,
                     arrows          : arrows,
                     // centerMode      : Master_Addons.MA_Twitter_Slider.elementSettings.jltma_logo_slider_center_mode,
                     // centerPadding: '60px',
-                    prevArrow       : $('.jltma-slide-prev'),
-                    nextArrow       : $('.jltma-slide-next'),
+                    prevArrow       : $('.jltma-twitter-slider .jltma-slide-prev'),
+                    nextArrow       : $('.jltma-twitter-slider .jltma-slide-next'),
                     dots            : true,
-                    dotsClass       : $('.jltma-slide-dotnav'),
-                    appendDots      : $('.jltma-slide-dotnav'),
+                    dotsClass       : $('.jltma-twitter-slider .jltma-slide-dotnav'),
+                    appendDots      : $('.jltma-twitter-slider .jltma-slide-dotnav'),
                     // rtl             : 'rtl' === Master_Addons.MA_Twitter_Slider.elementSettings.jltMA_Logo_Slider_direction,
                     // fade            : 'fade' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_gallery_slider_effect,
                     responsive: [
@@ -1363,18 +1363,18 @@
             };
 
 
-            $TwitterSliderWrapper.slick( twitterSlickArgs );
+            $TwitterSliderWrapper.find('.jltma-twitter-slider-item').slick( twitterSlickArgs );
 
 
             // $('.jltma-slide-dotnav li a').removeClass('active');
-            $(".jltma-slide-dotnav li a").click(function(e){
-                e.preventDefault();
+            // $(".jltma-slide-dotnav li a").click(function(e){
+            //     e.preventDefault();
 
-                var slideIndex = $(this).parent().index();
-                $('.jltma-slide-dotnav li a.active').removeClass('active');
-                // $(this).addClass('active');
-                $TwitterSliderWrapper.slick('slickGoTo', parseInt(slideIndex));
-            });
+            //     var slideIndex = $(this).parent().index();
+            //     $('.jltma-slide-dotnav li a.active').removeClass('active');
+            //     // $(this).addClass('active');
+            //     $TwitterSliderWrapper.slick('slickGoTo', parseInt(slideIndex));
+            // });
 
         },
 

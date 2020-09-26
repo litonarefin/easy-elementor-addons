@@ -205,7 +205,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                     'dots'   => esc_html__( 'Dots', MELA_TD ),
                     'none'   => esc_html__( 'None', MELA_TD ),
                 ],
-                'prefix_class' => 'bdt-navigation-type-',
+                'prefix_class' => 'jltma-navigation-type-',
                 'render_type'  => 'template',               
             ]
         );
@@ -1279,7 +1279,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         $access_token_secret    = (!empty($jltma_api_settings['twitter_access_token_secret'])) ? $jltma_api_settings['twitter_access_token_secret'] : '';
         
 
-        $this->jltma_ts_loop_header();
+        $this->jltma_ts_loop_header($settings);
 
 
         if ( $twitter_consumer_key and $consumer_secret and $access_token and $access_token_secret  ) {
@@ -1294,13 +1294,13 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
             <?php
         }
 
-        $this->jltma_ts_loop_footer();
+        $this->jltma_ts_loop_footer($settings);
 
 	}
 
 
     // Twitter Slider: Header
-    protected function jltma_ts_loop_header(){
+    protected function jltma_ts_loop_header($settings){
         
         $settings = $this->get_settings();
 
@@ -1328,8 +1328,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
     }
 
     // Twitter Slider: Footer
-    protected function jltma_ts_loop_footer(){
-        $id       = 'jltma-twitter-slider-' . $this->get_id();
+    protected function jltma_ts_loop_footer($settings){
         $settings = $this->get_settings();
 
         ?>
@@ -1369,11 +1368,11 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
     public function jltma_ts_render_both_navigation( $settings ){ ?>
 
         <div class="jltma-position-z-index jltma-position-<?php echo esc_attr($settings['jltma_ts_both_position']); ?>">
-            <div class="jltma-ls-arrows-dots-container jltma-ls-container">
+            <div class="jltma-ts-arrows-dots-container jltma-ts-container">
                 
                 <div class="d-flex flex-row justify-content-center">
 
-                    <a href="#" class="jltma-ls-prev jltma-slide-prev slick-arrow">
+                    <a href="#" class="jltma-ts-prev jltma-slide-prev slick-arrow">
                         <svg width="38" height="38" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="13 16 7 10 13 4"></polyline></svg>
                     </a>
 
@@ -1381,7 +1380,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                         <div class="jltma-slide-dotnav d-flex align-items-center"></div>
                     <?php endif; ?>
                     
-                    <a href="" class="jltma-ls-next jltma-slide-next slick-arrow">
+                    <a href="" class="jltma-ts-next jltma-slide-next slick-arrow">
                         <svg width="38" height="38" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="7 4 13 10 7 16"></polyline></svg>
                     </a>
 
@@ -1405,13 +1404,13 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         } ?>
 
             <div class="jltma-position-z-index jltma-position-<?php echo esc_attr( $arrows_position ); ?>">
-                <div class="jltma-ls-arrows-dots-container jltma-ls-container">
+                <div class="jltma-ts-arrows-dots-container jltma-ts-container">
                     <div class="d-flex flex-row justify-content-center">
 
-                        <a href="#" class="jltma-ls-prev jltma-slide-prev slick-arrow">
+                        <a href="#" class="jltma-ts-prev jltma-slide-prev slick-arrow">
                             <svg width="38" height="38" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="13 16 7 10 13 4"></polyline></svg>
                         </a>
-                        <a href="" class="jltma-ls-next jltma-slide-next slick-arrow">
+                        <a href="" class="jltma-ts-next jltma-slide-next slick-arrow">
                             <svg width="38" height="38" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="7 4 13 10 7 16"></polyline></svg>
                         </a>
 
@@ -1435,7 +1434,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
         } ?>        
 
             <div class="jltma-position-z-index jltma-position-<?php echo esc_attr( $dots_position ); ?>">
-                <div class="jltma-ls-arrows-dots-container jltma-ls-container">
+                <div class="jltma-ts-arrows-dots-container jltma-ts-container">
                     <div class="d-flex flex-row justify-content-center">
                         <div class="jltma-slide-dotnav d-flex align-items-center"></div>
                     </div>
