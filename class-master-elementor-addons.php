@@ -10,7 +10,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 		public $controls_manager;
 
 		const VERSION = "1.5.3";
-		const JLTMA_STABLE_VERSION = "1.5.2.1";
+		const JLTMA_STABLE_VERSION = "1.5.3";
 
 		const MINIMUM_PHP_VERSION = '5.4';
 

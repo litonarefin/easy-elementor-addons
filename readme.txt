@@ -373,8 +373,11 @@ Paste on your Local Computer
 
 
 == Changelog ==
-= 1.5.3 (14-09-2020) =
+= 1.5.3 (28-09-2020) =
 * Fixed: MA Table Icon not working issue fixed
+* Released: Floating Effects extension added
+* Updated: Transfroms Extension updated. On previous there's lack of interactions and slow the Editor Process. Imrpoved the functionality and performance.
+* 
 
 
 = 1.5.2.1 (14-09-2020) =
