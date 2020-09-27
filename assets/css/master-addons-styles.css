@@ -11693,4 +11693,7 @@ ul.jltma-toggle-content-controls {
 .jltma-twitter-slider .swiper-wrapper{
     text-align: center;
 }
+.jltma-twitter-slider .jltma-twitter-thumb img{
+    display: initial;
+}
 /* Start of Twitter Slider */

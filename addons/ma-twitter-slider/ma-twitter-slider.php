@@ -1187,17 +1187,14 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
             endif;
         endif;
 
-        ?>
-        
-        <?php
+
 
         // Now display the tweets, if we can.
-        if($tweets) : ?>
-
-            <?php foreach( (array) $tweets as $t) : // casting array to array just in case it's empty - then prevents PHP warning ?>
+        if($tweets) {
+            foreach( (array) $tweets as $t) {  ?>
                     <div class="jltma-twitter-slider-item swiper-slide">
-                        <div class="card text-center">
-                            <div class="card-body">
+                        <!-- <div class="card text-center">
+                            <div class="card-body"> -->
                                 <?php if ('yes' === $settings['jltma_ts_show_avatar']) : ?>
 
                                     <?php if ('yes' === $settings['jltma_ts_avatar_link']) : ?>
@@ -1205,9 +1202,7 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                                     <?php endif; ?>
 
                                         <div class="jltma-twitter-thumb">
-                                            <div class="jltma-twitter-thumb-wrapper">
-                                                <img src="<?php echo esc_url($t['image']); ?>" alt="<?php echo esc_html($t['name']); ?>" />
-                                            </div>
+                                            <img src="<?php echo esc_url($t['image']); ?>" alt="<?php echo esc_html($t['name']); ?>" />
                                         </div>
 
                                     <?php if ('yes' === $settings['jltma_ts_avatar_link']) : ?>                                  
@@ -1255,11 +1250,12 @@ class Master_Addons_Twitter_Slider extends Widget_Base {
                                     <?php } ?>
 
                                 </div>
-                            </div>
-                        </div>
+                            <!-- </div>
+                        </div> -->
                     </div>
-            <?php endforeach;
-        endif;
+            
+            <?php } // endforeach
+        }
     }
 
 
