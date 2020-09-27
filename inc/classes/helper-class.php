@@ -530,7 +530,7 @@ class Master_Addons_Helper{
 
 
 
-	public static function ma_el_get_excerpt_by_id( $post_id, $excerpt_length, $excerpt_type, $exceprt_text,$excerpt_src, $excerpt_icon="", $excerpt_icon_align="" ) {
+	public static function ma_el_get_excerpt_by_id( $post_id, $excerpt_length, $excerpt_type, $exceprt_text,$excerpt_src, $excerpt_icon, $excerpt_icon_align ) {
 
 		$the_post = get_post( $post_id );
 
@@ -546,7 +546,7 @@ class Master_Addons_Helper{
 
 		if( $excerpt_icon){
 			// $excerpt_icon = $excerpt_icon;
-			$excerpt_icon = self::jltma_fa_icon_picker( 'fas fa-chevron-right', 'icon', $excerpt_icon, 'blog_excerpt_icon' ); 
+			// $excerpt_icon = self::jltma_fa_icon_picker( 'fas fa-chevron-right', 'icon', $excerpt_icon, 'blog_excerpt_icon' ); 
 		}
 
 		if( count( $words ) > $excerpt_length ) :
@@ -557,17 +557,17 @@ class Master_Addons_Helper{
 			} else {
 
 				if( $excerpt_icon_align == "left"){
-					// array_push( $words, '<br> <a href="' . get_permalink(
-					// 	$post_id ) .'" class="ma-el-post-btn"> <i class="' . $excerpt_icon . '"></i>' . $exceprt_text . '</a>' );
+					array_push( $words, '<br> <a href="' . get_permalink(
+						$post_id ) .'" class="ma-el-post-btn"> <i class="' . $excerpt_icon . '"></i>' . $exceprt_text . '</a>' );
 				} elseif( $excerpt_icon_align == "right"){
-					// array_push( $words, '<br> <a href="' . get_permalink( $post_id ) .'" class="ma-el-post-btn">' . $exceprt_text . ' <i class="' . $excerpt_icon . '"></i></a>' );
+					array_push( $words, '<br> <a href="' . get_permalink( $post_id ) .'" class="ma-el-post-btn">' . $exceprt_text . ' <i class="' . $excerpt_icon . '"></i></a>' );
 				}else{
-					// array_push( $words, '<br> <a href="' . get_permalink( $post_id ) .'" class="ma-el-post-btn">' . $exceprt_text . '</a>' );
+					array_push( $words, '<br> <a href="' . get_permalink( $post_id ) .'" class="ma-el-post-btn">' . $exceprt_text . '</a>' );
 				}
 
 			}
 
-			$the_excerpt = '<p>' . implode( ' ', $words ) . $excerpt_icon . '</p>';
+			$the_excerpt = '<p>' . implode( ' ', $words ) . '</p>';
 		endif;
 
 		return $the_excerpt;
