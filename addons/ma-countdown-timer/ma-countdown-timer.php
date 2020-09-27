@@ -769,8 +769,8 @@
 					'title'   => __('Years',MELA_TD),
 				),
 				'month' => array(
-					// 'value'   => $date[1] - 1,
-					'value'   => explode("-", $countdown_time)[1],
+					'value'   => $date[1] - 1,
+					// 'value'   => explode("-", $countdown_time)[1],
 					'display' => $show_month,
 					'title'   => __('Months',MELA_TD),
 				),

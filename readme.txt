@@ -378,6 +378,8 @@ Paste on your Local Computer
 * Released: Floating Effects extension added
 * Updated: Transfroms Extension updated. On previous there's lack of interactions and slow the Editor Process. Imrpoved the functionality and performance.
 * Fixed: MA Advanced Accordion - Saved Section, Widget, Page Templates pro message shown
+* Fixed: MA Current Time - Custom Date Format dropdown issue fixed. Changed to TEXT format
+* Fixed: MA Countdown Timer - Datetime format issue fixed on Countdown timer. On previous time showing wrong format. 
 
 
 = 1.5.2.1 (14-09-2020) =

@@ -67,7 +67,7 @@
                 'ma_el_current_time_date_format',
                 array(
                     'label'        => __('Date Format String', MELA_TD ),
-                    'type'         => Controls_Manager::SELECT,
+                    'type'         => Controls_Manager::TEXT,
                     'default'      => get_option( 'date_format' ),
                     'description' => '<span class="pro-feature"> <a href="' . esc_url_raw('https://developer.wordpress.org/reference/functions/the_time/') . '" target="_blank">Date Time Format Examples </a> </span>',
                     'condition'    => array(
