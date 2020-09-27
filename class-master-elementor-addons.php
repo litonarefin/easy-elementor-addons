@@ -128,7 +128,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 				['display-conditions','pro'],
 				'dynamic-tags',
 				['floating-effects','pro'],
-				// ['morphing-effects','pro'],
+				['morphing-effects','pro'],
 				// 'live-copy',
 			];
 

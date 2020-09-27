@@ -2172,7 +2172,7 @@
 			$excerpt_type = $settings['ma_el_post_grid_excerpt_type'];
 			$excerpt_text = $settings['ma_el_post_grid_excerpt_text'];
 			$excerpt_src  = $settings['ma_el_post_grid_excerpt_content'];
-			$excerpt_icon  = $settings['ma_el_blog_read_more_icon'];
+			$excerpt_icon  = ($settings['ma_el_blog_read_more_icon'])?$settings['ma_el_blog_read_more_icon']:"";
 			$excerpt_icon_align  = $settings['ma_el_blog_read_more_icon_alignment'];
 
 			?>

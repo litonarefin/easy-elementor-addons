@@ -457,9 +457,9 @@
 						'label_block'           => false,
 						'options'               => [
 							'content'   => __( 'Content', MELA_TD ),
-							'section'   => __( 'Saved Section', MELA_TD ),
-							'widget'    => __( 'Saved Widget', MELA_TD ),
-							'template'  => __( 'Saved Page Template', MELA_TD ),
+							'section'   => __( 'Saved Section (Pro)', MELA_TD ),
+							'widget'    => __( 'Saved Widget (Pro)', MELA_TD ),
+							'template'  => __( 'Saved Page Template (Pro)', MELA_TD ),
 						],
 						'default'               => 'content',
 					]
