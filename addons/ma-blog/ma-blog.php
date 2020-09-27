@@ -1303,51 +1303,51 @@
             );
 
 
-			$this->add_control(
-				'ma_el_blog_read_more_icon',
-				[
-					'label'         	=> esc_html__( 'Icon', MELA_TD ),
-					'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
-					'type'          	=> Controls_Manager::ICONS,
-					'fa4compatibility' 	=> 'icon',
-					'default'       	=> [
-						'value'     => 'fas fa-chevron-right',
-						'library'   => 'solid',
-					],
-					'render_type'      => 'template',
-					'condition' => [
-						'ma_el_post_grid_excerpt_type' => 'read_more_link'
-					],
-				]
-			);
+			// $this->add_control(
+			// 	'ma_el_blog_read_more_icon',
+			// 	[
+			// 		'label'         	=> esc_html__( 'Icon', MELA_TD ),
+			// 		'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+			// 		'type'          	=> Controls_Manager::ICONS,
+			// 		'fa4compatibility' 	=> 'icon',
+			// 		'default'       	=> [
+			// 			'value'     => 'fas fa-chevron-right',
+			// 			'library'   => 'solid',
+			// 		],
+			// 		'render_type'      => 'template',
+			// 		'condition' => [
+			// 			'ma_el_post_grid_excerpt_type' => 'read_more_link'
+			// 		],
+			// 	]
+			// );
 
 
-			$this->add_responsive_control(
-				'ma_el_blog_read_more_icon_alignment',
-				[
-					'label' => esc_html__( 'Icon Alignment', MELA_TD ),
-					'type' => Controls_Manager::CHOOSE,
-					'label_block' => false,
-					'options' => [
-						'left' => [
-							'title' => esc_html__( 'Left', MELA_TD ),
-							'icon' => 'fa fa-chevron-left',
-						],
-						'right' => [
-							'title' => esc_html__( 'Right', MELA_TD ),
-							'icon' => 'fa fa-chevron-right',
-						],
-						'none' => [
-							'title' => esc_html__( 'None', MELA_TD ),
-							'icon' => 'fa fa-ban',
-						],
-					],
-					'default' => 'none',
-					'condition'     => [
-						'ma_el_post_grid_excerpt_type' => 'read_more_link'
-					]
-				]
-			);
+			// $this->add_responsive_control(
+			// 	'ma_el_blog_read_more_icon_alignment',
+			// 	[
+			// 		'label' => esc_html__( 'Icon Alignment', MELA_TD ),
+			// 		'type' => Controls_Manager::CHOOSE,
+			// 		'label_block' => false,
+			// 		'options' => [
+			// 			'left' => [
+			// 				'title' => esc_html__( 'Left', MELA_TD ),
+			// 				'icon' => 'fa fa-chevron-left',
+			// 			],
+			// 			'right' => [
+			// 				'title' => esc_html__( 'Right', MELA_TD ),
+			// 				'icon' => 'fa fa-chevron-right',
+			// 			],
+			// 			'none' => [
+			// 				'title' => esc_html__( 'None', MELA_TD ),
+			// 				'icon' => 'fa fa-ban',
+			// 			],
+			// 		],
+			// 		'default' => 'none',
+			// 		'condition'     => [
+			// 			'ma_el_post_grid_excerpt_type' => 'read_more_link'
+			// 		]
+			// 	]
+			// );
 
             $this->add_responsive_control('ma_el_excerpt_read_more_icon_padding',
                 [
@@ -2172,14 +2172,14 @@
 			$excerpt_type = $settings['ma_el_post_grid_excerpt_type'];
 			$excerpt_text = $settings['ma_el_post_grid_excerpt_text'];
 			$excerpt_src  = $settings['ma_el_post_grid_excerpt_content'];
-			$excerpt_icon  = ($settings['ma_el_blog_read_more_icon'])?$settings['ma_el_blog_read_more_icon']:"";
-			$excerpt_icon_align  = $settings['ma_el_blog_read_more_icon_alignment'];
+			// $excerpt_icon  = ($settings['ma_el_blog_read_more_icon'])?$settings['ma_el_blog_read_more_icon']:"";
+			// $excerpt_icon_align  = $settings['ma_el_blog_read_more_icon_alignment'];
 
 			?>
 			<div class="ma-el-blog-post-content-wrap" style="<?php if ( $settings['ma_el_blog_post_format_icon'] !== 'yes'
 			 ) : echo 'margin-left:0px;'; endif; ?>">
 				<?php if ( $settings['ma_el_post_grid_excerpt'] === 'yes' ) {
-					echo Master_Addons_Helper::ma_el_get_excerpt_by_id( get_the_ID(), $settings['ma_el_blog_excerpt_length'], $excerpt_type, $excerpt_text, $excerpt_src, $excerpt_icon, $excerpt_icon_align );
+					echo Master_Addons_Helper::ma_el_get_excerpt_by_id( get_the_ID(), $settings['ma_el_blog_excerpt_length'], $excerpt_type, $excerpt_text, $excerpt_src, $excerpt_icon="", $excerpt_icon_align="" );
 				} else{
 				    if( $settings['ma_el_blog_show_content'] == 'yes' ){
 				        the_content();

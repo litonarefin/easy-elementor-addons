@@ -546,7 +546,7 @@ class Master_Addons_Helper{
 
 		if( $excerpt_icon){
 			// $excerpt_icon = $excerpt_icon;
-			// $excerpt_icon = self::jltma_fa_icon_picker( 'fas fa-chevron-right', 'icon', $excerpt_icon, 'blog_excerpt_icon' ); 
+			$excerpt_icon = self::jltma_fa_icon_picker( 'fas fa-chevron-right', 'icon', $excerpt_icon, 'blog_excerpt_icon' ); 
 		}
 
 		if( count( $words ) > $excerpt_length ) :
