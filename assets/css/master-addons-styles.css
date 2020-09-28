@@ -1,4 +1,4 @@
-/*
+
 * Master Addons Elementor Styles
  */
  html,body{overflow-x:hidden;}
@@ -342,14 +342,18 @@
     border-color: transparent transparent transparent #f9f9f9;
 }
 
+.ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom:hover .ma-el-tooltip-text {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+}
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom .ma-el-tooltip-content:hover ~ .ma-el-tooltip-text {
+ .ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom .ma-el-tooltip-content:hover ~ .ma-el-tooltip-text {
     -webkit-transform: translate3d(-50%, 0, 0);
     transform: translate3d(-50%, 0, 0);
     visibility: visible;
     opacity: 1;
 }
-
+ 
 .ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom .ma-el-tooltip-text {
     top: calc(100% + 1em);
     left: 50%;
@@ -358,6 +362,7 @@
     text-align: center;
 }
 
+
 .ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom .ma-el-tooltip-text:after {
     top: -0.5em;
     left: 50%;
@@ -365,6 +370,11 @@
     transform: translate3d(-50%, 0, 0);
     border-width: 0 0.5em 0.5em 0.5em;
     border-color: transparent transparent #f9f9f9 transparent;
+}
+
+.ma-el-tooltip .ma-el-tooltip-item.tooltip-top:hover .ma-el-tooltip-text {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
 }
 
 
@@ -392,6 +402,10 @@
     border-color: #f9f9f9 transparent transparent transparent;
 }
 
+.ma-el-tooltip .ma-el-tooltip-item.tooltip-right:hover .ma-el-tooltip-text {
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+}
 
 .ma-el-tooltip .ma-el-tooltip-item.tooltip-right .ma-el-tooltip-content:hover ~ .ma-el-tooltip-text {
     -webkit-transform: translate3d(0, -50%, 0);
@@ -11696,4 +11710,4 @@ ul.jltma-toggle-content-controls {
 .jltma-twitter-slider .jltma-twitter-thumb img{
     display: initial;
 }
-/* Start of Twitter Slider */
+/* Start of Twitter Slider 

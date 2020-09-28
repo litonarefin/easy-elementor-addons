@@ -235,6 +235,23 @@
 				]
 			);
 
+
+			$this->add_control(
+				'ma_el_tooltip_visible_hover',
+				[
+					'label' 		=> __( 'Visible on Hover', MELA_TD ),
+					'type' 			=> Controls_Manager::SWITCHER,
+					'label_on' 		=> __( 'Yes', MELA_TD ),
+					'label_off' 	=> __( 'No', MELA_TD ),
+					'return_value' 	=> 'yes',
+					'default' 		=> 'no',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item:hover .ma-el-tooltip-text' => 'visibility: visible;opacity: 1; display:block;',
+					]
+
+				]
+			);
+
 			$this->end_controls_section();
 
 

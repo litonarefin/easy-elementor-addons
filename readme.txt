@@ -380,7 +380,7 @@ Paste on your Local Computer
 * Fixed: MA Advanced Accordion - Saved Section, Widget, Page Templates pro message shown
 * Fixed: MA Current Time - Custom Date Format dropdown issue fixed. Changed to TEXT format
 * Fixed: MA Countdown Timer - Datetime format issue fixed on Countdown timer. On previous time showing wrong format. 
-
+* Added: Tooltip "Visible on Hover" added on "MA Tooltip" and "MA Image Hotspot" extension
 
 = 1.5.2.1 (14-09-2020) =
 * Fixed: is_woocommerce_active() function return missing issue fixed

@@ -489,19 +489,36 @@ class Master_Addons_Image_Hotspot extends Widget_Base {
 		$this->add_control(
 			'ma_el_hotspot_disable',
 			[
-				'label'		=> __( 'Disable On', MELA_TD ),
+				'label'		=> esc_html__( 'Disable On', MELA_TD ),
 				'type' 		=> Controls_Manager::SELECT,
 				'default' 	=> '',
 				'options' 	=> [
-					'' 			=> __( 'None', MELA_TD ),
-					'tablet' 	=> __( 'Tablet & Mobile', MELA_TD ),
-					'mobile' 	=> __( 'Mobile', MELA_TD ),
+					'' 			=> esc_html__( 'None', MELA_TD ),
+					'tablet' 	=> esc_html__( 'Tablet & Mobile', MELA_TD ),
+					'mobile' 	=> esc_html__( 'Mobile', MELA_TD ),
 				],
 				'frontend_available' => true,
 				'selectors' => [
 					'(tablet){{WRAPPER}} .ma-el-hotspot .ma-el-tooltip-text' => 'display: none;',
 					'(mobile){{WRAPPER}} .ma-el-hotspot .ma-el-tooltip-text' => 'display: none;',
 				],
+
+			]
+		);
+
+
+		$this->add_control(
+			'ma_el_tooltip_visible_hover',
+			[
+				'label' 		=> esc_html__( 'Visible on Hover', MELA_TD ),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label_on' 		=> esc_html__( 'Yes', MELA_TD ),
+				'label_off' 	=> esc_html__( 'No', MELA_TD ),
+				'return_value' 	=> 'yes',
+				'default' 		=> 'no',
+				'selectors' => [
+					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item:hover .ma-el-tooltip-text' => 'visibility: visible;opacity: 1; display:block;',
+				]
 
 			]
 		);

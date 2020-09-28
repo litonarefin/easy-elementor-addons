@@ -120,17 +120,17 @@ $jltma_elements = [
             [
                 'key'           => 'floating-effects',
                 'title'         => esc_html__( 'Floating Effects', MELA_TD),
-                'demo_url'      => '',
-                'docs_url'      => '',
+                'demo_url'      => 'https://master-addons.com/demos/floating-effect/',
+                'docs_url'      => 'https://master-addons.com/floating-effect-elementor/',
                 'tuts_url'      => ''
             ],
-            [
-                'key'           => 'morphing-effects',
-                'title'         => esc_html__( 'Morphing Effects', MELA_TD),
-                'demo_url'      => '',
-                'docs_url'      => '',
-                'tuts_url'      => ''
-            ]
+            // [
+            //     'key'           => 'morphing-effects',
+            //     'title'         => esc_html__( 'Morphing Effects', MELA_TD),
+            //     'demo_url'      => '',
+            //     'docs_url'      => '',
+            //     'tuts_url'      => ''
+            // ]
 
     	]
     ]
