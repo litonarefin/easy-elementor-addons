@@ -373,7 +373,12 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.5.4 (28-09-2020) =
+* Added: Morphing Effect Extension
+
+
 = 1.5.3 (28-09-2020) =
+* Added: Version Rollback option added on "Master Addons" option menu if something happened wrong. Users can Rollback to Previous version.
 * Fixed: MA Table Icon not working issue fixed
 * Released: Floating Effects extension added
 * Updated: Transfroms Extension updated. On previous there's lack of interactions and slow the Editor Process. Imrpoved the functionality and performance.
@@ -381,6 +386,10 @@ Paste on your Local Computer
 * Fixed: MA Current Time - Custom Date Format dropdown issue fixed. Changed to TEXT format
 * Fixed: MA Countdown Timer - Datetime format issue fixed on Countdown timer. On previous time showing wrong format. 
 * Added: Tooltip "Visible on Hover" added on "MA Tooltip" and "MA Image Hotspot" extension
+* Removed: Group Control "Transofrms" removed
+* Removed: Single Control "Transofrms" removed
+* Removed: Single Control "XY Position" removed
+
 
 = 1.5.2.1 (14-09-2020) =
 * Fixed: is_woocommerce_active() function return missing issue fixed

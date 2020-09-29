@@ -1040,4 +1040,16 @@ class Master_Addons_Helper{
 	    return $position_options;
 	}
 
+	public static function jltma_get_preloadable_previews(){
+	    $position_options = [
+	        'no'                   => esc_html__('Blank', MELA_TD ),
+	        'yes'                  => esc_html__('Blurred placeholder image', MELA_TD ),
+	        'progress-box'         => esc_html__('In-progress box animation', MELA_TD ),
+	        'simple-spinner'       => esc_html__('Loading spinner (blue)', MELA_TD ),
+	        'simple-spinner-light' => esc_html__('Loading spinner (light)', MELA_TD ),
+	        'simple-spinner-dark'  => esc_html__('Loading spinner (dark)', MELA_TD )
+	    ];
+	    return $position_options;
+	}
+
 }

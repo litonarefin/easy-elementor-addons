@@ -870,51 +870,51 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
 
 
 
-        // $element->add_control(
-        //     'jltma_transform_fx_transition_duration',
-        //     [
-        //         'label' => __( 'Transition Duration', MELA_TD ),
-        //         'type' => Controls_Manager::SLIDER,
-        //         'separator' => 'before',
-        //         'size_units' => ['px'],
-        //         'range' => [
-        //             'px' => [
-        //                 'min' => 0,
-        //                 'max' => 3,
-        //                 'step' => .1,
-        //             ]
-        //         ],
-        //         'condition' => [
-        //             'enabled_transform' => 'yes',
-        //         ],
-        //         'selectors' => [
-        //             '{{WRAPPER}}'       => 
-        //             '-webkit-transition-duration: {{jltma_transform_fx_transition_duration.SIZE}}s, .2s;
-        //                     transition-duration: {{jltma_transform_fx_transition_duration.SIZE}}s, .2s; 
-        //             -webkit-transition-property: -webkit-transform;
-        //                     transition-property: -webkit-transform;
-        //                     transition-property:         transform;
-        //                     transition-property:         transform, -webkit-transform;
-        //             -webkit-transform: 
-        //                 translate( {{jltma_transform_fx_translate_x.SIZE || 0 }}, {{jltma_transform_fx_translate_y.SIZE || 0}}) 
-        //                 scale( {{jltma_transform_fx_scale_x.SIZE || 1 }}, {{jltma_transform_fx_scale_y.SIZE || 1 }} ) 
-        //                 skew( {{jltma_transform_fx_skew_x.SIZE || 0 }}, {{jltma_transform_fx_skew_y.SIZE || 0 }}) 
-        //                 rotateX( {{jltma_transform_fx_rotate_x.SIZE || 0 }} ) 
-        //                 rotateY( {{jltma_transform_fx_rotate_y.SIZE || 0 }} ) 
-        //                 rotateZ( {{jltma_transform_fx_rotate_z.SIZE || 0 }} );
+        $element->add_control(
+            'jltma_transform_fx_transition_duration',
+            [
+                'label' => __( 'Transition Duration', MELA_TD ),
+                'type' => Controls_Manager::SLIDER,
+                'separator' => 'before',
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 3,
+                        'step' => .1,
+                    ]
+                ],
+                'condition' => [
+                    'enabled_transform' => 'yes',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}}:hover'       => 
+                    '-webkit-transition-duration: {{jltma_transform_fx_transition_duration.SIZE}}s, .2s;
+                            transition-duration: {{jltma_transform_fx_transition_duration.SIZE}}s, .2s; 
+                    -webkit-transition-property: -webkit-transform;
+                            transition-property: -webkit-transform;
+                            transition-property:         transform;
+                            transition-property:         transform, -webkit-transform;
+                    -webkit-transform: 
+                        translate( {{jltma_transform_fx_translate_x.SIZE || 0 }}, {{jltma_transform_fx_translate_y.SIZE || 0}}) 
+                        scale( {{jltma_transform_fx_scale_x.SIZE || 1 }}, {{jltma_transform_fx_scale_y.SIZE || 1 }} ) 
+                        skew( {{jltma_transform_fx_skew_x.SIZE || 0 }}, {{jltma_transform_fx_skew_y.SIZE || 0 }}) 
+                        rotateX( {{jltma_transform_fx_rotate_x.SIZE || 0 }} ) 
+                        rotateY( {{jltma_transform_fx_rotate_y.SIZE || 0 }} ) 
+                        rotateZ( {{jltma_transform_fx_rotate_z.SIZE || 0 }} );
 
-        //                 transform: 
-        //                     translate( {{jltma_transform_fx_translate_x.SIZE || 0 }}, {{jltma_transform_fx_translate_y.SIZE || 0 }} ) 
-        //                     scale( {{jltma_transform_fx_scale_x.SIZE || 1 }}, {{jltma_transform_fx_scale_y.SIZE || 1 }} ) 
-        //                     skew( {{jltma_transform_fx_skew_x.SIZE || 1 }}, {{jltma_transform_fx_skew_y.SIZE || 1 }} ) 
-        //                     rotateX( {{jltma_transform_fx_rotate_x.SIZE || 1 }} ) 
-        //                     rotateY( {{jltma_transform_fx_rotate_y.SIZE || 0 }} ) 
-        //                     rotateZ( {{jltma_transform_fx_rotate_z.SIZE || 0 }} );',
+                        transform: 
+                            translate( {{jltma_transform_fx_translate_x.SIZE || 0 }}, {{jltma_transform_fx_translate_y.SIZE || 0 }} ) 
+                            scale( {{jltma_transform_fx_scale_x.SIZE || 1 }}, {{jltma_transform_fx_scale_y.SIZE || 1 }} ) 
+                            skew( {{jltma_transform_fx_skew_x.SIZE || 1 }}, {{jltma_transform_fx_skew_y.SIZE || 1 }} ) 
+                            rotateX( {{jltma_transform_fx_rotate_x.SIZE || 1 }} ) 
+                            rotateY( {{jltma_transform_fx_rotate_y.SIZE || 0 }} ) 
+                            rotateZ( {{jltma_transform_fx_rotate_z.SIZE || 0 }} );',
 
-        //             // '{{WRAPPER}}:hover' => ''
-        //         ],
-        //     ]
-        // );
+                    // '{{WRAPPER}}:hover' => ''
+                ],
+            ]
+        );
 
 
         $element->end_controls_tab();

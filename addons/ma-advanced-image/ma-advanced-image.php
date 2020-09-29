@@ -1,8 +1,18 @@
 <?php
 	namespace Elementor;
 
-	use Elementor\Widget_Base;
-	use MasterAddons\Lib\AqResizer;
+	use \Elementor\Widget_Base;
+	use \Elementor\Controls_Manager;
+	use \Elementor\Group_Control_Image_Size;
+	use \Elementor\Group_Control_Typography;
+	use \Elementor\Scheme_Typography;
+	use \Elementor\Utils;
+	use \Elementor\Group_Control_Border;
+	use \Elementor\Group_Control_Box_Shadow;
+	use \Elementor\Group_Control_Text_Shadow;
+	use \Elementor\Group_Control_Background;
+
+	use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 	/**
 	 * Author Name: Liton Arefin
@@ -15,7 +25,7 @@
 	class Master_Addons_Advanced_Image extends Widget_Base {
 
 		public function get_name() {
-			return 'ma-call-to-action';
+			return 'jltma-advanced-image';
 		}
 
 		public function get_title() {
@@ -28,6 +38,14 @@
 
 		public function get_categories() {
 			return [ 'master-addons' ];
+		}
+
+		public function get_keywords() {
+			return ['image', 'advanced image', 'ribbon', 'hover', 'hover image'];
+		}
+
+		public function get_help_url() {
+			return 'https://master-addons.com/demos/advanced-image/';
 		}
 
 
@@ -65,7 +83,7 @@
 			);
 
 			$this->add_control(
-				'ma_el_adv_link',
+				'ma_el_adv_image_link',
 				array(
 					'label'         => __('Image Link',MELA_TD ),
 					'type'          => Controls_Manager::URL,
@@ -80,14 +98,14 @@
 
 
 			$this->start_controls_section(
-				'ma_el_adv_hover_section',
+				'ma_el_adv_image_hover_section',
 				array(
 					'label'      => __('Hover Image', MELA_TD ),
 				)
 			);
 
 			$this->add_control(
-				'ma_el_adv_display_hover',
+				'ma_el_adv_image_display_hover',
 				array(
 					'label'        => __('Display Hover Image',MELA_TD ),
 					'type'         => Controls_Manager::SWITCHER,
@@ -99,13 +117,13 @@
 			);
 
 			$this->add_control(
-				'ma_el_adv_hover_image',
+				'ma_el_adv_image_hover_image',
 				array(
 					'label'      => __( 'Image', MELA_TD ),
 					'type'       => Controls_Manager::MEDIA,
 					'show_label' => false,
 					'condition'  => array(
-						'ma_el_adv_display_hover' => 'yes'
+						'ma_el_adv_image_display_hover' => 'yes'
 					)
 				)
 			);
@@ -115,14 +133,14 @@
 
 
 			$this->start_controls_section(
-				'ma_el_adv_ribbon_section',
+				'ma_el_adv_image_ribbon_section',
 				array(
 					'label'      => __('Ribbon', MELA_TD ),
 				)
 			);
 
 			$this->add_control(
-				'ma_el_adv_display_ribbon',
+				'ma_el_adv_image_display_ribbon',
 				array(
 					'label'        => __('Diplay Ribbon',MELA_TD ),
 					'type'         => Controls_Manager::SWITCHER,
@@ -134,19 +152,19 @@
 			);
 
 			$this->add_control(
-				'ma_el_adv_ribbon_text',
+				'ma_el_adv_image_ribbon_text',
 				array(
 					'label'       => __('Text',MELA_TD ),
 					'type'        => Controls_Manager::TEXT,
 					'default'     => 'NEW',
 					'condition'   => array(
-						'ma_el_adv_display_ribbon' => 'yes'
+						'ma_el_adv_image_display_ribbon' => 'yes'
 					)
 				)
 			);
 
 			$this->add_control(
-				'ma_el_adv_ribbon_style',
+				'ma_el_adv_image_ribbon_style',
 				array(
 					'label'       => __('Ribbon Style', MELA_TD),
 					'type'        => Controls_Manager::SELECT,
@@ -157,13 +175,13 @@
 						'cross'  => __('Cross'  , MELA_TD )
 					),
 					'condition'   => array(
-						'ma_el_adv_display_ribbon' => 'yes'
+						'ma_el_adv_image_display_ribbon' => 'yes'
 					)
 				)
 			);
 
 			$this->add_control(
-				'ma_el_adv_ribbon_position',
+				'ma_el_adv_image_ribbon_position',
 				array(
 					'label'       => __('Ribbon Position', MELA_TD),
 					'type'        => Controls_Manager::SELECT,
@@ -175,13 +193,13 @@
 						'bottom-right' => __('Bottom Right'  , MELA_TD )
 					),
 					'condition'   => array(
-						'ma_el_adv_display_ribbon' => 'yes'
+						'ma_el_adv_image_display_ribbon' => 'yes'
 					)
 				)
 			);
 
 			$this->add_responsive_control(
-				'ma_el_adv_ribbon_thickness',
+				'ma_el_adv_image_ribbon_thickness',
 				array(
 					'label'      => __('Ribbon Thickness',MELA_TD ),
 					'type'       => Controls_Manager::SLIDER,
@@ -199,10 +217,10 @@
 						)
 					),
 					'selectors'   => array(
-						'{{WRAPPER}} .ma-el-ribbon-wrapper' => 'line-height: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .jltma-ribbon-wrapper' => 'line-height: {{SIZE}}{{UNIT}};',
 					),
 					'condition'   => array(
-						'ma_el_adv_display_ribbon' => 'yes'
+						'ma_el_adv_image_display_ribbon' => 'yes'
 					)
 				)
 			);
@@ -212,16 +230,130 @@
 
 
 			$this->start_controls_section(
-				'ma_el_adv_settings_section',
+				'ma_el_adv_image_settings_section',
 				array(
 					'label' => __('Settings', MELA_TD ),
 					'tab'   => Controls_Manager::TAB_SETTINGS,
 				)
 			);
 
+	        $this->add_control(
+	            'ma_el_adv_image_settings_lightbox',
+	            array(
+	                'label'        => __('Open in lightbox',MELA_TD ),
+	                'type'         => Controls_Manager::SWITCHER,
+	                'label_on'     => __( 'On', MELA_TD ),
+	                'label_off'    => __( 'Off', MELA_TD ),
+	                'return_value' => 'yes',
+	                'default'      => 'no'
+	            )
+	        );
+
+	        $this->add_control(
+	            'ma_el_adv_image_settings_icon',
+	            array(
+	                'label'       => __( 'Iconic button', MELA_TD),
+	                'type'        => Controls_Manager::SELECT,
+	                'default'     => 'plus',
+	                'options'     => array(
+	                    'none' => __('None', MELA_TD ),
+	                    'plus' => __('Plus', MELA_TD )
+	                ),
+	                'condition'   => array(
+	                    'ma_el_adv_image_settings_lightbox' => 'yes'
+	                )
+	            )
+	        );
+
+
+	        $this->add_responsive_control(
+	            'ma_el_adv_image_settings_alignment',
+	            array(
+	                'label'       => __('Alignment',MELA_TD ),
+	                'description' => __('Image alignment in block.', MELA_TD ),
+	                'type'        => Controls_Manager::CHOOSE,
+	                'options'     => array(
+	                    'left' => array(
+	                        'title' => __( 'Left', MELA_TD ),
+	                        'icon' => 'fa fa-align-left',
+	                    ),
+	                    'center' => array(
+	                        'title' => __( 'Center', MELA_TD ),
+	                        'icon' => 'fa fa-align-center',
+	                    ),
+	                    'right' => array(
+	                        'title' => __( 'Right', MELA_TD ),
+	                        'icon' => 'fa fa-align-right',
+	                    )
+	                ),
+	                'default'     => '',
+	                'separator'   => 'after',
+	                'toggle'      => true,
+	                'selectors'   => array(
+	                    '{{WRAPPER}} .jltma-adv-image' => 'text-align: {{VALUE}};',
+	                )
+	            )
+	        );
+
+
+	        $this->add_control(
+	            'ma_el_adv_image_settings_preloadable',
+	            array(
+	                'label'        => __('Preload image',MELA_TD ),
+	                'type'         => Controls_Manager::SWITCHER,
+	                'label_on'     => __( 'On', MELA_TD ),
+	                'label_off'    => __( 'Off', MELA_TD ),
+	                'return_value' => 'yes',
+	                'default'      => 'no'
+	            )
+	        );
+
+
+	        $this->add_control(
+	            'ma_el_adv_image_settings_preload_preview',
+	            array(
+	                'label'        => __('While loading image display',MELA_TD ),
+	                'label_block'  => true,
+	                'type'         => Controls_Manager::SELECT,
+	                'options'      => Master_Addons_Helper::jltma_get_preloadable_previews(),
+	                'return_value' => 'yes',
+	                'default'      => 'yes',
+	                'condition'    => array(
+	                    'ma_el_adv_image_settings_preloadable' => 'yes'
+	                )
+	            )
+	        );
+
+
+	        $this->add_control(
+	            'ma_el_adv_image_settings_preload_bgcolor',
+	            array(
+	                'label'     => __( 'Placeholder color while loading image', MELA_TD ),
+	                'type'      => Controls_Manager::COLOR,
+	                'condition' => array(
+	                    'ma_el_adv_image_settings_preloadable'     => 'yes',
+	                    'ma_el_adv_image_settings_preload_preview' => array('no', 'simple-spinner', 'simple-spinner-light', 'simple-spinner-dark')
+	                )
+	            )
+	        );
+
+	        $this->add_control(
+	            'ma_el_adv_image_tilt',
+	            array(
+	                'label'        => __( 'Tilt Effect',MELA_TD ),
+	                'description'  => __( 'Adds tilt effect to the image.', MELA_TD ),
+	                'type'         => Controls_Manager::SWITCHER,
+	                'label_on'     => __( 'On', MELA_TD ),
+	                'label_off'    => __( 'Off', MELA_TD ),
+	                'return_value' => 'yes',
+	                'default'      => 'no',
+	                'separator'    => 'before'
+	            )
+	        );
+
 
 			$this->add_control(
-				'ma_el_adv_colorized_shadow',
+				'ma_el_adv_image_colorized_shadow',
 				array(
 					'label'        => __( 'Colorized Shadow', MELA_TD ),
 					'description'  => __( 'Adds colorized shadow to the image. Note: This feature is not available when image hover is active.', MELA_TD ),
@@ -231,7 +363,7 @@
 					'return_value' => 'yes',
 					'default'      => 'no',
 					'condition'    => array(
-						'ma_el_adv_display_hover!' => 'yes'
+						'ma_el_adv_image_display_hover!' => 'yes'
 					)
 				)
 			);
@@ -279,7 +411,7 @@
 						)
 					),
 					'selectors'          => array(
-						'{{WRAPPER}} .ma-el-media-image' => 'max-width:{{SIZE}}{{UNIT}};'
+						'{{WRAPPER}} .jltma-media-image' => 'max-width:{{SIZE}}{{UNIT}};'
 					)
 				)
 			);
@@ -308,7 +440,7 @@
 						)
 					),
 					'selectors'          => array(
-						'{{WRAPPER}} .ma-el-media-image' => 'max-height:{{SIZE}}{{UNIT}};'
+						'{{WRAPPER}} .jltma-media-image' => 'max-height:{{SIZE}}{{UNIT}};'
 					)
 				)
 			);
@@ -320,7 +452,7 @@
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => array( 'px', 'em', '%' ),
 					'selectors'  => array(
-						'{{WRAPPER}} .ma-el-media-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow:hidden;',
+						'{{WRAPPER}} .jltma-media-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow:hidden;',
 					),
 					'separator' => 'after'
 				)
@@ -339,7 +471,7 @@
 				Group_Control_Box_Shadow::get_type(),
 				array(
 					'name'      => 'ma_el_adv_image_box_shadow',
-					'selector'  => '{{WRAPPER}} .ma-el-media-image',
+					'selector'  => '{{WRAPPER}} .jltma-media-image',
 					'separator' => 'none'
 				)
 			);
@@ -348,7 +480,7 @@
 				Group_Control_Border::get_type(),
 				array(
 					'name'      => 'ma_el_adv_image_border',
-					'selector'  => '{{WRAPPER}} .ma-el-media-image',
+					'selector'  => '{{WRAPPER}} .jltma-media-image',
 					'separator' => 'none'
 				)
 			);
@@ -357,7 +489,7 @@
 				Group_Control_Background::get_type(),
 				array(
 					'name'      => 'ma_el_adv_image_background',
-					'selector'  => '{{WRAPPER}} .ma-el-media-image',
+					'selector'  => '{{WRAPPER}} .jltma-media-image',
 					'separator' => 'none'
 				)
 			);
@@ -376,7 +508,7 @@
 				Group_Control_Box_Shadow::get_type(),
 				array(
 					'name'      => 'ma_el_adv_image_box_shadow_hover',
-					'selector'  => '{{WRAPPER}} .ma-el-media-image:hover',
+					'selector'  => '{{WRAPPER}} .jltma-media-image:hover',
 					'separator' => 'none'
 				)
 			);
@@ -385,7 +517,7 @@
 				Group_Control_Border::get_type(),
 				array(
 					'name'      => 'ma_el_adv_image_border_hover',
-					'selector'  => '{{WRAPPER}} .ma-el-media-image:hover',
+					'selector'  => '{{WRAPPER}} .jltma-media-image:hover',
 					'separator' => 'none'
 				)
 			);
@@ -394,7 +526,7 @@
 				Group_Control_Background::get_type(),
 				array(
 					'name'      => 'ma_el_adv_image_background_hover',
-					'selector'  => '{{WRAPPER}} .ma-el-media-image:hover',
+					'selector'  => '{{WRAPPER}} .jltma-media-image:hover',
 					'separator' => 'none'
 				)
 			);
@@ -412,7 +544,7 @@
 						)
 					),
 					'selectors'   => array(
-						'{{WRAPPER}} .ma-el-media-image' => 'transition-duration: {{SIZE}}ms;',
+						'{{WRAPPER}} .jltma-media-image' => 'transition-duration: {{SIZE}}ms;',
 					)
 				)
 			);
@@ -431,7 +563,7 @@
 						)
 					),
 					'selectors'   => array(
-						'{{WRAPPER}} .ma-el-media-image:hover' => 'transform: translateY({{SIZE}}{{UNIT}});',
+						'{{WRAPPER}} .jltma-media-image:hover' => 'transform: translateY({{SIZE}}{{UNIT}});',
 					)
 				)
 			);
@@ -449,7 +581,7 @@
 					'label'     => __( 'Ribbon', MELA_TD ),
 					'tab'       => Controls_Manager::TAB_STYLE,
 					'condition' => array(
-						'ma_el_adv_display_ribbon' => 'yes'
+						'ma_el_adv_image_display_ribbon' => 'yes'
 					),
 				)
 			);
@@ -460,7 +592,7 @@
 					'label' => __( 'Background Color', MELA_TD ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => array(
-						'{{WRAPPER}} .ma-el-ribbon-wrapper' => 'background-color: {{VALUE}} !important;',
+						'{{WRAPPER}} .jltma-ribbon-wrapper' => 'background-color: {{VALUE}} !important;',
 					)
 				)
 			);
@@ -471,10 +603,10 @@
 					'label' => __( 'Border Color', MELA_TD ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => array(
-						'{{WRAPPER}} .ma-el-ribbon-wrapper::before' => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} .jltma-ribbon-wrapper::before' => 'border-color: {{VALUE}};',
 					),
 					'condition' => array(
-						'ma_el_adv_ribbon_style' => array('cross'),
+						'ma_el_adv_image_ribbon_style' => array('cross'),
 					),
 				)
 			);
@@ -484,7 +616,7 @@
 				array(
 					'label'    => __( 'Box Shadow', MELA_TD ),
 					'name'     => 'ma_el_adv_header_box_shadow',
-					'selector' => '{{WRAPPER}} .ma-el-ribbon-wrapper'
+					'selector' => '{{WRAPPER}} .jltma-ribbon-wrapper'
 				)
 			);
 
@@ -494,7 +626,7 @@
 					'label' => __( 'Text Color', MELA_TD ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => array(
-						'{{WRAPPER}} .ma-el-ribbon-wrapper span' => 'color: {{VALUE}} !important;',
+						'{{WRAPPER}} .jltma-ribbon-wrapper span' => 'color: {{VALUE}} !important;',
 					)
 				)
 			);
@@ -504,7 +636,7 @@
 				array(
 					'name'     => 'ma_el_adv_ribbon_typography',
 					'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .ma-el-ribbon-wrapper span'
+					'selector' => '{{WRAPPER}} .jltma-ribbon-wrapper span'
 				)
 			);
 
@@ -513,7 +645,7 @@
 				array(
 					'name' => 'ma_el_adv_ribbon_text_shadow',
 					'label' => __( 'Text Shadow', MELA_TD ),
-					'selector' => '{{WRAPPER}} .ma-el-ribbon-wrapper span',
+					'selector' => '{{WRAPPER}} .jltma-ribbon-wrapper span',
 				)
 			);
 
@@ -1210,7 +1342,7 @@
 
 					$preload_ratio = null === $image_aspect_ratio ? null : 40 / $image_aspect_ratio;
 					$attr['src'] = $this->ma_el_get_the_resized_attachment_src( $attachment_id, 40, $preload_ratio, $crop,100, false );
-					$attr['class'] .= ' ma-el-has-preview'; // the class name to add style and transition to the preview
+					$attr['class'] .= ' jltma-has-preview'; // the class name to add style and transition to the preview
 			}
 
 			unset( $attr['width_attr_name' ] );
@@ -1293,7 +1425,7 @@
 
 				'extra_classes'    => '', // custom css class names for this element
 				'custom_el_id'     => '', // custom id attribute for this element
-				'base_class'       => 'ma-el-advanced-image'  // base class name for container
+				'base_class'       => 'jltma-advanced-image'  // base class name for container
 			);
 
 			$result = $this->ma_el_get_widget_scafold( $atts, $default_atts, $shortcode_content );
@@ -1357,11 +1489,11 @@
 
 			$overflow_class = '';
 			if( $ribbon_style === 'corner' ) {
-				$overflow_class = ' ma-el-hidden-overflow';
+				$overflow_class = ' jltma-hidden-overflow';
 			}
 
 			// add alignment class on main element
-			$result['widget_header'] = str_replace( $base_class, $base_class.' ma-el-alignnone',$result['widget_header'] );
+			$result['widget_header'] = str_replace( $base_class, $base_class.' jltma-alignnone',$result['widget_header'] );
 
 			ob_start();
 
@@ -1372,22 +1504,22 @@
 			// widget output -----------------------
 			?>
 
-			<div class="ma-el-adv-image-wrapper">
-				<div class="ma-el-media-image <?php echo esc_attr( $hover_class ); echo esc_attr( $frame_classes );
+			<div class="jltma-adv-image-wrapper">
+				<div class="jltma-media-image <?php echo esc_attr( $hover_class ); echo esc_attr( $frame_classes );
 				echo esc_attr( $overflow_class ); ?>" >
 					<?php if( !empty($anchor_link) ) { ?>
 					<a class="<?php echo $anchor_class; ?>" href="<?php echo $anchor_link; ?>" >
 						<?php } ?>
 
 						<?php if ( $this->ma_el_is_true( $display_ribbon ) && ! empty( $ribbon_text ) ) { ?>
-							<div class="ma-el-ribbon-wrapper ma-el-<?php echo $ribbon_style;?>-ribbon <?php echo
+							<div class="jltma-ribbon-wrapper jltma-<?php echo $ribbon_style;?>-ribbon <?php echo
                             $ribbon_position;?>">
 								<span><?php echo $ribbon_text;?></span>
 							</div>
 						<?php } ?>
 
 						<?php if ( !empty( $image_secondary ) ) { ?>
-							<div class="jltma-image-holder ma-el-image-has-secondary">
+							<div class="jltma-image-holder jltma-image-has-secondary">
 								<?php echo $image_primary; ?>
 								<?php echo $image_secondary; ?>
 							</div>
@@ -1412,7 +1544,7 @@
 
 			$settings    = $this->get_settings_for_display();
 
-			$link_target = $settings['ma_el_adv_link']['is_external'] ? '_blank' : '_self';
+			$link_target = $settings['ma_el_adv_image_link']['is_external'] ? '_blank' : '_self';
 
 			$args        = array(
 				'image_html'       => Group_Control_Image_Size::get_attachment_image_html( $settings, 'ma_el_adv_image' ),
@@ -1421,17 +1553,17 @@
 				'size'             => $settings['ma_el_adv_image_size'],
 				// 'width'            => $settings['ma_el_adv_image_custom_dimension']['width'],
 				// 'height'           => $settings['ma_el_adv_image_custom_dimension']['height'],
-				'link'             => $settings['ma_el_adv_link']['url'],
-				'nofollow'         => $settings['ma_el_adv_link']['nofollow'],
+				'link'             => $settings['ma_el_adv_image_link']['url'],
+				'nofollow'         => $settings['ma_el_adv_image_link']['nofollow'],
 				'target'           => $link_target,
 
 				// 'attach_id_hover'  => $settings['ma_el_adv_hover_image']['id'],
 
-				'display_ribbon'   => $settings['ma_el_adv_display_ribbon'],
-				'ribbon_text'      => $settings['ma_el_adv_ribbon_text'],
-				'ribbon_style'     => $settings['ma_el_adv_ribbon_style'],
-				'ribbon_position'  => $settings['ma_el_adv_ribbon_position'],
-				'colorized_shadow' => $settings['ma_el_adv_colorized_shadow']
+				'display_ribbon'   => $settings['ma_el_adv_image_display_ribbon'],
+				'ribbon_text'      => $settings['ma_el_adv_image_ribbon_text'],
+				'ribbon_style'     => $settings['ma_el_adv_image_ribbon_style'],
+				'ribbon_position'  => $settings['ma_el_adv_image_ribbon_position'],
+				'colorized_shadow' => $settings['ma_el_adv_image_colorized_shadow']
 			);
 
 			// pass the args through the corresponding shortcode callback
