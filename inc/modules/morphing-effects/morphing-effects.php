@@ -421,18 +421,29 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 	        	// $svg_shape_end .= "</svg>";
 
 
-            $content = '<div class="jltma-blob" style="--time: 20s; --amount: 5; --fill: #56cbb9;" data-blob-path="M539.8 137.6c98.3 69 183.5 124 203 198.4 19.3 74.4-27.1 168.2-93.8 245-66.8 76.8-153.8 136.6-254.2 144.9-100.6 8.2-214.7-35.1-292.7-122.5S-18.1 384.1 7.4 259.8C33 135.6 126.3 19 228.5 2.2c102.1-16.8 213.2 66.3 311.3 135.4z">
-			            	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 747.2 726.7">
-			            	<clipPath id="clipShape'. $id_item .'">
-			            	<path d="M539.8 137.6c98.3 69 183.5 124 203 198.4 19.3 74.4-27.1 168.2-93.8 245-66.8 76.8-153.8 136.6-254.2 144.9-100.6 8.2-214.7-35.1-292.7-122.5S-18.1 384.1 7.4 259.8C33 135.6 126.3 19 228.5 2.2c102.1-16.8 213.2 66.3 311.3 135.4z"/>
-			            	</path>
-			            	</clipPath>
+    //         $content = '<div class="jltma-blob" style="--time: 20s; --amount: 5; --fill: #56cbb9;" data-blob-path="M539.8 137.6c98.3 69 183.5 124 203 198.4 19.3 74.4-27.1 168.2-93.8 245-66.8 76.8-153.8 136.6-254.2 144.9-100.6 8.2-214.7-35.1-292.7-122.5S-18.1 384.1 7.4 259.8C33 135.6 126.3 19 228.5 2.2c102.1-16.8 213.2 66.3 311.3 135.4z">
+			 //            	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 747.2 726.7">
+			 //            	<clipPath id="clipShape'. $id_item .'">
+			 //            	<path d="M539.8 137.6c98.3 69 183.5 124 203 198.4 19.3 74.4-27.1 168.2-93.8 245-66.8 76.8-153.8 136.6-254.2 144.9-100.6 8.2-214.7-35.1-292.7-122.5S-18.1 384.1 7.4 259.8C33 135.6 126.3 19 228.5 2.2c102.1-16.8 213.2 66.3 311.3 135.4z"/>
+			 //            	</path>
+			 //            	</clipPath>
 
-						<g clip-path="url(#clipShape)" >  
-						<rect width="500" height="500"></rect>
-    <foreignObject width="500" height="500">
-    <p class="statement">'. $content .'</p>
-    </foreignObject> </g></svg></div>';
+				// 		<g clip-path="url(#clipShape)" >  
+				// 		<rect width="500" height="500"></rect>
+    // <foreignObject width="500" height="500">
+    // <p class="statement">'. $content .'</p>
+    // </foreignObject> </g></svg></div>';
+
+
+	        	$content = '<div style="width:500px; height:500px; -webkit-clip-path: url(#maskRect1);">' . $content . '</div>';
+	        	$content .= '<div class="jltma-blob" style="--fill: #ff4b82; width:500px; height:500px;">
+					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319.2 356.7">
+					  	<clipPath id="maskRect1" >
+					    	<path d="M271.9 50.3c30.6 29.3 51.3 75.5 46.6 123.9-4.6 48.4-34.6 99-86.5 136.3s-125.6 61.4-168.3 35.3S9.4 243.5 3.4 177.3C-2.7 111.2-3.1 55.2 24 26.7 51.1-1.9 105.9-2.9 153.4 2.8c47.6 5.8 88 18.2 118.5 47.5z"></path>
+					    </clipPath>
+					  </svg>
+					</div>';
+
 
 
 	        }

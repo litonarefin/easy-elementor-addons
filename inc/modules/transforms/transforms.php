@@ -888,7 +888,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'enabled_transform' => 'yes',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}}:hover'       => 
+                    '{{WRAPPER}}'       => 
                     '-webkit-transition-duration: {{jltma_transform_fx_transition_duration.SIZE}}s, .2s;
                             transition-duration: {{jltma_transform_fx_transition_duration.SIZE}}s, .2s; 
                     -webkit-transition-property: -webkit-transform;

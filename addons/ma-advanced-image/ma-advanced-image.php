@@ -654,6 +654,8 @@
 		}
 
 
+		
+
 		public function ma_el_is_true( $var ) {
 			if ( is_bool( $var ) ) {
 				return $var;
@@ -1015,9 +1017,6 @@
 				foreach ( $attach_id as $id ) {
 
 					if( wp_attachment_is( 'ma_el_adv_image', $id ) ){
-//						$image_url   = wp_get_attachment_url( $id ,'full' ); //get img URL
-//						$srcs[ $id ] = $image_url ? ma_el_aq_resize( $image_url, $width, $height, $crop, $quality,true,$upscale ) : '';
-
 						$srcs[ $id ] = wp_get_attachment_url( $id ,'full' ); //get img URL
 					} elseif ( wp_attachment_is( 'audio', $id ) ){
 						$srcs[ $id ] = includes_url() . 'images/media/audio.png';
@@ -1045,7 +1044,6 @@
 
 			return false;
 		}
-
 
 
 		function ma_el_generate_image_sizes( $image_sizes ){
@@ -1497,11 +1495,11 @@
 
 			ob_start();
 
-			// widget header ------------------------------
-			echo $result['widget_header'];
-			echo $result['widget_title'];
+			// print_r($overflow_class);
+			// print_r($display_ribbon);
+			// print_r($ribbon_text);
+			// print_r($image_secondary);
 
-			// widget output -----------------------
 			?>
 
 			<div class="jltma-adv-image-wrapper">
