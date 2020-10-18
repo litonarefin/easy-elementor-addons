@@ -534,7 +534,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 			$is_activated_extensions = self::activated_extensions();
 			$jltma_api_settings = get_option( 'jltma_api_save_settings' );
 
-			wp_enqueue_style( 'bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css' );
+			wp_register_style( 'bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css' );
 			wp_enqueue_style( 'master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css' );
 
 
@@ -606,7 +606,8 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			// Advanced Animations
 			wp_register_script( 'jltma-floating-effects', MELA_PLUGIN_URL . '/assets/vendor/floating-effects/floating-effects.js', array( 'ma-el-anime-lib', 'jquery' ), self::VERSION );
-			if ( \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+
+			if ( $is_activated_extensions['floating-effects'] ) {
 				wp_enqueue_script( 'jltma-floating-effects' );
 			}
 
@@ -621,6 +622,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			//Progressbar
 			if ( $is_activated_extensions['mega-menu'] ) {
+				wp_enqueue_style('bootstrap');
 				wp_enqueue_script('bootstrap');
 			}
 

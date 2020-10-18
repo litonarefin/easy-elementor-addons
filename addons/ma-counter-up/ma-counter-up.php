@@ -79,21 +79,25 @@ class Master_Addons_Counter_Up extends Widget_Base {
 						'number'    => 6000,
 						'icon'      => ['value' => 'far fa-thumbs-up', 'library'  => 'regular'],
 						'title'     => esc_html__( 'Happy Clients', MELA_TD ),
+						'background' => ''
 					],
 					[
 						'number'    => 9560,
 						'icon'      => ['value' => 'far fa-check-circle', 'library'  => 'regular'],
 						'title'     => esc_html__( 'Projects Completed', MELA_TD ),
+						'background' => ''
 					],
 					[
 						'number'    => 165893,
 						'icon'      => ['value' => 'fas fa-coffee', 'library'  => 'solid'],
 						'title'     => esc_html__( 'Cups of Coffee', MELA_TD ),
+						'background' => ''
 					],
 					[
 						'number'    => 12356789,
 						'icon'      => ['value' => 'fas fa-trophy', 'library'  => 'solid'],
 						'title'     => esc_html__( 'Awards Won', MELA_TD ),
+						'background' => ''
 					],
 				],
 				'fields'            => [
@@ -153,6 +157,12 @@ class Master_Addons_Counter_Up extends Widget_Base {
 						'label'         => esc_html__( 'Number', MELA_TD ),
 						'default'       => 123456,
 					],
+					[
+						'type'          => Controls_Manager::COLOR,
+						'name'          => 'background',
+						'label'         => esc_html__( 'Background', MELA_TD )
+					],
+
 				],
 				'title_field' => '{{title}}',
 			]
@@ -587,16 +597,27 @@ class Master_Addons_Counter_Up extends Widget_Base {
 
 	protected function render() {
 
-		$settings  = $this->get_settings_for_display();
+		$settings  	= $this->get_settings_for_display();
+		$id_int		= substr( $this->get_id_int(), 0, 3 );
 
 		if( is_array( $settings['jltma_counterup_contents'] ) ):
 			$column = 12/$settings['column'];
 			$column = 'jltma-col-lg-'.esc_attr( $column ). ' jltma-col-md-6';
 			echo '<div class="jltma-counterup-items jltma-row">';
-			foreach ( $settings['jltma_counterup_contents'] as $list ) :
+
+			foreach ( $settings['jltma_counterup_contents'] as $index => $list ) :
+
+				$title_count = $index+1;
+				$title_settings_key = $this->get_repeater_setting_key('title', 'jltma_counterup_contents', $index);
+
+				$this->add_render_attribute($title_settings_key, [
+					'id' 			=> $id_int . $title_count,
+					'style' 		=> ['background-color:', $list['background'] ]
+				]);
 
 				echo '<div class="'.esc_attr($column).' jltma-counterup-column">';
-				echo '<div class="jltma-counterup jltma-counterup-icon-'.esc_attr($settings['jltma_counterup_icon_align']).'">';
+				echo '<div class="jltma-counterup jltma-counterup-icon-'.esc_attr($settings['jltma_counterup_icon_align']).'"  '. $this->get_render_attribute_string
+                            ($title_settings_key) .'>';
 				echo '<span class="jltma-counterup-icon counterup-icon-text-'.esc_attr($settings['jltma_counterup_icon_align']).'">';
 				if ( ! empty( $list['icon'] ) && ( $list['icon_type'] == 'icon' ) ) :
 					echo '<i class="'.esc_attr( $list['icon']['value'] ).'"></i>';

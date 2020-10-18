@@ -654,7 +654,7 @@
 		}
 
 
-		
+
 
 		public function ma_el_is_true( $var ) {
 			if ( is_bool( $var ) ) {
@@ -1449,6 +1449,7 @@
 			if ( $this->ma_el_is_true( $colorized_shadow ) && empty( $attach_id_hover ) ) {
 				$image_classes .= ' jltma-img-dynamic-dropshadow';
 			}
+			
 
 			if( ! empty( $attach_id ) && is_numeric( $attach_id ) ) {
 				$image_primary = $this->ma_el_get_the_responsive_attachment( $attach_id,
@@ -1466,6 +1467,7 @@
 			} elseif( ! empty( $image_html ) ) {
 				$image_primary = $image_html;
 			}
+
 
 			if( ! empty( $attach_id_hover ) && is_numeric( $attach_id_hover ) ) {
 				$image_secondary = $this->ma_el_get_the_responsive_attachment( $attach_id_hover,

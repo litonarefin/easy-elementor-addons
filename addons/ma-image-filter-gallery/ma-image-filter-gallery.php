@@ -610,7 +610,7 @@ class Master_Addons_Filterable_Image_Gallery extends Widget_Base {
 					'type'          => Controls_Manager::COLOR,
 					'default'       => '#3C4858',
 					'selectors'     => [
-//							'{{WRAPPER}} .ma-el-image-filter-nav ul li.active' => 'color: {{VALUE}};'
+						'{{WRAPPER}} .ma-el-image-filter-nav ul li.active' => 'color: {{VALUE}};'
 					]
 				]
 			);

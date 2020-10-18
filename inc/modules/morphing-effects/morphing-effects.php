@@ -408,7 +408,7 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
 
             if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {}
 
-            $id_item = $widget->get_id();
+            $item_id = $widget->get_id();
             
 	        // $svg_shape = "";
 	        // $svg_shape_end = "";
@@ -435,19 +435,35 @@ class JLTMA_Extension_Morphing_Effects extends JLTMA_Extension_Prototype {
     // </foreignObject> </g></svg></div>';
 
 
-	        	$content = '<div style="width:500px; height:500px; -webkit-clip-path: url(#maskRect1);">' . $content . '</div>';
-	        	$content .= '<div class="jltma-blob" style="--fill: #ff4b82; width:500px; height:500px;">
-					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319.2 356.7">
-					  	<clipPath id="maskRect1" >
-					    	<path d="M271.9 50.3c30.6 29.3 51.3 75.5 46.6 123.9-4.6 48.4-34.6 99-86.5 136.3s-125.6 61.4-168.3 35.3S9.4 243.5 3.4 177.3C-2.7 111.2-3.1 55.2 24 26.7 51.1-1.9 105.9-2.9 153.4 2.8c47.6 5.8 88 18.2 118.5 47.5z"></path>
-					    </clipPath>
-					  </svg>
-					</div>';
+	    //     	$content = '<div style="width:600px; height:500px; -webkit-clip-path: url(#maskRect' . $item_id . ');">' . $content . '</div>';
+	    //     	$content .= '<div class="jltma-blob"  style="--time: 2s; --amount: 5; --fill: #56cbb9;">
+					//   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319.2 356.7">
+					//   	<clipPath id="maskRect' . $item_id . '" >
+					//     	<path d="M271.9 50.3c30.6 29.3 51.3 75.5 46.6 123.9-4.6 48.4-34.6 99-86.5 136.3s-125.6 61.4-168.3 35.3S9.4 243.5 3.4 177.3C-2.7 111.2-3.1 55.2 24 26.7 51.1-1.9 105.9-2.9 153.4 2.8c47.6 5.8 88 18.2 118.5 47.5z"></path>
+					//     </clipPath>
+					//   </svg>
+					// </div>';
 
 
 
-	        }
+	    //     }
 
+
+
+	        	$content = '<div style="width:650px; height:500px; -webkit-clip-path: url(#maskRect' . $item_id . ');">' . $content . '</div>';
+	        	$content .= '<div class="jltma-blob"  style="--time: 12s; --amount: 5; --fill: #56cbb9;">
+			        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319.2 356.7">
+			        	
+			        	<path d="M271.9 50.3c30.6 29.3 51.3 75.5 46.6 123.9-4.6 48.4-34.6 99-86.5 136.3s-125.6 61.4-168.3 35.3S9.4 243.5 3.4 177.3C-2.7 111.2-3.1 55.2 24 26.7 51.1-1.9 105.9-2.9 153.4 2.8c47.6 5.8 88 18.2 118.5 47.5z"></path>
+
+			        	<foreignObject style="width:350px; height:300px;">
+			        	<p class="statement">'. $content .'</p>
+			        	</foreignObject>
+
+			        	
+			        	</svg>
+		        	</div>';
+		        }
 
 
 // <div class="tk-blob" style="--fill: #ff4b82;">

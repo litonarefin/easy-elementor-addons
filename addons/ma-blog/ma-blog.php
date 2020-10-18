@@ -659,7 +659,7 @@
 					'default'       => 'read_more_link',
 					'label_block'   => true,
 					'condition'     => [
-						'ma_el_post_grid_excerpt'  => 'yes',
+						'ma_el_post_grid_excerpt'  			=> 'yes'
 					]
 				]
 			);
@@ -670,8 +670,9 @@
 					'type'			=> Controls_Manager::TEXT,
 					'default'       => __('Read More',MELA_TD),
 					'condition'     => [
-						'ma_el_post_grid_excerpt'      => 'yes',
-						'ma_el_post_grid_excerpt_type' => 'read_more_link'
+						'ma_el_post_grid_excerpt'      		=> 'yes',
+						'ma_el_post_grid_show_read_more'    => 'yes',
+						'ma_el_post_grid_excerpt_type' 		=> 'read_more_link'
 					]
 				]
 			);
@@ -729,6 +730,14 @@
 			$this->add_control('ma_el_post_grid_comments_meta',
 				[
 					'label'         => __('Display Comments Number?', MELA_TD),
+					'type'          => Controls_Manager::SWITCHER,
+					'default'       => 'yes',
+				]
+			);
+
+			$this->add_control('ma_el_post_grid_show_read_more',
+				[
+					'label'         => __('Show Read More?', MELA_TD),
 					'type'          => Controls_Manager::SWITCHER,
 					'default'       => 'yes',
 				]
@@ -1268,8 +1277,9 @@
                     'label'         => __('Read More', MELA_TD ),
                     'tab'           => Controls_Manager::TAB_STYLE,
 					'condition'     => [
-						'ma_el_post_grid_excerpt'      => 'yes',
-						'ma_el_post_grid_excerpt_type' => 'read_more_link'
+						'ma_el_post_grid_excerpt'      			=> 'yes',
+						'ma_el_post_grid_show_read_more'      	=> 'yes',
+						'ma_el_post_grid_excerpt_type' 			=> 'read_more_link'
 					]
                 ]
             );
@@ -2172,6 +2182,7 @@
 			$excerpt_type = $settings['ma_el_post_grid_excerpt_type'];
 			$excerpt_text = $settings['ma_el_post_grid_excerpt_text'];
 			$excerpt_src  = $settings['ma_el_post_grid_excerpt_content'];
+			$read_more_link  = $settings['ma_el_post_grid_show_read_more'];
 			// $excerpt_icon  = ($settings['ma_el_blog_read_more_icon'])?$settings['ma_el_blog_read_more_icon']:"";
 			// $excerpt_icon_align  = $settings['ma_el_blog_read_more_icon_alignment'];
 
@@ -2179,7 +2190,7 @@
 			<div class="ma-el-blog-post-content-wrap" style="<?php if ( $settings['ma_el_blog_post_format_icon'] !== 'yes'
 			 ) : echo 'margin-left:0px;'; endif; ?>">
 				<?php if ( $settings['ma_el_post_grid_excerpt'] === 'yes' ) {
-					echo Master_Addons_Helper::ma_el_get_excerpt_by_id( get_the_ID(), $settings['ma_el_blog_excerpt_length'], $excerpt_type, $excerpt_text, $excerpt_src, $excerpt_icon="", $excerpt_icon_align="" );
+					echo Master_Addons_Helper::ma_el_get_excerpt_by_id( get_the_ID(), $settings['ma_el_blog_excerpt_length'], $excerpt_type, $excerpt_text, $excerpt_src, $excerpt_icon="", $excerpt_icon_align="", $read_more_link );
 				} else{
 				    if( $settings['ma_el_blog_show_content'] == 'yes' ){
 				        the_content();
@@ -2670,8 +2681,6 @@
                     'jltma-row'
 				]
 			);
-
-
 
 			if ( $carousel ) {
 

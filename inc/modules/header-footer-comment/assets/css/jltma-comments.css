@@ -342,21 +342,21 @@ input[type="submit"]{
 
 /*checkbox and radio for global templates design starts here*/
 
-	input[type="checkbox"], 
-	input[type="radio"]{
+	.jltma-comments-wrap input[type="checkbox"], 
+	.jltma-comments-wrap input[type="radio"]{
 		width: 24px;
 		height: 24px;
 		background-color: #fff;
 		border: 1px solid #a0a0a0;
 	}
 
-	input[type="checkbox"]:checked, 
-	input[type="radio"]:checked{
+	.jltma-comments-wrap input[type="checkbox"]:checked, 
+	.jltma-comments-wrap input[type="radio"]:checked{
 		background-color: #4c4c4c;
 		border-color: #4c4c4c;
 	}
 
-	input[type=checkbox] {
+	.jltma-comments-wrap input[type=checkbox] {
 		width: 24px;
 		height: 24px;
 		margin-right: 8px;
@@ -367,7 +367,7 @@ input[type="submit"]{
 		top: 6px;
 	}
 
-	input[type=checkbox]:after {
+	.jltma-comments-wrap input[type=checkbox]:after {
 	    content: " ";
 	    display: inline-block;
 	    visibility: visible;
@@ -382,7 +382,7 @@ input[type="submit"]{
 		border: 1px solid #ccc;
 	}
 
-	input[type=checkbox]:checked:after {
+	.jltma-comments-wrap input[type=checkbox]:checked:after {
 	    content: "\2714";
 	    color: #fff;
 	    text-align: center;
@@ -391,7 +391,7 @@ input[type="submit"]{
 	    border: 1px solid #4c4c4c;
 	}
 
-	input[type="radio"]{
+	.jltma-comments-wrap input[type="radio"]{
 		width: 24px;
 		height: 24px;
 		margin-right: 8px;
@@ -402,7 +402,7 @@ input[type="submit"]{
 		top: 6px;
 	}
 
-	input[type=radio]:before {
+	.jltma-comments-wrap input[type=radio]:before {
 	    content: " ";
 	    background-color: #fff;
 	    border: 2px solid #e3e8ea;
@@ -422,11 +422,11 @@ input[type="submit"]{
 		    border-radius: 50%;
 	}
 
-	input[type=radio]:checked:before {
+	.jltma-comments-wrap input[type=radio]:checked:before {
 	    border: 2px solid #4c4c4c;
 	}
 
-	input[type=radio]:after {
+	.jltma-comments-wrap input[type=radio]:after {
 		content: "";
 		background-color: #FFF;
 		position: absolute;
@@ -440,7 +440,7 @@ input[type="submit"]{
 	    top: 3px;
 	}
 
-	input[type=radio]:checked:after {
+	.jltma-comments-wrap input[type=radio]:checked:after {
 	    background-color: #4c4c4c;
 	    top: 3px;
 	    left: 3px;   

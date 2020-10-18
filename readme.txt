@@ -373,8 +373,19 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.5.5 (17-10-2020) =
+* Fixed: Uncaught Error: Class 'Elementor\Plugin' not found issue fixed for Floating Effects
+* Added: alignment, padding option added for Icon, Title, Desciption on MA Infobox
+* Added: MA Counter Up - Added Individual item Background Color Option
+* Added: MA Blog - Added Show/Hide Read More link
+* Updated: Getting Error "elementorFrontend" is not defined issue fixed for "Custom Breakpoints"
+* Support: Formidable Form supports given, conflicting issue with Checkbox, Labels issue fixed
+* Fixed: Active Text color white issue on "MA Image Filter Gallery" issue fixed
+
+
 = 1.5.4 (28-09-2020) =
 * Added: Morphing Effect Extension
+* Added: Main plugin file renamed from 'master-elementor-addons.php' to 'master-addons.php'
 
 
 = 1.5.3 (28-09-2020) =

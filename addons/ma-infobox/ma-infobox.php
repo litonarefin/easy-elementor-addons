@@ -227,39 +227,37 @@
 			$this->add_control(
 				'ma_el_infobox_description',
 				[
-					'label' => esc_html__( 'Description', MELA_TD ),
-					'type' => Controls_Manager::TEXTAREA,
-					'default' => esc_html__( 'Basic description about the Infobox', MELA_TD ),
+					'label' 		=> esc_html__( 'Description', MELA_TD ),
+					'type' 			=> Controls_Manager::TEXTAREA,
+					'default' 		=> esc_html__( 'Basic description about the Infobox', MELA_TD ),
 				]
 			);
-
 
 			$this->add_control(
 				'ma_el_infobox_readmore_text',
 				[
-					'label' => esc_html__( 'Read More Text', MELA_TD ),
-					'type' => Controls_Manager::TEXT,
-					'label_block' => true,
-					'default' => esc_html__( 'Learn More', MELA_TD ),
-					'condition' => [
+					'label' 		=> esc_html__( 'Read More Text', MELA_TD ),
+					'type' 			=> Controls_Manager::TEXT,
+					'label_block' 	=> true,
+					'default' 		=> esc_html__( 'Learn More', MELA_TD ),
+					'condition' 	=> [
 						'ma_el_infobox_preset' => 'six'
 					]
 				]
 			);
 
-
 			$this->add_control(
 				'ma_el_infobox_readmore_link',
 				[
-					'label' => __( 'Read More Link', MELA_TD ),
-					'type' => Controls_Manager::URL,
-					'placeholder' => __( 'https://master-addons.com/demo', MELA_TD ),
-					'label_block' => true,
-					'default' => [
-						'url' => '#',
-						'is_external' => true,
+					'label' 		=> __( 'Read More Link', MELA_TD ),
+					'type' 			=> Controls_Manager::URL,
+					'placeholder' 	=> __( 'https://master-addons.com/demo', MELA_TD ),
+					'label_block' 	=> true,
+					'default' 		=> [
+						'url' 			=> '#',
+						'is_external' 	=> true,
 					],
-					'condition' => [
+					'condition' 	=> [
 						'ma_el_infobox_preset' => 'six'
 					]
 				]
@@ -481,6 +479,45 @@
 				]
 			);
 
+			$this->add_responsive_control(
+				'ma_el_infobox_icon_alignment',
+				[
+					'label' => esc_html__( 'Alignment', MELA_TD ),
+					'type' => Controls_Manager::CHOOSE,
+					'label_block' => false,
+					'options' => [
+						'left' => [
+							'title' => esc_html__( 'Left', MELA_TD ),
+							'icon' => 'fa fa-align-left',
+						],
+						'center' => [
+							'title' => esc_html__( 'Center', MELA_TD ),
+							'icon' => 'fa fa-align-center',
+						],
+						'right' => [
+							'title' => esc_html__( 'Right', MELA_TD ),
+							'icon' => 'fa fa-align-right',
+						],
+					],
+					'default' => 'center',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-icon' => 'text-align: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'ma_el_infobox_icon_padding',
+				[
+					'label'         => __( 'Padding', MELA_TD ),
+					'type'          => Controls_Manager::DIMENSIONS,
+					'size_units'    => [ 'px', 'em', '%' ],
+					'selectors'     => [
+						'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					],
+				]
+			);
+
 			$this->end_controls_tab();
 
 			$this->start_controls_tab(
@@ -511,10 +548,50 @@
 					'type'                  => Controls_Manager::COLOR,
 					'selectors'	=> [
 						'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'background-color:{{VALUE}};',
-					],
-					// 'default'               => '#4b00e7',
+					]
 				]
 			);
+
+
+			$this->add_responsive_control(
+				'ma_el_infobox_icon_hover_alignment',
+				[
+					'label' => esc_html__( 'Alignment', MELA_TD ),
+					'type' => Controls_Manager::CHOOSE,
+					'label_block' => false,
+					'options' => [
+						'left' => [
+							'title' => esc_html__( 'Left', MELA_TD ),
+							'icon' => 'fa fa-align-left',
+						],
+						'center' => [
+							'title' => esc_html__( 'Center', MELA_TD ),
+							'icon' => 'fa fa-align-center',
+						],
+						'right' => [
+							'title' => esc_html__( 'Right', MELA_TD ),
+							'icon' => 'fa fa-align-right',
+						],
+					],
+					'default' => 'center',
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'text-align: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'ma_el_infobox_icon_hover_padding',
+				[
+					'label'         => __( 'Padding', MELA_TD ),
+					'type'          => Controls_Manager::DIMENSIONS,
+					'size_units'    => [ 'px', 'em', '%' ],
+					'selectors'     => [
+						'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					],
+				]
+			);
+
 			$this->end_controls_tab();
 
 			$this->end_controls_tabs();
@@ -550,52 +627,131 @@
 
 			$this->start_controls_tabs( 'ma_el_infobox_title_color_style' );
 
-			$this->start_controls_tab(
-				'ma_el_infobox_title_color_normal',
-				[
-					'label'                 => __( 'Normal', MELA_TD ),
-				]
-			);
+				$this->start_controls_tab(
+					'ma_el_infobox_title_color_normal',
+					[
+						'label'                 => __( 'Normal', MELA_TD ),
+					]
+				);
 
-			$this->add_control(
-				'ma_el_title_color',
-				[
-					'label' => __('Color', MELA_TD),
-					'type' => Controls_Manager::COLOR,
-					'default' => '#132c47',
-					'selectors' => [
-						'{{WRAPPER}} .ma-el-infobox-content-title' => 'color: {{VALUE}};',
+				$this->add_control(
+					'ma_el_title_color',
+					[
+						'label' => __('Color', MELA_TD),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#132c47',
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-infobox-content-title' => 'color: {{VALUE}};',
 
-					],
-				]
-			);
-
-			$this->end_controls_tab();
-
-			$this->start_controls_tab(
-				'ma_el_infobox_title_hover',
-				[
-					'label'                 => __( 'Hover', MELA_TD ),
-				]
-			);
+						],
+					]
+				);
 
 
-			$this->add_control(
-				'ma_el_infobox_title_color_hover',
-				[
-					'label' => __('Color', MELA_TD),
-					'type' => Controls_Manager::COLOR,
-					'selectors' => [
-						'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-title' => 'color: {{VALUE}};',
+				$this->add_responsive_control(
+					'ma_el_infobox_title_alignment',
+					[
+						'label' => esc_html__( 'Alignment', MELA_TD ),
+						'type' => Controls_Manager::CHOOSE,
+						'label_block' => false,
+						'options' => [
+							'left' => [
+								'title' => esc_html__( 'Left', MELA_TD ),
+								'icon' => 'fa fa-align-left',
+							],
+							'center' => [
+								'title' => esc_html__( 'Center', MELA_TD ),
+								'icon' => 'fa fa-align-center',
+							],
+							'right' => [
+								'title' => esc_html__( 'Right', MELA_TD ),
+								'icon' => 'fa fa-align-right',
+							],
+						],
+						'default' => 'center',
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-infobox-content-title' => 'text-align: {{VALUE}};',
+						],
+					]
+				);
 
-					],
-				]
-			);
+				$this->add_responsive_control(
+					'ma_el_infobox_title_padding',
+					[
+						'label'         => __( 'Padding', MELA_TD ),
+						'type'          => Controls_Manager::DIMENSIONS,
+						'size_units'    => [ 'px', 'em', '%' ],
+						'selectors'     => [
+							'{{WRAPPER}} .ma-el-infobox-content-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+						],
+					]
+				);				
 
-			$this->end_controls_tab();
+				$this->end_controls_tab();
+
+				$this->start_controls_tab(
+					'ma_el_infobox_title_hover',
+					[
+						'label'                 => __( 'Hover', MELA_TD ),
+					]
+				);
+
+
+				$this->add_control(
+					'ma_el_infobox_title_color_hover',
+					[
+						'label' => __('Color', MELA_TD),
+						'type' => Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-title' => 'color: {{VALUE}};',
+
+						],
+					]
+				);
+
+
+				$this->add_responsive_control(
+					'ma_el_infobox_title_hover_alignment',
+					[
+						'label' => esc_html__( 'Alignment', MELA_TD ),
+						'type' => Controls_Manager::CHOOSE,
+						'label_block' => false,
+						'options' => [
+							'left' => [
+								'title' => esc_html__( 'Left', MELA_TD ),
+								'icon' => 'fa fa-align-left',
+							],
+							'center' => [
+								'title' => esc_html__( 'Center', MELA_TD ),
+								'icon' => 'fa fa-align-center',
+							],
+							'right' => [
+								'title' => esc_html__( 'Right', MELA_TD ),
+								'icon' => 'fa fa-align-right',
+							],
+						],
+						'default' => 'center',
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-title' => 'text-align: {{VALUE}};',
+						],
+					]
+				);
+
+				$this->add_responsive_control(
+					'ma_el_infobox_title_hover_padding',
+					[
+						'label'         => __( 'Padding', MELA_TD ),
+						'type'          => Controls_Manager::DIMENSIONS,
+						'size_units'    => [ 'px', 'em', '%' ],
+						'selectors'     => [
+							'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+						],
+					]
+				);				
+
+				$this->end_controls_tab();
 
 			$this->end_controls_tabs();
-
 
 			$this->end_controls_section();
 
@@ -621,53 +777,132 @@
 
 			$this->start_controls_tabs( 'ma_el_infobox_desc_color_style' );
 
-			$this->start_controls_tab(
-				'ma_el_infobox_desc_color_normal',
-				[
-					'label'                 => __( 'Normal', MELA_TD ),
-				]
-			);
+				$this->start_controls_tab(
+					'ma_el_infobox_desc_color_normal',
+					[
+						'label'                 => __( 'Normal', MELA_TD ),
+					]
+				);
 
-			$this->add_control(
-				'ma_el_description_color',
-				[
-					'label' => __('Color', MELA_TD),
-					'type' => Controls_Manager::COLOR,
-					'default' => '#797c80',
-					'selectors' => [
-						'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-content-description' => 'color: {{VALUE}};',
-					],
-				]
-			);
-			$this->end_controls_tab();
+					$this->add_control(
+						'ma_el_description_color',
+						[
+							'label' => __('Color', MELA_TD),
+							'type' => Controls_Manager::COLOR,
+							'default' => '#797c80',
+							'selectors' => [
+								'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-content-description' => 'color: {{VALUE}};',
+							],
+						]
+					);
 
-			$this->start_controls_tab(
-				'ma_el_infobox_desc_hover',
-				[
-					'label'                 => __( 'Hover', MELA_TD ),
-				]
-			);
+					$this->add_responsive_control(
+						'ma_el_infobox_desc_alignment',
+						[
+							'label' => esc_html__( 'Alignment', MELA_TD ),
+							'type' => Controls_Manager::CHOOSE,
+							'label_block' => false,
+							'options' => [
+								'left' => [
+									'title' => esc_html__( 'Left', MELA_TD ),
+									'icon' => 'fa fa-align-left',
+								],
+								'center' => [
+									'title' => esc_html__( 'Center', MELA_TD ),
+									'icon' => 'fa fa-align-center',
+								],
+								'right' => [
+									'title' => esc_html__( 'Right', MELA_TD ),
+									'icon' => 'fa fa-align-right',
+								],
+							],
+							'default' => 'center',
+							'selectors' => [
+								'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-content-description' => 'text-align: {{VALUE}};',
+							],
+						]
+					);
+
+					$this->add_responsive_control(
+						'ma_el_infobox_desc_padding',
+						[
+							'label'         => __( 'Padding', MELA_TD ),
+							'type'          => Controls_Manager::DIMENSIONS,
+							'size_units'    => [ 'px', 'em', '%' ],
+							'selectors'     => [
+								'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-content-description' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+							],
+						]
+					);					
+				$this->end_controls_tab();
+
+				$this->start_controls_tab(
+					'ma_el_infobox_desc_hover',
+					[
+						'label'                 => __( 'Hover', MELA_TD ),
+					]
+				);
 
 
-			$this->add_control(
-				'ma_el_infobox_desc_color_hover',
-				[
-					'label' => __('Color', MELA_TD),
-					'type' => Controls_Manager::COLOR,
-					'default' => '',
-					'selectors' => [
-						'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-description' => 'color: {{VALUE}};',
-						'{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover .ma-el-infobox-content-description,
-						{{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item:hover .ma-el-infobox-content-description,
-						{{WRAPPER}} .ma-el-infobox.seven .ma-el-infobox-item:hover .ma-el-infobox-content-description,
-						{{WRAPPER}} .ma-el-infobox.eight .ma-el-infobox-item:hover .ma-el-infobox-content-description,
-						{{WRAPPER}} .ma-el-infobox.nine .ma-el-infobox-item:hover .ma-el-infobox-content-description' =>
-                            'color: {{VALUE}};',
-					],
-				]
-			);
+				$this->add_control(
+					'ma_el_infobox_desc_color_hover',
+					[
+						'label' => __('Color', MELA_TD),
+						'type' => Controls_Manager::COLOR,
+						'default' => '',
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-description' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover .ma-el-infobox-content-description,
+							{{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item:hover .ma-el-infobox-content-description,
+							{{WRAPPER}} .ma-el-infobox.seven .ma-el-infobox-item:hover .ma-el-infobox-content-description,
+							{{WRAPPER}} .ma-el-infobox.eight .ma-el-infobox-item:hover .ma-el-infobox-content-description,
+							{{WRAPPER}} .ma-el-infobox.nine .ma-el-infobox-item:hover .ma-el-infobox-content-description' =>
+	                            'color: {{VALUE}};',
+						],
+					]
+				);
 
-			$this->end_controls_tab();
+
+				$this->add_responsive_control(
+					'ma_el_infobox_desc_hover_alignment',
+					[
+						'label' => esc_html__( 'Alignment', MELA_TD ),
+						'type' => Controls_Manager::CHOOSE,
+						'label_block' => false,
+						'options' => [
+							'left' => [
+								'title' => esc_html__( 'Left', MELA_TD ),
+								'icon' => 'fa fa-align-left',
+							],
+							'center' => [
+								'title' => esc_html__( 'Center', MELA_TD ),
+								'icon' => 'fa fa-align-center',
+							],
+							'right' => [
+								'title' => esc_html__( 'Right', MELA_TD ),
+								'icon' => 'fa fa-align-right',
+							],
+						],
+						'default' => 'center',
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-description' => 'text-align: {{VALUE}};',
+						],
+					]
+				);
+
+				$this->add_responsive_control(
+					'ma_el_infobox_desc_hover_padding',
+					[
+						'label'         => __( 'Padding', MELA_TD ),
+						'type'          => Controls_Manager::DIMENSIONS,
+						'size_units'    => [ 'px', 'em', '%' ],
+						'selectors'     => [
+							'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-description' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+						],
+					]
+				);
+				
+				$this->end_controls_tab();
 
 			$this->end_controls_tabs();
 

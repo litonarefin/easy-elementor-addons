@@ -530,7 +530,7 @@ class Master_Addons_Helper{
 
 
 
-	public static function ma_el_get_excerpt_by_id( $post_id, $excerpt_length, $excerpt_type, $exceprt_text,$excerpt_src, $excerpt_icon, $excerpt_icon_align ) {
+	public static function ma_el_get_excerpt_by_id( $post_id, $excerpt_length, $excerpt_type, $exceprt_text,$excerpt_src, $excerpt_icon, $excerpt_icon_align, $read_more_link ) {
 
 		$the_post = get_post( $post_id );
 
@@ -555,16 +555,17 @@ class Master_Addons_Helper{
 			if( 'three_dots' == $excerpt_type ) {
 				array_push( $words, '…' );
 			} else {
-
-				if( $excerpt_icon_align == "left"){
-					array_push( $words, '<br> <a href="' . get_permalink(
-						$post_id ) .'" class="ma-el-post-btn"> <i class="' . $excerpt_icon . '"></i>' . $exceprt_text . '</a>' );
-				} elseif( $excerpt_icon_align == "right"){
-					array_push( $words, '<br> <a href="' . get_permalink( $post_id ) .'" class="ma-el-post-btn">' . $exceprt_text . ' <i class="' . $excerpt_icon . '"></i></a>' );
-				}else{
-					array_push( $words, '<br> <a href="' . get_permalink( $post_id ) .'" class="ma-el-post-btn">' . $exceprt_text . '</a>' );
+				
+				if($read_more_link){
+					if( $excerpt_icon_align == "left"){
+						array_push( $words, '<br> <a href="' . get_permalink(
+							$post_id ) .'" class="ma-el-post-btn"> <i class="' . $excerpt_icon . '"></i>' . $exceprt_text . '</a>' );
+					} elseif( $excerpt_icon_align == "right"){
+						array_push( $words, '<br> <a href="' . get_permalink( $post_id ) .'" class="ma-el-post-btn">' . $exceprt_text . ' <i class="' . $excerpt_icon . '"></i></a>' );
+					}else{
+						array_push( $words, '<br> <a href="' . get_permalink( $post_id ) .'" class="ma-el-post-btn">' . $exceprt_text . '</a>' );
+					}
 				}
-
 			}
 
 			$the_excerpt = '<p>' . implode( ' ', $words ) . '</p>';
