@@ -1218,11 +1218,11 @@
                     arrows          : arrows,
                     centerMode      : Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_center_mode,
                     // centerPadding: '60px',
-                    prevArrow       : $('.jltma-logo-slider .jltma-slide-prev'),
-                    nextArrow       : $('.jltma-logo-slider .jltma-slide-next'),
+                    prevArrow       : $('.jltma-logo-slider-wrapper .jltma-slide-prev'),
+                    nextArrow       : $('.jltma-logo-slider-wrapper .jltma-slide-next'),
                     dots            : true,
-                    dotsClass       : $('.jltma-logo-slider .jltma-slide-dotnav'),
-                    appendDots      : $('.jltma-logo-slider .jltma-slide-dotnav'),
+                    dotsClass       : $('.jltma-logo-slider-wrapper .jltma-slide-dotnav'),
+                    appendDots      : $('.jltma-logo-slider-wrapper .jltma-slide-dotnav'),
                     // rtl             : 'rtl' === Master_Addons.MA_Logo_Slider.elementSettings.jltMA_Logo_Slider_direction,
                     // fade            : 'fade' === Master_Addons.MA_Logo_Slider.elementSettings.jltma_gallery_slider_effect,
                     responsive: [
@@ -1855,18 +1855,19 @@
         * REVEAL
         */
         MA_Reveal: function ($scope, $) {
-            var isReveal = false;
 
-            var elementSettings = getElementSettings($scope);
+            Master_Addons.MA_Reveal.elementSettings = getElementSettings($scope);
 
-            var rev1;
-            var revealAction = function () {
+            var rev1,
+                isReveal = false;
+
+            Master_Addons.MA_Reveal.revealAction = function () {
                 rev1 = new RevealFx(revealistance, {
                     revealSettings: {
-                        bgcolor: elementSettings.reveal_bgcolor,
-                        direction: elementSettings.reveal_direction,
-                        duration: Number(elementSettings.reveal_speed.size) * 100,
-                        delay: Number(elementSettings.reveal_delay.size) * 100,
+                        bgcolor: Master_Addons.MA_Reveal.elementSettings.reveal_bgcolor,
+                        direction: Master_Addons.MA_Reveal.elementSettings.reveal_direction,
+                        duration: Number(Master_Addons.MA_Reveal.elementSettings.reveal_speed.size) * 100,
+                        delay: Number(Master_Addons.MA_Reveal.elementSettings.reveal_delay.size) * 100,
                         onCover: function (contentEl, revealerEl) {
                             contentEl.style.opacity = 1;
                         }
@@ -1874,24 +1875,23 @@
                 });
             }
 
-            var runReveal = function () {
+            Master_Addons.MA_Reveal.runReveal = function () {
                 rev1.reveal();
             }
 
-            if (elementSettings.enabled_reveal) {
+            if (Master_Addons.MA_Reveal.elementSettings.enabled_reveal) {
 
-                var revealId = '#reveal-' + $scope.data('id');
-                var revealistance = document.querySelector(revealId);
+                var revealId = '#reveal-' + $scope.data('id'),
+                    revealistance = document.querySelector(revealId);
 
-                revealAction();
+                Master_Addons.MA_Reveal.revealAction();
 
-                var waypointOptions = {
+                Master_Addons.MA_Reveal.waypointOptions = {
                     offset: '100%',
                     triggerOnce: true
                 };
-                elementorFrontend.waypoint($(revealistance), runReveal, waypointOptions);
+                elementorFrontend.waypoint($(revealistance), Master_Addons.MA_Reveal.runReveal, Master_Addons.MA_Reveal.waypointOptions);
             }
-
         },
 
         /*

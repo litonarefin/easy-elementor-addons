@@ -381,6 +381,7 @@ Paste on your Local Computer
 * Updated: Getting Error "elementorFrontend" is not defined issue fixed for "Custom Breakpoints"
 * Support: Formidable Form supports given, conflicting issue with Checkbox, Labels issue fixed
 * Fixed: Active Text color white issue on "MA Image Filter Gallery" issue fixed
+* Updated: Reveal extension bug - Anime.min.js updated
 
 
 = 1.5.4 (28-09-2020) =

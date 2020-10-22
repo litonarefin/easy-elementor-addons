@@ -16,21 +16,21 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 class Master_Addons_Logo_Slider extends Widget_Base {
 
-	public function get_name() {
-		return 'jltma-logo-slider';
-	}
+    public function get_name() {
+        return 'jltma-logo-slider';
+    }
 
-	public function get_title() {
-		return esc_html__( 'Logo Slider', MELA_TD );
-	}
+    public function get_title() {
+        return esc_html__( 'Logo Slider', MELA_TD );
+    }
 
-	public function get_icon() {
-		return 'ma-el-icon eicon-slider-push';
-	}
+    public function get_icon() {
+        return 'ma-el-icon eicon-slider-push';
+    }
 
-	public function get_categories() {
-		return [ 'master-addons' ];
-	}
+    public function get_categories() {
+        return [ 'master-addons' ];
+    }
 
     public function get_style_depends() {
         return [
@@ -48,7 +48,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         return 'https://master-addons.com/demos/logo-slider/';
     }
 
-	protected function _register_controls() {
+    protected function _register_controls() {
 
         /*
         * Logo Images
@@ -231,11 +231,11 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         * Logo Style
         *
         */
-    	$this->start_controls_section(
-    		'jltma_logo_slider_settings_section',
-    		[
+        $this->start_controls_section(
+            'jltma_logo_slider_settings_section',
+            [
                 'label' => esc_html__( 'Carousel', MELA_TD )
-    		]
+            ]
         );
 
 
@@ -498,7 +498,9 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                             'type' => Controls_Manager::COLOR,
                             'default' => '#b8bfc7',
                             'selectors' => [
-                                '{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next' => 'background: {{VALUE}};',
+                                // '{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next' => 'background: {{VALUE}};',
+                                '{{WRAPPER}} .jltma-ls-prev polyline,
+                                {{WRAPPER}} .jltma-ls-next polyline' => 'fill: {{VALUE}}',                                
                             ],
                             'condition' => [
                                 'jltma_logo_slider_nav' => [ 'arrows', 'both' ],
@@ -609,17 +611,17 @@ class Master_Addons_Logo_Slider extends Widget_Base {
 
             $this->start_controls_tabs( 'jltma_logo_slider_carousel_tabs' );
 
-        	# Normal tab
+            # Normal tab
             $this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', MELA_TD ) ] );
 
                 $this->add_group_control(
-            		Group_Control_Background::get_type(),
-        			[
+                    Group_Control_Background::get_type(),
+                    [
                         'name'      => 'jltma_logo_slider_carousel_normal_background',
                         'types'     => [ 'classic', 'gradient' ],
                         'separator' => 'before',
                         'selector'  => '{{WRAPPER}} .exad-logo .exad-logo-item'
-        			]
+                    ]
                 );
 
                 $this->add_control(
@@ -690,7 +692,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 );
             $this->end_controls_tab();
 
-        	# Hover tab
+            # Hover tab
             $this->start_controls_tab( 'jltma_logo_slider_carousel_hover_tab', [ 'label' => esc_html__( 'Hover', MELA_TD ) ] );
 
                 $this->add_group_control(
@@ -893,10 +895,8 @@ class Master_Addons_Logo_Slider extends Widget_Base {
                 'label'     => esc_html__( 'Arrow Color', MELA_TD ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .tippy-popper[x-placement^=left] .tippy-arrow'  => 'border-left-color: {{VALUE}}',
-                    '{{WRAPPER}} .tippy-popper[x-placement^=right] .tippy-arrow' => 'border-right-color: {{VALUE}}',
-                    '{{WRAPPER}} .tippy-popper[x-placement^=top] .tippy-arrow'   => 'border-top-color: {{VALUE}}',
-                    '{{WRAPPER}} .tippy-popper[x-placement^=bottom] .tippy-arrow'=> 'border-bottom-color: {{VALUE}}',
+                    '{{WRAPPER}} .jltma-ls-prev svg'  => 'fill: {{VALUE}}',
+                    '{{WRAPPER}} .jltma-ls-next svg'  => 'fill: {{VALUE}}'
                 ],
             ]
         );
@@ -1275,7 +1275,7 @@ class Master_Addons_Logo_Slider extends Widget_Base {
         }
 
 
-	}
+    }
 
 
 

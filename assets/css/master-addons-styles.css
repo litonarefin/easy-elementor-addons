@@ -8689,9 +8689,6 @@ body.offcanvas-active{overflow:hidden}.offcanvas-header{display:none}.screen-ove
         opacity: 1;
         visibility: visible;
     }
-    .navbar .nav-item:hover .nav-link{
-        color: #fff;
-    }
     .navbar .dropdown-menu.fade-down{
         top:80%;
         /* transform: rotateX(-75deg); */
