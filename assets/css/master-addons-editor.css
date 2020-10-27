@@ -104,3 +104,10 @@ body:not(.elementor-device-desktop) div#elementor-preview-responsive-wrapper:bef
     background-repeat: no-repeat;
     background-size: 20px 20px;
   }
+
+/* overlapping the device popup */
+.elementor-control-responsive-switchers .elementor-control-responsive-switchers__holder {
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+}
