@@ -25,11 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
 class Master_Addons_Counter_Up extends Widget_Base {
 
-    public function __construct( $data = [], $args = null ) {
-		parent::__construct( $data, $args );
-		$this->add_script_depends('ma-counter-up');
-	}
-
 	//use ElementsCommonFunctions;
 	public function get_name() {
 		return 'jltma-counter-up';
