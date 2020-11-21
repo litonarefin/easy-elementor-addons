@@ -11,9 +11,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 		const VERSION = "1.5.3";
 		const JLTMA_STABLE_VERSION = "1.5.3";
-
 		const MINIMUM_PHP_VERSION = '5.4';
-
 		const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
 
 		private $_localize_settings = [];
