@@ -80,11 +80,11 @@ if( !class_exists('Master_Elementor_Addons') ){
 				'ma-countdown-timer',			// 35
 				['ma-toggle-content','pro'],	// 36
 				['ma-gallery-slider','pro'],	// 37
-				'ma-advanced-image',			// 38
+				// 'ma-advanced-image',			// 38
 				// 'ma-image-cascading',		// 39
-				'ma-image-carousel',			// 40
-				'ma-logo-slider',				// 41
-				'ma-twitter-slider',			// 42
+				// 'ma-image-carousel',			// 40
+				// 'ma-logo-slider',				// 41
+				// 'ma-twitter-slider',			// 42
 
 				// Form Elements
 				'contact-form-7',           	// 38
@@ -126,7 +126,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 				['display-conditions','pro'],
 				'dynamic-tags',
 				['floating-effects','pro'],
-				['morphing-effects','pro'],
+				// ['morphing-effects','pro'],
 				// 'live-copy',
 			];
 
