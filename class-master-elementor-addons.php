@@ -690,9 +690,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			//MA Image Comparison
 			if ( $is_activated_widget['ma-image-comparison'] ) {
-
 				wp_enqueue_style( 'twentytwenty' );
-
 				wp_enqueue_script( 'jquery-event-move' );
 				wp_enqueue_script( 'twentytwenty' );
 				wp_enqueue_script( 'master-addons-scripts' );

@@ -24,11 +24,6 @@
 	 */
 	class Master_Addons_News_Ticker extends Widget_Base {
 
-	    public function __construct( $data = [], $args = null ) {
-			parent::__construct( $data, $args );
-			$this->add_script_depends('ma-news-ticker');
-			$this->add_script_depends('jquery-rss');
-		}
 
 		public function get_name() {
 			return 'ma-news-ticker';
@@ -48,7 +43,6 @@
 		public function get_keywords() {
 			return [ 'blog', 'lastest','news','scroll','scrolling', 'ticker', 'report', 'message', 'information',  ];
 		}
-
 
 		public function get_help_url() {
 			return 'https://master-addons.com/demos/news-ticker/';
