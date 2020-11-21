@@ -6,13 +6,6 @@
 
 	class Master_Addons_Progressbar extends Widget_Base {
 
-	 //    public function __construct( $data = [], $args = null ) {
-		// 	parent::__construct( $data, $args );
-		// 	$this->add_script_depends('master-addons-progressbar');
-		// 	$this->add_script_depends('master-addons-waypoints');
-		// }
-
-
 		public function get_name() {
 			return 'ma-progressbar';
 		}
@@ -29,25 +22,13 @@
 			return [ 'master-addons' ];
 		}
 
-		// public function get_script_depends() {
-			// return [
-			//         'elementor-waypoints',
-   //                  'master-addons-progressbar',
-   //                  'master-addons-scripts',
-   //          ];
-
-
-		  // if (\Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode()) {
-		  //       return ['master-addons-progressbar', 'master-addons-waypoints'];
-		  //   }
-
-		    // if ( $this->get_settings_for_display( 'layout_style' ) == 'carousel' ) {
-		    //     return [ 'jquery-slick' ];
-		    // } else if ( $this->get_settings_for_display( 'condition' ) === 'yes' ) {
-		    //     return [ 'other_conditional_script' ];
-		    // }
-		    
-		// }
+		public function get_script_depends() {
+			return [
+                    'master-addons-progressbar',
+                    'master-addons-waypoints',
+                    'master-addons-scripts',
+            ];		    
+		}
 
 
 		public function get_help_url() {
@@ -413,14 +394,6 @@
 					]
 				);
 			}
-
-			// wp_enqueue_script( 'jquery-typed' );
-			// wp_enqueue_script( 'a13ree-frontend' );
-
-			// wp_enqueue_script('master-addons-progressbar');
-			// wp_enqueue_script( 'master-addons-waypoints');
-
-
 			?>
 
 			<div <?php echo $this->get_render_attribute_string('ma-el-progress-bar') ?> data-progress-bar>

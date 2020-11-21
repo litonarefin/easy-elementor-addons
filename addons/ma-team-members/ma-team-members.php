@@ -7,13 +7,6 @@
 
 	class Master_Addons_Team_Members extends Widget_Base {
 
-	    public function __construct( $data = [], $args = null ) {
-			parent::__construct( $data, $args );
-			$this->add_script_depends('jltma-owl-carousel');
-			$this->add_script_depends('gridder');
-			$this->add_style_depends('gridder');
-		}
-
 		public function get_name() {
 			return 'ma-team-members';
 		}
@@ -30,13 +23,21 @@
 			return [ 'master-addons' ];
 		}
 
-        // public function get_style_depends(){
-        //     return [
-        //         'bootstrap',
-        //         'font-awesome-5-all',
-        //         'font-awesome-4-shim'
-        //     ];
-        // }
+        public function get_style_depends(){
+            return [
+                'gridder',
+                'font-awesome-5-all',
+                'font-awesome-4-shim'
+            ];
+        }
+
+		public function get_script_depends() {
+			return [
+				'gridder',
+				'jltma-owl-carousel',
+	            'master-addons-scripts'
+			];
+		}
 
 		public function get_help_url() {
 			return 'https://master-addons.com/demos/team-member/';

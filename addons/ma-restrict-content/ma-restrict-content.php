@@ -52,7 +52,6 @@
 			];
 		}
 
-
 		public function get_script_depends() {
 			return [
 				'fancybox',

@@ -42,7 +42,6 @@
 			];
 		}
 
-
 		public function get_help_url() {
 			return 'https://master-addons.com/demos/advanced-accordion/';
 		}

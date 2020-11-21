@@ -390,6 +390,9 @@ Paste on your Local Computer
 * Updated: "Total Number of Posts" on MA Blog Posts Pagination issue fixed
 * Updated: "Pagination Alignment" on MA Blog updated and fixed
 * Added: Added "Active" tab on MA Blog>Style>Pagination for styling Active pagination items
+* Updated: Freemius Library Updated from v to v2.3.0
+* Fixed: "responsive_icon.svg" icon not found on Console issue fixed
+
 
 
 

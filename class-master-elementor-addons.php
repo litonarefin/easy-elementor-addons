@@ -626,9 +626,9 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			//Team Members
 			if ( $is_activated_widget['ma-team-members'] ) {
-				wp_enqueue_script( 'jltma-owl-carousel' );
 				wp_enqueue_style( 'gridder' );
 				wp_enqueue_script( 'gridder' );
+				wp_enqueue_script( 'jltma-owl-carousel' );
 			}
 
 
@@ -688,7 +688,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 				wp_enqueue_script( 'imagesloaded' );
 			}
 
-			//MA Instagram Feed
+			//MA Image Comparison
 			if ( $is_activated_widget['ma-image-comparison'] ) {
 
 				wp_enqueue_style( 'twentytwenty' );
