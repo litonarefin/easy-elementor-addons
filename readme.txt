@@ -388,7 +388,8 @@ Paste on your Local Computer
 * Added: Main plugin file renamed from 'master-elementor-addons.php' to 'master-addons.php'
 * Fixed: Upsell coupon code typo issue fixed. 25% discount given. Also made the strings translatable
 * Updated: "Total Number of Posts" on MA Blog Posts Pagination issue fixed
-* Updated: "Pagination Alignmen" on MA Blog updated and fixed
+* Updated: "Pagination Alignment" on MA Blog updated and fixed
+* Added: Added "Active" tab on MA Blog>Style>Pagination for styling Active pagination items
 
 
 

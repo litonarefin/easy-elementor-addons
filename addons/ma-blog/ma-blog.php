@@ -1601,6 +1601,35 @@
                 ]
             );
             $this->end_controls_tab();
+
+
+            $this->start_controls_tab('ma_el_blog_pagination_active',
+                [
+                    'label'         => __('Active', MELA_TD ),
+
+                ]
+            );
+
+            $this->add_control('ma_el_blog_pagination_text_active_color',
+                [
+                    'label'         => __('Active Color', MELA_TD ),
+                    'type'          => Controls_Manager::COLOR,
+                    'selectors'     => [
+                        '{{WRAPPER}} .ma-el-blog-pagination .page-numbers li span.current'  => 'color: {{VALUE}};',
+                    ]
+                ]
+            );
+
+            $this->add_control('ma_el_blog_pagination_active_bg_color',
+                [
+                    'label'         => __('Background Color', MELA_TD ),
+                    'type'          => Controls_Manager::COLOR,
+                    'selectors'     => [
+                        '{{WRAPPER}} .ma-el-blog-pagination .page-numbers li span.current' => 'background: {{VALUE}};'
+                    ]
+                ]
+            );
+            $this->end_controls_tab();
             $this->end_controls_tabs();
 
 
