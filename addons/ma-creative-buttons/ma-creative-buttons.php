@@ -18,15 +18,6 @@
 
 	class Master_Addons_Creative_Buttons extends Widget_Base {
 
-	    public function __construct( $data = [], $args = null ) {
-			parent::__construct( $data, $args );
-			$this->add_script_depends('ma-creative-buttons');
-			
-			if ( ma_el_fs()->can_use_premium_code() ) {
-				$this->add_script_depends( 'ma-creative-buttons-pro' );
-			}			
-		}
-
 		public function get_name() {
 			return 'ma-creative-buttons';
 		}
@@ -43,13 +34,13 @@
 			return [ 'master-addons' ];
 		}
 
-		// public function get_style_depends() {
-		// 	return [
-		// 		'ma-creative-buttons',
-		// 		'font-awesome-5-all',
-  //               'font-awesome-4-shim'
-		// 	];
-		// }
+		public function get_style_depends() {
+			return [
+				'ma-creative-buttons',
+				'font-awesome-5-all',
+                'font-awesome-4-shim'
+			];
+		}
 
 		public function get_help_url() {
 			return 'https://master-addons.com/demos/creative-button/';

@@ -2879,7 +2879,7 @@
 
 			$pagination = ( $settings['jltma_comment_pagination']) =="yes" ? esc_attr($settings['jltma_comment_pagination']): '';
 
-			$items_per_page = ($settings['jltma_comment_pagination_items']['size']) ? esc_attr($settings['jltma_comment_pagination_items']['size']) : '10';
+			$items_per_page = isset($settings['jltma_comment_pagination_items']['size']) ? esc_attr($settings['jltma_comment_pagination_items']['size']) : '10';
 
 			$pagination_type = 'page_number';
 			$sort_type = 'default';
@@ -2978,7 +2978,7 @@
 			$template 		 = ($settings['jltma_comment_style_preset'] != "") ? esc_attr($settings['jltma_comment_style_preset']) : 'style_one';
 			$pagination 	 = ($settings['jltma_comment_pagination'] =="yes") ? esc_attr($settings['jltma_comment_pagination']): '';
 
-			$items_per_page  = ($settings['jltma_comment_pagination_items']['size']) ? esc_attr($settings['jltma_comment_pagination_items']['size']) : '10';
+			$items_per_page  = isset($settings['jltma_comment_pagination_items']['size']) ? esc_attr($settings['jltma_comment_pagination_items']['size']) : '10';
 			$pagination_type = 'page_number';
 		?>
 

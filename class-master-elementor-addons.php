@@ -544,7 +544,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 			wp_register_style( 'gridder', MELA_PLUGIN_URL . '/assets/vendor/gridder/css/jquery.gridder.min.css' );
 			wp_register_style( 'fancybox', MELA_PLUGIN_URL . '/assets/vendor/fancybox/jquery.fancybox.min.css' );
 			wp_register_style( 'twentytwenty', MELA_PLUGIN_URL . '/assets/vendor/image-comparison/css/twentytwenty.css' );
-			wp_register_style( 'master-addons-pricing-table', MELA_PLUGIN_URL . '/assets/css/pricing-table.css' );
+			// wp_register_style( 'master-addons-pricing-table', MELA_PLUGIN_URL . '/assets/css/pricing-table.css' );
 			wp_register_style( 'ma-creative-buttons', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons.css' );
 			wp_register_style( 'ma-creative-buttons-pro', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons-pro.css' );
 
@@ -610,9 +610,9 @@ if( !class_exists('Master_Elementor_Addons') ){
 			// Addons specific Script/Styles Dependencies
 
 			// Need to Check Extensions
-			// if ( $is_activated_extensions['floating-effects'] ) {
-			// 	wp_enqueue_script( 'jltma-floating-effects' );
-			// }
+			if ( $is_activated_extensions['floating-effects'] ) {
+				wp_enqueue_script( 'jltma-floating-effects' );
+			}
 
 			//Mega Menu
 			if ( $is_activated_extensions['mega-menu'] ) {
@@ -623,16 +623,16 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			//Progressbar
 			if ( $is_activated_widget['ma-progressbar'] ) {
-				// wp_enqueue_script('master-addons-progressbar');
+				wp_enqueue_script('master-addons-progressbar');
 				wp_enqueue_script( 'master-addons-waypoints');
 			}
 
 			//Team Members
-			// if ( $is_activated_widget['ma-team-members'] ) {
-			// 	wp_enqueue_script( 'jltma-owl-carousel' );
-			// 	wp_enqueue_style( 'gridder' );
-			// 	wp_enqueue_script( 'gridder' );
-			// }
+			if ( $is_activated_widget['ma-team-members'] ) {
+				wp_enqueue_script( 'jltma-owl-carousel' );
+				wp_enqueue_style( 'gridder' );
+				wp_enqueue_script( 'gridder' );
+			}
 
 
 			//Pricing Table
@@ -641,33 +641,22 @@ if( !class_exists('Master_Elementor_Addons') ){
 			// }
 
 			//Restrict Content
-			// if ( $is_activated_widget['ma-restrict-content'] ) {
-			// 	wp_enqueue_style( 'fancybox' );
-			// 	wp_enqueue_script( 'fancybox' );
-			// }
+			if ( $is_activated_widget['ma-restrict-content'] ) {
+				wp_enqueue_style( 'fancybox' );
+				wp_enqueue_script( 'fancybox' );
+			}
 
 
 			//Animated Headlines
-			// if ( $is_activated_widget['ma-animated-headlines'] ) {
-			// 	wp_enqueue_style( 'master-addons-headlines' );
-			// }
+			if ( $is_activated_widget['ma-animated-headlines'] ) {
+				wp_enqueue_style( 'master-addons-headlines' );
+			}
 
 			//Creative Buttons
-			// if ( $is_activated_widget['ma-creative-buttons'] ) {
-			// 	if ( ma_el_fs()->can_use_premium_code() ) {
-			// 		wp_enqueue_style( 'ma-creative-buttons-pro', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons-pro.css' );
-			// 	}
-			// }
-
-
-			//Creative Links
-			if ( $is_activated_widget['ma-creative-links'] ) {
-				//Free Version Codes
-				wp_enqueue_style( 'ma-creative-links', MELA_PLUGIN_URL . '/assets/vendor/creative-links/creative-links.css' );
-
-				// Premium Version Codes
+			if ( $is_activated_widget['ma-creative-buttons'] ) {
+				wp_enqueue_style( 'ma-creative-buttons' );
 				if ( ma_el_fs()->can_use_premium_code() ) {
-					wp_enqueue_style( 'ma-creative-links-pro', MELA_PLUGIN_URL . '/assets/vendor/creative-links/creative-links-pro.css' );
+					wp_enqueue_style( 'ma-creative-buttons-pro' );
 				}
 			}
 
@@ -683,15 +672,15 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 
 			//News Ticker
-			// if ( $is_activated_widget['ma-news-ticker'] ) {
-			// 	wp_enqueue_script( 'ma-news-ticker' );
-			// }
+			if ( $is_activated_widget['ma-news-ticker'] ) {
+				wp_enqueue_script( 'ma-news-ticker' );
+			}
 
 
 			//Counter Up
-			// if ( $is_activated_widget['ma-counter-up'] ) {
-			// 	wp_enqueue_script( 'ma-counter-up' );
-			// }
+			if ( $is_activated_widget['ma-counter-up'] ) {
+				wp_enqueue_script( 'ma-counter-up' );
+			}
 
 			//MA Blog
 			if ( $is_activated_widget['ma-blog'] ) {

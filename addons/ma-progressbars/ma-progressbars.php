@@ -313,20 +313,20 @@
 			$this->add_control(
 	            'stats_percentage_align',
 	            [
-	                'label' 		=> esc_html__( 'Alignment', JLTMA_TD ),
+	                'label' 		=> esc_html__( 'Alignment', MELA_TD ),
 	                'type' 			=> Controls_Manager::CHOOSE,
 	                'label_block' 	=> false,
 	                'options' 		=> [
 	                    'left' 	=> [
-								'title' 	=> esc_html__( 'Left', JLTMA_TD ),
+								'title' 	=> esc_html__( 'Left', MELA_TD ),
 								'icon' 		=> 'eicon-h-align-left',
 	                    ],
 	                    'inherit' 	=> [
-								'title' 	=> esc_html__( 'Default', JLTMA_TD ),
+								'title' 	=> esc_html__( 'Default', MELA_TD ),
 								'icon' 		=> 'eicon-h-align-center',
 	                    ],	                    
 	                    'right' 		=> [
-	                        'title' 		=> esc_html__( 'Right', JLTMA_TD ),
+	                        'title' 		=> esc_html__( 'Right', MELA_TD ),
 	                        'icon' 			=> 'eicon-h-align-right',
 	                    ],
 	                ],

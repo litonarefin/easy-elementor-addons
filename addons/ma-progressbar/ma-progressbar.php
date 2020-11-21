@@ -6,11 +6,11 @@
 
 	class Master_Addons_Progressbar extends Widget_Base {
 
-	    public function __construct( $data = [], $args = null ) {
-			parent::__construct( $data, $args );
-			$this->add_script_depends('master-addons-progressbar');
-			$this->add_script_depends('master-addons-waypoints');
-		}
+	 //    public function __construct( $data = [], $args = null ) {
+		// 	parent::__construct( $data, $args );
+		// 	$this->add_script_depends('master-addons-progressbar');
+		// 	$this->add_script_depends('master-addons-waypoints');
+		// }
 
 
 		public function get_name() {
@@ -413,6 +413,13 @@
 					]
 				);
 			}
+
+			// wp_enqueue_script( 'jquery-typed' );
+			// wp_enqueue_script( 'a13ree-frontend' );
+
+			// wp_enqueue_script('master-addons-progressbar');
+			// wp_enqueue_script( 'master-addons-waypoints');
+
 
 			?>
 

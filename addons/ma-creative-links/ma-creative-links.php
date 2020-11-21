@@ -49,8 +49,6 @@
 
 		protected function _register_controls() {
 
-
-
 			// Style Presets
 			$this->start_controls_section(
 				'ma_el_creative_link_content_style_presets',
