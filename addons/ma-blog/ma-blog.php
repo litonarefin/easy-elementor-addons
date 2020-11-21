@@ -326,6 +326,14 @@
 
 
 			$this->add_control(
+				'ma_el_blog_total_posts_number',
+				[
+					'label'         => __( 'Total Number of Posts', MELA_TD ),
+					'type'          => Controls_Manager::NUMBER,
+					'default'       => wp_count_posts()->publish				]
+			);
+
+			$this->add_control(
 				'ma_el_blog_posts_per_page',
 				[
 					'label'         => __( 'Posts Per Page', MELA_TD ),
@@ -754,18 +762,6 @@
 			$this->start_controls_section('ma_el_blog_advanced_settings',
 				[
 					'label'         => __('Advanced Settings', MELA_TD ),
-				]
-			);
-
-			$this->add_control(
-				'ma_el_blog_total_posts_number',
-				[
-					'label'         => __( 'Total Number of Posts', MELA_TD ),
-					'type'          => Controls_Manager::NUMBER,
-					'default'       => wp_count_posts()->publish,
-					'condition'     => [
-						'ma_el_blog_pagination'      => 'yes',
-					]
 				]
 			);
 

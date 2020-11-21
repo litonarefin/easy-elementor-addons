@@ -162,6 +162,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 			// Elementor Dependencies
 			add_action( 'elementor/editor/after_enqueue_scripts'  , array( $this, 'jltma_editor_scripts_js' ) );
 			add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'jltma_editor_scripts_css' ]);
+			// add_action( 'elementor/preview/enqueue_styles', [ $this, 'jltma_enqueue_preview_scripts' ] );
 
 			// Add Elementor Widgets
 			add_action( 'elementor/widgets/widgets_registered', [ $this, 'jltma_init_widgets' ] );
@@ -542,13 +543,12 @@ if( !class_exists('Master_Elementor_Addons') ){
 			 * Register Styles
 			 */
 			wp_register_style( 'master-addons-headlines', MELA_PLUGIN_URL . '/assets/css/headlines.css' );
-
 			wp_register_style( 'gridder', MELA_PLUGIN_URL . '/assets/vendor/gridder/css/jquery.gridder.min.css' );
-
 			wp_register_style( 'fancybox', MELA_PLUGIN_URL . '/assets/vendor/fancybox/jquery.fancybox.min.css' );
 			wp_register_style( 'twentytwenty', MELA_PLUGIN_URL . '/assets/vendor/image-comparison/css/twentytwenty.css' );
-
 			wp_register_style( 'master-addons-pricing-table', MELA_PLUGIN_URL . '/assets/css/pricing-table.css' );
+			wp_register_style( 'ma-creative-buttons', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons.css' );
+			wp_register_style( 'ma-creative-buttons-pro', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons-pro.css' );
 
 			/*
 			 * Register Scripts
@@ -563,7 +563,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			wp_register_script( 'master-addons-waypoints', MELA_PLUGIN_URL . '/assets/vendor/jquery.waypoints.min.js', [ 'jquery' ], self::VERSION, true );
 
-			wp_register_script( 'master-addons-team-members', MELA_PLUGIN_URL . '/assets/vendor/owlcarousel/owl.carousel.min.js', [ 'jquery' ], MELA_VERSION, true );
+			wp_register_script( 'jltma-owl-carousel', MELA_PLUGIN_URL . '/assets/vendor/owlcarousel/owl.carousel.min.js', [ 'jquery' ], MELA_VERSION, true );
 
 			wp_register_script( 'gridder', MELA_PLUGIN_URL . '/assets/vendor/gridder/js/jquery.gridder.min.js', ['jquery'], MELA_VERSION, true );
 
@@ -606,60 +606,60 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			// Advanced Animations
 			wp_register_script( 'jltma-floating-effects', MELA_PLUGIN_URL . '/assets/vendor/floating-effects/floating-effects.js', array( 'ma-el-anime-lib', 'jquery' ), self::VERSION );
-
-			if ( $is_activated_extensions['floating-effects'] ) {
-				wp_enqueue_script( 'jltma-floating-effects' );
-			}
+			
 
 
 			// Addons specific Script/Styles Dependencies
 
-			//Progressbar
-			if ( $is_activated_widget['ma-progressbar'] ) {
-				wp_enqueue_script('master-addons-progressbar');
-				wp_enqueue_script( 'master-addons-waypoints');
-			}
+			// Need to Check Extensions
+			// if ( $is_activated_extensions['floating-effects'] ) {
+			// 	wp_enqueue_script( 'jltma-floating-effects' );
+			// }
 
-			//Progressbar
+			//Mega Menu
 			if ( $is_activated_extensions['mega-menu'] ) {
 				wp_enqueue_style('bootstrap');
 				wp_enqueue_script('bootstrap');
 			}
 
 
-			//Team Members
-			if ( $is_activated_widget['ma-team-members'] ) {
-				wp_enqueue_script( 'master-addons-team-members' );
-				wp_enqueue_style( 'gridder' );
-				wp_enqueue_script( 'gridder' );
+			//Progressbar
+			if ( $is_activated_widget['ma-progressbar'] ) {
+				// wp_enqueue_script('master-addons-progressbar');
+				wp_enqueue_script( 'master-addons-waypoints');
 			}
+
+			//Team Members
+			// if ( $is_activated_widget['ma-team-members'] ) {
+			// 	wp_enqueue_script( 'jltma-owl-carousel' );
+			// 	wp_enqueue_style( 'gridder' );
+			// 	wp_enqueue_script( 'gridder' );
+			// }
 
 
 			//Pricing Table
-			if ( $is_activated_widget['ma-pricing-table'] ) {
-				wp_enqueue_style( 'master-addons-pricing-table' );
-			}
+			// if ( $is_activated_widget['ma-pricing-table'] ) {
+			// 	wp_enqueue_style( 'master-addons-pricing-table' );
+			// }
 
 			//Restrict Content
-			if ( $is_activated_widget['ma-restrict-content'] ) {
-				wp_enqueue_style( 'fancybox' );
-				wp_enqueue_script( 'fancybox' );
-			}
+			// if ( $is_activated_widget['ma-restrict-content'] ) {
+			// 	wp_enqueue_style( 'fancybox' );
+			// 	wp_enqueue_script( 'fancybox' );
+			// }
 
 
 			//Animated Headlines
-			if ( $is_activated_widget['ma-animated-headlines'] ) {
-				wp_enqueue_style( 'master-addons-headlines' );
-			}
+			// if ( $is_activated_widget['ma-animated-headlines'] ) {
+			// 	wp_enqueue_style( 'master-addons-headlines' );
+			// }
 
 			//Creative Buttons
-			if ( $is_activated_widget['ma-creative-buttons'] ) {
-				wp_enqueue_style( 'ma-creative-buttons', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons.css' );
-
-				if ( ma_el_fs()->can_use_premium_code() ) {
-					wp_enqueue_style( 'ma-creative-buttons-pro', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons-pro.css' );
-				}
-			}
+			// if ( $is_activated_widget['ma-creative-buttons'] ) {
+			// 	if ( ma_el_fs()->can_use_premium_code() ) {
+			// 		wp_enqueue_style( 'ma-creative-buttons-pro', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons-pro.css' );
+			// 	}
+			// }
 
 
 			//Creative Links
@@ -685,15 +685,15 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 
 			//News Ticker
-			if ( $is_activated_widget['ma-news-ticker'] ) {
-				wp_enqueue_script( 'ma-news-ticker' );
-			}
+			// if ( $is_activated_widget['ma-news-ticker'] ) {
+			// 	wp_enqueue_script( 'ma-news-ticker' );
+			// }
 
 
 			//Counter Up
-			if ( $is_activated_widget['ma-counter-up'] ) {
-				wp_enqueue_script( 'ma-counter-up' );
-			}
+			// if ( $is_activated_widget['ma-counter-up'] ) {
+			// 	wp_enqueue_script( 'ma-counter-up' );
+			// }
 
 			//MA Blog
 			if ( $is_activated_widget['ma-blog'] ) {
@@ -764,6 +764,12 @@ if( !class_exists('Master_Elementor_Addons') ){
 			);
 			wp_localize_script( 'master-addons-scripts', 'jltma_scripts', $localize_data );
 		}
+
+		// Enqueue Preview Scripts
+		public function jltma_enqueue_preview_scripts(){
+
+		}
+
 
 
 		public function is_elementor_activated( $plugin_path = 'elementor/elementor.php' ) {

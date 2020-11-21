@@ -28,6 +28,13 @@
 	 */
 	class Master_Addons_Pricing_Table extends Widget_Base {
 
+	  //   public function __construct( $data = [], $args = null ) {
+			// parent::__construct( $data, $args );
+			// $this->add_script_depends('jltma-owl-carousel');
+			// $this->add_script_depends('gridder');
+			// $this->add_style_depends('master-addons-pricing-table');
+		// }
+
 		public function get_name() {
 			return 'ma-pricing-table';
 		}
@@ -63,7 +70,8 @@
 		public function get_style_depends() {
 			return [
 				'font-awesome-5-all',
-	            'font-awesome-4-shim'
+	            'font-awesome-4-shim',
+	            'master-addons-pricing-table'
 			];
 		}
 

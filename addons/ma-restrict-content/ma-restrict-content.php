@@ -18,7 +18,13 @@
 	if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
 	class Master_Addons_Restrict_Content extends Widget_Base {
-
+	    
+	 //    public function __construct( $data = [], $args = null ) {
+		// 	parent::__construct( $data, $args );
+		// 	$this->add_script_depends('jltma-owl-carousel');
+		// 	$this->add_script_depends('gridder');
+		// 	$this->add_style_depends('master-addons-pricing-table');
+		// }
 
 		public function get_name() {
 			return 'ma-el-restrict-content';
@@ -30,14 +36,6 @@
 
 		public function get_icon() {
 			return 'ma-el-icon eicon-lock-user';
-		}
-
-		public function get_script_depends() {
-			return [ 'fancybox' ];
-		}
-
-		public function get_style_depends() {
-			return [ 'fancybox'];
 		}
 
 		public function get_keywords() {
@@ -53,6 +51,21 @@
 			return 'https://master-addons.com/demos/restrict-content-for-elementor/';
 		}
 
+		public function get_style_depends() {
+			return [
+				'font-awesome-5-all',
+	            'font-awesome-4-shim',
+	            'fancybox'
+			];
+		}
+
+
+		public function get_script_depends() {
+			return [
+				'fancybox',
+	            'master-addons-scripts'
+			];
+		}
 
 		protected function _register_controls() {
 

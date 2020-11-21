@@ -7,6 +7,13 @@
 
 	class Master_Addons_Team_Members extends Widget_Base {
 
+	    public function __construct( $data = [], $args = null ) {
+			parent::__construct( $data, $args );
+			$this->add_script_depends('jltma-owl-carousel');
+			$this->add_script_depends('gridder');
+			$this->add_style_depends('gridder');
+		}
+
 		public function get_name() {
 			return 'ma-team-members';
 		}
@@ -23,13 +30,13 @@
 			return [ 'master-addons' ];
 		}
 
-        public function get_style_depends(){
-            return [
-                'bootstrap',
-                'font-awesome-5-all',
-                'font-awesome-4-shim'
-            ];
-        }
+        // public function get_style_depends(){
+        //     return [
+        //         'bootstrap',
+        //         'font-awesome-5-all',
+        //         'font-awesome-4-shim'
+        //     ];
+        // }
 
 		public function get_help_url() {
 			return 'https://master-addons.com/demos/team-member/';
@@ -358,7 +365,7 @@ Customization Options.</span>'
 				[
 					'label' => esc_html__( 'Background Color', MELA_TD ),
 					'type' => Controls_Manager::COLOR,
-					'default' => '#4b00e7',
+					'default' => '',
 					'selectors' => [
 						'{{WRAPPER}} .ma-el-team-member-basic,
 						{{WRAPPER}} .ma-el-team-member-circle,

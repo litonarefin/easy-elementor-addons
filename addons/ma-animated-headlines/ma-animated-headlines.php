@@ -24,6 +24,11 @@ class Master_Addons_Headlines extends Widget_Base {
 		return [ 'master-addons' ];
 	}
 
+	public function get_style_depends() {
+		return [
+			'master-addons-headlines',
+		];
+	}
 	public function get_script_depends() {
 		return [
 			'master-addons-scripts',

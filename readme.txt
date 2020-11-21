@@ -373,7 +373,9 @@ Paste on your Local Computer
 
 
 == Changelog ==
-= 1.5.5 (17-10-2020) =
+= 1.5.4 (21-11-2020) =
+* Updated: Slow Down Elementor issue resolved. All Scripts and Styles dependecies will only active while the specific addon will be added.
+* Removed: Team Member default Background color removed
 * Fixed: Uncaught Error: Class 'Elementor\Plugin' not found issue fixed for Floating Effects
 * Added: alignment, padding option added for Icon, Title, Desciption on MA Infobox
 * Added: MA Counter Up - Added Individual item Background Color Option
@@ -382,11 +384,12 @@ Paste on your Local Computer
 * Support: Formidable Form supports given, conflicting issue with Checkbox, Labels issue fixed
 * Fixed: Active Text color white issue on "MA Image Filter Gallery" issue fixed
 * Updated: Reveal extension bug - Anime.min.js updated
-
-
-= 1.5.4 (28-09-2020) =
 * Added: Morphing Effect Extension
 * Added: Main plugin file renamed from 'master-elementor-addons.php' to 'master-addons.php'
+* Fixed: Upsell coupon code typo issue fixed. 25% discount given. Also made the strings translatable
+* Updated: "Total Number of Posts" on MA Blog Posts Pagination issue fixed
+* Updated: "Pagination Alignmen" on MA Blog updated and fixed
+
 
 
 = 1.5.3 (28-09-2020) =

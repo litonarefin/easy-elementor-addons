@@ -200,8 +200,20 @@ if( !class_exists('Master_Addons_Promotions') ) {
         public function jltma_admin_upgrade_pro_notice( $notice_key ){ ?>
             <div data-dismissible="<?php echo esc_attr($notice_key);?>" class="updated notice notice-success is-dismissible">
                 <div id="master-addons-review-notice" class="master-addons-review-notice">
-                    We’re with you! We're offering <strong>50% Discount</strong> on all pricing due to the impact of COVID-19! Coupon Code: <strong>COVID5</strong>
-                        <a href="<?php echo ma_el_fs()->get_upgrade_url();?>" target="_blank">Upgrade Pro</a> now
+                    <?php
+                        $jltma_upsell_notice = sprintf(
+                            __( '%1$s <strong>%2$s</strong> %3$s <strong>ENJOY25</strong>', MELA_TD ),
+                            __( "We’re with you! We're offering", MELA_TD ),
+                            __( '25% Discount', MELA_TD ),
+                            __( " on all pricing due to the impact of COVID-19! Coupon Code: ", MELA_TD )
+                        );
+                        printf( '%1$s <a href="%2$s" target="_blank">%3$s</a> %4$s', 
+                            $jltma_upsell_notice,
+                            ma_el_fs()->get_upgrade_url(),
+                            __('Upgrade Pro', MELA_TD),
+                            __('now', MELA_TD),
+                        );
+                    ?>
                 </div>
             </div>
         <?php }

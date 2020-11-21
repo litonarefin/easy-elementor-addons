@@ -24,6 +24,12 @@
 	 */
 	class Master_Addons_News_Ticker extends Widget_Base {
 
+	    public function __construct( $data = [], $args = null ) {
+			parent::__construct( $data, $args );
+			$this->add_script_depends('ma-news-ticker');
+			$this->add_script_depends('jquery-rss');
+		}
+
 		public function get_name() {
 			return 'ma-news-ticker';
 		}
@@ -37,10 +43,6 @@
 
 		public function get_icon() {
 			return 'ma-el-icon eicon-posts-ticker';
-		}
-
-		public function get_script_depends() {
-			return ['ma-news-ticker', 'jquery-rss'];
 		}
 
 		public function get_keywords() {
