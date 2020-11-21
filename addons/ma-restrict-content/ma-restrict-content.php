@@ -19,13 +19,6 @@
 
 	class Master_Addons_Restrict_Content extends Widget_Base {
 	    
-	 //    public function __construct( $data = [], $args = null ) {
-		// 	parent::__construct( $data, $args );
-		// 	$this->add_script_depends('jltma-owl-carousel');
-		// 	$this->add_script_depends('gridder');
-		// 	$this->add_style_depends('master-addons-pricing-table');
-		// }
-
 		public function get_name() {
 			return 'ma-el-restrict-content';
 		}

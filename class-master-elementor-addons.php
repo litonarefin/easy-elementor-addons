@@ -540,13 +540,10 @@ if( !class_exists('Master_Elementor_Addons') ){
 			/*
 			 * Register Styles
 			 */
-			wp_register_style( 'master-addons-headlines', MELA_PLUGIN_URL . '/assets/css/headlines.css' );
 			wp_register_style( 'gridder', MELA_PLUGIN_URL . '/assets/vendor/gridder/css/jquery.gridder.min.css' );
 			wp_register_style( 'fancybox', MELA_PLUGIN_URL . '/assets/vendor/fancybox/jquery.fancybox.min.css' );
 			wp_register_style( 'twentytwenty', MELA_PLUGIN_URL . '/assets/vendor/image-comparison/css/twentytwenty.css' );
-			// wp_register_style( 'master-addons-pricing-table', MELA_PLUGIN_URL . '/assets/css/pricing-table.css' );
 			wp_register_style( 'ma-creative-buttons', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons.css' );
-			wp_register_style( 'ma-creative-buttons-pro', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons-pro.css' );
 
 			/*
 			 * Register Scripts
@@ -635,29 +632,15 @@ if( !class_exists('Master_Elementor_Addons') ){
 			}
 
 
-			//Pricing Table
-			// if ( $is_activated_widget['ma-pricing-table'] ) {
-			// 	wp_enqueue_style( 'master-addons-pricing-table' );
-			// }
-
 			//Restrict Content
 			if ( $is_activated_widget['ma-restrict-content'] ) {
 				wp_enqueue_style( 'fancybox' );
 				wp_enqueue_script( 'fancybox' );
 			}
 
-
-			//Animated Headlines
-			if ( $is_activated_widget['ma-animated-headlines'] ) {
-				wp_enqueue_style( 'master-addons-headlines' );
-			}
-
 			//Creative Buttons
 			if ( $is_activated_widget['ma-creative-buttons'] ) {
 				wp_enqueue_style( 'ma-creative-buttons' );
-				if ( ma_el_fs()->can_use_premium_code() ) {
-					wp_enqueue_style( 'ma-creative-buttons-pro' );
-				}
 			}
 
 			//Image Hover Effects
