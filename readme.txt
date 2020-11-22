@@ -384,7 +384,7 @@ Paste on your Local Computer
 * Support: Formidable Form supports given, conflicting issue with Checkbox, Labels issue fixed
 * Fixed: Active Text color white issue on "MA Image Filter Gallery" issue fixed
 * Updated: Reveal extension bug - Anime.min.js updated
-* Added: Morphing Effect Extension
+* Added: Morphing Blob Effect Extension
 * Added: Main plugin file renamed from 'master-elementor-addons.php' to 'master-addons.php'
 * Fixed: Upsell coupon code typo issue fixed. 25% discount given. Also made the strings translatable
 * Updated: "Total Number of Posts" on MA Blog Posts Pagination issue fixed
@@ -392,6 +392,7 @@ Paste on your Local Computer
 * Added: Added "Active" tab on MA Blog>Style>Pagination for styling Active pagination items
 * Updated: Freemius Library Updated from v to v2.3.0
 * Fixed: "responsive_icon.svg" icon not found on Console issue fixed
+* Updated: Performance issue on Elementor Eidtor Speed increased. Re-factored files for lowest requests
 
 
 

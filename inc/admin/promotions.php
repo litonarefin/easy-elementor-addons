@@ -249,11 +249,11 @@ if( !class_exists('Master_Addons_Promotions') ) {
                 __( '%1$s got HUGE Updates!!! %2$s %3$s %4$s %5$s %6$s %7$s <br> <strong>Check Changelogs for <strong> <a href="%8$s" target="__blank">%9$s</a>', MELA_TD ),
 
                 '<strong>' . esc_html__( 'Master Addons for Elementor v', MELA_TD ) . MELA_VERSION . '</strong>',
-                '<br>' . __( '✅ <b>Custom Breakpoint Extension</b> is more powerful now !!', MELA_TD ) . '<br>',
-                __( '✅ <b>Animated Headlines</b> backend not working fixed', MELA_TD ) . '<br>',
-                __( '✅ <b>Icon Library</b> changed on all Addons/Extensions', MELA_TD ) . '<br>',
+                '<br>' . __( '✅ Editor speed optimized and increased loading time !!', MELA_TD ) . '<br>',
+                __( '✅ <b>Blog Element</b> updated pagination and other settings', MELA_TD ) . '<br>',
+                __( '✅ <b>Core Library</b> updated', MELA_TD ) . '<br>',
                 __( '✅ <b>Menu Broken</b> with few theme conflict issue fixed', MELA_TD ) . '<br>',
-                __( '✅ Elementor v3.0 Compatibility & better UX', MELA_TD ) . '<br>',
+                __( '✅ Latest Elementor version Compatibility & better UX', MELA_TD ) . '<br>',
                 __( '✅ Some major fixes', MELA_TD ) . '<br>',
                 esc_url_raw('https://master-addons.com/changelogs/'),
                 esc_html__( 'More Details', MELA_TD )
