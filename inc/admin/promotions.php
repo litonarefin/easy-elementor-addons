@@ -252,9 +252,10 @@ if( !class_exists('Master_Addons_Promotions') ) {
                 '<br>' . __( '✅ Editor speed optimized and increased loading time !!', MELA_TD ) . '<br>',
                 __( '✅ <b>Blog Element</b> updated pagination and other settings', MELA_TD ) . '<br>',
                 __( '✅ <b>Core Library</b> updated', MELA_TD ) . '<br>',
-                __( '✅ <b>Menu Broken</b> with few theme conflict issue fixed', MELA_TD ) . '<br>',
+                __( '✅ <b>Formidable Form</b> issue fixed', MELA_TD ) . '<br>',
+                __( '✅ <b>Updated:</b> Animated Headlines, Dual Headings, Counter Up, Team Members etc', MELA_TD ) . '<br>',
                 __( '✅ Latest Elementor version Compatibility & better UX', MELA_TD ) . '<br>',
-                __( '✅ Some major fixes', MELA_TD ) . '<br>',
+                __( '✅ Some major issues fixed', MELA_TD ) . '<br>',
                 esc_url_raw('https://master-addons.com/changelogs/'),
                 esc_html__( 'More Details', MELA_TD )
             );

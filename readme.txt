@@ -373,6 +373,7 @@ Paste on your Local Computer
 
 
 == Changelog ==
+
 = 1.5.4 (21-11-2020) =
 * Updated: Slow Down Elementor issue resolved. All Scripts and Styles dependecies will only active while the specific addon will be added.
 * Removed: Team Member default Background color removed
@@ -393,8 +394,7 @@ Paste on your Local Computer
 * Updated: Freemius Library Updated from v to v2.3.0
 * Fixed: "responsive_icon.svg" icon not found on Console issue fixed
 * Updated: Performance issue on Elementor Eidtor Speed increased. Re-factored files for lowest requests
-* Updated: 'MA Dual Heading' - Enable Icon condition issue fixed, General settings changed to Icon Settings
-
+* Updated: "MA Dual Heading" - Enable Icon condition issue fixed, General settings changed to Icon Settings
 
 
 
