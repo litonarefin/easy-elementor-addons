@@ -215,7 +215,7 @@ if( !class_exists('Master_Addons_Promotions') ) {
                             $jltma_upsell_notice,
                             ma_el_fs()->get_upgrade_url(),
                             __('Upgrade Pro', MELA_TD),
-                            __('now', MELA_TD),
+                            __('now', MELA_TD)
                         );
                     ?>
                 </div>
