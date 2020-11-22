@@ -33,6 +33,10 @@ if( !class_exists('Master_Addons_Promotions') ) {
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_fifteen_days'], 10 );
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_thirty_days'], 10 );
             }else{
+
+                //Black Friday & Cyber Monday Offer
+                add_action( 'admin_notices', [$this, 'jltma_black_friday_cyber_monday_deals'], 10 );
+
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_ten_days'], 10 );
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_tweenty_days'], 10 );
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_fourty_five_days'], 10 );
@@ -219,6 +223,31 @@ if( !class_exists('Master_Addons_Promotions') ) {
         <?php }
 
 
+        // Black Friday & Cyber Monday Offer
+        public function jltma_admin_bf_cm_upgrade_pro_notice( $notice_key ){ ?>
+
+            <div data-dismissible="<?php echo esc_attr($notice_key);?>" class="updated notice notice-success is-dismissible">
+                <div id="master-addons-review-notice" class="master-addons-review-notice">
+                    <div class="master-addons-review-thumbnail">
+                        <img src="https://ps.w.org/master-addons/assets/icon-256x256.png" alt="">
+                    </div>
+                    <div class="master-addons-review-text">
+                        <h3><?php _e( '<strong>Black Friday & Cyber Monday</strong> Deals - <strong>50% Off</strong> !', MELA_TD ) ?></h3>
+                        <p><?php _e( 'We\'re offering <strong>HUGE 50% Discount</strong> on all plans on this Black Friday & Cyber Monday. Valid till <strong>30th November, 2020</strong>. Coupon Code: <strong>BLACKFRIDAY50</strong> <a href="'. ma_el_fs()->get_upgrade_url() .'" target="_blank"><strong>Upgrade to Pro</strong></a>', MELA_TD ) ?></p>
+
+                        <ul class="master-addons-review-ul">
+                            <li><a href="<?php echo esc_url_raw(ma_el_fs()->get_upgrade_url());?>"
+                                    target="_blank"><span class="dashicons dashicons-external"></span><?php _e( 'Upgrade Now', MELA_TD ) ?></a></li>
+                            <li><a href="#" class="notice-dismiss"><span class="dashicons dashicons-smiley"></span><?php _e( 'I\'ve already left a review', MELA_TD ) ?></a></li>
+                            <li><a href="#" class="notice-dismiss"><span class="dashicons dashicons-dismiss"></span><?php _e( 'Never show again', MELA_TD ) ?></a></li>
+                        </ul>                        
+                    </div>
+                </div>
+            </div>
+
+        <?php }
+
+
         public function jltma_admin_notice_ask_for_review( $notice_key ){ ?>
 
             <div data-dismissible="<?php echo esc_attr($notice_key);?>" class="updated notice notice-success is-dismissible">
@@ -240,6 +269,7 @@ if( !class_exists('Master_Addons_Promotions') ) {
                     </div>
                 </div>
             </div>
+
         <?php }
 
         public function jltma_latest_blog_update(){
@@ -278,6 +308,22 @@ if( !class_exists('Master_Addons_Promotions') ) {
                 $this->jltma_admin_upgrade_pro_notice( 'jltma-days-10' );
             }
         }
+
+        public function jltma_black_friday_cyber_monday_deals(){
+            
+            if ( ! self::is_admin_notice_active( 'jltma-bf-cm-2020' ) ) { return; }
+
+            $today = date("Y-m-d");
+            // $today = date("2020-11-22");
+            $expire = '2020-12-05';
+            $today_time = strtotime($today);            
+            $expire_time = strtotime($expire);
+
+            if ($expire_time >= $today_time) { 
+                $this->jltma_admin_bf_cm_upgrade_pro_notice('jltma-bf-cm-2020');
+            }
+        }
+
 
         public function jltma_request_review_after_fifteen_days(){
             if ( ! self::is_admin_notice_active( 'jltma-days-15' ) ) { return; }
