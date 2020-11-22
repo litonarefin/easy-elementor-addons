@@ -12,7 +12,7 @@
 		}
 
 		public function get_title() {
-			return esc_html__( 'MA Team Members Carousel', MELA_TD);
+			return esc_html__( 'MA Team Slider', MELA_TD);
 		}
 
 		public function get_icon() {
@@ -23,8 +23,25 @@
 			return [ 'master-addons' ];
 		}
 
+		public function get_keywords() {
+			return [ 
+					'team', 
+					'members',
+					'carousel',
+					'slider',
+					'team members',
+					'team scroll', 
+					'team members slider', 
+					'person slider'
+				];
+		}
+
 		public function get_script_depends() {
-			return [ 'jquery-slick', 'gridder' ];
+			return [ 
+				'jquery-slick', 
+				'gridder',
+				'master-addons-scripts'
+			];
 		}
 
 		public function get_style_depends() {

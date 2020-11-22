@@ -167,7 +167,8 @@
 					],
 					'render_type'      => 'template',
 					'condition' => [
-						'ma_el_dual_heading_icon_show' => 'yes'
+						'ma_el_dual_heading_icon_show' => 'yes',
+						'ma_el_dual_heading_styles_preset' => '-style2',
 					]					
 				]
 			);
@@ -192,11 +193,34 @@
 			$this->start_controls_section(
 				'ma_el_dual_heading_styles_general',
 				[
-					'label' => esc_html__( 'General Styles', MELA_TD ),
-					'tab' => Controls_Manager::TAB_STYLE
+					'label' => esc_html__( 'Icon Style', MELA_TD ),
+					'tab' => Controls_Manager::TAB_STYLE,
+					'condition' => [
+						'ma_el_dual_heading_icon_show' => 'yes'
+					],
 				]
 			);
 
+
+			$this->add_control(
+				'ma_el_dual_heading_icon_size',
+				[
+					'label'   => __( 'Size', MELA_TD ),
+					'type'    => Controls_Manager::SLIDER,
+					'default' => [
+						'size' => 40,
+					],
+					'range' => [
+						'px' => [
+							'min' => 40,
+							'max' => 500,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-icon' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+					],
+				]
+			);
 
 			$this->add_control(
 				'ma_el_dual_heading_icon_color',
@@ -208,7 +232,7 @@
 						'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-icon' => 'color: {{VALUE}};',
 					],
 					'condition' => [
-						'ma_el_dual_heading_styles_preset' => '-style1',
+						'ma_el_dual_heading_icon_show' => 'yes'
 					],
 				]
 			);

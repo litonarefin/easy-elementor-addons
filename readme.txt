@@ -393,6 +393,7 @@ Paste on your Local Computer
 * Updated: Freemius Library Updated from v to v2.3.0
 * Fixed: "responsive_icon.svg" icon not found on Console issue fixed
 * Updated: Performance issue on Elementor Eidtor Speed increased. Re-factored files for lowest requests
+* Updated: 'MA Dual Heading' - Enable Icon condition issue fixed, General settings changed to Icon Settings
 
 
 
