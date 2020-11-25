@@ -29,14 +29,13 @@ if( !class_exists('Master_Addons_Promotions') ) {
             add_action( 'admin_notices', [$this, 'jltma_latest_blog_update'], 10 );
             
             if ( !ma_el_fs()->can_use_premium_code() ) {
+                //Black Friday & Cyber Monday Offer
+                add_action( 'admin_notices', [$this, 'jltma_black_friday_cyber_monday_deals'], 10 );
+
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_seven_days'], 10 );            
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_fifteen_days'], 10 );
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_thirty_days'], 10 );
             }else{
-
-                //Black Friday & Cyber Monday Offer
-                add_action( 'admin_notices', [$this, 'jltma_black_friday_cyber_monday_deals'], 10 );
-
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_ten_days'], 10 );
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_tweenty_days'], 10 );
                 add_action( 'admin_notices', [$this, 'jltma_request_review_after_fourty_five_days'], 10 );
@@ -310,15 +309,12 @@ if( !class_exists('Master_Addons_Promotions') ) {
         }
 
         public function jltma_black_friday_cyber_monday_deals(){
-            
-            if ( ! self::is_admin_notice_active( 'jltma-bf-cm-2020' ) ) { return; }
 
+            if ( !self::is_admin_notice_active( 'jltma-bf-cm-2020' ) ) { return; }
             $today = date("Y-m-d");
-            // $today = date("2020-11-22");
             $expire = '2020-12-05';
             $today_time = strtotime($today);            
             $expire_time = strtotime($expire);
-
             if ($expire_time >= $today_time) { 
                 $this->jltma_admin_bf_cm_upgrade_pro_notice('jltma-bf-cm-2020');
             }

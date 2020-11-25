@@ -2,7 +2,7 @@
 Contributors: jwthemeltd, litonice13
 Tags: elementor, elementor addon, elementor widget, custom css elements, essential widget, after before image comparison, image hover effects, header & footer builder, template import, elementor addons, elementor extensions,  elementor modules, elementor templates, comment form builder, mega menu, header footer builder, elements, page builder addons,addons, jewletheme, masteraddons
 Requires at least: 4.0
-Tested up to: 5.5.1
+Tested up to: 5.5.3
 Requires PHP: 5.3
 Stable tag: trunk
 License: GPLv2
@@ -14,7 +14,7 @@ Must have and Essential Elementor Addons for speed up your Design Creativity. Cu
 [Master Addons](https://master-addons.com/) is a collection of Stunning and cutting edged designed Elementor Addons Pack. Have you been looking for the perfect addons for Elementor that can help you make a creative looking website? Well, you don’t have to look too far. With master-addons for elementor, you get a wide range of elements that make your ordinary-looking website into something interactable, visually appealing and a lot more reader-friendly.
 
 
->[All Addons](https://master-addons.com/all-widgets/) | [Support](https://master-addons.com/contact-us/) | [Docs](https://master-addons.com/docs/) | [Tutorials](https://www.youtube.com/watch?v=rdrqWa-tf6Q&list=PLqpMw0NsHXV9V6UwRniXTUkabCJtOhyIf) | [Upgrade Pro](http://bit.ly/32n5dXS)
+>[All Addons](https://master-addons.com/all-widgets/) | [Support](https://master-addons.com/contact-us/) | [Docs](https://master-addons.com/docs/) | [Tutorials](https://www.youtube.com/watch?v=rdrqWa-tf6Q&list=PLqpMw0NsHXV9V6UwRniXTUkabCJtOhyIf) | [Upgrade Pro](https://master-addons.com/go/upgrade-pro/)
 
 Master Addons comes with some necessary widget, which helps your webpage to bring life. It's easy to enable and disable any widget from the plugin add-ons section. If you enable your necessary widget, then it will load the exact script of each widget. It will make your website faster. Make sure you have installed Elementor Page builder plugin. Otherwise, it will not work. We are working on its Development every day and trying to cover the essential widgets.
 
@@ -373,8 +373,12 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.5.4.1 (22-11-2020) =
+* Fixed: Sweetalert2 issue fixed on Admin "Save Settings"
+* Fixed: Mailchimp Addon conflicting ID issue fixed
 
-= 1.5.4 (21-11-2020) =
+
+= 1.5.4 (22-11-2020) =
 * Updated: Slow Down Elementor issue resolved. All Scripts and Styles dependecies will only active while the specific addon will be added.
 * Removed: Team Member default Background color removed
 * Fixed: Uncaught Error: Class 'Elementor\Plugin' not found issue fixed for Floating Effects

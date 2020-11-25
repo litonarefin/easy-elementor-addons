@@ -1274,3 +1274,6 @@ a.thrd-party-plgin-dnld i:active{
     box-shadow: none;
     outline: 0;
 }
+.swal2-container.fade.in {
+    opacity: 1;
+}

@@ -96,9 +96,9 @@ class Master_Addons_Admin_Settings{
 			wp_enqueue_style( 'master-addons-el-switch', MELA_ADMIN_ASSETS .'css/switch.css');
 
 			//JS
-			wp_enqueue_script( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'js/master-addons-admin.js', ['jquery'], MELA_VERSION, true );
 			wp_enqueue_script( 'master-addons-el-welcome-tabs', MELA_ADMIN_ASSETS .'js/welcome-tabs.js', ['jquery'], MELA_VERSION, true );
-			wp_enqueue_script( 'sweetalert', MELA_ADMIN_ASSETS .'js/sweetalert2.min.js', ['jquery'], MELA_VERSION, true );
+			wp_enqueue_script( 'sweetalert', MELA_ADMIN_ASSETS .'js/sweetalert2.min.js', ['jquery','master-addons-el-admin'], MELA_VERSION, true );
+			wp_enqueue_script( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'js/master-addons-admin.js', ['jquery'], MELA_VERSION, true );			
 
 
 			$jltma_localize_admin_script = array(
@@ -227,11 +227,11 @@ class Master_Addons_Admin_Settings{
 
 		check_ajax_referer( 'jltma_api_settings_nonce_action', 'security' );
 
-		if( isset( $_POST['fields'] ) ) {
-			parse_str( $_POST['fields'] );
-		} else {
-			return;
-		}
+		// if( isset( $_POST['fields'] ) ) {
+		// 	parse_str( $_POST['fields'] );
+		// } else {
+		// 	return;
+		// }
 
 		$jltma_api_settings = [];
 

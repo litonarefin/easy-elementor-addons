@@ -105,10 +105,9 @@
         // Go Pro Modal
         $('.ma-el-pro:parent').on('click',function(event){
                 event.preventDefault();
-                // console.log('adsfads');
                 swal({
                     title: "Go Pro",
-                    text: 'Upgrade to <a href="http://bit.ly/2ly5eaQ" target="_blank"> Pro Version </a> for ' +
+                    text: 'Upgrade to <a href="https://master-addons.com/go/upgrade-pro/" target="_blank"> Pro Version </a> for ' +
                     ' Unlock more Features ',
                     type: "warning",
                     showLoaderOnConfirm: true,
