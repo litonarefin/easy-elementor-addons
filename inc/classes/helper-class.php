@@ -666,6 +666,7 @@ class Master_Addons_Helper{
 		<?php
 	}
 
+	// Check if True/False
 	public static function jltma_is_true( $var ){
 		if ( is_bool( $var ) ) {
 			return $var;

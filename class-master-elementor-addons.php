@@ -80,7 +80,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 				'ma-countdown-timer',			// 35
 				['ma-toggle-content','pro'],	// 36
 				['ma-gallery-slider','pro'],	// 37
-				// 'ma-advanced-image',			// 38
+				'ma-advanced-image',			// 38
 				// 'ma-image-cascading',		// 39
 				// 'ma-image-carousel',			// 40
 				// 'ma-logo-slider',				// 41
@@ -597,6 +597,13 @@ if( !class_exists('Master_Elementor_Addons') ){
 			if ( !empty($jltma_api_settings['recaptcha_site_key']) and !empty($jltma_api_settings['recaptcha_secret_key']) ) {
 				wp_register_script( 'google-recaptcha', 'https://www.google.com/recaptcha/api.js', ['jquery'], null, true );
 			}
+
+	        // Add essential inline scripts to header
+	        $jltma_header_inline_scripts = 'function jltmaNS(n){for(var e=n.split("."),a=window,i="",r=e.length,t=0;r>t;t++)"window"!=e[t]&&(i=e[t],a[i]=a[i]||{},a=a[i]);return a;}';
+	        if( $jltma_header_inline_scripts = apply_filters( 'jltma_header_inline_scripts', $jltma_header_inline_scripts ) ){
+	            wp_add_inline_script( 'jquery-core', "/* < ![CDATA[ */\n". $jltma_header_inline_scripts ."\n/* ]]> */",
+	            'before' );
+	        }
 
 
 			// Advanced Animations

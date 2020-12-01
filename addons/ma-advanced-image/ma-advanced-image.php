@@ -87,7 +87,7 @@
 				array(
 					'label'         => __('Image Link',MELA_TD ),
 					'type'          => Controls_Manager::URL,
-					'placeholder'   => 'https://master-addons.com',
+					'placeholder'   => 'https://your-link.com',
 					'show_external' => true
 				)
 			);
@@ -142,10 +142,10 @@
 			$this->add_control(
 				'ma_el_adv_image_display_ribbon',
 				array(
-					'label'        => __('Diplay Ribbon',MELA_TD ),
+					'label'        => esc_html__('Diplay Ribbon',MELA_TD ),
 					'type'         => Controls_Manager::SWITCHER,
-					'label_on'     => __( 'On', MELA_TD ),
-					'label_off'    => __( 'Off', MELA_TD ),
+					'label_on'     => esc_html__( 'On', MELA_TD ),
+					'label_off'    => esc_html__( 'Off', MELA_TD ),
 					'return_value' => 'yes',
 					'default'      => 'no'
 				)
@@ -154,7 +154,7 @@
 			$this->add_control(
 				'ma_el_adv_image_ribbon_text',
 				array(
-					'label'       => __('Text',MELA_TD ),
+					'label'       => esc_html__('Text',MELA_TD ),
 					'type'        => Controls_Manager::TEXT,
 					'default'     => 'NEW',
 					'condition'   => array(
@@ -166,13 +166,13 @@
 			$this->add_control(
 				'ma_el_adv_image_ribbon_style',
 				array(
-					'label'       => __('Ribbon Style', MELA_TD),
+					'label'       => esc_html__('Ribbon Style', MELA_TD),
 					'type'        => Controls_Manager::SELECT,
 					'default'     => 'simple',
 					'options'     => array(
-						'simple' => __('Simple'  , MELA_TD ) ,
-						'corner' => __('Corner'  , MELA_TD ),
-						'cross'  => __('Cross'  , MELA_TD )
+						'simple' => esc_html__('Simple'  , MELA_TD ) ,
+						'corner' => esc_html__('Corner'  , MELA_TD ),
+						'cross'  => esc_html__('Cross'  , MELA_TD )
 					),
 					'condition'   => array(
 						'ma_el_adv_image_display_ribbon' => 'yes'
@@ -273,13 +273,13 @@
 	                'description' => __('Image alignment in block.', MELA_TD ),
 	                'type'        => Controls_Manager::CHOOSE,
 	                'options'     => array(
+	                    'none' => array(
+	                        'title' => __( 'Center', MELA_TD ),
+	                        'icon' => 'fa fa-ban',
+	                    ),	                	
 	                    'left' => array(
 	                        'title' => __( 'Left', MELA_TD ),
 	                        'icon' => 'fa fa-align-left',
-	                    ),
-	                    'center' => array(
-	                        'title' => __( 'Center', MELA_TD ),
-	                        'icon' => 'fa fa-align-center',
 	                    ),
 	                    'right' => array(
 	                        'title' => __( 'Right', MELA_TD ),
@@ -290,7 +290,7 @@
 	                'separator'   => 'after',
 	                'toggle'      => true,
 	                'selectors'   => array(
-	                    '{{WRAPPER}} .jltma-adv-image' => 'text-align: {{VALUE}};',
+	                    '{{WRAPPER}} .jltma-advanced-image' => 'text-align: {{VALUE}};',
 	                )
 	            )
 	        );
@@ -748,12 +748,8 @@
 				$default_atts['base'] = '';
 			}
 			if( ! isset( $default_atts['content_width'] ) ){
-				if( ! did_action( 'wp' ) && function_exists( 'auxin_set_content_width' ) ){
-					$default_atts['content_width'] = auxin_set_content_width();
-				} else {
-					global $aux_content_width;
-					$default_atts['content_width'] = $aux_content_width;
-				}
+				global $jltma_content_width;
+				$default_atts['content_width'] = $jltma_content_width;
 			}
 
 			// animation options
@@ -814,7 +810,7 @@
 			$result['parsed_atts'] = $parsed_atts;
 
 			// make the result params filterable prior to generating markup variables
-			$result = apply_filters( 'auxin_pre_widget_scafold_params', $result, $atts, $default_atts, $shortcode_content );
+			$result = apply_filters( 'jltma_pre_widget_scafold_params', $result, $atts, $default_atts, $shortcode_content );
 
 			if( $result['parsed_atts']['skip_wrappers'] ){
 				return $result;
@@ -849,7 +845,7 @@
 				$ajax_args['skip_wrappers'] = true;
 
 				$result['ajax_data'] = array(
-					'nonce'   => wp_create_nonce('auxin_front_load_more'),
+					'nonce'   => wp_create_nonce('jltma_front_load_more'),
 					'args'    => $ajax_args,
 					'handler' => $result['parsed_atts']["base"],
 					'per_page'=> $parsed_atts['loadmore_per_page']
@@ -930,13 +926,13 @@
 			}
 
 			// Enable filtering the result variable
-			$result =  apply_filters( 'auxin_widget_scafold_params', $result, $atts, $default_atts, $shortcode_content );
+			$result =  apply_filters( 'jltma_widget_scafold_params', $result, $atts, $default_atts, $shortcode_content );
 
 			// Prints the javascript variable if load more is enabled
-			// We can modify the ajax args using "auxin_widget_scafold_params" filter
+			// We can modify the ajax args using "jltma_widget_scafold_params" filter
 			if( ! empty( $result['parsed_atts']['loadmore_type'] ) ){
 				// echo js dependencies
-				$this->ma_el_print_script_object( "auxin.content.loadmore." . $result['parsed_atts']['universal_id'],
+				$this->ma_el_print_script_object( "jltma.content.loadmore." . $result['parsed_atts']['universal_id'],
 					$result['ajax_data'] );
 			}
 
@@ -963,7 +959,7 @@
 				$all_image_sizes = array_merge( $all_image_sizes, $_wp_additional_image_sizes );
 			}
 
-			return apply_filters( 'auxin_all_image_sizes', $all_image_sizes );
+			return apply_filters( 'jltma_all_image_sizes', $all_image_sizes );
 		}
 
 
@@ -973,7 +969,7 @@
 			if( ! empty( $all_image_sizes[ $size_name ] ) ){
 				return $all_image_sizes[ $size_name ];
 			}
-			auxin_error( sprintf( 'Invalid image size name (%s) for "%s" function.', $size_name, __FUNCTION__ ) );
+			echo sprintf( 'Invalid image size name (%s) for "%s" function.', $size_name, __FUNCTION__ );
 			return false;
 		}
 
@@ -988,7 +984,7 @@
 			$object_name = trim( $object_name, '.' );
 
 			if( false !== strpos( $object_name, '.') ){
-				$script = sprintf( 'auxinNS("%1$s"); %1$s=%2$s;', esc_js( $object_name ), wp_json_encode( $object_value ) );
+				$script = sprintf( 'jltmaNS("%1$s"); %1$s=%2$s;', esc_js( $object_name ), wp_json_encode( $object_value ) );
 			} else {
 				$script = sprintf( 'var %1$s=%2$s;', esc_js( $object_name ), wp_json_encode( $object_value ) );
 			}
@@ -1064,7 +1060,7 @@
 		/**
 		 * Retrieves the resized attachment image custom srcset and sizes
 		 */
-		public function ma_el_get_the_responsive_attachment( $attachment_id = null, $args = array() ) {
+		public function jltma_get_the_responsive_attachment( $attachment_id = null, $args = array() ) {
 
 			$defaults = array(
 				'quality'         => 100,
@@ -1386,7 +1382,7 @@
 			return trim( $caption );
 		}
 
-		public function ma_el_get_attachment_url( $attach_id, $featured_img_size = "medium" ) {
+		public function jltma_get_attachment_url( $attach_id, $featured_img_size = "medium" ) {
 			if( is_numeric( $attach_id ) ){
 				$image_url = wp_get_attachment_image_src( $attach_id, $featured_img_size );
 				return $image_url[0];
@@ -1396,37 +1392,73 @@
 
 
 		// This is the widget call back in fact the front end out put of this widget comes from this function
-		public function ma_el_adv_image_callback( $atts, $shortcode_content = null ){
+		public function jltma_adv_image_callback( $atts, $shortcode_content = null ){
 
 			// Defining default attributes
 			$default_atts = array(
-				'title'            => '', // header title
-				'add_content'      => false,
-				'content_title'    => '',
-				'content_subtitle' => '',
-				'colorized_shadow' => false,
-				'attach_id'        => '', // attachment id for main image
-				'attach_id_hover'  => '', // attachment id for hover image
-				'link'             => '', // link on image
-				'target'           => '_self', // link target
-				'nofollow'         => '', // link nofollow
-				'alt'              => '', // alternative text
-				'size'             => 'medium_large', // image size
-				'width'            => '', // final width of image
-				'height'           => '', // final height of image
-				'icon'             => 'plus', // icon type. plus, zoom, none
-				'image_html'       => '',
-				'display_ribbon'   => '1',
-				'ribbon_style'     => 'simple',
-				'ribbon_position'  => 'top-right',
-				'ribbon_text'      => '',
+				// 'title'            => '', // header title
+				// 'add_content'      => false,
+				// 'content_title'    => '',
+				// 'content_subtitle' => '',
+				// 'tilt'             => false,
+				// 'colorized_shadow' => false,
+				// 'attach_id'        => '', // attachment id for main image
+				// 'attach_id_hover'  => '', // attachment id for hover image
+				// 'link'             => '', // link on image
+				// 'target'           => '_self', // link target
+				// 'nofollow'         => '', // link nofollow
+				// 'alt'              => '', // alternative text
+				// 'size'             => 'medium_large', // image size
+				// 'width'            => '', // final width of image
+				// 'height'           => '', // final height of image
+				// 'icon'             => 'plus', // icon type. plus, zoom, none
+				// 'image_html'       => '',
+				// 'display_ribbon'   => '1',
+				// 'ribbon_style'     => 'simple',
+				// 'ribbon_position'  => 'top-right',
+				// 'ribbon_text'      => '',
 
-				'extra_classes'    => '', // custom css class names for this element
-				'custom_el_id'     => '', // custom id attribute for this element
-				'base_class'       => 'jltma-advanced-image'  // base class name for container
+				// 'extra_classes'    => '', // custom css class names for this element
+				// 'custom_el_id'     => '', // custom id attribute for this element
+				// 'base_class'       => 'jltma-advanced-image'  // base class name for container
+
+		        'title'            => '', // header title
+		        'add_content'      => false,
+		        'content_title'    => '',
+		        'content_subtitle' => '',
+		        'tilt'             => false,
+		        'colorized_shadow' => false,
+		        'attach_id'        => '', // attachment id for main image
+		        'attach_id_hover'  => '', // attachment id for hover image
+		        'link'             => '', // link on image
+		        'target'           => '_self', // link target
+		        'nofollow'         => '', // link nofollow
+		        'alt'              => '', // alternative text
+		        'size'             => 'medium_large', // image size
+		        'width'            => '', // final width of image
+		        'height'           => '', // final height of image
+		        'align'            => 'alignnone',
+		        'icon'             => 'plus', // icon type. plus, zoom, none
+		        'lightbox'         => 'no', // open in lightbox or not
+		        'preloadable'      => '0',
+		        'preload_preview'  => '0',
+		        'preload_bgcolor'  => '',
+
+		        'image_html'       => '',
+
+		        'display_ribbon'   => '1',
+		        'ribbon_style'     => 'simple',
+		        'ribbon_position'  => 'top-right',
+		        'ribbon_text'      => '',
+
+		        'extra_classes'    => '', // custom css class names for this element
+		        'custom_el_id'     => '', // custom id attribute for this element
+		        'base_class'       => 'jltma-advanced-image'  // base class name for container				
 			);
 
+
 			$result = $this->ma_el_get_widget_scafold( $atts, $default_atts, $shortcode_content );
+			
 			extract( $result['parsed_atts'] );
 
 			$image_primary      = '';
@@ -1434,6 +1466,9 @@
 			$image_secondary    = '';
 			$image_classes      = "jltma-attachment jltma-featured-image jltma-attachment-id-$attach_id";
 			$frame_classes      = '';
+
+
+
 
 			if( empty( $size ) ){
 				$size = 'medium_large';
@@ -1446,13 +1481,17 @@
 				$frame_classes .= 'jltma-image-box-widget-bg-cover';
 			}
 
+
+		    if ( $this->ma_el_is_true( $tilt ) ) {
+		        $frame_classes .= ' jltma-tilt-box';
+		    }
+
 			if ( $this->ma_el_is_true( $colorized_shadow ) && empty( $attach_id_hover ) ) {
 				$image_classes .= ' jltma-img-dynamic-dropshadow';
 			}
-			
 
 			if( ! empty( $attach_id ) && is_numeric( $attach_id ) ) {
-				$image_primary = $this->ma_el_get_the_responsive_attachment( $attach_id,
+				$image_primary = $this->jltma_get_the_responsive_attachment( $attach_id,
 					array(
 						'quality'         => 100,
 						'size'            => $size,
@@ -1464,13 +1503,17 @@
 					)
 				);
 
+				$image_primary_full_src = $this->jltma_get_attachment_url( $attach_id, 'full' );
+				$image_primary_meta     = wp_get_attachment_metadata( $attach_id );
+
+				$lightbox_attrs = 'data-elementor-open-lightbox="no" ';
+
 			} elseif( ! empty( $image_html ) ) {
 				$image_primary = $image_html;
 			}
 
-
 			if( ! empty( $attach_id_hover ) && is_numeric( $attach_id_hover ) ) {
-				$image_secondary = $this->ma_el_get_the_responsive_attachment( $attach_id_hover,
+				$image_secondary = $this->jltma_get_the_responsive_attachment( $attach_id_hover,
 					array(
 						'quality'         => 100,
 						'size'            => $size,
@@ -1481,7 +1524,19 @@
 				);
 			}
 
-			// hover effect
+		    $anchor_link    = $this->ma_el_is_true( $lightbox  ) ? $image_primary_full_src : esc_attr( $link );
+		    $anchor_class   = $this->ma_el_is_true( $lightbox  ) ? 'jltma-lightbox-btn' : '';
+		    $frame_classes .= $this->ma_el_is_true( $lightbox  ) ? ' jltma-media-frame jltma-lightbox-frame' : '';
+		    $target         = $target !== '_blank' ? 'target="_self"' : 'target="_blank"';
+		    $nofollow       = $this->ma_el_is_true ( $nofollow ) ? ' rel="nofollow"' : '';
+
+			// print_r( $image_secondary );
+			// print_r( extract( $result['parsed_atts'] ) );
+			// error_log('error log', 1);
+			// die();
+
+
+			// Hover Effect
 			$hover_class = '';
 			if ( !empty($anchor_link) ) {
 				$hover_class = 'jltma-hover-active';
@@ -1493,43 +1548,58 @@
 			}
 
 			// add alignment class on main element
-			$result['widget_header'] = str_replace( $base_class, $base_class.' jltma-alignnone',$result['widget_header'] );
+			$result['widget_header'] = str_replace( $base_class, $base_class.' jltma-align'.$align, $result['widget_header'] );
 
 			ob_start();
 
-			// print_r($overflow_class);
-			// print_r($display_ribbon);
-			// print_r($ribbon_text);
-			// print_r($image_secondary);
+		    // widget header ------------------------------
+		    echo $result['widget_header'];
+		
+		    echo $result['widget_title'];
 
-			?>
+		?>
 
-			<div class="jltma-adv-image-wrapper">
-				<div class="jltma-media-image <?php echo esc_attr( $hover_class ); echo esc_attr( $frame_classes );
-				echo esc_attr( $overflow_class ); ?>" >
-					<?php if( !empty($anchor_link) ) { ?>
-					<a class="<?php echo $anchor_class; ?>" href="<?php echo $anchor_link; ?>" >
-						<?php } ?>
+		    <div class="jltma-adv-image-wrapper">
+		        <div class="jltma-media-image <?php echo esc_attr( $hover_class ); echo esc_attr( $frame_classes ); echo esc_attr( $overflow_class ); ?>" >
+		        <?php if( !empty($anchor_link) ) { ?>
+		            <a class="<?php echo $anchor_class; ?>" href="<?php echo $anchor_link; ?>" <?php echo $lightbox_attrs  . ' ' . $target . ' ' . $nofollow; ?> >
+		        <?php } ?>
 
-						<?php if ( $this->ma_el_is_true( $display_ribbon ) && ! empty( $ribbon_text ) ) { ?>
-							<div class="jltma-ribbon-wrapper jltma-<?php echo $ribbon_style;?>-ribbon <?php echo
-                            $ribbon_position;?>">
-								<span><?php echo $ribbon_text;?></span>
-							</div>
-						<?php } ?>
+		            <?php if ( $this->ma_el_is_true( $display_ribbon ) && ! empty( $ribbon_text ) ) { ?>
+		                <div class="jltma-ribbon-wrapper jltma-<?php echo $ribbon_style;?>-ribbon <?php echo $ribbon_position;?>">
+		                    <span><?php echo $ribbon_text;?></span>
+		                </div>
+		            <?php } ?>
 
-						<?php if ( !empty( $image_secondary ) ) { ?>
-							<div class="jltma-image-holder jltma-image-has-secondary">
-								<?php echo $image_primary; ?>
-								<?php echo $image_secondary; ?>
-							</div>
-						<?php } ?>
 
-						<?php if( ! empty( $anchor_link ) ) { ?>
-					</a>
-				<?php } ?>
-				</div>
-			</div>
+		            <?php if( 'plus' == $icon && empty( $image_secondary ) ) { ?>
+		                <div class='jltma-hover-scale-circle-plus'>
+		                    <span class='jltma-symbol-plus'></span>
+		                    <span class='jltma-symbol-circle'></span>
+		                </div>
+		            <?php } ?>
+
+		            <?php if ( !empty( $image_secondary ) ) { ?>
+		                <div class="jltma-image-holder jltma-image-has-secondary">
+		                    <?php echo $image_primary; ?>
+		                    <?php echo $image_secondary; ?>
+		                </div>
+		            <?php } else { if ( $this->ma_el_is_true( $lightbox ) ) { ?>
+		                    <div class="jltma-frame-mask jltma-frame-darken">
+		                        <?php echo $image_primary; ?>
+		                    </div>
+		                <?php } else {
+		                    echo $image_primary;
+		                } ?>
+		            <?php } ?>
+
+		        <?php if( ! empty( $anchor_link ) ) { ?>
+		            </a>
+		        <?php } ?>
+		        </div>
+		    </div>
+
+
 
 			<?php
 
@@ -1543,6 +1613,7 @@
 		protected function render() {
 
 			$settings    = $this->get_settings_for_display();
+			
 
 			$link_target = $settings['ma_el_adv_image_link']['is_external'] ? '_blank' : '_self';
 
@@ -1556,8 +1627,9 @@
 				'link'             => $settings['ma_el_adv_image_link']['url'],
 				'nofollow'         => $settings['ma_el_adv_image_link']['nofollow'],
 				'target'           => $link_target,
+				'align'            => $settings['ma_el_adv_image_settings_alignment'],
 
-				// 'attach_id_hover'  => $settings['ma_el_adv_hover_image']['id'],
+				'attach_id_hover'  => $settings['ma_el_adv_image_hover_image']['id'],
 
 				'display_ribbon'   => $settings['ma_el_adv_image_display_ribbon'],
 				'ribbon_text'      => $settings['ma_el_adv_image_ribbon_text'],
@@ -1565,9 +1637,7 @@
 				'ribbon_position'  => $settings['ma_el_adv_image_ribbon_position'],
 				'colorized_shadow' => $settings['ma_el_adv_image_colorized_shadow']
 			);
-
-			// pass the args through the corresponding shortcode callback
-			echo $this->ma_el_adv_image_callback( $args );
+			echo $this->jltma_adv_image_callback( $args );
 		}
 
 

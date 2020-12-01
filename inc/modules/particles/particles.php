@@ -18,6 +18,8 @@
             add_action( 'elementor/frontend/column/before_render', [ $this, '_before_render'],10,1);
             add_action( 'elementor/frontend/section/before_render', [ $this, '_before_render'],10,1);
 
+            add_action( 'elementor/frontend/section/after_render', array( $this, 'after_render' ) );
+
             add_action( 'elementor/editor/wp_head', [ $this, 'ma_el_add_particles_admin' ] );
             add_action( 'wp_enqueue_scripts', [ $this, 'ma_el_add_particles' ] );
         }
@@ -54,6 +56,21 @@
                         'render_type' => 'template',
                     ]
                 );
+
+
+                $element->add_control(
+                  'ma_el_particle_area_zindex',
+                  [
+                    'label'              => __( 'Z-index', MELA_TD ),
+                    'type'               => Controls_Manager::NUMBER,
+                    'default'            => 0,
+                    'condition'          => [
+                      'ma_el_enable_particles' => 'yes',
+                    ],
+                    'frontend_available' => true,
+                  ]
+                );
+
 
                 $element->add_control(
                     'ma_el_enable_particles_alert',
@@ -225,6 +242,27 @@
             $template = $slider_content.$old_template;
             return $template;
         }
+
+        public function after_render( $element ) {
+
+            $data     = $element->get_data();
+            $settings = $element->get_settings_for_display();
+            $type     = $data['elType'];
+            $zindex   = ! empty( $settings['ma_el_particle_area_zindex'] ) ? $settings['ma_el_particle_area_zindex'] : 0;
+
+            if ( ( 'section' === $type ) && ( $element->get_settings( 'ma_el_enable_particles' ) === 'yes' ) ) {
+              ?>
+              <style>
+                .elementor-element-<?php echo $element->get_id(); ?> .ma-el-particle-wrapper > canvas {
+                  z-index: <?php echo $zindex; ?>;
+                  position: absolute;
+                  top: 0;
+                }
+              </style>
+              <?php
+            }
+          }
+
 
         public static function instance() {
             if ( is_null( self::$_instance ) ) {
