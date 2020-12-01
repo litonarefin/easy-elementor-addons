@@ -170,9 +170,9 @@
 					'type'        => Controls_Manager::SELECT,
 					'default'     => 'simple',
 					'options'     => array(
-						'simple' => esc_html__('Simple'  , MELA_TD ) ,
-						'corner' => esc_html__('Corner'  , MELA_TD ),
-						'cross'  => esc_html__('Cross'  , MELA_TD )
+						'simple' => esc_html__('Simple', MELA_TD ) ,
+						'corner' => esc_html__('Corner', MELA_TD ),
+						'cross'  => esc_html__('Cross', MELA_TD )
 					),
 					'condition'   => array(
 						'ma_el_adv_image_display_ribbon' => 'yes'
@@ -273,14 +273,14 @@
 	                'description' => __('Image alignment in block.', MELA_TD ),
 	                'type'        => Controls_Manager::CHOOSE,
 	                'options'     => array(
-	                    'none' => array(
-	                        'title' => __( 'Center', MELA_TD ),
-	                        'icon' => 'fa fa-ban',
-	                    ),	                	
 	                    'left' => array(
 	                        'title' => __( 'Left', MELA_TD ),
 	                        'icon' => 'fa fa-align-left',
 	                    ),
+	                    'center' => array(
+	                        'title' => __( 'Center', MELA_TD ),
+	                        'icon' => 'fa fa-align-center',
+	                    ),	                    
 	                    'right' => array(
 	                        'title' => __( 'Right', MELA_TD ),
 	                        'icon' => 'fa fa-align-right',
@@ -1529,12 +1529,6 @@
 		    $frame_classes .= $this->ma_el_is_true( $lightbox  ) ? ' jltma-media-frame jltma-lightbox-frame' : '';
 		    $target         = $target !== '_blank' ? 'target="_self"' : 'target="_blank"';
 		    $nofollow       = $this->ma_el_is_true ( $nofollow ) ? ' rel="nofollow"' : '';
-
-			// print_r( $image_secondary );
-			// print_r( extract( $result['parsed_atts'] ) );
-			// error_log('error log', 1);
-			// die();
-
 
 			// Hover Effect
 			$hover_class = '';
