@@ -1719,16 +1719,17 @@
 			$args        = array(
 				'image_html'       => Group_Control_Image_Size::get_attachment_image_html( $settings, 'ma_el_adv_image' ),
 
-				'attach_id'        => $settings['ma_el_adv_image']['id'],
+				// 'attach_id'        => $settings['ma_el_adv_image']['id'],
+				'attach_id'        => Master_Addons_Helper::jltma_get_array_value( $settings['ma_el_adv_image'], 'id' ),
 				'size'             => $settings['ma_el_adv_image_size'],
-				// 'width'            => $settings['ma_el_adv_image_custom_dimension']['width'],
-				// 'height'           => $settings['ma_el_adv_image_custom_dimension']['height'],
-				'link'             => $settings['ma_el_adv_image_link']['url'],
-				'nofollow'         => $settings['ma_el_adv_image_link']['nofollow'],
-				'target'           => $link_target,
+				'width'            => Master_Addons_Helper::jltma_get_array_value( $settings['ma_el_adv_image_custom_dimension'], 'width' ),
+				'height'           => Master_Addons_Helper::jltma_get_array_value( $settings['ma_el_adv_image_custom_dimension'], 'height' ),
+				'link'             => Master_Addons_Helper::jltma_get_array_value( $settings['ma_el_adv_image_link'], 'url' ),
+				'nofollow'         => Master_Addons_Helper::jltma_get_array_value( $settings['ma_el_adv_image_link'], 'nofollow'),
+				'target'           => Master_Addons_Helper::jltma_get_array_value( $settings['ma_el_adv_image_link'], 'is_external', false ) ? '_blank' : '_self',
 				'align'            => $settings['ma_el_adv_image_settings_alignment'],
 
-				'attach_id_hover'  => $settings['ma_el_adv_image_hover_image']['id'],
+				'attach_id_hover'  => Master_Addons_Helper::jltma_get_array_value( $settings['ma_el_adv_image_hover_image'], 'id' ),
 
 				'display_ribbon'   => $settings['ma_el_adv_image_display_ribbon'],
 				'ribbon_text'      => $settings['ma_el_adv_image_ribbon_text'],

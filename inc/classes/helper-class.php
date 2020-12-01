@@ -1054,4 +1054,8 @@ class Master_Addons_Helper{
 	    return $position_options;
 	}
 
+	public static function jltma_get_array_value( $array, $key, $default = '' ){
+	    return isset( $array[ $key ] ) ? $array[ $key ] : $default;
+	}
+
 }
