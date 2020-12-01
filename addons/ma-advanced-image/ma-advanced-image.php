@@ -277,7 +277,7 @@
 	                        'title' => __( 'Left', MELA_TD ),
 	                        'icon' => 'fa fa-align-left',
 	                    ),
-	                    'center' => array(
+	                    'none' => array(
 	                        'title' => __( 'Center', MELA_TD ),
 	                        'icon' => 'fa fa-align-center',
 	                    ),	                    
@@ -290,7 +290,7 @@
 	                'separator'   => 'after',
 	                'toggle'      => true,
 	                'selectors'   => array(
-	                    '{{WRAPPER}} .jltma-advanced-image' => 'text-align: {{VALUE}};',
+	                    '{{WRAPPER}} .jltma-advanced-image' => 'float: {{VALUE}};',
 	                )
 	            )
 	        );
@@ -1057,310 +1057,365 @@
 			return rtrim( $attr_sizes, ',' );
 		}
 
-		/**
-		 * Retrieves the resized attachment image custom srcset and sizes
-		 */
-		public function jltma_get_the_responsive_attachment( $attachment_id = null, $args = array() ) {
+	    /**
+	     * Retrieves the resized attachment image custom srcset and sizes
+	     */
+	    function jltma_get_the_responsive_attachment( $attachment_id = null, $args = array() ) {
 
-			$defaults = array(
-				'quality'         => 100,
-				'attr'            => '',
-				'upscale'         => false,
-				'size'            => 'large',
-				'crop'            => null,
-				'add_hw'          => true,
-				'add_ratio'       => true,
-				'sizes'           => 'auto', // (sizes)
-				'srcset'          => 'auto', // (srcset) automatically calculate the image sizes based on the 'size' param, OR 'wp' generates image srcs based on WP default image sizes
+	        $defaults = array(
+	            'quality'         => 100,
+	            'attr'            => '',
+	            'preloadable'     => true, // Set it to "true" or "null" in order make the image ready for preloading, "true" will load the best match as well.
+	            'preload_preview' => true, // (true, false, 'progress-box', 'simple-spinner', 'simple-spinner-light', 'simple-spinner-dark') if true, insert a low quality placeholder until lazyloading the main image. If set to progress, display a progress animation as a placeholder.
+	            'preload_bgcolor' => '',   // background color while loading the image
+	            'upscale'         => false,
+	            'size'            => 'large',
+	            'crop'            => null,
+	            'add_hw'          => true,
+	            'add_ratio'       => true,
+	            'sizes'           => 'auto', // (sizes)
+	            'srcset'          => 'auto', // (srcset) automatically calculate the image sizes based on the 'size' param, OR 'wp' generates image srcs based on WP default image sizes
 
-				'original_src'    => true,
-				'extra_class'     => ''
-			);
-
-
-
-			$args = wp_parse_args( $args, $defaults );
-
-			// fallback for deprecated attributes
-			if( isset( $args['image_sizes'] ) ){
-				$args['sizes'] = $args['image_sizes'];
-				unset( $args['image_sizes'] );
-			}
-			if( isset( $args['srcset_sizes'] ) ){
-				$args['srcset'] = $args['srcset_sizes'];
-				unset( $args['srcset_sizes'] );
-			}
-
-			extract( $args );
-
-			// Throw error if $size is not defined
-			if( empty( $size ) ){
-				$this->ma_el_error( sprintf( '"size" option for "%s" function is not defined.', __FUNCTION__ ) );
-			}
-
-			$attachment  = get_post( $attachment_id );
-
-			// get original image info
-			$original_image       = wp_get_attachment_image_src( $attachment_id, 'full' );
-			$original_image_width = $original_image['1'];
-
-			// Check crop value
-			$crop = empty( $crop ) ? $crop : $this->ma_el_is_true( $crop );
-
-			// Make sure there is a valid $size value passed
-			if( is_array( $size ) ){
-				if( empty( $size['width'] ) && empty( $size['height'] ) ){
-					$size = 'medium_large';
-				}
-				// since the size is a custom width and height, the hard crop is required
-				if( is_null( $crop ) ){
-					$crop = true;
-				}
-			}
-
-			// Get the $size dimensions
-			$dimensions = $size;
-			if( in_array( $dimensions, array( 'full', 'original' ) ) ){
-				$dimensions = array( 'width' => $original_image['1'], 'height' => $original_image['2'] );
-				// prevent generating srcset if the original image size is requested
-				$srcset = null;
-				$sizes  = null;
-			} elseif ( is_string( $dimensions ) ){
-				$dimensions = $this->ma_el_wp_get_image_size( $dimensions );
-				$dimensions = array( 'width' => $dimensions['width'], 'height' => $dimensions['height'] );
-			}
-
-			// calculate the image aspect ratio
-			$image_aspect_ratio = empty( $dimensions['width'] ) || empty( $dimensions['height'] ) ? null : $dimensions['width']/$dimensions['height'];
-
-			// if aspect ratio is available, turn on the upscale for improving accuracy in cropping images
-			if( $image_aspect_ratio ){
-				$upscale = true;
-			}
-
-			/*   Generate main image
-			/*-------------------------------------*/
-			// crop the main image
-			if( is_string( $size ) ){
-				$main_image = wp_get_attachment_image_src( $attachment_id, $size );
-				$src = $main_image['0'];
-			} else {
-				$src = $this->ma_el_get_the_resized_attachment_src( $attachment_id, $dimensions['width'] ,
-						$dimensions['height'], $crop, $quality, $upscale );
-			}
+	            'original_src'    => true,
+	            'extra_class'     => ''
+	        );
 
 
-			if( empty( $src ) ) return '';
 
-			// image width of default image src
-			$default_image_width = round( $original_image_width > $dimensions['width'] ? $dimensions['width'] : $original_image_width );
+	        $args = wp_parse_args( $args, $defaults );
 
+	        // fallback for deprecated attributes
+	        if( isset( $args['image_sizes'] ) ){
+	            $args['sizes'] = $args['image_sizes'];
+	            unset( $args['image_sizes'] );
+	        }
+	        if( isset( $args['srcset_sizes'] ) ){
+	            $args['srcset'] = $args['srcset_sizes'];
+	            unset( $args['srcset_sizes'] );
+	        }
 
-			/*   Calculate SRCSET
-			/*-------------------------------------*/
-			$attr_srcset = '';
+	        extract( $args );
 
-			if( ! empty( $srcset ) ){
+	        // Throw error if $size is not defined
+	        if( empty( $size ) ){
+	            $this->ma_el_error( sprintf( '"size" option for "%s" function is not defined.', __FUNCTION__ ) );
+	        }
 
-				// generate src sizes based on the list of sizes
-				if( is_array( $srcset ) ){
+	        $attachment  = get_post( $attachment_id );
 
-					foreach ( $srcset as $srcset_size ) {
-						// width is required for each src item
-						if( ! $srcset_size['width'] = empty( $srcset_size['width' ] ) ? null : $srcset_size['width' ] ){
-							continue;
-						}
-						// dont generate image src bigger than original image
-						if( $srcset_size['width'] >= $original_image_width ){
-							break;
-						}
-						$srcset_size['height'] = empty( $srcset_size['height'] ) ? null : $srcset_size['height'];
+	        // get original image info
+	        $original_image       = wp_get_attachment_image_src( $attachment_id, 'full' );
+	        $original_image_width = $original_image['1'];
 
-						$attr_srcset .= $this->ma_el_get_the_resized_attachment_src( $attachment_id, $srcset_size['width']
-							, $srcset_size['height'], $crop, $quality, $upscale );
-						$attr_srcset .= ' '. round( $srcset_size['width'] ).'w,';
-					}
+	        // Check crop value
+	        $crop = empty( $crop ) ? $crop : $this->ma_el_is_true( $crop );
 
-					// generate image sizes based on the default WordPress image sizes
-				} elseif( 'wp' == $srcset || ( ( is_string( $size ) || empty( $image_aspect_ratio ) ) && 'auto' === $srcset ) ){
-					$default_image_sizes = $this->ma_el_base_image_sizes();
+	        // Make sure there is a valid $size value passed
+	        if( is_array( $size ) ){
+	            if( empty( $size['width'] ) && empty( $size['height'] ) ){
+	                $size = 'medium_large';
+	            }
+	            // since the size is a custom width and height, the hard crop is required
+	            if( is_null( $crop ) ){
+	                $crop = true;
+	            }
+	        }
 
-					foreach ( $default_image_sizes as $image_size ) {
-						// Check if the image size is defined before
-						if( ! $current_image_dimensions = wp_get_attachment_image_src( $attachment_id, $image_size ) ){
-							$this->ma_el_error( sprintf( 'Intermediate image size name not found in "%s" function.',
-								__FUNCTION__ ) );
-							continue;
-						}
-						// dont generate image src bigger than original image
-						if( $current_image_dimensions['1'] >= $original_image_width ){
-							break;
-						}
+	        // Get the $size dimensions
+	        $dimensions = $size;
+	        if( in_array( $dimensions, array( 'full', 'original' ) ) ){
+	            $dimensions = array( 'width' => $original_image['1'], 'height' => $original_image['2'] );
+	            // prevent generating srcset if the original image size is requested
+	            $srcset = null;
+	            $sizes  = null;
+	        } elseif ( is_string( $dimensions ) ){
+	            $dimensions = $this->ma_el_wp_get_image_size( $dimensions );
+	            $dimensions = array( 'width' => $dimensions['width'], 'height' => $dimensions['height'] );
+	        }
 
-						if( is_array( $size ) ){
-							$attr_srcset .=  $this->ma_el_get_the_resized_attachment_src( $attachment_id,
-								$current_image_dimensions['1'] , $current_image_dimensions['2'], $crop, $quality, $upscale );
-							$attr_srcset .= ' '. round( $current_image_dimensions['1'] ).'w,';
-						} else {
-							$attr_srcset .=  $current_image_dimensions['0'];
-							$attr_srcset .= ' '. round( $current_image_dimensions['1'] ).'w,';
-						}
+	        // calculate the image aspect ratio
+	        $image_aspect_ratio = empty( $dimensions['width'] ) || empty( $dimensions['height'] ) ? null : $dimensions['width']/$dimensions['height'];
 
-					}
+	        // if aspect ratio is available, turn on the upscale for improving accuracy in cropping images
+	        if( $image_aspect_ratio ){
+	            $upscale = true;
+	        }
 
-					// automatically generate general image sizes based on the aspect ratio of the main image according the dimensions in $size
-				} elseif( is_array( $size ) && 'auto' === $srcset && $image_aspect_ratio ){
-					$default_image_sizes = $this->ma_el_base_image_sizes();
-
-					foreach ( $default_image_sizes as $image_size ) {
-						$current_image_width = get_option( $image_size. '_size_w' );
-
-						// dont generate image src bigger than original image
-						if( $current_image_width >= $original_image_width ){
-							break;
-						}
-
-						$attr_srcset .= $this->ma_el_get_the_resized_attachment_src( $attachment_id,
-								$current_image_width,
-							$current_image_width/$image_aspect_ratio, $crop, $quality, $upscale );
-						$attr_srcset .= ' '. round( $current_image_width ).'w,';
-					}
-				}
+	        /*   Generate main image
+	        /*-------------------------------------*/
+	        // crop the main image
+	        if( is_string( $size ) ){
+	            $main_image = wp_get_attachment_image_src( $attachment_id, $size );
+	            if ( $size !== 'full' && empty( $main_image['3'] ) && in_array( $size, get_intermediate_image_sizes() ) ) {
+	                require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+	                wp_update_image_subsizes( $attachment_id );
+	                $main_image = wp_get_attachment_image_src( $attachment_id, $size );
+	            }
+	            $src = $main_image['0'];
+	        } else {
+	            $src = $this->ma_el_get_the_resized_attachment_src( $attachment_id, $dimensions['width'] , $dimensions['height'], $crop, $quality, $upscale );
+	        }
 
 
-				// Add the original image src if the original size greater that large size exists
-				if( $attr_srcset ){
+	        if( empty( $src ) ) return '';
 
-					// Add main image to srcset too
-					$attr_srcset .= $src . ' ' . $default_image_width . 'w,';
-
-					if( $original_src ){
-						if( $image_aspect_ratio ){
-							$full_width  = (int) ( $original_image[1] -10 );
-							$full_height = (int) ($full_width/$image_aspect_ratio);
-							$attr_srcset .= $this->ma_el_get_the_resized_attachment_src( $attachment_id, $full_width,
-								$full_height, true, $quality, true );
-							$attr_srcset .= ' ' . round( $full_width ) . 'w';
-						} else {
-							$attr_srcset .= $original_image[0] . ' ' . $original_image[1] . 'w';
-						}
-					}
-
-					$attr_srcset =  rtrim( $attr_srcset, ',' );
-				}
-
-			}
-
-			/*   Add essential attribute
-			/*-------------------------------------*/
-
-			$html = '';
-			$width_attribute  = $original_image['1'] < $dimensions['width' ] ? $original_image['1'] : $dimensions['width'];
-			$height_attribute = $original_image['2'] < $dimensions['height'] ? $original_image['2'] : $dimensions['height'];
-			$string_size      = $width_attribute . 'x' . $height_attribute;
-			$hwstring         = image_hwstring( $width_attribute, $height_attribute );
-
-			// default image attributes
-			$default_attr  = array(
-				'src'              => $src,
-				'class'            => "jltma-attachment jltma-featured-image attachment-$string_size jltma-attachment-id-$attachment_id $extra_class",
-				'alt'              => trim(strip_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) )), // Use Alt field first
-				'width_attr_name'  => '',
-				'height_attr_name' => ''
-			);
-
-			if ( empty( $default_attr['alt'] ) )
-				$default_attr['alt'] = trim( strip_tags( $attachment->post_excerpt ) ); // If not, Use the Caption
-			if ( empty( $default_attr['alt'] ) )
-				$default_attr['alt'] = trim( strip_tags( $attachment->post_title ) ); // Finally, use the title
-
-			// parse the attr
-			$attr = wp_parse_args( $attr, $default_attr );
-
-			// Generate 'srcset' and 'sizes' if not already present.
-			if ( empty( $attr['srcset'] ) ) {
-				if ( $attr_srcset ) {
-					$attr['srcset'] = $attr_srcset;
-				}
-			}
-
-			if( $image_aspect_ratio ){
-				$attr['data-ratio'] = round( $image_aspect_ratio, 2 );
-			}
-
-			$attr['data-original-w'] = $original_image_width;
-
-			if( ! empty( $attr['width_attr_name'] ) || ! empty( $attr['height_attr_name'] ) )
-				$metadata = wp_get_attachment_metadata( $attachment_id );
-
-			if( ! empty( $attr['width_attr_name'] ) )
-				$attr[ $attr['width_attr_name'] ] = $metadata['width'];
-
-			if( ! empty( $attr['height_attr_name'] ) )
-				$attr[ $attr['height_attr_name'] ] = $metadata['height'];
+	        // image width of default image src
+	        $default_image_width = round( $original_image_width > $dimensions['width'] ? $dimensions['width'] : $original_image_width );
 
 
-			/*   Calculate sizes
-			/*-------------------------------------*/
-			if( ! empty( $sizes ) ){
-				$attr_sizes  = $this->ma_el_generate_image_sizes( $sizes );
+	        /*   Calculate SRCSET
+	        /*-------------------------------------*/
+	        $attr_srcset = '';
 
-				if ( empty( $attr['sizes'] ) && $attr_sizes ) {
-					$attr['sizes'] = $attr_sizes;
-				}
-			}
+	        if( ! empty( $srcset ) ){
+
+	            // generate src sizes based on the list of sizes
+	            if( is_array( $srcset ) ){
+
+	                foreach ( $srcset as $srcset_size ) {
+	                    // width is required for each src item
+	                    if( ! $srcset_size['width'] = empty( $srcset_size['width' ] ) ? null : $srcset_size['width' ] ){
+	                        continue;
+	                    }
+	                    // dont generate image src bigger than original image
+	                    if( $srcset_size['width'] >= $original_image_width ){
+	                        break;
+	                    }
+	                    $srcset_size['height'] = empty( $srcset_size['height'] ) ? null : $srcset_size['height'];
+
+	                    if ( empty( $srcset_image_url = $this->ma_el_get_the_resized_attachment_src( $attachment_id, $srcset_size['width'] , $srcset_size['height'], $crop, $quality, $upscale ) ) ) {
+	                        continue;
+	                    }
+	                    $attr_srcset .= $srcset_image_url;
+	                    $attr_srcset .= ' '. round( $srcset_size['width'] ).'w,';
+	                }
+
+	            // generate image sizes based on the default WordPress image sizes
+	            } elseif( 'wp' == $srcset || ( ( is_string( $size ) || empty( $image_aspect_ratio ) ) && 'auto' === $srcset ) ){
+	                $default_image_sizes = $this->ma_el_base_image_sizes();
+
+	                foreach ( $default_image_sizes as $image_size ) {
+	                    // Check if the image size is defined before
+	                    if( ! $current_image_dimensions = wp_get_attachment_image_src( $attachment_id, $image_size ) ){
+	                        $this->ma_el_error( sprintf( 'Intermediate image size name not found in "%s" function.', __FUNCTION__ ) );
+	                        continue;
+	                    }
+	                    // dont generate image src bigger than original image
+	                    if( $current_image_dimensions['1'] >= $original_image_width ){
+	                        break;
+	                    }
+
+	                    if( is_array( $size ) ){
+	                        if ( empty( $srcset_image_url = $this->ma_el_get_the_resized_attachment_src( $attachment_id, $current_image_dimensions['1'] , $current_image_dimensions['2'], $crop, $quality, $upscale ) ) ) {
+	                            continue;
+	                        }
+	                        $attr_srcset .= $srcset_image_url;
+	                        $attr_srcset .= ' '. round( $current_image_dimensions['1'] ).'w,';
+	                    } else {
+	                        $attr_srcset .=  $current_image_dimensions['0'];
+	                        $attr_srcset .= ' '. round( $current_image_dimensions['1'] ).'w,';
+	                    }
+
+	                }
+
+	            // automatically generate general image sizes based on the aspect ratio of the main image according the dimensions in $size
+	            } elseif( is_array( $size ) && 'auto' === $srcset && $image_aspect_ratio ){
+	                $default_image_sizes = $this->ma_el_base_image_sizes();
+
+	                foreach ( $default_image_sizes as $image_size ) {
+	                    $current_image_width = get_option( $image_size. '_size_w' );
+
+	                    // dont generate image src bigger than original image
+	                    if( $current_image_width >= $original_image_width ){
+	                        break;
+	                    }
+	                    if ( empty( $srcset_image_url = $this->ma_el_get_the_resized_attachment_src( $attachment_id, $current_image_width, $current_image_width/$image_aspect_ratio, $crop, $quality, $upscale ) ) ) {
+	                        continue;
+	                    }
+	                    $attr_srcset .= $srcset_image_url;
+	                    $attr_srcset .= ' '. round( $current_image_width ).'w,';
+	                }
+	            }
 
 
-			if( 'auto' === $sizes ){
-				$auto_sizes = array(
-					array( 'min' => '', 'max' => '479px' , 'width' => '480px'  ),
-					array( 'min' => '', 'max' => '767px' , 'width' => '768px'  ),
-					array( 'min' => '', 'max' => '1023px', 'width' => '1024px' )
-				);
-				if( $dimensions['width'] ){
-					$auto_sizes[] = array( 'min' => '', 'max' => '', 'width' => $default_image_width . 'px' );
-				}
-				$attr['sizes']  = $this->ma_el_generate_image_sizes( $auto_sizes );
-			}
+	            // Add the original image src if the original size greater that large size exists
+	            if( $attr_srcset ){
 
-			// Display a blurred preview of the main image
-			if ( 'auto' === $sizes ) {
-				// add the required class name to make it visible to image size-calculation script
-				$attr['class'] .= ' jltma-preload';
+	                // Add main image to srcset too
+	                $attr_srcset .= $src . ' ' . $default_image_width . 'w,';
 
-				if ( ! empty( $attr['src'] ) && empty( $attr['srcset'] ) ) {
-					$attr['data-src'] = $attr['src'];
-				}
+	                if( $original_src ){
+	                    if( $image_aspect_ratio ){
+	                        $full_width  = (int) ( $original_image[1] -10 );
+	                        $full_height = (int) ($full_width/$image_aspect_ratio);
+	                        $attr_srcset .= $this->ma_el_get_the_resized_attachment_src( $attachment_id, $full_width, $full_height, true, $quality, true );
+	                        $attr_srcset .= ' ' . round( $full_width ) . 'w';
+	                    } else {
+	                        $attr_srcset .= $original_image[0] . ' ' . $original_image[1] . 'w';
+	                    }
+	                }
 
-				$attr['src'] = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+	                $attr_srcset =  rtrim( $attr_srcset, ',' );
+	            }
 
-					$preload_ratio = null === $image_aspect_ratio ? null : 40 / $image_aspect_ratio;
-					$attr['src'] = $this->ma_el_get_the_resized_attachment_src( $attachment_id, 40, $preload_ratio, $crop,100, false );
-					$attr['class'] .= ' jltma-has-preview'; // the class name to add style and transition to the preview
-			}
+	        }
 
-			unset( $attr['width_attr_name' ] );
-			unset( $attr['height_attr_name'] );
+	        /*   Add essential attribute
+	        /*-------------------------------------*/
+
+	        // Check preloadable value
+	        $preloadable = empty( $preloadable ) ? $preloadable : $this->ma_el_is_true( $preloadable );
+
+	        // Force to add width and height attributes if lazyloading is enabled
+	        if( $preloadable && $preload_preview ){
+	            $add_hw = true;
+	        }
+
+	        $html = '';
+	        $width_attribute  = $original_image['1'] < $dimensions['width' ] ? $original_image['1'] : $dimensions['width'];
+	        $height_attribute = $original_image['2'] < $dimensions['height'] ? $original_image['2'] : $dimensions['height'];
+	        $string_size      = $width_attribute . 'x' . $height_attribute;
+	        $hwstring         = $add_hw ? image_hwstring( $width_attribute, $height_attribute ) : '';
+
+	        // default image attributes
+	        $default_attr  = array(
+	            'src'              => $src,
+	            'class'            => "jltma-attachment jltma-featured-image attachment-$string_size jltma-attachment-id-$attachment_id $extra_class",
+	            'alt'              => trim(strip_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) )), // Use Alt field first
+	            'width_attr_name'  => '',
+	            'height_attr_name' => ''
+	        );
+
+	        if ( empty( $default_attr['alt'] ) )
+	            $default_attr['alt'] = trim( strip_tags( $attachment->post_excerpt ) ); // If not, Use the Caption
+	        if ( empty( $default_attr['alt'] ) )
+	            $default_attr['alt'] = trim( strip_tags( $attachment->post_title ) ); // Finally, use the title
+
+	        // parse the attr
+	        $attr = wp_parse_args( $attr, $default_attr );
+
+	        // Generate 'srcset' and 'sizes' if not already present.
+	        if ( empty( $attr['srcset'] ) ) {
+	            if ( $attr_srcset ) {
+	                $attr['srcset'] = $attr_srcset;
+	            }
+	        }
+
+	        if( $image_aspect_ratio ){
+	            $attr['data-ratio'] = round( $image_aspect_ratio, 2 );
+	        }
+
+	        $attr['data-original-w'] = $original_image_width;
+
+	        if( ! empty( $attr['width_attr_name'] ) || ! empty( $attr['height_attr_name'] ) )
+	            $metadata = wp_get_attachment_metadata( $attachment_id );
+
+	        if( ! empty( $attr['width_attr_name'] ) )
+	            $attr[ $attr['width_attr_name'] ] = $metadata['width'];
+
+	        if( ! empty( $attr['height_attr_name'] ) )
+	            $attr[ $attr['height_attr_name'] ] = $metadata['height'];
 
 
-			/**
-			 * Filter the list of attachment image attributes.
-			 *
-			 * @param mixed $attr          Attributes for the image markup.
-			 * @param int   $attachment_id Image attachment ID.
-			 */
-			$attr = apply_filters( 'wp_get_attachment_image_attributes', $attr, $attachment, $size );
-			$attr = array_map( 'esc_attr', $attr );
-			$html = rtrim("<img $hwstring");
-			foreach ( $attr as $name => $value ) {
-				if( $value ){
-					$html .= " $name=" . '"' . $value . '"';
-				}
-			}
-			$html .= ' />';
+	        /*   Calculate sizes
+	        /*-------------------------------------*/
+	        if( ! empty( $sizes ) ){
+	            $attr_sizes  = $this->ma_el_generate_image_sizes( $sizes );
 
-			return $html;
-		}
+	            if ( empty( $attr['sizes'] ) && $attr_sizes ) {
+	                $attr['sizes'] = $attr_sizes;
+	            }
+	        }
+
+	        // Keep the auto sizes if null passed to $preloadable
+	        if( is_null( $preloadable ) && 'auto' === $sizes ){
+
+	            // move srcset to data-srcset
+	            if ( ! empty( $attr['srcset'] ) ) {
+	                $attr['data-srcset'] = $attr['srcset'];
+	                unset( $attr['srcset'] );
+	            }
+
+	            if ( ! empty( $attr['src'] ) ) {
+	                $attr['data-src'] = $attr['src'];
+	                unset( $attr['src'] );
+	            }
+
+	            $attr['sizes']  = 'auto';
+
+	        } elseif( $preloadable && 'auto' === $sizes ){
+
+	            // move srcset to data-srcset
+	            if ( ! empty( $attr['srcset'] ) ) {
+	                $attr['data-srcset'] = $attr['srcset'];
+	                unset( $attr['srcset'] );
+	            }
+
+	            $attr['sizes']  = 'auto';
+
+	        } elseif( ! $preloadable && 'auto' === $sizes ) {
+	            $auto_sizes = array(
+	                array( 'min' => '', 'max' => '479px' , 'width' => '480px'  ),
+	                array( 'min' => '', 'max' => '767px' , 'width' => '768px'  ),
+	                array( 'min' => '', 'max' => '1023px', 'width' => '1024px' )
+	            );
+	            if( $dimensions['width'] ){
+	                $auto_sizes[] = array( 'min' => '', 'max' => '', 'width' => $default_image_width . 'px' );
+	            }
+	            $attr['sizes']  = $this->ma_el_generate_image_sizes( $auto_sizes );
+	        }
+
+	        // Display a blurred preview of the main image
+	        if ( $preloadable ) {
+	            // add the required class name to make it visible to image size-calculation script
+	            $attr['class'] .= ' jltma-preload';
+
+	            if ( ! empty( $attr['src'] ) && empty( $attr['srcset'] ) ) {
+	                $attr['data-src'] = $attr['src'];
+	            }
+
+	            $attr['src'] = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+	            if( in_array( $preload_preview, array( 'progress-box', 'simple-spinner', 'simple-spinner-light', 'simple-spinner-dark' ) ) ){
+	                $attr['class'] .= ' jltma-' . esc_attr( $preload_preview ); // the class name to add style and transition to the progress animation
+	            } elseif( $this->ma_el_is_true( $preload_preview ) ){
+	                $preload_ratio = null === $image_aspect_ratio ? null : 40 / $image_aspect_ratio;
+	                $attr['src'] = $this->ma_el_get_the_resized_attachment_src( $attachment_id, 40 , $preload_ratio, $crop, 100, false );
+	                $attr['class'] .= ' jltma-has-preview'; // the class name to add style and transition to the preview image
+	            } else {
+	                $attr['class'] .= ' jltma-blank';
+	            }
+
+	            if( ! empty( $preload_bgcolor ) ){
+	                $attr['data-bg-color'] = $preload_bgcolor;
+	            }
+
+	        }
+
+	        unset( $attr['width_attr_name' ] );
+	        unset( $attr['height_attr_name'] );
+
+
+	        /**
+	         * Filter the list of attachment image attributes.
+	         *
+	         * @param mixed $attr          Attributes for the image markup.
+	         * @param int   $attachment_id Image attachment ID.
+	         */
+	        $attr = apply_filters( 'wp_get_attachment_image_attributes', $attr, $attachment, $size );
+	        $attr = array_map( 'esc_attr', $attr );
+	        $html = rtrim("<img $hwstring");
+	        foreach ( $attr as $name => $value ) {
+	            if( $value ){
+	                $html .= " $name=" . '"' . $value . '"';
+	            }
+	        }
+	        $html .= ' />';
+
+	        return $html;
+	    }
+
+
 
 		public function ma_el_attachment_caption( $attach_id = null, $stripe = true ) {
 
@@ -1461,13 +1516,12 @@
 			
 			extract( $result['parsed_atts'] );
 
-			$image_primary      = '';
-			$image_primary_full = '';
-			$image_secondary    = '';
-			$image_classes      = "jltma-attachment jltma-featured-image jltma-attachment-id-$attach_id";
-			$frame_classes      = '';
-
-
+		    $image_primary      = '';
+		    $image_primary_full = '';
+		    $image_secondary    = '';
+		    $lightbox_attrs     = '';
+		    $image_classes      = "jltma-attachment jltma-featured-image jltma-attachment-id-$attach_id";
+		    $frame_classes      = '';
 
 
 			if( empty( $size ) ){
@@ -1490,39 +1544,90 @@
 				$image_classes .= ' jltma-img-dynamic-dropshadow';
 			}
 
-			if( ! empty( $attach_id ) && is_numeric( $attach_id ) ) {
-				$image_primary = $this->jltma_get_the_responsive_attachment( $attach_id,
-					array(
-						'quality'         => 100,
-						'size'            => $size,
-						'crop'            => true,
-						'add_hw'          => true,
-						'upscale'         => false,
-						'original_src'    => 'full' === $size ? true : false,
-						'attr'            => array( 'class' => $image_classes )
-					)
-				);
 
-				$image_primary_full_src = $this->jltma_get_attachment_url( $attach_id, 'full' );
-				$image_primary_meta     = wp_get_attachment_metadata( $attach_id );
+		    if( ! empty( $attach_id ) && is_numeric( $attach_id ) ) {
+		        $image_primary = $this->jltma_get_the_responsive_attachment( $attach_id,
+		            array(
+		                'quality'         => 100,
+		                'preloadable'     => $this->ma_el_is_true( $preloadable ),
+		                'preload_preview' => $preload_preview,
+		                'preload_bgcolor' => $preload_bgcolor,
+		                'size'            => $size,
+		                'crop'            => true,
+		                'add_hw'          => true,
+		                'upscale'         => false,
+		                'original_src'    => 'full' === $size ? true : false,
+		                'attr'            => array( 'class' => $image_classes )
+		            )
+		        );
+		        $image_primary_full_src = $this->jltma_get_attachment_url( $attach_id, 'full' );
+		        $image_primary_meta     = wp_get_attachment_metadata( $attach_id );
 
-				$lightbox_attrs = 'data-elementor-open-lightbox="no" ';
+		        $lightbox_attrs = 'data-elementor-open-lightbox="no" ';
 
-			} elseif( ! empty( $image_html ) ) {
-				$image_primary = $image_html;
-			}
+		        // While SVG images don't have dimension, this check is required
+		        if( ! empty( $image_primary_meta['width'] ) ){
+		            $lightbox_attrs .= 'data-original-width="' . $image_primary_meta['width'] . '" ';
+		        }
+		        if( ! empty( $image_primary_meta['height'] ) ){
+		            $lightbox_attrs .= 'data-original-height="' . $image_primary_meta['height'] . '" ';
+		        }
+		        $lightbox_attrs     .= 'data-caption="' . $this->ma_el_attachment_caption( $attach_id ) . '"';
 
-			if( ! empty( $attach_id_hover ) && is_numeric( $attach_id_hover ) ) {
-				$image_secondary = $this->jltma_get_the_responsive_attachment( $attach_id_hover,
-					array(
-						'quality'         => 100,
-						'size'            => $size,
-						'crop'            => true,
-						'add_hw'          => true,
-						'upscale'         => false
-					)
-				);
-			}
+		    } elseif( ! empty( $image_html ) ) {
+		        $image_primary = $image_html;
+		    }
+
+
+			// if( ! empty( $attach_id ) && is_numeric( $attach_id ) ) {
+			// 	$image_primary = $this->jltma_get_the_responsive_attachment( $attach_id,
+			// 		array(
+			// 			'quality'         => 100,
+			// 			'size'            => $size,
+			// 			'crop'            => true,
+			// 			'add_hw'          => true,
+			// 			'upscale'         => false,
+			// 			'original_src'    => 'full' === $size ? true : false,
+			// 			'attr'            => array( 'class' => $image_classes )
+			// 		)
+			// 	);
+
+			// 	$image_primary_full_src = $this->jltma_get_attachment_url( $attach_id, 'full' );
+			// 	$image_primary_meta     = wp_get_attachment_metadata( $attach_id );
+
+			// 	$lightbox_attrs = 'data-elementor-open-lightbox="no" ';
+
+			// } elseif( ! empty( $image_html ) ) {
+			// 	$image_primary = $image_html;
+			// }
+
+			// if( ! empty( $attach_id_hover ) && is_numeric( $attach_id_hover ) ) {
+			// 	$image_secondary = $this->jltma_get_the_responsive_attachment( $attach_id_hover,
+			// 		array(
+			// 			'quality'         => 100,
+			// 			'size'            => $size,
+			// 			'crop'            => true,
+			// 			'add_hw'          => true,
+			// 			'upscale'         => false
+			// 		)
+			// 	);
+			// }
+
+
+		    if( ! empty( $attach_id_hover ) && is_numeric( $attach_id_hover ) ) {
+		        $image_secondary = $this->jltma_get_the_responsive_attachment( $attach_id_hover,
+		            array(
+		                'quality'         => 100,
+		                'preloadable'     => $this->ma_el_is_true( $preloadable ),
+		                'preload_preview' => $preload_preview,
+		                'preload_bgcolor' => $preload_bgcolor,
+		                'size'            => $size,
+		                'crop'            => true,
+		                'add_hw'          => true,
+		                'upscale'         => false
+		            )
+		        );
+		    }
 
 		    $anchor_link    = $this->ma_el_is_true( $lightbox  ) ? $image_primary_full_src : esc_attr( $link );
 		    $anchor_class   = $this->ma_el_is_true( $lightbox  ) ? 'jltma-lightbox-btn' : '';
@@ -1556,7 +1661,7 @@
 		    <div class="jltma-adv-image-wrapper">
 		        <div class="jltma-media-image <?php echo esc_attr( $hover_class ); echo esc_attr( $frame_classes ); echo esc_attr( $overflow_class ); ?>" >
 		        <?php if( !empty($anchor_link) ) { ?>
-		            <a class="<?php echo $anchor_class; ?>" href="<?php echo $anchor_link; ?>" <?php echo $lightbox_attrs  . ' ' . $target . ' ' . $nofollow; ?> >
+		            <a class="<?php echo $anchor_class; ?>" href="<?php echo $anchor_link; ?>" data-fancybox="images" <?php echo $lightbox_attrs  . ' ' . $target . ' ' . $nofollow; ?> >
 		        <?php } ?>
 
 		            <?php if ( $this->ma_el_is_true( $display_ribbon ) && ! empty( $ribbon_text ) ) { ?>
@@ -1629,7 +1734,16 @@
 				'ribbon_text'      => $settings['ma_el_adv_image_ribbon_text'],
 				'ribbon_style'     => $settings['ma_el_adv_image_ribbon_style'],
 				'ribbon_position'  => $settings['ma_el_adv_image_ribbon_position'],
-				'colorized_shadow' => $settings['ma_el_adv_image_colorized_shadow']
+				'colorized_shadow' => $settings['ma_el_adv_image_colorized_shadow'],
+
+		        'lightbox'         => $settings['ma_el_adv_image_settings_lightbox'],
+		        'icon'             => $settings['ma_el_adv_image_settings_icon'],
+		        'preloadable'      => $settings['ma_el_adv_image_settings_preloadable'],
+		        'preload_preview'  => $settings['ma_el_adv_image_settings_preload_preview'],
+		        'preload_bgcolor'  => $settings['ma_el_adv_image_settings_preload_bgcolor'],
+		        'tilt'             => $settings['ma_el_adv_image_tilt']
+
+
 			);
 			echo $this->jltma_adv_image_callback( $args );
 		}

@@ -7540,9 +7540,40 @@ aside .jltma-advanced-image.jltma-alignleft, aside .jltma-advanced-image.jltma-a
 .jltma-adv-image-wrapper.jltma-media-image img { height: auto; display: block; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; }
 .jltma-lightbox-btn { direction: ltr; }
 
+/* .jltma-media-frame.jltma-media-image { display: block; position: relative; overflow: hidden; max-width: 100%; text-align: center; } */
+/* .jltma-media-frame.jltma-media-image img { height: auto; display: block; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; } */
+/* .jltma-media-frame.jltma-media-image.jltma-contain img { width: 100%; min-width: 100%; } */
+/* .jltma-media-frame ul { display: none; } */
+
+.jltma-has-preview { transform: translate3d(0, 0, 0); transition: filter 300ms; will-change: filter; perspective-origin: center; }
+.jltma-has-preview.jltma-preload, .jltma-has-preview.jltma-preloading { filter: blur(10px); }
+.jltma-has-preview.jltma-preloaded { filter: blur(0); }
+
+.jltma-preload, .jltma-preloading, .jltma-preloaded { will-change: background, opacity; }
+
+.jltma-preload.jltma-progress-box, .jltma-preloading.jltma-progress-box { position: relative; background: #dddddd; background-image: linear-gradient(to right, #dddddd 33%, #f5f5f5 40%, #e5e5e5 43%, #dddddd 46%); background-repeat: no-repeat; background-size: 300% auto; animation-duration: 1.4s; animation-fill-mode: forwards; animation-iteration-count: infinite; animation-name: AuxLoadingWave; animation-timing-function: linear; }
+.jltma-preload.jltma-blank, .jltma-preloading.jltma-blank { opacity: 0; }
+
+.jltma-preloading.jltma-simple-spinner, .jltma-preloading.jltma-simple-spinner-light, .jltma-preloading.jltma-simple-spinner-dark { background-repeat: no-repeat; background-position: center center; }
+.jltma-preloading.jltma-simple-spinner { background-image: url("../images/spinner-default.svg"); }
+.jltma-preloading.jltma-simple-spinner-light { background-image: url("../images/spinner-light.svg"); }
+.jltma-preloading.jltma-simple-spinner-dark { background-image: url("../images/spinner-dark.svg"); }
+
+.jltma-preloaded.jltma-blank { animation-name: JltmaFadeInPreloaded; animation-duration: 400ms; animation-fill-mode: both; animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+
+@keyframes JltmaFadeInPreloaded { from { opacity: 0; }
+  to { opacity: 1; } }
+.jltma-img-dynamic-dropshadow-frame { position: relative; }
+.jltma-img-dynamic-dropshadow-frame .jltma-img-dynamic-dropshadow { position: relative; z-index: 1; }
+.jltma-img-dynamic-dropshadow-frame .jltma-img-dynamic-dropshadow-cloned { position: absolute; left: 0; right: 0; top: 0; margin: 0 auto !important; transform: translateX(75px) translateY(40px); opacity: 0.4; filter: blur(50px); }
+
+.jltma-orginal-blured-img { position: relative; overflow: hidden; }
+
+.jltma-blured-img { position: absolute; width: 100%; height: 100%; left: 0; top: 0; opacity: 0; transition: opacity,transform 100ms ease-out; will-change: opacity,transform; }
 
 
-/** Auxin hover effect symbols  This file contains a collection of symbols that can appear over a frame with hover effect Each symbol can have its own unique effect. */
+
+/** Hover effect symbols  This file contains a collection of symbols that can appear over a frame with hover effect Each symbol can have its own unique effect. */
 /** Circle plus button  Sample markup <div class="jltma-hover-scale-circle-plus"> <span class="jltma-symbol-plus"></span> <span class="jltma-symbol-circle"></span> </div> */
 .jltma-hover-scale-circle-plus, .jltma-hover-scale-circle-plus2 { display: block; position: absolute; direction: ltr; }
 .jltma-hover-scale-circle-plus .jltma-symbol-plus, .jltma-hover-scale-circle-plus2 .jltma-symbol-plus, .jltma-hover-scale-circle-plus .jltma-symbol-circle, .jltma-hover-scale-circle-plus2 .jltma-symbol-circle { position: absolute; display: block; opacity: 0; transition: all 800ms cubic-bezier(0.75, 0.1, 0.25, 0.9); }
@@ -7556,8 +7587,8 @@ aside .jltma-advanced-image.jltma-alignleft, aside .jltma-advanced-image.jltma-a
 .ie9 .jltma-hover-scale-circle-plus .jltma-symbol-plus { -ms-transform: translate(-50%, -50%); }
 .jltma-hover-scale-circle-plus .jltma-symbol-circle { z-index: 2; transform: translate3d(-50%, -50%, 0) scale(1.25); }
 .ie9 .jltma-hover-scale-circle-plus .jltma-symbol-circle { -ms-transform: translate(-50%, -50%); }
-.aux-hover-active:hover .jltma-hover-scale-circle-plus .jltma-symbol-plus, .aux-hover-active:hover .jltma-hover-scale-circle-plus .jltma-symbol-circle { opacity: 1; transform: translate3d(-50%, -50%, 0) scale(1) rotate(0); }
-.ie9 .aux-hover-active:hover .jltma-hover-scale-circle-plus .jltma-symbol-plus, .ie9 .aux-hover-active:hover .jltma-hover-scale-circle-plus .jltma-symbol-circle { -ms-transform: translate(-50%, -50%); }
+.jltma-hover-active:hover .jltma-hover-scale-circle-plus .jltma-symbol-plus, .jltma-hover-active:hover .jltma-hover-scale-circle-plus .jltma-symbol-circle { opacity: 1; transform: translate3d(-50%, -50%, 0) scale(1) rotate(0); }
+.ie9 .jltma-hover-active:hover .jltma-hover-scale-circle-plus .jltma-symbol-plus, .ie9 .jltma-hover-active:hover .jltma-hover-scale-circle-plus .jltma-symbol-circle { -ms-transform: translate(-50%, -50%); }
 
 .jltma-hover-scale-circle-plus2 { top: 0; left: 0; right: 0; bottom: 0; }
 .jltma-hover-scale-circle-plus2 .jltma-symbol-plus, .jltma-hover-scale-circle-plus2 .jltma-symbol-circle { top: 50%; left: 50%; }
@@ -7565,11 +7596,11 @@ aside .jltma-advanced-image.jltma-alignleft, aside .jltma-advanced-image.jltma-a
 .ie9 .jltma-hover-scale-circle-plus2 .jltma-symbol-plus { -ms-transform: translate(-50%, -50%); }
 .jltma-hover-scale-circle-plus2 .jltma-symbol-circle { z-index: 2; transform: translate3d(-50%, -50%, 0) scale(1.25); }
 .ie9 .jltma-hover-scale-circle-plus2 .jltma-symbol-circle { -ms-transform: translate(-50%, -50%); }
-.aux-hover-active:hover .jltma-hover-scale-circle-plus2 .jltma-symbol-plus, .aux-hover-active:hover .jltma-hover-scale-circle-plus2 .jltma-symbol-circle { opacity: 1; transform: translate3d(-50%, -50%, 0) scale(1) rotate(0); }
-.ie9 .aux-hover-active:hover .jltma-hover-scale-circle-plus2 .jltma-symbol-plus, .ie9 .aux-hover-active:hover .jltma-hover-scale-circle-plus2 .jltma-symbol-circle { -ms-transform: translate(-50%, -50%); }
+.jltma-hover-active:hover .jltma-hover-scale-circle-plus2 .jltma-symbol-plus, .jltma-hover-active:hover .jltma-hover-scale-circle-plus2 .jltma-symbol-circle { opacity: 1; transform: translate3d(-50%, -50%, 0) scale(1) rotate(0); }
+.ie9 .jltma-hover-active:hover .jltma-hover-scale-circle-plus2 .jltma-symbol-plus, .ie9 .jltma-hover-active:hover .jltma-hover-scale-circle-plus2 .jltma-symbol-circle { -ms-transform: translate(-50%, -50%); }
 
-.aux-hover-fade { opacity: 0; transition: opacity 1s ease-in-out; will-change: opacity; }
-.aux-hover-active:hover .aux-hover-fade { opacity: 1; }
+.jltma-hover-fade { opacity: 0; transition: opacity 1s ease-in-out; will-change: opacity; }
+.jltma-hover-active:hover .jltma-hover-fade { opacity: 1; }
 
 /* End of Advanced Image */
 

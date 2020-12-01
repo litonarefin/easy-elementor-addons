@@ -1277,6 +1277,79 @@
         },
 
 
+        /**** MA Advanced Image ****/
+        MA_Advanced_Image: function ($scope, $) {
+
+            Master_Addons.MA_Advanced_Image.elementSettings    = getElementSettings( $scope );
+
+            $scope.find('.jltma-img-dynamic-dropshadow').each(function() {
+                Master_Addons.MA_Dynamic_Dropshadow();
+            });
+
+            //Tilt Effect
+            $scope.find('.jltma-tilt-box').tilt({
+                maxTilt : $(this).data('max-tilt'),
+                easing: 'cubic-bezier(0.23, 1, 0.32, 1)',
+                speed: $(this).data('time'),
+                perspective: 2000
+            });
+
+            // Lightbox
+            $scope.find('.jltma-lightbox-btn').fancybox({
+                openEffect  : 'none',
+                closeEffect : 'none',
+                buttons: [
+                    "zoom",
+                    "share",
+                    "slideShow",
+                    "fullScreen",
+                    "download",
+                    "thumbs",
+                    "close"
+                ],                
+                afterLoad : function(instance, current) {
+                    var pixelRatio = window.devicePixelRatio || 1;
+
+                    if ( pixelRatio > 1.5 ) {
+                        current.width  = current.width  / pixelRatio;
+                        current.height = current.height / pixelRatio;
+                    }
+                }
+            });
+
+
+
+        },
+
+        MA_Dynamic_Dropshadow: function($scope, $){
+
+            var imgFrame, clonedImg, img;
+
+            if( this instanceof jQuery ){
+                if( this && this[0] ){
+                    img = this[0];
+                } else {
+                    return;
+                }
+            } else {
+                img = this;
+            }
+
+            if ( ! img.classList.contains('jltma-img-has-shadow')){
+                imgFrame  = document.createElement('div');
+                clonedImg = img.cloneNode();
+
+                clonedImg.classList.add('jltma-img-dynamic-dropshadow-cloned');
+                clonedImg.classList.remove('jltma-img-dynamic-dropshadow');
+                img.classList.add('jltma-img-has-shadow');
+                imgFrame.classList.add('jltma-img-dynamic-dropshadow-frame');
+
+                img.parentNode.appendChild(imgFrame);
+                imgFrame.appendChild(img);
+                imgFrame.appendChild(clonedImg);
+            }
+        },
+
         /**** MA Twitter Slider ****/
 
         MA_Twitter_Slider: function ($scope, $) {
@@ -1378,9 +1451,6 @@
 
         MA_ParticlesBG: function ($scope, $) {
 
-            // try {
-            //     (function($scope, $) {
-
             if ($scope.hasClass('ma-el-particle-yes')) {
                 let id = $scope.data('id');
                 let element_type = $scope.data('element_type');
@@ -1432,15 +1502,7 @@
         },
 
         MA_BgSlider: function ($scope, $) {
-            var ma_el_slides = [];
-            var ma_el_slides_json = [];
-            var ma_el_transition;
-            var ma_el_animation;
-            var ma_el_custom_overlay;
-            var ma_el_overlay;
-            var ma_el_cover;
-            var ma_el_delay;
-            var ma_el_timer;
+            var ma_el_slides = [], ma_el_slides_json = [], ma_el_transition, ma_el_animation, ma_el_custom_overlay, ma_el_overlay, ma_el_cover, ma_el_delay, ma_el_timer;
             var slider_wrapper = $scope.children('.ma-el-section-bs').children('.ma-el-section-bs-inner');
 
             if (slider_wrapper && slider_wrapper.data('ma-el-bg-slider')) {
@@ -2488,6 +2550,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-comments.default', Master_Addons.MA_Comment_Form_reCaptcha);
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-logo-slider.default', Master_Addons.MA_Logo_Slider);
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-twitter-slider.default', Master_Addons.MA_Twitter_Slider);
+        elementorFrontend.hooks.addAction('frontend/element_ready/jltma-advanced-image.default', Master_Addons.MA_Advanced_Image);
 
 
         if (elementorFrontend.isEditMode()) {
