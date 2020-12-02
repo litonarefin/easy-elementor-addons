@@ -7503,9 +7503,6 @@ body a.toc-link.clicked {
 
 
 /* Start of Advanced Image */
-
-
-
 .jltma-advanced-image .jltma-adv-image-wrapper{ display: inline-block; }
 .jltma-advanced-image .jltma-adv-image-wrapper .jltma-image-has-secondary img:last-child { position: absolute; top: 0; left: 0; opacity: 0; z-index: 2; -webkit-transition: opacity 1s; transition: opacity 1s; }
 .jltma-advanced-image .jltma-adv-image-wrapper:hover .jltma-image-has-secondary img:last-child { opacity: 1 }
@@ -7568,7 +7565,6 @@ aside .jltma-advanced-image.jltma-alignleft, aside .jltma-advanced-image.jltma-a
 
 
 /** Hover effect symbols  This file contains a collection of symbols that can appear over a frame with hover effect Each symbol can have its own unique effect. */
-/** Circle plus button  Sample markup <div class="jltma-hover-scale-circle-plus"> <span class="jltma-symbol-plus"></span> <span class="jltma-symbol-circle"></span> </div> */
 .jltma-hover-scale-circle-plus, .jltma-hover-scale-circle-plus2 { display: block; position: absolute; direction: ltr; }
 .jltma-hover-scale-circle-plus .jltma-symbol-plus, .jltma-hover-scale-circle-plus2 .jltma-symbol-plus, .jltma-hover-scale-circle-plus .jltma-symbol-circle, .jltma-hover-scale-circle-plus2 .jltma-symbol-circle { position: absolute; display: block; opacity: 0; transition: all 800ms cubic-bezier(0.75, 0.1, 0.25, 0.9); }
 .jltma-hover-scale-circle-plus .jltma-symbol-plus, .jltma-hover-scale-circle-plus2 .jltma-symbol-plus { z-index: 3; width: 30px; height: 30px; margin-top: 15px; transform-origin: 50% 0 0; }
