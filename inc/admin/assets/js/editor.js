@@ -4,6 +4,7 @@
 ;(function($, window, document, undefined){
 
     $( window ).on( 'elementor:init', function() {
+        
 		
 		// Add "master-addons" specific css class to elementor body
         $('.elementor-editor-active').addClass('master-addons');

@@ -21,38 +21,31 @@ class Master_Addons_Wrapper_Link {
 	 */
 	private static $instance = null;
 
-	public static function get_instance() {
-		if ( ! self::$instance ) {
-			self::$instance = new self;
-		}
-		return self::$instance;
-	}
 
-    public static function init() {
-        add_action( 'elementor/element/column/section_advanced/after_section_end', [ __CLASS__, 'add_controls_section' ], 1 );
-        add_action( 'elementor/element/section/section_advanced/after_section_end', [ __CLASS__, 'add_controls_section' ], 1 );
-        add_action( 'elementor/element/common/_section_style/after_section_end', [ __CLASS__, 'add_controls_section' ], 1 );
+    private function __construct() {
+        add_action( 'elementor/element/column/section_advanced/after_section_end', [ $this, 'jltma_wrapper_link_add_controls_section' ],10,3);
+        add_action( 'elementor/element/section/section_advanced/after_section_end', [ $this, 'jltma_wrapper_link_add_controls_section' ],10,1);
+        add_action( 'elementor/element/common/_section_style/after_section_end', [ $this, 'jltma_wrapper_link_add_controls_section' ],10,1);
 
-        add_action( 'elementor/frontend/before_render', [ __CLASS__, 'before_section_render' ], 1 );
+        add_action( 'elementor/frontend/before_render', [ $this, 'before_section_render' ],10,1);
     }
 
-    public static function add_controls_section( Element_Base $element) {
+    public static function jltma_wrapper_link_add_controls_section( Element_Base $element) {
+        
         $tabs = Controls_Manager::TAB_CONTENT;
 
-        if ( 'section' === $element->get_name() || 'column' === $element->get_name() ) {
-            $tabs = Controls_Manager::TAB_LAYOUT;
-        }
+        if ( 'section' === $element->get_name() || 'column' === $element->get_name() ) $tabs = Controls_Manager::TAB_LAYOUT;
 
         $element->start_controls_section(
-            '_section_ha_wrapper_link',
+            'jltma_section_wrapper_link',
             [
-                'label' => esc_html__( 'Wrapper Link', MELA_TD ) . ha_get_section_icon(),
+                'label' => MA_EL_BADGE . esc_html__( 'Wrapper Link', MELA_TD ),
                 'tab'   => $tabs,
             ]
         );
 
         $element->add_control(
-            'ha_element_link',
+            'jltma_section_element_link',
             [
                 'label'       => esc_html__( 'Link', MELA_TD ),
 				'type'        => Controls_Manager::URL,
@@ -67,19 +60,29 @@ class Master_Addons_Wrapper_Link {
     }
 
     public static function before_section_render( Element_Base $element ) {
+        
         $settings = $element->get_settings_for_display();
-        $ha_link  = $settings['ha_element_link'];
+        
+        $jltma_element_link  = $settings['jltma_section_element_link'];
 
-        if ( $ha_link && ! empty( $ha_link['url'] ) ) {
+        if ( $jltma_element_link && ! empty( $jltma_element_link['url'] ) ) {
             $element->add_render_attribute(
-                '_wrapper',
+                'jltma_wrapper',
                 [
-                    'data-ha-element-link' => json_encode( $ha_link ),
+                    'data-jltma-wrapper-link' => json_encode( $jltma_element_link ),
                     'style' => 'cursor: pointer'
                 ]
             );
         }
     }
+
+
+	public static function get_instance() {
+		if ( ! self::$instance ) {
+			self::$instance = new self;
+		}
+		return self::$instance;
+	}
 }
 
 Master_Addons_Wrapper_Link::get_instance();

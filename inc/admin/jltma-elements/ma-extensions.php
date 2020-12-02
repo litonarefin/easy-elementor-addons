@@ -123,6 +123,13 @@ $jltma_elements = [
                 'demo_url'      => 'https://master-addons.com/demos/floating-effect/',
                 'docs_url'      => 'https://master-addons.com/floating-effect-elementor/',
                 'tuts_url'      => ''
+            ],            
+            [
+                'key'           => 'wrapper-link',
+                'title'         => esc_html__( 'Wrapper Link', MELA_TD),
+                'demo_url'      => '#',
+                'docs_url'      => '#',
+                'tuts_url'      => '#'
             ],
             // [
             //     'key'           => 'morphing-effects',
