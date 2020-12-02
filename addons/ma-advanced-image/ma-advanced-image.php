@@ -260,7 +260,8 @@
 	                    'plus' => __('Plus', MELA_TD )
 	                ),
 	                'condition'   => array(
-	                    'ma_el_adv_image_settings_lightbox' => 'yes'
+	                    'ma_el_adv_image_settings_lightbox' => 'yes',
+	                    'ma_el_adv_image_display_hover!' => 'yes'
 	                )
 	            )
 	        );
@@ -1385,7 +1386,7 @@
 	            } else {
 	                $attr['class'] .= ' jltma-blank';
 	            }
-
+	            
 	            if( ! empty( $preload_bgcolor ) ){
 	                $attr['data-bg-color'] = $preload_bgcolor;
 	            }
@@ -1743,8 +1744,6 @@
 		        'preload_preview'  => $settings['ma_el_adv_image_settings_preload_preview'],
 		        'preload_bgcolor'  => $settings['ma_el_adv_image_settings_preload_bgcolor'],
 		        'tilt'             => $settings['ma_el_adv_image_tilt']
-
-
 			);
 			echo $this->jltma_adv_image_callback( $args );
 		}

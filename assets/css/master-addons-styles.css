@@ -7556,16 +7556,13 @@ aside .jltma-advanced-image.jltma-alignleft, aside .jltma-advanced-image.jltma-a
 
 .jltma-preloaded.jltma-blank { animation-name: JltmaFadeInPreloaded; animation-duration: 400ms; animation-fill-mode: both; animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
-@keyframes JltmaLoadingWave { 0% { background-position: 0% 0; }
-  100% { background-position: 66% 0; } }
-@keyframes JltmaFadeInPreloaded { from { opacity: 0; }
-  to { opacity: 1; } }
+@keyframes JltmaLoadingWave { 0% { background-position: 0% 0; } 100% { background-position: 66% 0; } }
+@keyframes JltmaFadeInPreloaded { from { opacity: 0; } to { opacity: 1; } }
+
 .jltma-img-dynamic-dropshadow-frame { position: relative; }
 .jltma-img-dynamic-dropshadow-frame .jltma-img-dynamic-dropshadow { position: relative; z-index: 1; }
 .jltma-img-dynamic-dropshadow-frame .jltma-img-dynamic-dropshadow-cloned { position: absolute; left: 0; right: 0; top: 0; margin: 0 auto !important; transform: translateX(75px) translateY(40px); opacity: 0.4; filter: blur(50px); }
-
 .jltma-orginal-blured-img { position: relative; overflow: hidden; }
-
 .jltma-blured-img { position: absolute; width: 100%; height: 100%; left: 0; top: 0; opacity: 0; transition: opacity,transform 100ms ease-out; will-change: opacity,transform; }
 
 
@@ -11604,4 +11601,51 @@ ul.jltma-toggle-content-controls {
 .jltma-twitter-slider .jltma-twitter-thumb img{
     display: initial;
 }
-/* Start of Twitter Slider
+/* Start of Twitter Slider */
+
+
+/* Hover Interactions */
+.jltma-frame-cube { transition: all 500ms; transform-style: preserve-3d; transform-origin: center center 0px; transform: perspective(1000px); will-change: transform; }
+.jltma-frame-cube .jltma-face-front { -moz-backface-visibility: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+.jltma-frame-cube .jltma-face-left { position: absolute; top: 0; -moz-backface-visibility: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; transform: rotateY(-90deg) translateX(-100%); transform-origin: left center; }
+.jltma-frame-cube .jltma-face-right { position: absolute; top: 0; -moz-backface-visibility: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; transform: rotateY(90deg) translateX(100%); transform-origin: right; }
+.jltma-frame-cube .jltma-face-top { position: absolute; top: 0; -moz-backface-visibility: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; transform: rotateX(90deg) translateY(-100%); transform-origin: top center; }
+.jltma-frame-cube .jltma-face-bottom { position: absolute; top: 0; -moz-backface-visibility: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; transform: rotateX(-90deg) translateY(100%); transform-origin: bottom center; }
+.jltma-frame-cube .jltma-face-back { position: absolute; top: 0; -moz-backface-visibility: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; transform: rotateX(180deg) translateZ(100%); transform-origin: center; }
+
+.jltma-frame-card .jltma-card-faces { transition: all 500ms; transform-style: preserve-3d; transform: perspective(1000px); position: relative; }
+.jltma-frame-card .jltma-face-front { -moz-backface-visibility: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+.jltma-frame-card .jltma-face-back { position: absolute; top: 0; left: 0; -moz-backface-visibility: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; transform: rotateY(180deg); transform-origin: center; }
+.jltma-frame-card.jltma-rotate-up .jltma-face-back, .jltma-frame-card.jltma-rotate-down .jltma-face-back { transform: rotateX(180deg); }
+.jltma-hover-active:hover .jltma-frame-card.jltma-rotate-left:hover .jltma-card-faces { transform: perspective(1000px) rotateY(180deg); }
+.jltma-hover-active:hover .jltma-frame-card.jltma-rotate-right:hover .jltma-card-faces { transform: perspective(1000px) rotateY(-180deg); }
+.jltma-hover-active:hover .jltma-frame-card.jltma-rotate-up:hover .jltma-card-faces { transform: perspective(1000px) rotateX(180deg); }
+.jltma-hover-active:hover .jltma-frame-card.jltma-rotate-down:hover .jltma-card-faces { transform: perspective(1000px) rotateX(-180deg); }
+
+.jltma-frame-mask { overflow: hidden; position: relative; transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1); transform: perspective(1000) translateZ(0px); }
+.jltma-frame-mask img { transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1); transform: perspective(1000) translateZ(0px); }
+.jltma-hover-active:hover .jltma-frame-mask { transform: perspective(1000) translateZ(-120px); }
+.jltma-hover-active:hover .jltma-frame-mask img { transform: perspective(1000) translateZ(102.66396px); }
+
+.jltma-frame-mask-plain { overflow: hidden; position: relative; transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1); transform: perspective(1000) translateZ(0px); }
+.jltma-hover-active:hover .jltma-frame-mask-plain { transform: perspective(1000) translateZ(-120px); }
+
+.jltma-frame-zoom { overflow: hidden; position: relative; }
+.jltma-frame-zoom img { will-change: transform; transition: all 1.2s ease-out; transform: translateZ(1px); }
+.jltma-hover-active:hover .jltma-frame-zoom img { transform: scale(1.2) translateZ(0.1px); }
+
+.jltma-frame-darken::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.75); opacity: 0; z-index: 1; will-change: opacity; transition: opacity 1s ease-out; }
+.jltma-hover-active:hover .jltma-frame-darken::after { opacity: 1; }
+
+.jltma-frame-lighten::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.75); opacity: 0; z-index: 1; will-change: opacity; transition: opacity 1s ease-out; }
+.jltma-hover-active:hover .jltma-frame-lighten::after { opacity: 1; }
+
+.jltma-frame-boxed-lighten::after { content: ""; position: absolute; top: 15px; bottom: 15px; left: 15px; right: 15px; background-color: rgba(255, 255, 255, 0.75); opacity: 0; z-index: 1; will-change: opacity transform; transform: scale(1.1); transition: opacity 1s cubic-bezier(0.77, 0, 0.175, 1), transform 1s cubic-bezier(0.77, 0, 0.175, 1); }
+.jltma-hover-active:hover .jltma-frame-boxed-lighten::after { transform: scale(1); opacity: 1; }
+
+.jltma-frame-boxed-darken::after { content: ""; position: absolute; top: 15px; bottom: 15px; left: 15px; right: 15px; background-color: rgba(0, 0, 0, 0.75); opacity: 0; z-index: 1; will-change: opacity transform; transform: scale(1.1); transition: opacity 1s cubic-bezier(0.77, 0, 0.175, 1), transform 1s cubic-bezier(0.77, 0, 0.175, 1); }
+.jltma-hover-active:hover .jltma-frame-boxed-darken::after { transform: scale(1); opacity: 1; }
+
+.jltma-frame-ratio { display: block; width: 100%; padding-bottom: 70%; }
+.jltma-frame-ratio .jltma-frame-ratio-inner { display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+.jltma-frame-ratio .jltma-frame-ratio-inner > img { height: auto; position: absolute; display: block; width: 100%; transform: translate(-50%, -50%); top: 50%; left: 50%; max-height: none; max-width: none; }
