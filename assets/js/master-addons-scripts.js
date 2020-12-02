@@ -1283,7 +1283,6 @@
             Master_Addons.MA_Advanced_Image.elementSettings    = getElementSettings( $scope );
 
             $scope.find('.jltma-img-dynamic-dropshadow').each(function() {
-                // Master_Addons.MA_Dynamic_Dropshadow($scope, $);
 
                 var imgFrame, clonedImg, img;
 
@@ -1342,38 +1341,6 @@
                     }
                 }
             });
-
-
-
-        },
-
-        MA_Dynamic_Dropshadow: function($scope, $){
-
-            var imgFrame, clonedImg, img;
-
-            if( this instanceof jQuery ){
-                if( this && this[0] ){
-                    img = this[0];
-                } else {
-                    return;
-                }
-            } else {
-                img = this;
-            }
-
-            if ( ! img.classList.contains('jltma-img-has-shadow')){
-                imgFrame  = document.createElement('div');
-                clonedImg = img.cloneNode();
-
-                clonedImg.classList.add('jltma-img-dynamic-dropshadow-cloned');
-                clonedImg.classList.remove('jltma-img-dynamic-dropshadow');
-                img.classList.add('jltma-img-has-shadow');
-                imgFrame.classList.add('jltma-img-dynamic-dropshadow-frame');
-
-                img.parentNode.appendChild(imgFrame);
-                imgFrame.appendChild(img);
-                imgFrame.appendChild(clonedImg);
-            }
         },
 
         /**** MA Twitter Slider ****/

@@ -228,6 +228,9 @@
 			$this->end_controls_section();
 
 
+			/**
+			* Tab: Settings
+			*/
 
 			$this->start_controls_section(
 				'ma_el_adv_image_settings_section',
@@ -1452,32 +1455,6 @@
 
 			// Defining default attributes
 			$default_atts = array(
-				// 'title'            => '', // header title
-				// 'add_content'      => false,
-				// 'content_title'    => '',
-				// 'content_subtitle' => '',
-				// 'tilt'             => false,
-				// 'colorized_shadow' => false,
-				// 'attach_id'        => '', // attachment id for main image
-				// 'attach_id_hover'  => '', // attachment id for hover image
-				// 'link'             => '', // link on image
-				// 'target'           => '_self', // link target
-				// 'nofollow'         => '', // link nofollow
-				// 'alt'              => '', // alternative text
-				// 'size'             => 'medium_large', // image size
-				// 'width'            => '', // final width of image
-				// 'height'           => '', // final height of image
-				// 'icon'             => 'plus', // icon type. plus, zoom, none
-				// 'image_html'       => '',
-				// 'display_ribbon'   => '1',
-				// 'ribbon_style'     => 'simple',
-				// 'ribbon_position'  => 'top-right',
-				// 'ribbon_text'      => '',
-
-				// 'extra_classes'    => '', // custom css class names for this element
-				// 'custom_el_id'     => '', // custom id attribute for this element
-				// 'base_class'       => 'jltma-advanced-image'  // base class name for container
-
 		        'title'            => '', // header title
 		        'add_content'      => false,
 		        'content_title'    => '',
@@ -1579,42 +1556,6 @@
 		        $image_primary = $image_html;
 		    }
 
-
-			// if( ! empty( $attach_id ) && is_numeric( $attach_id ) ) {
-			// 	$image_primary = $this->jltma_get_the_responsive_attachment( $attach_id,
-			// 		array(
-			// 			'quality'         => 100,
-			// 			'size'            => $size,
-			// 			'crop'            => true,
-			// 			'add_hw'          => true,
-			// 			'upscale'         => false,
-			// 			'original_src'    => 'full' === $size ? true : false,
-			// 			'attr'            => array( 'class' => $image_classes )
-			// 		)
-			// 	);
-
-			// 	$image_primary_full_src = $this->jltma_get_attachment_url( $attach_id, 'full' );
-			// 	$image_primary_meta     = wp_get_attachment_metadata( $attach_id );
-
-			// 	$lightbox_attrs = 'data-elementor-open-lightbox="no" ';
-
-			// } elseif( ! empty( $image_html ) ) {
-			// 	$image_primary = $image_html;
-			// }
-
-			// if( ! empty( $attach_id_hover ) && is_numeric( $attach_id_hover ) ) {
-			// 	$image_secondary = $this->jltma_get_the_responsive_attachment( $attach_id_hover,
-			// 		array(
-			// 			'quality'         => 100,
-			// 			'size'            => $size,
-			// 			'crop'            => true,
-			// 			'add_hw'          => true,
-			// 			'upscale'         => false
-			// 		)
-			// 	);
-			// }
-
-
 		    if( ! empty( $attach_id_hover ) && is_numeric( $attach_id_hover ) ) {
 		        $image_secondary = $this->jltma_get_the_responsive_attachment( $attach_id_hover,
 		            array(
@@ -1700,10 +1641,7 @@
 		    </div>
 
 
-
 			<?php
-
-			// widget footer ------------------------------
 			echo $result['widget_footer'];
 
 			return ob_get_clean();
@@ -1719,8 +1657,6 @@
 
 			$args        = array(
 				'image_html'       => Group_Control_Image_Size::get_attachment_image_html( $settings, 'ma_el_adv_image' ),
-
-				// 'attach_id'        => $settings['ma_el_adv_image']['id'],
 				'attach_id'        => Master_Addons_Helper::jltma_get_array_value( $settings['ma_el_adv_image'], 'id' ),
 				'size'             => $settings['ma_el_adv_image_size'],
 				'width'            => Master_Addons_Helper::jltma_get_array_value( $settings['ma_el_adv_image_custom_dimension'], 'width' ),
