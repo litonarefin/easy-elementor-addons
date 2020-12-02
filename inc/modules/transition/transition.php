@@ -1,5 +1,5 @@
 <?php
-namespace MasterAddons\Modules\Transition;
+namespace MasterAddons\Inc\Extensions;
 
 use Elementor\Plugin;
 use Elementor\Widget_Base;
