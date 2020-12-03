@@ -17,11 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
 class Master_Addons_Wrapper_Link {
 
-	/*
-	 * Instance of this class
-	 */
 	private static $instance = null;
-
 
     private function __construct() {
         add_action( 'elementor/element/column/section_advanced/after_section_end', [ $this, 'jltma_wrapper_link_add_controls_section' ],10,3);
