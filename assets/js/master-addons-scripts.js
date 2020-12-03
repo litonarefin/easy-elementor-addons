@@ -2041,45 +2041,16 @@
         // Wrapper Link
         MA_Wrapper_Link: function ($scope, $) {
 
-            // $scope = $scope || $(this);
-
-            // $('[data-jltma-wrapper-link]').each(function() {
-            //     var link = $(this).data('jltma-wrapper-link');
-                
-            //     console.log('Link', link);
-
-            //     $(this).on('click.haElementOnClick', function() {
-            //         if (link.is_external) {
-            //             window.open(link.url);
-            //         } else {
-            //             location.href = link.url;
-            //         }
-            //     })
-            // });
-
-
-
-            // if(isEditMode){
-            //     return;
-            // }
-console.log('ljkashdflkjasd');
-            var link = $(this).data('jltma-wrapper-link');
-
-            if ( $scope.data( 'jltma-wrapper-link' ) ){
-                $scope.on('click', function (e) {
-
-                    
-                    // if ( $scope.data( 'jltma-wrapper-link' ) && $scope.data('wts-new-window') == 'yes' ) {
-                    //     window.open($scope.data('jltma-wrapper-link'));
-                    // }else{
-                    //     location.href = $scope.data('jltma-wrapper-link');
-                    // }
+            $('[data-jltma-wrapper-link]').each(function() {
+                var link = $(this).data('jltma-wrapper-link');
+                $(this).on('click.jltmaElementOnClick', function() {
+                    if (link.is_external) {
+                        window.open(link.url);
+                    } else {
+                        location.href = link.url;
+                    }
                 })
-            }
-        
-
-
-
+            });
         },
 
         /**
@@ -2545,25 +2516,6 @@ console.log('ljkashdflkjasd');
 
 
     $(window).on('elementor/frontend/init', function () {
-
-
-        // console.log('Link');
-
-        // $('[data-jltma-wrapper-link]').each(function() {
-        //     var link = $(this).data('jltma-wrapper-link');
-            
-        //     console.log('Link', link);
-
-        //     $(this).on('click.haElementOnClick', function() {
-        //         if (link.is_external) {
-        //             window.open(link.url);
-        //         } else {
-        //             location.href = link.url;
-        //         }
-        //     })
-        // });        
-
-
 
         if (elementorFrontend.isEditMode()) {
             editMode = true;

@@ -1,5 +1,6 @@
 <?php
-namespace MasterAddons\Modules;
+namespace MasterAddons\Modules\WrapperLink;
+// namespace MasterAddons\Modules\AnimatedGradient;
 
 use Elementor\Controls_Manager;
 use Elementor\Element_Base;
@@ -27,7 +28,7 @@ class Master_Addons_Wrapper_Link {
         add_action( 'elementor/element/section/section_advanced/after_section_end', [ $this, 'jltma_wrapper_link_add_controls_section' ],10,1);
         add_action( 'elementor/element/common/_section_style/after_section_end', [ $this, 'jltma_wrapper_link_add_controls_section' ],10,1);
 
-        add_action( 'elementor/frontend/before_render', [ $this, 'before_section_render' ],10,1);
+        add_action( 'elementor/frontend/before_render', [ $this, 'jltma_before_section_render' ],10,1);
     }
 
     public static function jltma_wrapper_link_add_controls_section( Element_Base $element) {
@@ -59,7 +60,7 @@ class Master_Addons_Wrapper_Link {
         $element->end_controls_section();
     }
 
-    public static function before_section_render( Element_Base $element ) {
+    public static function jltma_before_section_render( Element_Base $element ) {
         
         $settings = $element->get_settings_for_display();
         
@@ -67,7 +68,7 @@ class Master_Addons_Wrapper_Link {
 
         if ( $jltma_element_link && ! empty( $jltma_element_link['url'] ) ) {
             $element->add_render_attribute(
-                'jltma_wrapper',
+                '_wrapper',
                 [
                     'data-jltma-wrapper-link' => json_encode( $jltma_element_link ),
                     'style' => 'cursor: pointer'
