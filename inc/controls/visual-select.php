@@ -2,6 +2,7 @@
 namespace MasterAddons\Inc\Controls;
 
 use Elementor\Base_Data_Control;
+
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 class MA_Control_Visual_Select extends Base_Data_Control {

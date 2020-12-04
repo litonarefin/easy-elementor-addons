@@ -375,6 +375,7 @@ Paste on your Local Computer
 == Changelog ==
 = 1.5.5 (22-11-2020) =
 * Added: Particles Extension "Z-Index" option added
+* Added: Wrapper Link extension. Supports - Individual Elements, Sections & Columns.
 
 
 = 1.5.4.1 (22-11-2020) =

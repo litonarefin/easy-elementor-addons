@@ -271,6 +271,13 @@ $jltma_elements = [
                 'docs_url'      => '',
                 'tuts_url'      => ''
             ],
+            [
+                'key'           => 'ma-gradient-headline',
+                'title'         => esc_html__( 'Gradient Headline', MELA_TD),
+                'demo_url'      => '',
+                'docs_url'      => '',
+                'tuts_url'      => ''
+            ],
             // [
             //     'key'           => 'ma-image-cascading',
             //     'title'         => esc_html__( 'Cascading Image', MELA_TD),
