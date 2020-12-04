@@ -116,8 +116,8 @@ Quick Overview:
 6. Gravity Forms (Pro Element)
 
 == Free Extensions ==
-1. [Particles Background](http://master-addons.com/ma-particles-background/)
-2. [Background Slider](http://master-addons.com/ma-slider-background/)
+1. [Particles Background](https://master-addons.com/ma-particles-background/)
+2. [Background Slider](https://master-addons.com/ma-slider-background/)
 3. [Custom Breakpoints](https://master-addons.com/demos/custom-breakpoints/)
 4. [Custom CSS](https://master-addons.com/docs/addons/custom-css-extension/)
 5. [Custom JS](https://master-addons.com/docs/addons/custom-js-extension/)
@@ -253,7 +253,7 @@ MA Flip Box comes with a 3D effect and in a variety of options. The Variations a
 35. [WP Forms](https://master-addons.com/demos/wp-forms/): This addon will help you add elements specific to WP Forms. So, if you have designed a form using WP Forms and is trying to display them in a page built using Elementor, you can do that using this widget.
 
 
-36. [Particles Background](http://master-addons.com/ma-particles-background/): Particles background is an animated background that has particles moving inside it. You can choose different shapes, sizes, and colors of these particles. You can use them as backgrounds of rows and columns to make them interactive. With our MA Particle Background, you can also add the effect of color gradients to add more wow factor.
+36. [Particles Background](https://master-addons.com/ma-particles-background/): Particles background is an animated background that has particles moving inside it. You can choose different shapes, sizes, and colors of these particles. You can use them as backgrounds of rows and columns to make them interactive. With our MA Particle Background, you can also add the effect of color gradients to add more wow factor.
 
 
 37. [Animated Gradient Background](https://master-addons.com/demos/gradient-background/): You can also create a section or row background with Gradient only using our Gradient Background addon. There are unlimited possibilities of customization using our custom color palette.
