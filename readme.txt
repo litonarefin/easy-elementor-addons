@@ -1,6 +1,6 @@
 === Master Addons for Elementor ===
-Contributors: jwthemeltd, litonice13
-Tags: elementor, elementor addon, elementor widget, custom css elements, essential widget, after before image comparison, image hover effects, header & footer builder, template import, elementor addons, elementor extensions,  elementor modules, elementor templates, comment form builder, mega menu, header footer builder, elements, page builder addons,addons, jewletheme, masteraddons
+Contributors: jwthemeltd, litonice13, masteraddons
+Tags: elementor, elementor addon, elementor widget, clickable column, essential widget, custom css elements, after before image comparison, image hover effects, header & footer builder, template import, elementor addons, elementor extensions,  elementor modules, elementor templates, comment form builder, mega menu, header footer builder, elements, page builder addons,addons, jewletheme, masteraddons
 Requires at least: 4.0
 Tested up to: 5.5.3
 Requires PHP: 5.3
@@ -375,7 +375,7 @@ Paste on your Local Computer
 == Changelog ==
 = 1.5.5 (22-11-2020) =
 * Added: Particles Extension "Z-Index" option added
-* Added: Wrapper Link extension. Supports - Individual Elements, Sections & Columns.
+* Added: Wrapper Link extension. Supports - Individual Elements, Sections & Columns. You can Make Section or Column Clickable on Elementor.
 
 
 = 1.5.4.1 (22-11-2020) =

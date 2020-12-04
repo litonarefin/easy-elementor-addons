@@ -9,8 +9,8 @@ if( !class_exists('Master_Elementor_Addons') ){
 		static public $class_namespace = '\\MasterAddons\\Inc\\Classes\\';
 		public $controls_manager;
 
-		const VERSION = "1.5.4";
-		const JLTMA_STABLE_VERSION = "1.5.4";
+		const VERSION = "1.5.5";
+		const JLTMA_STABLE_VERSION = "1.5.4.1";
 		const MINIMUM_PHP_VERSION = '5.4';
 		const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
 

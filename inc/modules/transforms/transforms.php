@@ -24,6 +24,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 'label' => __('Enabled Transforms', MELA_TD ),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
+                'prefix_class' => 'jltma-transform-',
             ]
         );
 
@@ -78,6 +79,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_translate_toggle' => 'yes',
                     'enabled_transform'                  => 'yes',
                 ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-translate-x: {{SIZE}}px;'
+                ],                
             ]
         );
 
@@ -93,65 +97,19 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                         'max' => 1000,
                     ],
                 ],
-                'condition'  => [
+                'condition'   => [
                     'jltma_transform_fx_translate_toggle' => 'yes',
                     'enabled_transform'                  => 'yes',
                 ],
-                'selectors'  => [
-                    '(desktop){{WRAPPER}}' =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x.SIZE || 0}}px, {{jltma_transform_fx_translate_y.SIZE || 0}}px);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x.SIZE || 0}}px, {{jltma_transform_fx_translate_y.SIZE || 0}}px);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x.SIZE || 0}}px, {{jltma_transform_fx_translate_y.SIZE || 0}}px);',
-                    '(tablet){{WRAPPER}}'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_tablet.SIZE || 0}}px);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_tablet.SIZE || 0}}px);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_tablet.SIZE || 0}}px);',
-                    '(mobile){{WRAPPER}}'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_mobile.SIZE || 0}}px);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_mobile.SIZE || 0}}px);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_mobile.SIZE || 0}}px);',
-                ],
+                'render_type'  => 'none',
+                'handles'      => 'range',
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-translate-y: {{SIZE}}px;'
+                ],                
             ]
         );
 
         $element->end_popover();
-
-
-
-        // $element->add_responsive_control(
-        //     'jltma_transform_fx_perspective',
-        //     [
-        //         'label' => esc_html__( 'Perspective Size', MELA_TD ),
-        //         'type' => Controls_Manager::SLIDER,
-        //         'range' => [
-        //             'px' => [
-        //                 'step' => 1,
-        //                 'min' => 0,
-        //                 'max' => 10000,
-        //             ],
-        //         ],
-        //         'default' => [
-        //             'size' => '1000',
-        //         ],
-        //         'condition' => [
-        //             'enabled_transform' => 'yes',
-        //             // 'jltma_morphing_effects' => ['rotateX', 'rotateY'],
-        //         ],
-        //         'selectors' => [
-        //             '{{WRAPPER}}' => 'perspective: {{SIZE}}px;',
-        //         ],
-        //     ]
-        // );
-
 
 
         $element->add_control(
@@ -183,6 +141,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_rotate_toggle' => 'yes',
                     'enabled_transform'               => 'yes',
                 ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-rotate-x: {{SIZE}}deg;'
+                ],                
             ]
         );
 
@@ -202,6 +163,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_rotate_toggle' => 'yes',
                     'enabled_transform'               => 'yes',
                 ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-rotate-y: {{SIZE}}deg;'
+                ],                
             ]
         );
 
@@ -221,38 +185,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_rotate_toggle' => 'yes',
                     'enabled_transform'               => 'yes',
                 ],
-                'selectors'  => [
-                    '(desktop){{WRAPPER}}' =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x.SIZE || 0}}px, {{jltma_transform_fx_translate_y.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z.SIZE || 0}}deg);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x.SIZE || 0}}px, {{jltma_transform_fx_translate_y.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z.SIZE || 0}}deg);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x.SIZE || 0}}px, {{jltma_transform_fx_translate_y.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z.SIZE || 0}}deg);',
-                    '(tablet){{WRAPPER}}'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_tablet.SIZE || 0}}deg);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_tablet.SIZE || 0}}deg);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_tablet.SIZE || 0}}deg);',
-                    '(mobile){{WRAPPER}}'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_mobile.SIZE || 0}}deg);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_mobile.SIZE || 0}}deg);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_mobile.SIZE || 0}}deg);',
-                ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-rotate-z: {{SIZE}}deg;'
+                ],                
             ]
         );
 
@@ -292,6 +227,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_scale_toggle' => 'yes',
                     'enabled_transform'              => 'yes',
                 ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-scale-x: {{SIZE}}; --jltma-tfx-scale-y: {{SIZE}};'
+                ],                
             ]
         );
 
@@ -315,47 +253,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_scale_toggle' => 'yes',
                     'enabled_transform'              => 'yes',
                 ],
-                'selectors'  => [
-                    '(desktop){{WRAPPER}}' =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x.SIZE || 0}}px, {{jltma_transform_fx_translate_y.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y.SIZE || 1}});'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x.SIZE || 0}}px, {{jltma_transform_fx_translate_y.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y.SIZE || 1}});'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x.SIZE || 0}}px, {{jltma_transform_fx_translate_y.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y.SIZE || 1}});',
-                    '(tablet){{WRAPPER}}'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_tablet.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_tablet.SIZE || 1}});'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_tablet.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_tablet.SIZE || 1}});'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_tablet.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_tablet.SIZE || 1}});',
-                    '(mobile){{WRAPPER}}'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_mobile.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_mobile.SIZE || 1}});'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_mobile.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_mobile.SIZE || 1}});'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_mobile.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_mobile.SIZE || 1}});',
-                ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-scale-y: {{SIZE}};'
+                ],                
             ]
         );
 
@@ -391,6 +291,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_skew_toggle' => 'yes',
                     'enabled_transform'             => 'yes',
                 ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-skew-x: {{SIZE}}deg;'
+                ],                
             ]
         );
 
@@ -407,59 +310,12 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     ],
                 ],
                 'condition'  => [
-                    'jltma_transform_fx_skew_toggle' => 'yes',
-                    'enabled_transform'             => 'yes',
+                    'jltma_transform_fx_skew_toggle'    => 'yes',
+                    'enabled_transform'                 => 'yes',
                 ],
-                'selectors'  => [
-                    '(desktop){{WRAPPER}}' =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x.SIZE || 0}}px, {{jltma_transform_fx_translate_y.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x.SIZE || 0}}deg, {{jltma_transform_fx_skew_y.SIZE || 0}}deg);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x.SIZE || 0}}px, {{jltma_transform_fx_translate_y.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x.SIZE || 0}}deg, {{jltma_transform_fx_skew_y.SIZE || 0}}deg);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x.SIZE || 0}}px, {{jltma_transform_fx_translate_y.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x.SIZE || 0}}deg, {{jltma_transform_fx_skew_y.SIZE || 0}}deg);',
-                    '(tablet){{WRAPPER}}'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_tablet.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_tablet.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_tablet.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_tablet.SIZE || 0}}deg);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_tablet.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_tablet.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_tablet.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_tablet.SIZE || 0}}deg);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_tablet.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_tablet.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_tablet.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_tablet.SIZE || 0}}deg);',
-                    '(mobile){{WRAPPER}}'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_mobile.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_mobile.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_mobile.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_mobile.SIZE || 0}}deg);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_mobile.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_mobile.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_mobile.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_mobile.SIZE || 0}}deg);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_mobile.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_mobile.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_mobile.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_mobile.SIZE || 0}}deg);',
-                ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-skew-y: {{SIZE}}deg;'
+                ],                
             ]
         );
 
@@ -509,6 +365,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_translate_toggle_hover' => 'yes',
                     'enabled_transform'                         => 'yes',
                 ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-translate-x-hover: {{SIZE}}px;'
+                ],                
             ]
         );
 
@@ -528,29 +387,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_translate_toggle_hover' => 'yes',
                     'enabled_transform'                         => 'yes',
                 ],
-                'selectors'  => [
-                    '(desktop){{WRAPPER}}:hover' =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px);',
-                    '(tablet){{WRAPPER}}:hover'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px);',
-                    '(mobile){{WRAPPER}}:hover'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px);',
-                ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-translate-y-hover: {{SIZE}}px;'
+                ],    
             ]
         );
 
@@ -584,8 +423,11 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'condition'  => [
                     'jltma_transform_fx_rotate_toggle_hover' => 'yes',
-                    'enabled_transform'               => 'yes',
+                    'enabled_transform'                      => 'yes',
                 ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-rotate-x-hover: {{SIZE}}deg;'
+                ],                
             ]
         );
 
@@ -605,6 +447,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_rotate_toggle_hover' => 'yes',
                     'enabled_transform'               => 'yes',
                 ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-rotate-y-hover: {{SIZE}}deg;'
+                ],                
             ]
         );
 
@@ -624,38 +469,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_rotate_toggle_hover' => 'yes',
                     'enabled_transform'               => 'yes',
                 ],
-                'selectors'  => [
-                    '(desktop){{WRAPPER}}:hover' =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg);',
-                    '(tablet){{WRAPPER}}:hover'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg);',
-                    '(mobile){{WRAPPER}}:hover'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg);',
-                ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-rotate-z-hover: {{SIZE}}deg;'
+                ],                
             ]
         );
 
@@ -695,6 +511,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_scale_toggle_hover' => 'yes',
                     'enabled_transform'              => 'yes',
                 ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-scale-x-hover: {{SIZE}}; --jltma-tfx-scale-y-hover: {{SIZE}};'
+                ],                
             ]
         );
 
@@ -718,47 +537,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_scale_toggle_hover' => 'yes',
                     'enabled_transform'                     => 'yes',
                 ],
-                'selectors'  => [
-                    '(desktop){{WRAPPER}}:hover' =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover.SIZE || 1}});'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover.SIZE || 1}});'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover.SIZE || 1}});',
-                    '(tablet){{WRAPPER}}:hover'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_tablet.SIZE || 1}});'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_tablet.SIZE || 1}});'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_tablet.SIZE || 1}});',
-                    '(mobile){{WRAPPER}}:hover'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_mobile.SIZE || 1}});'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_mobile.SIZE || 1}});'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_mobile.SIZE || 1}});',
-                ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-scale-y-hover: {{SIZE}};'
+                ],                
             ]
         );
 
@@ -794,6 +575,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_skew_toggle_hover'  => 'yes',
                     'enabled_transform'                     => 'yes',
                 ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-skew-x-hover: {{SIZE}}deg;'
+                ],                
             ]
         );
 
@@ -813,56 +597,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'jltma_transform_fx_skew_toggle_hover' => 'yes',
                     'enabled_transform'             => 'yes',
                 ],
-                'selectors'  => [
-                    '(desktop){{WRAPPER}}:hover' =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_hover.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover.SIZE || 0}}deg);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_hover.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover.SIZE || 0}}deg);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_hover.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover.SIZE || 0}}deg);',
-                    '(tablet){{WRAPPER}}:hover'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_tablet.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_hover_tablet.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover_tablet.SIZE || 0}}deg);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_tablet.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_hover_tablet.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover_tablet.SIZE || 0}}deg);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_tablet.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_tablet.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_tablet.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_tablet.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.tablet.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover_tablet.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_tablet.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_hover_tablet.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover_tablet.SIZE || 0}}deg);',
-                    '(mobile){{WRAPPER}}:hover'  =>
-                        '-ms-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_mobile.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_hover_mobile.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover_mobile.SIZE || 0}}deg);'
-                        . '-webkit-transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_mobile.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_hover_mobile.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover_mobile.SIZE || 0}}deg);'
-                        . 'transform:'
-                        . 'translate({{jltma_transform_fx_translate_x_hover_mobile.SIZE || 0}}px, {{jltma_transform_fx_translate_y_hover_mobile.SIZE || 0}}px) '
-                        . 'rotateX({{jltma_transform_fx_rotate_x_hover_mobile.SIZE || 0}}deg) rotateY({{jltma_transform_fx_rotate_y_hover_mobile.SIZE || 0}}deg) rotateZ({{jltma_transform_fx_rotate_z_hover.mobile.SIZE || 0}}deg) '
-                        . 'scaleX({{jltma_transform_fx_scale_x_hover_mobile.SIZE || 1}}) scaleY({{jltma_transform_fx_scale_y_hover_mobile.SIZE || 1}}) '
-                        . 'skew({{jltma_transform_fx_skew_x_hover_mobile.SIZE || 0}}deg, {{jltma_transform_fx_skew_y_hover_mobile.SIZE || 0}}deg);',
-                ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--jltma-tfx-skew-y-hover: {{SIZE}}deg;'
+                ],                
             ]
         );
 
@@ -873,7 +610,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_control(
             'jltma_transform_fx_transition_duration',
             [
-                'label' => __( 'Transition Duration', MELA_TD ),
+                'label' => __( 'Transition Duration (seconds)', MELA_TD ),
                 'type' => Controls_Manager::SLIDER,
                 'separator' => 'before',
                 'size_units' => ['px'],
@@ -888,31 +625,8 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                     'enabled_transform' => 'yes',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}}'       => 
-                    '-webkit-transition-duration: {{jltma_transform_fx_transition_duration.SIZE}}s, .2s;
-                            transition-duration: {{jltma_transform_fx_transition_duration.SIZE}}s, .2s; 
-                    -webkit-transition-property: -webkit-transform;
-                            transition-property: -webkit-transform;
-                            transition-property:         transform;
-                            transition-property:         transform, -webkit-transform;
-                    -webkit-transform: 
-                        translate( {{jltma_transform_fx_translate_x.SIZE || 0 }}, {{jltma_transform_fx_translate_y.SIZE || 0}}) 
-                        scale( {{jltma_transform_fx_scale_x.SIZE || 1 }}, {{jltma_transform_fx_scale_y.SIZE || 1 }} ) 
-                        skew( {{jltma_transform_fx_skew_x.SIZE || 0 }}, {{jltma_transform_fx_skew_y.SIZE || 0 }}) 
-                        rotateX( {{jltma_transform_fx_rotate_x.SIZE || 0 }} ) 
-                        rotateY( {{jltma_transform_fx_rotate_y.SIZE || 0 }} ) 
-                        rotateZ( {{jltma_transform_fx_rotate_z.SIZE || 0 }} );
-
-                        transform: 
-                            translate( {{jltma_transform_fx_translate_x.SIZE || 0 }}, {{jltma_transform_fx_translate_y.SIZE || 0 }} ) 
-                            scale( {{jltma_transform_fx_scale_x.SIZE || 1 }}, {{jltma_transform_fx_scale_y.SIZE || 1 }} ) 
-                            skew( {{jltma_transform_fx_skew_x.SIZE || 1 }}, {{jltma_transform_fx_skew_y.SIZE || 1 }} ) 
-                            rotateX( {{jltma_transform_fx_rotate_x.SIZE || 1 }} ) 
-                            rotateY( {{jltma_transform_fx_rotate_y.SIZE || 0 }} ) 
-                            rotateZ( {{jltma_transform_fx_rotate_z.SIZE || 0 }} );',
-
-                    // '{{WRAPPER}}:hover' => ''
-                ],
+                    '{{WRAPPER}}' => '--jltma-tfx-transition-duration: {{SIZE}}s;'
+                ]
             ]
         );
 
