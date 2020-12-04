@@ -59,8 +59,7 @@
 					'default' => '-style2',
 					'options' => [
 						'-style1' => esc_html__( 'Style 1', MELA_TD ),
-						'-style2' => esc_html__( 'Style 2', MELA_TD ),
-						'-style3' => esc_html__( 'Gradient Heading', MELA_TD ),
+						'-style2' => esc_html__( 'Style 2', MELA_TD )
 					],
 				]
 			);
@@ -253,10 +252,7 @@
 				'ma_el_dual_first_heading_styles',
 				[
 					'label' => esc_html__( 'First Heading', MELA_TD ),
-					'tab' => Controls_Manager::TAB_STYLE,
-					'condition' => [
-						'ma_el_dual_heading_styles_preset!' => '-style3',
-					]
+					'tab' => Controls_Manager::TAB_STYLE
 				]
 			);
 
@@ -356,10 +352,7 @@
 				'ma_el_dual_second_heading_styles',
 				[
 					'label' => esc_html__( 'Second Heading', MELA_TD ),
-					'tab' => Controls_Manager::TAB_STYLE,
-					'condition' => [
-						'ma_el_dual_heading_styles_preset!' => '-style3',
-					]
+					'tab' => Controls_Manager::TAB_STYLE
 				]
 			);
 
@@ -680,39 +673,6 @@
                     </div>
                 </div>
 
-            <?php } elseif( $settings['ma_el_dual_heading_styles_preset'] == '-style3' ) { ?>
-
-                <div id="ma-el-heading-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-dual-heading gradient">
-                    <div class="ma-el-dual-heading-wrapper">
-						<?php if ( $settings['ma_el_dual_heading_icon_show'] == 'yes' ) : ?>
-                            <span class="ma-el-dual-heading-icon">
-								<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fab fa-elementor', 'icon', $settings['ma_el_dual_heading_icon'], 'ma_el_dual_heading_icon' ); ?>
-                            </span>
-						<?php endif; ?>
-                        <<?php echo $settings['title_html_tag']; ?> class="ma-el-dual-heading-title">
-
-                            <?php if( isset($settings['ma_el_dual_heading_title_link']['url']) && $settings['ma_el_dual_heading_title_link']['url'] !="" ){ ?>
-                                <a href="<?php echo esc_url( $settings['ma_el_dual_heading_title_link']['url'] ); ?>">
-                            <?php } ?>
-
-                                <span class="first-heading">
-                                    <?php echo esc_html( $settings['ma_el_dual_first_heading'] ); ?>
-                                </span>
-
-                                <span class="second-heading">
-                                    <?php echo esc_html( $settings['ma_el_dual_second_heading'] ); ?>
-                                </span>
-
-                            <?php if( isset($settings['ma_el_dual_heading_title_link']['url']) && $settings['ma_el_dual_heading_title_link']['url'] !="" ){ ?>
-                                </a>
-                            <?php } ?>
-
-                        </<?php echo $settings['title_html_tag']; ?>>
-						<?php if ( $settings['ma_el_dual_heading_description'] != "" ) : ?>
-                            <p class="ma-el-dual-heading-description"><?php echo esc_html( $settings['ma_el_dual_heading_description'] ); ?></p>
-						<?php endif; ?>
-                    </div>
-                </div>
             <?php } ?>
 
 
