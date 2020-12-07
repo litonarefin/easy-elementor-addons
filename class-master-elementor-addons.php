@@ -82,7 +82,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 				['ma-gallery-slider','pro'],	// 37
 				'ma-advanced-image',			// 38
 				'ma-gradient-headline',			// 39
-				'ma-image-cascading',			// 40
+				// 'ma-image-cascading',			// 40
 				'ma-image-carousel',			// 41
 				'ma-logo-slider',				// 42
 				'ma-twitter-slider',			// 43

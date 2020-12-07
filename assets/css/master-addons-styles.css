@@ -761,7 +761,7 @@ Master Addons Elementor Styles*/
     display: inline-block;
     text-align: center;
     padding: 25px;
-    width: 212px;
+    width: inherit;
     cursor: pointer;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;

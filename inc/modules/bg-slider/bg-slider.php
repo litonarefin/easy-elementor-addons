@@ -251,7 +251,7 @@ class Master_Addons_Background_Slider {
 		}
 		$settings = $element->get_settings();
 		
-		$element->add_render_attribute( '_wrapper', 'class', 'has_ma_el_slider' );
+		$element->add_render_attribute( '_wrapper', 'class', 'has_ma_el_bg_slider' );
 		$element->add_render_attribute( 'ma-el-bs-background-slideshow-wrapper', 'class', 'ma-el-bs-background-slideshow-wrapper' );
 
 		$element->add_render_attribute( 'ma-el-bs-backgroundslideshow', 'class', 'ma-el-at-backgroundslideshow' );

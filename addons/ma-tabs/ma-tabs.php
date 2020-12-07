@@ -112,6 +112,7 @@
 				]
 			);
 
+
 			if ( ma_el_fs()->can_use_premium_code() ) {
 
 				$this->add_responsive_control(
@@ -135,6 +136,7 @@
 							'2-10'             => esc_html__( 'Col 2/10', MELA_TD ),
 							'11-1'             => esc_html__( 'Col 12/1', MELA_TD ),
 							'1-11'             => esc_html__( 'Col 1/12', MELA_TD ),
+							'12-12'            => esc_html__( 'Col 12(Full Width)', MELA_TD ),
 						],
 						'condition' => [
 							'ma_el_tabs_preset' => 'five',
@@ -185,8 +187,8 @@
 							'{{WRAPPER}} .ma-el-advance-tab.five .ma-el-advance-tab-nav li i' => 'display:{{VALUE}};',
 						],
 						'condition' => [
-							'ma_el_tabs_icon_show' 	=> 'yes',
-							'ma_el_tabs_preset' 	=> 'five',
+							'ma_el_tabs_icon_show' 		=> 'yes',
+							'ma_el_tabs_preset' 		=> 'five'
 						],
 					]
 				);
@@ -226,7 +228,8 @@
 							'float-right'               => esc_html__( 'Right Tabs - Left Content', MELA_TD )
 						],
 						'condition' => [
-							'ma_el_tabs_preset' => 'five',
+							'ma_el_tabs_preset' 		=> 'five',
+							'ma_el_tabs_left_cols!' 	=> '12-12',
 						],
 					]
 				);
@@ -1032,9 +1035,12 @@
 				<div <?php echo $this->get_render_attribute_string('ma_el_tab_wrapper'); ?> data-tabs>
 
 					<?php if(isset( $settings['ma_el_tabs_preset']) && $settings['ma_el_tabs_preset'] == "five"){ ?>
-						<div class="jltma-col-md-<?php echo esc_attr($ma_el_tabs_left_cols[0]);?> <?php if($column_order=="float-left") {
+						<div class="jltma-col-md-<?php echo esc_attr($ma_el_tabs_left_cols[0]);?> <?php 
+							if($column_order=="float-left") {
 								echo "order-1";
-							}else{
+							} elseif ( $settings['ma_el_tabs_left_cols'] =="12-12") {
+								# code...
+							} else{
 								echo "order-2";
 							} ?>">
 					<?php } ?>
