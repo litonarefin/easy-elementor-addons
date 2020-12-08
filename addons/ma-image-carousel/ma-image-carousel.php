@@ -71,11 +71,7 @@ class Master_Addons_Image_Carousel extends Widget_Base {
 
 					[
 						'title'                                  => __( 'Item #1', MELA_TD ),
-						'subtitle'                               => __( '', MELA_TD ),
-						'jltma_image_carousel_button_one_text'   => __( 'Details', MELA_TD ),
-						'jltma_image_carousel_link_one_url'      => "#",
-						'jltma_image_carousel_button_two_text'   => __( 'Demo', MELA_TD ),
-						'jltma_image_carousel_link_two_url'      => "#"
+						'subtitle'                               => __( '', MELA_TD )
 					],
 					[
 						'title'                                  => __( 'Item #2', MELA_TD ),
@@ -144,29 +140,30 @@ class Master_Addons_Image_Carousel extends Widget_Base {
 								'icon' => 'eicon-search',
 							],
 							'links' => [
-								'title' => __( 'External Links', MELA_TD ),
+								'title' => __( 'Links', MELA_TD ),
 								'icon' => 'eicon-editor-external-link',
 							],
 						],
 						'default' => 'popup',
 					],
 
-
 					[
-						'name'          => 'jltma_image_carousel_button_one_text',
-						'label'        => __( 'Button Text', MELA_TD ),
-						'type'         => Controls_Manager::TEXT,
-						'default'     => __( 'Details', MELA_TD ),
-						'placeholder' => __( 'Details', MELA_TD ),
-						'title'       => __( 'Enter Button text here', MELA_TD ),
-						'condition'     => [
-							'jltma_image_carousel_buttons' => 'links'
-						]
+						'name'			=> 'image_link_to_type',
+						'label'   		=> esc_html__( 'Link to', MELA_TD ),
+						'type'    		=> Controls_Manager::SELECT,
+						'options' 		=> [
+							''       		=> esc_html__( 'None', MELA_TD ),
+							'file'   		=> esc_html__( 'Media File', MELA_TD ),
+							'custom' 		=> esc_html__( 'Custom URL', MELA_TD ),
+						],
+						'condition' 		=> [
+							'jltma_image_carousel_link_popup' => 'links'
+						],
 					],
 
 					[
-						'name'          => 'jltma_image_carousel_link_one_url',
-						'label'        => __( 'Button One URL', MELA_TD ),
+						'name'          => 'jltma_image_carousel_url',
+						'label'        => __( 'Link', MELA_TD ),
 						'type'         => Controls_Manager::URL,
 						'default'     => [
 							'url' => '#',
@@ -175,36 +172,12 @@ class Master_Addons_Image_Carousel extends Widget_Base {
 						],
 						'show_external' => true,
 						'condition'     => [
-							'jltma_image_carousel_buttons' => 'links'
+							'jltma_image_carousel_link_popup' 	=> 'links',
+							'image_link_to_type' 				=> 'custom',
 						]
 					],
 
-					[
-						'name'          => 'jltma_image_carousel_button_two_text',
-						'label'        => __( 'Button Two Text', MELA_TD ),
-						'type'         => Controls_Manager::TEXT,
-						'default'     => __( 'Demo', MELA_TD ),
-						'placeholder' => __( 'Demo', MELA_TD ),
-						'title'       => __( 'Enter Button text here', MELA_TD ),
-						'condition'     => [
-							'jltma_image_carousel_buttons' => 'links'
-						]
-					],
 
-					[
-						'name'          => 'jltma_image_carousel_link_two_url',
-						'label'        => __( 'Button Two URL', MELA_TD ),
-						'type'         => Controls_Manager::URL,
-						'default'     => [
-							'url' => '#',
-							'is_external' => true,
-							'nofollow' => true,
-						],
-						'show_external' => true,
-						'condition'     => [
-							'jltma_image_carousel_buttons' => 'links'
-						]
-					],
 				],
 				'title_field' => '{{title}}'
 			]
@@ -286,15 +259,19 @@ class Master_Addons_Image_Carousel extends Widget_Base {
 			$this->add_control(
 				'jltma_image_carousel_nav',
 				[
-					'label' 		=> __( 'Navigation Style', MELA_TD ),
+					'label' 		=> esc_html__( 'Navigation Style', MELA_TD ),
 					'type' 			=> Controls_Manager::SELECT,
 					'default' 		=> 'arrows',
 					'separator' 	=> 'before',
 					'options' 		=> [
-						'arrows' 		=> __( 'Arrows', MELA_TD ),
-						'dots' 			=> __( 'Dots', MELA_TD ),
+						'both'   		=> esc_html__( 'Arrows and Dots', MELA_TD ),
+						'arrows' 		=> esc_html__( 'Arrows', MELA_TD ),
+						'dots' 			=> esc_html__( 'Dots', MELA_TD ),
+						'none'   		=> esc_html__( 'None', MELA_TD )
 
 					],
+					'prefix_class' => 'jltma-navigation-type-',
+					'render_type'  => 'template',
 				]
 			);
 
@@ -306,16 +283,43 @@ class Master_Addons_Image_Carousel extends Widget_Base {
                     'default'   => 'center',
                     'options'   => Master_Addons_Helper::jltma_carousel_navigation_position(),
                     'condition' => [
-                        'jltma_logo_slider_nav' => 'both',
+                        'jltma_image_carousel_nav' => 'both',
                     ],
                 ]
             );
-			
+
+
+            $this->add_control(
+                'jltma_image_carousel_nav_arrows_position',
+                [
+                    'label'     => esc_html__( 'Arrows Position', MELA_TD ),
+                    'type'      => Controls_Manager::SELECT,
+                    'default'   => 'center',
+                    'options'   => Master_Addons_Helper::jltma_carousel_navigation_position(),
+                    'condition' => [
+                        'jltma_image_carousel_nav' => 'arrows',
+                    ],              
+                ]
+            );
+
+            $this->add_control(
+                'jltma_image_carousel_nav_dots_position',
+                [
+                    'label'     => esc_html__( 'Dots Position', MELA_TD ),
+                    'type'      => Controls_Manager::SELECT,
+                    'default'   => 'bottom-center',
+                    'options'   => Master_Addons_Helper::jltma_carousel_pagination_position(),
+                    'condition' => [
+                        'jltma_image_carousel_nav' => 'dots',
+                    ],              
+                ]
+            );  
+
 
 			$this->add_control(
 				'jltma_image_carousel_hide_arrow_on_mobile',
 				[
-					'label'     => __( 'Hide Arrow on Mobile ?', 'bdthemes-element-pack' ),
+					'label'     => __( 'Hide Arrow on Mobile ?', MELA_TD ),
 					'type'      => Controls_Manager::SWITCHER,
 					'default'   => 'yes',
 					'condition' => [
@@ -597,6 +601,50 @@ class Master_Addons_Image_Carousel extends Widget_Base {
 
 	// Render Header
 	private function jltma_render_image_carousel_loop_item( $settings ) {
+        $settings = $this->get_settings_for_display();
+
+        if ( empty($settings['jltma_image_carousel_items'] ) ) {
+            return;
+        } 
+
+        foreach ( $settings['jltma_image_carousel_items'] as $index => $item ) {
+            $slider_image = wp_get_attachment_image_url( $item['jltma_image_carousel_img']['id'], $item['jltma_image_carousel_image_size'] );
+
+            $repeater_key = 'carousel_item' . $index;
+            $tag = 'div';
+            $image_alt = esc_html($item['title']) . ' : ' . esc_html($item['subtitle']);
+            $this->add_render_attribute( $repeater_key, 'class', 'jltma-logo-slider-item' );
+			
+			?>
+            
+                <div <?php $this->print_render_attribute_string( $repeater_key ); ?>>
+                    <figure class="jltma-logo-slider-figure">
+                        
+                        <?php 
+                            if ( $slider_image ) {
+                                echo wp_get_attachment_image(
+                                    $item['jltma_image_carousel_img']['id'],
+                                    $item['jltma_image_carousel_image_size'],
+                                    false,
+                                    [
+                                        'class' => 'jltma-logo-slider-img elementor-animation-' . esc_attr( $settings['jltma_logo_slider_carousel_hover_animation'] ),
+                                        'alt'=> esc_attr( $image_alt ),
+                                    ]
+                                );
+                            }
+                        ?>
+
+                    </figure>
+
+                </div>
+
+            <?php 
+
+            if($item['jltma_logo_slider_item_logo_tooltip'] == "yes"){
+                echo '<div class="ma-el-tooltip-text">' . esc_html( $item['subtitle'] ) .'</div></div></div>';
+            }
+
+        }  // end of foreach
 
 	}
 
@@ -605,6 +653,32 @@ class Master_Addons_Image_Carousel extends Widget_Base {
 	// Render Header
 	private function jltma_render_image_carousel_footer( $settings ) {
 
+        $settings = $this->get_settings_for_display(); ?>
+
+        </div>
+
+        <?php
+            if ('both' == $settings['jltma_logo_slider_nav']){
+            
+                $this->jltma_render_logo_slider_navigation($settings);
+
+                if ( 'center' === $settings['jltma_logo_slider_nav_both_position'] ){
+                    $this->jltma_logo_slider_render_dots_navigation($settings);
+                }
+            
+            } elseif ('arrows' == $settings['jltma_logo_slider_nav']){
+
+                $this->jltma_logo_slider_render_arrow_navigation($settings);
+
+            } elseif ('dots' == $settings['jltma_logo_slider_nav']){
+
+                $this->jltma_logo_slider_render_dots_navigation($settings);
+
+            }?>
+            
+        </div><!--/.jltma-logo-slider-->
+
+    <?php 
 	}
 
 
