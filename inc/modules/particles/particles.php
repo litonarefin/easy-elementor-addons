@@ -20,17 +20,14 @@
 
             add_action( 'elementor/frontend/section/after_render', array( $this, 'after_render' ) );
 
-            add_action( 'elementor/editor/wp_head', [ $this, 'ma_el_add_particles_admin' ] );
-            add_action( 'wp_enqueue_scripts', [ $this, 'ma_el_add_particles' ] );
+            // add_action( 'elementor/editor/wp_head', [ $this, 'ma_el_add_particles_admin' ] );
         }
 
-        function ma_el_add_particles(){
-            wp_enqueue_script( 'master-addons-particles', MELA_PLUGIN_URL . '/assets/js/particles.min.js', [ 'jquery'	], MELA_VERSION, true );
+        public static function jltma_add_particles_scripts(){
+          wp_enqueue_script( 'master-addons-particles', MELA_PLUGIN_URL . '/assets/js/particles.min.js', [ 'jquery' ], MELA_VERSION, true );
         }
 
-        function ma_el_add_particles_admin(){
-            wp_enqueue_script( 'master-addons-particles', MELA_PLUGIN_URL . '/assets/js/particles.min.js', [ 'jquery'	], MELA_VERSION, true );
-        }
+
         public function register_controls($element, $section_id, $args){
 
             if ( ('section' === $element->get_name() && 'section_background' === $section_id) || ('column' === $element->get_name() && 'section_style' === $section_id)) {
@@ -221,6 +218,7 @@
             $settings = $element->get_settings();
             if($settings['ma_el_enable_particles'] == 'yes'){
                 $element->add_render_attribute('_wrapper', 'data-ma-el-particle', $settings['ma_el_particle_json']);
+                self::jltma_add_particles_scripts();
             }
         }
 

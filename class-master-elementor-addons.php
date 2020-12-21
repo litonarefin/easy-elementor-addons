@@ -10,7 +10,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 		public $controls_manager;
 
 		const VERSION = "1.5.5";
-		const JLTMA_STABLE_VERSION = "1.5.4.1";
+		const JLTMA_STABLE_VERSION = "1.5.4.2";
 		const MINIMUM_PHP_VERSION = '5.4';
 		const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
 
@@ -649,7 +649,13 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			//Creative Buttons
 			if ( $is_activated_widget['ma-creative-buttons'] ) {
-				wp_enqueue_style( 'ma-creative-buttons' );
+				// echo Master_Addons_Helper::jltma_elementor()->frontend->get_builder_content_for_display(
+				// \Elementor\Plugin::$instance->editor->is_edit_mode()
+				// \Elementor\Plugin::$instance->editor->is_edit_mode()
+				// \Elementor\Plugin::$instance->preview->is_preview_mode()
+				if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+					wp_enqueue_style( 'ma-creative-buttons' );
+				}
 			}
 
 			//Image Hover Effects

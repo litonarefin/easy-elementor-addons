@@ -1,13 +1,14 @@
 <?php
-	namespace MasterAddons\Modules\BackgroudSlider;
+namespace MasterAddons\Modules\BackgroudSlider;
 
-    use \Elementor\Controls_Manager;
-    use \Elementor\Group_Control_Image_Size;
-    use \Elementor\Group_Control_Background;
+use \Elementor\Element_Base;
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Image_Size;
+use \Elementor\Group_Control_Background;
 
 class Master_Addons_Background_Slider {
 	private static $_instance = null;
-
+	
 	public static function instance() {
 		if ( is_null( self::$_instance ) ) {
 			self::$_instance = new self();
@@ -26,11 +27,10 @@ class Master_Addons_Background_Slider {
 		add_action( 'elementor/element/print_template', [ $this, '_print_template'],10,2);
 		add_action( 'elementor/section/print_template', [ $this, '_print_template'],10,2);
 		add_action( 'elementor/column/print_template', [ $this, '_print_template'],10,2);
-
-		add_action( 'wp_enqueue_scripts', [ $this, 'ma_el_add_js_css' ] );
 	}
 
-	function ma_el_add_js_css(){
+
+	public function ma_el_add_js_css(){
 
 		// CSS
 	    wp_enqueue_style( 'vegas', MELA_PLUGIN_URL . '/assets/vendor/vegas/vegas.min.css');
@@ -244,6 +244,7 @@ class Master_Addons_Background_Slider {
 		}
 	}
 
+
 	function _before_render( \Elementor\Element_Base $element ) {
 
 		if ( $element->get_name() != 'section' && $element->get_name() != 'column' ) {
@@ -261,6 +262,8 @@ class Master_Addons_Background_Slider {
         if ( empty( $settings['ma_el_bg_slider_images'] ) ) {
 			return;
 		}
+
+		$this->ma_el_add_js_css();
 
 		foreach ( $settings['ma_el_bg_slider_images'] as $attachment ) {
 			$image_url = Group_Control_Image_Size::get_attachment_image_src( $attachment['id'], 'ma_el_thumbnail',

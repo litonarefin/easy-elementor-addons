@@ -18,6 +18,15 @@
 
 	class Master_Addons_Creative_Buttons extends Widget_Base {
 
+		public function __construct($data = [], $args = null) {
+			parent::__construct($data, $args);
+			// wp_register_script( 'micemade-slider-js', MICEMADE_ELEMENTS_URL . 'assets/js/custom/handlers/slider.js', [ 'elementor-frontend' ], '1.0.0', true );
+			// wp_register_style( 'ma-creative-buttons', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons.css' );
+			if ( Master_Addons_Helper::jltma_elementor()->editor->is_edit_mode() ) {
+				wp_enqueue_style( 'ma-creative-buttons');
+			}
+		}
+
 		public function get_name() {
 			return 'ma-creative-buttons';
 		}
