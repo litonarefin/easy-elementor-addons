@@ -24,7 +24,7 @@
         }
 
         public static function jltma_add_particles_scripts(){
-          wp_enqueue_script( 'master-addons-particles', MELA_PLUGIN_URL . '/assets/js/particles.min.js', [ 'jquery' ], MELA_VERSION, true );
+            wp_enqueue_script( 'master-addons-particles', MELA_PLUGIN_URL . '/assets/js/particles.min.js', [ 'jquery' ], MELA_VERSION, true );
         }
 
 
