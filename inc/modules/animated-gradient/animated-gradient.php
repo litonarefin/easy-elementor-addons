@@ -114,7 +114,9 @@ class Master_Addons_Animated_Gradient_Backgrounds  {
 		}
 
 		$settings = $element->get_settings();
+
 		if($settings['ma_el_animated_gradient_enable'] == 'yes') {
+			
 			$angle = $settings['gradient_background_angle']['size'];
 			$element->add_render_attribute('_wrapper' , 'data-angle' , $settings['gradient_background_angle']['size'].'deg');
 			$gradient_color_list = $settings['gradient_color_list'];
