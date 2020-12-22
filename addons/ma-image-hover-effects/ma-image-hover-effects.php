@@ -49,6 +49,7 @@
 
 		public function get_style_depends(){
 			return [
+				'ma-image-hover-effects',
 				'font-awesome-5-all',
 				'font-awesome-4-shim',
 				'fancybox'
