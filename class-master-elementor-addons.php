@@ -159,11 +159,16 @@ if( !class_exists('Master_Elementor_Addons') ){
 			// Placeholder image replacement
 			add_filter( 'elementor/utils/get_placeholder_image_src', [ $this, 'jltma_replace_placeholder_image' ] );
 
-			// Elementor Dependencies
-
+			
+			// Elementor Scripts Dependencies
 			add_action( 'elementor/frontend/before_register_styles', [$this, 'jltma_register_frontend_styles'] );
 			add_action( 'elementor/frontend/before_register_scripts', [$this, 'jltma_register_frontend_scripts'] );
 			// add_action( 'elementor/frontend/after_enqueue_scripts', [$this, 'jltma_enqueue_scripts'] );
+
+			//		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'ma_el_enqueue_frontend_styles' ] );
+			//		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'ma_el_enqueue_frontend_scripts' ] );
+			
+
 
 			add_action( 'elementor/editor/after_enqueue_scripts'  , array( $this, 'jltma_editor_scripts_js' ) );
 			add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'jltma_editor_scripts_css' ]);
@@ -178,10 +183,6 @@ if( !class_exists('Master_Elementor_Addons') ){
 			add_action( 'elementor/controls/controls_registered'   , array( $this, 'jltma_register_controls' ) );
 
 			add_action( 'admin_post_master_addons_rollback', 'jltma_post_addons_rollback' );
-
-			//		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'ma_el_enqueue_frontend_scripts' ] );
-			//		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'ma_el_enqueue_frontend_styles' ] );
-
 
 			//Body Class
 			add_action( 'body_class', [ $this, 'jltma_body_class' ] );
