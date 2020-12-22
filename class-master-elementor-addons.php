@@ -154,17 +154,22 @@ if( !class_exists('Master_Elementor_Addons') ){
 			add_action('elementor/init', [$this, 'jltma_add_actions_to_elementor'], 0);
 
 			// Enqueue Styles and Scripts
-			add_action( 'wp_enqueue_scripts', [ $this, 'jltma_enqueue_scripts' ], 20 );
+			add_action( 'wp_enqueue_scripts', [ $this, 'jltma_enqueue_scripts' ], 100 );
 
 			// Placeholder image replacement
 			add_filter( 'elementor/utils/get_placeholder_image_src', [ $this, 'jltma_replace_placeholder_image' ] );
 
 			// Elementor Dependencies
-			add_action( 'elementor/editor/after_enqueue_scripts'  , array( $this, 'jltma_editor_scripts_js' ) );
-			add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'jltma_editor_scripts_css' ]);
-			// add_action( 'elementor/preview/enqueue_styles', [ $this, 'jltma_enqueue_preview_scripts' ] );
+
 			add_action( 'elementor/frontend/before_register_styles', [$this, 'jltma_register_frontend_styles'] );
 			add_action( 'elementor/frontend/before_register_scripts', [$this, 'jltma_register_frontend_scripts'] );
+			// add_action( 'elementor/frontend/after_enqueue_scripts', [$this, 'jltma_enqueue_scripts'] );
+
+			add_action( 'elementor/editor/after_enqueue_scripts'  , array( $this, 'jltma_editor_scripts_js' ) );
+			add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'jltma_editor_scripts_css' ]);
+
+			// add_action( 'elementor/preview/enqueue_styles', [ $this, 'jltma_enqueue_preview_scripts' ] );
+
 
 			// Add Elementor Widgets
 			add_action( 'elementor/widgets/widgets_registered', [ $this, 'jltma_init_widgets' ] );
@@ -558,7 +563,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 	            wp_add_inline_script( 'jquery-core', "/* < ![CDATA[ */\n". $jltma_header_inline_scripts ."\n/* ]]> */",
 	            'before' );
 	        }
-	        
+
 
 			$localize_data = array(
 				'plugin_url'    => MELA_PLUGIN_URL,
@@ -695,12 +700,8 @@ if( !class_exists('Master_Elementor_Addons') ){
 		}
 
 
-		// Register Frontend Scripts
+		// Register Frontend Styles
 		public function jltma_register_frontend_styles(){
-			add_action( 'elementor/frontend/before_register_scripts', [$this, 'register_site_scripts'] );
-			/*
-			 * Register Styles
-			 */
 			wp_register_style( 'gridder', MELA_PLUGIN_URL . '/assets/vendor/gridder/css/jquery.gridder.min.css' );
 			wp_register_style( 'fancybox', MELA_PLUGIN_URL . '/assets/vendor/fancybox/jquery.fancybox.min.css' );
 			wp_register_style( 'twentytwenty', MELA_PLUGIN_URL . '/assets/vendor/image-comparison/css/twentytwenty.css' );
@@ -713,10 +714,6 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 		// Enqueue Preview Scripts
 		public function jltma_register_frontend_scripts(){
-
-			/*
-			 * Register Scripts
-			 */
 
 			wp_register_script( 'ma-animated-headlines', MELA_PLUGIN_URL . '/assets/js/animated-main.js', array( 'jquery' ),	'1.0', true );
 
@@ -770,6 +767,8 @@ if( !class_exists('Master_Elementor_Addons') ){
 			wp_register_script( 'jltma-floating-effects', MELA_PLUGIN_URL . '/assets/vendor/floating-effects/floating-effects.js', array( 'ma-el-anime-lib', 'jquery' ), self::VERSION );
 			
 		}
+
+		
 
 		// Enqueue Preview Scripts
 		public function jltma_enqueue_preview_scripts(){
