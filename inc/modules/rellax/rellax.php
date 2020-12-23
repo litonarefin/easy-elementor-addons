@@ -182,6 +182,7 @@ class JLTMA_Extension_Rellax extends JLTMA_Extension_Prototype {
         if (isset($settings['enabled_rellax']) && $settings['enabled_rellax'] == 'yes') {
             
             $this->_enqueue_alles();
+            
             self::jltma_add_relax_scripts();
             
 

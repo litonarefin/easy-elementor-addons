@@ -1,6 +1,7 @@
 <?php
 namespace MasterAddons\Inc\Extensions;
 
+use \Elementor\Element_Base;
 use \Elementor\Controls_Manager;
 use \MasterAddons\Inc\Classes\JLTMA_Extension_Prototype;
 
@@ -17,14 +18,10 @@ class JLTMA_Extension_Reveal extends JLTMA_Extension_Prototype {
     public $name = 'Reveal';
     public $has_controls = true;
 
-    public function get_script_depends() {
-	    return [ 
-            'ma-el-anime-lib', 
-            'ma-el-reveal-lib', 
-            'master-addons-scripts' 
-        ];
+    
+    public function jltma_add_reveal_scripts(){
+        wp_enqueue_script( 'ma-el-reveal-lib', MELA_PLUGIN_URL . '/assets/vendor/reveal/revealFx.js',array('jquery'), MELA_VERSION, true );
     }
-
 
     protected function add_actions() {
 
@@ -36,6 +33,14 @@ class JLTMA_Extension_Reveal extends JLTMA_Extension_Prototype {
         add_filter('elementor/widget/print_template', array($this, 'reveal_print_template'), 9, 2);
 
         add_action('elementor/widget/render_content', array($this, 'reveal_render_template'), 9, 2);
+
+        // add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'before_render'],10);
+        add_action( 'elementor/frontend/element/before_render', [ $this, 'before_render'],10,1);
+        add_action( 'elementor/frontend/column/before_render', [ $this, 'before_render'],10,1);
+        add_action( 'elementor/frontend/section/before_render', [ $this, 'before_render'],10,1);
+        add_action( 'elementor/frontend/widget/before_render', [ $this, 'before_render' ], 10,1 );
+
+        add_action( 'elementor/preview/enqueue_scripts', [ $this, 'jltma_add_reveal_scripts' ] );
 
     }
 
@@ -125,10 +130,16 @@ class JLTMA_Extension_Reveal extends JLTMA_Extension_Prototype {
                 ]
             ]
         );
-        
-        
     }
 
+    public function before_render( \Elementor\Element_Base $element ) {
+        $settings = $element->get_settings();
+
+        if (isset($settings['enabled_reveal']) && $settings['enabled_reveal'] == 'yes') {
+            $this->jltma_add_reveal_scripts();
+        }
+    }
+    
 
     public function reveal_print_template($content, $widget) {
         if (!$content)
