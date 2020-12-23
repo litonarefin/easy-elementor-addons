@@ -170,6 +170,9 @@ if( !class_exists('Master_Elementor_Addons') ){
 			
 
 
+
+			// add_action( 'elementor/editor/before_enqueue_scripts'  , array( $this, 'jltma_editor_scripts_enqueue_js' ) );
+
 			add_action( 'elementor/editor/after_enqueue_scripts'  , array( $this, 'jltma_editor_scripts_js' ) );
 			add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'jltma_editor_scripts_css' ]);
 
@@ -528,6 +531,11 @@ if( !class_exists('Master_Elementor_Addons') ){
 			wp_enqueue_script( 'master-addons-editor', MELA_ADMIN_ASSETS . 'js/editor.js', array( 'jquery' ), MELA_VERSION, true );
 		}
 
+		public function jltma_editor_scripts_enqueue_js() {
+
+			wp_enqueue_script( 'ma-el-rellaxjs-lib', MELA_PLUGIN_URL . '/assets/vendor/rellax/rellax.min.js',array('jquery'),self::VERSION, true );
+		}
+
 		public function jltma_editor_scripts_css() {
 			wp_enqueue_style( 'master-addons-editor', MELA_PLUGIN_URL . '/assets/css/master-addons-editor.css' );
 		}
@@ -545,6 +553,13 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			// Register Styles
 			wp_register_style( 'bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css' );
+
+			//Reveal
+			wp_register_script( 'ma-el-reveal-lib', MELA_PLUGIN_URL . '/assets/vendor/reveal/revealFx.js',array('jquery'),self::VERSION, true );
+			wp_register_script( 'ma-el-anime-lib', MELA_PLUGIN_URL . '/assets/vendor/anime/anime.min.js',array('jquery'),self::VERSION, true );
+
+			//Rellax
+			wp_register_script( 'ma-el-rellaxjs-lib', MELA_PLUGIN_URL . '/assets/vendor/rellax/rellax.min.js',array('jquery'),self::VERSION, true );
 
 			// Register Scripts
 			wp_register_script( 'bootstrap', MELA_PLUGIN_URL . '/assets/js/bootstrap.min.js', array( 'jquery' ), MELA_VERSION, true );
@@ -743,12 +758,6 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			wp_register_script( 'fancybox', MELA_PLUGIN_URL . '/assets/vendor/fancybox/jquery.fancybox.min.js',array('jquery'),self::VERSION, true );
 
-			//Reveal
-			wp_register_script( 'ma-el-reveal-lib', MELA_PLUGIN_URL . '/assets/vendor/reveal/revealFx.js',array('jquery'),self::VERSION, true );
-			wp_register_script( 'ma-el-anime-lib', MELA_PLUGIN_URL . '/assets/vendor/anime/anime.min.js',array('jquery'),self::VERSION, true );
-
-			//Rellax
-			wp_register_script( 'ma-el-rellaxjs-lib', MELA_PLUGIN_URL . '/assets/vendor/rellax/rellax.min.js',array('jquery'),self::VERSION, true );
 
 			// Image Comparison
 			wp_register_script( 'jquery-event-move', MELA_PLUGIN_URL . '/assets/vendor/image-comparison/js/jquery.event.move.js',array('jquery'),self::VERSION, true );

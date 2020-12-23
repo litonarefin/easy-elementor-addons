@@ -8,7 +8,6 @@ class Master_Addons_Helper{
 		return \Elementor\Plugin::$instance;
 	}
 	
-
 	public static function jltma_is_edit_mode(){
         if(self::jltma_elementor()->preview->is_preview_mode() || self::jltma_elementor()->editor->is_edit_mode() ){
             return true;

@@ -1,6 +1,7 @@
 <?php
 namespace MasterAddons\Inc\Extensions;
 
+use \Elementor\Element_Base;
 use \Elementor\Controls_Manager;
 use \MasterAddons\Inc\Classes\JLTMA_Extension_Prototype;
 
@@ -16,14 +17,6 @@ class JLTMA_Extension_Floating_Effects extends JLTMA_Extension_Prototype {
     private static $instance = null;
     public $name = 'Floating Effects';
     public $has_controls = true;
-
-    public function get_script_depends() {
-	    return [ 
-            'jltma-floating-effects',
-            'master-addons-scripts' 
-        ];
-    }
-
 
 
     private function add_controls($element, $args) {
@@ -467,30 +460,37 @@ class JLTMA_Extension_Floating_Effects extends JLTMA_Extension_Prototype {
 		);
 
 		$element->end_popover();
-	
-   
     }
 
-	public function before_render( $element ) {
-
+	public function before_render( \Elementor\Element_Base $element ) {
+		
 		$settings = $element->get_settings();
-		if ( ! isset( $settings['jltma_floating_effects'] ) ) {
-			return false;
-		}
-		if ( $settings['jltma_floating_effects'] === 'yes' ) {
-			wp_enqueue_script( 'jltma-floating-effects' );
-		}
 
-		return true;
-
+		if (isset($settings['jltma_floating_effects']) && $settings['jltma_floating_effects'] == 'yes') {
+			$this->jltma_add_floating_scripts();
+		}
 	}
 	
+
+    protected function jltma_add_floating_scripts(){
+    	wp_enqueue_script( 'jltma-floating-effects', MELA_PLUGIN_URL . '/assets/vendor/floating-effects/floating-effects.js', array( 'ma-el-anime-lib', 'jquery' ), MELA_VERSION );
+    }
+
     protected function add_actions() {
 
         // Activate controls for widgets
         add_action('elementor/element/common/jltma_section_floating_effects_advanced/before_section_end', function( $element, $args ) {
             $this->add_controls($element, $args);
         }, 10, 2);
+		
+		// add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'before_render'],10);
+        add_action( 'elementor/frontend/element/before_render', [ $this, 'before_render'],10,1);
+        add_action( 'elementor/frontend/column/before_render', [ $this, 'before_render'],10,1);
+        add_action( 'elementor/frontend/section/before_render', [ $this, 'before_render'],10,1);
+        add_action( 'elementor/frontend/widget/before_render', [ $this, 'before_render' ], 10,1 );
+        
+
+        add_action( 'elementor/preview/enqueue_scripts', [ $this, 'jltma_add_floating_scripts' ] );
 
     }
 

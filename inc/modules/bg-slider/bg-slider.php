@@ -20,7 +20,6 @@ class Master_Addons_Background_Slider {
 		add_action('elementor/element/after_section_end',[ $this, '_add_controls'],10,3);
 
 		add_action( 'elementor/frontend/element/before_render', [ $this, '_before_render'],10,1);
-
 		add_action( 'elementor/frontend/column/before_render', [ $this, '_before_render'],10,1);
 		add_action( 'elementor/frontend/section/before_render', [ $this, '_before_render'],10,1);
 
@@ -126,6 +125,8 @@ class Master_Addons_Background_Slider {
 					'default' => 'fade',
 				]
 			);
+
+
 			$element->add_control(
 				'ma_el_slider_animation',
 				[
@@ -159,6 +160,7 @@ class Master_Addons_Background_Slider {
 					'return_value' => 'yes',
 				]
 			);
+
 			/*$element->add_control(
 				'custom_overlay',
 				[
@@ -169,6 +171,7 @@ class Master_Addons_Background_Slider {
 					]
 				]
 			);*/
+
 			$element->add_group_control(
 				Group_Control_Background::get_type(),
 				[
@@ -181,6 +184,7 @@ class Master_Addons_Background_Slider {
 					]
 				]
 			);
+
 			$element->add_control(
 				'ma_el_slider_overlay',
 				[
