@@ -64,7 +64,10 @@
 
 
 	    public function get_script_depends() {
-	        return [ 'jltma-comments','google-recaptcha' ];
+	        return [ 
+	        	'jltma-comments',
+	        	'google-recaptcha' 
+	        ];
 	    }
 
 
@@ -73,8 +76,7 @@
 	        	'font-awesome-5-all',
 				'font-awesome-4-shim',
 	        	'dashicons', 
-	        	'jltma-comments', 
-	        	'font-awesome'
+	        	'jltma-comments'
 	        ];
 		}
 
