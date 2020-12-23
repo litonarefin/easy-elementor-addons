@@ -472,10 +472,10 @@ class JLTMA_Extension_Floating_Effects extends JLTMA_Extension_Prototype {
 	}
 	
 
-    protected function jltma_add_floating_scripts(){
+    public function jltma_add_floating_scripts(){
     	wp_enqueue_script( 'jltma-floating-effects', MELA_PLUGIN_URL . '/assets/vendor/floating-effects/floating-effects.js', array( 'ma-el-anime-lib', 'jquery' ), MELA_VERSION );
     }
-
+    	
     protected function add_actions() {
 
         // Activate controls for widgets

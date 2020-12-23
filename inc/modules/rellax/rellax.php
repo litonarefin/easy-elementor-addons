@@ -29,11 +29,6 @@ class JLTMA_Extension_Rellax extends JLTMA_Extension_Prototype {
         ),
     );
 
-
-    // public function get_script_depends() {
-    //     return [ 'ma-el-rellaxjs-lib' ];
-    // }
-
     private function add_controls($element, $args) {
 
         $element_type = $element->get_type();
