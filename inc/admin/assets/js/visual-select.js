@@ -1,13 +1,3 @@
-/*!
- * Visual Select - A jQuery plugin for replacing HTML select element with a visual selection tool.
- *
- * @version     1.3.0
- * @requires    jQuery 1.9+
- * @author      Averta [averta.net]
- * @package     Axiom Framework
- * @copyright   Copyright © 2017 Averta, all rights reserved
- */
-
 ;(function ( $, window, document, undefined ) {
 
     "use strict";
