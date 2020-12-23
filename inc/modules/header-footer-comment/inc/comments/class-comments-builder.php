@@ -37,9 +37,9 @@ if( !class_exists('JLTMA_Comments_Builder') ){
             // add_action('wp_ajax_jltma_loadmore_comments', array($this, 'jltma_loadmore_comments'));
             // add_action('wp_ajax_nopriv_jltma_loadmore_comments', array($this, 'jltma_loadmore_comments'));
 
-			// add_action('wp_enqueue_scripts', array($this, 'jltma_comments_frontend_scripts'), 11);
             add_action( 'elementor/frontend/before_register_styles', [$this, 'jltma_comments_frontend_styles'] );
-            // add_action( 'elementor/frontend/before_register_scripts', [$this, 'jltma_comments_frontend_scripts'] );
+            add_action( 'elementor/frontend/before_register_scripts', [$this, 'jltma_comments_frontend_scripts'] );
+            // add_action( 'elementor/preview/enqueue_scripts', [ $this, 'jltma_comments_preview_scripts' ] );
 
 			add_action( 'elementor/widgets/widgets_registered', [ $this, 'jltma_register_comments_widget' ] );
 
@@ -380,7 +380,12 @@ if( !class_exists('JLTMA_Comments_Builder') ){
 
 			die; // don't forget this thing if you don't want "0" to be displayed
 		}
-		
+
+
+        public function jltma_comments_preview_scripts(){
+            wp_enqueue_style('jltma-comments', JLTMA_PLUGIN_URL . 'assets/css/jltma-comments.css', array(), JLTMA_VERSION);
+            wp_enqueue_script( 'jltma-comments', JLTMA_PLUGIN_URL . 'assets/js/jltma-comments.js', array( 'jquery' ), JLTMA_VERSION, true );
+        }
 
         // CSS
 		public function jltma_comments_frontend_styles(){
@@ -390,9 +395,13 @@ if( !class_exists('JLTMA_Comments_Builder') ){
 
         // JS
         public function jltma_comments_frontend_scripts(){
-            
+
 			wp_register_script( 'jltma-comments', JLTMA_PLUGIN_URL . 'assets/js/jltma-comments.js', array( 'jquery' ), JLTMA_VERSION, true );
 			
+            // if ( !empty($jltma_api_settings['recaptcha_site_key']) and !empty($jltma_api_settings['recaptcha_secret_key']) ) {
+            wp_register_script( 'google-recaptcha', 'https://www.google.com/recaptcha/api.js', ['jquery'], null, true );
+            // }
+
 			$jc_page = get_query_var('cpage') ? get_query_var('cpage') : 1;
 
             $localize_comments_data = array(

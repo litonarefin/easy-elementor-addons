@@ -75,7 +75,7 @@
 	        return [ 
 	        	'font-awesome-5-all',
 				'font-awesome-4-shim',
-	        	'dashicons', 
+	        	// 'dashicons', 
 	        	'jltma-comments'
 	        ];
 		}
@@ -408,7 +408,7 @@
 		            ]
 		        );
 
-		    }else{
+		    } else {
 				$this->add_responsive_control(
 					'jltma_comment_spam_protection',
 					[
@@ -3055,6 +3055,7 @@
 						wp_json_encode(array_filter([
 							"container_id"          =>  esc_attr( $this->get_id()),
 							"template"          	=>  $jltma_comment_style_preset,
+							"reCaptchaprotected"   =>  $settings['jltma_comment_spam_protection'] =="yes" ? $settings['jltma_comment_spam_protection'] : 'no',
 						])) 
 					]
             	]
@@ -3066,11 +3067,13 @@
                 $jltma_api_settings = get_option( 'jltma_api_save_settings' );
 
                 $jltma_spam_protection = [
-                    'sitekey'   => $jltma_api_settings['recaptcha_site_key'],
+                    'sitekey'   => $jltma_api_settings['recaptcha_site_key'] ? $jltma_api_settings['recaptcha_site_key'] : '',
                     'theme'     => "light"
                 ];
 
-				$this->add_render_attribute([ 'jltma_comments_wrap' =>[ 'data-recaptcha' => wp_json_encode( $jltma_spam_protection ) ]]);
+				$this->add_render_attribute([ 'jltma_comments_wrap' =>[ 
+					'data-recaptcha' => wp_json_encode( $jltma_spam_protection ) 
+				]]);
             } ?>
 
             <div <?php echo $this->get_render_attribute_string( 'jltma_comments_wrap' );?> >

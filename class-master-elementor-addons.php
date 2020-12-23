@@ -173,8 +173,8 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			// add_action( 'elementor/editor/before_enqueue_scripts'  , array( $this, 'jltma_editor_scripts_enqueue_js' ) );
 
-			add_action( 'elementor/editor/after_enqueue_scripts'  , array( $this, 'jltma_editor_scripts_js' ) );
-			add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'jltma_editor_scripts_css' ]);
+			// add_action( 'elementor/editor/after_enqueue_scripts'  , array( $this, 'jltma_editor_scripts_js' ) );
+			// add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'jltma_editor_scripts_css' ]);
 
 			// add_action( 'elementor/preview/enqueue_styles', [ $this, 'jltma_enqueue_preview_scripts' ] );
 
@@ -552,7 +552,7 @@ if( !class_exists('Master_Elementor_Addons') ){
 			$jltma_api_settings = get_option( 'jltma_api_save_settings' );
 
 			// Register Styles
-			wp_register_style( 'bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css' );
+			wp_register_style( 'jltma-bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css' );
 
 			//Reveal
 			wp_register_script( 'ma-el-reveal-lib', MELA_PLUGIN_URL . '/assets/vendor/reveal/revealFx.js',array('jquery'),self::VERSION, true );
@@ -562,14 +562,17 @@ if( !class_exists('Master_Elementor_Addons') ){
 			wp_register_script( 'ma-el-rellaxjs-lib', MELA_PLUGIN_URL . '/assets/vendor/rellax/rellax.min.js',array('jquery'),self::VERSION, true );
 
 			// Register Scripts
-			wp_register_script( 'bootstrap', MELA_PLUGIN_URL . '/assets/js/bootstrap.min.js', array( 'jquery' ), MELA_VERSION, true );
+			wp_register_script( 'jltma-bootstrap', MELA_PLUGIN_URL . '/assets/js/bootstrap.min.js', array( 'jquery' ), MELA_VERSION, true );
 
 
 			// Enqueue Styles 
+			wp_enqueue_style( 'jltma-bootstrap' );
 			wp_enqueue_style( 'master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css' );
-			wp_enqueue_script( 'master-addons-plugins', MELA_PLUGIN_URL . '/assets/js/plugins.js', [ 'jquery' ], self::VERSION, true );
+			
 
 			// Enqueue Scripts
+			// wp_enqueue_script( 'jltma-bootstrap' );
+			wp_enqueue_script( 'master-addons-plugins', MELA_PLUGIN_URL . '/assets/js/plugins.js', [ 'jquery' ], self::VERSION, true );
 			wp_enqueue_script( 'master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', [ 'jquery' ], self::VERSION, true );
 
 
@@ -599,8 +602,8 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			//Mega Menu
 			// if ( $is_activated_extensions['mega-menu'] ) {
-			// 	wp_enqueue_style('bootstrap');
-			// 	wp_enqueue_script('bootstrap');
+			// 	wp_enqueue_style('jltma-bootstrap');
+			// 	wp_enqueue_script('jltma-bootstrap');
 			// }
 
 
@@ -769,9 +772,6 @@ if( !class_exists('Master_Elementor_Addons') ){
 			// GSAP TweenMax
 			wp_register_script(  'gsap-js', '//cdnjs.cloudflare.com/ajax/libs/gsap/' . $this->gsap_version . '/TweenMax.min.js', array(), null, true );
 
-			// if ( !empty($jltma_api_settings['recaptcha_site_key']) and !empty($jltma_api_settings['recaptcha_secret_key']) ) {
-				wp_register_script( 'google-recaptcha', 'https://www.google.com/recaptcha/api.js', ['jquery'], null, true );
-			// }
 			
 			// Advanced Animations
 			wp_register_script( 'jltma-floating-effects', MELA_PLUGIN_URL . '/assets/vendor/floating-effects/floating-effects.js', array( 'ma-el-anime-lib', 'jquery' ), self::VERSION );

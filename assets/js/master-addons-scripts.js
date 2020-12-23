@@ -1818,17 +1818,19 @@
             Master_Addons.getElementSettings    = getElementSettings($scope);
             var $commentsWrapper = $scope.find(".jltma-comments-wrap"),
                 $comments_recaptcha_data = $commentsWrapper.data("recaptcha"),
-                $recaptcha_theme = $comments_recaptcha_data.theme,
-                $recaptcha_sitekey = $comments_recaptcha_data.sitekey,
+                $recaptcha_protected = $commentsWrapper.data("jltma-comment-settings"),
                 jltma_comment_form;
 
-            var onloadCallback = function() {
-                jltma_comment_form = grecaptcha.render("jltma_comment_form", {
-                    "sitekey" : $recaptcha_sitekey,
-                    "theme" : "light"
-                });
-                grecaptcha.reset(jltma_comment_form);
-            };
+            if($recaptcha_protected.reCaptchaprotected == "yes"){
+                var onloadCallback = function() {
+                    jltma_comment_form = grecaptcha.render("jltma_comment_form", {
+                        "sitekey" : $comments_recaptcha_data.sitekey,
+                        "theme" : $comments_recaptcha_data.theme
+                    });
+                    grecaptcha.reset(jltma_comment_form);
+                };                
+            }
+
         },
 
 

@@ -45,6 +45,17 @@
 			return [ 'nav', 'navigation','menu','nav menu','header', 'footer', 'sidebar' ];
         }
 
+
+        public function get_script_depends() {
+            return [ 'jltma-bootstrap' ];
+        }
+
+
+        public function get_style_depends() {
+            return [ 'jltma-bootstrap' ];
+        }
+
+
         public function get_help_url() {
             return 'https://master-addons.com/elementor-mega-menu/';
         }

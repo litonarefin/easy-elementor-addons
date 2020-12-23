@@ -40,12 +40,12 @@ class JLTMA_Header_Footer_Assets{
         if($screen->id == 'edit-master_template'){
 
             // CSS
-            wp_enqueue_style( 'bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css');
+            wp_enqueue_style( 'jltma-bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css');
             wp_enqueue_style( 'jtlma-popup', JLTMA_PLUGIN_URL . 'assets/css/header-footer.css');
             wp_enqueue_style( 'select2', JLTMA_PLUGIN_URL . 'assets/css/select2.min.css');
 
             // JS
-            wp_enqueue_script( 'bootstrap', MELA_PLUGIN_URL . '/assets/js/bootstrap.min.js', array( 'jquery' ), JLTMA_VERSION, true );
+            wp_enqueue_script( 'jltma-bootstrap', MELA_PLUGIN_URL . '/assets/js/bootstrap.min.js', array( 'jquery' ), JLTMA_VERSION, true );
             wp_enqueue_script( 'select2', JLTMA_PLUGIN_URL . 'assets/js/select2.js', array( 'jquery'), true, JLTMA_VERSION );
             wp_enqueue_script( 'jltma-hfc-admin-script', JLTMA_PLUGIN_URL . 'assets/js/admin-script.js', array( 'jquery'), true, JLTMA_VERSION );
             
