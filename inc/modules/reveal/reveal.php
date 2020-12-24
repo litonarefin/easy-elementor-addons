@@ -3,6 +3,7 @@ namespace MasterAddons\Inc\Extensions;
 
 use \Elementor\Element_Base;
 use \Elementor\Controls_Manager;
+use Elementor\Group_Control_Background;
 use \MasterAddons\Inc\Classes\JLTMA_Extension_Prototype;
 
 // Exit if accessed directly.
@@ -17,10 +18,22 @@ class JLTMA_Extension_Reveal extends JLTMA_Extension_Prototype {
     private static $instance = null;
     public $name = 'Reveal';
     public $has_controls = true;
-
+    
+    public $common_sections_actions = array(
+        array(
+            'element' => 'common',
+            'action' => '_section_style',
+        ),
+        
+        array(
+            'element' => 'column',
+            'action' => 'section_advanced',
+        ),
+    );
     
     public function jltma_add_reveal_scripts(){
-        wp_enqueue_script( 'ma-el-reveal-lib', MELA_PLUGIN_URL . '/assets/vendor/reveal/revealFx.js',array('jquery'), MELA_VERSION, true );
+        wp_enqueue_script( 'ma-el-anime-lib' );
+        wp_enqueue_script( 'ma-el-reveal-lib', MELA_PLUGIN_URL . '/assets/vendor/reveal/revealFx.js',array('ma-el-anime-lib', 'jquery'), MELA_VERSION, true );
     }
 
     protected function add_actions() {
@@ -37,10 +50,15 @@ class JLTMA_Extension_Reveal extends JLTMA_Extension_Prototype {
         // add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'before_render'],10);
         add_action( 'elementor/frontend/element/before_render', [ $this, 'before_render'],10,1);
         add_action( 'elementor/frontend/column/before_render', [ $this, 'before_render'],10,1);
-        add_action( 'elementor/frontend/section/before_render', [ $this, 'before_render'],10,1);
+        // add_action( 'elementor/frontend/section/before_render', [ $this, 'before_render'],10,1);
         add_action( 'elementor/frontend/widget/before_render', [ $this, 'before_render' ], 10,1 );
 
         add_action( 'elementor/preview/enqueue_scripts', [ $this, 'jltma_add_reveal_scripts' ] );
+
+        // Activate controls for columns
+        add_action('elementor/element/column/jltma_section_reveal_advanced/before_section_end', function( $element, $args ) {
+            $this->add_controls($element, $args);
+        }, 10, 2);
 
     }
 
@@ -120,16 +138,33 @@ class JLTMA_Extension_Reveal extends JLTMA_Extension_Prototype {
                 ]
             ]
         );
-        $element->add_control(
-            'reveal_bgcolor', [
-                'label' => __('Color', MELA_TD),
-                'type' => Controls_Manager::COLOR,
-                'frontend_available' => true,
-                'condition' => [
+        // $element->add_control(
+        //     'reveal_bgcolor', [
+        //         'label' => __('Color', MELA_TD),
+        //         'type' => Controls_Manager::COLOR,
+        //         'frontend_available' => true,
+        //         'condition' => [
+        //             'enabled_reveal' => 'yes'
+        //         ]
+        //     ]
+        // );
+
+
+        $element->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name'                  => 'reveal_bgcolor',
+                'label'                 => __( 'Background', MELA_TD ),
+                'types'                 => [ 'classic', 'gradient' ],
+                'exclude'               => [ 'image' ],
+                'frontend_available'    => true,
+                'condition'             => [
                     'enabled_reveal' => 'yes'
-                ]
+                ]                
+                // 'selector'              => '{{WRAPPER}} .ma-el-gravity-form .gform_wrapper .gf_progressbar_percentage'
             ]
         );
+
     }
 
     public function before_render( \Elementor\Element_Base $element ) {
