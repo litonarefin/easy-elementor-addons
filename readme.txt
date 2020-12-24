@@ -2,7 +2,7 @@
 Contributors: jwthemeltd, litonice13, masteraddons
 Tags: elementor, elementor addon, elementor widget, clickable column, essential widget, custom css elements, after before image comparison, image hover effects, header & footer builder, template import, elementor addons, elementor extensions,  elementor modules, elementor templates, comment form builder, mega menu, header footer builder, elements, page builder addons,addons, jewletheme, masteraddons
 Requires at least: 4.0
-Tested up to: 5.5.3
+Tested up to: 5.6
 Requires PHP: 5.3
 Stable tag: trunk
 License: GPLv2
@@ -373,12 +373,14 @@ Paste on your Local Computer
 
 
 == Changelog ==
-= 1.5.5 (22-11-2020) =
+= 1.5.5 (26-12-2020) =
 * Added: Particles Extension "Z-Index" option added
 * Added: Wrapper Link extension. Supports - Individual Elements, Sections & Columns. You can Make Section or Column Clickable on Elementor.
+* Updated: We've got numerous requests about performance issue. Updated Huge performance updated on both Editor and Frontend. Loading scripts and styles conditionally.
+* Added: Animation settings added on "MA Animated Headlines" widget element
 
 
-= 1.5.4.1 (22-11-2020) =
+= 1.5.4.1 (8-12-2020) =
 * Fixed: Sweetalert2 issue fixed on Admin "Save Settings"
 * Fixed: Mailchimp Addon conflicting ID issue fixed
 
