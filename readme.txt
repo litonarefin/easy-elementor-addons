@@ -378,6 +378,8 @@ Paste on your Local Computer
 * Added: Wrapper Link extension. Supports - Individual Elements, Sections & Columns. You can Make Section or Column Clickable on Elementor.
 * Updated: We've got numerous requests about performance issue. Updated Huge performance updated on both Editor and Frontend. Loading scripts and styles conditionally.
 * Added: Animation settings added on "MA Animated Headlines" widget element
+* Added: Gradient Color Option added on Reveal
+* Updated: MA Reveal - reveal for Columns supports given
 
 
 = 1.5.4.1 (8-12-2020) =

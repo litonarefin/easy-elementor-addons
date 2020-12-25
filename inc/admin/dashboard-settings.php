@@ -89,7 +89,6 @@ class Master_Addons_Admin_Settings{
 		if($screen->id == 'toplevel_page_master-addons-settings'){
 
 			//CSS
-			// wp_enqueue_style( 'master-addons-notice', MELA_ADMIN_ASSETS . 'css/master-addons-notice.css' );
 			wp_enqueue_style( 'jltma-bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css');
 			wp_enqueue_style( 'master-addons-el-admin', MELA_ADMIN_ASSETS . 'css/master-addons-admin.css' );
 			wp_enqueue_style( 'sweetalert', MELA_ADMIN_ASSETS .'css/sweetalert2.min.css');
@@ -120,7 +119,7 @@ class Master_Addons_Admin_Settings{
 		}
 
 		// Admin Notice Dismiss
-		wp_enqueue_script( 'jltma-dismiss-notice', MELA_ADMIN_ASSETS . 'js/dismiss-notice.js', ['jquery'], MELA_VERSION, true );
+		wp_enqueue_script( 'jltma-dismiss-notice', MELA_ADMIN_ASSETS . 'js/dismiss-notice.js', ['jquery','common'], MELA_VERSION, true );
 
 		// Localize Script
 		if ( is_customize_preview() ) { return; }

@@ -49,7 +49,7 @@ class JLTMA_Extension_Reveal extends JLTMA_Extension_Prototype {
 
         // add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'before_render'],10);
         add_action( 'elementor/frontend/element/before_render', [ $this, 'before_render'],10,1);
-        add_action( 'elementor/frontend/column/before_render', [ $this, 'before_render'],10,1);
+        // add_action( 'elementor/frontend/column/before_render', [ $this, 'before_render'],10,1);
         // add_action( 'elementor/frontend/section/before_render', [ $this, 'before_render'],10,1);
         add_action( 'elementor/frontend/widget/before_render', [ $this, 'before_render' ], 10,1 );
 
@@ -169,7 +169,7 @@ class JLTMA_Extension_Reveal extends JLTMA_Extension_Prototype {
 
     public function before_render( \Elementor\Element_Base $element ) {
         $settings = $element->get_settings();
-
+        
         if (isset($settings['enabled_reveal']) && $settings['enabled_reveal'] == 'yes') {
             $this->jltma_add_reveal_scripts();
         }

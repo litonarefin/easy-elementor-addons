@@ -29,6 +29,7 @@ if( !class_exists('Master_Addons_Promotions') ) {
             add_action( 'admin_notices', [$this, 'jltma_latest_blog_update'], 10 );
             
             if ( !ma_el_fs()->can_use_premium_code() ) {
+                
                 //Black Friday & Cyber Monday Offer
                 add_action( 'admin_notices', [$this, 'jltma_black_friday_cyber_monday_deals'], 10 );
 
@@ -101,10 +102,10 @@ if( !class_exists('Master_Addons_Promotions') ) {
 
             return $timeout;
         }
-
+        
         public function jltma_admin_notice_styles(){ ?>
             <style type="text/css">
-                #master-addons-review-notice .notice-dismiss{padding:0 0 0 26px}#master-addons-review-notice .notice-dismiss:before{display:none}#master-addons-review-notice.master-addons-review-notice{padding:10px 10px 10px 0;background-color:#fff;border-radius:3px;border-left:4px solid transparent}#master-addons-review-notice .master-addons-review-thumbnail{width:114px;float:left;line-height:80px;text-align:center;border-right:4px solid transparent}#master-addons-review-notice .master-addons-review-thumbnail img{width:60px;vertical-align:middle}#master-addons-review-notice .master-addons-review-text{overflow:hidden}#master-addons-review-notice .master-addons-review-text h3{font-size:24px;margin:0 0 5px;font-weight:400;line-height:1.3}#master-addons-review-notice .master-addons-review-text p{font-size:13px;margin:0 0 5px}#master-addons-review-notice .master-addons-review-ul{margin:0;padding:0}#master-addons-review-notice .master-addons-review-ul li{display:inline-block;margin-right:15px}#master-addons-review-notice .master-addons-review-ul li a{display:inline-block;color:#4b00e7;text-decoration:none;padding-left:26px;position:relative}#master-addons-review-notice .master-addons-review-ul li a span{position:absolute;left:0;top:-2px}
+                .master-addons-review-notice .notice-dismiss{padding:0 0 0 26px}.master-addons-review-notice .notice-dismiss:before{display:none}.master-addons-review-notice.master-addons-review-notice{padding:10px 10px 10px 0;background-color:#fff;border-radius:3px;border-left:4px solid transparent}.master-addons-review-notice .master-addons-review-thumbnail{width:114px;float:left;line-height:80px;text-align:center;border-right:4px solid transparent}.master-addons-review-notice .master-addons-review-thumbnail img{width:60px;vertical-align:middle}.master-addons-review-notice .master-addons-review-text{overflow:hidden}.master-addons-review-notice .master-addons-review-text h3{font-size:24px;margin:0 0 5px;font-weight:400;line-height:1.3}.master-addons-review-notice .master-addons-review-text p{font-size:13px;margin:0 0 5px}.master-addons-review-notice .master-addons-review-ul{margin:0;padding:0}.master-addons-review-notice .master-addons-review-ul li{display:inline-block;margin-right:15px}.master-addons-review-notice .master-addons-review-ul li a{display:inline-block;color:#4b00e7;text-decoration:none;padding-left:26px;position:relative}.master-addons-review-notice .master-addons-review-ul li a span{position:absolute;left:0;top:-2px}
             </style>
         <?php }
 
@@ -200,9 +201,11 @@ if( !class_exists('Master_Addons_Promotions') ) {
             return $jltma_days_diff;
         }
 
-        public function jltma_admin_upgrade_pro_notice( $notice_key ){ ?>
-            <div data-dismissible="<?php echo esc_attr($notice_key);?>" class="updated notice notice-success is-dismissible">
-                <div id="master-addons-review-notice" class="master-addons-review-notice">
+        public function jltma_admin_upgrade_pro_notice( $notice_key ){ 
+            if ( ! self::is_admin_notice_active( $notice_key ) ) { return; }
+        ?>
+            <div data-dismissible="<?php echo esc_attr($notice_key);?>" id="<?php echo esc_attr( $notice_key );?>" class="jltma-admin-notice updated notice notice-success is-dismissible">
+                <div id="master-addons-upgrade-pro-notice" class="master-addons-review-notice">
                     <?php
                         $jltma_upsell_notice = sprintf(
                             __( '%1$s <strong>%2$s</strong> %3$s <strong>ENJOY25</strong>', MELA_TD ),
@@ -223,12 +226,14 @@ if( !class_exists('Master_Addons_Promotions') ) {
 
 
         // Black Friday & Cyber Monday Offer
-        public function jltma_admin_bf_cm_upgrade_pro_notice( $notice_key ){ ?>
+        public function jltma_admin_bf_cm_upgrade_pro_notice( $notice_key ){ 
+            if ( ! self::is_admin_notice_active( $notice_key ) ) { return; }
+            ?>
 
-            <div data-dismissible="<?php echo esc_attr($notice_key);?>" class="updated notice notice-success is-dismissible">
-                <div id="master-addons-review-notice" class="master-addons-review-notice">
+            <div data-dismissible="<?php echo esc_attr( $notice_key );?>" id="<?php echo esc_attr( $notice_key );?>" class="jltma-admin-notice updated notice notice-success is-dismissible">
+                <div id="master-addons-bfcm-upgrade-notice" class="master-addons-review-notice">
                     <div class="master-addons-review-thumbnail">
-                        <img src="https://ps.w.org/master-addons/assets/icon-256x256.png" alt="">
+                        <img src="<?php echo  esc_attr( MELA_IMAGE_DIR ) . 'logo.png' ?>" alt="Master Addons">
                     </div>
                     <div class="master-addons-review-text">
                         <h3><?php _e( '<strong>Black Friday & Cyber Monday</strong> Deals - <strong>50% Off</strong> !', MELA_TD ) ?></h3>
@@ -244,15 +249,18 @@ if( !class_exists('Master_Addons_Promotions') ) {
                 </div>
             </div>
 
+
         <?php }
 
 
-        public function jltma_admin_notice_ask_for_review( $notice_key ){ ?>
+        public function jltma_admin_notice_ask_for_review( $notice_key ){ 
+            if ( ! self::is_admin_notice_active( $notice_key ) ) { return; }
+            ?>
 
-            <div data-dismissible="<?php echo esc_attr($notice_key);?>" class="updated notice notice-success is-dismissible">
+            <div data-dismissible="<?php echo esc_attr($notice_key);?>" class="jltma-admin-notice updated notice notice-success is-dismissible">
                 <div id="master-addons-review-notice" class="master-addons-review-notice">
                     <div class="master-addons-review-thumbnail">
-                        <img src="https://ps.w.org/master-addons/assets/icon-256x256.png" alt="">
+                        <img src="<?php echo  esc_attr( MELA_IMAGE_DIR ) . 'logo.png' ?>" alt="Master Addons">
                     </div>
                     <div class="master-addons-review-text">
 
@@ -272,10 +280,10 @@ if( !class_exists('Master_Addons_Promotions') ) {
         <?php }
 
         public function jltma_latest_blog_update(){
-            if ( ! self::is_admin_notice_active( 'disable-done-notice-forever' ) ) { return; }
+            if ( ! self::is_admin_notice_active( 'jltma-disable-update-notice-forever' ) ) { return; }
 
             $blog_update_message = sprintf(
-                __( '%1$s got HUGE Updates!!! %2$s %3$s %4$s %5$s %6$s %7$s <br> <strong>Check Changelogs for <strong> <a href="%8$s" target="__blank">%9$s</a>', MELA_TD ),
+                __( '%1$s got HUGE Updates!!! %2$s %3$s %4$s %5$s %6$s %7$s <br> <strong>Check Changelogs for </strong> <a href="%8$s" target="__blank">%9$s</a>', MELA_TD ),
 
                 '<strong>' . esc_html__( 'Master Addons for Elementor v', MELA_TD ) . MELA_VERSION . '</strong>',
                 '<br>' . __( '✅ Editor speed optimized and increased loading time !!', MELA_TD ) . '<br>',
@@ -284,12 +292,11 @@ if( !class_exists('Master_Addons_Promotions') ) {
                 __( '✅ <b>Formidable Form</b> issue fixed', MELA_TD ) . '<br>',
                 __( '✅ <b>Updated:</b> Animated Headlines, Dual Headings, Counter Up, Team Members etc', MELA_TD ) . '<br>',
                 __( '✅ Latest Elementor version Compatibility & better UX', MELA_TD ) . '<br>',
-                __( '✅ Some major issues fixed', MELA_TD ) . '<br>',
                 esc_url_raw('https://master-addons.com/changelogs/'),
                 esc_html__( 'More Details', MELA_TD )
             );
 
-            printf( '<div data-dismissible="disable-done-notice-forever" class="updated notice notice-success is-dismissible"><p>%1$s</p></div>', $blog_update_message );
+            printf( '<div data-dismissible="jltma-disable-update-notice-forever" class="updated notice notice-success is-dismissible"><p>%1$s</p></div>', $blog_update_message );
         }
 
         public function jltma_request_review_after_seven_days(){
@@ -309,14 +316,12 @@ if( !class_exists('Master_Addons_Promotions') ) {
         }
 
         public function jltma_black_friday_cyber_monday_deals(){
-
-            if ( !self::is_admin_notice_active( 'jltma-bf-cm-2020' ) ) { return; }
             $today = date("Y-m-d");
-            $expire = '2020-12-05';
+            $expire = '2020-12-30';
             $today_time = strtotime($today);            
             $expire_time = strtotime($expire);
             if ($expire_time >= $today_time) { 
-                $this->jltma_admin_bf_cm_upgrade_pro_notice('jltma-bf-cm-2020');
+                $this->jltma_admin_bf_cm_upgrade_pro_notice('jltma-bfcm-2021-forever');
             }
         }
 
