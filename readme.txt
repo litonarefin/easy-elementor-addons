@@ -381,6 +381,9 @@ Paste on your Local Computer
 * Added: Gradient Color Option added on Reveal
 * Updated: MA Reveal - reveal for Columns supports given
 * Fixed: Admin Notice "Never Show Again" not working issue has been fixed
+* Fixed: Creative Buttons style issue fixed for - Winona, Tamaya, Rayen, Nina, Nanuk, Antiman, Itzel, Naira, Quidel etc
+* Fixed: Team Members - Social Icons with Content Alignment issue resolved
+* Fixed: Progressbar - input number showing wrong fill bar color issue fixed
 
 
 = 1.5.4.1 (8-12-2020) =
