@@ -647,7 +647,6 @@
 					]
 				);
 
-
 				$this->add_responsive_control(
 					'ma_el_infobox_title_alignment',
 					[

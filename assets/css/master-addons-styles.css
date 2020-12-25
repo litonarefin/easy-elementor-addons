@@ -3190,7 +3190,6 @@ canvas.particles-js-canvas-el { position: absolute; left: 0; top: 0; height:100%
 }
 
 .ma-el-infobox.eight .ma-el-infobox-icon {
-    color: #fff;
     height: 150px;
     width: 150px;
     margin: 0 auto;
@@ -3198,6 +3197,7 @@ canvas.particles-js-canvas-el { position: absolute; left: 0; top: 0; height:100%
     text-align: center;
 }
 .ma-el-infobox.eight .ma-el-infobox-icon i {
+    color: #e8156e;
     height: 60px;
     width: 60px;
     line-height: 60px;
