@@ -161,8 +161,6 @@
 				]
 			);
 
-
-
 			$this->add_control('ma_el_team_members_content_align',
 				[
 					'label'         => __( 'Content Alignment', MELA_TD ),
@@ -183,12 +181,14 @@
 					],
 					'default'       => 'left',
 					'selectors'     => [
-						'{{WRAPPER}} .ma-el-team-member-content' => 'text-align: {{VALUE}};',
+						'{{WRAPPER}} .ma-el-team-member-content:not(.ma-el-team-member-social li a)' => 'text-align: {{VALUE}};',
 					],
 				]
 			);
 
 			$this->end_controls_section();
+
+			
 			/*
 			* Team member Social profiles section
 			*/

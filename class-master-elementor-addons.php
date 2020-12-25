@@ -161,8 +161,8 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			
 			// Elementor Scripts Dependencies
-			add_action( 'elementor/frontend/before_register_styles', [$this, 'jltma_register_frontend_styles'] );
-			add_action( 'elementor/frontend/before_register_scripts', [$this, 'jltma_register_frontend_scripts'] );
+			add_action( 'elementor/frontend/after_register_styles', [$this, 'jltma_register_frontend_styles'] );
+			add_action( 'elementor/frontend/after_register_scripts', [$this, 'jltma_register_frontend_scripts'] );
 			// add_action( 'elementor/frontend/after_enqueue_scripts', [$this, 'jltma_enqueue_scripts'] );
 
 			//		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'ma_el_enqueue_frontend_styles' ] );
@@ -173,10 +173,11 @@ if( !class_exists('Master_Elementor_Addons') ){
 
 			// add_action( 'elementor/editor/before_enqueue_scripts'  , array( $this, 'jltma_editor_scripts_enqueue_js' ) );
 
-			// add_action( 'elementor/editor/after_enqueue_scripts'  , array( $this, 'jltma_editor_scripts_js' ) );
-			// add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'jltma_editor_scripts_css' ]);
+			add_action( 'elementor/editor/after_enqueue_scripts'  , [ $this, 'jltma_editor_scripts_js' ], 100  );
+			add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'jltma_enqueue_preview_scripts' ], 100);
 
-			// add_action( 'elementor/preview/enqueue_styles', [ $this, 'jltma_enqueue_preview_scripts' ] );
+			add_action( 'elementor/preview/enqueue_styles', [ $this, 'jltma_enqueue_preview_scripts' ], 100 );
+			add_action( 'elementor/preview/enqueue_scripts', [ $this, 'jltma_enqueue_preview_scripts' ], 100 );
 
 
 			// Add Elementor Widgets
@@ -779,10 +780,9 @@ if( !class_exists('Master_Elementor_Addons') ){
 		}
 
 		
-
 		// Enqueue Preview Scripts
 		public function jltma_enqueue_preview_scripts(){
-
+			wp_enqueue_style( 'ma-creative-buttons' );
 		}
 
 

@@ -2624,7 +2624,7 @@
     z-index: 1;
     -webkit-border-radius: 2px;
     border-radius: 2px;
-    padding: 20px 30px;
+    /* padding: 20px 30px; */
     font-size: 16px;
     line-height: 1;
     -webkit-backface-visibility: hidden;
@@ -2644,7 +2644,6 @@
 .ma-el-creative-button > span {
     vertical-align: middle;
 }
-
 /* Creative Buttons */
 
 

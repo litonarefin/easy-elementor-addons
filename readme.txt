@@ -380,6 +380,7 @@ Paste on your Local Computer
 * Added: Animation settings added on "MA Animated Headlines" widget element
 * Added: Gradient Color Option added on Reveal
 * Updated: MA Reveal - reveal for Columns supports given
+* Fixed: Admin Notice "Never Show Again" not working issue has been fixed
 
 
 = 1.5.4.1 (8-12-2020) =
