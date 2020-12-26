@@ -26,7 +26,7 @@ if( !class_exists('Master_Addons_Promotions') ) {
             add_action( 'admin_init', [ $this, 'jltma_admin_notice_init' ] );
 
             //Notices
-            add_action( 'admin_notices', [$this, 'jltma_latest_blog_update'], 10 );
+            add_action( 'admin_notices', [$this, 'jltma_latest_update_details'], 10 );
             
             if ( !ma_el_fs()->can_use_premium_code() ) {
                 
@@ -49,6 +49,26 @@ if( !class_exists('Master_Addons_Promotions') ) {
 
         public function jltma_admin_notice_init(){
             add_action( 'wp_ajax_dismiss_admin_notice', [ $this, 'jltma_dismiss_admin_notice' ] );
+        }
+
+        public function jltma_latest_update_details(){
+            if ( ! self::is_admin_notice_active( 'jltma-disable-update-notice-forever' ) ) { return; }
+
+            $blog_update_message = sprintf(
+                __( '%1$s got HUGE Updates!!! %2$s %3$s %4$s %5$s %6$s %7$s <br> <strong>Check Changelogs for </strong> <a href="%8$s" target="__blank">%9$s</a>', MELA_TD ),
+
+                '<strong>' . esc_html__( 'Master Addons for Elementor v', MELA_TD ) . MELA_VERSION . '</strong>',
+                '<br>' . __( '✅ Fully Optimized Scripts and Styles for Editor & Frontend !!', MELA_TD ) . '<br>',
+                __( '✅ <b>Wrapper Link</b> extension added for all widgets', MELA_TD ) . '<br>',
+                __( '✅ <b>Animated Headlines</b> updated with animation controls', MELA_TD ) . '<br>',
+                __( '✅ Gradient color option added for Reveal', MELA_TD ) . '<br>',
+                __( '✅ <b>Updated:</b> Animated Headlines, Creative Buttons, Team Members, Infobox, Progressbar etc', MELA_TD ) . '<br>',
+                __( '✅ Latest WordPress v5.6 Elementor Compatibility & better UX', MELA_TD ) . '<br>',
+                esc_url_raw('https://master-addons.com/changelogs/'),
+                esc_html__( 'More Details', MELA_TD )
+            );
+
+            printf( '<div data-dismissible="jltma-disable-update-notice-forever" class="jltma-admin-notice updated notice notice-success is-dismissible"><p>%1$s</p></div>', $blog_update_message );
         }
 
         public function jltma_dismiss_admin_notice(){
@@ -280,26 +300,6 @@ if( !class_exists('Master_Addons_Promotions') ) {
 
         <?php }
 
-
-        public function jltma_latest_blog_update(){
-            if ( ! self::is_admin_notice_active( 'jltma-disable-update-notice-forever' ) ) { return; }
-
-            $blog_update_message = sprintf(
-                __( '%1$s got HUGE Updates!!! %2$s %3$s %4$s %5$s %6$s %7$s <br> <strong>Check Changelogs for </strong> <a href="%8$s" target="__blank">%9$s</a>', MELA_TD ),
-
-                '<strong>' . esc_html__( 'Master Addons for Elementor v', MELA_TD ) . MELA_VERSION . '</strong>',
-                '<br>' . __( '✅ Editor speed optimized and increased loading time !!', MELA_TD ) . '<br>',
-                __( '✅ <b>Blog Element</b> updated pagination and other settings', MELA_TD ) . '<br>',
-                __( '✅ <b>Core Library</b> updated', MELA_TD ) . '<br>',
-                __( '✅ <b>Formidable Form</b> issue fixed', MELA_TD ) . '<br>',
-                __( '✅ <b>Updated:</b> Animated Headlines, Dual Headings, Counter Up, Team Members etc', MELA_TD ) . '<br>',
-                __( '✅ Latest Elementor version Compatibility & better UX', MELA_TD ) . '<br>',
-                esc_url_raw('https://master-addons.com/changelogs/'),
-                esc_html__( 'More Details', MELA_TD )
-            );
-
-            printf( '<div data-dismissible="jltma-disable-update-notice-forever" class="jltma-admin-notice updated notice notice-success is-dismissible"><p>%1$s</p></div>', $blog_update_message );
-        }
 
         public function jltma_request_review_after_seven_days(){
             $jltma_seven_day_notice = $this->jltma_days_differences();
