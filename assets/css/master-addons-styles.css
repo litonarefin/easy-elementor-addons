@@ -3274,9 +3274,17 @@ canvas.particles-js-canvas-el { position: absolute; left: 0; top: 0; height:100%
 
 .ma-el-infobox.nine .ma-el-infobox-icon i {
     font-size: 3rem;
-    font-weight: normal;
+    color: #e8156e;
 }
 
+.ma-el-infobox.eight .ma-el-infobox-item:hover .ma-el-infobox-content-title,
+.ma-el-infobox.eight .ma-el-infobox-item:hover .ma-el-infobox-content-description,
+.ma-el-infobox.nine .ma-el-infobox-item:hover .ma-el-infobox-content-title,
+.ma-el-infobox.nine .ma-el-infobox-item:hover .ma-el-infobox-content-description,
+.ma-el-infobox.five .ma-el-infobox-item .ma-el-infobox-icon i,
+.ma-el-infobox.ten .ma-el-infobox-item:hover .ma-el-infobox-icon i {
+    color: #fff;
+}
 .ma-el-infobox.nine .ma-el-infobox-item .ma-el-infobox-content-title {
     margin-top: .875rem;
 }
@@ -3354,6 +3362,7 @@ canvas.particles-js-canvas-el { position: absolute; left: 0; top: 0; height:100%
 .ma-el-infobox.ten .ma-el-infobox-content {
     text-align: center;
 }
+
 
 
 

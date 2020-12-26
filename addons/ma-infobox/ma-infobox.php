@@ -1040,7 +1040,7 @@ Customization Options.</span>'
 
 					<?php if( $settings['ma_el_infobox_img_or_icon'] != 'none' ) : ?>
 
-						<?php if($settings['ma_el_infobox_preset']=="two"){ ?>
+						<?php if($settings['ma_el_infobox_preset'] === "two"){ ?>
                             <div class="bg-fade-icon">
 								<?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-tag', 'icon', $settings['ma_el_infobox_icon'], 'ma_el_infobox_icon' ); ?>
                             </div>
@@ -1051,7 +1051,7 @@ Customization Options.</span>'
                                 <?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-tag', 'icon', $settings['ma_el_infobox_icon'], 'ma_el_infobox_icon' ); ?>
                             </div>
 
-						<?php }?>
+						<?php } ?>
 
 
 

@@ -384,6 +384,7 @@ Paste on your Local Computer
 * Fixed: Creative Buttons style issue fixed for - Winona, Tamaya, Rayen, Nina, Nanuk, Antiman, Itzel, Naira, Quidel etc
 * Fixed: Team Members - Social Icons with Content Alignment issue resolved
 * Fixed: Progressbar - input number showing wrong fill bar color issue fixed
+* Fixed: MA Infobox - Color and style issue for variation one, two, five, seven, eight, nine and ten fixed
 
 
 = 1.5.4.1 (8-12-2020) =
