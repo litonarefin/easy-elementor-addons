@@ -13,9 +13,9 @@
 // No, Direct access Sir !!!
  if ( !defined( 'ABSPATH' ) ) exit;
 
- $jltma_plugin_data = get_file_data(__FILE__,  array('Version'=> 'Version','Plugin Name'=>'Plugin Name'),false);
- $jltma_plugin_name = $jltma_plugin_data['Plugin Name'];
- $jltma_plugin_version = $jltma_plugin_data['Version'];
+$jltma_plugin_data = get_file_data(__FILE__,  array('Version'=> 'Version','Plugin Name'=>'Plugin Name'),false);
+$jltma_plugin_name = $jltma_plugin_data['Plugin Name'];
+$jltma_plugin_version = $jltma_plugin_data['Version'];
 
 define('JLTMA_NAME', $jltma_plugin_name);
 define('JLTMA_PLUGIN_VERSION', $jltma_plugin_version);
