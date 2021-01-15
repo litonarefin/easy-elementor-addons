@@ -4,7 +4,7 @@
  * Description: Master Addons is easy and must have Elementor Addons for WordPress Page Builder. Clean, Modern, Hand crafted designed Addons blocks.
  * Plugin URI: https://master-addons.com/all-widgets/
  * Author: Jewel Theme
- * Version: 1.5.5
+ * Version: 1.5.6
  * Author URI: https://master-addons.com
  * Text Domain: mela
  * Domain Path: /languages
@@ -83,4 +83,3 @@ if(class_exists('\\MasterAddons\\Master_Elementor_Addons')){
     register_activation_hook( __FILE__ , array('\\MasterAddons\\Master_Elementor_Addons', 'jltma_plugin_activation_hook'));
     register_deactivation_hook(__FILE__, array('\\MasterAddons\\Master_Elementor_Addons', 'jltma_plugin_deactivation_hook'));
 }
-

@@ -55,14 +55,14 @@ if( !class_exists('Master_Addons_Promotions') ) {
             if ( ! self::is_admin_notice_active( 'jltma-disable-update-notice-forever' ) ) { return; }
 
             $blog_update_message = sprintf(
-                __( '%1$s got HUGE Updates!!! %2$s %3$s %4$s %5$s %6$s %7$s <br> <strong>Check Changelogs for </strong> <a href="%8$s" target="__blank">%9$s</a>', MELA_TD ),
+                __( '%1$s added new Element <strong>Gradient Headlines</strong> %2$s %3$s %4$s %5$s %6$s <br> <strong>Check Changelogs for </strong> <a href="%7$s" target="__blank">%8$s</a>', MELA_TD ),
 
                 '<strong>' . esc_html__( 'Master Addons for Elementor v', MELA_TD ) . MELA_VERSION . '</strong>',
-                '<br>' . __( '✅ Fully Optimized Scripts and Styles for Editor & Frontend !!', MELA_TD ) . '<br>',
-                __( '✅ <b>Wrapper Link</b> extension added for all widgets', MELA_TD ) . '<br>',
-                __( '✅ <b>Animated Headlines</b> updated with animation controls', MELA_TD ) . '<br>',
-                __( '✅ Gradient color option added for Reveal', MELA_TD ) . '<br>',
-                __( '✅ <b>Updated:</b> Animated Headlines, Creative Buttons, Team Members, Infobox, Progressbar etc', MELA_TD ) . '<br>',
+                '<br><br>' . __( '✅ Fully Optimized Scripts and Styles for Editor & Frontend !!', MELA_TD ) . '<br>',
+                __( '✅ New Element <b>Gradient Headlines</b> added ', MELA_TD ) . '<br>',
+                __( '✅ <b>Wrapper Link</b> extension added for all widgets & extensions', MELA_TD ) . '<br>',
+                __( '✅ Updated Wrapper Link reference links', MELA_TD ) . '<br>',
+                // __( '✅ <b>Updated:</b> Animated Headlines, Creative Buttons, Team Members, Infobox, Progressbar etc', MELA_TD ) . '<br>',
                 __( '✅ Latest WordPress v5.6 Elementor Compatibility & better UX', MELA_TD ) . '<br>',
                 esc_url_raw('https://master-addons.com/changelogs/'),
                 esc_html__( 'More Details', MELA_TD )

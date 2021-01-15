@@ -86,6 +86,7 @@ Quick Overview:
 32. [Counter Up](https://master-addons.com/demos/counter-up/)
 33. [Countdown Timer](https://master-addons.com/demos/countdown-timer/)
 34. [Mailchimp](https://master-addons.com/demos/mailchimp/)
+35. [Gradient Headlines](https://master-addons.com/demos/gradient-headline/)
 
 == PRO Elements ==
 1. [News Ticker](https://master-addons.com/demos/news-ticker/)
@@ -126,6 +127,7 @@ Quick Overview:
 8. [Positioning](https://master-addons.com/demos/positioning/)
 9. Container Extras
 10. [Dynamic Tags](https://master-addons.com/demos/dynamic-tags/)
+11. [Wrapper Link](https://master-addons.com/docs/addons/wrapper-link/)
 
 
 == PRO Extensions ==
@@ -373,6 +375,11 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.5.6 (10-01-2021) =
+* Added: "Gradient Headlines" Element added
+* Tweak: worked on Performance issue 
+* Fixed: Few CSS issue fixed
+
 = 1.5.5 (26-12-2020) =
 * Added: Particles Extension "Z-Index" option added
 * Added: Wrapper Link extension. Supports - Individual Elements, Sections & Columns. You can Make Section or Column Clickable on Elementor.

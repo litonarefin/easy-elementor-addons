@@ -128,8 +128,8 @@ $jltma_elements = [
                 'key'           => 'wrapper-link',
                 'title'         => esc_html__( 'Wrapper Link', MELA_TD),
                 'demo_url'      => '',
-                'docs_url'      => '',
-                'tuts_url'      => ''
+                'docs_url'      => 'https://master-addons.com/docs/addons/wrapper-link/',
+                'tuts_url'      => 'https://www.youtube.com/watch?v=fsbK4G9T-qM'
             ],
             // [
             //     'key'           => 'morphing-effects',
