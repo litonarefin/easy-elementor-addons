@@ -42,7 +42,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
 
     // public function get_script_depends()
     // {
-    //     return ['rh_elparticle'];
+    //     return ['jltma_mrbl_elparticle'];
     // }
 
     public function get_keywords()
@@ -89,43 +89,43 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 ),
             )
         );
-        $this->add_control('rh_vid_mp4', [
+        $this->add_control('jltma_mrbl_vid_mp4', [
             'label' => esc_html__('Mp4 video link', MELA_TD),
             'label_block'  => true,
             'type' => \Elementor\Controls_Manager::TEXT,
             'condition' => array(
-                'rh_canvas_type' => 'video',
+                'jltma_mrbl_type' => 'video',
             ),
         ]);
-        $this->add_control('rh_vid_webm', [
+        $this->add_control('jltma_mrbl_vid_webm', [
             'label' => esc_html__('Webm video link', MELA_TD),
             'label_block'  => true,
             'type' => \Elementor\Controls_Manager::TEXT,
             'condition' => array(
-                'rh_canvas_type' => 'video',
+                'jltma_mrbl_type' => 'video',
             ),
         ]);
-        $this->add_control('rh_vid_ogv', [
+        $this->add_control('jltma_mrbl_vid_ogv', [
             'label' => esc_html__('Ogv video link', MELA_TD),
             'label_block'  => true,
             'type' => \Elementor\Controls_Manager::TEXT,
             'condition' => array(
-                'rh_canvas_type' => 'video',
+                'jltma_mrbl_type' => 'video',
             ),
         ]);
-        $this->add_control('rh_vid_poster', [
+        $this->add_control('jltma_mrbl_vid_poster', [
             'label' => esc_html__('Upload poster', MELA_TD),
             'type' => \Elementor\Controls_Manager::MEDIA,
             'default' => [
                 'url' => \Elementor\Utils::get_placeholder_image_src(),
             ],
             'condition' => array(
-                'rh_canvas_type' => 'video',
+                'jltma_mrbl_type' => 'video',
             ),
             'label_block'  => true,
         ]);
         $this->add_control(
-            'rh_vid_breakpoint',
+            'jltma_mrbl_vid_breakpoint',
             array(
                 'label'   => esc_html__('Breakpoint', MELA_TD),
                 'description' => esc_html__('Video will be replaced by Fallback image after if window width less than this breakpoint', MELA_TD),
@@ -135,18 +135,18 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 'step'    => 1,
                 'default' => 1200,
                 'condition' => array(
-                    'rh_canvas_type' => 'video',
+                    'jltma_mrbl_type' => 'video',
                 ),
             )
         );
-        $this->add_responsive_control('rh_vid_fallback', [
+        $this->add_responsive_control('jltma_mrbl_vid_fallback', [
             'label' => esc_html__('Upload fallback image', MELA_TD),
             'type' => \Elementor\Controls_Manager::MEDIA,
             'default' => [
                 'url' => \Elementor\Utils::get_placeholder_image_src(),
             ],
             'condition' => array(
-                'rh_canvas_type' => 'video',
+                'jltma_mrbl_type' => 'video',
             ),
             'label_block'  => true,
         ]);
@@ -167,7 +167,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
             ]
         );
@@ -188,7 +188,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
             ]
         );
@@ -218,7 +218,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 'scales' => 0,
                 'handles' => 'range',
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
             ]
         );
@@ -248,7 +248,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 'scales' => 0,
                 'handles' => 'range',
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
             ]
         );
@@ -273,7 +273,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .rh-svg-blob' => 'width: {{SIZE}}{{UNIT}};',
@@ -303,7 +303,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 ],
                 'condition' => [
                     'svg_image[id]!' => '',
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
 
             ]
@@ -320,7 +320,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     'gradient' => __('Gradient', MELA_TD),
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
                 'separator' => 'before'
             ]
@@ -334,7 +334,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 'alpha' => false,
                 'condition' => [
                     'svgfilltype' => 'color',
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
 
             ]
@@ -350,7 +350,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
 
                 'show_label' => false,
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'image'
                 ],
             ]
@@ -378,7 +378,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 //'render_type' => 'ui',
                 'label_block' => false,
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'image'
                 ],
             ]
@@ -406,7 +406,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 //'render_type' => 'ui',
                 'label_block' => false,
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'image'
                 ],
             ]
@@ -429,7 +429,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'gradient'
                 ],
             ]
@@ -453,7 +453,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'gradient'
                 ],
             ]
@@ -476,7 +476,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'gradient'
                 ],
             ]
@@ -499,7 +499,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'gradient'
                 ],
             ]
@@ -511,7 +511,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#ff0000',
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'gradient'
                 ],
             ]
@@ -523,7 +523,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#0000ff',
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'gradient'
                 ],
             ]
@@ -550,7 +550,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .rh_and_canvas' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .jltma_mrbl_and_canvas' => 'width: {{SIZE}}{{UNIT}};',
                 ],
 
             ]
@@ -576,49 +576,49 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .rh_and_canvas' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .jltma_mrbl_and_canvas' => 'height: {{SIZE}}{{UNIT}};',
                 ],
 
             ]
         );
 
-        $this->add_control('rh_vid_mp4', [
+        $this->add_control('jltma_mrbl_vid_mp4', [
             'label' => esc_html__('Mp4 video link', MELA_TD),
             'label_block'  => true,
             'type' => \Elementor\Controls_Manager::TEXT,
             'condition' => array(
-                'rh_canvas_type' => 'video',
+                'jltma_mrbl_type' => 'video',
             ),
         ]);
-        $this->add_control('rh_vid_webm', [
+        $this->add_control('jltma_mrbl_vid_webm', [
             'label' => esc_html__('Webm video link', MELA_TD),
             'label_block'  => true,
             'type' => \Elementor\Controls_Manager::TEXT,
             'condition' => array(
-                'rh_canvas_type' => 'video',
+                'jltma_mrbl_type' => 'video',
             ),
         ]);
-        $this->add_control('rh_vid_ogv', [
+        $this->add_control('jltma_mrbl_vid_ogv', [
             'label' => esc_html__('Ogv video link', MELA_TD),
             'label_block'  => true,
             'type' => \Elementor\Controls_Manager::TEXT,
             'condition' => array(
-                'rh_canvas_type' => 'video',
+                'jltma_mrbl_type' => 'video',
             ),
         ]);
-        $this->add_control('rh_vid_poster', [
+        $this->add_control('jltma_mrbl_vid_poster', [
             'label' => esc_html__('Upload poster', MELA_TD),
             'type' => \Elementor\Controls_Manager::MEDIA,
             'default' => [
                 'url' => \Elementor\Utils::get_placeholder_image_src(),
             ],
             'condition' => array(
-                'rh_canvas_type' => 'video',
+                'jltma_mrbl_type' => 'video',
             ),
             'label_block'  => true,
         ]);
         $this->add_control(
-            'rh_vid_breakpoint',
+            'jltma_mrbl_vid_breakpoint',
             array(
                 'label'   => esc_html__('Breakpoint', MELA_TD),
                 'description' => esc_html__('Video will be replaced by Fallback image after if window width less than this breakpoint', MELA_TD),
@@ -628,18 +628,18 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 'step'    => 1,
                 'default' => 1200,
                 'condition' => array(
-                    'rh_canvas_type' => 'video',
+                    'jltma_mrbl_type' => 'video',
                 ),
             )
         );
-        $this->add_responsive_control('rh_vid_fallback', [
+        $this->add_responsive_control('jltma_mrbl_vid_fallback', [
             'label' => esc_html__('Upload fallback image', MELA_TD),
             'type' => \Elementor\Controls_Manager::MEDIA,
             'default' => [
                 'url' => \Elementor\Utils::get_placeholder_image_src(),
             ],
             'condition' => array(
-                'rh_canvas_type' => 'video',
+                'jltma_mrbl_type' => 'video',
             ),
             'label_block'  => true,
         ]);
@@ -660,7 +660,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
             ]
         );
@@ -681,7 +681,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
             ]
         );
@@ -711,7 +711,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 'scales' => 0,
                 'handles' => 'range',
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
             ]
         );
@@ -741,7 +741,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 'scales' => 0,
                 'handles' => 'range',
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
             ]
         );
@@ -766,7 +766,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .rh-svg-blob' => 'width: {{SIZE}}{{UNIT}};',
@@ -796,7 +796,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 ],
                 'condition' => [
                     'svg_image[id]!' => '',
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
 
             ]
@@ -813,7 +813,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     'gradient' => __('Gradient', MELA_TD),
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
                 'separator' => 'before'
             ]
@@ -827,7 +827,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 'alpha' => false,
                 'condition' => [
                     'svgfilltype' => 'color',
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                 ],
 
             ]
@@ -843,7 +843,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
 
                 'show_label' => false,
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'image'
                 ],
             ]
@@ -871,7 +871,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 //'render_type' => 'ui',
                 'label_block' => false,
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'image'
                 ],
             ]
@@ -899,7 +899,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 //'render_type' => 'ui',
                 'label_block' => false,
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'image'
                 ],
             ]
@@ -922,7 +922,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'gradient'
                 ],
             ]
@@ -946,7 +946,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'gradient'
                 ],
             ]
@@ -969,7 +969,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'gradient'
                 ],
             ]
@@ -992,7 +992,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'gradient'
                 ],
             ]
@@ -1004,7 +1004,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#ff0000',
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'gradient'
                 ],
             ]
@@ -1016,7 +1016,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#0000ff',
                 'condition' => [
-                    'rh_canvas_type' => 'masksvg',
+                    'jltma_mrbl_type' => 'masksvg',
                     'svgfilltype' => 'gradient'
                 ],
             ]
@@ -1043,7 +1043,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .rh_and_canvas' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .jltma_mrbl_and_canvas' => 'width: {{SIZE}}{{UNIT}};',
                 ],
 
             ]
@@ -1069,7 +1069,7 @@ class JLTMA_Morphing_Blob extends Widget_Base
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .rh_and_canvas' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .jltma_mrbl_and_canvas' => 'height: {{SIZE}}{{UNIT}};',
                 ],
 
             ]
@@ -1079,8 +1079,117 @@ class JLTMA_Morphing_Blob extends Widget_Base
 
     protected function render()
     {
-        $settings = $this->get_settings_for_display();
-        echo "Morphing Blob";
+        if (!empty($settings['jltma_mrbl_particle_json'])) {
+            $uniqueid = 'jltma_mrbl_particle_' . uniqid() . 'hash';
+            wp_enqueue_script('jltma_mrbl_elparticle');
+            $particlejson = sanitize_text_field($settings['jltma_mrbl_particle_json']);
+            $particlecode = 'particlesJS("' . $uniqueid . '", ' . $particlejson . ', function() {console.log("callback - particles.js config loaded");});';
+            wp_add_inline_script('jltma_mrbl_elparticle', $particlecode);
+            if (Plugin::$instance->editor->is_edit_mode()) {
+                echo '<div class="jltma_mrbl_and_canvas"><div id="' . $uniqueid . '" class="rh-particle-canvas-true" data-particlejson=\'' . $particlejson . '\'> </div></div>';
+            } else {
+                echo '<div id="' . $uniqueid . '" class="rh-particle-canvas-true"></div>';
+            }
+        } else if (!empty($settings['jltma_mrbl_canvas_type']) && $settings['jltma_mrbl_canvas_type'] == 'video') {
+            if (!empty($settings['jltma_mrbl_vid_mp4'])) {
+                $this->add_render_attribute('jltma_mrbl_vid_data', 'data-mp4', $settings['jltma_mrbl_vid_mp4']);
+            }
+            if (!empty($settings['jltma_mrbl_vid_webm'])) {
+                $this->add_render_attribute('jltma_mrbl_vid_data', 'data-webm', $settings['jltma_mrbl_vid_webm']);
+            }
+            if (!empty($settings['jltma_mrbl_vid_ogv'])) {
+                $this->add_render_attribute('jltma_mrbl_vid_data', 'data-ogv', $settings['jltma_mrbl_vid_ogv']);
+            }
+            if (!empty($settings['jltma_mrbl_vid_poster'])) {
+                $this->add_render_attribute('jltma_mrbl_vid_data', 'data-poster', $settings['jltma_mrbl_vid_poster']['url']);
+            }
+            if (!empty($settings['jltma_mrbl_vid_breakpoint'])) {
+                $this->add_render_attribute('jltma_mrbl_vid_data', 'data-breakpoint', $settings['jltma_mrbl_vid_breakpoint']);
+            }
+            if (!empty($settings['jltma_mrbl_vid_fallback'])) {
+                $this->add_render_attribute('jltma_mrbl_vid_data', 'data-fallback', $settings['jltma_mrbl_vid_fallback']['url']);
+            }
+            if (!empty($settings['jltma_mrbl_vid_fallback_tablet'])) {
+                $this->add_render_attribute('jltma_mrbl_vid_data', 'data-fallback-tablet', $settings['jltma_mrbl_vid_fallback_tablet']['url']);
+            }
+            if (!empty($settings['jltma_mrbl_vid_fallback_mobile'])) {
+                $this->add_render_attribute('jltma_mrbl_vid_data', 'data-fallback-mobile', $settings['jltma_mrbl_vid_fallback_mobile']['url']);
+            }
+            echo '<video autoplay loop muted class="rh-video-canvas jltma_mrbl_and_canvas" ' . $this->get_render_attribute_string('jltma_mrbl_vid_data') . '></video>';
+        } else if (!empty($settings['jltma_mrbl_canvas_type']) && $settings['jltma_mrbl_canvas_type'] == 'masksvg') {
+            $widgetId = $this->get_id();
+
+            if (!empty($settings['svg_image']['id'])) {
+                $image_url = Group_Control_Image_Size::get_attachment_image_src($settings['svg_image']['id'], 'image', $settings);
+                $imageData = wp_get_attachment_image_src($settings['svg_image']['id'], 'full');
+                $h = $imageData[2];
+                $w = $imageData[1];
+                $imageProportion = $h / $w;
+                $realHeight = $settings['svg_size']['size'] * $imageProportion;
+                $this->add_render_attribute('_svgrapper', 'data-resize', $realHeight);
+            }
+            $this->add_render_attribute('_svgrapper', 'data-numpoints', $settings['numPoints']['size']);
+            $this->add_render_attribute('_svgrapper', 'data-minradius', $settings['minmaxRadius']['sizes']['start']);
+            $this->add_render_attribute('_svgrapper', 'data-maxradius', $settings['minmaxRadius']['sizes']['end']);
+            $this->add_render_attribute('_svgrapper', 'data-minduration', $settings['minmaxDuration']['sizes']['start']);
+            $this->add_render_attribute('_svgrapper', 'data-maxduration', $settings['minmaxDuration']['sizes']['end']);
+            $this->add_render_attribute('_svgrapper', 'data-tensionpoints', $settings['tensionPoints']['size']);
+
+            if (empty($settings['svgimage_x']['size'])) {
+                $posX = 0;
+            } else {
+                $posX = $settings['svgimage_x']['size'];
+            }
+            if (empty($settings['svgimage_y']['size'])) {
+                $posY = 0;
+            } else {
+                $posY = $settings['svgimage_y']['size'];
+            }
+?>
+            <div data-id="<?php echo esc_attr($widgetId); ?>" class="rh-svgblob-wrapper jltma_mrbl_and_canvas" <?php echo '' . $this->get_render_attribute_string('_svgrapper') ?>>
+                <svg class="rh-svg-blob" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" xml:space="preserve">
+
+                    <?php if (!empty($settings['svg_image']['id']) && $settings['svgfilltype'] == 'image') { ?>
+                        <defs>
+                            <pattern id="pattern-<?php echo esc_attr($widgetId); ?>" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse" width="<?php echo '' . $settings['svg_size']['size'] . $settings['svg_size']['unit']; ?>" height="<?php echo '' . $realHeight . $settings['svg_size']['unit']; ?>" x="<?php echo '' . $posX . $settings['svgimage_x']['unit']; ?>" y="<?php echo '' . $posY . $settings['svgimage_y']['unit']; ?>">
+
+                                <image id="img-pattern" xlink:href="<?php echo '' . $image_url; ?>" width="<?php echo '' . $settings['svg_size']['size'] . $settings['svg_size']['unit']; ?>" height="<?php echo '' . $realHeight . $settings['svg_size']['unit']; ?>"> </image>
+                            </pattern>
+                        </defs>
+                    <?php } ?>
+                    <?php if ($settings['svgfilltype'] == 'gradient') { ?>
+                        <defs>
+                            <linearGradient id="pattern-<?php echo esc_attr($widgetId); ?>" x1="<?php echo '' . $settings['gradientx1']['size'] . $settings['gradientx1']['unit']; ?>" x2="<?php echo '' . $settings['gradientx2']['size'] . $settings['gradientx2']['unit']; ?>" y1="<?php echo '' . $settings['gradienty1']['size'] . $settings['gradienty1']['unit']; ?>" y2="<?php echo '' . $settings['gradienty2']['size'] . $settings['gradienty2']['unit']; ?>">
+                                <stop style="stop-color: <?php echo '' . $settings['gradientcolor1']; ?>" offset="0" />
+                                <stop style="stop-color: <?php echo '' . $settings['gradientcolor2']; ?>" offset="1" />
+                            </linearGradient>
+                        </defs>
+                    <?php } ?>
+
+
+                    <path id="rhblobpath-<?php echo esc_attr($widgetId); ?>"></path>
+
+                    <?php if (!empty($settings['svg_image']['id']) || $settings['gradientcolor1'] != '') : ?>
+                        <style>
+                            #rhblobpath-<?php echo esc_attr($widgetId); ?> {
+                                fill: url(#pattern-<?php echo '' . $this->get_id(); ?>);
+                            }
+                        </style>
+                    <?php else : ?>
+                        <style>
+                            #rhblobpath-<?php echo esc_attr($widgetId); ?> {
+                                fill: <?php echo '' . $settings['fill_color']; ?>;
+                            }
+                        </style>
+                    <?php endif; ?>
+
+
+                </svg>
+            </div>
+<?php
+            wp_enqueue_script('gsap');
+        }
+        wp_enqueue_script('jltma_mrbl_elcanvas');
     }
 }
 
