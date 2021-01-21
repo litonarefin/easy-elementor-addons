@@ -13,7 +13,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 		static public $class_namespace = '\\MasterAddons\\Inc\\Classes\\';
 		public $controls_manager;
 
-		const VERSION = "1.5.6";
+		const VERSION = "1.5.6.2";
 		const JLTMA_STABLE_VERSION = "1.5.5";
 		const MINIMUM_PHP_VERSION = '5.4';
 		const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
@@ -359,13 +359,13 @@ if (!class_exists('Master_Elementor_Addons')) {
 		{
 
 			$maad_el_default_settings = array_fill_keys(ma_el_array_flatten(self::$maad_el_default_widgets), true);
-			$maad_el_get_settings     = get_option('maad_el_save_settings', $maad_el_default_settings);
+			$maad_el_get_settings     = jltma_get_options('maad_el_save_settings', $maad_el_default_settings);
 			$maad_el_new_settings     = array_diff_key($maad_el_default_settings, $maad_el_get_settings);
 			$maad_el_updated_settings = array_merge($maad_el_get_settings, $maad_el_new_settings);
 
 			if ($maad_el_get_settings === false)
 				$maad_el_get_settings = array();
-			update_option('maad_el_save_settings', $maad_el_updated_settings);
+			jltma_update_options('maad_el_save_settings', $maad_el_updated_settings);
 
 			return $maad_el_get_settings;
 		}
@@ -378,7 +378,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 			$ma_el_default_extensions_settings = array_fill_keys(ma_el_array_flatten(self::$ma_el_extensions), true);
 
-			$maad_el_get_extension_settings     = get_option('ma_el_extensions_save_settings', $ma_el_default_extensions_settings);
+			$maad_el_get_extension_settings     = jltma_get_options('ma_el_extensions_save_settings', $ma_el_default_extensions_settings);
 			$maad_el_new_extension_settings     = array_diff_key($ma_el_default_extensions_settings, $maad_el_get_extension_settings);
 			$maad_el_updated_extension_settings = array_merge(
 				$maad_el_get_extension_settings,
@@ -387,7 +387,8 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 			if ($maad_el_get_extension_settings === false)
 				$maad_el_get_extension_settings = array();
-			update_option('ma_el_extensions_save_settings', $maad_el_updated_extension_settings);
+			
+			jltma_update_options('ma_el_extensions_save_settings', $maad_el_updated_extension_settings);
 
 			return $maad_el_get_extension_settings;
 		}
