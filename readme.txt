@@ -375,7 +375,7 @@ Paste on your Local Computer
 
 
 == Changelog ==
-= 1.5.6.2 (10-01-2021) =
+= 1.5.6.2 (24-01-2021) =
 * Added: Custom Timeline date_format option added.
 * Updated: Fully Multisite supported
 * Fixed: Multisite Activation error issue fixed
