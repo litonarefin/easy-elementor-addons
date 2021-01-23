@@ -362,7 +362,8 @@ if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
     require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
 }
 
-if (is_plugin_active_for_network('master-addons/master-addons.php')) {  // path to plugin folder and main file
+if (is_plugin_active_for_network('master-addons/master-addons.php') || is_plugin_active_for_network('master-addons-pro/master-addons.php') ) {  
+	// path to plugin folder and main file
     define("JLTMA_NETWORK_ACTIVATED", true);
 } else {
     define("JLTMA_NETWORK_ACTIVATED", false);
@@ -385,7 +386,7 @@ function jltma_update_options($option_name, $option_value) {
         // Update network site option
         return update_site_option($option_name, $option_value);
     } else {
-    // Update blog option
-    return update_option($option_name, $option_value);
+	    // Update blog option
+	    return update_option($option_name, $option_value);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace MasterAddons;
+use MasterAddons\Admin\Dashboard\Master_Addons_Admin_Settings;
 
 if (!defined('ABSPATH')) {
 	exit;
@@ -197,7 +198,13 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 			//Body Class
 			add_action('body_class', [$this, 'jltma_body_class']);
+
+			// Override Freemius Filters
+			ma_el_fs()->add_filter( 'support_forum_submenu', array( $this, 'override_support_menu_text' ) );
+
+
 		}
+
 
 		public function ma_el_init()
 		{
@@ -208,6 +215,11 @@ if (!class_exists('Master_Elementor_Addons')) {
 			//Redirect Hook
 			add_action('admin_init', [$this, 'mael_ad_redirect_hook']);
 		}
+
+		public function override_support_menu_text(){
+			return __( 'Support', MELA_TD );
+		}
+
 
 		public static function jltma_elementor()
 		{
@@ -230,7 +242,23 @@ if (!class_exists('Master_Elementor_Addons')) {
 			self::activated_widgets();
 			self::activated_extensions();
 			self::activated_third_party_plugins();
+			
+			ma_el_fs()->add_action( 'after_premium_version_activation', array( '\\MasterAddons\\Master_Elementor_Addons', 'jltma_network_activate' ) );			
 		}
+
+		// Multisite Activation
+		public static function jltma_network_activate( $network_wide )
+        {
+            
+            if ( function_exists( 'is_multisite' ) && is_multisite() ) {
+                //do nothing for multisite!
+            } else {
+                //Make sure we redirect to the welcome page
+                set_transient( JLTMA_ACTIVATION_REDIRECT_TRANSIENT_KEY, true, 30 );
+            }
+        
+        }
+
 
 		// Initialize
 		public function ma_el_plugins_loaded()
@@ -332,6 +360,8 @@ if (!class_exists('Master_Elementor_Addons')) {
 					define('MASTER_ADDONS_PRO_ADDONS_VERSION', ma_el_fs()->can_use_premium_code());
 				}
 			}
+
+			define( 'JLTMA_ACTIVATION_REDIRECT_TRANSIENT_KEY', '_master_addons_activation_redirect' );
 		}
 
 
@@ -359,13 +389,13 @@ if (!class_exists('Master_Elementor_Addons')) {
 		{
 
 			$maad_el_default_settings = array_fill_keys(ma_el_array_flatten(self::$maad_el_default_widgets), true);
-			$maad_el_get_settings     = jltma_get_options('maad_el_save_settings', $maad_el_default_settings);
+			$maad_el_get_settings     = get_option('maad_el_save_settings', $maad_el_default_settings);
 			$maad_el_new_settings     = array_diff_key($maad_el_default_settings, $maad_el_get_settings);
 			$maad_el_updated_settings = array_merge($maad_el_get_settings, $maad_el_new_settings);
 
 			if ($maad_el_get_settings === false)
 				$maad_el_get_settings = array();
-			jltma_update_options('maad_el_save_settings', $maad_el_updated_settings);
+			update_option('maad_el_save_settings', $maad_el_updated_settings);
 
 			return $maad_el_get_settings;
 		}
@@ -378,7 +408,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 			$ma_el_default_extensions_settings = array_fill_keys(ma_el_array_flatten(self::$ma_el_extensions), true);
 
-			$maad_el_get_extension_settings     = jltma_get_options('ma_el_extensions_save_settings', $ma_el_default_extensions_settings);
+			$maad_el_get_extension_settings     = get_option('ma_el_extensions_save_settings', $ma_el_default_extensions_settings);
 			$maad_el_new_extension_settings     = array_diff_key($ma_el_default_extensions_settings, $maad_el_get_extension_settings);
 			$maad_el_updated_extension_settings = array_merge(
 				$maad_el_get_extension_settings,
@@ -387,8 +417,8 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 			if ($maad_el_get_extension_settings === false)
 				$maad_el_get_extension_settings = array();
-			
-			jltma_update_options('ma_el_extensions_save_settings', $maad_el_updated_extension_settings);
+
+			update_option('ma_el_extensions_save_settings', $maad_el_updated_extension_settings);
 
 			return $maad_el_get_extension_settings;
 		}
@@ -481,25 +511,44 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 			$activated_widgets = self::activated_widgets();
 
-			foreach (self::$maad_el_default_widgets as $widget) {
-				$is_pro = "";
-				if (isset($widget)) {
-					if (is_array($widget)) {
-						$is_pro = $widget[1];
-						$widget = $widget[0];
+			global $wpdb;
+			$blogs = $wpdb->get_results("
+			    SELECT blog_id
+			    FROM {$wpdb->blogs}
+			    WHERE site_id = '{$wpdb->siteid}'
+			    AND spam = '0'
+			    AND deleted = '0'
+			    AND archived = '0'
+			");
+			$original_blog_id = get_current_blog_id();   
+			
+			foreach ( $blogs as $blog_id ) {
+			    switch_to_blog( $blog_id->blog_id );
+			    
+				foreach (self::$maad_el_default_widgets as $widget) {
+					$is_pro = "";
+					if (isset($widget)) {
+						if (is_array($widget)) {
+							$is_pro = $widget[1];
+							$widget = $widget[0];
 
-						if (ma_el_fs()->can_use_premium_code()) {
-							if ($activated_widgets[$widget] == true && $is_pro == "pro") {
-								require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+							if (ma_el_fs()->can_use_premium_code()) {
+								if ($activated_widgets[$widget] == true && $is_pro == "pro") {
+									require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+								}
 							}
 						}
 					}
+
+					if ($activated_widgets[$widget] == true && $is_pro != "pro") {
+						require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+					}
 				}
 
-				if ($activated_widgets[$widget] == true && $is_pro != "pro") {
-					require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
-				}
-			}
+			}   
+
+			switch_to_blog( $original_blog_id );
+
 		}
 
 
@@ -522,7 +571,9 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 						if (ma_el_fs()->can_use_premium_code()) {
 							if ($activated_extensions[$extensions] == true && $is_pro == "pro") {
-								include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' . $extensions . '.php';
+								// if(is_multisite() && ( jltma_is_site_wide('master-addons/master-addons.php') || jltma_is_site_wide('master-addons-pro/master-addons.php') )){
+									include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' . $extensions . '.php';
+								// }
 							}
 						}
 					}
@@ -928,13 +979,15 @@ if (!class_exists('Master_Elementor_Addons')) {
 			include_once MELA_PLUGIN_PATH . '/inc/admin/dashboard-settings.php';
 
 			//Utils
-			include_once MELA_PLUGIN_PATH . '/inc/classes/rollback.php';
-
-			//Utils
 			include_once MELA_PLUGIN_PATH . '/inc/classes/utils.php';
 
+			//Rollback
+			include_once MELA_PLUGIN_PATH . '/inc/classes/rollback.php';
+
+			// Templates
 			require_once MELA_PLUGIN_PATH . '/inc/templates/templates.php';
 
+			// Extensions
 			require_once MELA_PLUGIN_PATH . '/inc/classes/JLTMA_Extension_Prototype.php';
 		}
 

@@ -50,12 +50,13 @@ if ( function_exists( 'ma_el_fs' ) ) {
                     'days'               => 14,
                     'is_require_payment' => false,
                 ],
-                    'menu'            => [
-                    'slug'       => 'master-addons-settings',
-                    'first-path' => 'admin.php?page=master-addons-settings',
-                    'account'    => true,
+                'menu'            => [
+                    'slug'              => 'master-addons-settings',
+                    'first-path'        => 'admin.php?page=master-addons-settings',
+                    'account'           => true,
+                    'network'           => true,
                 ],
-                    'is_live'         => true,
+                    'is_live'           => true,
                 ] );
             }
 
@@ -69,6 +70,7 @@ if ( function_exists( 'ma_el_fs' ) ) {
     }
 
 }
+
 
 // Instantiate Master Addons Class
 if ( !class_exists( '\\MasterAddons\\Master_Elementor_Addons' ) ) {
