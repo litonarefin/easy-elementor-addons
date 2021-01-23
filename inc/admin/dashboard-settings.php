@@ -66,8 +66,8 @@ class Master_Addons_Admin_Settings{
 		return __( 'Master Addons', MELA_TD );
 	}
 
+	// Main Menu 
 	public function master_addons_admin_menu(){
-		
 		add_menu_page(
 			esc_html__( 'Master Addons for Elementor', MELA_TD ), // Page Title
 			esc_html__( 'Master Addons', MELA_TD ),    // Menu Title
