@@ -511,20 +511,49 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 			$activated_widgets = self::activated_widgets();
 
-			global $wpdb;
-			$blogs = $wpdb->get_results("
-			    SELECT blog_id
-			    FROM {$wpdb->blogs}
-			    WHERE site_id = '{$wpdb->siteid}'
-			    AND spam = '0'
-			    AND deleted = '0'
-			    AND archived = '0'
-			");
-			$original_blog_id = get_current_blog_id();   
+			// Network Check
+			if ( defined( 'JLTMA_NETWORK_ACTIVATED' ) && JLTMA_NETWORK_ACTIVATED ) {
+				global $wpdb;
+				$blogs = $wpdb->get_results("
+				    SELECT blog_id
+				    FROM {$wpdb->blogs}
+				    WHERE site_id = '{$wpdb->siteid}'
+				    AND spam = '0'
+				    AND deleted = '0'
+				    AND archived = '0'
+				");
+				$original_blog_id = get_current_blog_id();   
+
 			
-			foreach ( $blogs as $blog_id ) {
-			    switch_to_blog( $blog_id->blog_id );
-			    
+				foreach ( $blogs as $blog_id ) {
+				    switch_to_blog( $blog_id->blog_id );
+
+						foreach (self::$maad_el_default_widgets as $widget) {
+							$is_pro = "";
+							if (isset($widget)) {
+								if (is_array($widget)) {
+									$is_pro = $widget[1];
+									$widget = $widget[0];
+
+									if (ma_el_fs()->can_use_premium_code()) {
+										if ($activated_widgets[$widget] == true && $is_pro == "pro") {
+											require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+										}
+									}
+								}
+							}
+
+							if ($activated_widgets[$widget] == true && $is_pro != "pro") {
+								require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+							}
+						}
+
+				}   
+
+				switch_to_blog( $original_blog_id );			    
+
+			}else{
+
 				foreach (self::$maad_el_default_widgets as $widget) {
 					$is_pro = "";
 					if (isset($widget)) {
@@ -545,9 +574,8 @@ if (!class_exists('Master_Elementor_Addons')) {
 					}
 				}
 
-			}   
+			}
 
-			switch_to_blog( $original_blog_id );
 
 		}
 
@@ -560,29 +588,78 @@ if (!class_exists('Master_Elementor_Addons')) {
 			// Extension
 			$activated_extensions = self::activated_extensions();
 
-			foreach (self::$ma_el_extensions as $extensions) {
 
-				$is_pro = "";
+			// Network Check
+			if ( defined( 'JLTMA_NETWORK_ACTIVATED' ) && JLTMA_NETWORK_ACTIVATED ) {
+				global $wpdb;
+				$blogs = $wpdb->get_results("
+				    SELECT blog_id
+				    FROM {$wpdb->blogs}
+				    WHERE site_id = '{$wpdb->siteid}'
+				    AND spam = '0'
+				    AND deleted = '0'
+				    AND archived = '0'
+				");
+				$original_blog_id = get_current_blog_id();   
 
-				if (isset($extensions)) {
-					if (is_array($extensions)) {
-						$is_pro = $extensions[1];
-						$extensions = $extensions[0];
+			
+				foreach ( $blogs as $blog_id ) {
+				    switch_to_blog( $blog_id->blog_id );
 
-						if (ma_el_fs()->can_use_premium_code()) {
-							if ($activated_extensions[$extensions] == true && $is_pro == "pro") {
-								// if(is_multisite() && ( jltma_is_site_wide('master-addons/master-addons.php') || jltma_is_site_wide('master-addons-pro/master-addons.php') )){
+
+					foreach (self::$ma_el_extensions as $extensions) {
+
+						$is_pro = "";
+
+						if (isset($extensions)) {
+							if (is_array($extensions)) {
+								$is_pro = $extensions[1];
+								$extensions = $extensions[0];
+
+								if (ma_el_fs()->can_use_premium_code()) {
+									if ($activated_extensions[$extensions] == true && $is_pro == "pro") {
+										include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' . $extensions . '.php';
+									}
+								}
+							}
+						}
+
+						if ($activated_extensions[$extensions] == true && $is_pro != "pro") {
+							include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' .  $extensions . '.php';
+						}
+					}
+
+				}   
+
+				switch_to_blog( $original_blog_id );			    
+
+			} else {
+
+				foreach (self::$ma_el_extensions as $extensions) {
+
+					$is_pro = "";
+
+					if (isset($extensions)) {
+						if (is_array($extensions)) {
+							$is_pro = $extensions[1];
+							$extensions = $extensions[0];
+
+							if (ma_el_fs()->can_use_premium_code()) {
+								if ($activated_extensions[$extensions] == true && $is_pro == "pro") {
 									include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' . $extensions . '.php';
-								// }
+								}
 							}
 						}
 					}
+
+					if ($activated_extensions[$extensions] == true && $is_pro != "pro") {
+						include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' .  $extensions . '.php';
+					}
 				}
 
-				if ($activated_extensions[$extensions] == true && $is_pro != "pro") {
-					include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' .  $extensions . '.php';
-				}
 			}
+
+
 		}
 
 		public function jltma_replace_placeholder_image()
