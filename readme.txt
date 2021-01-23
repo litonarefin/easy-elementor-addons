@@ -377,6 +377,12 @@ Paste on your Local Computer
 == Changelog ==
 = 1.5.6.2 (10-01-2021) =
 * Added: Custom Timeline date_format option added.
+* Updated: Fully Multisite supported
+* Fixed: Multisite Activation error issue fixed
+* Updated: Multisite License update all over network updated
+* Updated: Widgets loading on each Multisite require files updated
+* Added: Advanced Accordion - added
+
 
 = 1.5.6 (10-01-2021) =
 * Added: "Gradient Headlines" Element added

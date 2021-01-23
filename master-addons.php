@@ -35,28 +35,32 @@ if ( function_exists( 'ma_el_fs' ) ) {
                 if ( !defined( 'WP_FS__PRODUCT_4015_MULTISITE' ) ) {
                     define( 'WP_FS__PRODUCT_4015_MULTISITE', true );
                 }
+                
                 // Include Freemius SDK.
                 require_once dirname( __FILE__ ) . '/lib/freemius/start.php';
+
                 $ma_el_fs = fs_dynamic_init( [
-                    'id'              => '4015',
-                    'slug'            => 'master-addons',
-                    'type'            => 'plugin',
-                    'public_key'      => 'pk_3c9b5b4e47a06288e3500c7bf812e',
-                    'is_premium'      => true,
-                    'has_affiliation' => 'all',
-                    'has_addons'      => false,
-                    'has_paid_plans'  => true,
-                    'trial'           => [
-                    'days'               => 14,
-                    'is_require_payment' => false,
+                    'id'                    => '4015',
+                    'slug'                  => 'master-addons',
+                    'premium_slug'          => 'master-addons-pro',
+                    'type'                  => 'plugin',
+                    'public_key'            => 'pk_3c9b5b4e47a06288e3500c7bf812e',
+                    'is_premium'            => true,
+                    'premium_suffix'        => '(Pro)',
+                    'has_affiliation'       => 'all',
+                    'has_addons'            => false,
+                    'has_paid_plans'        => true,
+                    'trial'                 => [
+                    'days'                  => 14,
+                    'is_require_payment'    => false,
                 ],
-                'menu'            => [
-                    'slug'              => 'master-addons-settings',
-                    'first-path'        => 'admin.php?page=master-addons-settings',
-                    'account'           => true,
-                    'network'           => true,
+                'menu'                      => [
+                    'slug'                      => 'master-addons-settings',
+                    'first-path'                => 'admin.php?page=master-addons-settings',
+                    'account'                   => true,
+                    'network'                   => true,
                 ],
-                    'is_live'           => true,
+                    'is_live'                   => true,
                 ] );
             }
 
