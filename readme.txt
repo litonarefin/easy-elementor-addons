@@ -381,7 +381,7 @@ Paste on your Local Computer
 * Fixed: Multisite Activation error issue fixed
 * Updated: Multisite License update all over network updated
 * Updated: Widgets loading on each Multisite require files updated
-* Added: Advanced Accordion - added
+* Added: Advanced Accordion - Border Radius, Box Shodow added on Title
 
 
 = 1.5.6 (10-01-2021) =
