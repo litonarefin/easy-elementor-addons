@@ -309,13 +309,13 @@ $jltma_elements = [
             //     'tuts_url'      => ''
             // ],
 
-            [
-                'key'           => 'ma-morphing-blob',
-                'title'         => esc_html__('Twitter Slider', MELA_TD),
-                'demo_url'      => '',
-                'docs_url'      => '',
-                'tuts_url'      => ''
-            ],
+            // [
+            //     'key'           => 'ma-morphing-blob',
+            //     'title'         => esc_html__('Twitter Slider', MELA_TD),
+            //     'demo_url'      => '',
+            //     'docs_url'      => '',
+            //     'tuts_url'      => ''
+            // ],
 
 
         ]

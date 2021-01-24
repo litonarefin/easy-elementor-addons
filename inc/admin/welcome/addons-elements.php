@@ -32,7 +32,7 @@ include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-elements.php';
 
 	<h3><?php echo esc_html__('Content Elements', MELA_TD); ?></h3>
 
-	<?php foreach (array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 0, 39) as
+	<?php foreach (array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 0, 38) as
 		$key => $widget) : ?>
 
 		<div class="master-addons-dashboard-checkbox col">
