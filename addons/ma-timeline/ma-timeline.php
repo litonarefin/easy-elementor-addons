@@ -54,7 +54,7 @@ class Master_Addons_Timeline extends Widget_Base
 	public function get_script_depends()
 	{
 		return [
-			'jquery-slick',
+			'swiper',
 			'master-addons-scripts'
 		];
 	}

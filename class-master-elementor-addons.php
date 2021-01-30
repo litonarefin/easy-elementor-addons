@@ -15,8 +15,8 @@ if (!class_exists('Master_Elementor_Addons')) {
 		static public $class_namespace = '\\MasterAddons\\Inc\\Classes\\';
 		public $controls_manager;
 
-		const VERSION = "1.5.6.2";
-		const JLTMA_STABLE_VERSION = "1.5.6";
+		const VERSION = JLTMA_PLUGIN_VERSION;
+		const JLTMA_STABLE_VERSION = "1.5.6.2";
 		const MINIMUM_PHP_VERSION = '5.4';
 		const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
 
@@ -842,7 +842,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 			// //MA Gallery Slider
 			// if ( $is_activated_widget['ma-gallery-slider'] ) {
-			// 	wp_enqueue_script( 'jquery-slick' );
+			// 	wp_enqueue_script( 'swiper' );
 			// 	wp_enqueue_script( 'master-addons-scripts' );
 			// }
 

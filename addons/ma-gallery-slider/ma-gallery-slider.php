@@ -42,7 +42,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 
 	public function get_script_depends() {
 		return [
-			'jquery-slick',
+			'swiper',
 			'imagesloaded',
 			'font-awesome-4-shim',
 			'elementor-waypoints',
@@ -61,11 +61,11 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 
 
 	public function get_keywords() {
-		return [ 
-			'gallery', 
-			'image carousel', 
-			'image slider', 
-			'carousel gallery', 
+		return [
+			'gallery',
+			'image carousel',
+			'image slider',
+			'carousel gallery',
 			'left gallery slider',
 			'right gallery slider',
 			'slider gallery'
@@ -104,7 +104,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 			[
 				'label' => esc_html__( 'Thumbnails', MELA_TD ),
 			]
-		);	
+		);
 
 
 			$this->add_control(
@@ -219,7 +219,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				]
 			);
 
-		
+
 		$this->end_controls_section();
 
 
@@ -234,7 +234,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				'label' => esc_html__( 'Thumbnail Slider', MELA_TD ),
 				'condition' => [
 					'jltma_gallery_slider_thumb_type' => 'slide',
-				],				
+				],
 			]
 		);
 
@@ -298,7 +298,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					'return_value'      => 'yes',
 					'frontend_available' => true,
 				]
-			);			
+			);
 
 			$this->add_control(
 				'jltma_gallery_slider_thumb_autoplay_speed',
@@ -353,8 +353,8 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					],
 					'frontend_available' => true,
 				]
-			);		
-				
+			);
+
 			$this->add_control(
 				'jltma_gallery_slider_thumb_speed',
 				[
@@ -1183,7 +1183,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 
 
         /**
-         * Style Tab: Preview Hover Effects 
+         * Style Tab: Preview Hover Effects
          */
 
 
@@ -1472,7 +1472,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 					'prefix_class'		=> 'jltma-grid-halign--',
 				]
 			);
-			
+
 			$this->add_control(
 				'jltma_gallery_slider_image_vertical_align',
 				[
@@ -1985,7 +1985,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'{{WRAPPER}} .jltma-thumb-slide .jltma-carousel__arrow' 	=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 						],
 					]
-				);				
+				);
 
 			$this->end_controls_tab();
 
@@ -2035,7 +2035,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 							'{{WRAPPER}} .jltma-thumb-slide .jltma-carousel__arrow:hover' 	=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 						],
 					]
-				);				
+				);
 
 			$this->end_controls_tab();
 
@@ -3010,7 +3010,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 	protected function render() {
 
 		$settings  = $this->get_settings_for_display();
-		
+
 		if ( ! $settings['jltma_gallery_slider'] )
 			return;
 
@@ -3136,7 +3136,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 				<?php endif; ?>
 			</div>
 
-		<?php		
+		<?php
 
 	}
 
@@ -3184,7 +3184,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 		return $attachment->post_content;
 	}
 
-	// Render Carousel 
+	// Render Carousel
 	protected function jltma_render_carousel(){
 
 		$settings 	= $this->get_settings_for_display();
@@ -3282,7 +3282,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 
 		}
 
-		echo implode( '', $slides );		
+		echo implode( '', $slides );
 	}
 
 	// Render Gallery Slider
@@ -3330,7 +3330,7 @@ class JLTMA_Gallery_Slider extends Widget_Base {
 						<?php $this->render_image_caption( $item ); ?>
 					</div>
 				</<?php echo $media_tag; ?>>
-				
+
 			</div>
 
 		<?php }

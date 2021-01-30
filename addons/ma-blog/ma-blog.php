@@ -39,7 +39,7 @@
 		public function get_script_depends() {
 			return [
 				'isotope',
-				'jquery-slick',
+				'swiper',
 				'masonry',
 				'imagesloaded',
 				'master-addons-scripts'
@@ -987,8 +987,8 @@
 					'tab'           => Controls_Manager::TAB_STYLE,
                     'condition'     => [
                         'ma_el_post_grid_thumbnail'  => 'yes',
-                    ],					
-					
+                    ],
+
 				]
 			);
 

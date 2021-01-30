@@ -375,6 +375,9 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.5.7 (30-01-2021) =
+* Updated: 'jquery-slick' updated with 'swiper' scripts
+
 = 1.5.6.2 (24-01-2021) =
 * Added: Custom Timeline date_format option added.
 * Updated: Fully Multisite supported
