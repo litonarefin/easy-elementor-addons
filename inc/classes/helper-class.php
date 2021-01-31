@@ -11,6 +11,7 @@ class Master_Addons_Helper
 	{
 		return \Elementor\Plugin::$instance;
 	}
+
 	/**
 	 * Check if Woocommerce is installed and active
 	 *

@@ -15,6 +15,7 @@ use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
 
 use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
+use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
  * Author Name: Liton Arefin
@@ -142,7 +143,7 @@ class JLTMA_Gallery_Slider extends Widget_Base
 						'icon' 		=> 'eicon-gallery-grid',
 					],
 					'slide' 		=> [
-						'title' 	=> esc_html__('Slide Navigation', MELA_TD),
+						'title' 	=> esc_html__('Carousel Slides', MELA_TD),
 						'icon' 		=> 'eicon-slides',
 					]
 				],
@@ -506,6 +507,8 @@ class JLTMA_Gallery_Slider extends Widget_Base
 			]
 		);
 
+
+
 		$this->add_control(
 			'jltma_gallery_slider_autoplay',
 			[
@@ -519,12 +522,38 @@ class JLTMA_Gallery_Slider extends Widget_Base
 			]
 		);
 
+		$this->start_popover();
+
 		$this->add_control(
 			'jltma_gallery_slider_autoplay_speed',
 			[
 				'label' 	=> esc_html__('Autoplay Speed', MELA_TD),
-				'type' 		=> Controls_Manager::NUMBER,
-				'default' 	=> 5000,
+				'type' 		=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 5000,
+					'unit' 	=> 'px',
+				],
+				'range' 	=> [
+					'px' 	=> [
+						'min' 	=> 0,
+						'max' 	=> 10000,
+						'step'	=> 1000,
+					],
+				],
+				'frontend_available' => true,
+				'condition'	=> [
+					'jltma_gallery_slider_autoplay' => 'yes',
+				],
+			]
+		);
+
+
+		$this->add_control(
+			'autoplay_disable_on_interaction',
+			[
+				'label' 	=> __('Disable on Interaction', MELA_TD),
+				'type' 		=> Controls_Manager::SWITCHER,
+				'default' 	=> '',
 				'frontend_available' => true,
 				'condition'	=> [
 					'jltma_gallery_slider_autoplay' => 'yes',
@@ -547,6 +576,13 @@ class JLTMA_Gallery_Slider extends Widget_Base
 				],
 			]
 		);
+
+		$this->end_popover();
+
+
+
+
+
 
 		$this->add_control(
 			'jltma_gallery_slider_infinite',
@@ -3018,18 +3054,30 @@ class JLTMA_Gallery_Slider extends Widget_Base
 	}
 
 
+	/**
+	 * Render Content
+	 *
+	 * @return void
+	 */
 	protected function render()
 	{
+
 
 		$settings  = $this->get_settings_for_display();
 
 		if (!$settings['jltma_gallery_slider'])
 			return;
 
+		// Get the Unique ID
+		$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
 
 		$this->add_render_attribute([
 			'wrapper' => [
-				'class' => 'jltma-gallery-slider',
+				'class' => [
+					'jltma-gallery-slider',
+					'elementor-jltma-element-' . $unique_id
+				],
+				'data-jltma-template-widget-id' => $unique_id
 			],
 			'preview' => [
 				'class' => [
@@ -3040,6 +3088,7 @@ class JLTMA_Gallery_Slider extends Widget_Base
 			'gallery-wrapper' => [
 				'class' => [
 					'jltma-gallery-slider__gallery',
+					'jltma-swiper',
 				],
 			],
 			'gallery' => [
@@ -3048,6 +3097,8 @@ class JLTMA_Gallery_Slider extends Widget_Base
 					'jltma-grid',
 					'jltma-grid--gallery',
 					'jltma-gallery__gallery',
+					'jltma-swiper__wrapper',
+					'swiper-wrapper',
 					'jltma-media-align--' . $settings['jltma_gallery_slider_vertical_align'],
 					'jltma-media-align--' . $settings['jltma_gallery_slider_horizontal_align'],
 					'jltma-media-effect__content--' . $settings['jltma_gallery_slider_caption_effect'],
@@ -3061,6 +3112,19 @@ class JLTMA_Gallery_Slider extends Widget_Base
 					'jltma-media-align--' . $settings['jltma_gallery_slider_preview_vertical_align'],
 					'jltma-media-align--' . $settings['jltma_gallery_slider_preview_horizontal_align'],
 					'jltma-media-effect__content--' . $settings['jltma_gallery_slider_preview_caption_effect'],
+				],
+			],
+			'swiper-container-wrapper' => [
+				'class' => [
+					'jltma-gallery-slider__carousel-wrapper',
+					'jltma-swiper__container-wrapper',
+				],
+			],
+			'swiper-container' => [
+				'class' => [
+					'swiper-container',
+					'jltma-swiper__container',
+					'jltma-gallery-slider__carousel',
 				],
 			],
 			'gallery-thumbnail' => [
@@ -3092,6 +3156,8 @@ class JLTMA_Gallery_Slider extends Widget_Base
 				'class' => [
 					'jltma-gallery__item',
 					'jltma-grid__item',
+					'jltma-swiper__slide',
+					'swiper-slide',
 				],
 			],
 		]);

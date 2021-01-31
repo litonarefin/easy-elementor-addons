@@ -110,7 +110,12 @@
 
         return items;
     };
-
+    var getUniqueLoopScopeId = function($scope){
+        if ( $scope.data('jltma-template-widget-id') ) {
+            return $scope.data('jltma-template-widget-id');
+        }
+        return $scope.data('id');
+    }
 
 
     var Master_Addons = {
@@ -522,42 +527,72 @@
         // Gallery Slider
         MA_Gallery_Slider: function($scope, $){
 
-            Master_Addons.MA_Gallery_Slider.elementSettings    = getElementSettings( $scope );
-
-            var $carousel           = $scope.find('.jltma-gallery-slider__carousel').eq(0),
+            var elementSettings     = getElementSettings( $scope ),
+                $swiperCarousel     = $scope.find('.jltma-gallery-slider__carousel'),
+                uniqueId 		    = getUniqueLoopScopeId( $scope ),
+                scopeId 		    = $scope.data('id'),
                 $preview            = $scope.find('.jltma-gallery-slider__preview'),
+                hasCarousel         = $swiperCarousel.length,
                 $thumbs             = $scope.find('.jltma-gallery .jltma-gallery__item'),
                 $thumbnailsSlider   = $scope.find(".jltma-gallery-slider__gallery .jltma-gallery"),
-                $thumbtype          = Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_type,
-                $thumbposition      = Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_preview_position,
+                $thumbtype          = elementSettings.jltma_gallery_slider_thumb_type,
+                $thumbposition      = elementSettings.jltma_gallery_slider_preview_position,
                 $thumbVertical      = ( $thumbposition == "top" || $thumbposition == "bottom" ) ? false : true,
 
                 start               = elementorFrontend.config.is_rtl ? 'right' : 'left',
                 end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',
 
+                swiperSlider = null,
+                swiperCarousel = null,
+
                 slickArgs       = {
+					key 		    : 'slider',
+                    scope 		    : $scope,
+                    id 			    : uniqueId,
+					element : {
+						autoHeight 				: 'yes' === elementSettings.jltma_gallery_slider_adaptive_height,
+						autoplay 				: 'yes' === elementSettings.jltma_gallery_slider_autoplay,
+						autoplaySpeed 			: 'yes' === elementSettings.jltma_gallery_slider_autoplay && elementSettings.jltma_gallery_slider_autoplay_speed ? elementSettings.jltma_gallery_slider_autoplay_speed.size : false,
+						disableOnInteraction 	: '' !== elementSettings.autoplay_disable_on_interaction,
+						stopOnHover 			: 'yes' === elementSettings.pause_on_hover,
+						loop 					: 'yes' === elementSettings.infinite,
+						arrows 					: '' !== elementSettings.show_arrows,
+						arrowPrev 				: '.ee-swiper__button--prev-slider',
+						arrowNext 				: '.ee-swiper__button--next-slider',
+						effect 					: elementSettings.effect,
+						speed 					: elementSettings.speed ? elementSettings.speed.size : 500,
+						resistance 				: elementSettings.resistance ? elementSettings.resistance.size : 0.25,
+					},
+					default : {
+						effect 			: 'slide',
+						direction 		: 'horizontal',
+						slidesPerView 	: 1,
+						slidesPerGroup 	: 1,
+						slidesPerColumn : 1,
+						spaceBetween 	: 0,
+					},
                     slidesToShow    : 1,
                     slidesToScroll  : 1,
                     cssEase         : "linear",
                     draggable       : true,
                     asNavFor        : ($thumbtype == "slide") ? ".jltma-gallery-slider__gallery .jltma-gallery" : "",
-                    adaptiveHeight  : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_adaptive_height,
-                    autoplay        : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_autoplay,
-                    autoplaySpeed   : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_autoplay_speed,
-                    infinite        : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_infinite,
-                    pauseOnHover    : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_pause_on_hover,
-                    speed           : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_speed,
-                    arrows          : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_show_arrows,
+                    adaptiveHeight  : 'yes' === elementSettings.jltma_gallery_slider_adaptive_height,
+                    autoplay        : 'yes' === elementSettings.jltma_gallery_slider_autoplay,
+                    autoplaySpeed   : elementSettings.jltma_gallery_slider_autoplay_speed,
+                    infinite        : 'yes' === elementSettings.jltma_gallery_slider_infinite,
+                    pauseOnHover    : 'yes' === elementSettings.jltma_gallery_slider_pause_on_hover,
+                    speed           : elementSettings.jltma_gallery_slider_speed,
+                    arrows          : 'yes' === elementSettings.jltma_gallery_slider_show_arrows,
                     prevArrow       : '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
                     nextArrow       : '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
                     dots            : false,
-                    rtl             : 'rtl' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_direction,
-                    fade            : 'fade' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_effect,
+                    rtl             : 'rtl' === elementSettings.jltma_gallery_slider_direction,
+                    fade            : 'fade' === elementSettings.jltma_gallery_slider_effect,
                 },
 
                 thumbsArgs       = {
-                    speed             : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_speed,
-                    slidesToShow      : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_items,
+                    speed             : elementSettings.jltma_gallery_slider_thumb_speed,
+                    slidesToShow      : elementSettings.jltma_gallery_slider_thumb_items,
                     slidesToScroll    : 1,
                     cssEase           : "linear",
                     centerMode        : true,
@@ -565,17 +600,17 @@
                     vertical          : $thumbVertical,
                     verticalSwiping   : $thumbVertical,
                     focusOnSelect     : true,
-                    arrows            : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_show_arrows,
-                    autoplay          : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_autoplay,
-                    autoplaySpeed     : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_autoplay_speed,
-                    pauseOnHover      : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_pause_on_hover,
-                    infinite          : 'yes' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_infinite,
+                    arrows            : 'yes' === elementSettings.jltma_gallery_slider_thumb_show_arrows,
+                    autoplay          : 'yes' === elementSettings.jltma_gallery_slider_thumb_autoplay,
+                    autoplaySpeed     : elementSettings.jltma_gallery_slider_thumb_autoplay_speed,
+                    pauseOnHover      : 'yes' === elementSettings.jltma_gallery_slider_thumb_pause_on_hover,
+                    infinite          : 'yes' === elementSettings.jltma_gallery_slider_thumb_infinite,
                     asNavFor          : ".jltma-gallery-slider__carousel",
                     dots              : false,
                     prevArrow         : '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
                     nextArrow         : '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
-                    fade              : 'fade' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_effect,
-                    rtl               : 'rtl' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_direction,
+                    fade              : 'fade' === elementSettings.jltma_gallery_slider_thumb_effect,
+                    rtl               : 'rtl' === elementSettings.jltma_gallery_slider_thumb_direction,
                         responsive        : [
                             {
                                 breakpoint: 720,
@@ -600,9 +635,11 @@
                     }
                 ]
             };
+            console.log(uniqueId);
+            console.log(scopeId);
 
             Master_Addons.MA_Gallery_Slider.events = function() {
-                $carousel.on( 'beforeChange', function ( event, slick, currentSlide, nextSlide ) {
+                $swiperCarousel.on( 'beforeChange', function ( event, slick, currentSlide, nextSlide ) {
                     var currentSlide = nextSlide;
                     $thumbs.removeClass('is--active');
                     $thumbs.eq( currentSlide ).addClass('is--active');
@@ -611,19 +648,20 @@
                 $thumbs.each( function( currentSlide ) {
                     $(this).on( 'click', function ( e ) {
                         e.preventDefault();
-                        $carousel.slick( 'slickGoTo', currentSlide );
+                        $swiperCarousel.slick( 'slickGoTo', currentSlide );
                     });
                 });
             };
 
             Master_Addons.MA_Gallery_Slider.init = function() {
 
-                $carousel.slick( slickArgs );
+                $swiperCarousel.slick( slickArgs );
+                var swiper = new Swiper($swiperCarouselContainer, $settings);
 
                 $thumbs.removeClass('is--active');
                 $thumbs.eq( 0 ).addClass('is--active');
 
-                $carousel.slick( 'setPosition' );
+                $swiperCarousel.slick( 'setPosition' );
 
                 Master_Addons.MA_Gallery_Slider.events();
 
