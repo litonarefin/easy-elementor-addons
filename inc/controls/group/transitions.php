@@ -1,11 +1,12 @@
 <?php
+
 namespace MasterAddons\Inc\Controls;
 
 use Elementor\Group_Control_Base;
 use Elementor\Controls_Manager;
 use Elementor\Scheme_Color;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
@@ -16,56 +17,64 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Date: 10/12/19
  */
 
-class MA_Group_Control_Transition extends Group_Control_Base {
+class MA_Group_Control_Transition extends Group_Control_Base
+{
 
 	protected static $fields;
 	private static $_instance = null;
 
-	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
+	public static function instance()
+	{
+		if (is_null(self::$_instance)) {
 			self::$_instance = new self();
 		}
 		return self::$_instance;
 	}
 
-	public function __construct() {
-		add_action( 'elementor/init', [ $this, 'init' ], 0 );
+	public function __construct()
+	{
+		add_action('elementor/init', [$this, 'init'], 0);
 	}
 
-	public function init(){
-		add_action( 'elementor/controls/controls_registered', [ $this, 'register_controls' ] );
+	public function init()
+	{
+		add_action('elementor/controls/controls_registered', [$this, 'register_controls']);
 	}
 
-	public function register_controls(){
+	public function register_controls()
+	{
 		// Register control
-		\Elementor\Plugin::instance()->controls_manager->add_group_control( 'ma-el-transition', new self() );
+		\Elementor\Plugin::instance()->controls_manager->add_group_control('ma-el-transition', new self());
 	}
 
 
-	public static function get_type() {
+	public static function get_type()
+	{
 		return 'jltma-transitions';
 	}
 
-	public static function get_easings() {
+	public static function get_easings()
+	{
 		return [
-			'linear' 		=> esc_html__( 'Linear', MELA_TD ),
-			'ease-in' 		=> esc_html__( 'Ease In', MELA_TD ),
-			'ease-out' 		=> esc_html__( 'Ease Out', MELA_TD ),
-			'ease-in-out' 	=> esc_html__( 'Ease In Out', MELA_TD )	
+			'linear' 		=> esc_html__('Linear', MELA_TD),
+			'ease-in' 		=> esc_html__('Ease In', MELA_TD),
+			'ease-out' 		=> esc_html__('Ease Out', MELA_TD),
+			'ease-in-out' 	=> esc_html__('Ease In Out', MELA_TD)
 		];
 	}
 
 
 
-	protected function init_fields() {
+	protected function init_fields()
+	{
 		$controls = [];
 
 		$controls['property'] = [
-			'label'			=> _x( 'Property', 'Transition Control', MELA_TD ),
+			'label'			=> _x('Property', 'Transition Control', MELA_TD),
 			'type' 			=> Controls_Manager::SELECT,
 			'default' 		=> 'all',
 			'options'		=> [
-				'all'		=> esc_html__( 'All', MELA_TD ),
+				'all'		=> esc_html__('All', MELA_TD),
 			],
 			'selectors' => [
 				'{{SELECTOR}}' => 'transition-property: {{VALUE}}',
@@ -73,7 +82,7 @@ class MA_Group_Control_Transition extends Group_Control_Base {
 		];
 
 		$controls['easing'] = [
-			'label'			=> _x( 'Easing', 'Transition Control', MELA_TD ),
+			'label'			=> _x('Easing', 'Transition Control', MELA_TD),
 			'type' 			=> Controls_Manager::SELECT,
 			'default' 		=> 'linear',
 			'options'		=> self::get_easings(),
@@ -83,7 +92,7 @@ class MA_Group_Control_Transition extends Group_Control_Base {
 		];
 
 		$controls['duration'] = [
-			'label'			=> _x( 'Duration', 'Transition Control', MELA_TD ),
+			'label'			=> _x('Duration', 'Transition Control', MELA_TD),
 			'type' 			=> Controls_Manager::NUMBER,
 			'default' 		=> 0.3,
 			'min' 			=> 0.05,
@@ -99,12 +108,14 @@ class MA_Group_Control_Transition extends Group_Control_Base {
 	}
 
 
-	protected function prepare_fields( $fields ) {
+	protected function prepare_fields($fields)
+	{
 
 		array_walk(
-			$fields, function( &$field, $field_name ) {
+			$fields,
+			function (&$field, $field_name) {
 
-				if ( in_array( $field_name, [ 'transition', 'popover_toggle' ] ) ) {
+				if (in_array($field_name, ['transition', 'popover_toggle'])) {
 					return;
 				}
 
@@ -112,15 +123,16 @@ class MA_Group_Control_Transition extends Group_Control_Base {
 			}
 		);
 
-		return parent::prepare_fields( $fields );
+		return parent::prepare_fields($fields);
 	}
 
 
-	protected function get_default_options() {
+	protected function get_default_options()
+	{
 		return [
 			'popover' => [
 				'starter_name' 	=> 'transition',
-				'starter_title' => _x( 'Transition', 'Transition Control', MELA_TD ),
+				'starter_title' => _x('Transition', 'Transition Control', MELA_TD),
 			],
 		];
 	}

@@ -513,11 +513,11 @@ class JLTMA_Gallery_Slider extends Widget_Base
 			'jltma_gallery_slider_autoplay',
 			[
 				'label' 			=> esc_html__('Autoplay', MELA_TD),
-				'type' 				=> Controls_Manager::SWITCHER,
-				'default'           => 'yes',
-				'label_on'          => esc_html__('Yes', MELA_TD),
-				'label_off'         => esc_html__('No', MELA_TD),
-				'return_value'      => 'yes',
+				'type' 				=> Controls_Manager::POPOVER_TOGGLE,
+				'default'           => '',
+				// 'label_on'          => esc_html__('Yes', MELA_TD),
+				// 'label_off'         => esc_html__('No', MELA_TD),
+				// 'return_value'      => 'yes',
 				'frontend_available' => true,
 			]
 		);
@@ -566,7 +566,7 @@ class JLTMA_Gallery_Slider extends Widget_Base
 			[
 				'label' 				=> esc_html__('Pause on Hover', MELA_TD),
 				'type' 					=> Controls_Manager::SWITCHER,
-				'default'           	=> 'yes',
+				'default'           	=> '',
 				'label_on'          	=> esc_html__('Yes', MELA_TD),
 				'label_off'         	=> esc_html__('No', MELA_TD),
 				'return_value'      	=> 'yes',
@@ -578,9 +578,6 @@ class JLTMA_Gallery_Slider extends Widget_Base
 		);
 
 		$this->end_popover();
-
-
-
 
 
 
@@ -596,6 +593,7 @@ class JLTMA_Gallery_Slider extends Widget_Base
 				'frontend_available' 	=> true,
 			]
 		);
+
 
 		$this->add_control(
 			'jltma_gallery_slider_adaptive_height',
@@ -627,12 +625,177 @@ class JLTMA_Gallery_Slider extends Widget_Base
 		$this->add_control(
 			'jltma_gallery_slider_speed',
 			[
-				'label' 	=> esc_html__('Animation Speed', MELA_TD),
+				'label' 	=> __('Duration (ms)', MELA_TD),
+				'description' => __('How long should the effect transition last.', MELA_TD),
 				'type' 		=> Controls_Manager::NUMBER,
-				'default' 	=> 500,
+				'default' 	=> 1000,
+				'min' 		=> 0,
+				'max' 		=> 2000,
+				'step'		=> 100,
 				'frontend_available' => true,
 			]
 		);
+
+
+		$this->add_control(
+			'ken_burns',
+			[
+				'label' 	=> __('Ken Burns', MELA_TD),
+				'type' 		=> Controls_Manager::POPOVER_TOGGLE,
+				'default' 	=> '',
+				'condition' => [
+					'effect' => 'fade',
+				],
+			]
+		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			'ken_burns_scale',
+			[
+				'label' 	=> __('Scale', MELA_TD),
+				'type' 		=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 1,
+						'max' 	=> 2,
+						'step'	=> 0.01,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .ee-swiper__container--kenburns .ee-swiper__slide img' => 'transform: scale({{SIZE}});',
+				],
+				'condition' => [
+					'effect' => 'fade',
+					'ken_burns!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'ken_burns_origin',
+			[
+				'label' 	=> __('Transform Origin', MELA_TD),
+				'type' 		=> Controls_Manager::SELECT,
+				'separator' => 'before',
+				'label_block' => true,
+				'options'	=> [
+					'' => __('Default', MELA_TD),
+					'random' => __('Random', MELA_TD),
+					'custom' => __('Custom', MELA_TD),
+				],
+				'default' 	=> '',
+				'condition' => [
+					'effect' => 'fade',
+					'ken_burns!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'ken_burns_origin_x',
+			[
+				'label' 	=> __('X Anchor Point', MELA_TD),
+				'type' 		=> Controls_Manager::CHOOSE,
+				'default' 	=> 'center',
+				'options' 	=> [
+					'left' 	=> [
+						'title' => __('Left', 'elementor-pro'),
+						'icon' 	=> 'eicon-h-align-left',
+					],
+					'center' => [
+						'title' => __('Center', 'elementor-pro'),
+						'icon' 	=> 'eicon-h-align-center',
+					],
+					'right' => [
+						'title' => __('Right', 'elementor-pro'),
+						'icon' => 'eicon-h-align-right',
+					],
+				],
+				'condition' => [
+					'effect' => 'fade',
+					'ken_burns!' => '',
+					'ken_burns_origin' => 'custom',
+				],
+			]
+		);
+
+		$this->add_control(
+			'ken_burns_origin_y',
+			[
+				'label' 	=> __('Y Anchor Point', 'elementor-pro'),
+				'type' 		=> Controls_Manager::CHOOSE,
+				'default' 	=> 'center',
+				'options' 	=> [
+					'top' => [
+						'title' => __('Top', 'elementor-pro'),
+						'icon' 	=> 'eicon-v-align-top',
+					],
+					'center' => [
+						'title' => __('Center', 'elementor-pro'),
+						'icon' 	=> 'eicon-v-align-middle',
+					],
+					'bottom' => [
+						'title' => __('Bottom', 'elementor-pro'),
+						'icon' 	=> 'eicon-v-align-bottom',
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .ee-swiper__container--kenburns .ee-swiper__slide img' => 'transform-origin: {{ken_burns_origin_x.VALUE}} {{VALUE}}',
+				],
+				'condition' => [
+					'effect' => 'fade',
+					'ken_burns!' => '',
+					'ken_burns_origin_x!' => '',
+					'ken_burns_origin' => 'custom',
+				],
+			]
+		);
+
+		$this->add_control(
+			'ken_burns_duration',
+			[
+				'label' 	=> __('Duration', MELA_TD),
+				'separator' => 'before',
+				'type' 		=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0.1,
+						'max' 	=> 10,
+						'step'	=> 0.5,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .ee-swiper__container--kenburns .ee-swiper__slide img' => 'transition-duration: {{SIZE}}s;',
+				],
+				'condition' => [
+					'effect' => 'fade',
+					'ken_burns!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'ken_burns_easing',
+			[
+				'label' 	=> __('Easing', MELA_TD),
+				'type' 		=> Controls_Manager::SELECT,
+				'options'	=> MA_Group_Control_Transition::get_easings(),
+				'default' 	=> 'linear',
+				'selectors' => [
+					'{{WRAPPER}} .ee-swiper__container--kenburns .ee-swiper__slide img' => 'transition-timing-function: {{VALUE}};',
+				],
+				'condition' => [
+					'effect' => 'fade',
+					'ken_burns!' => '',
+				],
+			]
+		);
+
+		$this->end_popover();
+
+
 
 		$this->add_control(
 			'jltma_gallery_slider_direction',
