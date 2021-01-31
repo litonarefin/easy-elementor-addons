@@ -11,6 +11,18 @@ class Master_Addons_Helper
 	{
 		return \Elementor\Plugin::$instance;
 	}
+	/**
+	 * Check if Woocommerce is installed and active
+	 *
+	 * @since 1.5.7
+	 */
+	public static function is_woocommerce_active()
+	{
+		return in_array(
+			'woocommerce/woocommerce.php',
+			apply_filters('active_plugins', get_option('active_plugins'))
+		);
+	}
 
 	public static function jltma_is_edit_mode()
 	{

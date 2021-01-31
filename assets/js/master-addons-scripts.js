@@ -142,7 +142,7 @@
                         //loading bar effect
                         barAnimationDelay = Master_Addons.MA_Animated_Headlines.elementSettings.bar_anim_delay ? Master_Addons.MA_Animated_Headlines.elementSettings.bar_anim_delay : 3800,
                         barWaiting = barAnimationDelay - 3000, //3000 is the duration of the transition on the loading bar - set in the scss/css file
-                        
+
                         //letters effect
                         lettersDelay = Master_Addons.MA_Animated_Headlines.elementSettings.letters_anim_delay ? Master_Addons.MA_Animated_Headlines.elementSettings.letters_anim_delay : 50,
 
@@ -150,7 +150,7 @@
                         typeLettersDelay = Master_Addons.MA_Animated_Headlines.elementSettings.type_anim_delay ? Master_Addons.MA_Animated_Headlines.elementSettings.type_anim_delay : 150,
                         selectionDuration = Master_Addons.MA_Animated_Headlines.elementSettings.type_selection_delay ? Master_Addons.MA_Animated_Headlines.elementSettings.type_selection_delay : 500,
                         typeAnimationDelay = selectionDuration + 800,
-                        
+
                         //clip effect
                         revealDuration = Master_Addons.MA_Animated_Headlines.elementSettings.clip_reveal_delay ? Master_Addons.MA_Animated_Headlines.elementSettings.clip_reveal_delay : 600,
                         revealAnimationDelay = Master_Addons.MA_Animated_Headlines.elementSettings.clip_anim_duration ? Master_Addons.MA_Animated_Headlines.elementSettings.clip_anim_duration : 1500;
@@ -173,7 +173,7 @@
 
                     // function animateHeadline($headlines) {
                     Master_Addons.MA_Animated_Headlines.animateHeadline = function($headlines) {
-                        
+
                         var duration = animationDelay;
 
                         $headlines.each(function(){
@@ -534,7 +534,7 @@
 
                 start               = elementorFrontend.config.is_rtl ? 'right' : 'left',
                 end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',
-            
+
                 slickArgs       = {
                     slidesToShow    : 1,
                     slidesToScroll  : 1,
@@ -553,7 +553,7 @@
                     dots            : false,
                     rtl             : 'rtl' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_direction,
                     fade            : 'fade' === Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_effect,
-                }, 
+                },
 
                 thumbsArgs       = {
                     speed             : Master_Addons.MA_Gallery_Slider.elementSettings.jltma_gallery_slider_thumb_speed,
@@ -1042,7 +1042,7 @@
         /**** MA Team Slider ****/
 
         MA_TeamSlider: function ($scope, $) {
-            
+
             Master_Addons.MA_TeamSlider.elementSettings    = getElementSettings( $scope );
 
             var $teamCarouselWrapper = $scope.find('.ma-el-team-members-slider-section').eq(0),
@@ -1177,7 +1177,7 @@
         /**** MA Logo Slider ****/
 
         MA_Logo_Slider: function ($scope, $) {
-            
+
             Master_Addons.MA_Logo_Slider.elementSettings    = getElementSettings( $scope );
 
             var $logSliderWrapper   = $scope.find('.jltma-logo-slider').eq(0),
@@ -1185,7 +1185,7 @@
                 // $loop = ($logSliderWrapper.data("loop") !== undefined) ? $logSliderWrapper.data("loop") : false,
                 $slidesToShow       = Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_show,
                 start               = elementorFrontend.config.is_rtl ? 'right' : 'left',
-                end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',                
+                end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',
                 $slidesToScroll     = Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_scroll;
 
 
@@ -1195,12 +1195,12 @@
                     var dots = false;
                 } else if($logo_slider_nav == "both") {
                     var arrows = true;
-                    var dots = true;                    
+                    var dots = true;
                 } else if($logo_slider_nav == "dots") {
                     var arrows = false;
                     var dots = true;
                 }
-                
+
 
                 var logoSlickArgs       = {
 
@@ -1250,13 +1250,13 @@
                             settings: {
                                 slidesToShow: $slidesToShow,
                                 slidesToScroll: $slidesToScroll,
-                                infinite: true,                                    
+                                infinite: true,
                                 dots: dots,
                                 arrow: arrows
                             }
                         },
 
-                    ],                        
+                    ],
             };
 
 
@@ -1307,7 +1307,7 @@
                     img.parentNode.appendChild(imgFrame);
                     imgFrame.appendChild(img);
                     imgFrame.appendChild(clonedImg);
-                }                
+                }
             });
 
             //Tilt Effect
@@ -1330,7 +1330,7 @@
                     "download",
                     "thumbs",
                     "close"
-                ],                
+                ],
                 afterLoad : function(instance, current) {
                     var pixelRatio = window.devicePixelRatio || 1;
 
@@ -1345,7 +1345,7 @@
         /**** MA Twitter Slider ****/
 
         MA_Twitter_Slider: function ($scope, $) {
-            
+
             Master_Addons.MA_Twitter_Slider.elementSettings    = getElementSettings( $scope );
 
             var $TwitterSliderWrapper   = $scope.find('.jltma-twitter-slider .swiper-wrapper').eq(0),
@@ -1353,7 +1353,7 @@
                 // $loop = ($TwitterSliderWrapper.data("loop") !== undefined) ? $TwitterSliderWrapper.data("loop") : false,
                 $slidesToShow       = Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_columns,
                 start               = elementorFrontend.config.is_rtl ? 'right' : 'left',
-                end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',                
+                end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',
                 $slidesToScroll     = Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_tweet_num;
 
 
@@ -1363,12 +1363,12 @@
                     var dots = false;
                 } else if($twitter_slider_nav == "both") {
                     var arrows = true;
-                    var dots = true;                    
+                    var dots = true;
                 } else if($twitter_slider_nav == "dots") {
                     var arrows = false;
                     var dots = true;
                 }
-                
+
 
                 var twitterSlickArgs       = {
 
@@ -1418,13 +1418,13 @@
                             settings: {
                                 slidesToShow: $slidesToShow,
                                 slidesToScroll: $slidesToScroll,
-                                infinite: true,                                    
+                                infinite: true,
                                 dots: dots,
                                 arrow: arrows
                             }
                         },
 
-                    ],                        
+                    ],
             };
 
 
@@ -1812,7 +1812,7 @@
             $wrapper.MA_ToggleElement( toggleElementArgs );
         },
 
-        
+
         // Comment Form reCaptcha
         MA_Comment_Form_reCaptcha: function( $scope, $ ) {
             Master_Addons.getElementSettings    = getElementSettings($scope);
@@ -1828,7 +1828,7 @@
                         "theme" : $comments_recaptcha_data.theme
                     });
                     grecaptcha.reset(jltma_comment_form);
-                };                
+                };
             }
 
         },
@@ -2015,10 +2015,10 @@
 
             if( ! $target.length ){
                 return;
-            }   
+            }
 
             if ( hasAnimation ) {
-                document.body.addEventListener( 'JltmaPageAnimationDone', function(event) { 
+                document.body.addEventListener( 'JltmaPageAnimationDone', function(event) {
                     $target.appearl({
                         offset: '200px',
                         insetOffset:'0px'
@@ -2036,7 +2036,7 @@
                     this.classList.add('jltma-animated-once');
                 });
             }
-        
+
         },
 
 
