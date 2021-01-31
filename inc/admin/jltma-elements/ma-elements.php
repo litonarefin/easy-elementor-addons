@@ -1,6 +1,6 @@
 <?php
 
-namespace MasterAddons\Admin\Dashboard\Addons\Elements;
+// namespace MasterAddons\Admin\Dashboard\Addons\Elements;
 
 $jltma_elements = [
     'jltma-addons'      => [

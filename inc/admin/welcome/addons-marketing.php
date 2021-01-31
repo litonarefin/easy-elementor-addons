@@ -13,8 +13,9 @@ include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-marketing.php';
 
     <h3><?php echo esc_html__('Marketing', MELA_TD); ?></h3>
 
-    <?php foreach (array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 43, 1) as
-        $key => $widget) : ?>
+    <?php
+    //foreach (array_slice(Master_Elementor_Addons::$maad_el_default_widgets, 43, 1) as $key => $widget) :
+    foreach ($jltma_marketing['jltma-marketing']['elements'] as $key => $widget) : ?>
 
         <div class="master-addons-dashboard-checkbox col">
             <div class="master-addons-dashboard-checkbox-content">

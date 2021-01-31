@@ -33,11 +33,12 @@ include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-elements.php';
 	<h3><?php echo esc_html__('Content Elements', MELA_TD); ?></h3>
 
 	<?php
-	// foreach ($jltma_elements['jltma-addons']['elements'] as $key => $value) {
-	// 	print_r($value);
-	// }
+	foreach ($jltma_elements['jltma-addons']['elements'] as $key => $value) {
+		print_r($value);
+	}
 
-	print_r($jltma_elements);
+	// print_r(MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-elements.php');
+	// print_r($jltma_elements);
 
 	foreach ($jltma_elements['jltma-addons']['elements'] as $key => $widget) : ?>
 
