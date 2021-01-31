@@ -9,9 +9,10 @@ $jltma_elements = [
             [
                 'key'           => 'ma-animated-headlines',
                 'title'         => esc_html__('Animated Headlines', MELA_TD),
-                'demo_url'         => 'https://master-addons.com/demos/animated-headline/',
-                'docs_url'         => 'https://master-addons.com/docs/addons/animated-headline-elementor/',
-                'tuts_url'         => 'https://www.youtube.com/watch?v=09QIUPdUQnM'
+                'demo_url'      => 'https://master-addons.com/demos/animated-headline/',
+                'docs_url'      => 'https://master-addons.com/docs/addons/animated-headline-elementor/',
+                'tuts_url'      => 'https://www.youtube.com/watch?v=09QIUPdUQnM',
+                'is_pro'
             ],
             [
                 'key'           => 'ma-call-to-action',
@@ -130,7 +131,8 @@ $jltma_elements = [
                 'title'         => esc_html__('News Ticker', MELA_TD),
                 'demo_url'      => 'https://master-addons.com/demos/news-ticker/',
                 'docs_url'      => 'https://master-addons.com/docs/addons/news-ticker-element/',
-                'tuts_url'      => 'https://www.youtube.com/watch?v=jkrBCzebQ-E'
+                'tuts_url'      => 'https://www.youtube.com/watch?v=jkrBCzebQ-E',
+                'is_pro'        => true
             ],
             [
                 'key'           => 'ma-timeline',
@@ -158,7 +160,8 @@ $jltma_elements = [
                 'title'         => esc_html__('Image Hotspot', MELA_TD),
                 'demo_url'      => 'https://master-addons.com/demos/image-hotspot/',
                 'docs_url'      => 'https://master-addons.com/docs/addons/image-hotspot/',
-                'tuts_url'      => 'https://www.youtube.com/watch?v=IDAd_d986Hg'
+                'tuts_url'      => 'https://www.youtube.com/watch?v=IDAd_d986Hg',
+                'is_pro'        => true
             ],
             [
                 'key'           => 'ma-image-filter-gallery',
@@ -186,7 +189,8 @@ $jltma_elements = [
                 'title'         => esc_html__('Restrict Content', MELA_TD),
                 'demo_url'         => 'https://master-addons.com/demos/restrict-content-for-elementor/',
                 'docs_url'         => 'https://master-addons.com/docs/addons/restrict-content-for-elementor/',
-                'tuts_url'         => 'https://www.youtube.com/watch?v=Alc1R_W5_Z8'
+                'tuts_url'         => 'https://www.youtube.com/watch?v=Alc1R_W5_Z8',
+                'is_pro'        => true
             ],
             [
                 'key'           => 'ma-current-time',
@@ -251,13 +255,13 @@ $jltma_elements = [
                 'docs_url'         => 'https://master-addons.com/docs/addons/count-down-timer/',
                 'tuts_url'         => 'https://www.youtube.com/watch?v=1lIbOLM9C1I'
             ],
-            [
-                'key'           => 'ma-content-toggle',
-                'title'         => esc_html__('Toggle Content', MELA_TD),
-                'demo_url'         => 'https://master-addons.com/demos/toggle-content/',
-                'docs_url'         => 'https://master-addons.com/docs/addons/toggle-content/',
-                'tuts_url'         => 'https://www.youtube.com/watch?v=TH6wbVuWdTA'
-            ],
+            // [
+            //     'key'           => 'ma-content-toggle',
+            //     'title'         => esc_html__('Toggle Content', MELA_TD),
+            //     'demo_url'         => 'https://master-addons.com/demos/toggle-content/',
+            //     'docs_url'         => 'https://master-addons.com/docs/addons/toggle-content/',
+            //     'tuts_url'         => 'https://www.youtube.com/watch?v=TH6wbVuWdTA'
+            // ],
             [
                 'key'           => 'ma-gallery-slider',
                 'title'         => esc_html__('Gallery Slider', MELA_TD),

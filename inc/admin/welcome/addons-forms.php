@@ -40,16 +40,16 @@ include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-forms.php';
 
 				<div class="master-addons-el-title">
 					<div class="master-addons-el-title-content">
-						<?php echo $jltma_elements['jltma-forms']['elements'][$key]['title']; ?>
+						<?php echo $jltma_forms['jltma-forms']['elements'][$key]['title']; ?>
 					</div> <!-- master-addons-el-title-content -->
 
 
 					<div class="ma-el-tooltip">
 
 						<?php
-						Master_Addons_Helper::jltma_admin_tooltip_info('Demo', $jltma_elements['jltma-forms']['elements'][$key]['demo_url'], 'eicon-device-desktop');
-						Master_Addons_Helper::jltma_admin_tooltip_info('Documentation', $jltma_elements['jltma-forms']['elements'][$key]['docs_url'], 'eicon-info-circle-o');
-						Master_Addons_Helper::jltma_admin_tooltip_info('Video Tutorial', $jltma_elements['jltma-forms']['elements'][$key]['tuts_url'], 'eicon-video-camera');
+						Master_Addons_Helper::jltma_admin_tooltip_info('Demo', $jltma_forms['jltma-forms']['elements'][$key]['demo_url'], 'eicon-device-desktop');
+						Master_Addons_Helper::jltma_admin_tooltip_info('Documentation', $jltma_forms['jltma-forms']['elements'][$key]['docs_url'], 'eicon-info-circle-o');
+						Master_Addons_Helper::jltma_admin_tooltip_info('Video Tutorial', $jltma_forms['jltma-forms']['elements'][$key]['tuts_url'], 'eicon-video-camera');
 						?>
 
 					</div>

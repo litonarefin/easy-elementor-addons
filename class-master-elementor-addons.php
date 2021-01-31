@@ -32,6 +32,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 		private static $instance = null;
 
 		public static $maad_el_default_widgets;
+		public static $jltma_new_widgets_settings;
 		public static $maad_el_pro_widgets;
 		public static $ma_el_extensions;
 		public static $jltma_third_party_plugins;
@@ -108,6 +109,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 				'ma-mailchimp',             	// 44
 			];
 
+			self::$jltma_new_widgets_settings = [];
 
 			self::$maad_el_pro_widgets = [
 				'gravity-forms',
@@ -386,7 +388,6 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 		public static function activated_widgets()
 		{
-
 			$maad_el_default_settings = array_fill_keys(ma_el_array_flatten(self::$maad_el_default_widgets), true);
 			$maad_el_get_settings     = get_option('maad_el_save_settings', $maad_el_default_settings);
 			$maad_el_new_settings     = array_diff_key($maad_el_default_settings, $maad_el_get_settings);

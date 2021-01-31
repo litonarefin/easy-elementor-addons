@@ -2,7 +2,7 @@
 
 namespace MasterAddons\Admin\Dashboard\Addons\Extensions;
 
-$jltma_elements = [
+$jltma_extensions = [
     'jltma-extensions'         => [
         'title'                => esc_html__('Extensions', MELA_TD),
         'extension'             => [
