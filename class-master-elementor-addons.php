@@ -593,6 +593,27 @@ if (!class_exists('Master_Elementor_Addons')) {
 					require_once MAAD_EL_ADDONS . $widget['key'] . '/' . $widget['key'] . '.php';
 					// }
 
+
+
+					// ksort(self::$default_widgets);
+					// foreach (self::$default_widgets as $key => $widget) {
+					// 	if (isset(self::$is_activated_feature[$key]) && self::$is_activated_feature[$key] == true) {
+
+					// 		$widget_file = MAAD_EL_ADDONS . $key . '/' . $key . '.php';
+					// 		if (file_exists($widget_file)) {
+					// 			require_once $widget_file;
+					// 		}
+
+					// 		if (class_exists($widget['class'])) {
+					// 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new $widget['class']);
+					// 		}
+					// 	}
+					// }
+
+
+
+
+
 					// $widget_manager = Master_Addons_Helper::jltma_elementor()->widgets_manager;
 					// foreach ($this->get_widgets() as $widget) {
 					// print_r($widget);
@@ -611,7 +632,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 					// 	continue;
 					// }
 
-					// $widget_filename = ELEMENTOR_EXTRAS_PATH . "includes/modules/{$module_filename}/widgets/{$widget_filename}.php";
+					// $widget_filename = MAAD_EL_ADDONS . "includes/modules/{$module_filename}/widgets/{$widget_filename}.php";
 
 					// $widget_manager->register_widget_type(new $class_name());
 					// }

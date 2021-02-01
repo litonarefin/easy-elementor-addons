@@ -936,19 +936,48 @@
             console.log(scopeId);
 
             Master_Addons.MA_Gallery_Slider.events = function() {
-                $swiperCarousel.on( 'beforeChange', function ( event, slick, currentSlide, nextSlide ) {
-                    var currentSlide = nextSlide;
-                    $thumbs.removeClass('is--active');
-                    $thumbs.eq( currentSlide ).addClass('is--active');
-                });
+                // $swiperCarousel.on( 'beforeChange', function ( event, slick, currentSlide, nextSlide ) {
+                //     var currentSlide = nextSlide;
+                //     $thumbs.removeClass('is--active');
+                //     $thumbs.eq( currentSlide ).addClass('is--active');
+                // });
 
-                $thumbs.each( function( currentSlide ) {
-                    $(this).on( 'click', function ( e ) {
-                        e.preventDefault();
-                        $swiperCarousel.slick( 'slickGoTo', currentSlide );
-                    });
-                });
+                // $thumbs.each( function( currentSlide ) {
+                //     $(this).on( 'click', function ( e ) {
+                //         e.preventDefault();
+                //         $swiperCarousel.slick( 'slickGoTo', currentSlide );
+                //     });
+                // });
+
+                swiperSlider.on('slideChange', Master_Addons.MA_Gallery_Slider.onSlideChange );
+				$thumbs.on( 'click', Master_Addons.MA_Gallery_Slider.onThumbClicked );
             };
+
+			Master_Addons.MA_Gallery_Slider.onSlideChange = function() {
+				var activeIndex = sliderSettings.element.loop ? swiperSlider.realIndex : swiperSlider.activeIndex;
+
+				if ( hasCarousel ) {
+					swiperCarousel.slideTo( activeIndex );
+				}
+
+				$thumbs.removeClass('is--active');
+				$thumbs.eq( activeIndex ).addClass('is--active');
+            };
+
+			Master_Addons.MA_Gallery_Slider.onThumbClicked = function( event ) {
+				var offset = sliderSettings.element.loop ? 1 : 0;
+
+				event.preventDefault();
+				swiperSlider.slideTo( $(this).index() + offset );
+            };
+
+			Master_Addons.onElementRemove( $scope, function() {
+				$scope.find('.swiper-container').each( function() {
+					if ( $(this).data('swiper') ) {
+						$(this).data('swiper').destroy();
+					}
+				});
+            });
 
             Master_Addons.MA_Gallery_Slider.init = function() {
 
@@ -973,8 +1002,8 @@
 					swiperCarousel = Master_Addons.MA_Carousel( $swiperCarousel, carouselSettings );
 				}
 
-				ee.GallerySlider.onSlideChange();
-				ee.GallerySlider.events();
+				Master_Addons.MA_Gallery_Slider.onSlideChange();
+				Master_Addons.MA_Gallery_Slider.events();
 
             };
 
