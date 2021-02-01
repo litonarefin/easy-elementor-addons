@@ -4,6 +4,8 @@ namespace MasterAddons;
 
 use MasterAddons\Admin\Dashboard\Master_Addons_Admin_Settings;
 use MasterAddons\Admin\Dashboard\Addons\Extensions\JLTMA_Addon_Extensions;
+use MasterAddons\Admin\Dashboard\Addons\Elements\JLTMA_Addon_Elements;
+use  MasterAddons\Admin\Dashboard\Addons\Extensions\JLTMA_Third_Party_Extensions;
 
 if (!defined('ABSPATH')) {
 	exit;
@@ -440,7 +442,8 @@ if (!class_exists('Master_Elementor_Addons')) {
 		public static function activated_third_party_plugins()
 		{
 
-			$jltma_third_party_plugins_settings = array_fill_keys(ma_el_array_flatten(self::$jltma_third_party_plugins), true);
+			// $jltma_third_party_plugins_settings = array_fill_keys(ma_el_array_flatten(self::$jltma_third_party_plugins), true);
+			$jltma_third_party_plugins_settings = array_fill_keys(JLTMA_Third_Party_Extensions::$jltma_third_party_plugins, true);
 
 			$jltma_get_third_party_plugins_settings     = get_option('ma_el_third_party_plugins_save_settings', $jltma_third_party_plugins_settings);
 			$jltma_new_third_party_plugins_settings     = array_diff_key($jltma_third_party_plugins_settings, $jltma_get_third_party_plugins_settings);
@@ -564,24 +567,28 @@ if (!class_exists('Master_Elementor_Addons')) {
 				switch_to_blog($original_blog_id);
 			} else {
 
-				foreach (self::$maad_el_default_widgets as $widget) {
-					$is_pro = "";
-					if (isset($widget)) {
-						if (is_array($widget)) {
-							$is_pro = $widget[1];
-							$widget = $widget[0];
+				// foreach (self::$maad_el_default_widgets as $widget) {
+				foreach (JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements'] as $widget) {
+					// $is_pro = "";
+					// if (isset($widget)) {
+					// 	if (is_array($widget)) {
+					// 		$is_pro = $widget[1];
+					// 		$widget = $widget[0];
 
-							if (ma_el_fs()->can_use_premium_code()) {
-								if ($activated_widgets[$widget] == true && $is_pro == "pro") {
-									require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
-								}
-							}
-						}
-					}
+					// 		if (ma_el_fs()->can_use_premium_code()) {
+					// 			if ($activated_widgets[$widget] == true && $is_pro == "pro") {
+					// 				require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+					// 			}
+					// 		}
+					// 	}
+					// }
 
-					if ($activated_widgets[$widget] == true && $is_pro != "pro") {
-						require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
-					}
+					// if ($activated_widgets[$widget] == true && $is_pro != "pro") {
+					require_once MAAD_EL_ADDONS . $widget['key'] . '/' . $widget['key'] . '.php';
+					// }
+					// if ($activated_widgets[$widget] == true && $is_pro != "pro") {
+					// 	require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+					// }
 				}
 			}
 		}

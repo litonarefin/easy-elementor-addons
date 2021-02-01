@@ -74,6 +74,7 @@ class Master_Addons_Admin_Settings
 		include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-elements.php';
 		include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-extensions.php';
 		include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-marketing.php';
+		include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-third-party-plugins.php';
 	}
 
 	public function get_menu_title()
@@ -259,8 +260,8 @@ class Master_Addons_Admin_Settings
 
 		// New Format for Third Party Extensions
 		$jltma_new_third_party_extensions = [];
-		foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $key => $extension) {
-			$jltma_new_third_party_extensions[] = $extension['key'];
+		foreach (JLTMA_Third_Party_Extensions::$jltma_third_party_plugins['jltma-plugins']['plugin'] as $key => $plugin) {
+			$jltma_new_third_party_extensions[] = $plugin['key'];
 		}
 		$jltma_new_third_party_extensions;
 
