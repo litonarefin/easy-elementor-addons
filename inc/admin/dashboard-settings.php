@@ -8,6 +8,7 @@ use MasterAddons\Admin\Dashboard\Addons\Elements\JLTMA_Addon_Elements;
 use MasterAddons\Admin\Dashboard\Addons\Elements\JLTMA_Addon_Forms;
 use MasterAddons\Admin\Dashboard\Addons\Elements\JLTMA_Addon_Marketing;
 use MasterAddons\Admin\Dashboard\Addons\Extensions\JLTMA_Addon_Extensions;
+use MasterAddons\Admin\Dashboard\Addons\Extensions\JLTMA_Third_Party_Extensions;
 
 /*
 	* Master Admin Dashboard Page
@@ -100,7 +101,6 @@ class Master_Addons_Admin_Settings
 	}
 
 
-
 	public function master_addons_el_admin_scripts($hook)
 	{
 		$screen = get_current_screen();
@@ -147,7 +147,6 @@ class Master_Addons_Admin_Settings
 		}
 		wp_localize_script('jltma-dismiss-notice', 'dismissible_notice', array('nonce' => wp_create_nonce('dismissible-notice')));
 	}
-
 
 
 	public function master_addons_el_page_content()
@@ -258,7 +257,14 @@ class Master_Addons_Admin_Settings
 		// Third Party Plugin Settings
 		$this->jltma_third_party_plugins_settings = [];
 
-		foreach (ma_el_array_flatten(Master_Elementor_Addons::$jltma_third_party_plugins) as $value) {
+		// New Format for Third Party Extensions
+		$jltma_new_third_party_extensions = [];
+		foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $key => $extension) {
+			$jltma_new_third_party_extensions[] = $extension['key'];
+		}
+		$jltma_new_third_party_extensions;
+
+		foreach ($jltma_new_third_party_extensions as $value) {
 
 			if (isset($settings[$value])) {
 				$this->jltma_third_party_plugins_settings[$value] = 1;
