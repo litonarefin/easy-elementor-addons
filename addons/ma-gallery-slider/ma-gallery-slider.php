@@ -132,6 +132,7 @@ class JLTMA_Gallery_Slider extends Widget_Base
 			]
 		);
 
+
 		$this->add_control(
 			'jltma_gallery_slider_thumb_type',
 			[
@@ -154,6 +155,28 @@ class JLTMA_Gallery_Slider extends Widget_Base
 				'frontend_available' => true,
 			]
 		);
+
+
+		$this->add_control(
+			'carousel_orientation',
+			[
+				'type' 				=> Controls_Manager::SELECT,
+				'label' 			=> __('Orientation', MELA_TD),
+				'default'			=> 'horizontal',
+				'tablet_default'	=> 'horizontal',
+				'mobile_default'	=> 'horizontal',
+				'options' 			=> [
+					'horizontal' 	=> __('Horizontal', MELA_TD),
+					'vertical' 		=> __('Vertical', MELA_TD),
+				],
+				'condition' 		=> [
+					'jltma_gallery_slider_show_thumbnails!' => '',
+					'jltma_gallery_slider_thumb_type' => 'slide',
+				],
+				'frontend_available' => true,
+			]
+		);
+
 
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
@@ -664,7 +687,7 @@ class JLTMA_Gallery_Slider extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ee-swiper__container--kenburns .ee-swiper__slide img' => 'transform: scale({{SIZE}});',
+					'{{WRAPPER}} .jltma-swiper__container--kenburns .jltma-swiper__slide img' => 'transform: scale({{SIZE}});',
 				],
 				'condition' => [
 					'effect' => 'fade',
@@ -742,7 +765,7 @@ class JLTMA_Gallery_Slider extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ee-swiper__container--kenburns .ee-swiper__slide img' => 'transform-origin: {{ken_burns_origin_x.VALUE}} {{VALUE}}',
+					'{{WRAPPER}} .jltma-swiper__container--kenburns .jltma-swiper__slide img' => 'transform-origin: {{ken_burns_origin_x.VALUE}} {{VALUE}}',
 				],
 				'condition' => [
 					'effect' => 'fade',
@@ -767,7 +790,7 @@ class JLTMA_Gallery_Slider extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ee-swiper__container--kenburns .ee-swiper__slide img' => 'transition-duration: {{SIZE}}s;',
+					'{{WRAPPER}} .jltma-swiper__container--kenburns .jltma-swiper__slide img' => 'transition-duration: {{SIZE}}s;',
 				],
 				'condition' => [
 					'effect' => 'fade',
@@ -784,7 +807,7 @@ class JLTMA_Gallery_Slider extends Widget_Base
 				'options'	=> MA_Group_Control_Transition::get_easings(),
 				'default' 	=> 'linear',
 				'selectors' => [
-					'{{WRAPPER}} .ee-swiper__container--kenburns .ee-swiper__slide img' => 'transition-timing-function: {{VALUE}};',
+					'{{WRAPPER}} .jltma-swiper__container--kenburns .jltma-swiper__slide img' => 'transition-timing-function: {{VALUE}};',
 				],
 				'condition' => [
 					'effect' => 'fade',
