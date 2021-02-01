@@ -418,6 +418,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 			// print_r(Master_Addons_Admin_Settings::jltma_addons_extensions_array(), true);
 
 			$maad_el_get_extension_settings     = get_option('ma_el_extensions_save_settings', $ma_el_default_extensions_settings);
+			// print_r($ma_el_default_extensions_settings);
 			// print_r($maad_el_get_extension_settings);
 			$maad_el_new_extension_settings     = array_diff_key($ma_el_default_extensions_settings, $maad_el_get_extension_settings);
 			// print_r($maad_el_new_extension_settings);
@@ -656,10 +657,11 @@ if (!class_exists('Master_Elementor_Addons')) {
 					// }
 
 					if (!ma_el_fs()->can_use_premium_code() && isset($extensions['is_pro']) && $extensions['is_pro']) {
-						// include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' .  $extensions . '.php';
-						echo "Pro";
+						include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions['key'] . '/' .  $extensions['key'] . '.php';
+						// echo "Pro <br>";
 					} else {
-						echo "Not Pro";
+						// echo "Not Pro <br>";
+						include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions['key'] . '/' .  $extensions['key'] . '.php';
 					}
 
 					// if ($activated_extensions[$extensions] == true && $is_pro != "pro") {
