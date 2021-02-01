@@ -762,6 +762,7 @@
         MA_Gallery_Slider: function($scope, $){
 
             var elementSettings     = getElementSettings( $scope ),
+                $swiperSlider 	    = $scope.find('.jltma-gallery-slider__slider'),
                 $swiperCarousel     = $scope.find('.jltma-gallery-slider__carousel'),
                 uniqueId 		    = getUniqueLoopScopeId( $scope ),
                 scopeId 		    = $scope.data('id'),
@@ -830,7 +831,7 @@
 
                 // If Carousel
                 if ( hasCarousel ) {
-				var carouselSettings = {
+				    var carouselSettings = {
 						key 		: 'carousel',
 						scope 		: $scope,
 						id 			: uniqueId,
@@ -951,20 +952,29 @@
 
             Master_Addons.MA_Gallery_Slider.init = function() {
 
-                $swiperCarousel.slick( slickArgs );
-                var swiper = new Swiper($swiperCarouselContainer, $settings);
+                // $swiperCarousel.slick( slickArgs );
+                // var swiper = new Swiper($swiperCarouselContainer, $settings);
 
-                $thumbs.removeClass('is--active');
-                $thumbs.eq( 0 ).addClass('is--active');
+                // $thumbs.removeClass('is--active');
+                // $thumbs.eq( 0 ).addClass('is--active');
 
-                $swiperCarousel.slick( 'setPosition' );
+                // $swiperCarousel.slick( 'setPosition' );
 
-                Master_Addons.MA_Gallery_Slider.events();
+                // Master_Addons.MA_Gallery_Slider.events();
 
-                if($thumbtype == "slide"){
-                    // Thumbnails Slider options
-                    $thumbnailsSlider.slick( thumbsArgs );
-                }
+                // if($thumbtype == "slide"){
+                //     // Thumbnails Slider options
+                //     $thumbnailsSlider.slick( thumbsArgs );
+                // }
+
+				swiperSlider = Master_Addons.MA_Carousel( $swiperSlider, sliderSettings );
+
+				if ( hasCarousel ) {
+					swiperCarousel = Master_Addons.MA_Carousel( $swiperCarousel, carouselSettings );
+				}
+
+				ee.GallerySlider.onSlideChange();
+				ee.GallerySlider.events();
 
             };
 

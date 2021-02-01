@@ -3268,7 +3268,7 @@ class JLTMA_Gallery_Slider extends Widget_Base
 			'preview' => [
 				'class' => [
 					'jltma-gallery-slider__preview',
-					'elementor-slick-slider',
+					'jltma-swiper',
 				],
 			],
 			'gallery-wrapper' => [
@@ -3294,6 +3294,8 @@ class JLTMA_Gallery_Slider extends Widget_Base
 				'class' => [
 					'elementor-image-carousel',
 					'jltma-carousel',
+					'swiper-wrapper',
+					'jltma-swiper__wrapper',
 					'jltma-gallery-slider__carousel',
 					'jltma-media-align--' . $settings['jltma_gallery_slider_preview_vertical_align'],
 					'jltma-media-align--' . $settings['jltma_gallery_slider_preview_horizontal_align'],
@@ -3311,6 +3313,7 @@ class JLTMA_Gallery_Slider extends Widget_Base
 					'swiper-container',
 					'jltma-swiper__container',
 					'jltma-gallery-slider__carousel',
+					'jltma-gallery-slider__slider-wrapper'
 				],
 			],
 			'gallery-thumbnail' => [
