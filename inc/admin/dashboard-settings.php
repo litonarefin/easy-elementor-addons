@@ -4,6 +4,8 @@ namespace MasterAddons\Admin\Dashboard;
 
 use MasterAddons\Master_Elementor_Addons;
 
+use MasterAddons\Admin\Dashboard\Addons\Elements;
+
 /*
 	* Master Admin Dashboard Page
 	* Jewel Theme < Liton Arefin >
@@ -63,11 +65,6 @@ class Master_Addons_Admin_Settings
 	public function ma_el_include_files()
 	{
 		include_once MELA_PLUGIN_PATH . '/inc/admin/promotions.php';
-
-		include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-forms.php';
-		include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-elements.php';
-		include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-extensions.php';
-		include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-marketing.php';
 	}
 
 	public function get_menu_title()

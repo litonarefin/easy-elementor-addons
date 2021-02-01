@@ -16,7 +16,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 		public $controls_manager;
 
 		const VERSION = JLTMA_PLUGIN_VERSION;
-		const JLTMA_STABLE_VERSION = "1.5.6.2";
+		const JLTMA_STABLE_VERSION = JLTMA_STABLE_VER;
 		const MINIMUM_PHP_VERSION = '5.4';
 		const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
 
@@ -1056,6 +1056,12 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 			// Extensions
 			require_once MELA_PLUGIN_PATH . '/inc/classes/JLTMA_Extension_Prototype.php';
+
+
+			include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-forms.php';
+			include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-elements.php';
+			include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-extensions.php';
+			include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-marketing.php';
 		}
 
 

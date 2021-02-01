@@ -3,10 +3,8 @@
 namespace MasterAddons\Admin\Dashboard\Addons;
 
 use MasterAddons\Master_Elementor_Addons;
-use MasterAddons\Admin\Dashboard\Addons\Elements;
+use MasterAddons\Admin\Dashboard\Addons\Elements\JLTMA_Addon_Elements;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
-
-include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-elements.php';
 ?>
 
 
@@ -32,42 +30,15 @@ include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-elements.php';
 
 	<h3><?php echo esc_html__('Content Elements', MELA_TD); ?></h3>
 
-	<?php
-	foreach ($jltma_elements['jltma-addons']['elements'] as $key => $value) {
-		print_r($value);
-	}
-
-	// print_r(MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-elements.php');
-	// print_r($jltma_elements);
-
-	foreach ($jltma_elements['jltma-addons']['elements'] as $key => $widget) : ?>
+	<?php foreach (JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements'] as $key => $widget) : ?>
 
 		<div class="master-addons-dashboard-checkbox col">
 			<div class="master-addons-dashboard-checkbox-content">
 
 				<div class="master-addons-features-ribbon">
-					<?php
-					// $is_pro = "";
-					// if (isset($widget)) {
-					// 	if (is_array($widget)) {
-					// 		$is_pro = $widget[1];
-					// 		$widget = $widget[0];
-
-					// 		if (!ma_el_fs()->can_use_premium_code()) {
-					// 			echo '<span class="pro-ribbon">';
-					// 			echo ucwords($is_pro);
-					// 			echo '</span>';
-					// 		}
-					// 	}
-					// }
-
-					if (isset($widget['is_pro']) && $widget['is_pro']) {
+					<?php if (isset($widget['is_pro']) && $widget['is_pro']) {
 						echo '<span class="pro-ribbon">Pro</span>';
-						// echo 'Pro';
-						// echo '</span>';
-					}
-
-					?>
+					} ?>
 				</div>
 
 				<div class="master-addons-el-title">
@@ -83,14 +54,6 @@ include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-elements.php';
 						?>
 					</div>
 				</div> <!-- .master-addons-el-title -->
-
-				<?php
-				// if (isset($widget)) {
-				// 	if (is_array($widget)) {
-				// 		$is_pro = $widget[1];
-				// 	}
-				// }
-				?>
 
 				<div class="master_addons_feature_switchbox">
 					<label for="<?php echo esc_attr($widget['key']); ?>" class="switch switch-text switch-primary switch-pill
