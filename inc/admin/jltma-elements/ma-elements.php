@@ -19,8 +19,7 @@ if (!class_exists('JLTMA_Addon_Elements')) {
                             'title'             => esc_html__('Animated Headlines', MELA_TD),
                             'demo_url'          => 'https://master-addons.com/demos/animated-headline/',
                             'docs_url'          => 'https://master-addons.com/docs/addons/animated-headline-elementor/',
-                            'tuts_url'          => 'https://www.youtube.com/watch?v=09QIUPdUQnM',
-                            'is_pro'
+                            'tuts_url'          => 'https://www.youtube.com/watch?v=09QIUPdUQnM'
                         ],
                         [
                             'key'               => 'ma-call-to-action',
