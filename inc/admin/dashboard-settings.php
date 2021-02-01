@@ -4,7 +4,9 @@ namespace MasterAddons\Admin\Dashboard;
 
 use MasterAddons\Master_Elementor_Addons;
 
-use MasterAddons\Admin\Dashboard\Addons\Elements;
+use MasterAddons\Admin\Dashboard\Addons\Elements\JLTMA_Addon_Elements;
+use MasterAddons\Admin\Dashboard\Addons\Elements\JLTMA_Addon_Forms;
+use MasterAddons\Admin\Dashboard\Addons\Elements\JLTMA_Addon_Marketing;
 
 /*
 	* Master Admin Dashboard Page
@@ -65,6 +67,11 @@ class Master_Addons_Admin_Settings
 	public function ma_el_include_files()
 	{
 		include_once MELA_PLUGIN_PATH . '/inc/admin/promotions.php';
+
+		include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-forms.php';
+		include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-elements.php';
+		include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-extensions.php';
+		include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-marketing.php';
 	}
 
 	public function get_menu_title()
@@ -222,21 +229,19 @@ class Master_Addons_Admin_Settings
 		$this->maad_el_settings = [];
 
 
-		// New File Format
+		// Separated Addons on new Format
 		$jltma_new_widgets = [];
 
-		// foreach ($jltma_elements['jltma-addons']['elements'] as $key => $widget) {
-		// 	$jltma_new_widgets[] = $widget['key'];
-		// }
-		// foreach ($jltma_forms['jltma-forms']['elements'] as $key => $widget) {
-		// 	$jltma_new_widgets[] = $widget['key'];
-		// }
-		// foreach ($jltma_marketing['jltma-marketing']['elements'] as $key => $widget) {
-		// 	$jltma_new_widgets[] = $widget['key'];
-		// }
+		foreach (JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements'] as $key => $widget) {
+			$jltma_new_widgets[] = $widget['key'];
+		}
+		foreach (JLTMA_Addon_Forms::$jltma_forms['jltma-forms']['elements'] as $key => $widget) {
+			$jltma_new_widgets[] = $widget['key'];
+		}
+		foreach (JLTMA_Addon_Marketing::$jltma_marketing['jltma-marketing']['elements'] as $key => $widget) {
+			$jltma_new_widgets[] = $widget['key'];
+		}
 
-
-		// foreach (ma_el_array_flatten(Master_Elementor_Addons::$maad_el_default_widgets) as $value) {
 		foreach ($jltma_new_widgets as $value) {
 
 			if (isset($settings[$value])) {

@@ -1056,12 +1056,6 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 			// Extensions
 			require_once MELA_PLUGIN_PATH . '/inc/classes/JLTMA_Extension_Prototype.php';
-
-
-			include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-forms.php';
-			include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-elements.php';
-			include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-extensions.php';
-			include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-marketing.php';
 		}
 
 
