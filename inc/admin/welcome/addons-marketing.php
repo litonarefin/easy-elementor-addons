@@ -19,7 +19,7 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
             <div class="master-addons-dashboard-checkbox-content">
 
                 <div class="master-addons-features-ribbon">
-                    <?php if (isset($widget['is_pro']) && $widget['is_pro']) {
+                    <?php if (!ma_el_fs()->can_use_premium_code() && isset($widget['is_pro']) && $widget['is_pro']) {
                         echo '<span class="pro-ribbon">Pro</span>';
                     } ?>
                 </div>

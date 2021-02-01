@@ -58,13 +58,13 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 							</div><!-- /.master-addons-dashboard-filter -->
 
 							<!-- Master Addons Extensions -->
-							<?php foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $key => $widget) : ?>
+							<?php foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $key => $extension) : ?>
 
 								<div class="master-addons-dashboard-checkbox col">
 									<div class="master-addons-dashboard-checkbox-content">
 
 										<div class="master-addons-features-ribbon">
-											<?php if (isset($extension['is_pro']) && $extension['is_pro']) {
+											<?php if (!ma_el_fs()->can_use_premium_code() && isset($extension['is_pro']) && $extension['is_pro']) {
 												echo '<span class="pro-ribbon">Pro</span>';
 											} ?>
 										</div>

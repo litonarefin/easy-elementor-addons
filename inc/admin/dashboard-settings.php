@@ -7,6 +7,7 @@ use MasterAddons\Master_Elementor_Addons;
 use MasterAddons\Admin\Dashboard\Addons\Elements\JLTMA_Addon_Elements;
 use MasterAddons\Admin\Dashboard\Addons\Elements\JLTMA_Addon_Forms;
 use MasterAddons\Admin\Dashboard\Addons\Elements\JLTMA_Addon_Marketing;
+use MasterAddons\Admin\Dashboard\Addons\Extensions\JLTMA_Addon_Extensions;
 
 /*
 	* Master Admin Dashboard Page
@@ -171,6 +172,64 @@ class Master_Addons_Admin_Settings
 
 
 
+	public static function jltma_addons_array()
+	{
+		// Separated Addons on new Format
+		$jltma_new_widgets = [];
+
+		foreach (JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements'] as $key => $widget) {
+			$jltma_new_widgets[] = $widget['key'];
+		}
+		foreach (JLTMA_Addon_Forms::$jltma_forms['jltma-forms']['elements'] as $key => $widget) {
+			$jltma_new_widgets[] = $widget['key'];
+		}
+		foreach (JLTMA_Addon_Marketing::$jltma_marketing['jltma-marketing']['elements'] as $key => $widget) {
+			$jltma_new_widgets[] = $widget['key'];
+		}
+
+		return $jltma_new_widgets;
+	}
+
+	// Extensions Array
+	public static function jltma_addons_extensions_array()
+	{
+		// Separated Addons on new Format
+		$jltma_new_extensions = [];
+
+		foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $key => $extension) {
+			$jltma_new_extensions[] = $extension['key'];
+		}
+
+		return $jltma_new_extensions;
+	}
+
+	public function master_addons_save_elements_settings()
+	{
+		check_ajax_referer('maad_el_settings_nonce_action', 'security');
+
+		if (isset($_POST['fields'])) {
+			parse_str($_POST['fields'], $settings);
+		} else {
+			return;
+		}
+
+		$this->maad_el_settings = [];
+
+		foreach (self::jltma_addons_array() as $value) {
+
+			if (isset($settings[$value])) {
+				$this->maad_el_settings[$value] = 1;
+			} else {
+				$this->maad_el_settings[$value] = 0;
+			}
+		}
+
+		update_option('maad_el_save_settings', $this->maad_el_settings);
+
+		return true;
+		die();
+	}
+
 
 	public function master_addons_save_extensions_settings()
 	{
@@ -185,7 +244,7 @@ class Master_Addons_Admin_Settings
 
 		$this->maad_el_extension_settings = [];
 
-		foreach (ma_el_array_flatten(Master_Elementor_Addons::$ma_el_extensions) as $value) {
+		foreach (self::jltma_addons_extensions_array() as $value) {
 
 			if (isset($settings[$value])) {
 				$this->maad_el_extension_settings[$value] = 1;
@@ -209,54 +268,6 @@ class Master_Addons_Admin_Settings
 		}
 		update_option('ma_el_third_party_plugins_save_settings', $this->jltma_third_party_plugins_settings);
 
-
-		return true;
-		die();
-	}
-
-	public static function jltma_addons_array()
-	{
-
-		// Separated Addons on new Format
-		$jltma_new_widgets = [];
-
-		foreach (JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements'] as $key => $widget) {
-			$jltma_new_widgets[] = $widget['key'];
-		}
-		foreach (JLTMA_Addon_Forms::$jltma_forms['jltma-forms']['elements'] as $key => $widget) {
-			$jltma_new_widgets[] = $widget['key'];
-		}
-		foreach (JLTMA_Addon_Marketing::$jltma_marketing['jltma-marketing']['elements'] as $key => $widget) {
-			$jltma_new_widgets[] = $widget['key'];
-		}
-
-		return $jltma_new_widgets;
-	}
-
-	public function master_addons_save_elements_settings()
-	{
-
-		check_ajax_referer('maad_el_settings_nonce_action', 'security');
-
-		if (isset($_POST['fields'])) {
-			parse_str($_POST['fields'], $settings);
-		} else {
-			return;
-		}
-
-		$this->maad_el_settings = [];
-
-
-		foreach (self::jltma_addons_array() as $value) {
-
-			if (isset($settings[$value])) {
-				$this->maad_el_settings[$value] = 1;
-			} else {
-				$this->maad_el_settings[$value] = 0;
-			}
-		}
-
-		update_option('maad_el_save_settings', $this->maad_el_settings);
 
 		return true;
 		die();
