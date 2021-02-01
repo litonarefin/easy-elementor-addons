@@ -5,7 +5,8 @@ namespace MasterAddons;
 use MasterAddons\Admin\Dashboard\Master_Addons_Admin_Settings;
 use MasterAddons\Admin\Dashboard\Addons\Extensions\JLTMA_Addon_Extensions;
 use MasterAddons\Admin\Dashboard\Addons\Elements\JLTMA_Addon_Elements;
-use  MasterAddons\Admin\Dashboard\Addons\Extensions\JLTMA_Third_Party_Extensions;
+use MasterAddons\Admin\Dashboard\Addons\Extensions\JLTMA_Third_Party_Extensions;
+use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 if (!defined('ABSPATH')) {
 	exit;
@@ -521,6 +522,11 @@ if (!class_exists('Master_Elementor_Addons')) {
 			}
 		}
 
+		public function get_widgets()
+		{
+			return [];
+		}
+
 		public function jltma_init_widgets()
 		{
 
@@ -586,6 +592,31 @@ if (!class_exists('Master_Elementor_Addons')) {
 					// if ($activated_widgets[$widget] == true && $is_pro != "pro") {
 					require_once MAAD_EL_ADDONS . $widget['key'] . '/' . $widget['key'] . '.php';
 					// }
+
+					// $widget_manager = Master_Addons_Helper::jltma_elementor()->widgets_manager;
+					// foreach ($this->get_widgets() as $widget) {
+					// print_r($widget);
+					// $class_name = $this->reflection->getNamespaceName() . '\Addon\\' . $widget;
+
+					// if ($class_name::requires_elementor_pro() && !is_elementor_pro_active()) {
+					// 	continue;
+					// }
+
+					// $module_filename = $this->get_name();
+					// $widget_name = strtolower($widget);
+					// $widget_filename = str_replace('_', '-', $widget_name);
+
+					// // Skip widget if it's disabled in admin settings
+					// if ($this->is_widget_disabled($widget_name)) {
+					// 	continue;
+					// }
+
+					// $widget_filename = ELEMENTOR_EXTRAS_PATH . "includes/modules/{$module_filename}/widgets/{$widget_filename}.php";
+
+					// $widget_manager->register_widget_type(new $class_name());
+					// }
+
+
 					// if ($activated_widgets[$widget] == true && $is_pro != "pro") {
 					// 	require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
 					// }
