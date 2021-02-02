@@ -1,6 +1,6 @@
 <?php
 
-namespace Elementor;
+namespace MasterAddons\Addons;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -3681,5 +3681,3 @@ class JLTMA_Gallery_Slider extends Widget_Base
 	{
 	}
 }
-
-Plugin::instance()->widgets_manager->register_widget_type(new JLTMA_Gallery_Slider());

@@ -1,6 +1,6 @@
 <?php
 
-namespace Elementor;
+namespace MasterAddons\Addons;
 
 // Elementor Classes
 use \Elementor\Widget_Base;
@@ -17,7 +17,7 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Scheme_Color;
 
-class JLTMA_Morphing_Blob extends Widget_Base
+class Morphong_Blob extends Widget_Base
 {
 
     public function get_name()
@@ -1192,5 +1192,3 @@ class JLTMA_Morphing_Blob extends Widget_Base
         wp_enqueue_script('jltma_mrbl_elcanvas');
     }
 }
-
-Plugin::instance()->widgets_manager->register_widget_type(new JLTMA_Morphing_Blob());

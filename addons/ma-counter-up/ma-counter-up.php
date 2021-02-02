@@ -1,5 +1,6 @@
 <?php
-namespace Elementor;
+
+namespace MasterAddons\Addons;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -20,74 +21,80 @@ use Elementor\Scheme_Color;
  * Date: 6/27/19
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
-
-
-class Master_Addons_Counter_Up extends Widget_Base {
+if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
+class Counter_Up extends Widget_Base
+{
 
 	//use ElementsCommonFunctions;
-	public function get_name() {
+	public function get_name()
+	{
 		return 'jltma-counter-up';
 	}
-	public function get_title() {
-		return esc_html__( 'MA Counter Up', MELA_TD );
+	public function get_title()
+	{
+		return esc_html__('MA Counter Up', MELA_TD);
 	}
-	public function get_icon() {
+	public function get_icon()
+	{
 		return 'ma-el-icon eicon-counter';
 	}
-	public function get_categories() {
-		return [ 'master-addons' ];
+	public function get_categories()
+	{
+		return ['master-addons'];
 	}
 
-	public function get_style_depends() {
+	public function get_style_depends()
+	{
 		return [
 			'font-awesome-5-all',
-            'font-awesome-4-shim'
+			'font-awesome-4-shim'
 		];
 	}
-	
-	public function get_help_url() {
+
+	public function get_help_url()
+	{
 		return 'https://master-addons.com/demos/counter-up/';
 	}
 
 
-	protected function _register_controls() {
+	protected function _register_controls()
+	{
 
 		$this->start_controls_section(
 			'ma_el_counterup_section_start',
 			[
-				'label' => __( 'Counter Up Content', MELA_TD )
+				'label' => __('Counter Up Content', MELA_TD)
 			]
 		);
 
 		$this->add_control(
 			'jltma_counterup_contents',
 			[
-				'label'       => esc_html__( 'CounterUp Items', MELA_TD ),
+				'label'       => esc_html__('CounterUp Items', MELA_TD),
 				'type'        => Controls_Manager::REPEATER,
 				'default'     => [
 					[
 						'number'    => 6000,
 						'icon'      => ['value' => 'far fa-thumbs-up', 'library'  => 'regular'],
-						'title'     => esc_html__( 'Happy Clients', MELA_TD ),
+						'title'     => esc_html__('Happy Clients', MELA_TD),
 						'background' => ''
 					],
 					[
 						'number'    => 9560,
 						'icon'      => ['value' => 'far fa-check-circle', 'library'  => 'regular'],
-						'title'     => esc_html__( 'Projects Completed', MELA_TD ),
+						'title'     => esc_html__('Projects Completed', MELA_TD),
 						'background' => ''
 					],
 					[
 						'number'    => 165893,
 						'icon'      => ['value' => 'fas fa-coffee', 'library'  => 'solid'],
-						'title'     => esc_html__( 'Cups of Coffee', MELA_TD ),
+						'title'     => esc_html__('Cups of Coffee', MELA_TD),
 						'background' => ''
 					],
 					[
 						'number'    => 12356789,
 						'icon'      => ['value' => 'fas fa-trophy', 'library'  => 'solid'],
-						'title'     => esc_html__( 'Awards Won', MELA_TD ),
+						'title'     => esc_html__('Awards Won', MELA_TD),
 						'background' => ''
 					],
 				],
@@ -96,27 +103,27 @@ class Master_Addons_Counter_Up extends Widget_Base {
 						'type'          => Controls_Manager::CHOOSE,
 						'name'          => 'icon_type',
 						'label_block'   => true,
-						'label'         => esc_html__( 'Type', MELA_TD ),
+						'label'         => esc_html__('Type', MELA_TD),
 						'default'       => 'icon',
 						'options'       => [
 
 							'none'    => [
-								'title' => esc_html__( 'None', MELA_TD ),
+								'title' => esc_html__('None', MELA_TD),
 								'icon'  => 'fa fa-ban',
 							],
 							'icon'      => [
-								'title' => esc_html__( 'Icon', MELA_TD ),
+								'title' => esc_html__('Icon', MELA_TD),
 								'icon'  => 'fa fa-diamond',
 							],
 							'custom'    => [
-								'title' => esc_html__( 'Image', MELA_TD ),
+								'title' => esc_html__('Image', MELA_TD),
 								'icon'  => 'fa fa-photo',
 							],
 						]
 					],
 					[
 						'name'          => 'icon',
-						'label'         => esc_html__( 'Icon', MELA_TD ),
+						'label'         => esc_html__('Icon', MELA_TD),
 						'type'          => Controls_Manager::ICONS,
 						'default'       => [
 							'value'     => 'fas fa-star',
@@ -128,7 +135,7 @@ class Master_Addons_Counter_Up extends Widget_Base {
 					],
 					[
 						'name'          => 'custom',
-						'label'         => esc_html__( 'Image', MELA_TD ),
+						'label'         => esc_html__('Image', MELA_TD),
 						'label_block'   => true,
 						'type'          => Controls_Manager::MEDIA,
 						'condition'     => [
@@ -139,19 +146,19 @@ class Master_Addons_Counter_Up extends Widget_Base {
 						'type'          => Controls_Manager::TEXT,
 						'name'          => 'title',
 						'label_block'   => true,
-						'label'         => esc_html__( 'Title', MELA_TD ),
+						'label'         => esc_html__('Title', MELA_TD),
 						'default'       => 'Type your title',
 					],
 					[
 						'type'          => Controls_Manager::NUMBER,
 						'name'          => 'number',
-						'label'         => esc_html__( 'Number', MELA_TD ),
+						'label'         => esc_html__('Number', MELA_TD),
 						'default'       => 123456,
 					],
 					[
 						'type'          => Controls_Manager::COLOR,
 						'name'          => 'background',
-						'label'         => esc_html__( 'Background', MELA_TD )
+						'label'         => esc_html__('Background', MELA_TD)
 					],
 
 				],
@@ -162,15 +169,15 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_control(
 			'column',
 			[
-				'label'         => esc_html__( 'Columns', MELA_TD ),
+				'label'         => esc_html__('Columns', MELA_TD),
 				'type'          => Controls_Manager::SELECT,
 				'default'       => 4,
 				'options'       => [
-					'6'           => esc_html__( '6 Columns', MELA_TD ),
-					'4'           => esc_html__( '4 Columns', MELA_TD ),
-					'3'           => esc_html__( '3 Columns', MELA_TD ),
-					'2'           => esc_html__( '2 Columns', MELA_TD ),
-					'1'           => esc_html__( '1 Column', MELA_TD ),
+					'6'           => esc_html__('6 Columns', MELA_TD),
+					'4'           => esc_html__('4 Columns', MELA_TD),
+					'3'           => esc_html__('3 Columns', MELA_TD),
+					'2'           => esc_html__('2 Columns', MELA_TD),
+					'1'           => esc_html__('1 Column', MELA_TD),
 				],
 			]
 		);
@@ -192,19 +199,19 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_control(
 			'jltma_counterup_icon_align',
 			[
-				'label'         => esc_html__( 'Icon/Image Position', MELA_TD ),
+				'label'         => esc_html__('Icon/Image Position', MELA_TD),
 				'type'          => Controls_Manager::CHOOSE,
 				'options'       => [
 					'left'      => [
-						'title' => esc_html__( 'Left', MELA_TD ),
+						'title' => esc_html__('Left', MELA_TD),
 						'icon'  => 'fa fa-angle-left',
 					],
 					'center'    => [
-						'title' => esc_html__( 'Top', MELA_TD ),
+						'title' => esc_html__('Top', MELA_TD),
 						'icon'  => 'fa fa-angle-up',
 					],
 					'right'     => [
-						'title' => esc_html__( 'Right', MELA_TD ),
+						'title' => esc_html__('Right', MELA_TD),
 						'icon'  => 'fa fa-angle-right',
 					],
 				],
@@ -216,7 +223,7 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_control(
 			'icon_size',
 			[
-				'label'     => esc_html__( 'Icon Size', MELA_TD ),
+				'label'     => esc_html__('Icon Size', MELA_TD),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px'    => [
@@ -238,7 +245,7 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_control(
 			'image_size',
 			[
-				'label'     => esc_html__( 'Icon Circle or Image Size', MELA_TD ),
+				'label'     => esc_html__('Icon Circle or Image Size', MELA_TD),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px'    => [
@@ -278,7 +285,7 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_control(
 			'jltma_counterup_bg_color',
 			[
-				'label'         => esc_html__( 'Background Color', MELA_TD ),
+				'label'         => esc_html__('Background Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'selectors'     => [
 					'{{WRAPPER}} .jltma-counterup' => 'background-color: {{VALUE}};'
@@ -290,9 +297,9 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_responsive_control(
 			'jltma_counterup_padding',
 			[
-				'label'         => esc_html__( 'Padding', MELA_TD ),
+				'label'         => esc_html__('Padding', MELA_TD),
 				'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => [ 'px', 'em', '%' ],
+				'size_units'    => ['px', 'em', '%'],
 				'selectors'     => [
 					'{{WRAPPER}} .jltma-counterup' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -303,9 +310,9 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_responsive_control(
 			'jltma_counterup_margin',
 			[
-				'label'         => esc_html__( 'Margin', MELA_TD ),
+				'label'         => esc_html__('Margin', MELA_TD),
 				'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => [ 'px', 'em', '%' ],
+				'size_units'    => ['px', 'em', '%'],
 				'selectors'     => [
 					'{{WRAPPER}} .jltma-counterup' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -317,7 +324,7 @@ class Master_Addons_Counter_Up extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'          => 'jltma_counterup_border',
-				'label'         => esc_html__( 'Border Type', MELA_TD ),
+				'label'         => esc_html__('Border Type', MELA_TD),
 				'selector'      => '{{WRAPPER}} .jltma-counterup',
 			]
 		);
@@ -325,9 +332,9 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_responsive_control(
 			'jltma_counterup_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', MELA_TD ),
+				'label' => esc_html__('Border Radius', MELA_TD),
 				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
+				'size_units' => ['px', '%'],
 				'range' => [
 					'px' => [
 						'min' => 0,
@@ -364,7 +371,7 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->start_controls_section(
 			'jltma_counterup_typography_section',
 			[
-				'label'         => esc_html__( 'Content Style', MELA_TD ),
+				'label'         => esc_html__('Content Style', MELA_TD),
 				'tab'           => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -373,7 +380,7 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_control(
 			'jltma_counterup_icon_style',
 			[
-				'label'         => esc_html__( 'Icon Style', MELA_TD ),
+				'label'         => esc_html__('Icon Style', MELA_TD),
 				'type'          => Controls_Manager::HEADING
 			]
 		);
@@ -382,7 +389,7 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_control(
 			'jltma_counterup_icon_color',
 			[
-				'label'         => esc_html__( 'Color', MELA_TD ),
+				'label'         => esc_html__('Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'default'       => '#fff',
 				'selectors'     => [
@@ -395,7 +402,7 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_control(
 			'jltma_counterup_icon_bg_color',
 			[
-				'label'         => esc_html__( 'Background Color', MELA_TD ),
+				'label'         => esc_html__('Background Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'default'       => '#4b00e7',
 				'selectors'     => [
@@ -408,7 +415,7 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_control(
 			'jltma_counterup_number_style',
 			[
-				'label'         => esc_html__( 'Number Style', MELA_TD ),
+				'label'         => esc_html__('Number Style', MELA_TD),
 				'type'          => Controls_Manager::HEADING,
 				'separator'     => 'before'
 			]
@@ -419,7 +426,7 @@ class Master_Addons_Counter_Up extends Widget_Base {
 			'jltma_counterup_number_color',
 			[
 				'type'          => Controls_Manager::COLOR,
-				'label'         => esc_html__( 'Color', MELA_TD ),
+				'label'         => esc_html__('Color', MELA_TD),
 				'scheme'        => [
 					'type'      => Scheme_Color::get_type(),
 					'value'     => Scheme_Color::COLOR_1,
@@ -448,9 +455,9 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_control(
 			'jltma_counterup_number_margin',
 			[
-				'label'         => esc_html__( 'Margin', MELA_TD ),
+				'label'         => esc_html__('Margin', MELA_TD),
 				'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => [ 'px', 'em', '%' ],
+				'size_units'    => ['px', 'em', '%'],
 				'selectors'     => [
 					'{{WRAPPER}} .jltma-counterup h3.jltma-counter-up-number' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -461,7 +468,7 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_control(
 			'jltma_counterup_title_style',
 			[
-				'label'         => esc_html__( 'Title Style', MELA_TD ),
+				'label'         => esc_html__('Title Style', MELA_TD),
 				'type'          => Controls_Manager::HEADING,
 				'separator'     =>  'before'
 			]
@@ -472,7 +479,7 @@ class Master_Addons_Counter_Up extends Widget_Base {
 			'jltma_counterup_title_color',
 			[
 				'type'          => Controls_Manager::COLOR,
-				'label'         => esc_html__( 'Title color', MELA_TD ),
+				'label'         => esc_html__('Title color', MELA_TD),
 				'scheme'        => [
 					'type'      => Scheme_Color::get_type(),
 					'value'     => Scheme_Color::COLOR_1,
@@ -498,9 +505,9 @@ class Master_Addons_Counter_Up extends Widget_Base {
 		$this->add_control(
 			'jltma_counterup_title_margin',
 			[
-				'label'         => esc_html__( 'Margin', MELA_TD ),
+				'label'         => esc_html__('Margin', MELA_TD),
 				'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => [ 'px', 'em', '%' ],
+				'size_units'    => ['px', 'em', '%'],
 				'selectors'     => [
 					'{{WRAPPER}} .jltma-counterup-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -511,67 +518,67 @@ class Master_Addons_Counter_Up extends Widget_Base {
 
 
 
-		
-        /**
-         * Content Tab: Docs Links
-         */
-        $this->start_controls_section(
-            'jltma_section_help_docs',
-            [
-                'label' => esc_html__( 'Help Docs', MELA_TD ),
-            ]
-        );
+
+		/**
+		 * Content Tab: Docs Links
+		 */
+		$this->start_controls_section(
+			'jltma_section_help_docs',
+			[
+				'label' => esc_html__('Help Docs', MELA_TD),
+			]
+		);
 
 
-        $this->add_control(
-            'help_doc_1',
-            [
-                'type'            => Controls_Manager::RAW_HTML,
-                'raw'             => sprintf( esc_html__( '%1$s Live Demo %2$s', MELA_TD ), '<a href="https://master-addons.com/demos/counter-up/" target="_blank" rel="noopener">', '</a>' ),
-                'content_classes' => 'jltma-editor-doc-links',
-            ]
-        );
+		$this->add_control(
+			'help_doc_1',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => sprintf(esc_html__('%1$s Live Demo %2$s', MELA_TD), '<a href="https://master-addons.com/demos/counter-up/" target="_blank" rel="noopener">', '</a>'),
+				'content_classes' => 'jltma-editor-doc-links',
+			]
+		);
 
-        $this->add_control(
-            'help_doc_2',
-            [
-                'type'            => Controls_Manager::RAW_HTML,
-                'raw'             => sprintf( esc_html__( '%1$s Documentation %2$s', MELA_TD ), '<a href="https://master-addons.com/docs/addons/counter-up-for-elementor/?utm_source=widget&utm_medium=panel&utm_campaign=dashboard" target="_blank" rel="noopener">', '</a>' ),
-                'content_classes' => 'jltma-editor-doc-links',
-            ]
-        );
+		$this->add_control(
+			'help_doc_2',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => sprintf(esc_html__('%1$s Documentation %2$s', MELA_TD), '<a href="https://master-addons.com/docs/addons/counter-up-for-elementor/?utm_source=widget&utm_medium=panel&utm_campaign=dashboard" target="_blank" rel="noopener">', '</a>'),
+				'content_classes' => 'jltma-editor-doc-links',
+			]
+		);
 
-        $this->add_control(
-            'help_doc_3',
-            [
-                'type'            => Controls_Manager::RAW_HTML,
-                'raw'             => sprintf( esc_html__( '%1$s Watch Video Tutorial %2$s', MELA_TD ), '<a href="https://www.youtube.com/watch?v=9amvO6p9kpM" target="_blank" rel="noopener">', '</a>' ),
-                'content_classes' => 'jltma-editor-doc-links',
-            ]
-        );
-        $this->end_controls_section();
-
-
+		$this->add_control(
+			'help_doc_3',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => sprintf(esc_html__('%1$s Watch Video Tutorial %2$s', MELA_TD), '<a href="https://www.youtube.com/watch?v=9amvO6p9kpM" target="_blank" rel="noopener">', '</a>'),
+				'content_classes' => 'jltma-editor-doc-links',
+			]
+		);
+		$this->end_controls_section();
 
 
-        //Upgrade to Pro
-		if ( ma_el_fs()->is_not_paying() ) {
+
+
+		//Upgrade to Pro
+		if (ma_el_fs()->is_not_paying()) {
 
 			$this->start_controls_section(
 				'jltma_section_pro_style_section',
 				[
-					'label' => esc_html__( 'Upgrade to Pro Version for More Features', MELA_TD ),
+					'label' => esc_html__('Upgrade to Pro Version for More Features', MELA_TD),
 				]
 			);
 
 			$this->add_control(
 				'jltma_control_get_pro_style_tab',
 				[
-					'label' => esc_html__( 'Unlock more possibilities', MELA_TD ),
+					'label' => esc_html__('Unlock more possibilities', MELA_TD),
 					'type' => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
-							'title' => esc_html__( '', MELA_TD ),
+							'title' => esc_html__('', MELA_TD),
 							'icon' => 'fa fa-unlock-alt',
 						],
 					],
@@ -582,43 +589,42 @@ class Master_Addons_Counter_Up extends Widget_Base {
 
 			$this->end_controls_section();
 		}
-
 	}
 
 
-	protected function render() {
+	protected function render()
+	{
 
 		$settings  	= $this->get_settings_for_display();
-		$id_int		= substr( $this->get_id_int(), 0, 3 );
+		$id_int		= substr($this->get_id_int(), 0, 3);
 
-		if( is_array( $settings['jltma_counterup_contents'] ) ):
-			$column = 12/$settings['column'];
-			$column = 'jltma-col-lg-'.esc_attr( $column ). ' jltma-col-md-6';
+		if (is_array($settings['jltma_counterup_contents'])) :
+			$column = 12 / $settings['column'];
+			$column = 'jltma-col-lg-' . esc_attr($column) . ' jltma-col-md-6';
 			echo '<div class="jltma-counterup-items jltma-row">';
 
-			foreach ( $settings['jltma_counterup_contents'] as $index => $list ) :
+			foreach ($settings['jltma_counterup_contents'] as $index => $list) :
 
-				$title_count = $index+1;
+				$title_count = $index + 1;
 				$title_settings_key = $this->get_repeater_setting_key('title', 'jltma_counterup_contents', $index);
 
 				$this->add_render_attribute($title_settings_key, [
 					'id' 			=> $id_int . $title_count,
-					'style' 		=> ['background-color:', $list['background'] ]
+					'style' 		=> ['background-color:', $list['background']]
 				]);
 
-				echo '<div class="'.esc_attr($column).' jltma-counterup-column">';
-				echo '<div class="jltma-counterup jltma-counterup-icon-'.esc_attr($settings['jltma_counterup_icon_align']).'"  '. $this->get_render_attribute_string
-                            ($title_settings_key) .'>';
-				echo '<span class="jltma-counterup-icon counterup-icon-text-'.esc_attr($settings['jltma_counterup_icon_align']).'">';
-				if ( ! empty( $list['icon'] ) && ( $list['icon_type'] == 'icon' ) ) :
-					echo '<i class="'.esc_attr( $list['icon']['value'] ).'"></i>';
+				echo '<div class="' . esc_attr($column) . ' jltma-counterup-column">';
+				echo '<div class="jltma-counterup jltma-counterup-icon-' . esc_attr($settings['jltma_counterup_icon_align']) . '"  ' . $this->get_render_attribute_string($title_settings_key) . '>';
+				echo '<span class="jltma-counterup-icon counterup-icon-text-' . esc_attr($settings['jltma_counterup_icon_align']) . '">';
+				if (!empty($list['icon']) && ($list['icon_type'] == 'icon')) :
+					echo '<i class="' . esc_attr($list['icon']['value']) . '"></i>';
 				endif;
 
 				echo '</span>';
-				if ( ! empty( $list['number'] ) || ( $list['title'] ) ) :
+				if (!empty($list['number']) || ($list['title'])) :
 					echo '<div class="jltma-counterup-content">';
-					$list['number'] ? printf('<h3 class="jltma-counter-up-number">%s</h3>', esc_html($list['number']) ) : '';
-					$list['title'] ? printf('<span class="jltma-counterup-title">%s</span>', esc_html($list['title']) ) : '';
+					$list['number'] ? printf('<h3 class="jltma-counter-up-number">%s</h3>', esc_html($list['number'])) : '';
+					$list['title'] ? printf('<span class="jltma-counterup-title">%s</span>', esc_html($list['title'])) : '';
 					echo '</div>';
 				endif;
 				echo '</div>';
@@ -626,10 +632,5 @@ class Master_Addons_Counter_Up extends Widget_Base {
 			endforeach;
 			echo '</div>';
 		endif;
-
 	}
-
-
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Counter_Up() );

@@ -1,23 +1,12 @@
 <?php
 
-namespace Elementor;
+namespace MasterAddons\Addons;
 
 // Elementor Classes
 use \Elementor\Widget_Base;
-use \Elementor\Utils;
-use \Elementor\Icons_Manager;
 use \Elementor\Controls_Manager;
-use \Elementor\Repeater;
-use \Elementor\Group_Control_Border;
-use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
-use \Elementor\Group_Control_Image_Size;
-use \Elementor\Group_Control_Background;
-use \Elementor\Group_Control_Box_Shadow;
-use \Elementor\Group_Control_Css_Filter;
-use \Elementor\Scheme_Color;
 
-class Master_Addons_Blockquote extends Widget_Base
+class Blockquote extends Widget_Base
 {
 
 	public function get_name()
@@ -187,5 +176,3 @@ class Master_Addons_Blockquote extends Widget_Base
 
 <?php }
 }
-
-Plugin::instance()->widgets_manager->register_widget_type(new Master_Addons_Blockquote());

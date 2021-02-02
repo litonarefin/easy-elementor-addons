@@ -1,18 +1,20 @@
 <?php
-namespace Elementor;
+
+namespace MasterAddons\Addons;
 
 // Elementor Classes
-use Elementor\Repeater;
-use Elementor\Icons_Manager;
-use Elementor\Controls_Manager;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Text_Shadow;
-use Elementor\Group_Control_Typography;
-use Elementor\Group_Control_Css_Filter;
-use Elementor\Group_Control_Background;
-use Elementor\Scheme_Color;
-use Elementor\Scheme_Typography;
+use \Elementor\Widget_Base;
+use \Elementor\Repeater;
+use \Elementor\Icons_Manager;
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Group_Control_Text_Shadow;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Css_Filter;
+use \Elementor\Group_Control_Background;
+use \Elementor\Scheme_Color;
+use \Elementor\Scheme_Typography;
 
 // Master Addons Classes
 use MasterAddons\Inc\Classes\Controls\Templates\Master_Addons_Template_Controls as TemplateControls;
@@ -27,27 +29,33 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
  */
 
 
-if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
+if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
 
-class Master_Addons_Toggle_Content extends Widget_Base {
+class Toggle_Content extends Widget_Base
+{
 
-    public function get_name() {
+    public function get_name()
+    {
         return 'jltma-toggle-content';
     }
 
-    public function get_title() {
-        return esc_html__( 'MA Toggle Content', MELA_TD);
+    public function get_title()
+    {
+        return esc_html__('MA Toggle Content', MELA_TD);
     }
 
-    public function get_icon() {
+    public function get_icon()
+    {
         return 'ma-el-icon eicon-dual-button';
     }
 
-    public function get_categories() {
-        return [ 'master-addons' ];
+    public function get_categories()
+    {
+        return ['master-addons'];
     }
 
-    public function get_style_depends(){
+    public function get_style_depends()
+    {
         return [
             'font-awesome-5-all',
             'font-awesome-4-shim',
@@ -55,14 +63,16 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         ];
     }
 
-    public function get_script_depends(){
+    public function get_script_depends()
+    {
         return [
             'jltma-toggle-content',
             'gsap-js'
         ];
     }
 
-    public function get_keywords() {
+    public function get_keywords()
+    {
         return [
             'content toggle',
             'toggle content',
@@ -72,11 +82,13 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         ];
     }
 
-    public function get_help_url(){
+    public function get_help_url()
+    {
         return 'https://master-addons.com/demos/toggle-content/';
     }
 
-    protected function _register_controls() {
+    protected function _register_controls()
+    {
 
         /**
          * -------------------------------------------
@@ -86,23 +98,23 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->start_controls_section(
             'jltma_toggle_content_element_settings',
             [
-                'label' => esc_html__( 'Toggle Content', MELA_TD )
+                'label' => esc_html__('Toggle Content', MELA_TD)
             ]
         );
 
         $repeater = new Repeater();
 
-        $repeater->start_controls_tabs( 'jltma_toggle_contents_repeater' );
+        $repeater->start_controls_tabs('jltma_toggle_contents_repeater');
 
-        $repeater->start_controls_tab( 'jltma_toggle_contents', [ 'label' => esc_html__( 'Content', MELA_TD ) ] );
+        $repeater->start_controls_tab('jltma_toggle_contents', ['label' => esc_html__('Content', MELA_TD)]);
 
         $repeater->add_control(
             'jltma_toggle_content_text',
             [
-                'default'	=> '',
-                'type'		=> Controls_Manager::TEXT,
-                'dynamic'	=> [ 'active' => true ],
-                'label' 	=> esc_html__( 'Label', MELA_TD ),
+                'default'    => '',
+                'type'        => Controls_Manager::TEXT,
+                'dynamic'    => ['active' => true],
+                'label'     => esc_html__('Label', MELA_TD),
                 'separator' => 'none',
             ]
         );
@@ -125,7 +137,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $repeater->add_control(
             'jltma_toggle_content_icon',
             [
-                'label'             => esc_html__( 'Icon', MELA_TD ),
+                'label'             => esc_html__('Icon', MELA_TD),
                 'description'       => esc_html__('Please choose an icon from the list.', MELA_TD),
                 'type'              => Controls_Manager::ICONS,
                 'fa4compatibility'  => 'icon',
@@ -140,13 +152,13 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $repeater->add_control(
             'jltma_toggle_content_icon_position',
             [
-                'label' 	            => esc_html__( 'Icon Position', MELA_TD ),
+                'label'                 => esc_html__('Icon Position', MELA_TD),
                 'label_block'           => false,
-                'type' 		            => Controls_Manager::SELECT,
-                'default' 	            => 'left',
-                'options' 	            => [
-                    'left' 		=> esc_html__( 'Before', MELA_TD ),
-                    'right' 	=> esc_html__( 'After', MELA_TD ),
+                'type'                     => Controls_Manager::SELECT,
+                'default'                 => 'left',
+                'options'                 => [
+                    'left'         => esc_html__('Before', MELA_TD),
+                    'right'     => esc_html__('After', MELA_TD),
                 ],
                 'condition' => [
                     'jltma_toggle_content_fa4_icon!' => '',
@@ -157,10 +169,10 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $repeater->add_control(
             'jltma_toggle_content_icon_align',
             [
-                'label' 	            => esc_html__( 'Icon Spacing', MELA_TD ),
-                'type' 		            => Controls_Manager::SLIDER,
-                'range' 	            => [
-                    'px' 	=> [
+                'label'                 => esc_html__('Icon Spacing', MELA_TD),
+                'type'                     => Controls_Manager::SLIDER,
+                'range'                 => [
+                    'px'     => [
                         'max' => 50,
                     ],
                 ],
@@ -177,12 +189,12 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $repeater->add_control(
             'jltma_toggle_content_type',
             [
-                'label'		            => esc_html__( 'Type', MELA_TD ),
-                'type' 		            => Controls_Manager::SELECT,
-                'default' 	            => 'content',
-                'options' 	            => [
-                    'content' 		    => esc_html__( 'Content', MELA_TD ),
-                    'template' 	        => esc_html__( 'Template', MELA_TD ),
+                'label'                    => esc_html__('Type', MELA_TD),
+                'type'                     => Controls_Manager::SELECT,
+                'default'                 => 'content',
+                'options'                 => [
+                    'content'             => esc_html__('Content', MELA_TD),
+                    'template'             => esc_html__('Template', MELA_TD),
                 ],
             ]
         );
@@ -190,33 +202,33 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $repeater->add_control(
             'jltma_toggle_content',
             [
-                'label' 	            => esc_html__( 'Content', MELA_TD ),
-                'type' 		            => Controls_Manager::WYSIWYG,
-                'dynamic'	            => [ 'active' => true ],
-                'default' 	            => esc_html__( 'I am the content ready to be toggled', MELA_TD ),
-                'condition'	            => [
+                'label'                 => esc_html__('Content', MELA_TD),
+                'type'                     => Controls_Manager::WYSIWYG,
+                'dynamic'                => ['active' => true],
+                'default'                 => esc_html__('I am the content ready to be toggled', MELA_TD),
+                'condition'                => [
                     'jltma_toggle_content_type'      => 'content',
                 ],
             ]
         );
 
-        TemplateControls::add_controls( $repeater, [
+        TemplateControls::add_controls($repeater, [
             'condition' => [
                 'jltma_toggle_content_type' => 'template',
             ],
             'prefix' => 'content_',
-        ] );
+        ]);
 
         $repeater->end_controls_tab();
 
-        $repeater->start_controls_tab( 'jltma_toggle_content_label', [ 'label' => esc_html__( 'Style', MELA_TD ) ] );
+        $repeater->start_controls_tab('jltma_toggle_content_label', ['label' => esc_html__('Style', MELA_TD)]);
 
         $repeater->add_control(
             'jltma_toggle_content_text_color',
             [
-                'label' 	            => esc_html__( 'Label Color', MELA_TD ),
-                'type' 		            => Controls_Manager::COLOR,
-                'default'	            => '',
+                'label'                 => esc_html__('Label Color', MELA_TD),
+                'type'                     => Controls_Manager::COLOR,
+                'default'                => '',
                 'selectors'             => [
                     '{{WRAPPER}} {{CURRENT_ITEM}}.jltma-toggle-content-controls__item' => 'color: {{VALUE}};',
                 ],
@@ -227,9 +239,9 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $repeater->add_control(
             'jltma_toggle_content_text_active_color',
             [
-                'label' 	            => esc_html__( 'Active Label Color', MELA_TD ),
-                'type' 		            => Controls_Manager::COLOR,
-                'default'	            => '',
+                'label'                 => esc_html__('Active Label Color', MELA_TD),
+                'type'                     => Controls_Manager::COLOR,
+                'default'                => '',
                 'selectors'             => [
                     '{{WRAPPER}} {{CURRENT_ITEM}}.jltma-toggle-content-controls__item.jltma--is-active,
                      {{WRAPPER}} {{CURRENT_ITEM}}.jltma-toggle-content-controls__item.jltma--is-active:hover' => 'color: {{VALUE}};',
@@ -240,8 +252,8 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $repeater->add_control(
             'jltma_toggle_content_active_color',
             [
-                'label' 	            => esc_html__( 'Indicator Color', MELA_TD ),
-                'type' 		            => Controls_Manager::COLOR,
+                'label'                 => esc_html__('Indicator Color', MELA_TD),
+                'type'                     => Controls_Manager::COLOR,
             ]
         );
 
@@ -251,20 +263,20 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_control(
             'jltma_toggle_content_elements',
             [
-                'label' 	            => esc_html__( 'Elements', MELA_TD ),
-                'type' 		            => Controls_Manager::REPEATER,
-                'default' 	            => [
+                'label'                 => esc_html__('Elements', MELA_TD),
+                'type'                     => Controls_Manager::REPEATER,
+                'default'                 => [
                     [
                         'jltma_toggle_content_text'     => '',
-                        'jltma_toggle_content'          => esc_html__( 'I am the content ready to be toggled', MELA_TD ),
+                        'jltma_toggle_content'          => esc_html__('I am the content ready to be toggled', MELA_TD),
                     ],
                     [
-                        'jltma_toggle_content_text' 	=> '',
-                        'jltma_toggle_content'          => esc_html__( 'I am the content of another element ready to be toggled', MELA_TD ),
+                        'jltma_toggle_content_text'     => '',
+                        'jltma_toggle_content'          => esc_html__('I am the content of another element ready to be toggled', MELA_TD),
                     ],
                 ],
-                'fields' 		        => array_values( $repeater->get_controls() ),
-                'title_field' 	        => '{{{ jltma_toggle_content_text }}}',
+                'fields'                 => array_values($repeater->get_controls()),
+                'title_field'             => '{{{ jltma_toggle_content_text }}}',
             ]
         );
 
@@ -278,19 +290,19 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->start_controls_section(
             'jltma_toggle_content_settings',
             [
-                'label' => esc_html__( 'Toggle Settings', MELA_TD ),
+                'label' => esc_html__('Toggle Settings', MELA_TD),
             ]
         );
 
         $this->add_control(
             'jltma_toggle_content_active_index',
             [
-                'label'			        => esc_html__( 'Active Index', MELA_TD ),
-                'title'   		        => esc_html__( 'The index of the default active element.', MELA_TD ),
-                'type'			        => Controls_Manager::NUMBER,
-                'default'		        => '1',
-                'min'			        => 1,
-                'step'			        => 1,
+                'label'                    => esc_html__('Active Index', MELA_TD),
+                'title'                   => esc_html__('The index of the default active element.', MELA_TD),
+                'type'                    => Controls_Manager::NUMBER,
+                'default'                => '1',
+                'min'                    => 1,
+                'step'                    => 1,
                 'frontend_available' => true,
             ]
         );
@@ -298,12 +310,12 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_control(
             'jltma_toggle_content_position',
             [
-                'label'		            => esc_html__( 'Position', MELA_TD ),
-                'type' 		            => Controls_Manager::SELECT,
-                'default' 	            => 'before',
-                'options' 	            => [
-                    'before'  	  => esc_html__( 'Before', MELA_TD ),
-                    'after' 	  => esc_html__( 'After', MELA_TD ),
+                'label'                    => esc_html__('Position', MELA_TD),
+                'type'                     => Controls_Manager::SELECT,
+                'default'                 => 'before',
+                'options'                 => [
+                    'before'        => esc_html__('Before', MELA_TD),
+                    'after'       => esc_html__('After', MELA_TD),
                 ],
             ]
         );
@@ -312,16 +324,16 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_control(
             'jltma_toggle_content_indicator_speed',
             [
-                'label' 	            => esc_html__( 'Indicator Speed', MELA_TD ),
-                'type' 		            => Controls_Manager::SLIDER,
-                'range' 	            => [
-                    'px' 	            => [
-                        'min' 	  => 0.1,
-                        'max' 	  => 2,
-                        'step'	  => 0.1,
+                'label'                 => esc_html__('Indicator Speed', MELA_TD),
+                'type'                     => Controls_Manager::SLIDER,
+                'range'                 => [
+                    'px'                 => [
+                        'min'       => 0.1,
+                        'max'       => 2,
+                        'step'      => 0.1,
                     ],
                 ],
-                'default' 	            => [
+                'default'                 => [
                     'size'        => 0.3
                 ],
                 'frontend_available'    => true,
@@ -336,23 +348,23 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         /**
          * Content Tab: Toggle Style
          */
-		$this->start_controls_section(
-			'jltma_toggle_content_style_toggler',
-			[
-				'label'                  => esc_html__( 'Toggler', MELA_TD ),
-				'tab'                    => Controls_Manager::TAB_STYLE,
-			]
-		);
+        $this->start_controls_section(
+            'jltma_toggle_content_style_toggler',
+            [
+                'label'                  => esc_html__('Toggler', MELA_TD),
+                'tab'                    => Controls_Manager::TAB_STYLE,
+            ]
+        );
 
         $this->add_control(
             'jltma_toggle_content_toggle_style',
             [
-                'label'		            => esc_html__( 'Style', MELA_TD ),
-                'type' 		            => Controls_Manager::SELECT,
-                'default' 	            => 'round',
-                'options' 	            => [
-                    'round'  => esc_html__( 'Round', MELA_TD ),
-                    'square' => esc_html__( 'Square', MELA_TD ),
+                'label'                    => esc_html__('Style', MELA_TD),
+                'type'                     => Controls_Manager::SELECT,
+                'default'                 => 'round',
+                'options'                 => [
+                    'round'  => esc_html__('Round', MELA_TD),
+                    'square' => esc_html__('Square', MELA_TD),
                 ],
                 'prefix_class'          => 'jltma-toggle-element--',
             ]
@@ -361,7 +373,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_control(
             'jltma_toggle_content_toggle_background',
             [
-                'label'     => esc_html__( 'Background Color', MELA_TD ),
+                'label'     => esc_html__('Background Color', MELA_TD),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .jltma-toggle-content-controls-wrapper' => 'background-color: {{VALUE}};'
@@ -373,24 +385,24 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_responsive_control(
             'jltma_toggle_content_toggle_align',
             [
-                'label' 		=> esc_html__( 'Align', MELA_TD ),
-                'label_block'	=> false,
-                'type' 			=> Controls_Manager::CHOOSE,
-                'options' 		=> [
-                    'left'    		=> [
-                        'title' 	=> esc_html__( 'Left', MELA_TD ),
-                        'icon' 		=> 'eicon-h-align-left',
+                'label'         => esc_html__('Align', MELA_TD),
+                'label_block'    => false,
+                'type'             => Controls_Manager::CHOOSE,
+                'options'         => [
+                    'left'            => [
+                        'title'     => esc_html__('Left', MELA_TD),
+                        'icon'         => 'eicon-h-align-left',
                     ],
-                    'center' 		=> [
-                        'title' 	=> esc_html__( 'Center', MELA_TD ),
-                        'icon' 		=> 'eicon-h-align-center',
+                    'center'         => [
+                        'title'     => esc_html__('Center', MELA_TD),
+                        'icon'         => 'eicon-h-align-center',
                     ],
-                    'right' 		=> [
-                        'title' 	=> esc_html__( 'Right', MELA_TD ),
-                        'icon' 		=> 'eicon-h-align-right',
+                    'right'         => [
+                        'title'     => esc_html__('Right', MELA_TD),
+                        'icon'         => 'eicon-h-align-right',
                     ],
                 ],
-                'default' 	=> 'center',
+                'default'     => 'center',
                 'selectors' => [
                     '{{WRAPPER}} .jltma-toggle-content-toggle' => 'text-align: {{VALUE}};',
                 ],
@@ -400,19 +412,19 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_responsive_control(
             'jltma_toggle_content_toggle_zoom',
             [
-                'label' 	=> esc_html__( 'Zoom', MELA_TD ),
-                'type' 		=> Controls_Manager::SLIDER,
-                'default' 	=> [
-                    'size' 	=> 16,
+                'label'     => esc_html__('Zoom', MELA_TD),
+                'type'         => Controls_Manager::SLIDER,
+                'default'     => [
+                    'size'     => 16,
                 ],
-                'range' 	=> [
-                    'px' 	=> [
-                        'max' 	=> 28,
-                        'min' 	=> 12,
-                        'step' 	=> 1,
+                'range'     => [
+                    'px'     => [
+                        'max'     => 28,
+                        'min'     => 12,
+                        'step'     => 1,
                     ],
                 ],
-                'selectors' 	=> [
+                'selectors'     => [
                     '{{WRAPPER}} .jltma-toggle-content-controls-wrapper' => 'font-size: {{SIZE}}px;',
                 ],
             ]
@@ -421,19 +433,19 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_control(
             'jltma_toggle_content_toggle_spacing',
             [
-                'label' 	=> esc_html__( 'Spacing', MELA_TD ),
-                'type' 		=> Controls_Manager::SLIDER,
-                'default' 	=> [
-                    'size' 	=> 24,
+                'label'     => esc_html__('Spacing', MELA_TD),
+                'type'         => Controls_Manager::SLIDER,
+                'default'     => [
+                    'size'     => 24,
                 ],
-                'range' 	=> [
-                    'px' 	=> [
-                        'max' 	=> 100,
-                        'min' 	=> 0,
-                        'step' 	=> 1,
+                'range'     => [
+                    'px'     => [
+                        'max'     => 100,
+                        'min'     => 0,
+                        'step'     => 1,
                     ],
                 ],
-                'selectors' 	=> [
+                'selectors'     => [
                     '{{WRAPPER}} .jltma-toggle-content-controls-wrapper--before' => 'margin-bottom: {{SIZE}}px;',
                     '{{WRAPPER}} .jltma-toggle-content-controls-wrapper--after' => 'margin-top: {{SIZE}}px;',
                 ],
@@ -443,16 +455,16 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_responsive_control(
             'jltma_toggle_content_toggle_width',
             [
-                'label' 	=> esc_html__( 'Width (%)', MELA_TD ),
-                'type' 		=> Controls_Manager::SLIDER,
-                'range' 	=> [
-                    'px' 	=> [
-                        'max' 	=> 100,
-                        'min' 	=> 0,
-                        'step' 	=> 1,
+                'label'     => esc_html__('Width (%)', MELA_TD),
+                'type'         => Controls_Manager::SLIDER,
+                'range'     => [
+                    'px'     => [
+                        'max'     => 100,
+                        'min'     => 0,
+                        'step'     => 1,
                     ],
                 ],
-                'selectors' 	=> [
+                'selectors'     => [
                     '{{WRAPPER}} .jltma-toggle-content-controls-wrapper' => 'width: {{SIZE}}%;',
                 ],
             ]
@@ -462,7 +474,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'      => 'jltma_toggle_content_toggle_border',
-                'label'     => esc_html__( 'Border', MELA_TD ),
+                'label'     => esc_html__('Border', MELA_TD),
                 'selector'  => '{{WRAPPER}}.jltma-toggle-element--round .jltma-toggle-content-indicator, {{WRAPPER}}.jltma-toggle-element--square .jltma-toggle-content-indicator'
             ]
         );
@@ -470,7 +482,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_responsive_control(
             'jltma_toggle_content_toggle_radius',
             [
-                'label'     => esc_html__( 'Border Radius', MELA_TD ),
+                'label'     => esc_html__('Border Radius', MELA_TD),
                 'type'      => Controls_Manager::SLIDER,
                 'default'   => [
                     'size'  => 4,
@@ -504,7 +516,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_control(
             'jltma_toggle_content_toggle_padding',
             [
-                'label'                 => esc_html__( 'Padding', MELA_TD ),
+                'label'                 => esc_html__('Padding', MELA_TD),
                 'type'                  => Controls_Manager::DIMENSIONS,
                 'size_units'            => ['px', 'em', '%'],
                 'default'   => [
@@ -518,7 +530,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_control(
             'jltma_toggle_content_toggle_margin',
             [
-                'label'                 => esc_html__( 'Margin', MELA_TD ),
+                'label'                 => esc_html__('Margin', MELA_TD),
                 'type'                  => Controls_Manager::DIMENSIONS,
                 'size_units'            => ['px', 'em', '%'],
                 'default'   => [
@@ -531,7 +543,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         );
 
 
-		$this->end_controls_section();
+        $this->end_controls_section();
 
 
 
@@ -540,19 +552,19 @@ class Master_Addons_Toggle_Content extends Widget_Base {
          * Content Tab: Toggle Content Indicator
          */
 
-		$this->start_controls_section(
-			'jltma_toggle_content_section_style_indicator',
-			[
-				'label' => esc_html__( 'Indicator', MELA_TD ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);
+        $this->start_controls_section(
+            'jltma_toggle_content_section_style_indicator',
+            [
+                'label' => esc_html__('Indicator', MELA_TD),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
 
         $this->add_control(
             'jltma_toggle_content_indicator_color',
             [
-                'label' 	=> esc_html__( 'Color', MELA_TD ),
-                'type' 		=> Controls_Manager::COLOR,
+                'label'     => esc_html__('Color', MELA_TD),
+                'type'         => Controls_Manager::COLOR,
                 'frontend_available' => true,
             ]
         );
@@ -560,46 +572,46 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name' 		=> 'jltma_toggle_content_indicator',
-                'selector' 	=> '{{WRAPPER}} .jltma-toggle-content-indicator',
+                'name'         => 'jltma_toggle_content_indicator',
+                'selector'     => '{{WRAPPER}} .jltma-toggle-content-indicator',
             ]
         );
 
-		$this->end_controls_section();
+        $this->end_controls_section();
 
 
         /**
          * Content Tab: Toggle Content Labels
          */
 
-		$this->start_controls_section(
-			'jltma_toggle_content_section_style_labels',
-			[
-				'label' => esc_html__( 'Labels', MELA_TD ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);
+        $this->start_controls_section(
+            'jltma_toggle_content_section_style_labels',
+            [
+                'label' => esc_html__('Labels', MELA_TD),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
 
         $this->add_control(
             'jltma_toggle_content_labels_info',
             [
-                'type' 				=> Controls_Manager::RAW_HTML,
-                'raw' 				=> esc_html__( 'After adjusting some of these settings, interact with the toggler so that the position of the indicator is updated. ', MELA_TD ),
-                'content_classes' 	=> 'elementor-panel-alert elementor-panel-alert-info',
+                'type'                 => Controls_Manager::RAW_HTML,
+                'raw'                 => esc_html__('After adjusting some of these settings, interact with the toggler so that the position of the indicator is updated. ', MELA_TD),
+                'content_classes'     => 'elementor-panel-alert elementor-panel-alert-info',
             ]
         );
 
         $this->add_control(
             'jltma_toggle_content_labels_stack',
             [
-                'label'		=> esc_html__( 'Stack On', MELA_TD ),
-                'type' 		=> Controls_Manager::SELECT,
-                'default' 	=> '',
-                'options' 	=> [
-                    ''  		=> esc_html__( 'None', MELA_TD ),
-                    'desktop'  	=> esc_html__( 'All', MELA_TD ),
-                    'tablet'  	=> esc_html__( 'Tablet & Mobile', MELA_TD ),
-                    'mobile' 	=> esc_html__( 'Mobile', MELA_TD ),
+                'label'        => esc_html__('Stack On', MELA_TD),
+                'type'         => Controls_Manager::SELECT,
+                'default'     => '',
+                'options'     => [
+                    ''          => esc_html__('None', MELA_TD),
+                    'desktop'      => esc_html__('All', MELA_TD),
+                    'tablet'      => esc_html__('Tablet & Mobile', MELA_TD),
+                    'mobile'     => esc_html__('Mobile', MELA_TD),
                 ],
                 'prefix_class' => 'jltma-toggle-element--stack-',
             ]
@@ -608,82 +620,82 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_responsive_control(
             'jltma_toggle_content_labels_align',
             [
-                'label' 		=> esc_html__( 'Inline Align', MELA_TD ),
-                'description' 	=> esc_html__( 'Label alignment only works if you set a custom width for the toggler.', MELA_TD ),
-                'type' 			=> Controls_Manager::CHOOSE,
-                'options' 		=> [
+                'label'         => esc_html__('Inline Align', MELA_TD),
+                'description'     => esc_html__('Label alignment only works if you set a custom width for the toggler.', MELA_TD),
+                'type'             => Controls_Manager::CHOOSE,
+                'options'         => [
                     'start'    => [
-                        'title' 	=> esc_html__( 'Left', MELA_TD ),
-                        'icon' 		=> 'eicon-h-align-left',
+                        'title'     => esc_html__('Left', MELA_TD),
+                        'icon'         => 'eicon-h-align-left',
                     ],
-                    'center' 		=> [
-                        'title' 	=> esc_html__( 'Center', MELA_TD ),
-                        'icon' 		=> 'eicon-h-align-center',
+                    'center'         => [
+                        'title'     => esc_html__('Center', MELA_TD),
+                        'icon'         => 'eicon-h-align-center',
                     ],
-                    'end' 		=> [
-                        'title' 	=> esc_html__( 'Right', MELA_TD ),
-                        'icon' 		=> 'eicon-h-align-right',
+                    'end'         => [
+                        'title'     => esc_html__('Right', MELA_TD),
+                        'icon'         => 'eicon-h-align-right',
                     ],
-                    'stretch' 		=> [
-                        'title' 	=> esc_html__( 'Justify', MELA_TD ),
-                        'icon' 		=> 'eicon-h-align-stretch',
+                    'stretch'         => [
+                        'title'     => esc_html__('Justify', MELA_TD),
+                        'icon'         => 'eicon-h-align-stretch',
                     ],
                 ],
-                'default' 		=> 'center',
-                'prefix_class' 	=> 'jltma-labels-align%s--',
+                'default'         => 'center',
+                'prefix_class'     => 'jltma-labels-align%s--',
             ]
         );
 
         $this->add_responsive_control(
             'jltma_toggle_content_stacked_labels_align',
             [
-                'label' 		=> esc_html__( 'Stacked Align', MELA_TD ),
-                'type' 			=> Controls_Manager::CHOOSE,
-                'options' 		=> [
+                'label'         => esc_html__('Stacked Align', MELA_TD),
+                'type'             => Controls_Manager::CHOOSE,
+                'options'         => [
                     'start'    => [
-                        'title' 	=> esc_html__( 'Left', MELA_TD ),
-                        'icon' 		=> 'eicon-h-align-left',
+                        'title'     => esc_html__('Left', MELA_TD),
+                        'icon'         => 'eicon-h-align-left',
                     ],
-                    'center' 		=> [
-                        'title' 	=> esc_html__( 'Center', MELA_TD ),
-                        'icon' 		=> 'eicon-h-align-center',
+                    'center'         => [
+                        'title'     => esc_html__('Center', MELA_TD),
+                        'icon'         => 'eicon-h-align-center',
                     ],
-                    'end' 		=> [
-                        'title' 	=> esc_html__( 'Right', MELA_TD ),
-                        'icon' 		=> 'eicon-h-align-right',
+                    'end'         => [
+                        'title'     => esc_html__('Right', MELA_TD),
+                        'icon'         => 'eicon-h-align-right',
                     ],
-                    'stretch' 		=> [
-                        'title' 	=> esc_html__( 'Justify', MELA_TD ),
-                        'icon' 		=> 'eicon-h-align-stretch',
+                    'stretch'         => [
+                        'title'     => esc_html__('Justify', MELA_TD),
+                        'icon'         => 'eicon-h-align-stretch',
                     ],
                 ],
-                'default' 		=> 'center',
-                'prefix_class' 	=> 'jltma-labels-align-stacked%s--',
+                'default'         => 'center',
+                'prefix_class'     => 'jltma-labels-align-stacked%s--',
             ]
         );
 
         $this->add_responsive_control(
             'jltma_toggle_content_labels_text_align',
             [
-                'label' 		=> esc_html__( 'Align Label Text', MELA_TD ),
-                'description' 	=> esc_html__( 'Label text alignment only works if your labels have text.', MELA_TD ),
-                'type' 			=> Controls_Manager::CHOOSE,
-                'default' 		=> '',
-                'options' 		=> [
-                    'left'    		=> [
-                        'title' 	=> esc_html__( 'Left', MELA_TD ),
-                        'icon' 		=> 'fa fa-align-left',
+                'label'         => esc_html__('Align Label Text', MELA_TD),
+                'description'     => esc_html__('Label text alignment only works if your labels have text.', MELA_TD),
+                'type'             => Controls_Manager::CHOOSE,
+                'default'         => '',
+                'options'         => [
+                    'left'            => [
+                        'title'     => esc_html__('Left', MELA_TD),
+                        'icon'         => 'fa fa-align-left',
                     ],
-                    'center' 		=> [
-                        'title' 	=> esc_html__( 'Center', MELA_TD ),
-                        'icon' 		=> 'fa fa-align-center',
+                    'center'         => [
+                        'title'     => esc_html__('Center', MELA_TD),
+                        'icon'         => 'fa fa-align-center',
                     ],
-                    'right' 		=> [
-                        'title' 	=> esc_html__( 'Right', MELA_TD ),
-                        'icon' 		=> 'fa fa-align-right',
+                    'right'         => [
+                        'title'     => esc_html__('Right', MELA_TD),
+                        'icon'         => 'fa fa-align-right',
                     ],
                 ],
-                'selectors'		=> [
+                'selectors'        => [
                     '{{WRAPPER}} .jltma-toggle-content-controls__item' => 'text-align: {{VALUE}};',
                 ]
             ]
@@ -692,72 +704,72 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' 		=> 'jltma_toggle_content_labels_typography',
-                'selector' 	=> '{{WRAPPER}} .jltma-toggle-content-controls__item',
-                'exclude'	=> ['font_size'],
-                'scheme' 	=> Scheme_Typography::TYPOGRAPHY_3,
+                'name'         => 'jltma_toggle_content_labels_typography',
+                'selector'     => '{{WRAPPER}} .jltma-toggle-content-controls__item',
+                'exclude'    => ['font_size'],
+                'scheme'     => Scheme_Typography::TYPOGRAPHY_3,
             ]
         );
 
         $this->add_group_control(
             MA_Group_Control_Transition::get_type(),
             [
-                'name' 			=> 'jltma_toggle_content_labels',
-                'selector' 		=> '{{WRAPPER}} .jltma-toggle-content-controls__item',
+                'name'             => 'jltma_toggle_content_labels',
+                'selector'         => '{{WRAPPER}} .jltma-toggle-content-controls__item',
             ]
         );
 
-        $this->start_controls_tabs( 'jltma_toggle_content_labels_style' );
+        $this->start_controls_tabs('jltma_toggle_content_labels_style');
 
-            $this->start_controls_tab( 'jltma_toggle_content_labels_style_default', [ 'label' => esc_html__( 'Default', MELA_TD ) ] );
+        $this->start_controls_tab('jltma_toggle_content_labels_style_default', ['label' => esc_html__('Default', MELA_TD)]);
 
-            $this->add_control(
-                'labels_color',
-                [
-                    'label' 	=> esc_html__( 'Color', MELA_TD ),
-                    'type' 		=> Controls_Manager::COLOR,
-                    'selectors' => [
-                        '{{WRAPPER}} .jltma-toggle-content-controls__item' => 'color: {{VALUE}};'
-                    ],
-                ]
-            );
+        $this->add_control(
+            'labels_color',
+            [
+                'label'     => esc_html__('Color', MELA_TD),
+                'type'         => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .jltma-toggle-content-controls__item' => 'color: {{VALUE}};'
+                ],
+            ]
+        );
 
-            $this->end_controls_tab();
+        $this->end_controls_tab();
 
-			$this->start_controls_tab( 'jltma_toggle_content_labels_style_hover', [ 'label' => esc_html__( 'Hover', MELA_TD ) ] );
+        $this->start_controls_tab('jltma_toggle_content_labels_style_hover', ['label' => esc_html__('Hover', MELA_TD)]);
 
-            $this->add_control(
-                'jltma_toggle_content_labels_color_hover',
-                [
-                    'label' 	=> esc_html__( 'Color', MELA_TD ),
-                    'type' 		=> Controls_Manager::COLOR,
-                    'selectors' => [
-                        '{{WRAPPER}} .jltma-toggle-content-controls__item:hover' => 'color: {{VALUE}};'
-                    ],
-                ]
-            );
+        $this->add_control(
+            'jltma_toggle_content_labels_color_hover',
+            [
+                'label'     => esc_html__('Color', MELA_TD),
+                'type'         => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .jltma-toggle-content-controls__item:hover' => 'color: {{VALUE}};'
+                ],
+            ]
+        );
 
-			$this->end_controls_tab();
+        $this->end_controls_tab();
 
-			$this->start_controls_tab( 'jltma_toggle_content_labels_style_active', [ 'label' => esc_html__( 'Active', MELA_TD ) ] );
+        $this->start_controls_tab('jltma_toggle_content_labels_style_active', ['label' => esc_html__('Active', MELA_TD)]);
 
-				$this->add_control(
-					'jltma_toggle_content_labels_color_active',
-					[
-						'label' 	=> esc_html__( 'Color', MELA_TD ),
-						'type' 		=> Controls_Manager::COLOR,
-						'selectors' => [
-							'{{WRAPPER}} .jltma-toggle-content-controls__item.jltma--is-active,
+        $this->add_control(
+            'jltma_toggle_content_labels_color_active',
+            [
+                'label'     => esc_html__('Color', MELA_TD),
+                'type'         => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .jltma-toggle-content-controls__item.jltma--is-active,
 							 {{WRAPPER}} .jltma-toggle-content-controls__item.jltma--is-active:hover' => 'color: {{VALUE}};'
-						],
-					]
-				);
+                ],
+            ]
+        );
 
-			$this->end_controls_tab();
+        $this->end_controls_tab();
 
-			$this->end_controls_tabs();
+        $this->end_controls_tabs();
 
-		$this->end_controls_section();
+        $this->end_controls_section();
 
 
 
@@ -765,97 +777,97 @@ class Master_Addons_Toggle_Content extends Widget_Base {
          * Content Tab: Toggle Content
          */
 
-		$this->start_controls_section(
-			'jltma_toggle_content_section_style_content',
-			[
-				'label' => esc_html__( 'Content', MELA_TD ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);
+        $this->start_controls_section(
+            'jltma_toggle_content_section_style_content',
+            [
+                'label' => esc_html__('Content', MELA_TD),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
 
-            $this->add_group_control(
-                Group_Control_Typography::get_type(),
-                [
-                    'name' 		=> 'jltma_toggle_content_typography',
-                    'selector' 	=> '{{WRAPPER}} .jltma-toggle-content-element',
-                    'scheme' 	=> Scheme_Typography::TYPOGRAPHY_3,
-                ]
-            );
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'         => 'jltma_toggle_content_typography',
+                'selector'     => '{{WRAPPER}} .jltma-toggle-content-element',
+                'scheme'     => Scheme_Typography::TYPOGRAPHY_3,
+            ]
+        );
 
-            $this->add_control(
-                'jltma_toggle_content_padding',
-                [
-                    'label' 		=> esc_html__( 'Padding', MELA_TD ),
-                    'type' 			=> Controls_Manager::DIMENSIONS,
-                    'size_units' 	=> [ 'px', 'em', '%' ],
-                    'selectors' 	=> [
-                        '{{WRAPPER}} .jltma-toggle-content-element' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        $this->add_control(
+            'jltma_toggle_content_padding',
+            [
+                'label'         => esc_html__('Padding', MELA_TD),
+                'type'             => Controls_Manager::DIMENSIONS,
+                'size_units'     => ['px', 'em', '%'],
+                'selectors'     => [
+                    '{{WRAPPER}} .jltma-toggle-content-element' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'jltma_toggle_content_margin',
+            [
+                'label'         => esc_html__('Margin', MELA_TD),
+                'type'             => Controls_Manager::DIMENSIONS,
+                'size_units'     => ['px', 'em', '%'],
+                'selectors'     => [
+                    '{{WRAPPER}} .jltma-toggle-content-element' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name'         => 'jltma_toggle_content_border',
+                'label'     => esc_html__('Border', MELA_TD),
+                'selector'     => '{{WRAPPER}} .jltma-toggle-content-element',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'jltma_toggle_content_border_radius',
+            [
+                'label'     => esc_html__('Border Radius', MELA_TD),
+                'type'         => Controls_Manager::SLIDER,
+                'range'     => [
+                    'px'     => [
+                        'max'     => 10,
+                        'min'     => 0,
+                        'step'     => 1,
                     ],
-                ]
-            );
+                ],
+                'selectors'     => [
+                    '{{WRAPPER}} .jltma-toggle-content-element' => 'border-radius: {{SIZE}}px;',
+                ],
+            ]
+        );
 
-            $this->add_control(
-                'jltma_toggle_content_margin',
-                [
-                    'label' 		=> esc_html__( 'Margin', MELA_TD ),
-                    'type' 			=> Controls_Manager::DIMENSIONS,
-                    'size_units' 	=> [ 'px', 'em', '%' ],
-                    'selectors' 	=> [
-                        '{{WRAPPER}} .jltma-toggle-content-element' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    ],
+        $this->add_control(
+            'jltma_toggle_content_foreground',
+            [
+                'label'     => esc_html__('Color', MELA_TD),
+                'type'         => Controls_Manager::COLOR,
+                'separator' => 'before',
+                'selectors'    => [
+                    '{{WRAPPER}} .jltma-toggle-content-element' => 'color: {{VALUE}};'
                 ]
-            );
+            ]
+        );
 
-            $this->add_group_control(
-                Group_Control_Border::get_type(),
-                [
-                    'name' 		=> 'jltma_toggle_content_border',
-                    'label' 	=> esc_html__( 'Border', MELA_TD ),
-                    'selector' 	=> '{{WRAPPER}} .jltma-toggle-content-element',
-                ]
-            );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name'         => 'jltma_toggle_content_background',
+                'selector'     => '{{WRAPPER}} .jltma-toggle-content-element',
+                'types'     => ['classic', 'gradient'],
+                'default'    => 'classic',
+            ]
+        );
 
-            $this->add_responsive_control(
-                'jltma_toggle_content_border_radius',
-                [
-                    'label' 	=> esc_html__( 'Border Radius', MELA_TD ),
-                    'type' 		=> Controls_Manager::SLIDER,
-                    'range' 	=> [
-                        'px' 	=> [
-                            'max' 	=> 10,
-                            'min' 	=> 0,
-                            'step' 	=> 1,
-                        ],
-                    ],
-                    'selectors' 	=> [
-                        '{{WRAPPER}} .jltma-toggle-content-element' => 'border-radius: {{SIZE}}px;',
-                    ],
-                ]
-            );
-
-            $this->add_control(
-                'jltma_toggle_content_foreground',
-                [
-                    'label' 	=> esc_html__( 'Color', MELA_TD ),
-                    'type' 		=> Controls_Manager::COLOR,
-                    'separator' => 'before',
-                    'selectors'	=> [
-                        '{{WRAPPER}} .jltma-toggle-content-element' => 'color: {{VALUE}};'
-                    ]
-                ]
-            );
-
-            $this->add_group_control(
-                Group_Control_Background::get_type(),
-                [
-                    'name' 		=> 'jltma_toggle_content_background',
-                    'selector' 	=> '{{WRAPPER}} .jltma-toggle-content-element',
-                    'types' 	=> [ 'classic', 'gradient' ],
-                    'default'	=> 'classic',
-                ]
-            );
-
-		$this->end_controls_section();
+        $this->end_controls_section();
 
 
 
@@ -865,7 +877,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
         $this->start_controls_section(
             'jltma_section_help_docs',
             [
-                'label' => esc_html__( 'Help Docs', MELA_TD ),
+                'label' => esc_html__('Help Docs', MELA_TD),
             ]
         );
 
@@ -874,7 +886,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             'help_doc_1',
             [
                 'type'            => Controls_Manager::RAW_HTML,
-                'raw'             => sprintf( esc_html__( '%1$s Live Demo %2$s', MELA_TD ), '<a href="https://master-addons.com/demos/tabs/" target="_blank" rel="noopener">', '</a>' ),
+                'raw'             => sprintf(esc_html__('%1$s Live Demo %2$s', MELA_TD), '<a href="https://master-addons.com/demos/tabs/" target="_blank" rel="noopener">', '</a>'),
                 'content_classes' => 'jltma-editor-doc-links',
             ]
         );
@@ -883,7 +895,7 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             'help_doc_2',
             [
                 'type'            => Controls_Manager::RAW_HTML,
-                'raw'             => sprintf( esc_html__( '%1$s Documentation %2$s', MELA_TD ), '<a href="https://master-addons.com/docs/addons/tabs-element/?utm_source=widget&utm_medium=panel&utm_campaign=dashboard" target="_blank" rel="noopener">', '</a>' ),
+                'raw'             => sprintf(esc_html__('%1$s Documentation %2$s', MELA_TD), '<a href="https://master-addons.com/docs/addons/tabs-element/?utm_source=widget&utm_medium=panel&utm_campaign=dashboard" target="_blank" rel="noopener">', '</a>'),
                 'content_classes' => 'jltma-editor-doc-links',
             ]
         );
@@ -892,184 +904,194 @@ class Master_Addons_Toggle_Content extends Widget_Base {
             'help_doc_3',
             [
                 'type'            => Controls_Manager::RAW_HTML,
-                'raw'             => sprintf( esc_html__( '%1$s Watch Video Tutorial %2$s', MELA_TD ), '<a href="https://www.youtube.com/watch?v=lsqGmIrdahw" target="_blank" rel="noopener">', '</a>' ),
+                'raw'             => sprintf(esc_html__('%1$s Watch Video Tutorial %2$s', MELA_TD), '<a href="https://www.youtube.com/watch?v=lsqGmIrdahw" target="_blank" rel="noopener">', '</a>'),
                 'content_classes' => 'jltma-editor-doc-links',
             ]
         );
         $this->end_controls_section();
-
     }
 
-    protected function render() {
+    protected function render()
+    {
 
-		$settings = $this->get_settings_for_display();
+        $settings = $this->get_settings_for_display();
 
-		$this->add_render_attribute( [
-			'wrapper' => [
-				'class' => [
-					'jltma-toggle-element',
-					'jltma-toggle-content',
-				],
-			],
-			'toggle' => [
-				'class' => [
-					'jltma-toggle-content-toggle',
-				],
-			],
-			'controls-wrapper' => [
-				'class' => [
-					'jltma-toggle-content-controls-wrapper',
-					'jltma-toggle-content-controls-wrapper--' . $settings['jltma_toggle_content_position'],
-				],
-			],
-			'indicator' => [
-				'class' => [
-					'jltma-toggle-content-indicator',
-				],
-			],
-			'controls' => [
-				'class' => [
-					'jltma-toggle-content-controls',
-				],
-			],
-			'elements' => [
-				'class' => [
-					'jltma-toggle-content-elements',
-				],
-			],
-		] );
+        $this->add_render_attribute([
+            'wrapper' => [
+                'class' => [
+                    'jltma-toggle-element',
+                    'jltma-toggle-content',
+                ],
+            ],
+            'toggle' => [
+                'class' => [
+                    'jltma-toggle-content-toggle',
+                ],
+            ],
+            'controls-wrapper' => [
+                'class' => [
+                    'jltma-toggle-content-controls-wrapper',
+                    'jltma-toggle-content-controls-wrapper--' . $settings['jltma_toggle_content_position'],
+                ],
+            ],
+            'indicator' => [
+                'class' => [
+                    'jltma-toggle-content-indicator',
+                ],
+            ],
+            'controls' => [
+                'class' => [
+                    'jltma-toggle-content-controls',
+                ],
+            ],
+            'elements' => [
+                'class' => [
+                    'jltma-toggle-content-elements',
+                ],
+            ],
+        ]);
 
-		?>
-		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
-			<div <?php echo $this->get_render_attribute_string( 'toggle' ); ?>>
-				<?php if ( 'before' === $settings['jltma_toggle_content_position'] ) $this->render_toggle(); ?>
-				<div <?php echo $this->get_render_attribute_string( 'jltma_toggle_content_elements' ); ?>>
-					<?php foreach ( $settings['jltma_toggle_content_elements'] as $index => $item ) {
-                        $element_key = $this->get_repeater_setting_key( 'element', 'jltma_toggle_content_elements', $index );
+?>
+        <div <?php echo $this->get_render_attribute_string('wrapper'); ?>>
+            <div <?php echo $this->get_render_attribute_string('toggle'); ?>>
+                <?php if ('before' === $settings['jltma_toggle_content_position']) $this->render_toggle(); ?>
+                <div <?php echo $this->get_render_attribute_string('jltma_toggle_content_elements'); ?>>
+                    <?php foreach ($settings['jltma_toggle_content_elements'] as $index => $item) {
+                        $element_key = $this->get_repeater_setting_key('element', 'jltma_toggle_content_elements', $index);
 
-						$this->add_render_attribute( $element_key, [
-							'class' => [
-								'jltma-toggle-content-element',
-								'elementor-repeater-item-' . $item['_id'],
-							]
-						] );
+                        $this->add_render_attribute($element_key, [
+                            'class' => [
+                                'jltma-toggle-content-element',
+                                'elementor-repeater-item-' . $item['_id'],
+                            ]
+                        ]);
 
-						?><div <?php echo $this->get_render_attribute_string( $element_key ); ?>><?php
+                    ?><div <?php echo $this->get_render_attribute_string($element_key); ?>><?php
 
-						switch ( $item['jltma_toggle_content_type'] ) {
-					      case 'content':
-								$this->render_text( $index, $item );
-								break;
-							case 'template':
-                                $template_key = 'content_' . $item['content_template_type'] . '_template_id';
-								if ( array_key_exists( $template_key, $item ) )
-                                TemplateControls::render_template_content( $item[ $template_key ] );
-								break;
-							default:
-								break;
-						}
-						?></div><?php
-					} ?>
-				</div>
-				<?php if ( 'after' === $settings['jltma_toggle_content_position'] ) $this->render_toggle(); ?>
-			</div>
-		</div>
-		<?php
-    }
-
-
-
-    public function render_toggle() {
-		$settings = $this->get_settings_for_display();
-
-		?><div <?php echo $this->get_render_attribute_string( 'controls-wrapper' ); ?>>
-			<div <?php echo $this->get_render_attribute_string( 'indicator' ); ?>></div><?php
-
-			if ( $settings['jltma_toggle_content_elements'] ) {
-
-			?><ul <?php echo $this->get_render_attribute_string( 'controls' ); ?>><?php
-				foreach ( $settings['jltma_toggle_content_elements'] as $index => $item ) {
-					$control_key = $this->get_repeater_setting_key( 'control', 'jltma_toggle_content_elements', $index );
-					$control_text_key = $this->get_repeater_setting_key( 'control-text', 'jltma_toggle_content_elements', $index );
-
-                    $has_icon = ! empty( $item['icon'] ) || ! empty( $item['jltma_toggle_content_icon']['value'] );
-
-					$this->add_render_attribute( [
-						$control_key => [
-							'class' => [
-								'jltma-toggle-content-controls__item',
-								'elementor-repeater-item-' . $item['_id'],
-							]
-						],
-						$control_text_key => [
-							'class' => 'jltma-toggle-content-controls__text',
-							'unselectable' => 'on',
-						],
-					] );
-
-					if ( '' !== $item['jltma_toggle_content_active_color'] ) {
-						$this->add_render_attribute( $control_key, 'data-color', $item['jltma_toggle_content_active_color'] ); }
-
-					if ( ! empty( $item['jltma_toggle_content_text'] ) ) {
-						$this->add_render_attribute( $control_key, 'class', 'jltma--is-empty' ); }
-
-					?><li <?php echo $this->get_render_attribute_string( $control_key ); ?>><?php
-
-						if ( $has_icon ) {
-							$this->render_toggle_item_icon( $index, $item ); }
-
-						if ( ! empty( $item['jltma_toggle_content_text'] ) && ! $has_icon ) {
-							?><span <?php echo $this->get_render_attribute_string( $control_text_key ); ?>><?php }
-
-						if ( ! empty( $item['jltma_toggle_content_text'] ) ) { echo $item['jltma_toggle_content_text']; } else if ( ! $has_icon ) { echo '&nbsp;'; }
-
-						if ( ! empty( $item['jltma_toggle_content_text'] ) && ! $has_icon ) {
-							?></span><?php }
-
-					?></li><?php
-				}
-			?></ul><?php
-			}
-		?></div><?php
+                                                                                            switch ($item['jltma_toggle_content_type']) {
+                                                                                                case 'content':
+                                                                                                    $this->render_text($index, $item);
+                                                                                                    break;
+                                                                                                case 'template':
+                                                                                                    $template_key = 'content_' . $item['content_template_type'] . '_template_id';
+                                                                                                    if (array_key_exists($template_key, $item))
+                                                                                                        TemplateControls::render_template_content($item[$template_key]);
+                                                                                                    break;
+                                                                                                default:
+                                                                                                    break;
+                                                                                            }
+                                                                                            ?></div><?php
+                                                                                                } ?>
+                </div>
+                <?php if ('after' === $settings['jltma_toggle_content_position']) $this->render_toggle(); ?>
+            </div>
+        </div>
+    <?php
     }
 
 
-	protected function render_toggle_item_icon( $index, $item ) {
 
-        $icon_key 	= $this->get_repeater_setting_key( 'icon', 'jltma_toggle_content_elements', $index );
+    public function render_toggle()
+    {
+        $settings = $this->get_settings_for_display();
 
-		$migrated 	= isset( $item['__fa4_migrated']['jltma_toggle_content_icon'] );
-		$is_new 	= empty( $item['icon'] ) && Icons_Manager::is_migration_allowed();
+    ?><div <?php echo $this->get_render_attribute_string('controls-wrapper'); ?>>
+            <div <?php echo $this->get_render_attribute_string('indicator'); ?>></div><?php
 
-        // $icon_migrated = isset($settings['__fa4_migrated']['jltma_search_icon']);
-        // $icon_is_new = empty($settings['jltma_search_icon_new']);
+                                                                                        if ($settings['jltma_toggle_content_elements']) {
+
+                                                                                        ?><ul <?php echo $this->get_render_attribute_string('controls'); ?>><?php
+                                                                                                                                                            foreach ($settings['jltma_toggle_content_elements'] as $index => $item) {
+                                                                                                                                                                $control_key = $this->get_repeater_setting_key('control', 'jltma_toggle_content_elements', $index);
+                                                                                                                                                                $control_text_key = $this->get_repeater_setting_key('control-text', 'jltma_toggle_content_elements', $index);
+
+                                                                                                                                                                $has_icon = !empty($item['icon']) || !empty($item['jltma_toggle_content_icon']['value']);
+
+                                                                                                                                                                $this->add_render_attribute([
+                                                                                                                                                                    $control_key => [
+                                                                                                                                                                        'class' => [
+                                                                                                                                                                            'jltma-toggle-content-controls__item',
+                                                                                                                                                                            'elementor-repeater-item-' . $item['_id'],
+                                                                                                                                                                        ]
+                                                                                                                                                                    ],
+                                                                                                                                                                    $control_text_key => [
+                                                                                                                                                                        'class' => 'jltma-toggle-content-controls__text',
+                                                                                                                                                                        'unselectable' => 'on',
+                                                                                                                                                                    ],
+                                                                                                                                                                ]);
+
+                                                                                                                                                                if ('' !== $item['jltma_toggle_content_active_color']) {
+                                                                                                                                                                    $this->add_render_attribute($control_key, 'data-color', $item['jltma_toggle_content_active_color']);
+                                                                                                                                                                }
+
+                                                                                                                                                                if (!empty($item['jltma_toggle_content_text'])) {
+                                                                                                                                                                    $this->add_render_attribute($control_key, 'class', 'jltma--is-empty');
+                                                                                                                                                                }
+
+                                                                                                                                                            ?><li <?php echo $this->get_render_attribute_string($control_key); ?>><?php
+
+                                                                                                                                                                                                                                    if ($has_icon) {
+                                                                                                                                                                                                                                        $this->render_toggle_item_icon($index, $item);
+                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                    if (!empty($item['jltma_toggle_content_text']) && !$has_icon) {
+                                                                                                                                                                                                                                    ?><span <?php echo $this->get_render_attribute_string($control_text_key); ?>><?php }
+
+                                                                                                                                                                                                                                        if (!empty($item['jltma_toggle_content_text'])) {
+                                                                                                                                                                                                                                            echo $item['jltma_toggle_content_text'];
+                                                                                                                                                                                                                                        } else if (!$has_icon) {
+                                                                                                                                                                                                                                            echo '&nbsp;';
+                                                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                                                        if (!empty($item['jltma_toggle_content_text']) && !$has_icon) {
+                                                                                                                                                                                                                                            ?></span><?php }
+
+                                                                                                                                                                                        ?></li><?php
+                                                                                                                                                            }
+                                                                                                                                ?></ul><?php
+                                                                                        }
+                                                        ?>
+        </div><?php
+            }
 
 
-		$this->add_render_attribute( $icon_key, 'class', [
-			'jltma-toggle-content-controls__icon',
-			'jltma-icon',
-			'jltma-icon-support--svg'
-		] );
+            protected function render_toggle_item_icon($index, $item)
+            {
 
-		if ( '' === $item['jltma_toggle_content_text'] ) {
-			$this->add_render_attribute( $icon_key, 'class', [
-				'jltma-icon--flush',
-			] );
-		}
+                $icon_key     = $this->get_repeater_setting_key('icon', 'jltma_toggle_content_elements', $index);
 
-		?>
-            <span <?php echo $this->get_render_attribute_string( $icon_key ); ?>>
-                <?php Master_Addons_Helper::jltma_fa_icon_picker( 'fas fa-search', 'icon', $item['jltma_toggle_content_icon'], 'jltma_toggle_content_icon' ); ?>
-            </span>
-        <?php
-	}
+                $migrated     = isset($item['__fa4_migrated']['jltma_toggle_content_icon']);
+                $is_new     = empty($item['icon']) && Icons_Manager::is_migration_allowed();
 
-    protected function render_text( $index, $item ) {
-		echo $this->parse_text_editor( $item['jltma_toggle_content'] );
-    }
+                // $icon_migrated = isset($settings['__fa4_migrated']['jltma_search_icon']);
+                // $icon_is_new = empty($settings['jltma_search_icon_new']);
 
-    public function _content_template() {}
 
-}
+                $this->add_render_attribute($icon_key, 'class', [
+                    'jltma-toggle-content-controls__icon',
+                    'jltma-icon',
+                    'jltma-icon-support--svg'
+                ]);
 
-Plugin::instance()->widgets_manager->register_widget_type( new Master_Addons_Toggle_Content());
+                if ('' === $item['jltma_toggle_content_text']) {
+                    $this->add_render_attribute($icon_key, 'class', [
+                        'jltma-icon--flush',
+                    ]);
+                }
+
+                ?>
+        <span <?php echo $this->get_render_attribute_string($icon_key); ?>>
+            <?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-search', 'icon', $item['jltma_toggle_content_icon'], 'jltma_toggle_content_icon'); ?>
+        </span>
+<?php
+            }
+
+            protected function render_text($index, $item)
+            {
+                echo $this->parse_text_editor($item['jltma_toggle_content']);
+            }
+
+            public function _content_template()
+            {
+            }
+        }
