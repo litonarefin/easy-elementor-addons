@@ -581,5 +581,3 @@ class Call_to_Action extends Widget_Base
 <?php
 	}
 }
-
-// Plugin::instance()->widgets_manager->register_widget_type(new Master_Addons_Call_To_Action());

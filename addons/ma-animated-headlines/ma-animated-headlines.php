@@ -689,5 +689,3 @@ class Animated_Headlines extends Widget_Base
 <?php
 	}
 }
-
-// Plugin::instance()->widgets_manager->register_widget_type(new Master_Addons_Headlines());
