@@ -3399,8 +3399,12 @@ class JLTMA_Gallery_Slider extends Widget_Base
 
 			<?php if ('yes' === $settings['jltma_gallery_slider_show_thumbnails']) : ?>
 				<div <?php echo $this->get_render_attribute_string('gallery-wrapper'); ?>>
-					<div <?php echo $this->get_render_attribute_string('gallery'); ?>>
-						<?php echo $this->render_jltma_gallery_slider(); ?>
+					<div <?php echo $this->get_render_attribute_string('swiper-container-wrapper'); ?>>
+						<div <?php echo $this->get_render_attribute_string('swiper-container'); ?>>
+							<div <?php echo $this->get_render_attribute_string('gallery'); ?>>
+								<?php echo $this->render_jltma_gallery_slider(); ?>
+							</div>
+						</div>
 					</div>
 				</div>
 			<?php endif; ?>

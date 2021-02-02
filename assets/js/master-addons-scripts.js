@@ -115,8 +115,19 @@
             return $scope.data('jltma-template-widget-id');
         }
         return $scope.data('id');
-    }
+    };
 
+
+    var onElementRemove = function( $element, callback ) {
+        if ( elementorFrontend.isEditMode() ) {
+            // Make sure it is destroyed when element is removed in editor mode
+            elementor.channels.data.on( 'element:before:remove', function ( model ) {
+                if ( $element.data('id') === model.id ) {
+                    callback();
+                }
+            });
+        }
+    };
 
     var Master_Addons = {
 
@@ -524,7 +535,7 @@
 
 
 		MA_Carousel : function( $swiper, settings ) {
-			var $slides = $swiper.find( '.ee-swiper__slide' ),
+			var $slides = $swiper.find( '.jltma-swiper__slide' ),
 
 				elementorBreakpoints = elementorFrontend.config.breakpoints,
 
@@ -565,9 +576,9 @@
 					swiperArgs.observeSlideChildren = true;
 				}
 
-			ee.Carousel.init = function() {
+			Master_Addons.MA_Carousel.init = function() {
 				if ( swiperInstance ) {
-					ee.Carousel.destroy();
+					Master_Addons.MA_Carousel.destroy();
 					return;
 				}
 
@@ -637,7 +648,7 @@
 				// Arrows and pagination
 
 				if ( settings.element.arrows ) {
-					swiperArgs.navigation.disabledClass = 'ee-swiper__button--disabled';
+					swiperArgs.navigation.disabledClass = 'jltma-swiper__button--disabled';
 
 					var $prevButton = settings.scope.find( settings.element.arrowPrev ),
 						$nextButton = settings.scope.find( settings.element.arrowNext );
@@ -656,7 +667,7 @@
 				}
 
 				if ( settings.element.pagination ) {
-					swiperArgs.pagination.el = '.ee-swiper__pagination-' + settings.id;
+					swiperArgs.pagination.el = '.jltma-swiper__pagination-' + settings.id;
 					swiperArgs.pagination.type = settings.element.paginationType;
 
 					if ( settings.element.paginationClickable ) {
@@ -755,7 +766,7 @@
 				return swiper;
 			};
 
-			return ee.Carousel.init();
+			return Master_Addons.MA_Carousel.init();
 		},
 
         // Gallery Slider
@@ -838,8 +849,8 @@
 						element : {
 							direction 			: elementSettings.carousel_orientation,
 							arrows 				: '' !== elementSettings.carousel_arrows,
-							arrowPrev 			: '.ee-swiper__button--prev-carousel',
-							arrowNext 			: '.ee-swiper__button--next-carousel',
+							arrowPrev 			: '.jltma-arrow--prev',
+							arrowNext 			: '.jltma-arrow--next',
 							autoHeight 			: false,
 							speed 				: elementSettings.carousel_speed ? elementSettings.carousel_speed.size : 500,
 							slidesPerView 		: elementSettings.carousel_slides_per_view_mobile,
@@ -971,7 +982,7 @@
 				swiperSlider.slideTo( $(this).index() + offset );
             };
 
-			Master_Addons.onElementRemove( $scope, function() {
+			onElementRemove( $scope, function() {
 				$scope.find('.swiper-container').each( function() {
 					if ( $(this).data('swiper') ) {
 						$(this).data('swiper').destroy();
@@ -995,7 +1006,7 @@
                 //     // Thumbnails Slider options
                 //     $thumbnailsSlider.slick( thumbsArgs );
                 // }
-
+                console.log('Init Loop');
 				swiperSlider = Master_Addons.MA_Carousel( $swiperSlider, sliderSettings );
 
 				if ( hasCarousel ) {
