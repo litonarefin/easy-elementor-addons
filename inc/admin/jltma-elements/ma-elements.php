@@ -172,7 +172,7 @@ if (!class_exists('JLTMA_Addon_Elements')) {
                         ],
                         [
                             'key'               => 'ma-image-filter-gallery',
-                            'title'             => esc_html__('Image Gallery', MELA_TD),
+                            'title'             => esc_html__('Filterable Image Gallery', MELA_TD),
                             'demo_url'          => 'https://master-addons.com/demos/image-gallery/',
                             'docs_url'          => 'https://master-addons.com/docs/addons/filterable-image-gallery/',
                             'tuts_url'          => 'https://www.youtube.com/watch?v=h7egsnX4Ewc'
