@@ -1,6 +1,6 @@
 <?php
 
-namespace Elementor;
+namespace MasterAddons\Addons;
 
 // Elementor Classes
 use Elementor\Widget_Base;
@@ -28,7 +28,7 @@ if (!defined('ABSPATH')) {
 /**
  * Master Addons: Timeline
  */
-class Master_Addons_Timeline extends Widget_Base
+class Timeline extends Widget_Base
 {
 
 	public function get_name()
@@ -2116,5 +2116,3 @@ Customization Options.</span>'
 			else return wp_kses_post($value);
 		}
 	}
-
-	Plugin::instance()->widgets_manager->register_widget_type(new Master_Addons_Timeline());

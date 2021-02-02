@@ -1,6 +1,6 @@
 <?php
 
-namespace Elementor;
+namespace MasterAddons\Addons;
 
 /**
  * Author Name: Liton Arefin
@@ -26,7 +26,7 @@ if (!defined('ABSPATH')) {
 
 if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
 
-class Master_Addons_Image_Carousel extends Widget_Base
+class Image_Carousel extends Widget_Base
 {
 
 	public function get_name()
@@ -713,5 +713,3 @@ class Master_Addons_Image_Carousel extends Widget_Base
 			{
 			}
 		}
-
-		Plugin::instance()->widgets_manager->register_widget_type(new Master_Addons_Image_Carousel());

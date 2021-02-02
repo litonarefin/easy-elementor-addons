@@ -1,6 +1,6 @@
 <?php
 
-namespace Elementor;
+namespace MasterAddons\Addons;
 
 // Elementor Classes
 use Elementor\Widget_Base;
@@ -21,7 +21,7 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
 
-class Master_Addons_Twitter_Slider extends Widget_Base
+class Twitter_Slider extends Widget_Base
 {
 
     private $_query = null;
@@ -1513,5 +1513,3 @@ class Master_Addons_Twitter_Slider extends Widget_Base
                 return strtr($diff, $replace);
             }
         }
-
-        Plugin::instance()->widgets_manager->register_widget_type(new Master_Addons_Twitter_Slider());

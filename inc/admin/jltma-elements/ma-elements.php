@@ -128,7 +128,7 @@ if (!class_exists('JLTMA_Addon_Elements')) {
                         ],
                         [
                             'key'               => 'ma-blog',
-                            'title'             => esc_html__('Blog Grid', MELA_TD),
+                            'title'             => esc_html__('Blog', MELA_TD),
                             'demo_url'          => 'https://master-addons.com/demos/blog-element/',
                             'docs_url'          => 'https://master-addons.com/docs/addons/blog-element-customization/',
                             'tuts_url'          => 'https://www.youtube.com/watch?v=03AcgVEsTaA'

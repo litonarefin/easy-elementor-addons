@@ -1,6 +1,6 @@
 <?php
 
-namespace Elementor;
+namespace MasterAddons\Addons;
 
 // Elementor Classes
 use \Elementor\Controls_Manager;
@@ -21,7 +21,7 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
 
 
-class Master_Addons_Instagram_Feed extends Widget_Base
+class Instagram_Feed extends Widget_Base
 {
 
     public function get_name()
@@ -1597,7 +1597,7 @@ class Master_Addons_Instagram_Feed extends Widget_Base
                                     Icons_Manager::render_icon($settings['jltma_instafeed_insta_title_icon'], ['aria-hidden' => 'true']);
                                 } elseif (!empty($settings['jltma_instafeed_title_icon'])) {
                                 ?><i <?php echo $this->get_render_attribute_string('i'); ?>></i><?php
-                                                                                                        } ?>
+                                                                                            } ?>
                             </span>
                         <?php } ?>
                     </span>
@@ -1819,8 +1819,8 @@ class Master_Addons_Instagram_Feed extends Widget_Base
                 ) { ?>
 
                     <a <?php if ($settings['jltma_instafeed_show_lightbox'] == "yes") { ?> data-fancybox="<?php echo esc_attr($settings['jltma_instafeed_lightbox_type']); ?>" <?php if ($settings['jltma_instafeed_lightbox_type'] == "images") { ?> href="<?php echo esc_url($item['images'][$settings['jltma_instafeed_image_size']]['url']); ?>" <?php if ($settings['jltma_instafeed_lightbox_caption'] == "yes") { ?> data-caption="<?php echo esc_attr($item['caption']['text']); ?>" <?php }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } elseif ($settings['jltma_instafeed_lightbox_type'] == "inline") { ?> data-src="#jltma-insta-lightbox-<?php echo $this->get_id() . $k; ?>" href="javascript:;" data-width="<?php echo esc_attr($settings['jltma_instafeed_lightbox_width']); ?>" data-height="<?php echo esc_attr($settings['jltma_instafeed_lightbox_hieght']); ?>" <?php }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            } else { ?> href="<?php echo esc_url($item['link']); ?>" <?php echo esc_attr($target); ?> <?php } ?> class="jltma-instafeed-item">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        } elseif ($settings['jltma_instafeed_lightbox_type'] == "inline") { ?> data-src="#jltma-insta-lightbox-<?php echo $this->get_id() . $k; ?>" href="javascript:;" data-width="<?php echo esc_attr($settings['jltma_instafeed_lightbox_width']); ?>" data-height="<?php echo esc_attr($settings['jltma_instafeed_lightbox_hieght']); ?>" <?php }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        } else { ?> href="<?php echo esc_url($item['link']); ?>" <?php echo esc_attr($target); ?> <?php } ?> class="jltma-instafeed-item">
 
                         <div <?php echo $this->get_render_attribute_string('jltma_insta_inner'); ?>>
                             <img class="jltma-instafeed-img" src="<?php echo esc_url($item['images'][$settings['jltma_instafeed_image_size']]['url']); ?>" width="<?php echo esc_attr($item['images'][$settings['jltma_instafeed_image_size']]['width']); ?>" height="<?php echo esc_attr($item['images'][$settings['jltma_instafeed_image_size']]['height']); ?>">
@@ -1895,12 +1895,12 @@ class Master_Addons_Instagram_Feed extends Widget_Base
                                     <?php } ?>
                                 </div>
 
-                                <?php //if ($settings['jltma_instafeed_show_insta_icon'] == 'yes') { 
+                                <?php //if ($settings['jltma_instafeed_show_insta_icon'] == 'yes') {
                                 ?>
                                 <div class="jltma-instafeed-icon float-right align-self-center">
                                     <i class="fab fa-instagram" aria-hidden="true"></i>
                                 </div>
-                                <?php //} 
+                                <?php //}
                                 ?>
                             </header>
 
@@ -2146,5 +2146,3 @@ class Master_Addons_Instagram_Feed extends Widget_Base
             </script>';
     }
 }
-
-Plugin::instance()->widgets_manager->register_widget_type(new Master_Addons_Instagram_Feed());

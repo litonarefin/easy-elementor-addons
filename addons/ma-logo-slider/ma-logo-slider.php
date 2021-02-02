@@ -1,6 +1,6 @@
 <?php
 
-namespace Elementor;
+namespace MasterAddons\Addons;
 
 if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
 
@@ -15,7 +15,7 @@ use \Elementor\Widget_Base;
 
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
-class Master_Addons_Logo_Slider extends Widget_Base
+class Logo_Slider extends Widget_Base
 {
 
     public function get_name()
@@ -1549,8 +1549,6 @@ class Master_Addons_Logo_Slider extends Widget_Base
 
 <?php  }
 
-
-
             public function render()
             {
 
@@ -1575,5 +1573,3 @@ class Master_Addons_Logo_Slider extends Widget_Base
             {
             }
         }
-
-        Plugin::instance()->widgets_manager->register_widget_type(new Master_Addons_Logo_Slider());
