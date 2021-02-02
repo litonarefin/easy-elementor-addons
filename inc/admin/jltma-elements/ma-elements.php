@@ -79,7 +79,7 @@ if (!class_exists('JLTMA_Addon_Elements')) {
                         ],
                         [
                             'key'               => 'ma-team-members-slider',
-                            'title'             => esc_html__('Team Carousel', MELA_TD),
+                            'title'             => esc_html__('Team Slider', MELA_TD),
                             'demo_url'          => 'https://master-addons.com/demos/team-carousel/',
                             'docs_url'          => 'https://master-addons.com/docs/addons/team-members-carousel/',
                             'tuts_url'          => 'https://www.youtube.com/watch?v=ubP_h86bP-c'
