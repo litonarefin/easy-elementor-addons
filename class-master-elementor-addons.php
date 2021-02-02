@@ -573,68 +573,10 @@ if (!class_exists('Master_Elementor_Addons')) {
 				switch_to_blog($original_blog_id);
 			} else {
 
-
-
-
 				$widget_manager = Master_Addons_Helper::jltma_elementor()->widgets_manager;
-				// print_r($widget_manager);
-				// foreach ($this->get_widgets() as $widget) {
-				// 	print_r($widget);
-				// 	// print_r($this->reflection->getNamespaceName());
-				// 	$class_name = $this->reflection->getNamespaceName() . '\Addon\\' . $widget;
-				// 	print_r($class_name);
 
-				// 	if ($class_name::requires_elementor_pro() && !is_elementor_pro_active()) {
-				// 		continue;
-				// 	}
-
-				// 	$module_filename = $this->get_name();
-				// 	$widget_name = strtolower($widget);
-				// 	$widget_filename = str_replace('_', '-', $widget_name);
-
-				// 	// Skip widget if it's disabled in admin settings
-				// 	if ($this->is_widget_disabled($widget_name)) {
-				// 		continue;
-				// }
-
-				// 	$widget_filename = MAAD_EL_ADDONS . "includes/modules/{$module_filename}/widgets/{$widget_filename}.php";
-
-				// 	$widget_manager->register_widget_type(new $class_name());
-				// }
-
-
-				// if ($activated_widgets[$widget] == true && $is_pro != "pro") {
-				// 	require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
-				// }
-
-
-
-				// foreach (self::$maad_el_default_widgets as $widget) {
 				ksort(JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements']);
 				foreach (JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements'] as $key =>  $widget) {
-					// $is_pro = "";
-					// if (isset($widget)) {
-					// 	if (is_array($widget)) {
-					// 		$is_pro = $widget[1];
-					// 		$widget = $widget[0];
-
-					// 		if (ma_el_fs()->can_use_premium_code()) {
-					// 			if ($activated_widgets[$widget] == true && $is_pro == "pro") {
-					// 				require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
-					// 			}
-					// 		}
-					// 	}
-					// }
-
-					// if ($activated_widgets[$widget] == true && $is_pro != "pro") {
-					// require_once MAAD_EL_ADDONS . $widget['key'] . '/' . $widget['key'] . '.php';
-					// }
-
-
-
-					// ksort(self::$default_widgets);
-					// foreach (self::$default_widgets as $key => $widget) {
-					// 	if (isset(self::$is_activated_feature[$key]) && self::$is_activated_feature[$key] == true) {
 
 					$widget_file = MAAD_EL_ADDONS . $widget['key'] . '/' . $widget['key'] . '.php';
 
@@ -642,16 +584,9 @@ if (!class_exists('Master_Elementor_Addons')) {
 						require_once $widget_file;
 					}
 					$widget_class_name = preg_replace('/\s+/', '_', $widget['title']);
-					print_r($widget_class_name);
-					// exit;
 
-					// if (class_exists($widget['class'])) {
 					$class_name = $this->reflection->getNamespaceName() . '\Addons\\' . $widget_class_name;
-					Master_Addons_Helper::jltma_elementor()->widgets_manager->register_widget_type(new $class_name);
-					// }
-					// 	}
-					// }
-
+					$widget_manager->register_widget_type(new $class_name);
 				}
 			}
 		}

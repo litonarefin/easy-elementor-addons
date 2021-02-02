@@ -2,8 +2,14 @@
 
 namespace MasterAddons\Addons;
 
-use Elementor\Widget_Base;
-use MasterAddons;
+use \Elementor\Widget_Base;
+use \Elementor\Controls_Manager;
+use \Elementor\Repeater;
+use \Elementor\Group_Control_Border;
+use \Elementor\Scheme_Typography;
+use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Group_Control_Typography;
+
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
