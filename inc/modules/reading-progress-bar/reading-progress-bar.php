@@ -1,9 +1,11 @@
 <?php
+
 namespace MasterAddons\Modules;
 
 // Elementor Classes
 use \Elementor\Plugin;
 use \Elementor\Controls_Manager;
+
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
@@ -13,27 +15,32 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if (!defined('ABSPATH')) {
+	exit;
+}
 
 /**
  * Master Addons: Content Reading Progress bar & Scroll Indicator
  */
-class Master_Addons_Reading_Progress_Bar {
+class Extension_Reading_Progress_Bar
+{
 
 	private static $_instance = null;
 
-	public function __construct(){
+	public function __construct()
+	{
 		add_action('elementor/documents/register_controls', [$this, 'jltma_rpb_register_controls'], 10);
-		add_action( 'wp_footer', [$this, 'jltma_reading_progress_bar_render'] );
+		add_action('wp_footer', [$this, 'jltma_reading_progress_bar_render']);
 	}
 
-	public function jltma_rpb_register_controls( $element ){
+	public function jltma_rpb_register_controls($element)
+	{
 
 		$element->start_controls_section(
 			'jltma_reading_progress_bar_section',
 			[
 				'tab' 			=> Controls_Manager::TAB_SETTINGS,
-				'label' 		=> MA_EL_BADGE . esc_html__( ' Reading Progress Bar', MELA_TD )
+				'label' 		=> MA_EL_BADGE . esc_html__(' Reading Progress Bar', MELA_TD)
 			]
 		);
 
@@ -43,8 +50,8 @@ class Master_Addons_Reading_Progress_Bar {
 				'type'  		=> Controls_Manager::SWITCHER,
 				'label' 		=> esc_html__('Enable Reading Progress Bar', MELA_TD),
 				'default' 		=> '',
-				'label_on' 		=> esc_html__( 'Yes', MELA_TD ),
-				'label_off' 	=> esc_html__( 'No', MELA_TD ),
+				'label_on' 		=> esc_html__('Yes', MELA_TD),
+				'label_off' 	=> esc_html__('No', MELA_TD),
 				'return_value' 	=> 'yes'
 			]
 		);
@@ -161,9 +168,10 @@ class Master_Addons_Reading_Progress_Bar {
 	}
 
 
-	public function jltma_reading_progress_bar_styles(){
+	public function jltma_reading_progress_bar_styles()
+	{
 
-		if ( did_action('elementor/loaded')) {
+		if (did_action('elementor/loaded')) {
 
 			$page_settings_manager = \Elementor\Core\Settings\Manager::get_settings_managers('page');
 			$page_settings_model = $page_settings_manager->get_model(get_the_ID());
@@ -176,44 +184,43 @@ class Master_Addons_Reading_Progress_Bar {
 
 			$jltma_r_p_b_custom_css = "";
 
-			if( $jltma_r_p_b_bg_color !="" && $jltma_r_p_b_fill_color !="" ){
+			if ($jltma_r_p_b_bg_color != "" && $jltma_r_p_b_fill_color != "") {
 				$jltma_r_p_b_custom_css = ".ma-el-page-scroll-indicator{ background: {$jltma_r_p_b_bg_color};}
 					.ma-el-scroll-indicator{ background: {$jltma_r_p_b_fill_color};}
-					.ma-el-page-scroll-indicator, .ma-el-scroll-indicator{ height: {$jltma_r_p_b_height['size']}px;}";		
+					.ma-el-page-scroll-indicator, .ma-el-scroll-indicator{ height: {$jltma_r_p_b_height['size']}px;}";
 			}
 
-			if(isset($jltma_rbp_position) && $jltma_rbp_position !=""){
-				if($jltma_rbp_position == "top"){
+			if (isset($jltma_rbp_position) && $jltma_rbp_position != "") {
+				if ($jltma_rbp_position == "top") {
 					$jltma_r_p_b_custom_css .= '.ma-el-page-scroll-indicator{top:0px;}';
-				}else{
+				} else {
 					$jltma_r_p_b_custom_css .= '.ma-el-page-scroll-indicator{top:inherit !important; bottom:0;}';
 				}
 			}
-			
-			if ( Plugin::instance()->editor->is_edit_mode() || Plugin::instance()->preview->is_preview_mode() ) { 
-				if($jltma_rbp_position == "top"){
+
+			if (Plugin::instance()->editor->is_edit_mode() || Plugin::instance()->preview->is_preview_mode()) {
+				if ($jltma_rbp_position == "top") {
 					$jltma_r_p_b_custom_css .= '.ma-el-page-scroll-indicator{top:0px;}';
-				}else{
+				} else {
 					$jltma_r_p_b_custom_css .= '.ma-el-page-scroll-indicator{top:inherit !important; bottom:0;}';
 				}
 			}
-			
+
 			echo '<style>' . $jltma_r_p_b_custom_css . '</style>';
 		}
-
-
 	}
 
 
-	public function jltma_reading_progress_bar_render() {
-		
-		$document = Plugin::instance()->documents->get( get_the_ID() );
+	public function jltma_reading_progress_bar_render()
+	{
 
-		if ( ! $document ) return;
+		$document = Plugin::instance()->documents->get(get_the_ID());
 
-        $reading_progress_bar = $document->get_settings( 'jltma_enable_reading_progress_bar' );
+		if (!$document) return;
 
-		if ( empty( $reading_progress_bar ) ) return;
+		$reading_progress_bar = $document->get_settings('jltma_enable_reading_progress_bar');
+
+		if (empty($reading_progress_bar)) return;
 
 		if (did_action('elementor/loaded')) {
 
@@ -227,7 +234,7 @@ class Master_Addons_Reading_Progress_Bar {
 				<div class="ma-el-scroll-indicator"></div>
 			</div>';
 
-			if( $page_settings_model->get_settings('jltma_enable_reading_progress_bar') == 'yes' ){
+			if ($page_settings_model->get_settings('jltma_enable_reading_progress_bar') == 'yes') {
 
 				echo $jltma_reading_progress_bar_html;
 
@@ -240,11 +247,10 @@ class Master_Addons_Reading_Progress_Bar {
 					        var currentState = document.body.scrollTop || document.documentElement.scrollTop;
 					        var pageHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 					        var scrollStatePercentage = (currentState / pageHeight) * 100;
-					        document.querySelector(".ma-el-page-scroll-indicator > .ma-el-scroll-indicator").style.width = scrollStatePercentage + "%";					  
+					        document.querySelector(".ma-el-page-scroll-indicator > .ma-el-scroll-indicator").style.width = scrollStatePercentage + "%";
 						}
 					})(jQuery);
 				</script>';
-
 			} // Enable Progress Bar
 
 
@@ -256,43 +262,40 @@ class Master_Addons_Reading_Progress_Bar {
 
 			$jltma_r_p_b_custom_css = "";
 
-			if( $jltma_r_p_b_bg_color !="" && $jltma_r_p_b_fill_color !="" ){
+			if ($jltma_r_p_b_bg_color != "" && $jltma_r_p_b_fill_color != "") {
 				$jltma_r_p_b_custom_css = ".ma-el-page-scroll-indicator{ background: {$jltma_r_p_b_bg_color};}
 					.ma-el-scroll-indicator{ background: {$jltma_r_p_b_fill_color};}
-					.ma-el-page-scroll-indicator, .ma-el-scroll-indicator{ height: {$jltma_r_p_b_height['size']}px;}";		
+					.ma-el-page-scroll-indicator, .ma-el-scroll-indicator{ height: {$jltma_r_p_b_height['size']}px;}";
 			}
 
-			if(isset($jltma_rbp_position) && $jltma_rbp_position !=""){
-				if($jltma_rbp_position == "top"){
+			if (isset($jltma_rbp_position) && $jltma_rbp_position != "") {
+				if ($jltma_rbp_position == "top") {
 					$jltma_r_p_b_custom_css .= '.ma-el-page-scroll-indicator{top:0px;}';
-				}else{
+				} else {
 					$jltma_r_p_b_custom_css .= '.ma-el-page-scroll-indicator{top:inherit !important; bottom:0;}';
 				}
 			}
-			
-			if ( Plugin::instance()->editor->is_edit_mode() || Plugin::instance()->preview->is_preview_mode() ) { 
-				if($jltma_rbp_position == "top"){
+
+			if (Plugin::instance()->editor->is_edit_mode() || Plugin::instance()->preview->is_preview_mode()) {
+				if ($jltma_rbp_position == "top") {
 					$jltma_r_p_b_custom_css .= '.ma-el-page-scroll-indicator{top:0px;}';
-				}else{
+				} else {
 					$jltma_r_p_b_custom_css .= '.ma-el-page-scroll-indicator{top:inherit !important; bottom:0;}';
 				}
 			}
-			
+
 			echo '<style>' . $jltma_r_p_b_custom_css . '</style>';
-
-
-
 		}
 	}
 
 
-	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
+	public static function instance()
+	{
+		if (is_null(self::$_instance)) {
 			self::$_instance = new self();
 		}
 		return self::$_instance;
 	}
-
 }
 
-Master_Addons_Reading_Progress_Bar::instance();
+Extension_Reading_Progress_Bar::instance();

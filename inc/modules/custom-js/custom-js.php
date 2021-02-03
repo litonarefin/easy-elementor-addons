@@ -1,30 +1,36 @@
 <?php
-namespace MasterAddons\Modules\CustomJS;
 
-use Elementor\Controls_Manager;
+namespace MasterAddons\Modules;
+
+use \Elementor\Controls_Manager;
 
 /**
  * Author Name: Liton Arefin
  * Author URL: https://jeweltheme.com
  * Date: 04/08/20
  */
-if ( ! defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
+if (!defined('ABSPATH')) {
+    exit;
+} // Exit if accessed directly.
 
-class Master_Addons_Custom_JS{
+class Custom_JS
+{
 
     private static $instance = null;
 
-    public function __construct(){
+    public function __construct()
+    {
         // Add new controls to Page Settings on Advanced Tab globally
         add_action('elementor/documents/register_controls', [$this, 'jltma_add_section_custom_js_controls'], 20);
-        add_action( 'wp_print_footer_scripts', [ $this, 'jltma_page_custom_js' ], 999 );
+        add_action('wp_print_footer_scripts', [$this, 'jltma_page_custom_js'], 999);
     }
 
-    public function jltma_add_section_custom_js_controls($controls){
+    public function jltma_add_section_custom_js_controls($controls)
+    {
         $controls->start_controls_section(
             'jtlma_section_custom_js',
             [
-                'label'         => MA_EL_BADGE . esc_html__( ' Custom JS', MELA_TD ),
+                'label'         => MA_EL_BADGE . esc_html__(' Custom JS', MELA_TD),
                 'tab'           => Controls_Manager::TAB_ADVANCED,
             ]
         );
@@ -68,17 +74,20 @@ class Master_Addons_Custom_JS{
     }
 
 
-    public function jltma_page_custom_js() {
+    public function jltma_page_custom_js()
+    {
 
-		if ( \Elementor\Plugin::instance()->editor->is_edit_mode() || \Elementor\Plugin::instance()->preview->is_preview_mode() ) { return; }
+        if (\Elementor\Plugin::instance()->editor->is_edit_mode() || \Elementor\Plugin::instance()->preview->is_preview_mode()) {
+            return;
+        }
 
-        $document = \Elementor\Plugin::instance()->documents->get( get_the_ID() );
+        $document = \Elementor\Plugin::instance()->documents->get(get_the_ID());
 
-		if ( ! $document ) return;
+        if (!$document) return;
 
-        $custom_js = $document->get_settings( 'jtlma_custom_js' );
+        $custom_js = $document->get_settings('jtlma_custom_js');
 
-		if ( empty( $custom_js ) ) return;
+        if (empty($custom_js)) return;
 
         echo "<script type='text/javascript'>(function($){
             'use strict';
@@ -88,13 +97,13 @@ class Master_Addons_Custom_JS{
 
 
 
-    public static function get_instance() {
-        if ( ! self::$instance ) {
+    public static function get_instance()
+    {
+        if (!self::$instance) {
             self::$instance = new self;
         }
         return self::$instance;
     }
-
 }
 
-Master_Addons_Custom_JS::get_instance();
+Custom_JS::get_instance();

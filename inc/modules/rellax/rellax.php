@@ -1,19 +1,24 @@
 <?php
-namespace MasterAddons\Inc\Extensions;
+
+namespace MasterAddons\Modules;
 
 use \Elementor\Element_Base;
 use \Elementor\Controls_Manager;
+
 use \MasterAddons\Inc\Classes\JLTMA_Extension_Prototype;
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; };
+if (!defined('ABSPATH')) {
+    exit;
+};
 
 /**
  * Parallax Scrolling Effect - Rellax
  */
 
-class JLTMA_Extension_Rellax extends JLTMA_Extension_Prototype {
-    
+class Extension_Rellax extends JLTMA_Extension_Prototype
+{
+
     private static $instance = null;
     public $name = 'Rellax';
     public $has_controls = true;
@@ -22,19 +27,21 @@ class JLTMA_Extension_Rellax extends JLTMA_Extension_Prototype {
             'element' => 'common',
             'action' => '_section_style',
         ),
-        
+
         array(
             'element' => 'column',
             'action' => 'section_advanced',
         ),
     );
 
-    private function add_controls($element, $args) {
+    private function add_controls($element, $args)
+    {
 
         $element_type = $element->get_type();
 
         $element->add_control(
-            'enabled_rellax', [
+            'enabled_rellax',
+            [
                 'label' => __('Enabled Rellax', MELA_TD),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => '',
@@ -45,7 +52,8 @@ class JLTMA_Extension_Rellax extends JLTMA_Extension_Prototype {
             ]
         );
         $element->add_responsive_control(
-            'speed_rellax', [
+            'speed_rellax',
+            [
                 'label' => __('Speed', MELA_TD),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -66,7 +74,8 @@ class JLTMA_Extension_Rellax extends JLTMA_Extension_Prototype {
             ]
         );
         $element->add_responsive_control(
-            'percentage_rellax', [
+            'percentage_rellax',
+            [
                 'label' => __('Percentage', MELA_TD),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -86,7 +95,8 @@ class JLTMA_Extension_Rellax extends JLTMA_Extension_Prototype {
             ]
         );
         $element->add_control(
-            'zindex_rellax', [
+            'zindex_rellax',
+            [
                 'label' => __('Z-Index', MELA_TD),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 0,
@@ -132,38 +142,40 @@ class JLTMA_Extension_Rellax extends JLTMA_Extension_Prototype {
           ); */
     }
 
-    protected function add_actions() {
+    protected function add_actions()
+    {
 
         // Activate controls for widgets
-        add_action('elementor/element/common/jltma_section_rellax_advanced/before_section_end', function( $element, $args ) {
+        add_action('elementor/element/common/jltma_section_rellax_advanced/before_section_end', function ($element, $args) {
             $this->add_controls($element, $args);
         }, 10, 2);
 
         add_filter('elementor/widget/print_template', array($this, 'rellax_print_template'), 11, 2);
 
-        add_action( 'elementor/widget/render_content', array($this, 'rellax_render_template'), 11, 2);
+        add_action('elementor/widget/render_content', array($this, 'rellax_render_template'), 11, 2);
 
         // add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'before_render'],10);
         // add_action( 'elementor/frontend/element/before_render', [ $this, 'before_render'],10,1);
         // add_action( 'elementor/frontend/column/before_render', [ $this, 'before_render'],10,1);
         // add_action( 'elementor/frontend/section/before_render', [ $this, 'before_render'],10,1);
         // add_action( 'elementor/frontend/widget/before_render', [ $this, 'before_render' ], 10,1 );
-        
-        add_action( 'elementor/preview/enqueue_scripts', [ $this, 'jltma_add_relax_scripts' ] );
+
+        add_action('elementor/preview/enqueue_scripts', [$this, 'jltma_add_relax_scripts']);
 
         // Activate controls for columns
-        add_action('elementor/element/column/jltma_section_rellax_advanced/before_section_end', function( $element, $args ) {
+        add_action('elementor/element/column/jltma_section_rellax_advanced/before_section_end', function ($element, $args) {
             $this->add_controls($element, $args);
         }, 10, 2);
-
     }
 
 
-    public static function jltma_add_relax_scripts(){
-        wp_enqueue_script( 'ma-el-rellaxjs-libs', MELA_PLUGIN_URL . '/assets/vendor/rellax/rellax.min.js',array('jquery'),MELA_VERSION, true );
+    public static function jltma_add_relax_scripts()
+    {
+        wp_enqueue_script('ma-el-rellaxjs-libs', MELA_PLUGIN_URL . '/assets/vendor/rellax/rellax.min.js', array('jquery'), MELA_VERSION, true);
     }
 
-    public function rellax_print_template($content, $widget) {
+    public function rellax_print_template($content, $widget)
+    {
         if (!$content)
             return '';
 
@@ -175,34 +187,35 @@ class JLTMA_Extension_Rellax extends JLTMA_Extension_Prototype {
 
 
 
-    public function rellax_render_template($content, $widget) {
+    public function rellax_render_template($content, $widget)
+    {
         $settings = $widget->get_settings_for_display();
 
 
         if (isset($settings['enabled_rellax']) && $settings['enabled_rellax'] == 'yes') {
-            
-            $this->_enqueue_alles();
-            
-            self::jltma_add_relax_scripts();
-            
 
-            if (\Elementor\Plugin::$instance->editor->is_edit_mode()){}
+            $this->_enqueue_alles();
+
+            self::jltma_add_relax_scripts();
+
+
+            if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
+            }
 
             $id_item = $widget->get_id();
-            
+
             $content = '<div id="rellax-' . $id_item . '" class="rellax" data-rellax-percentage="' . $settings['percentage_rellax']['size'] . '" data-rellax-zindex="' . $settings['zindex_rellax'] . '">' . $content . '</div>';
-            
         }
         return $content;
     }
 
-    public static function get_instance() {
-        if ( ! self::$instance ) {
+    public static function get_instance()
+    {
+        if (!self::$instance) {
             self::$instance = new self;
         }
         return self::$instance;
     }
-    
 }
 
-JLTMA_Extension_Rellax::get_instance();
+Extension_Rellax::get_instance();

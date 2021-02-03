@@ -1,11 +1,11 @@
 <?php
 
-namespace ElementorExtras\Extensions;
+namespace MasterAddons\Modules;
 
 // Elementor Extras classes
-use ElementorExtras\Utils;
-use ElementorExtras\Base\Extension_Base;
-use ElementorExtras\Group_Control_Tooltip;
+use \Elementor\Utils;
+use \Elementor\Element_Base;
+
 
 // Elementor classes
 use Elementor\Controls_Manager;
@@ -14,6 +14,8 @@ use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
+
+use MasterAddons\Group_Control_Tooltip;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
@@ -24,7 +26,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.8.0
  */
-class Extension_Tooltip extends Extension_Base
+class Extension_Tooltip extends Element_Base
 {
 
     /**

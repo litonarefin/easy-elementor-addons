@@ -1,9 +1,9 @@
 <?php
 
-namespace ElementorExtras\Extensions;
+namespace MasterAddons\Modules;
 
-use ElementorExtras\Base\Extension_Base;
-use Elementor\Controls_Manager;
+use \Elementor\Element_Base;
+use \Elementor\Controls_Manager;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.2.0
  */
-class Extension_Parallax_Background extends Extension_Base
+class Extension_Parallax_Background extends Element_Base
 {
 
     /**

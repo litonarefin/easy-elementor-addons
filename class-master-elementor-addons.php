@@ -647,33 +647,46 @@ if (!class_exists('Master_Elementor_Addons')) {
 				switch_to_blog($original_blog_id);
 			} else {
 
-				foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $extensions) {
-					// print_r($extensions);
+				// OLD Style
+				// foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $extensions) {
+				// 	// print_r($extensions);
 
-					// if (isset($extensions)) {
-					// 	if (is_array($extensions)) {
-					// 		$is_pro = $extensions[1];
-					// 		$extensions = $extensions[0];
+				// 	// if (isset($extensions)) {
+				// 	// 	if (is_array($extensions)) {
+				// 	// 		$is_pro = $extensions[1];
+				// 	// 		$extensions = $extensions[0];
 
-					// 		if (ma_el_fs()->can_use_premium_code()) {
-					// 			if ($activated_extensions[$extensions] == true && $is_pro == "pro") {
-					// 				include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' . $extensions . '.php';
-					// 			}
-					// 		}
-					// 	}
-					// }
+				// 	// 		if (ma_el_fs()->can_use_premium_code()) {
+				// 	// 			if ($activated_extensions[$extensions] == true && $is_pro == "pro") {
+				// 	// 				include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' . $extensions . '.php';
+				// 	// 			}
+				// 	// 		}
+				// 	// 	}
+				// 	// }
 
-					if (!ma_el_fs()->can_use_premium_code() && isset($extensions['is_pro']) && $extensions['is_pro']) {
-						include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions['key'] . '/' .  $extensions['key'] . '.php';
-						// echo "Pro <br>";
-					} else {
-						// echo "Not Pro <br>";
-						include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions['key'] . '/' .  $extensions['key'] . '.php';
+				// 	if (!ma_el_fs()->can_use_premium_code() && isset($extensions['is_pro']) && $extensions['is_pro']) {
+				// 		include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions['key'] . '/' .  $extensions['key'] . '.php';
+				// 		// echo "Pro <br>";
+				// 	} else {
+				// 		// echo "Not Pro <br>";
+				// 		include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions['key'] . '/' .  $extensions['key'] . '.php';
+				// 	}
+
+				// 	// if ($activated_extensions[$extensions] == true && $is_pro != "pro") {
+				// 	// 	include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' .  $extensions . '.php';
+				// 	// }
+				// }
+
+				// New Style with Namespace
+
+				ksort(JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension']);
+				foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $key =>  $extensions) {
+
+					$extensions_file = MELA_PLUGIN_PATH . '/inc/modules/' . $extensions['key'] . '/' .  $extensions['key'] . '.php';
+
+					if (file_exists($extensions_file)) {
+						require_once $extensions_file;
 					}
-
-					// if ($activated_extensions[$extensions] == true && $is_pro != "pro") {
-					// 	include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' .  $extensions . '.php';
-					// }
 				}
 			}
 		}

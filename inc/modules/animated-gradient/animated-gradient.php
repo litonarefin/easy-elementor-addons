@@ -1,23 +1,27 @@
 <?php
-namespace MasterAddons\Modules\AnimatedGradient;
 
-use Elementor\Controls_Manager;
-use Elementor\Repeater;
+namespace MasterAddons\Modules;
 
-class Master_Addons_Animated_Gradient_Backgrounds  {
+use \Elementor\Controls_Manager;
+use \Elementor\Repeater;
+
+class Animated_Gradient_Backgrounds
+{
 
 	private static $_instance = null;
 
-	public function __construct(){
-		add_action( 'elementor/element/after_section_end', [ $this, 'register_controls' ], 10, 3 );
-		add_action( 'elementor/element/print_template', [ $this, '_print_template'],10,2);
-		add_action( 'elementor/section/print_template', [ $this, '_print_template'],10,2);
-		add_action( 'elementor/column/print_template', [ $this, '_print_template'],10,2);
-		add_action( 'elementor/frontend/before_render', [ $this, '_before_render']);
+	public function __construct()
+	{
+		add_action('elementor/element/after_section_end', [$this, 'register_controls'], 10, 3);
+		add_action('elementor/element/print_template', [$this, '_print_template'], 10, 2);
+		add_action('elementor/section/print_template', [$this, '_print_template'], 10, 2);
+		add_action('elementor/column/print_template', [$this, '_print_template'], 10, 2);
+		add_action('elementor/frontend/before_render', [$this, '_before_render']);
 	}
 
-	public function register_controls($element, $section_id, $args){
-		if ( ('section' === $element->get_name() && 'section_background' === $section_id) || ('column' === $element->get_name() && 'section_style' === $section_id)) {
+	public function register_controls($element, $section_id, $args)
+	{
+		if (('section' === $element->get_name() && 'section_background' === $section_id) || ('column' === $element->get_name() && 'section_style' === $section_id)) {
 
 			$element->start_controls_section(
 				'ma_el_animated_gradient',
@@ -32,8 +36,8 @@ class Master_Addons_Animated_Gradient_Backgrounds  {
 					'type'  => Controls_Manager::SWITCHER,
 					'label' => __('Enable', MELA_TD),
 					'default' => '',
-					'label_on' => __( 'Yes', MELA_TD ),
-					'label_off' => __( 'No', MELA_TD ),
+					'label_on' => __('Yes', MELA_TD),
+					'label_off' => __('No', MELA_TD),
 					'return_value' => 'yes',
 					'prefix_class'  =>  'ma-el-animated-gradient-',
 					'render_type'   => 'template',
@@ -42,9 +46,9 @@ class Master_Addons_Animated_Gradient_Backgrounds  {
 			$element->add_control(
 				'gradient_background_angle',
 				[
-					'label' => __( 'Angle', MELA_TD ),
+					'label' => __('Angle', MELA_TD),
 					'type' => Controls_Manager::SLIDER,
-					'size_units' => [ 'deg' ],
+					'size_units' => ['deg'],
 					'range' => [
 						'deg' => [
 							'min' => -45,
@@ -70,7 +74,7 @@ class Master_Addons_Animated_Gradient_Backgrounds  {
 			$repeater->add_control(
 				'ma_el_animated_gradient_color',
 				[
-					'label' => __('Add Color' , MELA_TD),
+					'label' => __('Add Color', MELA_TD),
 					'type'  =>  Controls_Manager::COLOR,
 				]
 			);
@@ -78,7 +82,7 @@ class Master_Addons_Animated_Gradient_Backgrounds  {
 			$element->add_control(
 				'gradient_color_list',
 				[
-					'label' =>  __('Color' , MELA_TD),
+					'label' =>  __('Color', MELA_TD),
 					'type'  => Controls_Manager::REPEATER,
 					'fields'    =>  array_values($repeater->get_controls()),
 					'title_field'   =>  'Color {{{ma_el_animated_gradient_color}}}',
@@ -108,58 +112,51 @@ class Master_Addons_Animated_Gradient_Backgrounds  {
 		}
 	}
 
-	public function _before_render($element){
-		if($element->get_name() != 'section' && $element->get_name() != 'column'){
+	public function _before_render($element)
+	{
+		if ($element->get_name() != 'section' && $element->get_name() != 'column') {
 			return;
 		}
 
 		$settings = $element->get_settings();
 
-		if($settings['ma_el_animated_gradient_enable'] == 'yes') {
-			
+		if ($settings['ma_el_animated_gradient_enable'] == 'yes') {
+
 			$angle = $settings['gradient_background_angle']['size'];
-			$element->add_render_attribute('_wrapper' , 'data-angle' , $settings['gradient_background_angle']['size'].'deg');
+			$element->add_render_attribute('_wrapper', 'data-angle', $settings['gradient_background_angle']['size'] . 'deg');
 			$gradient_color_list = $settings['gradient_color_list'];
 			foreach ($gradient_color_list as $gradient_color) {
 				$color[] = $gradient_color['ma_el_animated_gradient_color'];
 			};
 			$colors = implode(',', $color);
-			$element->add_render_attribute('_wrapper' , 'data-color' , $colors);
-			?>
-            <!-- <style>
-            .elementor-element-<?php //echo $element->get_id(); ?>.ma-el-animated-gradient-yes{
-                background : <?php //echo 'linear-gradient('.$angle.'deg'.','.$colors.')'; ?>;
+			$element->add_render_attribute('_wrapper', 'data-color', $colors);
+?>
+			<!-- <style>
+            .elementor-element-<?php //echo $element->get_id();
+								?>.ma-el-animated-gradient-yes{
+                background : <?php //echo 'linear-gradient('.$angle.'deg'.','.$colors.')';
+								?>;
             }
 
         </style>-->
-			<?php
+		<?php
 
 		}
-
 	}
 
-	function _print_template($template,$widget){
+	function _print_template($template, $widget)
+	{
 		?>
 		<?php
-		if ( $widget->get_name() != 'section' && $widget->get_name() != 'column' ) {
+		if ($widget->get_name() != 'section' && $widget->get_name() != 'column') {
 			return $template;
 		}
 		$old_template = $template;
 		ob_start();
 		?>
-        <#
-        color_list = settings.gradient_color_list;
-        angle = settings.gradient_background_angle.size;
-        var color = [];
-        var i = 0;
-        _.each(color_list , function(color_list){
-        color[i] = color_list.ma_el_animated_gradient_color;
-        i = i+1;
-        });
-        view.addRenderAttribute('_wrapper', 'data-color', color);
-        #>
-        <div class="animated-gradient" data-angle="{{{ angle }}}deg" data-color="{{{ color }}}"></div>
-		<?php
+		<# color_list=settings.gradient_color_list; angle=settings.gradient_background_angle.size; var color=[]; var i=0; _.each(color_list , function(color_list){ color[i]=color_list.ma_el_animated_gradient_color; i=i+1; }); view.addRenderAttribute('_wrapper', 'data-color' , color); #>
+			<div class="animated-gradient" data-angle="{{{ angle }}}deg" data-color="{{{ color }}}"></div>
+	<?php
 		$slider_content = ob_get_contents();
 		ob_end_clean();
 		$template = $slider_content . $old_template;
@@ -168,11 +165,12 @@ class Master_Addons_Animated_Gradient_Backgrounds  {
 
 
 
-	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
+	public static function instance()
+	{
+		if (is_null(self::$_instance)) {
 			self::$_instance = new self();
 		}
 		return self::$_instance;
 	}
 }
-Master_Addons_Animated_Gradient_Backgrounds::instance();
+Animated_Gradient_Backgrounds::instance();

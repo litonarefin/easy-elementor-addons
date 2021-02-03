@@ -1,5 +1,6 @@
 <?php
-namespace MasterAddons\Inc\Classes;
+
+namespace MasterAddons\Modules;
 
 use \Elementor\Controls_Manager;
 use \Elementor\Element_Base;
@@ -7,21 +8,26 @@ use \Elementor\Element_Base;
 use \MasterAddons\Inc\Classes\JLTMA_Extension_Prototype;
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; };
+if (!defined('ABSPATH')) {
+    exit;
+};
 
-class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
+class Transform_Extension extends JLTMA_Extension_Prototype
+{
 
     private static $instance = null;
     public $name = 'Transforms';
     public $has_controls = true;
 
-    private function add_controls($element, $args) {
+    private function add_controls($element, $args)
+    {
 
         $element_type = $element->get_type();
 
         $element->add_control(
-            'enabled_transform', [
-                'label' => __('Enabled Transforms', MELA_TD ),
+            'enabled_transform',
+            [
+                'label' => __('Enabled Transforms', MELA_TD),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
                 'prefix_class' => 'jltma-transform-',
@@ -41,18 +47,18 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->start_controls_tab(
             'jltma_transform_fx_tab_normal',
             [
-                'label' => __( 'Normal', MELA_TD ),
+                'label' => __('Normal', MELA_TD),
                 'condition' => [
                     'enabled_transform' => 'yes',
                 ],
             ]
         );
-        
+
 
         $element->add_control(
             'jltma_transform_fx_translate_toggle',
             [
-                'label'        => __( 'Translate', MELA_TD ),
+                'label'        => __('Translate', MELA_TD),
                 'type'         => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
                 'condition'    => [
@@ -66,12 +72,12 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_responsive_control(
             'jltma_transform_fx_translate_x',
             [
-                'label'      => __( 'Translate X', MELA_TD ),
+                'label'      => __('Translate X', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range'      => [
                     'px' => [
-                        'min' => - 1000,
+                        'min' => -1000,
                         'max' => 1000,
                     ],
                 ],
@@ -81,19 +87,19 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-translate-x: {{SIZE}}px;'
-                ],                
+                ],
             ]
         );
 
         $element->add_responsive_control(
             'jltma_transform_fx_translate_y',
             [
-                'label'      => __( 'Translate Y', MELA_TD ),
+                'label'      => __('Translate Y', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range'      => [
                     'px' => [
-                        'min' => - 1000,
+                        'min' => -1000,
                         'max' => 1000,
                     ],
                 ],
@@ -105,7 +111,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 'handles'      => 'range',
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-translate-y: {{SIZE}}px;'
-                ],                
+                ],
             ]
         );
 
@@ -115,7 +121,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_control(
             'jltma_transform_fx_rotate_toggle',
             [
-                'label'     => __( 'Rotate', MELA_TD ),
+                'label'     => __('Rotate', MELA_TD),
                 'type'      => Controls_Manager::POPOVER_TOGGLE,
                 'condition' => [
                     'enabled_transform' => 'yes',
@@ -128,12 +134,12 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_responsive_control(
             'jltma_transform_fx_rotate_x',
             [
-                'label'      => __( 'Rotate X', MELA_TD ),
+                'label'      => __('Rotate X', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range'      => [
                     'px' => [
-                        'min' => - 180,
+                        'min' => -180,
                         'max' => 180,
                     ],
                 ],
@@ -143,19 +149,19 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-rotate-x: {{SIZE}}deg;'
-                ],                
+                ],
             ]
         );
 
         $element->add_responsive_control(
             'jltma_transform_fx_rotate_y',
             [
-                'label'      => __( 'Rotate Y', MELA_TD ),
+                'label'      => __('Rotate Y', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range'      => [
                     'px' => [
-                        'min' => - 180,
+                        'min' => -180,
                         'max' => 180,
                     ],
                 ],
@@ -165,19 +171,19 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-rotate-y: {{SIZE}}deg;'
-                ],                
+                ],
             ]
         );
 
         $element->add_responsive_control(
             'jltma_transform_fx_rotate_z',
             [
-                'label'      => __( 'Rotate Z', MELA_TD ),
+                'label'      => __('Rotate Z', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range'      => [
                     'px' => [
-                        'min' => - 180,
+                        'min' => -180,
                         'max' => 180,
                     ],
                 ],
@@ -187,7 +193,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-rotate-z: {{SIZE}}deg;'
-                ],                
+                ],
             ]
         );
 
@@ -196,7 +202,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_control(
             'jltma_transform_fx_scale_toggle',
             [
-                'label'        => __( 'Scale', MELA_TD ),
+                'label'        => __('Scale', MELA_TD),
                 'type'         => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
                 'condition'    => [
@@ -210,9 +216,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_responsive_control(
             'jltma_transform_fx_scale_x',
             [
-                'label'      => __( 'Scale X', MELA_TD ),
+                'label'      => __('Scale X', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'default'    => [
                     'size' => 1,
                 ],
@@ -229,16 +235,16 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-scale-x: {{SIZE}}; --jltma-tfx-scale-y: {{SIZE}};'
-                ],                
+                ],
             ]
         );
 
         $element->add_responsive_control(
             'jltma_transform_fx_scale_y',
             [
-                'label'      => __( 'Scale Y', MELA_TD ),
+                'label'      => __('Scale Y', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'default'    => [
                     'size' => 1,
                 ],
@@ -255,7 +261,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-scale-y: {{SIZE}};'
-                ],                
+                ],
             ]
         );
 
@@ -264,7 +270,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_control(
             'jltma_transform_fx_skew_toggle',
             [
-                'label'        => __( 'Skew', MELA_TD ),
+                'label'        => __('Skew', MELA_TD),
                 'type'         => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
                 'condition'    => [
@@ -278,12 +284,12 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_responsive_control(
             'jltma_transform_fx_skew_x',
             [
-                'label'      => __( 'Skew X', MELA_TD ),
+                'label'      => __('Skew X', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'deg' ],
+                'size_units' => ['deg'],
                 'range'      => [
                     'px' => [
-                        'min' => - 180,
+                        'min' => -180,
                         'max' => 180,
                     ],
                 ],
@@ -293,19 +299,19 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-skew-x: {{SIZE}}deg;'
-                ],                
+                ],
             ]
         );
 
         $element->add_responsive_control(
             'jltma_transform_fx_skew_y',
             [
-                'label'      => __( 'Skew Y', MELA_TD ),
+                'label'      => __('Skew Y', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'deg' ],
+                'size_units' => ['deg'],
                 'range'      => [
                     'px' => [
-                        'min' => - 180,
+                        'min' => -180,
                         'max' => 180,
                     ],
                 ],
@@ -315,7 +321,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-skew-y: {{SIZE}}deg;'
-                ],                
+                ],
             ]
         );
 
@@ -328,7 +334,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->start_controls_tab(
             'jltma_transform_fx_tab_hover',
             [
-                'label' => __( 'Hover', MELA_TD ),
+                'label' => __('Hover', MELA_TD),
                 'condition' => [
                     'enabled_transform' => 'yes',
                 ],
@@ -338,7 +344,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_control(
             'jltma_transform_fx_translate_toggle_hover',
             [
-                'label'        => __( 'Translate', MELA_TD ),
+                'label'        => __('Translate', MELA_TD),
                 'type'         => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
                 'condition'    => [
@@ -352,12 +358,12 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_responsive_control(
             'jltma_transform_fx_translate_x_hover',
             [
-                'label'      => __( 'Translate X', MELA_TD ),
+                'label'      => __('Translate X', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range'      => [
                     'px' => [
-                        'min' => - 1000,
+                        'min' => -1000,
                         'max' => 1000,
                     ],
                 ],
@@ -367,19 +373,19 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-translate-x-hover: {{SIZE}}px;'
-                ],                
+                ],
             ]
         );
 
         $element->add_responsive_control(
             'jltma_transform_fx_translate_y_hover',
             [
-                'label'      => __( 'Translate Y', MELA_TD ),
+                'label'      => __('Translate Y', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range'      => [
                     'px' => [
-                        'min' => - 1000,
+                        'min' => -1000,
                         'max' => 1000,
                     ],
                 ],
@@ -389,7 +395,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-translate-y-hover: {{SIZE}}px;'
-                ],    
+                ],
             ]
         );
 
@@ -399,7 +405,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_control(
             'jltma_transform_fx_rotate_toggle_hover',
             [
-                'label'     => __( 'Rotate', MELA_TD ),
+                'label'     => __('Rotate', MELA_TD),
                 'type'      => Controls_Manager::POPOVER_TOGGLE,
                 'condition' => [
                     'enabled_transform' => 'yes',
@@ -412,12 +418,12 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_responsive_control(
             'jltma_transform_fx_rotate_x_hover',
             [
-                'label'      => __( 'Rotate X', MELA_TD ),
+                'label'      => __('Rotate X', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range'      => [
                     'px' => [
-                        'min' => - 180,
+                        'min' => -180,
                         'max' => 180,
                     ],
                 ],
@@ -427,19 +433,19 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-rotate-x-hover: {{SIZE}}deg;'
-                ],                
+                ],
             ]
         );
 
         $element->add_responsive_control(
             'jltma_transform_fx_rotate_y_hover',
             [
-                'label'      => __( 'Rotate Y', MELA_TD ),
+                'label'      => __('Rotate Y', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range'      => [
                     'px' => [
-                        'min' => - 180,
+                        'min' => -180,
                         'max' => 180,
                     ],
                 ],
@@ -449,19 +455,19 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-rotate-y-hover: {{SIZE}}deg;'
-                ],                
+                ],
             ]
         );
 
         $element->add_responsive_control(
             'jltma_transform_fx_rotate_z_hover',
             [
-                'label'      => __( 'Rotate Z', MELA_TD ),
+                'label'      => __('Rotate Z', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range'      => [
                     'px' => [
-                        'min' => - 180,
+                        'min' => -180,
                         'max' => 180,
                     ],
                 ],
@@ -471,7 +477,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-rotate-z-hover: {{SIZE}}deg;'
-                ],                
+                ],
             ]
         );
 
@@ -480,7 +486,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_control(
             'jltma_transform_fx_scale_toggle_hover',
             [
-                'label'        => __( 'Scale', MELA_TD ),
+                'label'        => __('Scale', MELA_TD),
                 'type'         => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
                 'condition'    => [
@@ -494,9 +500,9 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_responsive_control(
             'jltma_transform_fx_scale_x_hover',
             [
-                'label'      => __( 'Scale X', MELA_TD ),
+                'label'      => __('Scale X', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'default'    => [
                     'size' => 1,
                 ],
@@ -513,16 +519,16 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-scale-x-hover: {{SIZE}}; --jltma-tfx-scale-y-hover: {{SIZE}};'
-                ],                
+                ],
             ]
         );
 
         $element->add_responsive_control(
             'jltma_transform_fx_scale_y_hover',
             [
-                'label'      => __( 'Scale Y', MELA_TD ),
+                'label'      => __('Scale Y', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'default'    => [
                     'size' => 1,
                 ],
@@ -539,7 +545,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-scale-y-hover: {{SIZE}};'
-                ],                
+                ],
             ]
         );
 
@@ -548,7 +554,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_control(
             'jltma_transform_fx_skew_toggle_hover',
             [
-                'label'        => __( 'Skew', MELA_TD ),
+                'label'        => __('Skew', MELA_TD),
                 'type'         => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
                 'condition'    => [
@@ -562,12 +568,12 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_responsive_control(
             'jltma_transform_fx_skew_x_hover',
             [
-                'label'      => __( 'Skew X', MELA_TD ),
+                'label'      => __('Skew X', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'deg' ],
+                'size_units' => ['deg'],
                 'range'      => [
                     'px' => [
-                        'min' => - 180,
+                        'min' => -180,
                         'max' => 180,
                     ],
                 ],
@@ -577,19 +583,19 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-skew-x-hover: {{SIZE}}deg;'
-                ],                
+                ],
             ]
         );
 
         $element->add_responsive_control(
             'jltma_transform_fx_skew_y_hover',
             [
-                'label'      => __( 'Skew Y', MELA_TD ),
+                'label'      => __('Skew Y', MELA_TD),
                 'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'deg' ],
+                'size_units' => ['deg'],
                 'range'      => [
                     'px' => [
-                        'min' => - 180,
+                        'min' => -180,
                         'max' => 180,
                     ],
                 ],
@@ -599,7 +605,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--jltma-tfx-skew-y-hover: {{SIZE}}deg;'
-                ],                
+                ],
             ]
         );
 
@@ -610,7 +616,7 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
         $element->add_control(
             'jltma_transform_fx_transition_duration',
             [
-                'label' => __( 'Transition Duration (seconds)', MELA_TD ),
+                'label' => __('Transition Duration (seconds)', MELA_TD),
                 'type' => Controls_Manager::SLIDER,
                 'separator' => 'before',
                 'size_units' => ['px'],
@@ -633,24 +639,24 @@ class JLTMA_Extension_Transforms extends JLTMA_Extension_Prototype{
 
         $element->end_controls_tab();
         $element->end_controls_tabs();
-
     }
 
 
-    protected function add_actions() {
-        add_action('elementor/element/common/jltma_section_transforms_advanced/before_section_end', function( $element, $args ) {
+    protected function add_actions()
+    {
+        add_action('elementor/element/common/jltma_section_transforms_advanced/before_section_end', function ($element, $args) {
             $this->add_controls($element, $args);
         }, 10, 2);
     }
 
 
-    public static function get_instance() {
-        if ( ! self::$instance ) {
+    public static function get_instance()
+    {
+        if (!self::$instance) {
             self::$instance = new self;
         }
         return self::$instance;
     }
-
 }
 
-JLTMA_Extension_Transforms::get_instance();
+Transform_Extension::get_instance();
