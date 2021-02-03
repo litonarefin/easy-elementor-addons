@@ -1,6 +1,6 @@
 <?php
 
-namespace MasterAddons\Modules;
+namespace MasterAddons\Modules\MegaMenu;
 
 defined('ABSPATH') || exit;
 

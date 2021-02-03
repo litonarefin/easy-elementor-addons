@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name:	Master Mega Menu
  * Description: Mega Menu for Elementor by Master Addons
@@ -12,4 +13,4 @@
  * Domain Path:	/languages
  */
 
- require plugin_dir_path( __FILE__ ) . 'mega-menu.php';
+require plugin_dir_path(__FILE__) . 'mega-menu.php';
