@@ -36,13 +36,13 @@ if (!class_exists('JLTMA_Addon_Extensions')) {
                             'docs_url'          => '',
                             'tuts_url'          => ''
                         ],
-                        [
-                            'key'               => 'bg-slider',
-                            'title'             => esc_html__('Background Slider', MELA_TD),
-                            'demo_url'          => 'https://master-addons.com/demos/background-slider/',
-                            'docs_url'          => 'https://master-addons.com/docs/addons/background-slider-extension/',
-                            'tuts_url'          => 'https://www.youtube.com/watch?v=Z6ujz7Hunjg'
-                        ],
+                        // [
+                        //     'key'               => 'bg-slider',
+                        //     'title'             => esc_html__('Background Slider', MELA_TD),
+                        //     'demo_url'          => 'https://master-addons.com/demos/background-slider/',
+                        //     'docs_url'          => 'https://master-addons.com/docs/addons/background-slider-extension/',
+                        //     'tuts_url'          => 'https://www.youtube.com/watch?v=Z6ujz7Hunjg'
+                        // ],
                         [
                             'key'               => 'custom-css',
                             'title'             => esc_html__('Custom CSS', MELA_TD),
@@ -146,6 +146,20 @@ if (!class_exists('JLTMA_Addon_Extensions')) {
                             'demo_url'      => '',
                             'docs_url'      => 'https://master-addons.com/docs/addons/wrapper-link/',
                             'tuts_url'      => 'https://www.youtube.com/watch?v=fsbK4G9T-qM'
+                        ],
+                        [
+                            'key'           => 'duplicator',
+                            'title'         => esc_html__('Post/Page Duplicator', MELA_TD),
+                            'demo_url'      => '',
+                            'docs_url'      => '',
+                            'tuts_url'      => ''
+                        ],
+                        [
+                            'key'           => 'content-protection',
+                            'title'         => esc_html__('Content Protection', MELA_TD),
+                            'demo_url'      => '',
+                            'docs_url'      => '',
+                            'tuts_url'      => ''
                         ],
                         // [
                         //     'key'           => 'morphing-effects',

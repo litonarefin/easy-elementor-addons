@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
 	exit;
 } // Exit if accessed directly.
 
-class Container_Extras
+class Extension_Container_Extras
 {
 
 	/*
@@ -197,4 +197,4 @@ class Container_Extras
 	}
 }
 
-Container_Extras::get_instance();
+Extension_Container_Extras::get_instance();

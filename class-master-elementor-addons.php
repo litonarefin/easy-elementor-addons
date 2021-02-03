@@ -1097,9 +1097,6 @@ if (!class_exists('Master_Elementor_Addons')) {
 			// Templates Control Class
 			include_once MELA_PLUGIN_PATH . '/inc/classes/template-controls.php';
 
-			// Post/Pages Duplicator
-			include_once MELA_PLUGIN_PATH . '/inc/classes/ma-duplicator.php';
-
 			//Reset Theme Styles
 			include_once MELA_PLUGIN_PATH . '/inc/classes/class-reset-themes.php';
 
