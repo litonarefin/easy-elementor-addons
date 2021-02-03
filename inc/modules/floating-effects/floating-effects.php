@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
  * Reveals - Opening effect
  */
 
-class Floating_Effects extends JLTMA_Extension_Prototype
+class Extension_Floating_Effects extends JLTMA_Extension_Prototype
 {
 
 	private static $instance = null;
@@ -511,4 +511,4 @@ class Floating_Effects extends JLTMA_Extension_Prototype
 	}
 }
 
-Floating_Effects::get_instance();
+Extension_Floating_Effects::get_instance();

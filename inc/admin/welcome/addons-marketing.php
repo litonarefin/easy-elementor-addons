@@ -46,7 +46,7 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
                         <?php if (ma_el_fs()->can_use_premium_code()) { ?>
 
-                            <input type="checkbox" id="<?php echo esc_attr($widget['key']); ?>" class="switch-input" name="<?php echo esc_attr($widget['key']); ?>" <?php checked(1, $this->maad_el_get_settings[$widget], true); ?>>
+                            <input type="checkbox" id="<?php echo esc_attr($widget['key']); ?>" class="switch-input" name="<?php echo esc_attr($widget['key']); ?>" <?php checked(1, $this->maad_el_get_settings[$widget['key']], true); ?>>
 
                         <?php } else { ?>
 

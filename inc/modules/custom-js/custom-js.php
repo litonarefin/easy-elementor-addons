@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 } // Exit if accessed directly.
 
-class Custom_JS
+class Extension_Custom_JS
 {
 
     private static $instance = null;
@@ -106,4 +106,4 @@ class Custom_JS
     }
 }
 
-Custom_JS::get_instance();
+Extension_Custom_JS::get_instance();

@@ -5,7 +5,7 @@ namespace MasterAddons\Modules;
 use \Elementor\Controls_Manager;
 use \Elementor\Repeater;
 
-class Animated_Gradient_Backgrounds
+class Extension_Animated_Gradient_Backgrounds
 {
 
 	private static $_instance = null;
@@ -173,4 +173,4 @@ class Animated_Gradient_Backgrounds
 		return self::$_instance;
 	}
 }
-Animated_Gradient_Backgrounds::instance();
+Extension_Animated_Gradient_Backgrounds::instance();

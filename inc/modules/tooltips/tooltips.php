@@ -2,18 +2,15 @@
 
 namespace MasterAddons\Modules;
 
-// Elementor Extras classes
+// Elementor classes
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Scheme_Typography;
+use \Elementor\Scheme_Color;
 use \Elementor\Utils;
 use \Elementor\Element_Base;
-
-
-// Elementor classes
-use Elementor\Controls_Manager;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Typography;
-use Elementor\Group_Control_Box_Shadow;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
 
 use MasterAddons\Group_Control_Tooltip;
 

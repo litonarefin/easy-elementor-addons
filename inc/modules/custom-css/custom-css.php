@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
 	exit;
 } // Exit if accessed directly.
 
-class Custom_CSS
+class Extension_Custom_CSS
 {
 
 	/*
@@ -120,4 +120,4 @@ selector .child-element{ margin: 10px; }
 	}
 }
 
-Custom_CSS::get_instance();
+Extension_Custom_CSS::get_instance();

@@ -2,11 +2,12 @@
 
 namespace MasterAddons\Modules;
 
+use \Elementor\Element_Base;
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Background;
 
-class Background_Slider
+class Extension_Background_Slider
 {
 	private static $_instance = null;
 
@@ -354,4 +355,4 @@ class Background_Slider
 	}
 }
 
-Background_Slider::instance();
+Extension_Background_Slider::instance();

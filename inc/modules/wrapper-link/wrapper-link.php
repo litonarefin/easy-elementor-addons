@@ -1,7 +1,6 @@
 <?php
 
 namespace MasterAddons\Modules;
-// namespace MasterAddons\Modules\AnimatedGradient;
 
 use \Elementor\Controls_Manager;
 use \Elementor\Element_Base;
@@ -18,7 +17,7 @@ if (!defined('ABSPATH')) {
 } // Exit if accessed directly.
 
 
-class Wrapper_Link
+class Extension_Wrapper_Link
 {
 
     private static $instance = null;
@@ -90,4 +89,4 @@ class Wrapper_Link
     }
 }
 
-Wrapper_Link::get_instance();
+Extension_Wrapper_Link::get_instance();

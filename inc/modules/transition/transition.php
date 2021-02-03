@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 	exit;
 } // Exit if accessed directly.
 
-class Entrance_Animation
+class Extension_Entrance_Animation
 {
 
 	/*
@@ -199,4 +199,4 @@ class Entrance_Animation
 	}
 }
 
-Entrance_Animation::get_instance();
+Extension_Entrance_Animation::get_instance();
