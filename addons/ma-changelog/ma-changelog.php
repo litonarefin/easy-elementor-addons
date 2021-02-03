@@ -9,7 +9,9 @@ namespace MasterAddons\Addons;
  */
 
 // Elementor Classes
-use Elementor\Widget_Base;
+use \Elementor\Widget_Base;
+use \Elementor\Controls_Manager;
+use \Elementor\Repeater;
 
 if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
 

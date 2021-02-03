@@ -8,7 +8,14 @@ namespace MasterAddons\Addons;
  * Date: 6/26/19
  */
 
-use Elementor\Widget_Base;
+use \Elementor\Widget_Base;
+use \Elementor\Utils;
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Image_Size;
+use \Elementor\Group_Control_Background;
+
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 if (!defined('ABSPATH')) exit; // If this file is called directly, abort.

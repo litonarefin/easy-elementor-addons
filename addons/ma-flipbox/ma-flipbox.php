@@ -8,14 +8,16 @@ namespace MasterAddons\Addons;
  * Date: 6/26/19
  */
 
-use Elementor\Widget_Base;
-use Elementor\Controls_Manager;
-use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Border;
-use Elementor\Scheme_Color;
-use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
-use Elementor\Modules\DynamicTags\Module as TagsModule;
+use \Elementor\Widget_Base;
+use \Elementor\Utils;
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Scheme_Typography;
+use \Elementor\Group_Control_Image_Size;
+use \Elementor\Group_Control_Background;
+use \Elementor\Scheme_Color;
+use \Elementor\Modules\DynamicTags\Module as TagsModule;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 

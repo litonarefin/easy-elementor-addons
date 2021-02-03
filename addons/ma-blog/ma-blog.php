@@ -3,10 +3,15 @@
 namespace MasterAddons\Addons;
 
 // Elementor Classes
-use Elementor\Widget_Base;
-use Elementor\Controls_Manager;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Utils;
+use \Elementor\Widget_Base;
+use \Elementor\Controls_Manager;
+use \Elementor\Scheme_Color;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Image_Size;
+use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Group_Control_Css_Filter;
+
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 // Exit if accessed directly.

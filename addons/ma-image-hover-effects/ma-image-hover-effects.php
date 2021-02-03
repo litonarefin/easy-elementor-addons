@@ -8,6 +8,12 @@ use \Elementor\Group_Control_Border as Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography as Group_Control_Typography;
 use \Elementor\Scheme_Typography as Scheme_Typography;
+use \Elementor\Utils;
+use \Elementor\Repeater;
+use \Elementor\Group_Control_Css_Filter;
+use \Elementor\Group_Control_Image_Size;
+use \Elementor\Scheme_Color;
+use \Elementor\Group_Control_Text_Shadow;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**

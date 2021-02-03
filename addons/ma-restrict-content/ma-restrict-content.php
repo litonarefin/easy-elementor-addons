@@ -2,7 +2,13 @@
 
 namespace MasterAddons\Addons;
 
-use Elementor\Widget_Base;
+use \Elementor\Widget_Base;
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Background;
+use \Elementor\Group_Control_Box_Shadow;
+
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 //	use MasterAddons\Inc\Classes\Controls\Templates\Master_Addons_Template_Controls as MA_Templates;
 

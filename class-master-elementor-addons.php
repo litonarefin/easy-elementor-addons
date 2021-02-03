@@ -444,7 +444,9 @@ if (!class_exists('Master_Elementor_Addons')) {
 		{
 
 			// $jltma_third_party_plugins_settings = array_fill_keys(ma_el_array_flatten(self::$jltma_third_party_plugins), true);
-			$jltma_third_party_plugins_settings = array_fill_keys(JLTMA_Third_Party_Extensions::$jltma_third_party_plugins, true);
+			//throwing Error : PHP Notice:  Array to string conversion
+			// $jltma_third_party_plugins_settings = array_fill_keys(JLTMA_Third_Party_Extensions::$jltma_third_party_plugins, true);
+			$jltma_third_party_plugins_settings = JLTMA_Third_Party_Extensions::$jltma_third_party_plugins;
 
 			$jltma_get_third_party_plugins_settings     = get_option('ma_el_third_party_plugins_save_settings', $jltma_third_party_plugins_settings);
 			$jltma_new_third_party_plugins_settings     = array_diff_key($jltma_third_party_plugins_settings, $jltma_get_third_party_plugins_settings);

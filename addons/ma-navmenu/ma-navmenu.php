@@ -3,12 +3,14 @@
 namespace MasterAddons\Addons;
 
 // Elementor Classes
-use Elementor\Widget_Base;
-use Elementor\Controls_Manager;
-use Elementor\Repeater;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
+use \Elementor\Widget_Base;
+use \Elementor\Utils;
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Scheme_Typography;
+use \Elementor\Group_Control_Background;
+use \Elementor\Group_Control_Box_Shadow;
 
 use MasterAddons\Inc\Controls\MA_Control_Visual_Select;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
