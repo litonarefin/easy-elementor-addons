@@ -2,12 +2,6 @@
 
 namespace MasterAddons\Addons;
 
-/**
- * Author Name: Liton Arefin
- * Author URL: https://jeweltheme.com
- * Date: 6/25/19
- */
-
 use \Elementor\Controls_Manager as Controls_Manager;
 use \Elementor\Group_Control_Border as Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
@@ -16,6 +10,12 @@ use \Elementor\Scheme_Typography as Scheme_Typography;
 use \Elementor\Widget_Base as Widget_Base;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
+
+/**
+ * Author Name: Liton Arefin
+ * Author URL: https://jeweltheme.com
+ * Date: 6/25/19
+ */
 
 
 if (!defined('ABSPATH')) exit; // If this file is called directly, abort.

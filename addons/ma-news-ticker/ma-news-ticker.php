@@ -3,12 +3,13 @@
 namespace MasterAddons\Addons;
 
 // Elementor Classes
-use Elementor\Widget_Base;
-use Elementor\Controls_Manager;
-use Elementor\Repeater;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
+use \Elementor\Widget_Base;
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Scheme_Typography;
+
+
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
