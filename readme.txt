@@ -375,8 +375,11 @@ Paste on your Local Computer
 
 
 == Changelog ==
-= 1.5.7 (30-01-2021) =
-* Updated: 'jquery-slick' updated with 'swiper' scripts
+= 1.5.7 (7-02-2021) =
+* Updated: 'jquery-slick' updated with 'swiper' scripts. Updated Widgets - MA Blog, MA Slider, MA Gallery Slider, MA Twitter Slider, MA Timeline etc
+* Added: New addon added "Advanced Image"
+* Updated: Fully revamped plugins file structure with namespace and file locations.
+
 
 = 1.5.6.2 (24-01-2021) =
 * Added: Custom Timeline date_format option added.
