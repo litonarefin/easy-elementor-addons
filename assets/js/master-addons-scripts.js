@@ -759,7 +759,7 @@
                 uniqueId 		    = getUniqueLoopScopeId( $scope ),
                 scopeId 		    = $scope.data('id'),
                 $preview            = $scope.find('.jltma-gallery-slider__preview'),
-                $thumbs             = $scope.find('.jltma-gallery .jltma-gallery__item'),
+                $thumbs             = $scope.find('.jltma-swiper__wrapper .jltma-gallery__item'),
                 $thumbnailsSlider   = $scope.find(".jltma-gallery-slider__gallery .jltma-gallery"),
                 $thumbtype          = elementSettings.jltma_gallery_slider_thumb_type,
                 $thumbposition      = elementSettings.jltma_gallery_slider_preview_position,
@@ -806,7 +806,7 @@
                     }
                 };
 
-                // console.log('$swiperCarousel', $swiperCarousel);
+                console.log('$swiperCarousel', $swiperCarousel);
 
                 // If Carousel
                 if ( hasCarousel ) {
@@ -869,10 +869,11 @@
             Master_Addons.MA_Gallery_Slider.init = function() {
 
                 swiperSlider = Master_Addons.MA_Carousel( $swiperSlider, sliderSettings );
-                console.log('Offset', swiperSlider);
+
 
 				// if ( hasCarousel ) {
-					swiperCarousel = Master_Addons.MA_Carousel( $swiperCarousel, carouselSettings );
+                    swiperCarousel = Master_Addons.MA_Carousel( $swiperCarousel, carouselSettings );
+                    console.log('swiperCarousel', swiperCarousel);
 				// }
 
 				Master_Addons.MA_Gallery_Slider.onSlideChange();
@@ -882,7 +883,7 @@
 
             Master_Addons.MA_Gallery_Slider.events = function() {
                 swiperSlider.on('slideChange', Master_Addons.MA_Gallery_Slider.onSlideChange );
-				$thumbs.on( 'click', Master_Addons.MA_Gallery_Slider.onThumbClicked );
+                $thumbs.on( 'click', Master_Addons.MA_Gallery_Slider.onThumbClicked );
             };
 
 			Master_Addons.MA_Gallery_Slider.onSlideChange = function() {

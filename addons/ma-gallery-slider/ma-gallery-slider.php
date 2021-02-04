@@ -307,6 +307,77 @@ class Gallery_Slider extends Widget_Base
 			]
 		);
 
+		$this->add_responsive_control(
+			'carousel_slides_to_scroll',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Slides to Scroll', MELA_TD),
+				'options' 		=> ['' => __('Default', MELA_TD)] + $slides_per_column,
+				'condition' 	=> [
+					'jltma_gallery_slider_show_thumbnails!' => '',
+					'jltma_gallery_slider_thumb_type' => 'slide',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_responsive_control(
+			'carousel_spacing',
+			[
+				'label' 			=> __('Spacing', MELA_TD),
+				'type' 				=> Controls_Manager::SLIDER,
+				'default'			=> [
+					'size' => 24,
+					'unit' => 'px',
+				],
+				'tablet_default'	=> [
+					'size' => 12,
+					'unit' => 'px',
+				],
+				'mobile_default'	=> [
+					'size' => 6,
+					'unit' => 'px',
+				],
+				'size_units' 		=> ['px'],
+				'range' 			=> [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'condition' 		=> [
+					'jltma_gallery_slider_show_thumbnails!' => '',
+					'jltma_gallery_slider_thumb_type' => 'slide',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'carousel_resistance',
+			[
+				'label' 		=> __('Resistance', MELA_TD),
+				'description'	=> __('Set the value for resistant bounds.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'default' 		=> [
+					'size' 		=> 0.25,
+					'unit' 		=> 'px',
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 1,
+						'step'	=> 0.05,
+					],
+				],
+				'condition' 	=> [
+					'jltma_gallery_slider_show_thumbnails!' => '',
+					'jltma_gallery_slider_thumb_type' => 'slide',
+				],
+				'frontend_available' => true,
+			]
+		);
+
 		$this->add_control(
 			'jltma_gallery_slider_thumb_show_arrows',
 			[
