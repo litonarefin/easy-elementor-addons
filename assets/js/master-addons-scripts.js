@@ -759,7 +759,6 @@
                 uniqueId 		    = getUniqueLoopScopeId( $scope ),
                 scopeId 		    = $scope.data('id'),
                 $preview            = $scope.find('.jltma-gallery-slider__preview'),
-                hasCarousel         = $swiperCarousel.length,
                 $thumbs             = $scope.find('.jltma-gallery .jltma-gallery__item'),
                 $thumbnailsSlider   = $scope.find(".jltma-gallery-slider__gallery .jltma-gallery"),
                 $thumbtype          = elementSettings.jltma_gallery_slider_thumb_type,
@@ -791,7 +790,11 @@
 						// arrowNext 				: '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
 						effect 					: elementSettings.jltma_gallery_slider_effect,
 						speed 					: elementSettings.speed ? elementSettings.speed.size : 500,
-						resistance 				: elementSettings.resistance ? elementSettings.resistance.size : 0.25,
+                        resistance 				: elementSettings.resistance ? elementSettings.resistance.size : 0.25,
+                        keyboard: {
+                                // enabled: "yes" === slider_data.jltma_slider_keyboard ? true : false
+                                enabled: true
+                        },
 					},
 					default : {
 						effect 			: 'slide',
@@ -803,33 +806,35 @@
                     }
                 };
 
+                // console.log('$swiperCarousel', $swiperCarousel);
+
                 // If Carousel
-                // if ( hasCarousel ) {
+                if ( hasCarousel ) {
 				    var carouselSettings = {
 						key 		: 'carousel',
 						scope 		: $scope,
 						id 			: uniqueId,
 						element : {
 							direction 			: elementSettings.carousel_orientation,
-							arrows 				: '' !== elementSettings.carousel_arrows,
+							arrows 				: '' !== elementSettings.jltma_gallery_slider_thumb_show_arrows,
 							arrowPrev 			: '.jltma-arrow--prev',
 							arrowNext 			: '.jltma-arrow--next',
 							autoHeight 			: false,
-							speed 				: elementSettings.carousel_speed ? elementSettings.carousel_speed.size : 500,
-							slidesPerView 		: elementSettings.carousel_slides_per_view_mobile,
+							speed 				: elementSettings.jltma_gallery_slider_thumb_speed ? elementSettings.jltma_gallery_slider_thumb_speed.size : 500,
+							slidesPerView 		: elementSettings.jltma_gallery_slider_thumb_items_mobile,
 							slidesPerColumn 	: 'vertical' === elementSettings.carousel_orientation ? 1 : elementSettings.carousel_slides_per_column_mobile,
 							slidesPerGroup 		: elementSettings.carousel_slides_to_scroll_mobile,
 							resistance 			: elementSettings.carousel_resistance ? elementSettings.carousel_resistance.size : 0.15,
 							spaceBetween 		: elementSettings.carousel_spacing_mobile ? elementSettings.carousel_spacing_mobile.size : 0,
 							breakpoints 		: {
 								tablet : {
-									slidesPerView 	: elementSettings.carousel_slides_per_view_tablet,
+									slidesPerView 	: elementSettings.jltma_gallery_slider_thumb_items_tablet,
 									slidesPerColumn : 'vertical' === elementSettings.carousel_orientation ? 1 : elementSettings.carousel_slides_per_column_tablet,
 									slidesPerGroup 	: elementSettings.carousel_slides_to_scroll_tablet,
 									spaceBetween 	: elementSettings.carousel_spacing_tablet ? elementSettings.carousel_spacing_tablet.size : 0,
 								},
 								desktop : {
-									slidesPerView 	: elementSettings.carousel_slides_per_view,
+									slidesPerView 	: elementSettings.jltma_gallery_slider_thumb_items,
 									slidesPerColumn : 'vertical' === elementSettings.carousel_orientation ? 1 : elementSettings.carousel_slides_per_column,
 									slidesPerGroup 	: elementSettings.carousel_slides_to_scroll,
 									spaceBetween 	: elementSettings.carousel_spacing ? elementSettings.carousel_spacing.size : 0,
@@ -858,15 +863,16 @@
 							},
 						},
 					};
-                // }
+                }
 
 
             Master_Addons.MA_Gallery_Slider.init = function() {
 
-				swiperSlider = Master_Addons.MA_Carousel( $swiperSlider, sliderSettings );
+                swiperSlider = Master_Addons.MA_Carousel( $swiperSlider, sliderSettings );
+                console.log('Offset', swiperSlider);
 
 				// if ( hasCarousel ) {
-				// 	swiperCarousel = Master_Addons.MA_Carousel( $swiperCarousel, carouselSettings );
+					swiperCarousel = Master_Addons.MA_Carousel( $swiperCarousel, carouselSettings );
 				// }
 
 				Master_Addons.MA_Gallery_Slider.onSlideChange();
@@ -893,7 +899,8 @@
 			Master_Addons.MA_Gallery_Slider.onThumbClicked = function( event ) {
 				var offset = sliderSettings.element.loop ? 1 : 0;
 
-                console.log('Swiper Index', $(this).index());
+                // console.log('Swiper Index', $(this).index());
+                console.log('Swiper Index', sliderSettings.element.loop);
 
 				event.preventDefault();
 				swiperSlider.slideTo( $(this).index() + offset );
