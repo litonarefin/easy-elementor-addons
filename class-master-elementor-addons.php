@@ -5,7 +5,6 @@ namespace MasterAddons;
 use MasterAddons\Admin\Dashboard\Master_Addons_Admin_Settings;
 use MasterAddons\Admin\Dashboard\Addons\Extensions\JLTMA_Addon_Extensions;
 use MasterAddons\Admin\Dashboard\Addons\Elements\JLTMA_Addon_Elements;
-use MasterAddons\Admin\Dashboard\Addons\Extensions\JLTMA_Third_Party_Extensions;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 if (!defined('ABSPATH')) {

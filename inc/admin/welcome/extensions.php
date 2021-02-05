@@ -92,16 +92,16 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 												<?php if (ma_el_fs()->can_use_premium_code()) { ?>
 
-													<input type="checkbox" id="<?php echo esc_attr($extension['key']); ?>" class="switch-input" name="<?php echo esc_attr($extension['key']); ?>" <?php checked(1, $this->maad_el_get_extension_settings[$extension['key']], true); ?>>
+													<input type="checkbox" id="<?php echo esc_attr($extension['key']); ?>" class="switch-input" name="<?php echo esc_attr($extension['key']); ?>" <?php checked(1, $this->jltma_get_extension_settings[$extension['key']], true); ?>>
 
 												<?php } else { ?>
 
 													<input type="checkbox" id="<?php echo esc_attr($extension['key']); ?>" class="switch-input " name="<?php echo esc_attr($extension['key']); ?>" <?php
 																																																	if (!ma_el_fs()->can_use_premium_code() && isset($extension['is_pro']) && $extension['is_pro']) {
-																																																		checked(0, $this->maad_el_get_extension_settings[$extension['key']], false);
+																																																		checked(0, $this->jltma_get_extension_settings[$extension['key']], false);
 																																																		echo "disabled";
 																																																	} else {
-																																																		checked(1, $this->maad_el_get_extension_settings[$extension['key']], true);
+																																																		checked(1, $this->jltma_get_extension_settings[$extension['key']], true);
 																																																	}  ?> />
 												<?php  } ?>
 

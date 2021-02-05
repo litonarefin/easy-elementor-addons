@@ -26,14 +26,14 @@ class Master_Addons_Admin_Settings
 	public $menu_title;
 
 	// Master Addons Elements Property
-	private $maad_el_default_settings;
+	private $jltma_default_element_settings;
 	private $maad_el_settings;
-	private $maad_el_get_settings;
+	private $jltma_get_element_settings;
 
 	// Master Addons Elements Property
-	private $ma_el_default_extensions_settings;
+	private $jltma_default_extension_settings;
 	private $maad_el_extension_settings;
-	private $maad_el_get_extension_settings;
+	private $jltma_get_extension_settings;
 
 	// Master Addons Third Party Plugins Property
 	private $jltma_default_third_party_plugins_settings;
@@ -154,12 +154,12 @@ class Master_Addons_Admin_Settings
 	{
 
 		// Master Addons Elements Settings
-		$this->maad_el_default_settings = array_fill_keys(self::jltma_addons_array(), true);
-		$this->maad_el_get_settings 	= get_option('maad_el_save_settings', $this->maad_el_default_settings);
+		$this->jltma_default_element_settings = array_fill_keys(self::jltma_addons_array(), true);
+		$this->jltma_get_element_settings 	= get_option('maad_el_save_settings', $this->jltma_default_element_settings);
 
 		// Master Addons Extensions Settings
-		$this->ma_el_default_extensions_settings = array_fill_keys(self::jltma_addons_extensions_array(), true);
-		$this->maad_el_get_extension_settings = get_option('ma_el_extensions_save_settings', $this->ma_el_default_extensions_settings);
+		$this->jltma_default_extension_settings = array_fill_keys(self::jltma_addons_extensions_array(), true);
+		$this->jltma_get_extension_settings = get_option('ma_el_extensions_save_settings', $this->jltma_default_extension_settings);
 
 
 		// Master Addons Third Party Plugins Settings
@@ -208,13 +208,12 @@ class Master_Addons_Admin_Settings
 	public static function jltma_addons_third_party_plugins_array()
 	{
 		// Separated Addons on new Format
-		$jltma_new_extensions = [];
+		$jltma_new_third_party_plugins = [];
 
-		foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $key => $extension) {
-			$jltma_new_extensions[] = $extension['key'];
+		foreach (JLTMA_Third_Party_Extensions::$jltma_third_party_plugins['jltma-plugins']['plugin'] as $key => $plugin) {
+			$jltma_new_third_party_plugins[] = $plugin['key'];
 		}
-
-		return $jltma_new_extensions;
+		return $jltma_new_third_party_plugins;
 	}
 
 	public function master_addons_save_elements_settings()
