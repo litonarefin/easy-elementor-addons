@@ -72,13 +72,8 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 			add_action('elementor/init', [$this, 'jltma_add_actions_to_elementor'], 0);
 
-
 			// Placeholder image replacement
 			add_filter('elementor/utils/get_placeholder_image_src', [$this, 'jltma_replace_placeholder_image']);
-
-
-
-
 
 			// Add Elementor Widgets
 			add_action('elementor/widgets/widgets_registered', [$this, 'jltma_init_widgets']);
