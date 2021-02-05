@@ -68,7 +68,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 			add_filter('plugin_action_links_' . plugin_basename(__FILE__), [$this, 'plugin_actions_links']);
 
-			add_action('elementor/init', [$this, 'mela_category']);
+			add_action('elementor/init', [$this, 'jltma_add_category_to_editor']);
 
 			add_action('elementor/init', [$this, 'jltma_add_actions_to_elementor'], 0);
 
@@ -79,7 +79,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 			add_action('elementor/widgets/widgets_registered', [$this, 'jltma_init_widgets']);
 
 			//Register Controls
-			add_action('elementor/controls/controls_registered', array($this, 'jltma_register_controls'));
+			add_action('elementor/controls/controls_registered', [$this, 'jltma_register_controls']);
 
 			add_action('admin_post_master_addons_rollback', 'jltma_post_addons_rollback');
 
@@ -87,7 +87,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 			add_action('body_class', [$this, 'jltma_body_class']);
 
 			// Override Freemius Filters
-			ma_el_fs()->add_filter('support_forum_submenu', array($this, 'override_support_menu_text'));
+			ma_el_fs()->add_filter('support_forum_submenu', [$this, 'override_support_menu_text']);
 		}
 
 
@@ -251,7 +251,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 
 
-		function mela_category()
+		function jltma_add_category_to_editor()
 		{
 
 			\Elementor\Plugin::instance()->elements_manager->add_category(
