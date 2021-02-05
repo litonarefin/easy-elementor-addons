@@ -7,6 +7,7 @@ use MasterAddons\Master_Elementor_Addons;
 class Master_Addons_Assets
 {
     private static $instance = null;
+    public $gsap_version = '1.20.2';
 
     public function __construct()
     {

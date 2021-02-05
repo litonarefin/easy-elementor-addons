@@ -30,7 +30,6 @@ if (!class_exists('Master_Elementor_Addons')) {
 		private static $plugin_slug;
 		public static $plugin_dir_url;
 		public static $plugin_name = 'Master Addons';
-		public $gsap_version = '1.20.2';
 
 		private static $instance = null;
 
