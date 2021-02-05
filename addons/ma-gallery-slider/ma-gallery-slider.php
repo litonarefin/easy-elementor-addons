@@ -265,12 +265,13 @@ class Gallery_Slider extends Widget_Base
 		$this->add_responsive_control(
 			'jltma_gallery_slider_thumb_items',
 			[
-				'label' 	=> esc_html__('No. of Items', MELA_TD),
-				'type' 		=> Controls_Manager::SELECT,
-				'default' 	=> '5',
-				'tablet_default' 	=> '4',
-				'mobile_default' 	=> '3',
+				'label' 			=> esc_html__('Slides Per View', MELA_TD),
+				'type' 				=> Controls_Manager::SELECT,
+				'default' 			=> '',
+				'tablet_default' 	=> '',
+				'mobile_default' 	=> '',
 				'options' 			=> [
+					'' => __('Default', MELA_TD),
 					'1' => '1',
 					'2' => '2',
 					'3' => '3',

@@ -10,9 +10,11 @@ add_action('wp_dashboard_setup', 'ma_el_dashboard_widgets');
 function ma_el_dashboard_widgets()
 {
 	global $wp_meta_boxes;
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins'],
-	$wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary'],
-	$wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
+	unset(
+		$wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins'],
+		$wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary'],
+		$wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']
+	);
 
 	// add a custom dashboard widget
 	wp_add_dashboard_widget(
@@ -77,7 +79,7 @@ function ma_el_dashboard_news_feed()
 				<li class="ma-el-overview__<?php echo esc_attr($action_id); ?>"><a href="<?php echo esc_attr(
 																								$action['link']
 																							); ?>" target="_blank"><?php echo esc_html($action['title']); ?> <span class="screen-reader-text"><?php echo __('(opens in a new window)', MELA_TD);
-																																		?></span><span aria-hidden="true" class="dashicons dashicons-external"></span></a></li>
+																																																?></span><span aria-hidden="true" class="dashicons dashicons-external"></span></a></li>
 			<?php endforeach; ?>
 		</ul>
 	</div>

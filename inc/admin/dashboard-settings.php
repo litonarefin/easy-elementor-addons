@@ -154,16 +154,16 @@ class Master_Addons_Admin_Settings
 	{
 
 		// Master Addons Elements Settings
-		$this->maad_el_default_settings = array_fill_keys(ma_el_array_flatten(Master_Elementor_Addons::$maad_el_default_widgets), true);
+		$this->maad_el_default_settings = array_fill_keys(self::jltma_addons_array(), true);
 		$this->maad_el_get_settings 	= get_option('maad_el_save_settings', $this->maad_el_default_settings);
 
 		// Master Addons Extensions Settings
-		$this->ma_el_default_extensions_settings = array_fill_keys(ma_el_array_flatten(Master_Elementor_Addons::$ma_el_extensions), true);
+		$this->ma_el_default_extensions_settings = array_fill_keys(self::jltma_addons_extensions_array(), true);
 		$this->maad_el_get_extension_settings = get_option('ma_el_extensions_save_settings', $this->ma_el_default_extensions_settings);
 
 
 		// Master Addons Third Party Plugins Settings
-		$this->jltma_default_third_party_plugins_settings = array_fill_keys(ma_el_array_flatten(Master_Elementor_Addons::$jltma_third_party_plugins), true);
+		$this->jltma_default_third_party_plugins_settings = array_fill_keys(self::jltma_addons_third_party_plugins_array(), true);
 		$this->jltma_get_third_party_plugins_settings = get_option('ma_el_third_party_plugins_save_settings', $this->jltma_default_third_party_plugins_settings);
 
 		// Welcome Page
@@ -192,6 +192,20 @@ class Master_Addons_Admin_Settings
 
 	// Extensions Array
 	public static function jltma_addons_extensions_array()
+	{
+		// Separated Addons on new Format
+		$jltma_new_extensions = [];
+
+		foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $key => $extension) {
+			$jltma_new_extensions[] = $extension['key'];
+		}
+
+		return $jltma_new_extensions;
+	}
+
+
+	// Third Party Plugins Array
+	public static function jltma_addons_third_party_plugins_array()
 	{
 		// Separated Addons on new Format
 		$jltma_new_extensions = [];

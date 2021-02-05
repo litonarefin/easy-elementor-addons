@@ -55,101 +55,6 @@ if (!class_exists('Master_Elementor_Addons')) {
 		public function __construct()
 		{
 			$this->reflection = new \ReflectionClass($this);
-			self::$maad_el_default_widgets = [
-				'ma-animated-headlines',     	// 1
-				'ma-call-to-action',         	// 2
-				'ma-dual-heading',           	// 3
-				'ma-accordion',              	// 4
-				'ma-tabs',                   	// 5
-				'ma-tooltip',                	// 6
-				'ma-progressbar',            	// 7
-				'ma-progressbars',           	// 8
-				'ma-team-members',           	// 9
-				'ma-team-members-slider',    	// 10
-				'ma-creative-buttons',       	// 11
-				'ma-changelog',              	// 12
-				'ma-infobox',                	// 13
-				'ma-flipbox',                	// 14
-				'ma-creative-links',         	// 15
-				'ma-image-hover-effects',    	// 16
-				'ma-blog',                   	// 17
-				['ma-news-ticker', 'pro'],    	// 18
-				'ma-timeline',               	// 19
-				'ma-business-hours',         	// 20
-				'ma-table-of-contents',      	// 21
-				['ma-image-hotspot', 'pro'],  	// 22
-				'ma-image-filter-gallery',   	// 23
-				'ma-pricing-table',          	// 24
-				'ma-image-comparison',       	// 25
-				['ma-restrict-content', 'pro'],  // 26
-				'ma-current-time',      		// 27
-				['ma-domain-checker', 'pro'],    // 28
-				'ma-table',						// 29
-				'ma-navmenu',					// 30
-				'ma-search',					// 31
-				'ma-blockquote',				// 32
-				['ma-instagram-feed', 'pro'],    // 33
-				'ma-counter-up',				// 34
-				'ma-countdown-timer',			// 35
-				['ma-toggle-content', 'pro'],	// 36
-				['ma-gallery-slider', 'pro'],	// 37
-				'ma-gradient-headline',			// 38
-				// 'ma-advanced-image',			// 39
-				// 'ma-image-cascading',			// 40
-				// 'ma-image-carousel',			// 41
-				// 'ma-logo-slider',				// 42
-				// 'ma-twitter-slider',			// 43
-				// 'ma-morphing-blob',				// 44
-
-				// Form Elements
-				'contact-form-7',           	// 38
-				'ninja-forms',              	// 39
-				'wpforms',                  	// 40
-				['gravity-forms', 'pro'],    	// 41
-				'caldera-forms',            	// 42
-				'weforms',                  	// 43
-
-				// Marketing Addons
-				'ma-mailchimp',             	// 44
-			];
-
-			self::$jltma_new_widgets_settings = [];
-
-			self::$maad_el_pro_widgets = [
-				'gravity-forms',
-				'ma-news-ticker',
-				'ma-image-hotspot',
-				'ma-instagram-feed',
-			];
-
-			// Extensions
-			self::$ma_el_extensions = [
-				'particles',
-				['animated-gradient', 'pro'],
-				'reading-progress-bar',
-				'bg-slider',
-				'custom-css',
-				'custom-js',
-				'positioning',
-				'extras',
-				'mega-menu',
-				['transition', 'pro'],
-				['transforms', 'pro'],
-				['rellax', 'pro'],
-				['reveal', 'pro'],
-				'header-footer-comment',
-				//					'pseudo-elements', //need to fix before and after
-				['display-conditions', 'pro'],
-				'dynamic-tags',
-				['floating-effects', 'pro'],
-				'wrapper-link',
-				// ['morphing-effects','pro'],
-				// 'live-copy',
-			];
-
-			self::$jltma_third_party_plugins = [
-				'custom-breakpoints'
-			];
 
 			$this->constants();
 			$this->maad_el_include_files();
@@ -389,74 +294,51 @@ if (!class_exists('Master_Elementor_Addons')) {
 			add_image_size('master_addons_team_thumb', 250, 330, true);
 		}
 
-
+		// Widget Elements
 		public static function activated_widgets()
 		{
-			// $maad_el_default_settings = Master_Addons_Admin_Settings::jltma_addons_array();
-			// $maad_el_default_settings = array_fill_keys(ma_el_array_flatten(self::$maad_el_default_widgets), true);
-			$maad_el_default_settings = array_fill_keys(Master_Addons_Admin_Settings::jltma_addons_array(), true);
-			// print_r($maad_el_default_settings);
-			$maad_el_get_settings     = get_option('maad_el_save_settings', $maad_el_default_settings);
-			$maad_el_new_settings     = array_diff_key($maad_el_default_settings, $maad_el_get_settings);
-			$maad_el_updated_settings = array_merge($maad_el_get_settings, $maad_el_new_settings);
+			$jltma_default_element_settings 	= array_fill_keys(Master_Addons_Admin_Settings::jltma_addons_array(), true);
+			$jltma_get_element_settings     	= get_option('maad_el_save_settings', $jltma_default_element_settings);
+			$jltma_new_element_settings     	= array_diff_key($jltma_default_element_settings, $jltma_get_element_settings);
+			$jltma_updated_element_settings 	= array_merge($jltma_get_element_settings, $jltma_new_element_settings);
 
-			if ($maad_el_get_settings === false)
-				$maad_el_get_settings = array();
-			update_option('maad_el_save_settings', $maad_el_updated_settings);
+			if ($jltma_get_element_settings === false) {
+				$jltma_get_element_settings = array();
+			}
+			update_option('maad_el_save_settings', $jltma_updated_element_settings);
 
-			return $maad_el_get_settings;
+			return $jltma_get_element_settings;
 		}
 
-
-
-
+		// Extensions
 		public static function activated_extensions()
 		{
-			// $ma_el_default_extensions_settings = array_fill_keys(ma_el_array_flatten(self::$ma_el_extensions), true);
-			$ma_el_default_extensions_settings = array_fill_keys(Master_Addons_Admin_Settings::jltma_addons_extensions_array(), true);
-			// print_r($ma_el_default_extensions_settings);
-			// print_r(Master_Addons_Admin_Settings::jltma_addons_extensions_array());
-			// $ma_el_default_extensions_settings = Master_Addons_Admin_Settings::jltma_addons_extensions_array();
-			// echo get_option('ma_el_extensions_save_settings');
-			// print_r(Master_Addons_Admin_Settings::jltma_addons_extensions_array(), true);
+			$jltma_default_extensions_settings 	= array_fill_keys(Master_Addons_Admin_Settings::jltma_addons_extensions_array(), true);
+			$jltma_get_extension_settings     	= get_option('ma_el_extensions_save_settings', $jltma_default_extensions_settings);
+			$jltma_new_extension_settings     	= array_diff_key($jltma_default_extensions_settings, $jltma_get_extension_settings);
+			$jltma_updated_extension_settings 	= array_merge($jltma_get_extension_settings, $jltma_new_extension_settings);
 
-			$maad_el_get_extension_settings     = get_option('ma_el_extensions_save_settings', $ma_el_default_extensions_settings);
-			// print_r($ma_el_default_extensions_settings);
-			// print_r($maad_el_get_extension_settings);
-			$maad_el_new_extension_settings     = array_diff_key($ma_el_default_extensions_settings, $maad_el_get_extension_settings);
-			// print_r($maad_el_new_extension_settings);
-			$maad_el_updated_extension_settings = array_merge(
-				$maad_el_get_extension_settings,
-				$maad_el_new_extension_settings
-			);
+			if ($jltma_get_extension_settings === false) {
+				$jltma_get_extension_settings = array();
+			}
 
-			if ($maad_el_get_extension_settings === false)
-				$maad_el_get_extension_settings = array();
+			update_option('ma_el_extensions_save_settings', $jltma_updated_extension_settings);
 
-			update_option('ma_el_extensions_save_settings', $maad_el_updated_extension_settings);
-
-			return $maad_el_get_extension_settings;
+			return $jltma_get_extension_settings;
 		}
 
 
-
+		// Third Party Plugins
 		public static function activated_third_party_plugins()
 		{
-
-			// $jltma_third_party_plugins_settings = array_fill_keys(ma_el_array_flatten(self::$jltma_third_party_plugins), true);
-			//throwing Error : PHP Notice:  Array to string conversion
-			// $jltma_third_party_plugins_settings = array_fill_keys(JLTMA_Third_Party_Extensions::$jltma_third_party_plugins, true);
-			$jltma_third_party_plugins_settings = JLTMA_Third_Party_Extensions::$jltma_third_party_plugins;
-
+			$jltma_third_party_plugins_settings 		= array_fill_keys(Master_Addons_Admin_Settings::jltma_addons_third_party_plugins_array(), true);
 			$jltma_get_third_party_plugins_settings     = get_option('ma_el_third_party_plugins_save_settings', $jltma_third_party_plugins_settings);
 			$jltma_new_third_party_plugins_settings     = array_diff_key($jltma_third_party_plugins_settings, $jltma_get_third_party_plugins_settings);
-			$maad_el_updated_extension_settings = array_merge(
-				$jltma_get_third_party_plugins_settings,
-				$jltma_new_third_party_plugins_settings
-			);
+			$maad_el_updated_extension_settings 		= array_merge($jltma_get_third_party_plugins_settings, $jltma_new_third_party_plugins_settings);
 
-			if ($jltma_get_third_party_plugins_settings === false)
+			if ($jltma_get_third_party_plugins_settings === false) {
 				$jltma_get_third_party_plugins_settings = array();
+			}
 			update_option('ma_el_third_party_plugins_save_settings', $maad_el_updated_extension_settings);
 
 			return $jltma_get_third_party_plugins_settings;
@@ -582,9 +464,14 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 					$widget_file = MAAD_EL_ADDONS . $widget['key'] . '/' . $widget['key'] . '.php';
 
+					if (!ma_el_fs()->can_use_premium_code() && (isset($widget['is_pro']) && $widget['is_pro'])) {
+						continue;
+					}
+
 					if (file_exists($widget_file)) {
 						require_once $widget_file;
 					}
+
 					$widget_class_name = preg_replace('/\s+/', '_', $widget['title']);
 
 					$class_name = $this->reflection->getNamespaceName() . '\Addons\\' . $widget_class_name;
