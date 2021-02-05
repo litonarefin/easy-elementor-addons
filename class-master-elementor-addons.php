@@ -433,23 +433,27 @@ if (!class_exists('Master_Elementor_Addons')) {
 				foreach ($blogs as $blog_id) {
 					switch_to_blog($blog_id->blog_id);
 
-					foreach (self::$maad_el_default_widgets as $widget) {
-						$is_pro = "";
-						if (isset($widget)) {
-							if (is_array($widget)) {
-								$is_pro = $widget[1];
-								$widget = $widget[0];
+					$widget_manager = Master_Addons_Helper::jltma_elementor()->widgets_manager;
 
-								if (ma_el_fs()->can_use_premium_code()) {
-									if ($activated_widgets[$widget] == true && $is_pro == "pro") {
-										require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
-									}
-								}
+					ksort(JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements']);
+					foreach (JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements'] as $key =>  $widget) {
+						if (isset($activated_widgets[$widget['key']]) && $activated_widgets[$widget['key']] == true) {
+
+							$widget_file = MAAD_EL_ADDONS . $widget['key'] . '/' . $widget['key'] . '.php';
+
+							if (!ma_el_fs()->can_use_premium_code() && (isset($widget['is_pro']) && $widget['is_pro'])) {
+								continue;
 							}
-						}
 
-						if ($activated_widgets[$widget] == true && $is_pro != "pro") {
-							require_once MAAD_EL_ADDONS . $widget . '/' . $widget . '.php';
+							if (file_exists($widget_file)) {
+								require_once $widget_file;
+							}
+							// }
+
+							$widget_class_name = preg_replace('/\s+/', '_', $widget['title']);
+
+							$class_name = $this->reflection->getNamespaceName() . '\Addons\\' . $widget_class_name;
+							$widget_manager->register_widget_type(new $class_name);
 						}
 					}
 				}
@@ -461,21 +465,24 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 				ksort(JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements']);
 				foreach (JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements'] as $key =>  $widget) {
+					if (isset($activated_widgets[$widget['key']]) && $activated_widgets[$widget['key']] == true) {
 
-					$widget_file = MAAD_EL_ADDONS . $widget['key'] . '/' . $widget['key'] . '.php';
+						$widget_file = MAAD_EL_ADDONS . $widget['key'] . '/' . $widget['key'] . '.php';
 
-					if (!ma_el_fs()->can_use_premium_code() && (isset($widget['is_pro']) && $widget['is_pro'])) {
-						continue;
+						if (!ma_el_fs()->can_use_premium_code() && (isset($widget['is_pro']) && $widget['is_pro'])) {
+							continue;
+						}
+
+						if (file_exists($widget_file)) {
+							require_once $widget_file;
+						}
+						// }
+
+						$widget_class_name = preg_replace('/\s+/', '_', $widget['title']);
+
+						$class_name = $this->reflection->getNamespaceName() . '\Addons\\' . $widget_class_name;
+						$widget_manager->register_widget_type(new $class_name);
 					}
-
-					if (file_exists($widget_file)) {
-						require_once $widget_file;
-					}
-
-					$widget_class_name = preg_replace('/\s+/', '_', $widget['title']);
-
-					$class_name = $this->reflection->getNamespaceName() . '\Addons\\' . $widget_class_name;
-					$widget_manager->register_widget_type(new $class_name);
 				}
 			}
 		}
@@ -507,26 +514,19 @@ if (!class_exists('Master_Elementor_Addons')) {
 				foreach ($blogs as $blog_id) {
 					switch_to_blog($blog_id->blog_id);
 
-
+					ksort(JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension']);
 					foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $extensions) {
+						if (isset($activated_extensions[$extensions['key']]) && $activated_extensions[$extensions['key']] == true) {
 
-						$is_pro = "";
+							$extensions_file = MELA_PLUGIN_PATH . '/inc/modules/' . $extensions['key'] . '/' . $extensions['key'] . '.php';
 
-						if (isset($extensions)) {
-							if (is_array($extensions)) {
-								$is_pro = $extensions[1];
-								$extensions = $extensions[0];
-
-								if (ma_el_fs()->can_use_premium_code()) {
-									if ($activated_extensions[$extensions] == true && $is_pro == "pro") {
-										include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' . $extensions . '.php';
-									}
-								}
+							if (!ma_el_fs()->can_use_premium_code() && (isset($extensions['is_pro']) && $extensions['is_pro'])) {
+								continue;
 							}
-						}
 
-						if ($activated_extensions[$extensions] == true && $is_pro != "pro") {
-							include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' .  $extensions . '.php';
+							if (file_exists($extensions_file)) {
+								require_once $extensions_file;
+							}
 						}
 					}
 				}
@@ -534,69 +534,21 @@ if (!class_exists('Master_Elementor_Addons')) {
 				switch_to_blog($original_blog_id);
 			} else {
 
-				// OLD Style
+				ksort(JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension']);
 				foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $extensions) {
-					// print_r($extensions);
+					if (isset($activated_extensions[$extensions['key']]) && $activated_extensions[$extensions['key']] == true) {
 
-					// if (isset($extensions)) {
-					// 	if (is_array($extensions)) {
-					// 		$is_pro = $extensions[1];
-					// 		$extensions = $extensions[0];
+						$extensions_file = MELA_PLUGIN_PATH . '/inc/modules/' . $extensions['key'] . '/' . $extensions['key'] . '.php';
 
-					// 		if (ma_el_fs()->can_use_premium_code()) {
-					// 			if ($activated_extensions[$extensions] == true && $is_pro == "pro") {
-					// 				include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' . $extensions . '.php';
-					// 			}
-					// 		}
-					// 	}
-					// }
+						if (!ma_el_fs()->can_use_premium_code() && (isset($extensions['is_pro']) && $extensions['is_pro'])) {
+							continue;
+						}
 
-					// if (!ma_el_fs()->can_use_premium_code() && isset($extensions['is_pro']) && $extensions['is_pro']) {
-					// 	include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions['key'] . '/' .  $extensions['key'] . '.php';
-					// 	// echo "Pro <br>";
-					// } else {
-					// 	// echo "Not Pro <br>";
-					if (
-						$extensions['key'] == 'particles'
-						|| $extensions['key'] == 'animated-gradient'
-						|| $extensions['key'] == 'reading-progress-bar'
-						|| $extensions['key'] == 'bg-slider'
-						|| $extensions['key'] == 'custom-css'
-						|| $extensions['key'] == 'custom-js'
-						|| $extensions['key'] == 'positioning'
-						|| $extensions['key'] == 'extras'
-						|| $extensions['key'] == 'mega-menu'
-						|| $extensions['key'] == 'transition'
-						|| $extensions['key'] == 'transforms'
-						|| $extensions['key'] == 'rellax'
-						|| $extensions['key'] == 'reveal'
-						|| $extensions['key'] == 'header-footer-comment'
-						|| $extensions['key'] == 'display-conditions'
-						|| $extensions['key'] == 'dynamic-tags'
-						|| $extensions['key'] == 'floating-effects'
-						|| $extensions['key'] == 'wrapper-link'
-					) {
-
-						require_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions['key'] . '/' .  $extensions['key'] . '.php';
+						if (file_exists($extensions_file)) {
+							require_once $extensions_file;
+						}
 					}
-
-					// }
-
-					// 	// if ($activated_extensions[$extensions] == true && $is_pro != "pro") {
-					// include_once MELA_PLUGIN_PATH . '/inc/modules/' . $extensions . '/' .  $extensions . '.php';
-					// 	// }
 				}
-
-				// New Style with Namespace
-				// ksort(JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension']);
-				// foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $key =>  $extensions) {
-
-				// 	$extensions_file = MELA_PLUGIN_PATH . '/inc/modules/' . $extensions['key'] . '/' .  $extensions['key'] . '.php';
-
-				// 	if (file_exists($extensions_file)) {
-				// 		require_once $extensions_file;
-				// 	}
-				// }
 			}
 		}
 
