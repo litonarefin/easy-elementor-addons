@@ -351,7 +351,7 @@
     visibility: visible;
     opacity: 1;
 }
- 
+
 .ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom .ma-el-tooltip-text {
     top: calc(100% + 1em);
     left: 50%;
@@ -452,7 +452,7 @@
 /* MA Transforms Start */
 .jltma-transform-yes {
 	-webkit-transition-duration: var(--jltma-tfx-transition-duration, .2s);
-	        transition-duration: var(--jltma-tfx-transition-duration, .2s); 
+	        transition-duration: var(--jltma-tfx-transition-duration, .2s);
 	-webkit-transition-property: -webkit-transform;
 	        transition-property: -webkit-transform;
 	        transition-property:         transform;
@@ -10925,10 +10925,9 @@ ul.jltma-toggle-content-controls {
 }
 .jltma-gallery-slider__preview .jltma-arrow{
   position: absolute;
-}
-.jltma-gallery-slider__preview .jltma-arrow {
   top: 50%;
   transform: translateY(-50%);
+  outline:none;
 }
 
 .jltma-media__content {
@@ -11239,7 +11238,7 @@ ul.jltma-toggle-content-controls {
 }
 
 /* Vertical Navigation */
-.jltma-gallery-slider__gallery.jltma-thumb-position-left .jltma-arrow--prev, 
+.jltma-gallery-slider__gallery.jltma-thumb-position-left .jltma-arrow--prev,
 .jltma-gallery-slider__gallery.jltma-thumb-position-left .jltma-arrow--next,
 .jltma-gallery-slider__gallery.jltma-thumb-position-right .jltma-arrow--prev,
 .jltma-gallery-slider__gallery.jltma-thumb-position-right .jltma-arrow--next {
@@ -11284,7 +11283,7 @@ ul.jltma-toggle-content-controls {
     width: 40px;
     top: 0;
     margin: 0;
-    transform: none !important; 
+    transform: none !important;
 }
 .jltma-thumb-position-bottom .jltma-gallery__item.jltma-grid__item {
     padding-top: 0;
@@ -11386,7 +11385,7 @@ ul.jltma-toggle-content-controls {
     cx: 150;
     cy: 150;
     fill: white;
-    transform-origin: 150px 155px;    
+    transform-origin: 150px 155px;
 }
 
 
@@ -11578,7 +11577,7 @@ ul.jltma-toggle-content-controls {
 .jltma-slide-dotnav li {
     flex: none;
     list-style: none;
-    margin-left: 12px;   
+    margin-left: 12px;
 }
 .jltma-slide-dotnav>*>* {
     display: inline-flex;
@@ -11590,7 +11589,7 @@ ul.jltma-toggle-content-controls {
     text-indent: 100%;
     overflow: hidden;
     white-space: nowrap;
-    cursor: pointer; 
+    cursor: pointer;
     color: inherit;
     padding-left: 15px;
     align-items: center;

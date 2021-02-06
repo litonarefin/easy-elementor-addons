@@ -473,9 +473,6 @@
         //Master Addons: Image Filter Gallery
         MA_Image_Filter_Gallery: function ($scope, $) {
 
-            // var $carousel           = $scope.find('.jltma-gallery-slider__carousel').eq(0),
-            //     $preview            = $scope.find('.jltma-gallery-slider__preview');
-
             var $ma_el_image_filter_gallery_container   = $scope.find('.ma-el-image-filter-gallery').eq(0),
                 $ma_el_image_filter_gallery_nav         = $scope.find('.ma-el-image-filter-nav');
 
@@ -784,10 +781,8 @@
 						stopOnHover 			: 'yes' === elementSettings.jltma_gallery_slider_pause_on_hover,
 						loop 					: 'yes' === elementSettings.jltma_gallery_slider_infinite,
 						arrows 					: '' !== elementSettings.jltma_gallery_slider_show_arrows,
-                        arrowPrev 				: '.jltma-carousel__arrow.jltma-arrow.jltma-arrow--prev',
-                        arrowNext 				: '.jltma-carousel__arrow.jltma-arrow.jltma-arrow--next',
-						// arrowPrev 				: '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--prev"><i class="eicon-chevron-' + start + '"></i></div>',
-						// arrowNext 				: '<div class="jltma-carousel__arrow jltma-arrow jltma-arrow--next"><i class="eicon-chevron-' + end + '"></i></div>',
+                        arrowPrev 				: '.jltma-arrow--prev',
+                        arrowNext 				: '.jltma-arrow--next',
 						effect 					: elementSettings.jltma_gallery_slider_effect,
 						speed 					: elementSettings.speed ? elementSettings.speed.size : 500,
                         resistance 				: elementSettings.resistance ? elementSettings.resistance.size : 0.25,
@@ -870,11 +865,9 @@
 
                 swiperSlider = Master_Addons.MA_Carousel( $swiperSlider, sliderSettings );
 
-
-				// if ( hasCarousel ) {
+				if ( hasCarousel ) {
                     swiperCarousel = Master_Addons.MA_Carousel( $swiperCarousel, carouselSettings );
-                    console.log('swiperCarousel', swiperCarousel);
-				// }
+				}
 
 				Master_Addons.MA_Gallery_Slider.onSlideChange();
 				Master_Addons.MA_Gallery_Slider.events();
