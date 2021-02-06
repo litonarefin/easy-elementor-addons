@@ -454,6 +454,51 @@ class Gallery_Slider extends Widget_Base
 		);
 
 		$this->add_control(
+			'image_vertical_align',
+			[
+				'label' 		=> __('Vertical Alignment', MELA_TD),
+				'type' 			=> Controls_Manager::CHOOSE,
+				'default' 		=> '',
+				'options' 		=> [
+					'top'    		=> [
+						'title' 	=> __('Top', MELA_TD),
+						'icon' 		=> 'eicon-v-align-top',
+					],
+					'middle' 		=> [
+						'title' 	=> __('Middle', MELA_TD),
+						'icon' 		=> 'eicon-v-align-middle',
+					],
+					'bottom' 		=> [
+						'title' 	=> __('Bottom', MELA_TD),
+						'icon' 		=> 'eicon-v-align-bottom',
+					],
+					'stretch' 		=> [
+						'title' 	=> __('Stretch', MELA_TD),
+						'icon' 		=> 'eicon-v-align-stretch',
+					],
+				],
+				'condition' => [
+					'carousel_orientation!' => 'vertical',
+				],
+				'prefix_class'		=> 'jltma-grid-align--',
+			]
+		);
+
+		// $this->add_control(
+		// 	'image_vertical_stretch',
+		// 	[
+		// 		'label' 		=> __('Stretch', MELA_TD),
+		// 		'type' 			=> Controls_Manager::SWITCHER,
+		// 		'default' 		=> 'stretch',
+		// 		'return_value'	=> 'stretch',
+		// 		'condition' => [
+		// 			'carousel_orientation' => 'vertical',
+		// 		],
+		// 		'prefix_class'		=> 'jltma-grid-align--',
+		// 	]
+		// );
+
+		$this->add_control(
 			'jltma_gallery_slider_thumb_autoplay',
 			[
 				'label' 			=> esc_html__('Autoplay', MELA_TD),
@@ -674,11 +719,6 @@ class Gallery_Slider extends Widget_Base
 				],
 				'condition'		=> [
 					'jltma_gallery_slider_show_arrows' 	=> 'yes',
-				],
-				'selectors' => [
-					'{{WRAPPER}} jltma-gallery-slider__preview .jltma-swiper__navigation--top,
-					{{WRAPPER}} jltma-gallery-slider__preview .jltma-swiper__navigation--middle,
-					{{WRAPPER}} jltma-gallery-slider__preview .jltma-swiper__navigation--bottom' => 'top:auto;bottom:0;',
 				],
 			]
 		);
@@ -3534,18 +3574,14 @@ class Gallery_Slider extends Widget_Base
 						<div <?php echo $this->get_render_attribute_string('slider'); ?>>
 							<?php echo $this->jltma_render_preview(); ?>
 						</div>
+						<?php if ('' !== $settings['jltma_gallery_slider_show_arrows']) {
+							$this->render_swiper_navigation(
+								'slider',
+								'horizontal',
+								$settings['jltma_gallery_slider_arrows_position']
+							);
+						} ?>
 					</div>
-					<?php
-
-					if ('' !== $settings['jltma_gallery_slider_show_arrows']) {
-						$this->render_swiper_navigation(
-							'slider',
-							'horizontal',
-							$settings['jltma_gallery_slider_arrows_position']
-						);
-					}
-
-					?>
 				</div>
 			</div>
 
@@ -3658,7 +3694,7 @@ class Gallery_Slider extends Widget_Base
 					'jltma-swiper__navigation',
 					'jltma-swiper__navigation--inside',
 					'jltma-swiper__navigation--' . $halign,
-					'jltma-swiper__navigation--' . $valign,
+					// 'jltma-swiper__navigation--' . $valign,
 				],
 			],
 		]);

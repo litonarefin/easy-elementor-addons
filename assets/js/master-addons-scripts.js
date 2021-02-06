@@ -801,8 +801,6 @@
                     }
                 };
 
-                console.log('$swiperCarousel', $swiperCarousel);
-
                 // If Carousel
                 if ( hasCarousel ) {
 				    var carouselSettings = {
@@ -815,6 +813,7 @@
 							arrowPrev 			: '.jltma-arrow--prev',
 							arrowNext 			: '.jltma-arrow--next',
 							autoHeight 			: false,
+							loop 			    : true,
 							speed 				: elementSettings.jltma_gallery_slider_thumb_speed ? elementSettings.jltma_gallery_slider_thumb_speed.size : 500,
 							slidesPerView 		: elementSettings.jltma_gallery_slider_thumb_items_mobile,
 							slidesPerColumn 	: 'vertical' === elementSettings.carousel_orientation ? 1 : elementSettings.carousel_slides_per_column_mobile,
