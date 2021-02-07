@@ -447,7 +447,7 @@ class Gallery_Slider extends Widget_Base
 				'condition'		=> [
 					'jltma_gallery_slider_show_thumbnails!' => '',
 					'jltma_gallery_slider_thumb_type' => 'slide',
-					'carousel_arrows!' 	=> '',
+					'jltma_gallery_slider_thumb_show_arrows!' 	=> '',
 					'carousel_orientation' => 'vertical',
 				],
 			]
@@ -1257,7 +1257,7 @@ class Gallery_Slider extends Widget_Base
 					],
 				],
 				'selectors' 	=> [
-					'{{WRAPPER}} .jltma-carousel__arrow' => 'padding: {{SIZE}}em;',
+					'{{WRAPPER}} .jltma-gallery-slider__gallery .jltma-swiper__button' => 'padding: {{SIZE}}em;',
 				],
 				'condition'		=> [
 					'jltma_gallery_slider_show_arrows!' => '',
@@ -1277,10 +1277,16 @@ class Gallery_Slider extends Widget_Base
 					],
 				],
 				'selectors' 	=> [
-					'{{WRAPPER}} .jltma-carousel__arrow' => 'margin: {{SIZE}}px; transform: translateY( calc(-50% - {{SIZE}}px ) )',
+					'{{WRAPPER}} .jltma-gallery-slider__gallery .jltma-swiper__navigation.jltma-swiper__navigation--middle.jltma-arrows--horizontal .jltma-swiper__button' => 'margin-left: {{SIZE}}px; margin-right: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-gallery-slider__gallery .jltma-swiper__navigation:not(.jltma-swiper__navigation--middle).jltma-arrows--horizontal .jltma-swiper__button' => 'margin: {{SIZE}}px;',
+
+					'{{WRAPPER}} .jltma-gallery-slider__gallery .jltma-swiper__navigation .jltma-swiper__navigation--center.jltma-arrows--vertical .jltma-swiper__button' => 'margin-top: {{SIZE}}px; margin-bottom: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-gallery-slider__gallery .jltma-swiper__navigation:not(.jltma-swiper__navigation--center).jltma-arrows--vertical .jltma-swiper__button' => 'margin: {{SIZE}}px;',
 				],
 				'condition'		=> [
-					'jltma_gallery_slider_show_arrows!' => '',
+					'jltma_gallery_slider_show_arrows!' 		=> '',
+					'jltma_gallery_slider_thumb_show_arrows!' 	=> '',
+
 				]
 			]
 		);
@@ -3694,15 +3700,15 @@ class Gallery_Slider extends Widget_Base
 					'jltma-swiper__navigation',
 					'jltma-swiper__navigation--inside',
 					'jltma-swiper__navigation--' . $halign,
-					// 'jltma-swiper__navigation--' . $valign,
+					'jltma-swiper__navigation--' . $valign,
 				],
 			],
 		]);
 
-	?><div <?php echo $this->get_render_attribute_string($nav_key); ?>>
-			<?php
-			$this->render_swiper_arrows($key);
-			?></div>
+	?>
+		<div <?php echo $this->get_render_attribute_string($nav_key); ?>>
+			<?php $this->render_swiper_arrows($key); ?>
+		</div>
 	<?php
 	}
 
