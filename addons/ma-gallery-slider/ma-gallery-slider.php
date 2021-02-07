@@ -150,7 +150,7 @@ class Gallery_Slider extends Widget_Base
 				],
 				'default' 		=> 'grid',
 				'condition' 	=> [
-					'jltma_gallery_slider_show_thumbnails!' => '',
+					'jltma_gallery_slider_show_thumbnails' 	=> 'yes',
 				],
 				'frontend_available' => true,
 			]
@@ -163,7 +163,8 @@ class Gallery_Slider extends Widget_Base
 				'name' 		=> 'jltma_gallery_slider_thumbnail',
 				'label'		=> esc_html__('Thumbnails Size', MELA_TD),
 				'condition' => [
-					'jltma_gallery_slider_show_thumbnails!' => '',
+					'jltma_gallery_slider_show_thumbnails' 	=> 'yes',
+					'jltma_gallery_slider_thumb_type' 		=> 'grid',
 				],
 			]
 		);
@@ -248,7 +249,8 @@ class Gallery_Slider extends Widget_Base
 			[
 				'label' => esc_html__('Thumbnail Slider', MELA_TD),
 				'condition' => [
-					'jltma_gallery_slider_thumb_type' => 'slide',
+					'jltma_gallery_slider_show_thumbnails' 	=> 'yes',
+					'jltma_gallery_slider_thumb_type' 		=> 'slide',
 				],
 			]
 		);
@@ -300,9 +302,9 @@ class Gallery_Slider extends Widget_Base
 				'description' 	=> __('For Vertical direction this defines the number of slides per row.', MELA_TD),
 				'options' 		=> ['' => __('Default', MELA_TD)] + $slides_per_column,
 				'condition' 	=> [
-					'jltma_gallery_slider_show_thumbnails!' => '',
-					'jltma_gallery_slider_thumb_type' => 'slide',
-					'carousel_orientation!' => 'vertical',
+					'jltma_gallery_slider_show_thumbnails!' 	=> '',
+					'jltma_gallery_slider_thumb_type' 			=> 'slide',
+					'carousel_orientation!' 					=> 'vertical',
 				],
 				'frontend_available' 	=> true,
 			]
@@ -347,7 +349,7 @@ class Gallery_Slider extends Widget_Base
 					],
 				],
 				'condition' 		=> [
-					'jltma_gallery_slider_show_thumbnails!' => '',
+					'jltma_gallery_slider_show_thumbnails' 	=> 'yes',
 					'jltma_gallery_slider_thumb_type' => 'slide',
 				],
 				'frontend_available' => true,
@@ -372,7 +374,7 @@ class Gallery_Slider extends Widget_Base
 					],
 				],
 				'condition' 	=> [
-					'jltma_gallery_slider_show_thumbnails!' => '',
+					'jltma_gallery_slider_show_thumbnails' 	=> 'yes',
 					'jltma_gallery_slider_thumb_type' => 'slide',
 				],
 				'frontend_available' => true,
@@ -830,8 +832,11 @@ class Gallery_Slider extends Widget_Base
 				'type' 		=> Controls_Manager::SELECT,
 				'default' 	=> 'slide',
 				'options' 	=> [
-					'slide' 	=> esc_html__('Slide', MELA_TD),
-					'fade' 		=> esc_html__('Fade', MELA_TD),
+					'slide' 		=> esc_html__('Slide', MELA_TD),
+					'fade' 			=> esc_html__('Fade', MELA_TD),
+					'cube' 			=> esc_html__('Cube', MELA_TD),
+					'flip' 			=> esc_html__('Flip', MELA_TD),
+					'coverflow' 	=> esc_html__('Coverflow', MELA_TD)
 				],
 				'frontend_available' => true,
 			]
@@ -2217,7 +2222,8 @@ class Gallery_Slider extends Widget_Base
 				'label' 	=> esc_html__('Thumbnail Slider', MELA_TD),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'jltma_gallery_slider_thumb_type' => 'slide'
+					'jltma_gallery_slider_show_thumbnails' 	=> 'yes',
+					'jltma_gallery_slider_thumb_type' 		=> 'slide'
 				],
 			]
 		);

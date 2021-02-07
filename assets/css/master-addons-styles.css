@@ -15425,13 +15425,14 @@ ul.jltma-toggle-content-controls {
 .jltma-gallery-slider__gallery .jltma-arrow--next {
     right: 0px;
 }
+.jltma-thumb-slide .jltma-arrows i{
+    font-size: 22px;
+}
 .jltma-gallery-slider__gallery .jltma-arrow--next i,
 .jltma-gallery-slider__gallery .jltma-arrow--prev i {
-    width: 18px;
-    height: 18px;
     position: relative;
-    top: 30%;
-    left: 30%;
+    top: 25%;
+    left: 25%;
 }
 .jltma-gallery__item.is--active .jltma-gallery__media__thumbnail img {
     outline: none;
@@ -15514,15 +15515,15 @@ ul.jltma-toggle-content-controls {
     text-align: center;
     border-radius: inherit;
 }
-.jltma-gallery-slider__gallery.jltma-thumb-slide .jltma-arrow--prev {
+.jltma-gallery-slider__gallery .jltma-arrows--vertical .jltma-arrow--prev {
     top: 0px;
     transform: rotate(90deg);
 }
-.jltma-gallery-slider__gallery.jltma-thumb-slide .jltma-arrow--next {
+.jltma-gallery-slider__gallery .jltma-arrows--vertical .jltma-arrow--next {
     bottom: 0px;
     transform: rotate(90deg);
 }
-.jltma-gallery-slider__gallery.jltma-thumb-slide .slick-list {
+.jltma-gallery-slider__gallery.jltma-thumb-slide .swiper-wrapper {
     list-style-type: none;
     margin: 0;
     padding: 0 !important;
@@ -15530,6 +15531,7 @@ ul.jltma-toggle-content-controls {
 }
 .jltma-gallery-slider__gallery.jltma-thumb-slide .jltma-arrow {
     border-radius: inherit;
+    outline: none;
 }
 
 .jltma-thumb-position-bottom .jltma-carousel__arrow {

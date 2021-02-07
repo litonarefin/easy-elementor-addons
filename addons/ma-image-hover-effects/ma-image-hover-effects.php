@@ -10,6 +10,7 @@ use \Elementor\Group_Control_Typography as Group_Control_Typography;
 use \Elementor\Scheme_Typography as Scheme_Typography;
 use \Elementor\Utils;
 use \Elementor\Repeater;
+use \Elementor\Control_Media;
 use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Scheme_Color;
