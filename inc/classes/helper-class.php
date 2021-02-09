@@ -1125,4 +1125,20 @@ class Master_Addons_Helper
 	{
 		return isset($array[$key]) ? $array[$key] : $default;
 	}
+
+
+
+	public static function render_image($image_id, $settings, $class = "")
+	{
+		$image_size = $settings;
+
+		if ('custom' === $image_size) {
+			$image_src = \Elementor\Group_Control_Image_Size::get_attachment_image_src($image_id, $image_size, $settings);
+		} else {
+			$image_src = wp_get_attachment_image_src($image_id, $image_size);
+			$image_src = $image_src[0];
+		}
+
+		return sprintf('<img src="%s"  class="%s" alt="%s" />', esc_url($image_src), esc_attr($class), esc_html(get_post_meta($image_id, '_wp_attachment_image_alt', true)));
+	}
 }

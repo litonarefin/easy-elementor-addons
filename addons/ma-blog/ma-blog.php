@@ -72,8 +72,8 @@ class Blog extends Widget_Base
 	{
 
 		/*
-             * Display Options
-             */
+		* Display Options
+		*/
 
 		$this->start_controls_section(
 			'ma_el_post_grid_section_filters',
