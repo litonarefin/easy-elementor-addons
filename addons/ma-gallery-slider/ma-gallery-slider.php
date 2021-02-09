@@ -381,7 +381,7 @@ class Gallery_Slider extends Widget_Base
 			[
 				'type' 		=> Controls_Manager::SWITCHER,
 				'label' 	=> esc_html__('Arrows', MELA_TD),
-				'default' 	=> 'yes',
+				'default' 	=> '',
 				'label_off' => esc_html__('Hide', MELA_TD),
 				'label_on' 	=> esc_html__('Show', MELA_TD),
 				'return_value'      => 'yes',
@@ -418,12 +418,21 @@ class Gallery_Slider extends Widget_Base
 			'carousel_arrows_position_vertical',
 			[
 				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Position', MELA_TD),
+				'label' 		=> __('Arrow Position', MELA_TD),
 				'default'		=> 'center',
 				'options' 		=> [
-					'left' 		=> __('Left', MELA_TD),
-					'center' 	=> __('Center', MELA_TD),
-					'right' 	=> __('Right', MELA_TD),
+					'left' 	=> [
+						'title' 	=> __('Left', MELA_TD),
+						'icon' 		=> 'eicon-h-align-left',
+					],
+					'center' 		=> [
+						'title' 	=> __('Center', MELA_TD),
+						'icon' 		=> 'eicon-h-align-center',
+					],
+					'right' 		=> [
+						'title' 	=> __('Right', MELA_TD),
+						'icon' 		=> 'eicon-h-align-right',
+					],
 				],
 				'condition'		=> [
 					'jltma_gallery_slider_show_thumbnails' 		=> 'yes',
@@ -434,52 +443,6 @@ class Gallery_Slider extends Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'image_vertical_align',
-			[
-				'label' 		=> __('Vertical Alignment', MELA_TD),
-				'type' 			=> Controls_Manager::CHOOSE,
-				'default' 		=> '',
-				'options' 		=> [
-					'top'    		=> [
-						'title' 	=> __('Top', MELA_TD),
-						'icon' 		=> 'eicon-v-align-top',
-					],
-					'middle' 		=> [
-						'title' 	=> __('Middle', MELA_TD),
-						'icon' 		=> 'eicon-v-align-middle',
-					],
-					'bottom' 		=> [
-						'title' 	=> __('Bottom', MELA_TD),
-						'icon' 		=> 'eicon-v-align-bottom',
-					],
-					'stretch' 		=> [
-						'title' 	=> __('Stretch', MELA_TD),
-						'icon' 		=> 'eicon-v-align-stretch',
-					],
-				],
-				'condition' => [
-					'jltma_gallery_slider_show_thumbnails' 		=> 'yes',
-					'jltma_gallery_slider_thumbnails_carousel!' => '',
-					'carousel_orientation!' 					=> 'vertical',
-				],
-				'prefix_class'		=> 'jltma-grid-align--',
-			]
-		);
-
-		// $this->add_control(
-		// 	'image_vertical_stretch',
-		// 	[
-		// 		'label' 		=> __('Stretch', MELA_TD),
-		// 		'type' 			=> Controls_Manager::SWITCHER,
-		// 		'default' 		=> 'stretch',
-		// 		'return_value'	=> 'stretch',
-		// 		'condition' => [
-		// 			'carousel_orientation' => 'vertical',
-		// 		],
-		// 		'prefix_class'		=> 'jltma-grid-align--',
-		// 	]
-		// );
 
 		$this->add_control(
 			'jltma_gallery_slider_thumb_autoplay',
