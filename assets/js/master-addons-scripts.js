@@ -815,20 +815,20 @@
 							autoHeight 			: true,
 							speed 				: elementSettings.jltma_gallery_slider_thumb_speed ? elementSettings.jltma_gallery_slider_thumb_speed.size : 500,
 							slidesPerView 		: elementSettings.jltma_gallery_slider_thumb_items_mobile,
-							slidesPerColumn 	: 'vertical' === elementSettings.carousel_orientation ? 1 : elementSettings.jltma_gallery_slider_columns_mobile,
+							slidesPerColumn 	: 'vertical' === elementSettings.carousel_orientation ? 1 : elementSettings.carousel_slides_per_column_mobile,
 							slidesPerGroup 		: elementSettings.carousel_slides_to_scroll_mobile,
 							resistance 			: elementSettings.carousel_resistance ? elementSettings.carousel_resistance.size : 0.15,
 							spaceBetween 		: elementSettings.carousel_spacing_mobile ? elementSettings.carousel_spacing_mobile.size : 0,
 							breakpoints 		: {
 								tablet : {
 									slidesPerView 	: elementSettings.jltma_gallery_slider_thumb_items_tablet,
-									slidesPerColumn : 'vertical' === elementSettings.carousel_orientation ? 1 : elementSettings.jltma_gallery_slider_columns_tablet,
+									slidesPerColumn : 'vertical' === elementSettings.carousel_orientation ? 1 : elementSettings.carousel_slides_per_column_tablet,
 									slidesPerGroup 	: elementSettings.carousel_slides_to_scroll_tablet,
 									spaceBetween 	: elementSettings.carousel_spacing_tablet ? elementSettings.carousel_spacing_tablet.size : 0,
 								},
 								desktop : {
 									slidesPerView 	: elementSettings.jltma_gallery_slider_thumb_items,
-									slidesPerColumn : 'vertical' === elementSettings.carousel_orientation ? 1 : elementSettings.jltma_gallery_slider_columns,
+									slidesPerColumn : 'vertical' === elementSettings.carousel_orientation ? 1 : elementSettings.carousel_slides_per_column,
 									slidesPerGroup 	: elementSettings.carousel_slides_to_scroll,
 									spaceBetween 	: elementSettings.carousel_spacing ? elementSettings.carousel_spacing.size : 0,
 								},
