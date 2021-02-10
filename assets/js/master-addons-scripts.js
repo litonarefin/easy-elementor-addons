@@ -813,10 +813,10 @@
 							arrowPrev 			: '.jltma-arrow--prev',
 							arrowNext 			: '.jltma-arrow--next',
                             autoHeight 			: false,
-                            loop                : true,
-                            autoplay 				: 'yes' === elementSettings.jltma_gallery_slider_thumb_autoplay ? true : false,
-                        autoplaySpeed 			: 'yes' === elementSettings.jltma_gallery_slider_thumb_autoplay && elementSettings.jltma_gallery_slider_thumb_autoplay_speed ? elementSettings.jltma_gallery_slider_thumb_autoplay_speed.size : false,
-
+                            loop                : 'yes' === elementSettings.jltma_gallery_slider_thumb_infinite ? true : false,
+                            autoplay 			: 'yes' === elementSettings.jltma_gallery_slider_thumb_autoplay ? true : false,
+                            autoplaySpeed 		: 'yes' === elementSettings.jltma_gallery_slider_thumb_autoplay && elementSettings.jltma_gallery_slider_thumb_autoplay_speed ? elementSettings.jltma_gallery_slider_thumb_autoplay_speed.size : false,
+                            stopOnHover 		: 'yes' === elementSettings.jltma_gallery_slider_thumb_pause_on_hover,
 							speed 				: elementSettings.jltma_gallery_slider_thumb_speed ? elementSettings.jltma_gallery_slider_thumb_speed.size : 500,
 							slidesPerView 		: elementSettings.jltma_gallery_slider_thumb_items_mobile,
 							slidesPerColumn 	: 'vertical' === elementSettings.carousel_orientation ? 1 : elementSettings.carousel_slides_per_column_mobile,
@@ -884,19 +884,16 @@
 			Master_Addons.MA_Gallery_Slider.onSlideChange = function() {
 				var activeIndex = sliderSettings.element.loop ? swiperSlider.realIndex : swiperSlider.activeIndex;
 
-				// if ( hasCarousel ) {
-				// 	swiperCarousel.slideTo( activeIndex );
-				// }
+				if ( hasCarousel ) {
+					swiperCarousel.slideTo( activeIndex );
+				}
 
 				$thumbs.removeClass('is--active');
 				$thumbs.eq( activeIndex ).addClass('is--active');
             };
 
 			Master_Addons.MA_Gallery_Slider.onThumbClicked = function( event ) {
-				var offset = sliderSettings.element.loop ? 1 : 0;
-
-                // console.log('Swiper Index', $(this).index());
-                console.log('Swiper Index', sliderSettings.element.loop);
+                var offset = sliderSettings.element.loop ? 1 : 0;
 
 				event.preventDefault();
 				swiperSlider.slideTo( $(this).index() + offset );

@@ -15494,6 +15494,9 @@ ul.jltma-toggle-content-controls {
 .jltma-swiper__button {
     position: absolute;
 }
+.swiper-container-rtl .jltma-swiper__button {
+    padding:.5em 1em !important;
+}
 .jltma-gallery-slider__gallery .jltma-swiper__button {
     font-size: 12px;
     padding: 0.4em;
