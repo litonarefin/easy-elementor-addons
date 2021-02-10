@@ -15051,6 +15051,23 @@ ul.jltma-toggle-content-controls {
     height: auto;
     overflow: visible;
 } */
+
+
+/* .jltma-gallery-slider--stack-tablet .jltma-gallery-slider {
+    display: block;
+}
+.jltma-gallery-slider--stack-tablet .jltma-gallery-slider .jltma-gallery-slider__preview,
+.jltma-gallery-slider--stack-tablet .jltma-gallery-slider .jltma-gallery-slider__gallery {
+    width: 100% !important;
+}
+.jltma-gallery-slider--stack-mobile .jltma-gallery-slider {
+    display: block;
+}
+.jltma-gallery-slider--stack-mobile .jltma-gallery-slider .jltma-gallery-slider__preview,
+.jltma-gallery-slider--stack-mobile .jltma-gallery-slider .jltma-gallery-slider__gallery {
+    width: 100% !important;
+} */
+
 .jltma-grid-align--stretch .jltma-grid__item {
     display: grid;
 }
