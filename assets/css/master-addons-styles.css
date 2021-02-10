@@ -15131,7 +15131,7 @@ ul.jltma-toggle-content-controls {
     outline: none;
 }
 .jltma-gallery-slider__preview .jltma-swiper__navigation--top .jltma-arrow {
-    top: 0;
+    top: 5% !important;
     bottom: auto;
 }
 .jltma-gallery-slider__preview .jltma-swiper__navigation--middle .jltma-arrow {
@@ -15140,7 +15140,7 @@ ul.jltma-toggle-content-controls {
 }
 .jltma-gallery-slider__preview .jltma-swiper__navigation--bottom .jltma-arrow {
     top: auto;
-    bottom: 0;
+    bottom: 5% !important;
 }
 .jltma-gallery-slider__gallery .swiper-container-vertical .jltma-gallery__item {
     overflow: hidden;
