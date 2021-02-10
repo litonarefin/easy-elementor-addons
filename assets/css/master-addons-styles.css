@@ -15044,6 +15044,17 @@ ul.jltma-toggle-content-controls {
 .jltma-gallery-slider__gallery .jltma-gallery__item {
     cursor: pointer;
 }
+/* .jltma-swiper__container .jltma-swiper__slide figure{
+    line-height:inherit;
+    overflow:hidden;
+}
+.jltma-media, .jltma-media__wrapper{
+    position:relative;
+    overflow:hidden;
+}
+.jltma-media{
+    display:block;
+} */
 /* .jtlma-gallery-slider__gallery .swiper-container-vertical .jtlma-gallery__item {
     overflow: hidden;
 }
