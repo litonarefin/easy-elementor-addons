@@ -1185,7 +1185,7 @@ class Gallery_Slider extends Widget_Base
 		$this->add_responsive_control(
 			'carousel_width',
 			[
-				'label' 	=> __('Carousel Width', 'elementor-extras'),
+				'label' 	=> __('Carousel Width', MELA_TD),
 				'type' 		=> Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'range' 	=> [
@@ -1213,6 +1213,41 @@ class Gallery_Slider extends Widget_Base
 			]
 		);
 
+		$wrapper_horizontal_margin = is_rtl() ? 'margin-right' : 'margin-left';
+		$preview_horizontal_padding = is_rtl() ? 'padding-right' : 'padding-left';
+
+		$this->add_responsive_control(
+			'preview_spacing',
+			[
+				'label' 	=> __('Spacing', MELA_TD),
+				'type' 		=> Controls_Manager::SLIDER,
+				'range' 	=> [
+					'px' 	=> [
+						'min' => 0,
+						'max' => 200,
+					],
+				],
+				'default' 	=> [
+					'size' 	=> 24,
+				],
+				'selectors' => [
+					'{{WRAPPER}}.jltma-gallery-slider--left .jltma-gallery-slider > *,
+						 {{WRAPPER}}.jltma-gallery-slider--right .jltma-gallery-slider > *' => $preview_horizontal_padding . ': {{SIZE}}{{UNIT}};',
+
+					'{{WRAPPER}}.jltma-gallery-slider--left .jltma-gallery-slider,
+						 {{WRAPPER}}.jltma-gallery-slider--right .jltma-gallery-slider' => $wrapper_horizontal_margin . ': -{{SIZE}}{{UNIT}};',
+
+					'{{WRAPPER}}.jltma-gallery-slider--top .jltma-gallery-slider__preview' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+
+					'(tablet){{WRAPPER}}.jltma-gallery-slider--stack-tablet .jltma-gallery-slider__preview' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'(mobile){{WRAPPER}}.jltma-gallery-slider--stack-mobile .jltma-gallery-slider__preview' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'show_thumbnails!' => '',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 
 		/**
@@ -1225,6 +1260,35 @@ class Gallery_Slider extends Widget_Base
 			[
 				'label' 	=> esc_html__('Preview', MELA_TD),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'slides_custom_height',
+			[
+				'label' 		=> __('Custom Height', MELA_TD),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'default' 		=> '',
+			]
+		);
+
+		$this->add_control(
+			'slides_image_fit',
+			[
+				'label' 		=> __('Image Fit', MELA_TD),
+				'type' 			=> Controls_Manager::SELECT,
+				'default' 		=> 'cover',
+				'options'		=> [
+					'cover' 	=> __('Cover', MELA_TD),
+					'contain' 	=> __('Contain', MELA_TD),
+				],
+				'selectors'		=> [
+					'{{WRAPPER}} .jltma-slider__media__thumbnail img' => 'object-fit: {{VALUE}}',
+				],
+				'condition' 	=> [
+					'slides_custom_height!'		 	=> '',
+					'jltma_gallery_slider_effect' 	=> ['slide', 'fade'],
+				],
 			]
 		);
 
