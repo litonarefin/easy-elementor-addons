@@ -400,7 +400,7 @@ class Gallery_Slider extends Widget_Base
 			'carousel_arrows_position',
 			[
 				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Position', MELA_TD),
+				'label' 		=> __('Arrow Position', MELA_TD),
 				'default'		=> 'middle',
 				'options' 		=> [
 					'top' 		=> __('Top', MELA_TD),
@@ -467,6 +467,18 @@ class Gallery_Slider extends Widget_Base
 				'label' 				=> esc_html__('Autoplay Speed', MELA_TD),
 				'type' 					=> Controls_Manager::NUMBER,
 				'default' 				=> 5000,
+				'type' 		=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 5000,
+					'unit' 	=> 'px',
+				],
+				'range' 	=> [
+					'px' 	=> [
+						'min' 	=> 0,
+						'max' 	=> 30000,
+						'step'	=> 100,
+					],
+				],
 				'frontend_available' 	=> true,
 				'condition'				=> [
 					'jltma_gallery_slider_thumb_autoplay' 		=> 'yes',
@@ -476,64 +488,75 @@ class Gallery_Slider extends Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'jltma_gallery_slider_thumb_pause_on_hover',
-			[
-				'label' 				=> esc_html__('Pause on Hover', MELA_TD),
-				'type' 					=> Controls_Manager::SWITCHER,
-				'default'           	=> 'yes',
-				'label_on'          	=> esc_html__('Yes', MELA_TD),
-				'label_off'         	=> esc_html__('No', MELA_TD),
-				'return_value'      	=> 'yes',
-				'frontend_available' 	=> true,
-				'condition'				=> [
-					'jltma_gallery_slider_thumb_autoplay' 		=> 'yes',
-					'jltma_gallery_slider_show_thumbnails' 		=> 'yes',
-					'jltma_gallery_slider_thumbnails_carousel!' => ''
-				],
-			]
-		);
+		// $this->add_control(
+		// 	'jltma_gallery_slider_thumb_pause_on_hover',
+		// 	[
+		// 		'label' 				=> esc_html__('Pause on Hover', MELA_TD),
+		// 		'type' 					=> Controls_Manager::SWITCHER,
+		// 		'default'           	=> 'yes',
+		// 		'label_on'          	=> esc_html__('Yes', MELA_TD),
+		// 		'label_off'         	=> esc_html__('No', MELA_TD),
+		// 		'return_value'      	=> 'yes',
+		// 		'frontend_available' 	=> true,
+		// 		'condition'				=> [
+		// 			'jltma_gallery_slider_thumb_autoplay' 		=> 'yes',
+		// 			'jltma_gallery_slider_show_thumbnails' 		=> 'yes',
+		// 			'jltma_gallery_slider_thumbnails_carousel!' => ''
+		// 		],
+		// 	]
+		// );
 
-		$this->add_control(
-			'jltma_gallery_slider_thumb_infinite',
-			[
-				'label' 				=> esc_html__('Infinite Loop', MELA_TD),
-				'type' 					=> Controls_Manager::SWITCHER,
-				'default'           	=> 'yes',
-				'label_on'          	=> esc_html__('Yes', MELA_TD),
-				'label_off'         	=> esc_html__('No', MELA_TD),
-				'return_value'      	=> 'yes',
-				'frontend_available' 	=> true,
-				'condition'				=> [
-					'jltma_gallery_slider_show_thumbnails' 		=> 'yes',
-					'jltma_gallery_slider_thumbnails_carousel!' => ''
-				],
-			]
-		);
-		$this->add_control(
-			'jltma_gallery_slider_thumb_effect',
-			[
-				'label' 	=> esc_html__('Effect', MELA_TD),
-				'type' 		=> Controls_Manager::SELECT,
-				'default' 	=> 'slide',
-				'options' 	=> [
-					'slide' 	=> esc_html__('Slide', MELA_TD),
-					'fade' 		=> esc_html__('Fade', MELA_TD),
-				],
-				'frontend_available' => true,
-				'condition'				=> [
-					'jltma_gallery_slider_show_thumbnails' 		=> 'yes',
-					'jltma_gallery_slider_thumbnails_carousel!' => ''
-				],
-			]
-		);
+		// $this->add_control(
+		// 	'jltma_gallery_slider_thumb_infinite',
+		// 	[
+		// 		'label' 				=> esc_html__('Infinite Loop', MELA_TD),
+		// 		'type' 					=> Controls_Manager::SWITCHER,
+		// 		'default'           	=> 'yes',
+		// 		'label_on'          	=> esc_html__('Yes', MELA_TD),
+		// 		'label_off'         	=> esc_html__('No', MELA_TD),
+		// 		'return_value'      	=> 'yes',
+		// 		'frontend_available' 	=> true,
+		// 		'condition'				=> [
+		// 			'jltma_gallery_slider_show_thumbnails' 		=> 'yes',
+		// 			'jltma_gallery_slider_thumbnails_carousel!' => ''
+		// 		],
+		// 	]
+		// );
+		// $this->add_control(
+		// 	'jltma_gallery_slider_thumb_effect',
+		// 	[
+		// 		'label' 	=> esc_html__('Effect', MELA_TD),
+		// 		'type' 		=> Controls_Manager::SELECT,
+		// 		'default' 	=> 'slide',
+		// 		'options' 	=> [
+		// 			'slide' 	=> esc_html__('Slide', MELA_TD),
+		// 			'fade' 		=> esc_html__('Fade', MELA_TD),
+		// 		],
+		// 		'frontend_available' => true,
+		// 		'condition'				=> [
+		// 			'jltma_gallery_slider_show_thumbnails' 		=> 'yes',
+		// 			'jltma_gallery_slider_thumbnails_carousel!' => ''
+		// 		],
+		// 	]
+		// );
 
 		$this->add_control(
 			'jltma_gallery_slider_thumb_speed',
 			[
-				'label' 	=> esc_html__('Animation Speed', MELA_TD),
-				'type' 		=> Controls_Manager::NUMBER,
-				'default' 	=> 500,
+				'label' 	=> esc_html__('Animation Speed (ms)', MELA_TD),
+				'description' => __('Duration of the effect transition.', MELA_TD),
+				'type' 		=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 500,
+					'unit' 	=> 'px',
+				],
+				'range' 	=> [
+					'px' 	=> [
+						'min' 	=> 0,
+						'max' 	=> 2000,
+						'step'	=> 100,
+					],
+				],
 				'frontend_available' => true,
 				'condition'				=> [
 					'jltma_gallery_slider_show_thumbnails' 		=> 'yes',
@@ -543,30 +566,30 @@ class Gallery_Slider extends Widget_Base
 		);
 
 
-		$this->add_control(
-			'jltma_gallery_slider_thumb_direction',
-			[
-				'label' 		=> esc_html__('Direction', MELA_TD),
-				'type' 			=> Controls_Manager::CHOOSE,
-				'label_block' 	=> false,
-				'options' 		=> [
-					'ltr' 			=> [
-						'title' 		=> esc_html__('Left to Right', MELA_TD),
-						'icon' 			=> 'fa fa-arrow-right',
-					],
-					'rtl' 			=> [
-						'title' 		=> esc_html__('Right to Left', MELA_TD),
-						'icon' 			=> 'fa fa-arrow-left',
-					],
-				],
-				'default' 		 => 'ltr',
-				'style_transfer' => true,
-				'condition'				=> [
-					'jltma_gallery_slider_show_thumbnails' 		=> 'yes',
-					'jltma_gallery_slider_thumbnails_carousel!' => ''
-				],
-			]
-		);
+		// $this->add_control(
+		// 	'jltma_gallery_slider_thumb_direction',
+		// 	[
+		// 		'label' 		=> esc_html__('Direction', MELA_TD),
+		// 		'type' 			=> Controls_Manager::CHOOSE,
+		// 		'label_block' 	=> false,
+		// 		'options' 		=> [
+		// 			'ltr' 			=> [
+		// 				'title' 		=> esc_html__('Left to Right', MELA_TD),
+		// 				'icon' 			=> 'fa fa-arrow-right',
+		// 			],
+		// 			'rtl' 			=> [
+		// 				'title' 		=> esc_html__('Right to Left', MELA_TD),
+		// 				'icon' 			=> 'fa fa-arrow-left',
+		// 			],
+		// 		],
+		// 		'default' 		 => 'ltr',
+		// 		'style_transfer' => true,
+		// 		'condition'				=> [
+		// 			'jltma_gallery_slider_show_thumbnails' 		=> 'yes',
+		// 			'jltma_gallery_slider_thumbnails_carousel!' => ''
+		// 		],
+		// 	]
+		// );
 		$this->end_controls_section();
 
 
@@ -3583,6 +3606,9 @@ class Gallery_Slider extends Widget_Base
 				break;
 			case 'left':
 				$thumb_position = "right";
+				break;
+			case 'bottom':
+				$thumb_position = "top";
 				break;
 			default:
 				$thumb_position = "bottom";

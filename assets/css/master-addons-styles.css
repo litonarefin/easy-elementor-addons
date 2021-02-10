@@ -13576,6 +13576,7 @@ blockquote.jltma-blockquote cite {
     background: #222;
     font-weight: 400;
     padding: 8px 27px;
+    color: #fff;
     border-radius: inherit;
 }
 /* Start of Domain Search */
@@ -15405,11 +15406,10 @@ ul.jltma-toggle-content-controls {
 
 /* Navigation */
 /* Horizontal Navigation */
-.jltma-gallery-slider__gallery .jltma-arrow--prev,
-.jltma-gallery-slider__gallery .jltma-arrow--next {
+.jltma-gallery-slider__gallery .jltma-swiper__button {
     position: absolute;
     width: 40px;
-    height: 40px;
+    height: 55px;
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -15438,14 +15438,14 @@ ul.jltma-toggle-content-controls {
 .jltma-gallery__item.is--active .jltma-gallery__media__thumbnail img {
     outline: none;
 }
-
+/*
 .jltma-gallery-slider__gallery.jltma-thumb-position-bottom .jltma-arrow--prev,
 .jltma-gallery-slider__gallery.jltma-thumb-position-bottom .jltma-arrow--next,
 .jltma-gallery-slider__gallery.jltma-thumb-position-top .jltma-arrow--prev,
 .jltma-gallery-slider__gallery.jltma-thumb-position-top .jltma-arrow--next {
-    top: 40% !important;
+    top: 40%;
     height: 55px;
-}
+} */
 
 /* Vertical Navigation */
 /* .jltma-gallery-slider__gallery.jltma-thumb-position-left .jltma-arrow--prev,
@@ -15471,6 +15471,7 @@ ul.jltma-toggle-content-controls {
 }
 .jltma-swiper__navigation--top .jltma-swiper__button {
   top: 0;
+  margin:10px;
   transform: none;
 }
 .jltma-swiper__navigation--middle .jltma-swiper__button {
@@ -15480,6 +15481,7 @@ ul.jltma-toggle-content-controls {
 .jltma-swiper__navigation--bottom .jltma-swiper__button {
   top: auto;
   bottom: 0;
+  margin:10px;
   transform: none;
 }
 

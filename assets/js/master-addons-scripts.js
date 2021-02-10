@@ -774,8 +774,8 @@
                     scope 		    : $scope,
                     id 			    : uniqueId,
 					element : {
-						autoHeight 				: 'yes' === elementSettings.jltma_gallery_slider_adaptive_height,
-						autoplay 				: 'yes' === elementSettings.jltma_gallery_slider_autoplay,
+						autoHeight 				: 'yes' === elementSettings.jltma_gallery_slider_adaptive_height ? true : false,
+						autoplay 				: 'yes' === elementSettings.jltma_gallery_slider_autoplay ? true : false,
 						autoplaySpeed 			: 'yes' === elementSettings.jltma_gallery_slider_autoplay && elementSettings.jltma_gallery_slider_autoplay_speed ? elementSettings.jltma_gallery_slider_autoplay_speed.size : false,
 						disableOnInteraction 	: '' !== elementSettings.autoplay_disable_on_interaction,
 						stopOnHover 			: 'yes' === elementSettings.jltma_gallery_slider_pause_on_hover,
@@ -812,7 +812,11 @@
 							arrows 				: '' !== elementSettings.jltma_gallery_slider_thumb_show_arrows,
 							arrowPrev 			: '.jltma-arrow--prev',
 							arrowNext 			: '.jltma-arrow--next',
-							autoHeight 			: false,
+                            autoHeight 			: false,
+                            loop                : true,
+                            autoplay 				: 'yes' === elementSettings.jltma_gallery_slider_thumb_autoplay ? true : false,
+                        autoplaySpeed 			: 'yes' === elementSettings.jltma_gallery_slider_thumb_autoplay && elementSettings.jltma_gallery_slider_thumb_autoplay_speed ? elementSettings.jltma_gallery_slider_thumb_autoplay_speed.size : false,
+
 							speed 				: elementSettings.jltma_gallery_slider_thumb_speed ? elementSettings.jltma_gallery_slider_thumb_speed.size : 500,
 							slidesPerView 		: elementSettings.jltma_gallery_slider_thumb_items_mobile,
 							slidesPerColumn 	: 'vertical' === elementSettings.carousel_orientation ? 1 : elementSettings.carousel_slides_per_column_mobile,

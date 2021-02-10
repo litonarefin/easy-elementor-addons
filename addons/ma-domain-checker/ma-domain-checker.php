@@ -100,6 +100,35 @@ class Domain_Search extends Widget_Base
 
 
         $this->add_control(
+            'ma_el_domain_checker_submit_button',
+            [
+                'label'             => esc_html__('Button Link?', MELA_TD),
+                'type'                 => Controls_Manager::SWITCHER,
+                'default'           => '',
+                'label_on'          => esc_html__('Yes', MELA_TD),
+                'label_off'         => esc_html__('No', MELA_TD),
+                'return_value'      => 'yes',
+                'frontend_available' => true,
+            ]
+        );
+
+        $this->add_control(
+            'ma_el_domain_checker_submit_button_url',
+            [
+                'label' => __('Action URL', MELA_TD),
+                'type' => Controls_Manager::URL,
+                'default' => [
+                    'is_external' => true,
+                ],
+                'placeholder' => __('http://your-link.com', MELA_TD),
+                'separator' => 'before',
+                'condition' => [
+                    'ma_el_domain_checker_submit_button'         => 'yes'
+                ],
+            ]
+        );
+
+        $this->add_control(
             'ma_el_domain_checker_submit_icon',
             array(
                 'label'       => __('Icon', MELA_TD),
@@ -598,6 +627,16 @@ class Domain_Search extends Widget_Base
             $has_icon = true;
         }
 
+        // Submit Button Link
+        $this->add_render_attribute('submit-button', 'class', ['jltma-btn', 'jltma-btn-dark', 'domain-checker', 'ma-el-button', 'ma-el-btn-loader']);
+        if (!empty($settings['ma_el_domain_checker_submit_button_url']['url'])) {
+            $this->add_render_attribute('submit-button', 'href', $settings['ma_el_domain_checker_submit_button_url']['url']);
+
+            if (!empty($settings['ma_el_domain_checker_submit_button_url']['is_external'])) {
+                $this->add_render_attribute('submit-button', 'target', '_blank');
+            }
+        }
+
         $migrated  = isset($settings['__fa4_migrated']['ma_el_domain_checker_submit_icon']);
         $is_new    = empty($settings['icon']) && Icons_Manager::is_migration_allowed();
         ob_start(); ?>
@@ -611,7 +650,9 @@ class Domain_Search extends Widget_Base
                         <div class="input-group mb-3">
                             <input type="text" placeholder="<?php echo esc_attr($settings['palceholder_text']); ?>" class="form-control ma-el-domain-name" autocomplete="off">
                             <div class="input-group-append">
-                                <button type="submit" class="jltma-btn jltma-btn-dark ma-el-button ma-el-btn-loader">
+
+                                <button type="submit" <?php //echo $this->get_render_attribute_string('submit-button');
+                                                        ?> class="jltma-btn jltma-btn-dark domain-checker ma-el-button ma-el-btn-loader">
                                     <span>
                                         <?php if ($has_icon and 'icon' == $settings['ma_el_domain_checker_submit_type']) {
                                             if ($is_new || $migrated) {
@@ -634,6 +675,7 @@ class Domain_Search extends Widget_Base
                                         </path>
                                     </svg>
                                 </button>
+
                             </div>
                         </div>
 
@@ -644,46 +686,72 @@ class Domain_Search extends Widget_Base
             <div class="ma-el-results"></div>
         </div>
 
+
+
         <script>
             ;
             (function($) {
                 $(function() {
                     $('.ma-el-domain-checker').on('submit', function(event) {
                         event.preventDefault();
-                        var $this = $(this),
-                            domain = $('.ma-el-domain-name', $this).val(),
-                            succes_msg = "<?php echo esc_attr($success_msg); ?>",
-                            error_msg = "<?php echo esc_attr($error_msg); ?>",
-                            not_found = "<?php echo esc_attr($not_found_msg); ?>",
-                            not_entered_domain = "<?php echo esc_attr($not_entered_domain); ?>";
-                        $.ajax({
-                            type: 'POST',
-                            dataType: 'json',
-                            url: '<?php echo admin_url('admin-ajax.php'); ?>',
-                            data: {
-                                action: 'jltma_domain_checker',
-                                domain: domain,
-                                succes_msg: succes_msg,
-                                error_msg: error_msg,
-                                not_found: not_found,
-                                not_entered_domain: not_entered_domain,
-                                nonce: '<?php echo wp_create_nonce('ma-el-domain-checker'); ?>'
-                            },
-                            beforeSend: function() {
-                                $('.ma-el-button', $this).addClass('ma-el-svg-progress').prop('disabled', true);
-                            }
-                        }).then(function(response) {
-                            $('.ma-el-button', $this).removeClass('ma-el-svg-progress').prop('disabled', false);
-                            if (response.success) {
-                                $('.ma-el-results', $this).addClass("text-success").removeClass("text-danger").html(response.data + ' <?php echo isset($ma_el_domain_affiliate); ?>');
-                            } else {
-                                $('.ma-el-results', $this).addClass("text-danger").removeClass("text-success").html(response.data);
-                            }
-                        });
+                        <?php
+                        // Enable/Disable Ajax Script depending on Button URL
+                        if ($settings['ma_el_domain_checker_submit_button'] != "yes") { ?>
+
+                            var $this = $(this),
+                                domain = $('.ma-el-domain-name', $this).val(),
+                                succes_msg = "<?php echo esc_attr($success_msg); ?>",
+                                error_msg = "<?php echo esc_attr($error_msg); ?>",
+                                not_found = "<?php echo esc_attr($not_found_msg); ?>",
+                                not_entered_domain = "<?php echo esc_attr($not_entered_domain); ?>";
+                            $.ajax({
+                                type: 'POST',
+                                dataType: 'json',
+                                url: '<?php echo admin_url('admin-ajax.php'); ?>',
+                                data: {
+                                    action: 'jltma_domain_checker',
+                                    domain: domain,
+                                    succes_msg: succes_msg,
+                                    error_msg: error_msg,
+                                    not_found: not_found,
+                                    not_entered_domain: not_entered_domain,
+                                    nonce: '<?php echo wp_create_nonce('ma-el-domain-checker'); ?>'
+                                },
+                                beforeSend: function() {
+                                    $('.ma-el-button', $this).addClass('ma-el-svg-progress').prop('disabled', true);
+                                }
+                            }).then(function(response) {
+                                $('.ma-el-button', $this).removeClass('ma-el-svg-progress').prop('disabled', false);
+                                if (response.success) {
+                                    $('.ma-el-results', $this).addClass("text-success").removeClass("text-danger").html(response.data + ' <?php echo isset($ma_el_domain_affiliate); ?>');
+                                } else {
+                                    $('.ma-el-results', $this).addClass("text-danger").removeClass("text-success").html(response.data);
+                                }
+                            });
+
+
+
+                        <?php } else { ?>
+
+                            <?php if (!empty($settings['ma_el_domain_checker_submit_button_url']['url'])) { ?>
+                                var $this = $(this),
+                                    domain = $('.ma-el-domain-name', $this).val(),
+                                    link_target = <?php echo (!empty($settings['ma_el_domain_checker_submit_button_url']['is_external'])) ? '"_blank"' : '""'; ?>,
+                                    affiliate_link = "<?php echo esc_url($settings['ma_el_domain_checker_submit_button_url']['url']); ?>?=" + domain;
+
+                                $("<a>").prop({
+                                    target: link_target,
+                                    href: affiliate_link
+                                })[0].click();
+                            <?php } ?>
+
+                        <?php } //end of Ajax Button Check
+                        ?>
                     });
                 });
             })(jQuery);
         </script>
+
 <?php
         echo ob_get_clean();
     }

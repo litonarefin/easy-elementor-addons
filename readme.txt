@@ -379,6 +379,7 @@ Paste on your Local Computer
 * Updated: 'jquery-slick' updated with 'swiper' scripts. Updated Widgets - MA Blog, MA Slider, MA Gallery Slider, MA Twitter Slider, MA Timeline etc
 * Added: New addon added "Advanced Image"
 * Updated: Fully revamped plugins file structure with namespace and file locations.
+* Updated: Domain Checker - Added Search Button Link for Affiliates and anyone can integrate WHMCS for searching Domains.
 
 
 = 1.5.6.2 (24-01-2021) =
