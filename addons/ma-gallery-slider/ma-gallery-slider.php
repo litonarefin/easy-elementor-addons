@@ -1568,8 +1568,6 @@ class Gallery_Slider extends Widget_Base
 		/**
 		 * Style Tab: Preview Captions
 		 */
-
-
 		$this->start_controls_section(
 			'jltma_gallery_slider_section_style_preview_captions',
 			[
