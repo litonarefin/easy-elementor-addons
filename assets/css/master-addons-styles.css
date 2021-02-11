@@ -15172,6 +15172,14 @@ ul.jltma-toggle-content-controls {
 .jltma-gallery-slider__gallery .swiper-container-vertical .jltma-gallery__item {
     overflow: hidden;
 }
+.jltma-gallery-slider__gallery .wp-caption-text.jltma-media__content__caption {
+    padding: 10px;
+    margin: 0;
+    background-color: #F3F3F3;
+    text-align: center;
+    font-size: 0.75em;
+    color: #3D3D3D;
+}
 .jltma-media__content {
     display: -ms-flexbox;
     display: flex;
@@ -15286,7 +15294,32 @@ ul.jltma-toggle-content-controls {
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
+.jltma-grid-halign-mobile--left .jltma-grid {
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+.jltma-grid-halign-mobile--center .jltma-grid {
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.jltma-grid-halign-mobile--right .jltma-grid {
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+.jltma-grid-halign--left .jltma-grid {
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
 
+.jltma-grid-halign--center .jltma-grid {
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.jltma-grid-halign--right .jltma-grid {
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
 .jltma-media-effect__content--fade-in .jltma-media__content {
     opacity: 0;
 }
