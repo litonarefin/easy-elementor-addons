@@ -110,6 +110,7 @@ class Blog extends Widget_Base
 					'list'          => __('List Layout', MELA_TD),
 					'masonry'       => __('Masonry Layout', MELA_TD),
 				],
+				'frontend_available' 	=> true,
 				'default'       => 'grid',
 				'label_block'   => true
 			]
@@ -439,6 +440,391 @@ class Blog extends Widget_Base
 			]
 		);
 
+
+		$this->end_controls_section();
+
+
+		/*
+			 * Carousel Settings
+			 */
+		$this->start_controls_section(
+			'ma_el_blog_carousel_settings',
+			[
+				'label'         => __('Carousel', MELA_TD),
+				'condition'     => [
+					'ma_el_post_grid_layout' => 'grid'
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel',
+			[
+				'label'         => __('Enable Carousel?', MELA_TD),
+				'type'          => Controls_Manager::SWITCHER
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_auto_play',
+			[
+				'label'         => __('Auto Play', MELA_TD),
+				'type'          => Controls_Manager::SWITCHER,
+				'frontend_available' 	=> true,
+				'condition'     => [
+					'ma_el_blog_carousel'  => 'yes'
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_autoplay_speed',
+			[
+				'label'			=> __('Autoplay Speed', MELA_TD),
+				'description'	=> __('Autoplay Speed means at which time the next slide should come. Set a value in milliseconds (ms)', MELA_TD),
+				'type'			=> Controls_Manager::NUMBER,
+				'default'		=> 5000,
+				'condition'		=> [
+					'ma_el_blog_carousel'           => 'yes',
+					'ma_el_blog_carousel_auto_play' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_loop',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Loop', MELA_TD),
+				'default' 		=> '',
+				'separator'		=> 'before',
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->add_control(
+			'pause_on_interaction',
+			[
+				'label' 		=> __('Disable on Interaction', MELA_TD),
+				'description' 	=> __('Removes autoplay completely on the first interaction with the carousel.', MELA_TD),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'default' 		=> '',
+				'condition' 	=> [
+					'ma_el_blog_carousel_auto_play' => 'yes',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'stop_on_hover',
+			[
+				'label' 	=> __('Pause on Hover', MELA_TD),
+				'type' 		=> Controls_Manager::SWITCHER,
+				'default' 	=> '',
+				'frontend_available' => true,
+				'condition'	=> [
+					'ma_el_blog_carousel_auto_play' => 'yes'
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_direction',
+			[
+				'type' 				=> Controls_Manager::SELECT,
+				'label' 			=> __('Orientation', MELA_TD),
+				'default'			=> 'horizontal',
+				'tablet_default'	=> 'horizontal',
+				'mobile_default'	=> 'horizontal',
+				'options' 			=> [
+					'horizontal' 	=> __('Horizontal', MELA_TD),
+					'vertical' 		=> __('Vertical', MELA_TD),
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$slides_per_column = range(1, 6);
+		$slides_per_column = array_combine($slides_per_column, $slides_per_column);
+
+		$this->add_responsive_control(
+			'slides_per_view',
+			[
+				'label' 			=> __('Slides Per View', MELA_TD),
+				'type' 				=> Controls_Manager::SELECT,
+				'default' 			=> '',
+				'tablet_default' 	=> '',
+				'mobile_default' 	=> '',
+				'options' => [
+					''	=> __('Default', MELA_TD),
+					'1' => '1',
+					'2' => '2',
+					'3' => '3',
+					'4' => '4',
+					'5' => '5',
+					'6' => '6',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_responsive_control(
+			'slides_per_column',
+			[
+				'type' 					=> Controls_Manager::SELECT,
+				'label' 				=> __('Slides Per Column', MELA_TD),
+				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_column,
+				'condition'				=> [
+					'ma_el_blog_carousel_direction' => 'horizontal',
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+
+
+		$this->add_control(
+			'autoheight',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Auto Height', MELA_TD),
+				'default' 		=> '',
+				'frontend_available' 	=> true,
+				'conditions' => [
+					'relation' 	=> 'or',
+					'terms' 	=> [
+						[
+							'name' 		=> 'slides_per_column',
+							'operator' 	=> '==',
+							'value' 	=> '1',
+						],
+						[
+							'name' 		=> 'slides_per_column',
+							'operator' 	=> '==',
+							'value' 	=> '',
+						],
+					]
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'slides_to_scroll',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Slides to Scroll', MELA_TD),
+				'options' 		=> ['' => __('Default', MELA_TD)] + $slides_per_column,
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_effect',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Effect', MELA_TD),
+				'default' 		=> 'slide',
+				'options' 		=> [
+					'slide' 	=> __('Slide', MELA_TD),
+					'fade' 		=> __('Fade', MELA_TD),
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_fade',
+			[
+				'label'         => __('Fade', MELA_TD),
+				'type'          => Controls_Manager::SWITCHER,
+				'condition'     => [
+					'ma_el_blog_cols' => '100%'
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+
+
+		$this->add_control(
+			'speed',
+			[
+				'label' 	=> __('Duration (ms)', MELA_TD),
+				'description' => __('Duration of the effect transition.', MELA_TD),
+				'type' 		=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 300,
+					'unit' 	=> 'px',
+				],
+				'range' 	=> [
+					'px' 	=> [
+						'min' 	=> 0,
+						'max' 	=> 2000,
+						'step'	=> 100,
+					],
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'resistance_ratio',
+			[
+				'label' 		=> __('Resistance', MELA_TD),
+				'description'	=> __('Set the value for resistant bounds.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'default' 		=> [
+					'size' 		=> 0.25,
+					'unit' 		=> 'px',
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 1,
+						'step'	=> 0.05,
+					],
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_dots',
+			[
+				'label'         => __('Navigation Dots', MELA_TD),
+				'type'          => Controls_Manager::SWITCHER,
+				'return_value' 	=> 'yes',
+				'condition'     => [
+					'ma_el_blog_carousel'  => 'yes'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'grid_columns_spacing',
+			[
+				'label' 			=> __('Columns Spacing', MELA_TD),
+				'type' 				=> Controls_Manager::SLIDER,
+				'default'			=> [
+					'size' => 24,
+					'unit' => 'px',
+				],
+				'tablet_default'	=> [
+					'size' => 12,
+					'unit' => 'px',
+				],
+				'mobile_default'	=> [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'size_units' 		=> ['px'],
+				'range' 			=> [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'slide_change_resize',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Trigger Resize on Slide', MELA_TD),
+				'description'	=> __('Some widgets inside post skins templates might require triggering a window resize event when changing slides to display correctly.', MELA_TD),
+				'default' 		=> '',
+				'frontend_available' => true
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_arrows',
+			[
+				'label'         => __('Navigation Arrows', MELA_TD),
+				'type'          => Controls_Manager::SWITCHER,
+				'default'       => 'yes',
+				'return_value' 	=> 'yes',
+				'condition'     => [
+					'ma_el_blog_carousel'  => 'yes'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_arrows_pos',
+			[
+				'label'         => __('Arrows Position', MELA_TD),
+				'type'          => Controls_Manager::SLIDER,
+				'size_units'    => ['px', "em"],
+				'range'         => [
+					'px'    => [
+						'min'       => -100,
+						'max'       => 100,
+					],
+					'em'    => [
+						'min'       => -10,
+						'max'       => 10,
+					],
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel'         => 'yes',
+					'ma_el_blog_carousel_arrows'  => 'yes'
+				],
+				'selectors'     => [
+					'{{WRAPPER}} .ma-el-blog-wrap a.carousel-arrow.carousel-next' => 'right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .ma-el-blog-wrap a.carousel-arrow.carousel-prev' => 'left: {{SIZE}}{{UNIT}};',
+				]
+			]
+		);
+
+		$this->add_control(
+			'pagination',
+			[
+				'label' 		=> __('Pagination', MELA_TD),
+				'type' 			=> Controls_Manager::POPOVER_TOGGLE,
+				'default' 		=> 'on',
+				'label_on' 		=> __('On', MELA_TD),
+				'label_off' 	=> __('Off', MELA_TD),
+				'return_value' 	=> 'on',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'pagination_type',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Type', MELA_TD),
+				'default'		=> 'bullets',
+				'options' 		=> [
+					'bullets' 		=> __('Bullets', MELA_TD),
+					'fraction' 		=> __('Fraction', MELA_TD),
+				],
+				'condition'		=> [
+					'pagination!'         => '',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'pagination_clickable',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __(
+					'Clickable',
+					MELA_TD
+				),
+				'default' 		=> 'yes',
+				'return_value' 	=> 'yes',
+				'condition' => [
+					'pagination!'         	=> '',
+					'pagination_type'       => 'bullets'
+				],
+				'frontend_available' 	=> true,
+			]
+		);
 
 		$this->end_controls_section();
 
@@ -938,117 +1324,6 @@ class Blog extends Widget_Base
 
 		$this->end_controls_section();
 
-
-
-		/*
-			 * Carousel Settings
-			 */
-		$this->start_controls_section(
-			'ma_el_blog_carousel_settings',
-			[
-				'label'         => __('Carousel', MELA_TD),
-				'condition'     => [
-					'ma_el_post_grid_layout' => 'grid'
-				]
-			]
-		);
-
-		$this->add_control(
-			'ma_el_blog_carousel',
-			[
-				'label'         => __('Enable Carousel?', MELA_TD),
-				'type'          => Controls_Manager::SWITCHER
-			]
-		);
-
-		$this->add_control(
-			'ma_el_blog_carousel_auto_play',
-			[
-				'label'         => __('Auto Play', MELA_TD),
-				'type'          => Controls_Manager::SWITCHER,
-				'condition'     => [
-					'ma_el_blog_carousel'  => 'yes'
-				]
-			]
-		);
-
-		$this->add_control(
-			'ma_el_blog_carousel_fade',
-			[
-				'label'         => __('Fade', MELA_TD),
-				'type'          => Controls_Manager::SWITCHER,
-				'condition'     => [
-					'ma_el_blog_cols' => '100%'
-				]
-			]
-		);
-
-
-		$this->add_control(
-			'ma_el_blog_carousel_autoplay_speed',
-			[
-				'label'			=> __('Autoplay Speed', MELA_TD),
-				'description'	=> __('Autoplay Speed means at which time the next slide should come. Set a value in milliseconds (ms)', MELA_TD),
-				'type'			=> Controls_Manager::NUMBER,
-				'default'		=> 5000,
-				'condition'		=> [
-					'ma_el_blog_carousel'           => 'yes',
-					'ma_el_blog_carousel_auto_play' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'ma_el_blog_carousel_dots',
-			[
-				'label'         => __('Navigation Dots', MELA_TD),
-				'type'          => Controls_Manager::SWITCHER,
-				'condition'     => [
-					'ma_el_blog_carousel'  => 'yes'
-				]
-			]
-		);
-
-		$this->add_control(
-			'ma_el_blog_carousel_arrows',
-			[
-				'label'         => __('Navigation Arrows', MELA_TD),
-				'type'          => Controls_Manager::SWITCHER,
-				'default'       => 'yes',
-				'condition'     => [
-					'ma_el_blog_carousel'  => 'yes'
-				]
-			]
-		);
-
-		$this->add_responsive_control(
-			'ma_el_blog_carousel_arrows_pos',
-			[
-				'label'         => __('Arrows Position', MELA_TD),
-				'type'          => Controls_Manager::SLIDER,
-				'size_units'    => ['px', "em"],
-				'range'         => [
-					'px'    => [
-						'min'       => -100,
-						'max'       => 100,
-					],
-					'em'    => [
-						'min'       => -10,
-						'max'       => 10,
-					],
-				],
-				'condition'		=> [
-					'ma_el_blog_carousel'         => 'yes',
-					'ma_el_blog_carousel_arrows'  => 'yes'
-				],
-				'selectors'     => [
-					'{{WRAPPER}} .ma-el-blog-wrap a.carousel-arrow.carousel-next' => 'right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-blog-wrap a.carousel-arrow.carousel-prev' => 'left: {{SIZE}}{{UNIT}};',
-				]
-			]
-		);
-
-		$this->end_controls_section();
 
 
 
@@ -2738,7 +3013,8 @@ class Blog extends Widget_Base
 																																				get_post_format() === ' '
 																																			) : echo 'standard';
 																																			else : echo get_post_format();
-																																			endif; ?>" target="<?php echo esc_attr($target); ?>"><?php $this->ma_el_blog_post_format_icon(); ?></a>
+																																			endif; ?>" target="<?php echo esc_attr($target); ?>">
+																	<?php $this->ma_el_blog_post_format_icon(); ?></a>
 															</div>
 														<?php endif; ?>
 
@@ -2872,7 +3148,32 @@ class Blog extends Widget_Base
 						]
 					);
 
+					$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
+
 					if ($carousel) {
+						$this->add_render_attribute([
+							'ma_el_blog' => [
+								'class' => [
+									'jltma-swiper'
+								],
+							],
+							'swiper-container' => [
+								'class' => [
+									'jltma-swiper__container',
+									'swiper-container',
+									'elementor-jltma-element-' . $unique_id
+								],
+								'data-jltma-template-widget-id' => $unique_id
+							],
+
+							'swiper-wrapper' => [
+								'class' => [
+									'jltma-grid',
+									'jltma-swiper__wrapper',
+									'swiper-wrapper',
+								],
+							],
+						]);
 
 						$play   = 'yes' == $settings['ma_el_blog_carousel_auto_play'] ? true : false;
 						$fade   = 'yes' == $settings['ma_el_blog_carousel_fade'] ? 'true' : 'false';
@@ -2898,7 +3199,7 @@ class Blog extends Widget_Base
 
 						$this->add_render_attribute('ma_el_blog', 'data-dots', $dots);
 
-						$this->add_render_attribute('ma_el_blog', 'class', ['elementor-slick-slider']);
+						$this->add_render_attribute('ma_el_blog', 'class', ['elementor-swiper-slider']);
 					}
 					?>
 						<div class="ma-el-blog">
@@ -2934,53 +3235,66 @@ class Blog extends Widget_Base
 										<?php } ?>
 									</ul>
 								</div>
+
 							<?php } ?>
 
 
 							<div <?php echo $this->get_render_attribute_string('ma_el_blog'); ?>>
 
-								<?php
-								if (count($posts)) {
-									global $post;
-									foreach ($posts as $post) {
-										setup_postdata($post);
-										$this->ma_el_blog_layout();
-									}
-								?>
+								<?php if ($carousel) { ?>
+									<div <?php echo $this->get_render_attribute_string('swiper-container'); ?>>
+										<div <?php echo $this->get_render_attribute_string('swiper-wrapper'); ?>>
+										<?php } ?>
+
+
+										<?php
+										if (count($posts)) {
+											global $post;
+											foreach ($posts as $post) {
+												setup_postdata($post);
+												$this->ma_el_blog_layout();
+											}
+										?>
+											<?php if ($carousel) { ?>
+										</div>
+									</div>
+								<?php } ?>
+
+
 							</div>
 
 						</div>
 
-						<?php if ($settings['ma_el_blog_pagination'] === 'yes') : ?>
+						<?php if ($settings['ma_el_blog_pagination'] === 'yes') { ?>
 							<div class="ma-el-blog-pagination">
 								<?php
-										$count_posts = wp_count_posts();
-										$published_posts = $count_posts->publish;
+												$count_posts = wp_count_posts();
+												$published_posts = $count_posts->publish;
 
-										$total_posts = !empty($settings['ma_el_blog_total_posts_number']) ? $settings['ma_el_blog_total_posts_number'] : $published_posts;
+												$total_posts = !empty($settings['ma_el_blog_total_posts_number']) ? $settings['ma_el_blog_total_posts_number'] : $published_posts;
 
-										$page_tot = ceil(($total_posts - $offset) / $settings['ma_el_blog_posts_per_page']);
-										if ($page_tot > 1) {
-											$big        = 999999999;
-											echo paginate_links(
-												array(
-													'base'      => str_replace($big, '%#%', get_pagenum_link(999999999, false)),
-													'format'    => '?paged=%#%',
-													'current'   => max(1, $paged),
-													'total'     => $page_tot,
-													'prev_next' => true,
-													'prev_text' => sprintf("&lsaquo; %s", $settings['ma_el_blog_prev_text']),
-													'next_text' => sprintf("%s &rsaquo;", $settings['ma_el_blog_next_text']),
-													'end_size'  => 1,
-													'mid_size'  => 2,
-													'type'      => 'list'
-												)
-											);
-										}
+												$page_tot = ceil(($total_posts - $offset) / $settings['ma_el_blog_posts_per_page']);
+												if ($page_tot > 1) {
+													$big        = 999999999;
+													echo paginate_links(
+														array(
+															'base'      => str_replace($big, '%#%', get_pagenum_link(999999999, false)),
+															'format'    => '?paged=%#%',
+															'current'   => max(1, $paged),
+															'total'     => $page_tot,
+															'prev_next' => true,
+															'prev_text' => sprintf("&lsaquo; %s", $settings['ma_el_blog_prev_text']),
+															'next_text' => sprintf("%s &rsaquo;", $settings['ma_el_blog_next_text']),
+															'end_size'  => 1,
+															'mid_size'  => 2,
+															'type'      => 'list'
+														)
+													);
+												}
 								?>
 							</div>
-			<?php endif;
-									wp_reset_postdata();
+			<?php }
+											wp_reset_postdata();
+										}
+									}
 								}
-							}
-						}

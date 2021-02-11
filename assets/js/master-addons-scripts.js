@@ -1167,10 +1167,15 @@
          */
 
         MA_Blog: function ($scope, $) {
-            var blogElement = $scope.find(".ma-el-blog-wrapper"),
-                colsNumber = blogElement.data("col"),
-                carousel = blogElement.data("carousel"),
-                grid = blogElement.data("grid");
+            var elementSettings     = getElementSettings( $scope ),
+                uniqueId 		    = getUniqueLoopScopeId( $scope ),
+                scopeId 		    = $scope.data('id'),
+                $swiper 	        = $scope.find('.jltma-swiper__container'),
+                $thumbs 	        = $scope.find('.jltma-grid__item');
+                blogElement         = $scope.find(".ma-el-blog-wrapper"),
+                colsNumber          = blogElement.data("col"),
+                carousel            = blogElement.data("carousel"),
+                grid                = blogElement.data("grid");
 
             $scope.find(".ma-el-blog-cats-container li a").click(function (e) {
                 e.preventDefault();
@@ -1204,58 +1209,100 @@
                 });
             }
 
+
+			if ( ! $swiper.length ) {
+				return;
+			}
+
             if (carousel && grid) {
 
-                var autoPlay = blogElement.data("play"),
-                    speed = blogElement.data("speed"),
-                    fade = blogElement.data("fade"),
-                    arrows = blogElement.data("arrows"),
-                    dots = blogElement.data("dots"),
-                    prevArrow = null,
-                    nextArrow = null;
 
-                if (arrows) {
-                    prevArrow = "<div class='ma-el-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-                        nextArrow = "<div class='ma-el-team-carousel-next'><i class='fa fa-angle-right'></i></div>"
-                    // prevArrow   = '<a type="button" data-role="none" class="carousel-arrow carousel-prev" aria-label="Next" role="button" style=""><i class="fas fa-angle-left" aria-hidden="true"></i></a>',
-                    //     nextArrow   = '<a type="button" data-role="none" class="carousel-arrow carousel-next" aria-label="Next" role="button" style=""><i class="fas fa-angle-right" aria-hidden="true"></i></a>';
-                } else {
-                    prevArrow = prevArrow = '';
-                }
 
-                $(blogElement).slick({
-                    infinite: true,
-                    slidesToShow: colsNumber,
-                    slidesToScroll: colsNumber,
-                    responsive: [
-                        {
-                            breakpoint: 769,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1
-                            }
-                        },
-                        {
-                            breakpoint: 481,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1
-                            }
-                        }
-                    ],
-                    autoplay: autoPlay,
-                    autoplaySpeed: speed,
-                    nextArrow: nextArrow,
-                    prevArrow: prevArrow,
-                    fade: fade,
-                    draggable: true,
-                    dots: dots,
-                    customPaging: function () {
-                        return (
-                            '<i class="fas fa-circle"></i>'
-                        );
-                    }
-                });
+			var swiper = null,
+				settings = {
+					scope : $scope,
+					id : uniqueId,
+					element : {
+						// autoHeight 						: 'yes' === elementSettings.carousel_autoheight,
+						autoplay 						: 'yes' === elementSettings.ma_el_blog_carousel_auto_play,
+						loop 							: 'yes' === elementSettings.ma_el_blog_carousel_loop,
+						direction 						: elementSettings.ma_el_blog_carousel_direction,
+						effect 							: elementSettings.ma_el_blog_carousel_effect,
+						speed 							: elementSettings.speed.size || 500,
+						resistance 						: elementSettings.resistance_ratio.size || 0.25,
+						autoplaySpeed 					: elementSettings.ma_el_blog_carousel_auto_play ? elementSettings.ma_el_blog_carousel_autoplay_speed : false,
+						slidesPerView 					: elementSettings.slides_per_view_mobile,
+						slidesPerColumn 				: 'vertical' === elementSettings.ma_el_blog_carousel_direction ? 1 : elementSettings.slides_per_column_mobile,
+						slidesPerGroup 					: elementSettings.slides_to_scroll_mobile,
+						spaceBetween 					: elementSettings.grid_columns_spacing_mobile.size || 0,
+						disableOnInteraction 			: 'yes' === elementSettings.pause_on_interaction,
+						stopOnHover 					: 'yes' === elementSettings.stop_on_hover,
+						arrows 							: 'yes' === elementSettings.ma_el_blog_carousel_arrows,
+						arrowPrev 						: '.jltma-arrow--prev',
+						arrowNext 						: '.jltma-arrow--next',
+						// freeMode 						: 'yes' === elementSettings.carousel_free_mode,
+						// freeModeSticky 					: 'yes' === elementSettings.carousel_free_mode_sticky,
+						// freeModeMomentum 				: 'yes' === elementSettings.carousel_free_mode_momentum,
+						// freeModeMomentumBounce 			: 'yes' === elementSettings.carousel_free_mode_momentum_bounce,
+						// freeModeMomentumRatio 			: elementSettings.carousel_free_mode_momentum_ratio ? elementSettings.carousel_free_mode_momentum_ratio.size : false,
+						// freeModeMomentumVelocityRatio 	: elementSettings.carousel_free_mode_momentum_velocity ? elementSettings.carousel_free_mode_momentum_velocity.size : false,
+						// freeModeMomentumBounceRatio 	: elementSettings.carousel_free_mode_momentum_bounce_ratio ? elementSettings.carousel_free_mode_momentum_bounce_ratio.size : false,
+						pagination 						: '' !== elementSettings.pagination,
+						paginationType 					: elementSettings.pagination_type,
+						paginationClickable 			: 'yes' === elementSettings.pagination_clickable,
+						slideChangeTriggerResize 		: 'yes' === elementSettings.slide_change_resize,
+						breakpoints 		: {
+							tablet : {
+								slidesPerView 	: elementSettings.slides_per_view_tablet,
+								slidesPerColumn : 'vertical' === elementSettings.ma_el_blog_carousel_direction ? 1 : elementSettings.slides_per_column_tablet,
+								slidesPerGroup 	: elementSettings.slides_to_scroll_tablet,
+								spaceBetween 	: elementSettings.grid_columns_spacing_tablet.size || 0,
+							},
+							desktop : {
+								slidesPerView 	: elementSettings.slides_per_view,
+								slidesPerColumn : 'vertical' === elementSettings.ma_el_blog_carousel_direction ? 1 : elementSettings.slides_per_column,
+								slidesPerGroup 	: elementSettings.slides_to_scroll,
+								spaceBetween 	: elementSettings.grid_columns_spacing.size || 0,
+							},
+						},
+					},
+					default : {
+						slidesPerView 	: 1,
+						slidesPerGroup 	: 1,
+						slidesPerColumn : 1,
+						spaceBetween 	: 6,
+						breakpoints 	: {
+							tablet : {
+								slidesPerView 	: 2,
+								slidesPerGroup 	: 1,
+								slidesPerColumn : 1,
+								spaceBetween 	: 12,
+							},
+							desktop : {
+								slidesPerView 	: 3,
+								slidesPerGroup 	: 1,
+								slidesPerColumn : 1,
+								spaceBetween 	: 24,
+							},
+						},
+					},
+				};
+
+
+			Master_Addons.MA_Blog.init = function() {
+				swiper = Master_Addons.MA_Carousel( $swiper, settings );
+			};
+
+			Master_Addons.onElementRemove( $scope, function() {
+				$scope.find('.swiper-container').each( function() {
+					if ( $(this).data('swiper') ) {
+						$(this).data('swiper').destroy();
+					}
+				});
+			});
+
+			Master_Addons.MA_Blog.init();
+
             }
         },
 

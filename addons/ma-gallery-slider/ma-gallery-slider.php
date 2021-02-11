@@ -3621,18 +3621,13 @@ class Gallery_Slider extends Widget_Base
 			],
 			'slider' => [
 				'class' => [
-					// 'elementor-image-carousel',
-					// 'jltma-carousel',
 					'swiper-wrapper',
-					'jltma-swiper__wrapper',
-					// 'jltma-gallery-slider__carousel',
-					// 'jltma-media-effect__content--' . $settings['jltma_gallery_slider_preview_caption_effect'],
+					'jltma-swiper__wrapper'
 				],
 			],
 			'swiper-container' => [
 				'class' => [
-					'jltma-gallery-slider__slider-wrapper',
-					// 'jltma-swiper__container-wrapper'
+					'jltma-gallery-slider__slider-wrapper'
 				],
 			],
 
@@ -3678,10 +3673,6 @@ class Gallery_Slider extends Widget_Base
 		if (!empty($settings['jltma_gallery_slider_gallery_rand'])) {
 			$this->add_render_attribute('shortcode', 'orderby', $settings['jltma_gallery_slider_gallery_rand']);
 		}
-
-		// if ('yes' === $settings['jltma_gallery_slider_preview_stretch']) {
-		// 	$this->add_render_attribute('slider', 'class', 'slick-image-stretch');
-		// }
 
 		if (!empty($settings['jltma_gallery_slider_ken_burns']) && '' !== $settings['jltma_gallery_slider_ken_burns']) {
 			$this->add_render_attribute('swiper-wrapper', 'class', 'jltma-swiper__container--kenburns');
@@ -3990,12 +3981,7 @@ class Gallery_Slider extends Widget_Base
 						'jltma-media__thumbnail',
 						'jltma-carousel__media__thumbnail',
 					],
-				],
-				// $image_key => [
-				// 	'alt' 	=> esc_attr(Control_Media::get_image_alt($item)),
-				// 	'src' 	=> esc_attr($url),
-				// 	'class' => 'jltma-media__thumbnail__image',
-				// ],
+				]
 
 			]);
 
