@@ -15063,7 +15063,6 @@ ul.jltma-toggle-content-controls {
     overflow: visible;
 } */
 
-
 /* .jltma-gallery-slider--stack-tablet .jltma-gallery-slider {
     display: block;
 }
@@ -15178,6 +15177,14 @@ ul.jltma-toggle-content-controls {
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
+
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
 }
 .jltma-grid {
     display: -ms-flexbox;
@@ -15454,7 +15461,7 @@ ul.jltma-toggle-content-controls {
 .jltma-gallery-slider__gallery .jltma-arrow--next {
     right: 0px;
 }
-.jltma-thumb-slide .jltma-arrows i{
+.jltma-thumb-slide .jltma-arrows i {
     font-size: 22px;
 }
 .jltma-gallery-slider__gallery .jltma-arrow--next i,
@@ -15488,31 +15495,30 @@ ul.jltma-toggle-content-controls {
     transform: translateX(calc(-40% - 24px));
 }
 .jltma-swiper__navigation--left.jltma-arrows--vertical .jltma-swiper__button {
-  left: 0;
-  right: auto;
-  transform: none;
+    left: 0;
+    right: auto;
+    transform: none;
 }
 .jltma-swiper__navigation--right.jltma-arrows--vertical .jltma-swiper__button {
-  right: 0;
-  left: auto;
-  transform: none;
+    right: 0;
+    left: auto;
+    transform: none;
 }
 .jltma-swiper__navigation--top .jltma-swiper__button {
-  top: 0;
-  margin:10px;
-  transform: none;
+    top: 0;
+    margin: 10px;
+    transform: none;
 }
 .jltma-swiper__navigation--middle .jltma-swiper__button {
-  top: 50%;
-  transform: translateY(calc(-50% - 24px));
+    top: 50%;
+    transform: translateY(calc(-50% - 24px));
 }
 .jltma-swiper__navigation--bottom .jltma-swiper__button {
-  top: auto;
-  bottom: 0;
-  margin:10px;
-  transform: none;
+    top: auto;
+    bottom: 0;
+    margin: 10px;
+    transform: none;
 }
-
 
 .jltma-arrows--vertical .jltma-arrow--next {
     right: auto;
@@ -15523,7 +15529,7 @@ ul.jltma-toggle-content-controls {
     position: absolute;
 }
 .swiper-container-rtl .jltma-swiper__button {
-    padding:.5em 1em !important;
+    padding: 0.5em 1em !important;
 }
 .jltma-gallery-slider__gallery .jltma-swiper__button {
     font-size: 12px;

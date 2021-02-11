@@ -1656,7 +1656,7 @@ class Gallery_Slider extends Widget_Base
 				],
 				'default' 	=> 'center',
 				'selectors' => [
-					'{{WRAPPER}} .jltma-carousel__media__caption' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media__caption' => 'text-align: {{VALUE}};',
 				],
 				'condition' => [
 					'jltma_gallery_slider_thumbnails_caption_type!' => '',
@@ -1670,7 +1670,7 @@ class Gallery_Slider extends Widget_Base
 				'name' 		=> 'jltma_gallery_slider_preview_typography',
 				'label' 	=> esc_html__('Typography', MELA_TD),
 				'scheme' 	=> Scheme_Typography::TYPOGRAPHY_4,
-				'selector' 	=> '{{WRAPPER}} .jltma-carousel__media__caption',
+				'selector' 	=> '{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media__caption',
 				'condition' 	=> [
 					'jltma_gallery_slider_caption_type!' => '',
 				],
@@ -1684,7 +1684,7 @@ class Gallery_Slider extends Widget_Base
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> ['px', '%'],
 				'selectors' 	=> [
-					'{{WRAPPER}} .jltma-carousel__media__caption' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media__caption' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' 	=> [
 					'jltma_gallery_slider_caption_type!' => '',
@@ -1699,7 +1699,7 @@ class Gallery_Slider extends Widget_Base
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> ['px', '%'],
 				'selectors' 	=> [
-					'{{WRAPPER}} .jltma-carousel__media__caption' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media__caption' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' 	=> [
 					'jltma_gallery_slider_caption_type!' => '',
@@ -1713,7 +1713,7 @@ class Gallery_Slider extends Widget_Base
 			[
 				'name' 		=> 'jltma_gallery_slider_preview_text_border',
 				'label' 	=> esc_html__('Border', MELA_TD),
-				'selector' 	=> '{{WRAPPER}} .jltma-carousel__media__caption',
+				'selector' 	=> '{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media__caption',
 				'separator' => '',
 				'condition'	=> [
 					'jltma_gallery_slider_caption_type!' => '',
@@ -1728,7 +1728,7 @@ class Gallery_Slider extends Widget_Base
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> ['px', '%'],
 				'selectors' 	=> [
-					'{{WRAPPER}} .jltma-carousel__media__caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media__caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' 	=> [
 					'jltma_gallery_slider_caption_type!' => '',
@@ -1772,8 +1772,8 @@ class Gallery_Slider extends Widget_Base
 			MA_Group_Control_Transition::get_type(),
 			[
 				'name' 			=> 'jltma_gallery_slider_preview_caption',
-				'selector' 		=> '{{WRAPPER}} .jltma-carousel__media__content,
-										{{WRAPPER}} .jltma-carousel__media__caption',
+				'selector' 		=> '{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media__content,
+										{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media__caption',
 				'condition' 	=> [
 					'jltma_gallery_slider_caption_type!' => '',
 				],
@@ -1834,7 +1834,7 @@ class Gallery_Slider extends Widget_Base
 				'type' 		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
-					'{{WRAPPER}} .jltma-carousel__media__caption' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media__caption' => 'color: {{VALUE}};',
 				],
 				'condition' 	=> [
 					'jltma_gallery_slider_caption_type!' => '',
@@ -1847,7 +1847,7 @@ class Gallery_Slider extends Widget_Base
 			[
 				'name' 		=> 'jltma_gallery_slider_preview_text_background',
 				'types' 	=> ['classic', 'gradient'],
-				'selector' 	=> '{{WRAPPER}} .jltma-carousel__media__caption',
+				'selector' 	=> '{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media__caption',
 				'default'	=> 'classic',
 				'condition' => [
 					'jltma_gallery_slider_caption_type!' => '',
@@ -1874,7 +1874,7 @@ class Gallery_Slider extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .jltma-carousel__media__caption' => 'opacity: {{SIZE}}',
+					'{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media__caption' => 'opacity: {{SIZE}}',
 				],
 				'condition'	=> [
 					'jltma_gallery_slider_caption_type!' => '',
@@ -1886,7 +1886,7 @@ class Gallery_Slider extends Widget_Base
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name' 		=> 'jltma_gallery_slider_preview_text_box_shadow',
-				'selector' 	=> '{{WRAPPER}} .jltma-carousel__media__caption',
+				'selector' 	=> '{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media__caption',
 				'separator'	=> '',
 				'condition'	=> [
 					'jltma_gallery_slider_caption_type!' => '',
@@ -1910,7 +1910,7 @@ class Gallery_Slider extends Widget_Base
 				'type' 		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
-					'{{WRAPPER}} .jltma-carousel__media:hover .jltma-carousel__media__caption' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media:hover .jltma-carousel__media__caption' => 'color: {{VALUE}};',
 				],
 				'condition'	=> [
 					'jltma_gallery_slider_caption_type!' => '',
@@ -1923,7 +1923,7 @@ class Gallery_Slider extends Widget_Base
 			[
 				'name' 		=> 'jltma_gallery_slider_preview_text_background_hover',
 				'types' 	=> ['classic', 'gradient'],
-				'selector' 	=> '{{WRAPPER}} .jltma-carousel__media:hover .jltma-carousel__media__caption',
+				'selector' 	=> '{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media:hover .jltma-carousel__media__caption',
 				'default'	=> 'classic',
 				'condition' => [
 					'jltma_gallery_slider_caption_type!' => '',
