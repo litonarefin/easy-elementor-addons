@@ -592,19 +592,7 @@ class Blog extends Widget_Base
 				'default' 		=> '',
 				'frontend_available' 	=> true,
 				'conditions' => [
-					'relation' 	=> 'or',
-					'terms' 	=> [
-						[
-							'name' 		=> 'slides_per_column',
-							'operator' 	=> '==',
-							'value' 	=> '1',
-						],
-						[
-							'name' 		=> 'slides_per_column',
-							'operator' 	=> '==',
-							'value' 	=> '',
-						],
-					]
+					'slides_per_column'	=> ['', '1'],
 				]
 			]
 		);

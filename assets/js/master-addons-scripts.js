@@ -1216,6 +1216,8 @@
 
             // if (carousel && grid) {
 
+            console.log('Elements Settings:', elementSettings.autoheight );
+            console.log('Elements Settings:', elementSettings.ma_el_blog_carousel_auto_play );
 
 			var swiper = null,
 				settings = {
@@ -1287,7 +1289,7 @@
 					},
 				};
 
-            // console.log('Initial swiper posts', settings );
+            console.log('Initial swiper posts', settings );
 
 			Master_Addons.MA_Blog.init = function() {
 				swiper = Master_Addons.MA_Carousel( $swiper, settings );
