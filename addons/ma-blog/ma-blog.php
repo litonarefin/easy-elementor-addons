@@ -591,9 +591,9 @@ class Blog extends Widget_Base
 				'label' 		=> __('Auto Height', MELA_TD),
 				'default' 		=> '',
 				'frontend_available' 	=> true,
-				'conditions' => [
-					'slides_per_column'	=> ['', '1'],
-				]
+				// 'conditions' => [
+				// 	'slides_per_column'	=> '1',
+				// ]
 			]
 		);
 
@@ -2883,10 +2883,9 @@ class Blog extends Widget_Base
 
 		$this->add_render_attribute($tax_key, 'class', [
 			'ma-el-post-outer-container',
-			'jltma-grid__item',
-			'jltma-loop__item',
 			('yes' === $settings['ma_el_blog_carousel']) ? "" : $col_number
 		]);
+
 
 		$this->add_render_attribute($wrap_key, 'class', [
 			'ma-el-blog-post',
@@ -3284,13 +3283,14 @@ class Blog extends Widget_Base
 
 								if ($carousel) {
 									$this->add_render_attribute([
+										// 'ma_el_blog' => [
+										// 	'class' => [
+										// 		'jltma-swiper'
+										// 	],
+										// ],
 										'ma_el_blog' => [
 											'class' => [
-												'jltma-swiper'
-											],
-										],
-										'swiper-container' => [
-											'class' => [
+												'jltma-swiper',
 												'jltma-swiper__container',
 												'swiper-container',
 												'elementor-jltma-element-' . $unique_id
@@ -3305,7 +3305,16 @@ class Blog extends Widget_Base
 												'swiper-wrapper',
 											],
 										],
+
+										'swiper-item' => [
+											'class' => [
+												'jltma-slider__item',
+												'jltma-swiper__slide',
+												'swiper-slide'
+											],
+										],
 									]);
+
 
 									$play   = 'yes' == $settings['ma_el_blog_carousel_auto_play'] ? true : false;
 									$fade   = 'yes' == $settings['ma_el_blog_carousel_fade'] ? 'true' : 'false';
@@ -3374,66 +3383,68 @@ class Blog extends Widget_Base
 							<div <?php echo $this->get_render_attribute_string('ma_el_blog'); ?>>
 
 								<?php if ($carousel) { ?>
-									<div <?php echo $this->get_render_attribute_string('swiper-container'); ?>>
-										<div <?php echo $this->get_render_attribute_string('swiper-wrapper'); ?>>
-										<?php } ?>
+									<!-- <div <?php //echo $this->get_render_attribute_string('swiper-container');
+												?>> -->
+									<div <?php echo $this->get_render_attribute_string('swiper-wrapper'); ?>>
 
+										<?php }
 
-										<?php
-										if (count($posts)) {
-											global $post;
-											foreach ($posts as $post) {
-												setup_postdata($post);
-												$this->ma_el_blog_layout();
-											}
-										?>
-											<?php if ($carousel) { ?>
-										</div>
+									if (count($posts)) {
+										global $post;
+										foreach ($posts as $post) {
+											setup_postdata($post);
+											echo '<div ' . $this->get_render_attribute_string('swiper-item') . '>';
+											$this->ma_el_blog_layout();
+											echo '</div>';
+										}
+										if ($carousel) { ?>
 									</div>
-								<?php } ?>
-
-
 							</div>
+							<!-- </div> -->
+
+							<?php
+					$this->render_swiper_navigation();
+					$this->render_swiper_pagination();
+							?>
+
+						<?php } ?>
+
 
 						</div>
 
+				</div>
 
+
+				<?php if ($settings['ma_el_blog_pagination'] === 'yes') { ?>
+					<div class="ma-el-blog-pagination">
 						<?php
-											$this->render_swiper_navigation();
-											$this->render_swiper_pagination();
+											$count_posts = wp_count_posts();
+											$published_posts = $count_posts->publish;
+
+											$total_posts = !empty($settings['ma_el_blog_total_posts_number']) ? $settings['ma_el_blog_total_posts_number'] : $published_posts;
+
+											$page_tot = ceil(($total_posts - $offset) / $settings['ma_el_blog_posts_per_page']);
+											if ($page_tot > 1) {
+												$big        = 999999999;
+												echo paginate_links(
+													array(
+														'base'      => str_replace($big, '%#%', get_pagenum_link(999999999, false)),
+														'format'    => '?paged=%#%',
+														'current'   => max(1, $paged),
+														'total'     => $page_tot,
+														'prev_next' => true,
+														'prev_text' => sprintf("&lsaquo; %s", $settings['ma_el_blog_prev_text']),
+														'next_text' => sprintf("%s &rsaquo;", $settings['ma_el_blog_next_text']),
+														'end_size'  => 1,
+														'mid_size'  => 2,
+														'type'      => 'list'
+													)
+												);
+											}
 						?>
-
-
-						<?php if ($settings['ma_el_blog_pagination'] === 'yes') { ?>
-							<div class="ma-el-blog-pagination">
-								<?php
-												$count_posts = wp_count_posts();
-												$published_posts = $count_posts->publish;
-
-												$total_posts = !empty($settings['ma_el_blog_total_posts_number']) ? $settings['ma_el_blog_total_posts_number'] : $published_posts;
-
-												$page_tot = ceil(($total_posts - $offset) / $settings['ma_el_blog_posts_per_page']);
-												if ($page_tot > 1) {
-													$big        = 999999999;
-													echo paginate_links(
-														array(
-															'base'      => str_replace($big, '%#%', get_pagenum_link(999999999, false)),
-															'format'    => '?paged=%#%',
-															'current'   => max(1, $paged),
-															'total'     => $page_tot,
-															'prev_next' => true,
-															'prev_text' => sprintf("&lsaquo; %s", $settings['ma_el_blog_prev_text']),
-															'next_text' => sprintf("%s &rsaquo;", $settings['ma_el_blog_next_text']),
-															'end_size'  => 1,
-															'mid_size'  => 2,
-															'type'      => 'list'
-														)
-													);
-												}
-								?>
-							</div>
-			<?php }
-											wp_reset_postdata();
-										}
+					</div>
+	<?php }
+										wp_reset_postdata();
 									}
 								}
+							}

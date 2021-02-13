@@ -547,8 +547,8 @@ class Master_Addons_Helper
 
 		$post_args['orderby'] = $settings['ma_el_blog_order_by'];
 
-		// $post_args['posts_per_page'] = $settings['ma_el_blog_posts_per_page'];
-		$post_args['posts_per_page'] = $settings['ma_el_blog_total_posts_number'];
+		$post_args['posts_per_page'] = $settings['ma_el_blog_posts_per_page'];
+		// $post_args['posts_per_page'] = $settings['ma_el_blog_total_posts_number'];
 
 		$post_args['ignore_sticky_posts'] = $settings['ma_el_post_grid_ignore_sticky'];
 

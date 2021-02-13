@@ -15157,6 +15157,16 @@ ul.jltma-toggle-content-controls {
     transform: translateY(-50%);
     outline: none;
 }
+.jltma-swiper__container .jltma-swiper__slide{
+    height:auto;
+    overflow:visible;
+}
+.jltma-swiper__container .jltma-swiper__slide{
+    overflow: hidden;
+}
+.jltma-grid.jltma-swiper__wrapper>* {
+    flex: 1 1 80px;
+}
 .jltma-gallery-slider__preview .jltma-swiper__navigation--top .jltma-arrow {
     top: 5% !important;
     bottom: auto;
