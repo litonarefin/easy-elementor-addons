@@ -470,10 +470,10 @@ class Blog extends Widget_Base
 			[
 				'label'         => __('Auto Play', MELA_TD),
 				'type'          => Controls_Manager::SWITCHER,
-				'frontend_available' 	=> true,
 				'condition'     => [
 					'ma_el_blog_carousel'  => 'yes'
-				]
+				],
+				'frontend_available' 	=> true,
 			]
 		);
 
@@ -488,6 +488,7 @@ class Blog extends Widget_Base
 					'ma_el_blog_carousel'           => 'yes',
 					'ma_el_blog_carousel_auto_play' => 'yes',
 				],
+				'frontend_available' => true,
 			]
 		);
 
@@ -522,10 +523,10 @@ class Blog extends Widget_Base
 				'label' 	=> __('Pause on Hover', MELA_TD),
 				'type' 		=> Controls_Manager::SWITCHER,
 				'default' 	=> '',
-				'frontend_available' => true,
 				'condition'	=> [
 					'ma_el_blog_carousel_auto_play' => 'yes'
 				],
+				'frontend_available' => true,
 			]
 		);
 
@@ -611,10 +612,10 @@ class Blog extends Widget_Base
 		$this->add_responsive_control(
 			'slides_to_scroll',
 			[
-				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Slides to Scroll', MELA_TD),
-				'options' 		=> ['' => __('Default', MELA_TD)] + $slides_per_column,
-				'frontend_available' => true,
+				'type' 					=> Controls_Manager::SELECT,
+				'label' 				=> __('Slides to Scroll', MELA_TD),
+				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_column,
+				'frontend_available' 	=> true,
 			]
 		);
 
@@ -646,7 +647,7 @@ class Blog extends Widget_Base
 
 
 		$this->add_control(
-			'speed',
+			'ma_el_blog_carousel_speed',
 			[
 				'label' 	=> __('Duration (ms)', MELA_TD),
 				'description' => __('Duration of the effect transition.', MELA_TD),
@@ -747,7 +748,8 @@ class Blog extends Widget_Base
 				'return_value' 	=> 'yes',
 				'condition'     => [
 					'ma_el_blog_carousel'  => 'yes'
-				]
+				],
+				'frontend_available' => true
 			]
 		);
 
@@ -779,7 +781,41 @@ class Blog extends Widget_Base
 		);
 
 		$this->add_control(
-			'pagination',
+			'ma_el_blog_carousel_arrows_position_vertical',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'center',
+				'options' 		=> [
+					'left' 		=> __('Left', MELA_TD),
+					'center' 	=> __('Center', MELA_TD),
+					'right' 	=> __('Right', MELA_TD),
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_arrows' => 'yes',
+					'ma_el_blog_carousel_direction' => 'vertical',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_arrows_placement',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Placement', MELA_TD),
+				'default'		=> 'inside',
+				'options' 		=> [
+					'inside' 	=> __('Inside', MELA_TD),
+					'outside' 	=> __('Outside', MELA_TD),
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_arrows' => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_pagination',
 			[
 				'label' 		=> __('Pagination', MELA_TD),
 				'type' 			=> Controls_Manager::POPOVER_TOGGLE,
@@ -791,8 +827,26 @@ class Blog extends Widget_Base
 			]
 		);
 
+
 		$this->add_control(
-			'pagination_type',
+			'ma_el_blog_carousel_pagination_position',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'inside',
+				'options' 		=> [
+					'inside' 		=> __('Inside', MELA_TD),
+					'outside' 		=> __('Outside', MELA_TD),
+				],
+				'frontend_available' 	=> true,
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination'         => '',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_pagination_type',
 			[
 				'type' 			=> Controls_Manager::SELECT,
 				'label' 		=> __('Type', MELA_TD),
@@ -802,25 +856,22 @@ class Blog extends Widget_Base
 					'fraction' 		=> __('Fraction', MELA_TD),
 				],
 				'condition'		=> [
-					'pagination!'         => '',
+					'ma_el_blog_carousel_pagination!'         => '',
 				],
 				'frontend_available' => true,
 			]
 		);
 
 		$this->add_control(
-			'pagination_clickable',
+			'ma_el_blog_carousel_pagination_clickable',
 			[
 				'type' 			=> Controls_Manager::SWITCHER,
-				'label' 		=> __(
-					'Clickable',
-					MELA_TD
-				),
+				'label' 		=> __('Clickable', MELA_TD),
 				'default' 		=> 'yes',
 				'return_value' 	=> 'yes',
 				'condition' => [
-					'pagination!'         	=> '',
-					'pagination_type'       => 'bullets'
+					'ma_el_blog_carousel_pagination!'         	=> '',
+					'ma_el_blog_carousel_pagination_type'       => 'bullets'
 				],
 				'frontend_available' 	=> true,
 			]
@@ -2842,7 +2893,12 @@ class Blog extends Widget_Base
 
 		$content_key = sprintf('%s_content', $key);
 
-		$this->add_render_attribute($tax_key, 'class', ['ma-el-post-outer-container', $col_number]);
+		$this->add_render_attribute($tax_key, 'class', [
+			'ma-el-post-outer-container',
+			'jltma-grid__item',
+			'jltma-loop__item',
+			('yes' === $settings['ma_el_blog_carousel']) ? "" : $col_number
+		]);
 
 		$this->add_render_attribute($wrap_key, 'class', [
 			'ma-el-blog-post',
@@ -3014,7 +3070,9 @@ class Blog extends Widget_Base
 																																			) : echo 'standard';
 																																			else : echo get_post_format();
 																																			endif; ?>" target="<?php echo esc_attr($target); ?>">
-																	<?php $this->ma_el_blog_post_format_icon(); ?></a>
+
+																	<?php $this->ma_el_blog_post_format_icon(); ?>
+																</a>
 															</div>
 														<?php endif; ?>
 
@@ -3109,99 +3167,185 @@ class Blog extends Widget_Base
 					<?php }
 
 
-
-				protected function render()
+				protected function render_swiper_navigation()
 				{
-
-					// Query var for paged
-					if (get_query_var('paged')) {
-						$paged = get_query_var('paged');
-					} elseif (get_query_var('page')) {
-						$paged = get_query_var('page');
-					} else {
-						$paged = 1;
-					}
-
-					$settings = $this->get_settings_for_display();
-
-					$offset = $settings['ma_el_blog_post_offset'];
-
-					$post_per_page = $settings['ma_el_blog_posts_per_page'];
-
-					$new_offset = $offset + (($paged - 1) * $post_per_page);
-
-					$post_args = Master_Addons_Helper::ma_el_blog_get_post_settings($settings);
-
-					$posts = Master_Addons_Helper::ma_el_blog_get_post_data($post_args, $paged, $new_offset);
-
-					$posts_number = intval(100 / substr($settings['ma_el_blog_cols'], 0, strpos($settings['ma_el_blog_cols'], '%')));
-
-					$carousel = 'yes' == $settings['ma_el_blog_carousel'] ? true : false;
-
-					$this->add_render_attribute(
-						'ma_el_blog',
-						'class',
-						[
-							'ma-el-blog-wrapper',
-							'ma-el-blog-' . $settings['ma_el_post_grid_layout'],
-							'jltma-row'
-						]
-					);
-
-					$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
-
-					if ($carousel) {
-						$this->add_render_attribute([
-							'ma_el_blog' => [
-								'class' => [
-									'jltma-swiper'
-								],
+					$this->add_render_attribute([
+						'navigation' => [
+							'class' => [
+								'jltma-arrows',
+								'jltma-arrows--' . $this->get_settings('ma_el_blog_carousel_direction'),
+								'jltma-swiper__navigation',
+								'jltma-swiper__navigation--' . $this->get_settings('ma_el_blog_carousel_arrows_placement'),
+								'jltma-swiper__navigation--' . $this->get_settings('ma_el_blog_carousel_arrows_pos'),
+								'jltma-swiper__navigation--' . $this->get_settings('ma_el_blog_carousel_arrows_position_vertical')
 							],
-							'swiper-container' => [
-								'class' => [
-									'jltma-swiper__container',
-									'swiper-container',
-									'elementor-jltma-element-' . $unique_id
-								],
-								'data-jltma-template-widget-id' => $unique_id
-							],
-
-							'swiper-wrapper' => [
-								'class' => [
-									'jltma-grid',
-									'jltma-swiper__wrapper',
-									'swiper-wrapper',
-								],
-							],
-						]);
-
-						$play   = 'yes' == $settings['ma_el_blog_carousel_auto_play'] ? true : false;
-						$fade   = 'yes' == $settings['ma_el_blog_carousel_fade'] ? 'true' : 'false';
-						$arrows = 'yes' == $settings['ma_el_blog_carousel_arrows'] ? 'true' : 'false';
-						$grid   = 'grid' == $settings['ma_el_post_grid_layout'] ? 'true' : 'false';
-
-						$speed  = !empty($settings['ma_el_blog_carousel_autoplay_speed']) ? $settings['ma_el_blog_carousel_autoplay_speed'] : 5000;
-						$dots   = 'yes' == $settings['ma_el_blog_carousel_dots'] ? 'true' : 'false';
-
-						$this->add_render_attribute('ma_el_blog', 'data-carousel', $carousel);
-
-						$this->add_render_attribute('ma_el_blog', 'data-grid', $grid);
-
-						$this->add_render_attribute('ma_el_blog', 'data-fade', $fade);
-
-						$this->add_render_attribute('ma_el_blog', 'data-play', $play);
-
-						$this->add_render_attribute('ma_el_blog', 'data-speed', $speed);
-
-						$this->add_render_attribute('ma_el_blog', 'data-col', $posts_number);
-
-						$this->add_render_attribute('ma_el_blog', 'data-arrows', $arrows);
-
-						$this->add_render_attribute('ma_el_blog', 'data-dots', $dots);
-
-						$this->add_render_attribute('ma_el_blog', 'class', ['elementor-swiper-slider']);
-					}
+						],
+					]);
 					?>
+						<div <?php echo $this->get_render_attribute_string('navigation'); ?>>
+							<?php
+							$this->render_swiper_arrows();
+							?>
+						</div>
+					<?php
+				}
+
+
+				public function render_swiper_pagination()
+				{
+					if ('' === $this->get_settings('ma_el_blog_carousel_pagination'))
+						return;
+
+					$this->add_render_attribute('pagination', 'class', [
+						'jltma-swiper__pagination',
+						'jltma-swiper__pagination--' . $this->get_settings('ma_el_blog_carousel_direction'),
+						'jltma-swiper__pagination--' . $this->get_settings('ma_el_blog_carousel_pagination_position'),
+						'jltma-swiper__pagination-' . $this->get_id(),
+						'swiper-pagination',
+					]);
+
+					?>
+						<div <?php echo $this->get_render_attribute_string('ma_el_blog_carousel_pagination'); ?>>
+						</div>
+					<?php
+				}
+				protected function render_swiper_arrows()
+				{
+					if ('' === $this->get_settings('ma_el_blog_carousel_arrows'))
+						return;
+
+					$prev = is_rtl() ? 'right' : 'left';
+					$next = is_rtl() ? 'left' : 'right';
+
+					$this->add_render_attribute([
+						'button-prev' => [
+							'class' => [
+								'jltma-swiper__button',
+								'jltma-swiper__button--prev',
+								'jltma-arrow',
+								'jltma-arrow--prev',
+								'jltma-swiper__button--prev-' . $this->get_id(),
+							],
+						],
+						'button-prev-icon' => [
+							'class' => 'eicon-chevron-' . $prev,
+						],
+						'button-next' => [
+							'class' => [
+								'jltma-swiper__button',
+								'jltma-swiper__button--next',
+								'jltma-arrow',
+								'jltma-arrow--next',
+								'jltma-swiper__button--next-' . $this->get_id(),
+							],
+						],
+						'button-next-icon' => [
+							'class' => 'eicon-chevron-' . $next,
+						],
+					]);
+
+					?><div <?php echo $this->get_render_attribute_string('button-prev'); ?>>
+							<i <?php echo $this->get_render_attribute_string('button-prev-icon'); ?>></i>
+						</div>
+						<div <?php echo $this->get_render_attribute_string('button-next'); ?>>
+							<i <?php echo $this->get_render_attribute_string('button-next-icon'); ?>></i>
+						</div><?php
+							}
+
+
+
+							protected function render()
+							{
+
+								// Query var for paged
+								if (get_query_var('paged')) {
+									$paged = get_query_var('paged');
+								} elseif (get_query_var('page')) {
+									$paged = get_query_var('page');
+								} else {
+									$paged = 1;
+								}
+
+								$settings = $this->get_settings_for_display();
+
+								$offset = $settings['ma_el_blog_post_offset'];
+
+								$post_per_page = $settings['ma_el_blog_posts_per_page'];
+
+								$new_offset = $offset + (($paged - 1) * $post_per_page);
+
+								$post_args = Master_Addons_Helper::ma_el_blog_get_post_settings($settings);
+
+								$posts = Master_Addons_Helper::ma_el_blog_get_post_data($post_args, $paged, $new_offset);
+
+								$posts_number = intval(100 / substr($settings['ma_el_blog_cols'], 0, strpos($settings['ma_el_blog_cols'], '%')));
+
+								$carousel = 'yes' == $settings['ma_el_blog_carousel'] ? true : false;
+
+								$this->add_render_attribute(
+									'ma_el_blog',
+									'class',
+									[
+										'ma-el-blog-wrapper',
+										'ma-el-blog-' . $settings['ma_el_post_grid_layout'],
+										'jltma-row'
+									]
+								);
+
+								$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
+
+								if ($carousel) {
+									$this->add_render_attribute([
+										'ma_el_blog' => [
+											'class' => [
+												'jltma-swiper'
+											],
+										],
+										'swiper-container' => [
+											'class' => [
+												'jltma-swiper__container',
+												'swiper-container',
+												'elementor-jltma-element-' . $unique_id
+											],
+											'data-jltma-template-widget-id' => $unique_id
+										],
+
+										'swiper-wrapper' => [
+											'class' => [
+												'jltma-grid',
+												'jltma-swiper__wrapper',
+												'swiper-wrapper',
+											],
+										],
+									]);
+
+									$play   = 'yes' == $settings['ma_el_blog_carousel_auto_play'] ? true : false;
+									$fade   = 'yes' == $settings['ma_el_blog_carousel_fade'] ? 'true' : 'false';
+									$arrows = 'yes' == $settings['ma_el_blog_carousel_arrows'] ? 'true' : 'false';
+									$grid   = 'grid' == $settings['ma_el_post_grid_layout'] ? 'true' : 'false';
+
+									$speed  = !empty($settings['ma_el_blog_carousel_autoplay_speed']) ? $settings['ma_el_blog_carousel_autoplay_speed'] : 5000;
+									$dots   = 'yes' == $settings['ma_el_blog_carousel_dots'] ? 'true' : 'false';
+
+									$this->add_render_attribute('ma_el_blog', 'data-carousel', $carousel);
+
+									$this->add_render_attribute('ma_el_blog', 'data-grid', $grid);
+
+									$this->add_render_attribute('ma_el_blog', 'data-fade', $fade);
+
+									$this->add_render_attribute('ma_el_blog', 'data-play', $play);
+
+									$this->add_render_attribute('ma_el_blog', 'data-speed', $speed);
+
+									$this->add_render_attribute('ma_el_blog', 'data-col', $posts_number);
+
+									$this->add_render_attribute('ma_el_blog', 'data-arrows', $arrows);
+
+									$this->add_render_attribute('ma_el_blog', 'data-dots', $dots);
+
+									$this->add_render_attribute('ma_el_blog', 'class', ['elementor-swiper-slider']);
+								}
+								?>
 						<div class="ma-el-blog">
 
 							<?php if ('yes' === $settings['ma_el_blog_cat_tabs'] && 'yes' !== $settings['ma_el_blog_carousel']) { ?>
@@ -3264,6 +3408,13 @@ class Blog extends Widget_Base
 							</div>
 
 						</div>
+
+
+						<?php
+											$this->render_swiper_navigation();
+											$this->render_swiper_pagination();
+						?>
+
 
 						<?php if ($settings['ma_el_blog_pagination'] === 'yes') { ?>
 							<div class="ma-el-blog-pagination">

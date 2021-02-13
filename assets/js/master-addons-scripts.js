@@ -1171,7 +1171,7 @@
                 uniqueId 		    = getUniqueLoopScopeId( $scope ),
                 scopeId 		    = $scope.data('id'),
                 $swiper 	        = $scope.find('.jltma-swiper__container'),
-                $thumbs 	        = $scope.find('.jltma-grid__item');
+                $thumbs 	        = $scope.find('.jltma-grid__item'),
                 blogElement         = $scope.find(".ma-el-blog-wrapper"),
                 colsNumber          = blogElement.data("col"),
                 carousel            = blogElement.data("carousel"),
@@ -1214,8 +1214,7 @@
 				return;
 			}
 
-            if (carousel && grid) {
-
+            // if (carousel && grid) {
 
 
 			var swiper = null,
@@ -1223,12 +1222,12 @@
 					scope : $scope,
 					id : uniqueId,
 					element : {
-						// autoHeight 						: 'yes' === elementSettings.carousel_autoheight,
+						autoHeight 						: 'yes' === elementSettings.autoheight,
 						autoplay 						: 'yes' === elementSettings.ma_el_blog_carousel_auto_play,
 						loop 							: 'yes' === elementSettings.ma_el_blog_carousel_loop,
 						direction 						: elementSettings.ma_el_blog_carousel_direction,
 						effect 							: elementSettings.ma_el_blog_carousel_effect,
-						speed 							: elementSettings.speed.size || 500,
+						speed 							: elementSettings.ma_el_blog_carousel_speed.size || 500,
 						resistance 						: elementSettings.resistance_ratio.size || 0.25,
 						autoplaySpeed 					: elementSettings.ma_el_blog_carousel_auto_play ? elementSettings.ma_el_blog_carousel_autoplay_speed : false,
 						slidesPerView 					: elementSettings.slides_per_view_mobile,
@@ -1247,9 +1246,9 @@
 						// freeModeMomentumRatio 			: elementSettings.carousel_free_mode_momentum_ratio ? elementSettings.carousel_free_mode_momentum_ratio.size : false,
 						// freeModeMomentumVelocityRatio 	: elementSettings.carousel_free_mode_momentum_velocity ? elementSettings.carousel_free_mode_momentum_velocity.size : false,
 						// freeModeMomentumBounceRatio 	: elementSettings.carousel_free_mode_momentum_bounce_ratio ? elementSettings.carousel_free_mode_momentum_bounce_ratio.size : false,
-						pagination 						: '' !== elementSettings.pagination,
-						paginationType 					: elementSettings.pagination_type,
-						paginationClickable 			: 'yes' === elementSettings.pagination_clickable,
+						pagination 						: '' !== elementSettings.ma_el_blog_carousel_pagination,
+						paginationType 					: elementSettings.ma_el_blog_carousel_pagination_type,
+						paginationClickable 			: 'yes' === elementSettings.ma_el_blog_carousel_pagination_clickable,
 						slideChangeTriggerResize 		: 'yes' === elementSettings.slide_change_resize,
 						breakpoints 		: {
 							tablet : {
@@ -1288,9 +1287,12 @@
 					},
 				};
 
+            // console.log('Initial swiper posts', settings );
 
 			Master_Addons.MA_Blog.init = function() {
 				swiper = Master_Addons.MA_Carousel( $swiper, settings );
+                //console.log('Initial swiper posts', swiper );
+
 			};
 
 			Master_Addons.onElementRemove( $scope, function() {
@@ -1303,7 +1305,9 @@
 
 			Master_Addons.MA_Blog.init();
 
-            }
+            // }
+
+
         },
 
 
