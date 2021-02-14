@@ -12,6 +12,7 @@ use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Css_Filter;
 
+use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 // Exit if accessed directly.
@@ -215,27 +216,6 @@ class Blog extends Widget_Base
 				'selectors'     => [
 					'{{WRAPPER}} .ma-el-blog-post-outer-container'  => 'width: {{VALUE}};'
 				],
-			]
-		);
-
-
-		$this->add_control(
-			'ma_el_blog_post_meta_icon',
-			[
-				'label'         => __('Post Meta Icon', MELA_TD),
-				'type'          => Controls_Manager::SWITCHER,
-				'default'       => 'yes',
-				'return_value'  => 'yes'
-			]
-		);
-
-		$this->add_control(
-			'ma_el_blog_post_format_icon',
-			[
-				'label'         => __('Post Format Icon', MELA_TD),
-				'type'          => Controls_Manager::SWITCHER,
-				'default'       => 'No',
-				'return_value'  => 'yes'
 			]
 		);
 
@@ -466,6 +446,41 @@ class Blog extends Widget_Base
 		);
 
 		$this->add_control(
+			'ma_el_blog_carousel_height',
+			[
+				'label' 		=> __('Height', MELA_TD),
+				'description'	=> __('The carousel needs to have a fixed defined height to work in vertical mode.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'size_units' 	=> [
+					'px', '%', 'vh'
+				],
+				'default' => [
+					'size' => 500,
+					'unit' => 'px',
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 200,
+						'max' => 2000,
+					],
+					'%' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+					'vh' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__container' => 'height: {{SIZE}}{{UNIT}};',
+				],
+				// 'condition'		=> [
+				// 	'ma_el_blog_carousel_direction' => 'vertical',
+				// ],
+			]
+		);
+		$this->add_control(
 			'ma_el_blog_carousel_auto_play',
 			[
 				'label'         => __('Auto Play', MELA_TD),
@@ -499,6 +514,9 @@ class Blog extends Widget_Base
 				'label' 		=> __('Loop', MELA_TD),
 				'default' 		=> '',
 				'separator'		=> 'before',
+				'condition'		=> [
+					'ma_el_blog_carousel'           => 'yes'
+				],
 				'frontend_available' 	=> true,
 			]
 		);
@@ -511,6 +529,7 @@ class Blog extends Widget_Base
 				'type' 			=> Controls_Manager::SWITCHER,
 				'default' 		=> '',
 				'condition' 	=> [
+					'ma_el_blog_carousel'           => 'yes',
 					'ma_el_blog_carousel_auto_play' => 'yes',
 				],
 				'frontend_available' => true,
@@ -768,23 +787,23 @@ class Blog extends Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'ma_el_blog_carousel_arrows_position_vertical',
-			[
-				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Position', MELA_TD),
-				'default'		=> 'center',
-				'options' 		=> [
-					'left' 		=> __('Left', MELA_TD),
-					'center' 	=> __('Center', MELA_TD),
-					'right' 	=> __('Right', MELA_TD),
-				],
-				'condition'		=> [
-					'ma_el_blog_carousel_arrows' => 'yes',
-					'ma_el_blog_carousel_direction' => 'vertical',
-				]
-			]
-		);
+		// $this->add_control(
+		// 	'ma_el_blog_carousel_arrows_position_vertical',
+		// 	[
+		// 		'type' 			=> Controls_Manager::SELECT,
+		// 		'label' 		=> __('Position', MELA_TD),
+		// 		'default'		=> 'center',
+		// 		'options' 		=> [
+		// 			'left' 		=> __('Left', MELA_TD),
+		// 			'center' 	=> __('Center', MELA_TD),
+		// 			'right' 	=> __('Right', MELA_TD),
+		// 		],
+		// 		'condition'		=> [
+		// 			'ma_el_blog_carousel_arrows' => 'yes',
+		// 			'ma_el_blog_carousel_direction' => 'vertical',
+		// 		]
+		// 	]
+		// );
 
 		$this->add_control(
 			'ma_el_blog_carousel_arrows_placement',
@@ -1064,6 +1083,26 @@ class Blog extends Widget_Base
 			'ma_el_post_grid_posts_options',
 			[
 				'label'         => __('Posts Settings', MELA_TD),
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_post_meta_icon',
+			[
+				'label'         => __('Post Meta Icon', MELA_TD),
+				'type'          => Controls_Manager::SWITCHER,
+				'default'       => 'yes',
+				'return_value'  => 'yes'
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_post_format_icon',
+			[
+				'label'         => __('Post Format Icon', MELA_TD),
+				'type'          => Controls_Manager::SWITCHER,
+				'default'       => 'No',
+				'return_value'  => 'yes'
 			]
 		);
 
@@ -2368,73 +2407,169 @@ class Blog extends Widget_Base
 		$this->end_controls_section();
 
 
-
-
 		/*
-             * Carousel Dots Styles
-             */
+		* Style: Carousel Settings
+		*/
 		$this->start_controls_section(
-			'ma_el_blog_carousel_dots_style_section',
+			'ma_el_blog_carousel_style_section',
 			[
-				'label'         => __('Carousel Dots', MELA_TD),
+				'label'         => __('Carousel', MELA_TD),
 				'tab'           => Controls_Manager::TAB_STYLE,
 				'condition'     => [
-					'ma_el_blog_carousel'         => 'yes',
-					'ma_el_blog_carousel_dots'    => 'yes'
+					'ma_el_blog_carousel'         => 'yes'
 				]
 			]
 		);
 
 		$this->add_control(
-			'ma_el_blog_dots_color',
+			'ma_el_blog_carousel_arrows_style_heading',
 			[
-				'label'         => __('Dots Color', MELA_TD),
-				'type'          => Controls_Manager::COLOR,
-				'selectors'     => [
-					'{{WRAPPER}} ul.slick-dots li' => 'color: {{VALUE}};',
+				'label' 	=> __('Arrows', MELA_TD),
+				'type' 		=> Controls_Manager::HEADING,
+				'condition'		=> [
+					'ma_el_blog_carousel_arrows' => 'yes',
 				]
 			]
 		);
 
 		$this->add_control(
-			'ma_el_blog_dots_active_color',
+			'ma_el_blog_carousel_arrows_position',
 			[
-				'label'         => __('Active Color', MELA_TD),
-				'type'          => Controls_Manager::COLOR,
-				'selectors'     => [
-					'{{WRAPPER}} ul.slick-dots li.slick-active' => 'color: {{VALUE}};',
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'middle',
+				'options' 		=> [
+					'top' 		=> __('Top', MELA_TD),
+					'middle' 	=> __('Middle', MELA_TD),
+					'bottom' 	=> __('Bottom', MELA_TD),
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_arrows' 	=> 'yes',
+					'ma_el_blog_carousel_direction' => 'horizontal',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_arrows_position_vertical',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'center',
+				'options' 		=> [
+					'left' 		=> __('Left', MELA_TD),
+					'center' 	=> __('Center', MELA_TD),
+					'right' 	=> __('Right', MELA_TD),
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_arrows' 	=> 'yes',
+					'ma_el_blog_carousel_direction' => 'vertical'
 				]
 			]
 		);
 
 
-		$this->end_controls_section();
-
-
-
-		/*
-             * Carousel Arrows Styles
-             */
-		$this->start_controls_section(
-			'ma_el_blog_carousel_arrow_style_section',
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_arrows_size',
 			[
-				'label'         => __('Arrow Styles', MELA_TD),
-				'tab'           => Controls_Manager::TAB_STYLE,
-				'condition'     => [
-					'ma_el_blog_carousel'         => 'yes',
-					'ma_el_blog_carousel_dots'    => 'yes'
+				'label' 		=> __('Size', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 12,
+						'max' => 48,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__button' => 'font-size: {{SIZE}}px;',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_arrows' 	=> 'yes',
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'ma_el_blog_carousel_arrow_size',
+			'ma_el_blog_carousel_arrows_padding',
 			[
-				'label'         => __('Size', MELA_TD),
-				'type'          => Controls_Manager::SLIDER,
-				'size_units'    => ['px', '%', 'em'],
-				'selectors'     => [
-					'{{WRAPPER}} .ma-el-team-carousel-prev, .ma-el-team-carousel-next' => 'font-size: {{SIZE}}{{UNIT}};'
+				'label' 		=> __('Padding', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 1,
+						'step'	=> 0.1,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__button' => 'padding: {{SIZE}}em;',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_arrows' 	=> 'yes',
+				]
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'arrows_distance',
+			[
+				'label' 		=> __('Distance', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 200,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__navigation--inside.jltma-swiper__navigation--middle.jltma-arrows--horizontal .jltma-swiper__button' => 'margin-left: {{SIZE}}px; margin-right: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--inside:not(.jltma-swiper__navigation--middle).jltma-arrows--horizontal .jltma-swiper__button' => 'margin: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--outside.jltma-arrows--horizontal .jltma-swiper__button--prev' => 'left: -{{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--outside.jltma-arrows--horizontal .jltma-swiper__button--next' => 'right: -{{SIZE}}px;',
+
+					'{{WRAPPER}} .jltma-swiper__navigation--inside.jltma-swiper__navigation--center.jltma-arrows--vertical .jltma-swiper__button' => 'margin-top: {{SIZE}}px; margin-bottom: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--inside:not(.jltma-swiper__navigation--center).jltma-arrows--vertical .jltma-swiper__button' => 'margin: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--outside.jltma-arrows--vertical .jltma-swiper__button--prev' => 'top: -{{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--outside.jltma-arrows--vertical .jltma-swiper__button--next' => 'bottom: -{{SIZE}}px;',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_arrows' 	=> 'yes',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'arrows_border_radius',
+			[
+				'label' 		=> __('Border Radius', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 100,
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__button' => 'border-radius: {{SIZE}}%;',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_arrows' 	=> 'yes',
+				],
+				'separator'		=> 'after',
+			]
+		);
+
+		$this->add_group_control(
+			MA_Group_Control_Transition::get_type(),
+			[
+				'name' 			=> 'arrows',
+				'selector' 		=> '{{WRAPPER}} .jltma-swiper__button',
+				'condition'		=> [
+					'ma_el_blog_carousel_arrows' 	=> 'yes',
 				]
 			]
 		);
@@ -2456,7 +2591,7 @@ class Blog extends Widget_Base
 				'label'         => __('Arrow Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-blog-wrapper .slick-arrow' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-swiper__button i:before' => 'color: {{VALUE}};',
 				]
 			]
 		);
@@ -2466,7 +2601,7 @@ class Blog extends Widget_Base
 				'label'         => __('Background Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-team-carousel-prev, .ma-el-team-carousel-next' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-swiper__button' => 'background: {{VALUE}};',
 				]
 			]
 		);
@@ -2478,7 +2613,7 @@ class Blog extends Widget_Base
 		$this->start_controls_tab(
 			'ma_el_blog_carousel_arrow_hover_style_tab',
 			[
-				'label'         => __('Normal', MELA_TD),
+				'label'         => __('Hover', MELA_TD),
 
 			]
 		);
@@ -2488,7 +2623,7 @@ class Blog extends Widget_Base
 				'label'         => __('Arrow Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-blog-wrapper .slick-arrow:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-swiper__button:not(.jltma-swiper__button--disabled):hover i:before' => 'color: {{VALUE}};',
 				]
 			]
 		);
@@ -2498,28 +2633,379 @@ class Blog extends Widget_Base
 				'label'         => __('Background Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-team-carousel-prev:hover, .ma-el-team-carousel-next:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-swiper__button:not(.jltma-swiper__button--disabled):hover' => 'background: {{VALUE}};',
 				]
 			]
 		);
 		$this->end_controls_tab();
 		$this->end_controls_tabs();
 
+
 		$this->add_control(
-			'ma_el_blog_carousel_border_radius',
+			'ma_el_blog_carousel_pagination_style_heading',
 			[
-				'label'         => __('Border Radius', MELA_TD),
-				'type'          => Controls_Manager::SLIDER,
-				'size_units'    => ['px', '%', 'em'],
-				'selectors'     => [
-					'{{WRAPPER}} .ma-el-blog-wrapper .ma-el-team-carousel-prev,{{WRAPPER}} .ma-el-blog-wrapper .ma-el-team-carousel-next' => 'border-radius: {{SIZE}}{{UNIT}};'
+				'separator'	=> 'before',
+				'label' 	=> __('Pagination', MELA_TD),
+				'type' 		=> Controls_Manager::HEADING,
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' => 'on',
 				]
 			]
 		);
+
+
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_pagination_align',
+			[
+				'label' 		=> __('Align', MELA_TD),
+				'type' 			=> Controls_Manager::CHOOSE,
+				'default' 		=> 'center',
+				'options' 		=> [
+					'left'    		=> [
+						'title' 	=> __('Left', MELA_TD),
+						'icon' 		=> 'fa fa-align-left',
+					],
+					'center' 		=> [
+						'title' 	=> __('Center', MELA_TD),
+						'icon' 		=> 'fa fa-align-center',
+					],
+					'right' 		=> [
+						'title' 	=> __('Right', MELA_TD),
+						'icon' 		=> 'fa fa-align-right',
+					],
+				],
+				'selectors'		=> [
+					'{{WRAPPER}} .jltma-swiper__pagination.jltma-swiper__pagination--horizontal' => 'text-align: {{VALUE}};',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' => 'on',
+					'ma_el_blog_carousel_direction' => 'horizontal',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_pagination_align_vertical',
+			[
+				'label' 		=> __('Align', MELA_TD),
+				'type' 			=> Controls_Manager::CHOOSE,
+				'default' 		=> 'middle',
+				'options' 		=> [
+					'flex-start'    => [
+						'title' 	=> __('Top', MELA_TD),
+						'icon' 		=> 'eicon-v-align-top',
+					],
+					'center' 		=> [
+						'title' 	=> __('Center', MELA_TD),
+						'icon' 		=> 'eicon-v-align-middle',
+					],
+					'flex-end' 		=> [
+						'title' 	=> __('Right', MELA_TD),
+						'icon' 		=> 'eicon-v-align-bottom',
+					],
+				],
+				'selectors'		=> [
+					'{{WRAPPER}} .jltma-swiper__pagination.jltma-swiper__pagination--vertical' => 'justify-content: {{VALUE}};',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' => 'on',
+					'ma_el_blog_carousel_direction' => 'vertical'
+				]
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_pagination_distance',
+			[
+				'label' 		=> __('Distance', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__pagination--inside.jltma-swiper__pagination--horizontal' => 'padding: 0 {{SIZE}}px {{SIZE}}px {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__pagination--outside.jltma-swiper__pagination--horizontal' => 'padding: {{SIZE}}px 0 0 0;',
+					'{{WRAPPER}} .jltma-swiper__pagination--inside.jltma-swiper__pagination--vertical' => 'padding: {{SIZE}}px {{SIZE}}px {{SIZE}}px 0;',
+					'{{WRAPPER}} .jltma-swiper__pagination--outside.jltma-swiper__pagination--vertical' => 'padding: 0 0 0 {{SIZE}}px;',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' => 'on',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_pagination_bullets_spacing',
+			[
+				'label' 		=> __('Spacing', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 20,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__pagination--horizontal .swiper-pagination-bullet' => 'margin: 0 {{SIZE}}px',
+					'{{WRAPPER}} .jltma-swiper__pagination--vertical .swiper-pagination-bullet' => 'margin: {{SIZE}}px 0',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' => 'on',
+					'ma_el_blog_carousel_pagination_type' => 'bullets',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'pagination_bullets_border_radius',
+			[
+				'label' 		=> __('Border Radius', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'border-radius: {{SIZE}}px;',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' => 'on',
+					'ma_el_blog_carousel_pagination_type' => 'bullets',
+				],
+				'separator'		=> 'after',
+			]
+		);
+
+		$this->add_group_control(
+			MA_Group_Control_Transition::get_type(),
+			[
+				'name' 			=> 'ma_el_blog_carousel_pagination_bullet',
+				'selector' 		=> '{{WRAPPER}} .swiper-pagination-bullet',
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' => 'on'
+				]
+			]
+		);
+
+
+		$this->start_controls_tabs('ma_el_blog_carousel_pagination_bullets_tabs_hover');
+
+		$this->start_controls_tab('ma_el_blog_carousel_pagination_bullets_tab_default', [
+			'label' 		=> __('Default', MELA_TD),
+			'condition'		=> [
+				'ma_el_blog_carousel_pagination' 		=> 'on',
+				'ma_el_blog_carousel_pagination_type' 	=> 'bullets',
+			]
+		]);
+
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_pagination_bullets_size',
+			[
+				'label' 		=> __('Size', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 12,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'width: {{SIZE}}px; height: {{SIZE}}px;',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' 		=> 'on',
+					'ma_el_blog_carousel_pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_pagination_bullets_color',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'background-color: {{VALUE}};',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' 		=> 'on',
+					'ma_el_blog_carousel_pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_pagination_bullets_opacity',
+			[
+				'label' 		=> __('Opacity', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 1,
+						'step' => 0.05,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'opacity: {{SIZE}};',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' 		=> 'on',
+					'ma_el_blog_carousel_pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab('ma_el_blog_carousel_pagination_bullets_tab_hover', [
+			'label' 		=> __('Hover', MELA_TD),
+			'condition'		=> [
+				'ma_el_blog_carousel_pagination' 		=> 'on',
+				'ma_el_blog_carousel_pagination_type' 	=> 'bullets',
+			]
+		]);
+
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_pagination_bullets_size_hover',
+			[
+				'label' 		=> __('Size', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 1,
+						'max' => 1.5,
+						'step' => 0.1,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'transform: scale({{SIZE}});',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' 		=> 'on',
+					'ma_el_blog_carousel_pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_pagination_bullets_color_hover',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'background-color: {{VALUE}};',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' 		=> 'on',
+					'ma_el_blog_carousel_pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_pagination_bullets_opacity_hover',
+			[
+				'label' 		=> __('Opacity', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 1,
+						'step' => 0.05,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'opacity: {{SIZE}};',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' 		=> 'on',
+					'ma_el_blog_carousel_pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab('ma_el_blog_carousel_pagination_bullets_tab_active', [
+			'label' => __('Active', MELA_TD),
+			'condition'	=> [
+				'ma_el_blog_carousel_pagination' 		=> 'on',
+				'ma_el_blog_carousel_pagination_type' 	=> 'bullets',
+			]
+		]);
+
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_pagination_bullets_size_active',
+			[
+				'label' 		=> __('Size', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 1,
+						'max' => 1.5,
+						'step' => 0.1,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet-active' => 'transform: scale({{SIZE}});',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' 		=> 'on',
+					'ma_el_blog_carousel_pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_pagination_bullets_color_active',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .swiper-pagination-bullet-active' => 'background-color: {{VALUE}};',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' 		=> 'on',
+					'ma_el_blog_carousel_pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_pagination_bullets_opacity_active',
+			[
+				'label' 		=> __('Opacity', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 1,
+						'step' => 0.05,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet-active' => 'opacity: {{SIZE}};',
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_pagination' 		=> 'on',
+					'ma_el_blog_carousel_pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+
 		$this->end_controls_section();
-
-
-
 
 
 		/**
@@ -3156,15 +3642,16 @@ class Blog extends Widget_Base
 
 				protected function render_swiper_navigation()
 				{
+					$settings = $this->get_settings_for_display();
 					$this->add_render_attribute([
 						'navigation' => [
 							'class' => [
 								'jltma-arrows',
-								'jltma-arrows--' . $this->get_settings('ma_el_blog_carousel_direction'),
+								'jltma-arrows--' . $settings['ma_el_blog_carousel_direction'],
 								'jltma-swiper__navigation',
-								'jltma-swiper__navigation--' . $this->get_settings('ma_el_blog_carousel_arrows_placement'),
-								'jltma-swiper__navigation--' . $this->get_settings('ma_el_blog_carousel_arrows_pos'),
-								'jltma-swiper__navigation--' . $this->get_settings('ma_el_blog_carousel_arrows_position_vertical')
+								'jltma-swiper__navigation--' . $settings['ma_el_blog_carousel_arrows_placement'],
+								'jltma-swiper__navigation--' . $settings['ma_el_blog_carousel_arrows_pos']['size'],
+								'jltma-swiper__navigation--' . $settings['ma_el_blog_carousel_arrows_position_vertical']
 							],
 						],
 					]);
@@ -3180,25 +3667,28 @@ class Blog extends Widget_Base
 
 				public function render_swiper_pagination()
 				{
-					if ('' === $this->get_settings('ma_el_blog_carousel_pagination'))
+					$settings = $this->get_settings_for_display();
+
+					if ('' === $settings['ma_el_blog_carousel_pagination'])
 						return;
 
 					$this->add_render_attribute('pagination', 'class', [
 						'jltma-swiper__pagination',
-						'jltma-swiper__pagination--' . $this->get_settings('ma_el_blog_carousel_direction'),
-						'jltma-swiper__pagination--' . $this->get_settings('ma_el_blog_carousel_pagination_position'),
+						'jltma-swiper__pagination--' . $settings['ma_el_blog_carousel_direction'],
+						'jltma-swiper__pagination--' . $settings['ma_el_blog_carousel_pagination_position'],
 						'jltma-swiper__pagination-' . $this->get_id(),
 						'swiper-pagination',
 					]);
 
 					?>
-						<div <?php echo $this->get_render_attribute_string('ma_el_blog_carousel_pagination'); ?>>
+						<div <?php echo $this->get_render_attribute_string('pagination'); ?>>
 						</div>
 					<?php
 				}
 				protected function render_swiper_arrows()
 				{
-					if ('' === $this->get_settings('ma_el_blog_carousel_arrows'))
+					$settings = $this->get_settings_for_display();
+					if ('' === $settings['ma_el_blog_carousel_arrows'])
 						return;
 
 					$prev = is_rtl() ? 'right' : 'left';
@@ -3269,22 +3759,25 @@ class Blog extends Widget_Base
 
 								$carousel = 'yes' == $settings['ma_el_blog_carousel'] ? true : false;
 
-								$this->add_render_attribute(
-									'ma_el_blog',
-									'class',
-									[
-										'ma-el-blog-wrapper',
-										'ma-el-blog-' . $settings['ma_el_post_grid_layout'],
-										'jltma-row'
-									]
-								);
-
 								$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
 
-								if ($carousel) {
+								if (!$carousel) {
+
+									$this->add_render_attribute(
+										'ma_el_blog',
+										'class',
+										[
+											'ma-el-blog-wrapper',
+											'ma-el-blog-' . $settings['ma_el_post_grid_layout'],
+											'jltma-row'
+										]
+									);
+								} else {
+
 									$this->add_render_attribute([
 										'ma_el_blog' => [
 											'class' => [
+												'ma-el-blog-wrapper',
 												'jltma-swiper',
 												'jltma-swiper__container',
 												'swiper-container',
@@ -3394,13 +3887,14 @@ class Blog extends Widget_Base
 										}
 										if ($carousel) { ?>
 									</div>
-							</div>
-							<!-- </div> -->
 
-							<?php
+									<?php
 											$this->render_swiper_navigation();
 											$this->render_swiper_pagination();
-							?>
+									?>
+
+							</div>
+							<!-- </div> -->
 
 						<?php } ?>
 
@@ -3410,7 +3904,8 @@ class Blog extends Widget_Base
 				</div>
 
 
-				<?php if ($settings['ma_el_blog_pagination'] === 'yes') { ?>
+				<?php if ($settings['ma_el_blog_pagination'] === 'yes') {
+				?>
 					<div class="ma-el-blog-pagination">
 						<?php
 											$count_posts = wp_count_posts();

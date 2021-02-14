@@ -8483,6 +8483,18 @@ ul.slick-dots li.slick-active {
     text-shadow: none;
 }
 
+/* Swiper Pagination * Navigation */
+.ma-el-blog .jltma-swiper__button{
+    top:50%;
+    outline:none;
+    border-radius:100%;
+}
+.jltma-swiper__pagination.jltma-swiper__pagination--horizontal{
+    text-align: center;
+}
+.jltma-swiper__pagination--horizontal .swiper-pagination-bullet:first-child{
+    margin-left: 0px !important;
+}
 @media (min-width: 768px) {
     .ma-el-blog-list-default .ma-el-post-content {
         margin-top: 0;
