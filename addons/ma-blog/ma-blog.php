@@ -3283,11 +3283,6 @@ class Blog extends Widget_Base
 
 								if ($carousel) {
 									$this->add_render_attribute([
-										// 'ma_el_blog' => [
-										// 	'class' => [
-										// 		'jltma-swiper'
-										// 	],
-										// ],
 										'ma_el_blog' => [
 											'class' => [
 												'jltma-swiper',
@@ -3300,7 +3295,7 @@ class Blog extends Widget_Base
 
 										'swiper-wrapper' => [
 											'class' => [
-												'jltma-grid',
+												'jltma-blog-carousel',
 												'jltma-swiper__wrapper',
 												'swiper-wrapper',
 											],
@@ -3403,8 +3398,8 @@ class Blog extends Widget_Base
 							<!-- </div> -->
 
 							<?php
-					$this->render_swiper_navigation();
-					$this->render_swiper_pagination();
+											$this->render_swiper_navigation();
+											$this->render_swiper_pagination();
 							?>
 
 						<?php } ?>
