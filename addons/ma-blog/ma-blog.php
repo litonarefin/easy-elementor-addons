@@ -480,17 +480,21 @@ class Blog extends Widget_Base
 				// ],
 			]
 		);
+
+
 		$this->add_control(
 			'ma_el_blog_carousel_auto_play',
 			[
 				'label'         => __('Auto Play', MELA_TD),
-				'type'          => Controls_Manager::SWITCHER,
+				'type'          => Controls_Manager::POPOVER_TOGGLE,
 				'condition'     => [
 					'ma_el_blog_carousel'  => 'yes'
 				],
 				'frontend_available' 	=> true,
 			]
 		);
+
+		$this->start_popover();
 
 		$this->add_control(
 			'ma_el_blog_carousel_autoplay_speed',
@@ -504,20 +508,6 @@ class Blog extends Widget_Base
 					'ma_el_blog_carousel_auto_play' => 'yes',
 				],
 				'frontend_available' => true,
-			]
-		);
-
-		$this->add_control(
-			'ma_el_blog_carousel_loop',
-			[
-				'type' 			=> Controls_Manager::SWITCHER,
-				'label' 		=> __('Loop', MELA_TD),
-				'default' 		=> '',
-				'separator'		=> 'before',
-				'condition'		=> [
-					'ma_el_blog_carousel'           => 'yes'
-				],
-				'frontend_available' 	=> true,
 			]
 		);
 
@@ -546,6 +536,24 @@ class Blog extends Widget_Base
 					'ma_el_blog_carousel_auto_play' => 'yes'
 				],
 				'frontend_available' => true,
+			]
+		);
+
+		$this->end_popover();
+
+
+
+		$this->add_control(
+			'ma_el_blog_carousel_loop',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Loop', MELA_TD),
+				'default' 		=> '',
+				'separator'		=> 'before',
+				'condition'		=> [
+					'ma_el_blog_carousel'           => 'yes'
+				],
+				'frontend_available' 	=> true,
 			]
 		);
 
@@ -750,7 +758,7 @@ class Blog extends Widget_Base
 			'ma_el_blog_carousel_arrows',
 			[
 				'label'         => __('Navigation Arrows', MELA_TD),
-				'type'          => Controls_Manager::SWITCHER,
+				'type'          => Controls_Manager::POPOVER_TOGGLE,
 				'default'       => 'yes',
 				'return_value' 	=> 'yes',
 				'condition'     => [
@@ -759,6 +767,26 @@ class Blog extends Widget_Base
 				'frontend_available' => true
 			]
 		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			'ma_el_blog_carousel_arrows_placement',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Placement', MELA_TD),
+				'default'		=> 'inside',
+				'options' 		=> [
+					'inside' 	=> __('Inside', MELA_TD),
+					'outside' 	=> __('Outside', MELA_TD),
+				],
+				'condition'		=> [
+					'ma_el_blog_carousel_arrows' => 'yes',
+				]
+			]
+		);
+
+		$this->end_popover();
 
 		$this->add_responsive_control(
 			'ma_el_blog_carousel_arrows_pos',
