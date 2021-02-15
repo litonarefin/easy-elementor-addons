@@ -15070,10 +15070,11 @@ ul.jltma-toggle-content-controls {
 /* .jtlma-gallery-slider__gallery .swiper-container-vertical .jtlma-gallery__item {
     overflow: hidden;
 }
+*/
 .jltma-swiper__container .jltma-swiper__slide {
     height: auto;
     overflow: visible;
-} */
+}
 
 /* .jltma-gallery-slider--stack-tablet .jltma-gallery-slider {
     display: block;

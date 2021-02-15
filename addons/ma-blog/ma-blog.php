@@ -446,9 +446,34 @@ class Blog extends Widget_Base
 		);
 
 		$this->add_control(
+			'ma_el_blog_carousel_autoheight',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Auto Height', MELA_TD),
+				'default' 		=> '',
+				'frontend_available' 	=> true,
+				'conditions' => [
+					'relation' 	=> 'or',
+					'terms' 	=> [
+						[
+							'name' 		=> 'slides_per_column',
+							'operator' 	=> '==',
+							'value' 	=> '1',
+						],
+						[
+							'name' 		=> 'slides_per_column',
+							'operator' 	=> '==',
+							'value' 	=> '',
+						],
+					]
+				]
+			]
+		);
+
+		$this->add_control(
 			'ma_el_blog_carousel_height',
 			[
-				'label' 		=> __('Height', MELA_TD),
+				'label' 		=> __('Custom Height', MELA_TD),
 				'description'	=> __('The carousel needs to have a fixed defined height to work in vertical mode.', MELA_TD),
 				'type' 			=> Controls_Manager::SLIDER,
 				'size_units' 	=> [
@@ -475,12 +500,222 @@ class Blog extends Widget_Base
 				'selectors' 	=> [
 					'{{WRAPPER}} .jltma-swiper__container' => 'height: {{SIZE}}{{UNIT}};',
 				],
-				// 'condition'		=> [
-				// 	'ma_el_blog_carousel_direction' => 'vertical',
-				// ],
+				'condition'		=> [
+					'ma_el_blog_carousel_autoheight!' => '',
+				],
 			]
 		);
 
+
+		$this->add_control(
+			'ma_el_blog_carousel_effect',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Effect', MELA_TD),
+				'default' 		=> 'slide',
+				'options' 		=> [
+					'slide' 	=> __('Slide', MELA_TD),
+					'fade' 		=> __('Fade', MELA_TD),
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_effect_fade_warning',
+			[
+				'type' 				=> Controls_Manager::RAW_HTML,
+				'raw' 				=> __('The Fade effect ignores the Slides per View and Slides per Column settings', MELA_TD),
+				'content_classes' 	=> 'elementor-panel-alert elementor-panel-alert-info',
+				'condition' 		=> [
+					'ma_el_blog_carousel_effect' => 'fade',
+				],
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_speed',
+			[
+				'label' 	=> __('Duration (ms)', MELA_TD),
+				'description' => __('Duration of the effect transition.', MELA_TD),
+				'type' 		=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 300,
+					'unit' 	=> 'px',
+				],
+				'range' 	=> [
+					'px' 	=> [
+						'min' 	=> 0,
+						'max' 	=> 2000,
+						'step'	=> 100,
+					],
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_fade',
+			[
+				'label'         => __('Fade', MELA_TD),
+				'type'          => Controls_Manager::SWITCHER,
+				'condition'     => [
+					'ma_el_blog_cols' => '100%'
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+
+
+		$this->add_control(
+			'resistance_ratio',
+			[
+				'label' 		=> __('Resistance', MELA_TD),
+				'description'	=> __('Set the value for resistant bounds.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'default' 		=> [
+					'size' 		=> 0.25,
+					'unit' 		=> 'px',
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 1,
+						'step'	=> 0.05,
+					],
+				],
+				'frontend_available' => true,
+			]
+		);
+
+
+		$this->add_control(
+			'ma_el_blog_carousel_layout_heading',
+			[
+				'label' 			=> __('Layout', MELA_TD),
+				'type' 				=> Controls_Manager::HEADING,
+				'separator'			=> 'before'
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_direction',
+			[
+				'type' 				=> Controls_Manager::SELECT,
+				'label' 			=> __('Orientation', MELA_TD),
+				'default'			=> 'horizontal',
+				'tablet_default'	=> 'horizontal',
+				'mobile_default'	=> 'horizontal',
+				'options' 			=> [
+					'horizontal' 	=> __('Horizontal', MELA_TD),
+					'vertical' 		=> __('Vertical', MELA_TD),
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$slides_per_column = range(1, 6);
+		$slides_per_column = array_combine($slides_per_column, $slides_per_column);
+
+		$this->add_responsive_control(
+			'slides_per_view',
+			[
+				'label' 			=> __('Slides Per View', MELA_TD),
+				'type' 				=> Controls_Manager::SELECT,
+				'default' 			=> '',
+				'tablet_default' 	=> '',
+				'mobile_default' 	=> '',
+				'options' => [
+					''	=> __('Default', MELA_TD),
+					'1' => '1',
+					'2' => '2',
+					'3' => '3',
+					'4' => '4',
+					'5' => '5',
+					'6' => '6',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_responsive_control(
+			'slides_per_column',
+			[
+				'type' 					=> Controls_Manager::SELECT,
+				'label' 				=> __('Slides Per Column', MELA_TD),
+				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_column,
+				'condition'				=> [
+					'ma_el_blog_carousel_direction' => 'horizontal',
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->add_responsive_control(
+			'slides_to_scroll',
+			[
+				'type' 					=> Controls_Manager::SELECT,
+				'label' 				=> __('Slides to Scroll', MELA_TD),
+				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_column,
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_blog_carousel_grid_columns_spacing',
+			[
+				'label' 			=> __('Columns Spacing', MELA_TD),
+				'type' 				=> Controls_Manager::SLIDER,
+				'default'			=> [
+					'size' => 24,
+					'unit' => 'px',
+				],
+				'tablet_default'	=> [
+					'size' => 12,
+					'unit' => 'px',
+				],
+				'mobile_default'	=> [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'size_units' 		=> ['px'],
+				'range' 			=> [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'condition'				=> [
+					'ma_el_blog_carousel_direction' => 'horizontal',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_loop',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Loop', MELA_TD),
+				'default' 		=> '',
+				'separator'		=> 'before',
+				'condition'		=> [
+					'ma_el_blog_carousel'           => 'yes'
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_slide_change_resize',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Trigger Resize on Slide', MELA_TD),
+				'description'	=> __('Some widgets inside post skins templates might require triggering a window resize event when changing slides to display correctly.', MELA_TD),
+				'default' 		=> '',
+				'frontend_available' => true
+			]
+		);
 
 		$this->add_control(
 			'ma_el_blog_carousel_auto_play',
@@ -542,222 +777,137 @@ class Blog extends Widget_Base
 		$this->end_popover();
 
 
+		$this->add_control(
+			'ma_el_blog_carousel_free_mode',
+			[
+				'type' 					=> Controls_Manager::POPOVER_TOGGLE,
+				'label' 				=> __('Free Mode', MELA_TD),
+				'description'			=> __('Disable fixed positions for slides.', MELA_TD),
+				'default' 				=> '',
+				'return_value' 			=> 'yes',
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->start_popover();
 
 		$this->add_control(
-			'ma_el_blog_carousel_loop',
+			'ma_el_blog_carousel_free_mode_sticky',
+			[
+				'type' 					=> Controls_Manager::SWITCHER,
+				'label' 				=> __('Snap to position', MELA_TD),
+				'description'			=> __('Enable to snap slides to positions in free mode.', MELA_TD),
+				'default' 				=> '',
+				'return_value' 			=> 'yes',
+				'frontend_available' 	=> true,
+				'condition' 			=> [
+					'ma_el_blog_carousel_free_mode!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_free_mode_momentum',
 			[
 				'type' 			=> Controls_Manager::SWITCHER,
-				'label' 		=> __('Loop', MELA_TD),
-				'default' 		=> '',
+				'label' 		=> __('Momentum', MELA_TD),
+				'description'	=> __('Enable to keep slide moving for a while after you release it.', MELA_TD),
+				'default' 		=> 'yes',
+				'return_value' 	=> 'yes',
 				'separator'		=> 'before',
-				'condition'		=> [
-					'ma_el_blog_carousel'           => 'yes'
-				],
-				'frontend_available' 	=> true,
-			]
-		);
-
-		$this->add_responsive_control(
-			'ma_el_blog_carousel_direction',
-			[
-				'type' 				=> Controls_Manager::SELECT,
-				'label' 			=> __('Orientation', MELA_TD),
-				'default'			=> 'horizontal',
-				'tablet_default'	=> 'horizontal',
-				'mobile_default'	=> 'horizontal',
-				'options' 			=> [
-					'horizontal' 	=> __('Horizontal', MELA_TD),
-					'vertical' 		=> __('Vertical', MELA_TD),
-				],
-				'frontend_available' 	=> true,
-			]
-		);
-
-		$slides_per_column = range(1, 6);
-		$slides_per_column = array_combine($slides_per_column, $slides_per_column);
-
-		$this->add_responsive_control(
-			'slides_per_view',
-			[
-				'label' 			=> __('Slides Per View', MELA_TD),
-				'type' 				=> Controls_Manager::SELECT,
-				'default' 			=> '',
-				'tablet_default' 	=> '',
-				'mobile_default' 	=> '',
-				'options' => [
-					''	=> __('Default', MELA_TD),
-					'1' => '1',
-					'2' => '2',
-					'3' => '3',
-					'4' => '4',
-					'5' => '5',
-					'6' => '6',
-				],
 				'frontend_available' => true,
-			]
-		);
-
-		$this->add_responsive_control(
-			'slides_per_column',
-			[
-				'type' 					=> Controls_Manager::SELECT,
-				'label' 				=> __('Slides Per Column', MELA_TD),
-				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_column,
-				'condition'				=> [
-					'ma_el_blog_carousel_direction' => 'horizontal',
+				'condition' => [
+					'ma_el_blog_carousel_free_mode!' => '',
 				],
-				'frontend_available' 	=> true,
-			]
-		);
-
-
-		$this->add_control(
-			'autoheight',
-			[
-				'type' 			=> Controls_Manager::SWITCHER,
-				'label' 		=> __('Auto Height', MELA_TD),
-				'default' 		=> '',
-				'frontend_available' 	=> true,
-				// 'conditions' => [
-				// 	'slides_per_column'	=> '1',
-				// ]
-			]
-		);
-
-		$this->add_responsive_control(
-			'slides_to_scroll',
-			[
-				'type' 					=> Controls_Manager::SELECT,
-				'label' 				=> __('Slides to Scroll', MELA_TD),
-				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_column,
-				'frontend_available' 	=> true,
 			]
 		);
 
 		$this->add_control(
-			'ma_el_blog_carousel_effect',
+			'ma_el_blog_carousel_free_mode_momentum_ratio',
 			[
-				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Effect', MELA_TD),
-				'default' 		=> 'slide',
-				'options' 		=> [
-					'slide' 	=> __('Slide', MELA_TD),
-					'fade' 		=> __('Fade', MELA_TD),
-				],
-				'frontend_available' => true,
-			]
-		);
-
-		$this->add_control(
-			'ma_el_blog_carousel_fade',
-			[
-				'label'         => __('Fade', MELA_TD),
-				'type'          => Controls_Manager::SWITCHER,
-				'condition'     => [
-					'ma_el_blog_cols' => '100%'
-				],
-				'frontend_available' 	=> true,
-			]
-		);
-
-
-		$this->add_control(
-			'ma_el_blog_carousel_speed',
-			[
-				'label' 	=> __('Duration (ms)', MELA_TD),
-				'description' => __('Duration of the effect transition.', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 300,
-					'unit' 	=> 'px',
-				],
-				'range' 	=> [
-					'px' 	=> [
-						'min' 	=> 0,
-						'max' 	=> 2000,
-						'step'	=> 100,
-					],
-				],
-				'frontend_available' => true,
-			]
-		);
-
-		$this->add_control(
-			'resistance_ratio',
-			[
-				'label' 		=> __('Resistance', MELA_TD),
-				'description'	=> __('Set the value for resistant bounds.', MELA_TD),
+				'label' 		=> __('Ratio', MELA_TD),
+				'description'	=> __('Higher value produces larger momentum distance after you release slider.', MELA_TD),
 				'type' 			=> Controls_Manager::SLIDER,
-				'default' 		=> [
-					'size' 		=> 0.25,
-					'unit' 		=> 'px',
-				],
 				'range' 		=> [
 					'px' 		=> [
 						'min' 	=> 0,
-						'max' 	=> 1,
-						'step'	=> 0.05,
+						'max' 	=> 5,
+						'step'	=> 0.1,
 					],
+				],
+				'condition' => [
+					'ma_el_blog_carousel_free_mode!' 			=> '',
+					'ma_el_blog_carousel_free_mode_momentum!' 	=> '',
 				],
 				'frontend_available' => true,
 			]
 		);
 
 		$this->add_control(
-			'ma_el_blog_carousel_dots',
+			'ma_el_blog_carousel_free_mode_momentum_velocity',
 			[
-				'label'         => __('Navigation Dots', MELA_TD),
-				'type'          => Controls_Manager::SWITCHER,
-				'return_value' 	=> 'yes',
-				'condition'     => [
-					'ma_el_blog_carousel'  => 'yes'
-				]
-			]
-		);
-
-		$this->add_responsive_control(
-			'grid_columns_spacing',
-			[
-				'label' 			=> __('Columns Spacing', MELA_TD),
-				'type' 				=> Controls_Manager::SLIDER,
-				'default'			=> [
-					'size' => 24,
-					'unit' => 'px',
-				],
-				'tablet_default'	=> [
-					'size' => 12,
-					'unit' => 'px',
-				],
-				'mobile_default'	=> [
-					'size' => 0,
-					'unit' => 'px',
-				],
-				'size_units' 		=> ['px'],
-				'range' 			=> [
-					'px' => [
-						'min' => 0,
-						'max' => 100,
+				'label' 		=> __('Velocity', MELA_TD),
+				'description'	=> __('Higher value produces larger momentum velocity after you release slider.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 5,
+						'step'	=> 0.1,
 					],
+				],
+				'condition' => [
+					'ma_el_blog_carousel_free_mode!' 			=> '',
+					'ma_el_blog_carousel_free_mode_momentum!' 	=> '',
 				],
 				'frontend_available' => true,
 			]
 		);
 
 		$this->add_control(
-			'slide_change_resize',
+			'ma_el_blog_carousel_free_mode_momentum_bounce',
 			[
 				'type' 			=> Controls_Manager::SWITCHER,
-				'label' 		=> __('Trigger Resize on Slide', MELA_TD),
-				'description'	=> __('Some widgets inside post skins templates might require triggering a window resize event when changing slides to display correctly.', MELA_TD),
-				'default' 		=> '',
-				'frontend_available' => true
+				'label' 		=> __('Bounce', MELA_TD),
+				'description'	=> __('Set to No if you want to disable momentum bounce in free mode.', MELA_TD),
+				'default' 		=> 'yes',
+				'return_value' 	=> 'yes',
+				'frontend_available' => true,
+				'condition' => [
+					'ma_el_blog_carousel_free_mode!' 			=> '',
+					'ma_el_blog_carousel_free_mode_momentum!' 	=> '',
+				],
 			]
 		);
+
+		$this->add_control(
+			'ma_el_blog_carousel_free_mode_momentum_bounce_ratio',
+			[
+				'label' 		=> __('Bounce Ratio', MELA_TD),
+				'description'	=> __('Higher value produces larger momentum bounce effect.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 5,
+						'step'	=> 0.1,
+					],
+				],
+				'condition' => [
+					'ma_el_blog_carousel_free_mode!' => '',
+					'ma_el_blog_carousel_free_mode_momentum!' => '',
+					'ma_el_blog_carousel_free_mode_momentum_bounce!' => '',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->end_popover();
 
 		$this->add_control(
 			'ma_el_blog_carousel_arrows',
 			[
-				'label'         => __('Navigation Arrows', MELA_TD),
+				'label'         => __('Arrows', MELA_TD),
 				'type'          => Controls_Manager::POPOVER_TOGGLE,
 				'default'       => 'yes',
 				'return_value' 	=> 'yes',
@@ -788,67 +938,6 @@ class Blog extends Widget_Base
 
 		$this->end_popover();
 
-		$this->add_responsive_control(
-			'ma_el_blog_carousel_arrows_pos',
-			[
-				'label'         => __('Arrows Position', MELA_TD),
-				'type'          => Controls_Manager::SLIDER,
-				'size_units'    => ['px', "em"],
-				'range'         => [
-					'px'    => [
-						'min'       => -100,
-						'max'       => 100,
-					],
-					'em'    => [
-						'min'       => -10,
-						'max'       => 10,
-					],
-				],
-				'condition'		=> [
-					'ma_el_blog_carousel'         => 'yes',
-					'ma_el_blog_carousel_arrows'  => 'yes'
-				],
-				'selectors'     => [
-					'{{WRAPPER}} .ma-el-blog-wrap a.carousel-arrow.carousel-next' => 'right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-blog-wrap a.carousel-arrow.carousel-prev' => 'left: {{SIZE}}{{UNIT}};',
-				]
-			]
-		);
-
-		// $this->add_control(
-		// 	'ma_el_blog_carousel_arrows_position_vertical',
-		// 	[
-		// 		'type' 			=> Controls_Manager::SELECT,
-		// 		'label' 		=> __('Position', MELA_TD),
-		// 		'default'		=> 'center',
-		// 		'options' 		=> [
-		// 			'left' 		=> __('Left', MELA_TD),
-		// 			'center' 	=> __('Center', MELA_TD),
-		// 			'right' 	=> __('Right', MELA_TD),
-		// 		],
-		// 		'condition'		=> [
-		// 			'ma_el_blog_carousel_arrows' => 'yes',
-		// 			'ma_el_blog_carousel_direction' => 'vertical',
-		// 		]
-		// 	]
-		// );
-
-		$this->add_control(
-			'ma_el_blog_carousel_arrows_placement',
-			[
-				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Placement', MELA_TD),
-				'default'		=> 'inside',
-				'options' 		=> [
-					'inside' 	=> __('Inside', MELA_TD),
-					'outside' 	=> __('Outside', MELA_TD),
-				],
-				'condition'		=> [
-					'ma_el_blog_carousel_arrows' => 'yes',
-				]
-			]
-		);
-
 		$this->add_control(
 			'ma_el_blog_carousel_pagination',
 			[
@@ -862,7 +951,7 @@ class Blog extends Widget_Base
 			]
 		);
 
-
+		$this->start_popover();
 		$this->add_control(
 			'ma_el_blog_carousel_pagination_position',
 			[
@@ -875,7 +964,7 @@ class Blog extends Widget_Base
 				],
 				'frontend_available' 	=> true,
 				'condition'		=> [
-					'ma_el_blog_carousel_pagination'         => '',
+					'ma_el_blog_carousel_pagination!'         => '',
 				]
 			]
 		);
@@ -911,7 +1000,7 @@ class Blog extends Widget_Base
 				'frontend_available' 	=> true,
 			]
 		);
-
+		$this->end_popover();
 		$this->end_controls_section();
 
 
@@ -2025,7 +2114,7 @@ class Blog extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'          => 'ma_el_blog_pagination_typo',
+				'name'          => 'ma_el_blog_pagination_typography',
 				'selector'      => '{{WRAPPER}} .ma-el-blog-pagination .page-numbers li span,{{WRAPPER}} .ma-el-blog-pagination .page-numbers li a'
 			]
 		);
@@ -3838,7 +3927,7 @@ class Blog extends Widget_Base
 									$grid   = 'grid' == $settings['ma_el_post_grid_layout'] ? 'true' : 'false';
 
 									$speed  = !empty($settings['ma_el_blog_carousel_autoplay_speed']) ? $settings['ma_el_blog_carousel_autoplay_speed'] : 5000;
-									$dots   = 'yes' == $settings['ma_el_blog_carousel_dots'] ? 'true' : 'false';
+									// $dots   = 'yes' == $settings['ma_el_blog_carousel_dots'] ? 'true' : 'false';
 
 									$this->add_render_attribute('ma_el_blog', 'data-carousel', $carousel);
 
@@ -3854,7 +3943,7 @@ class Blog extends Widget_Base
 
 									$this->add_render_attribute('ma_el_blog', 'data-arrows', $arrows);
 
-									$this->add_render_attribute('ma_el_blog', 'data-dots', $dots);
+									// $this->add_render_attribute('ma_el_blog', 'data-dots', $dots);
 
 									$this->add_render_attribute('ma_el_blog', 'class', ['elementor-swiper-slider']);
 								}
