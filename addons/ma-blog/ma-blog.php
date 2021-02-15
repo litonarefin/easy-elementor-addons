@@ -3920,31 +3920,6 @@ class Blog extends Widget_Base
 										],
 									]);
 
-
-									$play   = 'yes' == $settings['ma_el_blog_carousel_auto_play'] ? true : false;
-									$fade   = 'yes' == $settings['ma_el_blog_carousel_fade'] ? 'true' : 'false';
-									$arrows = 'yes' == $settings['ma_el_blog_carousel_arrows'] ? 'true' : 'false';
-									$grid   = 'grid' == $settings['ma_el_post_grid_layout'] ? 'true' : 'false';
-
-									$speed  = !empty($settings['ma_el_blog_carousel_autoplay_speed']) ? $settings['ma_el_blog_carousel_autoplay_speed'] : 5000;
-									// $dots   = 'yes' == $settings['ma_el_blog_carousel_dots'] ? 'true' : 'false';
-
-									$this->add_render_attribute('ma_el_blog', 'data-carousel', $carousel);
-
-									$this->add_render_attribute('ma_el_blog', 'data-grid', $grid);
-
-									$this->add_render_attribute('ma_el_blog', 'data-fade', $fade);
-
-									$this->add_render_attribute('ma_el_blog', 'data-play', $play);
-
-									$this->add_render_attribute('ma_el_blog', 'data-speed', $speed);
-
-									$this->add_render_attribute('ma_el_blog', 'data-col', $posts_number);
-
-									$this->add_render_attribute('ma_el_blog', 'data-arrows', $arrows);
-
-									// $this->add_render_attribute('ma_el_blog', 'data-dots', $dots);
-
 									$this->add_render_attribute('ma_el_blog', 'class', ['elementor-swiper-slider']);
 								}
 								?>
@@ -3988,10 +3963,7 @@ class Blog extends Widget_Base
 							<div <?php echo $this->get_render_attribute_string('ma_el_blog'); ?>>
 
 								<?php if ($carousel) { ?>
-									<!-- <div <?php //echo $this->get_render_attribute_string('swiper-container');
-												?>> -->
 									<div <?php echo $this->get_render_attribute_string('swiper-wrapper'); ?>>
-
 										<?php }
 
 									if (count($posts)) {
@@ -4011,7 +3983,6 @@ class Blog extends Widget_Base
 									?>
 
 							</div>
-							<!-- </div> -->
 
 						<?php } ?>
 
