@@ -376,10 +376,18 @@ Paste on your Local Computer
 
 == Changelog ==
 = 1.5.7 (7-02-2021) =
-* Updated: 'jquery-slick' updated with 'swiper' scripts. Updated Widgets - MA Blog, MA Slider, MA Gallery Slider, MA Twitter Slider, MA Timeline etc
-* Added: New addon added "Advanced Image"
+* Updated: 'jquery-slick' updated with 'Swiper Slider' library. Updated Widgets - MA Blog, MA Slider, MA Gallery Slider, MA Twitter Slider, MA Timeline etc
+* Added: New Element added "Advanced Image".
 * Updated: Fully revamped plugins file structure with namespace and file locations.
 * Updated: Domain Checker - Added Search Button Link for Affiliates and anyone can integrate WHMCS for searching Domains.
+* Removed: Slick Slider removed from Gallery Slider
+* Removed: Slick Slider removed from Blog Element
+* Removed: Slick Slider removed from Timeline
+* Removed: Slick Slider removed from Logo Carousel
+* Removed: Slick Slider removed from Image Carousel
+* Removed: Slick Slider removed from Twitter Carousel
+* Updated: Blog Element updated with Swiper Slider support and improved functionality.
+* Updated: Gallery Slider updated with Swiper Slider support
 
 
 = 1.5.6.2 (24-01-2021) =

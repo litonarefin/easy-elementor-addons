@@ -1542,299 +1542,337 @@ Customization Options.</span>'
 
 			<?php if ($ma_el_timeline_type == "post") {
 
-				if (count($posts)) {
-					global $post;
-					$i = 0;
-
-					foreach ($posts as $post) {
-						$i++;
-
-						$active_class = ($i == 1) ? "active" : "";
-
-						setup_postdata($post);
-						echo '<div class="ma-el-blog-timeline-post ' . $active_class . '">';
-						$this->ma_el_timeline();
-						echo '</div>';
-					}
-				}
+				$this->jltma_post_timeline();
 			} elseif ($ma_el_timeline_type == "custom") {
 
 
 				// Vertical Layout Design & Custom Layout
 				if ($timeline_layout_type == "vertical") {
-
-					$j = 0;
-					foreach ($settings['ma_el_custom_timeline_items'] as $index => $item) {
-						$j++;
-						$active_class = ($j == 1) ? "active" : "";
-
-						$card_tag 		= 'div';
-						$item_key 		= $this->get_repeater_setting_key('item', 'ma_el_custom_timeline_items', $index);
-						$card_key 		= $this->get_repeater_setting_key('card', 'ma_el_custom_timeline_items', $index);
-						$point_content 	= '';
-						$wysiwyg_key 	= $this->get_repeater_setting_key('content', 'ma_el_custom_timeline_items', $index);
-						$meta_key 		= $this->get_repeater_setting_key('date', 'ma_el_custom_timeline_items', $index);
-
-
-						$this->add_render_attribute([
-							$item_key => [
-								'class' => [
-									'elementor-repeater-item-' . $item['_id'],
-									'ma-el-blog-timeline-post',
-									$active_class
-								],
-							],
-							$card_key => [
-								'class' => 'timeline-item__card',
-							],
-							$wysiwyg_key => [
-								'class' => 'ma-el-timeline-entry-content',
-							],
-							$meta_key => [
-								'class' => [
-									'timeline-item__meta',
-									'meta',
-								],
-							],
-						]);
-
-						if (!empty($item['ma_el_custom_timeline_link']['url'])) {
-							$card_tag = 'a';
-
-							$this->add_render_attribute($card_key, 'href', $item['ma_el_custom_timeline_link']['url']);
-
-							if ($item['ma_el_custom_timeline_link']['is_external']) {
-								$this->add_render_attribute($card_key, 'target', '_blank');
-							}
-
-							if ($item['ma_el_custom_timeline_link']['nofollow']) {
-								$this->add_render_attribute($card_key, 'rel', 'nofollow');
-							}
-						}
-
-						if (ma_el_fs()->can_use_premium_code()) {
-
-							if (('yes' === $item['ma_el_custom_timeline_custom_style'] && '' !== $item['ma_el_custom_timeline_point_content_type'])) {
-								$point_content_type = $item['ma_el_custom_timeline_point_content_type'];
-							} else {
-								$point_content_type = $item['ma_el_custom_timeline_point_content'];
-							}
-
-
-							switch ($point_content_type) {
-								case 'numbers':
-
-								case 'letters':
-									$point_content = $this->ma_timeline_points_text($point_content_type, $index, $item);
-									break;
-
-								case 'image':
-									$point_content = $this->ma_timeline_points_image($item);
-									break;
-
-								case 'icons':
-									$point_content = $this->ma_timeline_points_icon($item);
-									break;
-
-								default:
-									$point_content = $this->ma_timeline_points_global_points();
-							}
-						}
-
-			?>
-
-						<div <?php echo $this->get_render_attribute_string($item_key); ?>>
-
-							<div class="ma-el-timeline-post-inner">
-								<<?php echo $card_tag; ?> <?php echo $this->get_render_attribute_string($card_key); ?>>
-									<div class="ma-el-timeline-post-top">
-
-										<?php echo $point_content; ?>
-
-										<div class="ma-el-timeline-post-date">
-											<time datetime="<?php echo get_the_modified_date('c'); ?>">
-												<?php
-												$timeline_date = $this->parse_text_editor($item['ma_el_custom_timeline_date']);
-												echo date($settings['ma_el_timeline_date_format'], strtotime($timeline_date));
-												?>
-												<?php //echo $this->render_date(false);
-												?>
-												<?php //echo get_the_date($item['ma_el_custom_timeline_date']);
-												?>
-											</time>
-										</div><!-- /.ma-el-timeline-post-date -->
-
-									</div><!-- /.ma-el-timeline-post-top -->
-
-									<article class="post post-type-custom">
-
-										<?php if ($item['ma_el_custom_timeline_image']['url']) { ?>
-											<div <?php echo $this->get_render_attribute_string('image'); ?>>
-												<?php echo Group_Control_Image_Size::get_attachment_image_html($item, 'ma_el_custom_timeline_image'); ?>
-											</div>
-										<?php } ?>
-
-										<div <?php echo $this->get_render_attribute_string($wysiwyg_key); ?>>
-											<?php echo $this->parse_text_editor($item['ma_el_custom_timeline_content']); ?>
-										</div>
-									</article><!-- /.post -->
-								</<?php echo $card_tag; ?>>
-
-							</div><!-- /.ma-el-timeline-post-inner -->
-						</div>
-
-					<?php } ?>
-
-
-				<?php } elseif ($timeline_layout_type == "horizontal") {
+					$this->jltma_vertical_timeline();
+				} elseif ($timeline_layout_type == "horizontal") {
 					// If Custom and Vertical Horizontal Design
-				?>
+					$this->jltma_horizontal_timeline();
+				} ?>
 
-					<div class="ma-el-blog-timeline-slider">
-						<div class="ma-el-timeline-slider-inner">
+				<?php $this->jltma_navigation(); ?>
 
-							<?php
-							$j = 0;
-							foreach ($settings['ma_el_custom_timeline_items'] as $index => $item) {
-								$j++;
-								$active_class = ($j == 1) ? "active" : "";
-
-								$card_tag 		= 'div';
-								$item_key 		= $this->get_repeater_setting_key('item', 'ma_el_custom_timeline_items', $index);
-								$card_key 		= $this->get_repeater_setting_key('card', 'ma_el_custom_timeline_items', $index);
-								$point_content 	= '';
-								$wysiwyg_key 	= $this->get_repeater_setting_key('content', 'ma_el_custom_timeline_items', $index);
-								$meta_key 		= $this->get_repeater_setting_key('date', 'ma_el_custom_timeline_items', $index);
-
-
-								$this->add_render_attribute([
-									$item_key => [
-										'class' => [
-											'elementor-repeater-item-' . $item['_id'],
-											'ma-el-blog-timeline-post',
-											$active_class
-										],
-									],
-									$card_key => [
-										'class' => 'timeline-item__card',
-									],
-									$wysiwyg_key => [
-										'class' => 'ma-el-timeline-entry-content',
-									],
-									$meta_key => [
-										'class' => [
-											'timeline-item__meta',
-											'meta',
-										],
-									],
-								]);
-
-								if (!empty($item['ma_el_custom_timeline_link']['url'])) {
-									$card_tag = 'a';
-
-									$this->add_render_attribute($card_key, 'href', $item['ma_el_custom_timeline_link']['url']);
-
-									if ($item['ma_el_custom_timeline_link']['is_external']) {
-										$this->add_render_attribute($card_key, 'target', '_blank');
-									}
-
-									if ($item['ma_el_custom_timeline_link']['nofollow']) {
-										$this->add_render_attribute($card_key, 'rel', 'nofollow');
-									}
-								}
-
-
-								if (('yes' === isset($item['ma_el_custom_timeline_custom_style']) && isset($item['ma_el_timeline_points_content']) !== '')) {
-									$point_content_type = $item['ma_el_timeline_points_content'];
-								} else {
-									$point_content_type = $settings['ma_el_timeline_points_content'];
-								}
-
-
-
-								switch ($point_content_type) {
-									case 'numbers':
-
-									case 'letters':
-										$point_content = $this->ma_timeline_points_text($point_content_type, $index, $item);
-										break;
-
-									case 'image':
-										$point_content = $this->ma_timeline_points_image($item);
-										break;
-
-									case 'icons':
-										$point_content = $this->ma_timeline_points_icon($item);
-										break;
-
-									default:
-										$point_content = '<span class="hexagon"></span>';
-								}
-
-								//                                        if($settings['ma_el_timeline_selected_global_icon']['value']){
-								//	                                            $point_content = $this->ma_timeline_points_global_points();
-								//                                        } else{
-								//            				                    $point_content = '<span class="hexagon"></span>';
-								//                                        }
-
-							?>
-
-								<<?php echo esc_attr($card_tag); ?> <?php echo $this->get_render_attribute_string($item_key); ?>>
-
-									<div class="ma-el-timeline-post-top">
-
-										<div class="ma-el-timeline-post-date">
-											<time datetime="<?php echo get_the_modified_date('c'); ?>">
-												<?php echo $this->parse_text_editor($item['ma_el_custom_timeline_date']); ?>
-											</time>
-										</div><!-- /.ma-el-timeline-post-date -->
-
-									</div><!-- /.ma-el-timeline-post-top -->
-
-									<div class="ma-el-timeline-horz-pointer">
-										<?php echo $point_content; ?>
-									</div>
-
-									<div class="ma-el-timeline-post-inner">
-
-										<article class="post post-type">
-
-											<?php if ($item['ma_el_custom_timeline_image']['url']) { ?>
-												<div <?php echo $this->get_render_attribute_string('image'); ?>>
-													<?php echo Group_Control_Image_Size::get_attachment_image_html($item, 'ma_el_custom_timeline_image'); ?>
-												</div>
-											<?php } ?>
-
-											<div class="ma-el-timeline-entry-content">
-
-												<div <?php echo $this->get_render_attribute_string($wysiwyg_key); ?>>
-													<?php echo $this->parse_text_editor($item['ma_el_custom_timeline_content']); ?>
-												</div>
-
-											</div><!-- /.ma-el-timeline-entry-content -->
-										</article><!-- /.post -->
-									</div><!-- /.ma-el-timeline-post-inner -->
-								</<?php echo esc_attr($card_tag); ?>><!-- /.ma-el-timeline-tag -->
-
-							<?php } ?>
-
-						</div><!-- /.ma-el-timeline-slider-inner -->
-
-						<!-- <div class="ma-el-blog-timeline-slider-navigation text-center">
-                                    <ul>
-                                        <li class="ma-el-blog-timeline-slider-prev"><i class="fa fa-angle-left"></i></li>
-                                        <li class="ma-el-blog-timeline-slider-next"><i class="fa fa-angle-right"></i></li>
-                                    </ul>
-                                </div> -->
-
-					<?php } ?>
-
-					</div><!-- /.ma-el-blog-timeline-slider -->
+		</div><!-- /.ma-el-blog-timeline-slider -->
 
 		</div>
 
 	<?php }
 		}
+
+		protected function jltma_post_timeline()
+		{
+
+			$settings = $this->get_settings_for_display();
+
+			if (ma_el_fs()->can_use_premium_code()) {
+
+				$settings[] = $settings['ma_el_blog_posts_per_page'];
+
+				$offset = $settings['ma_el_timeline_post_offset'];
+
+				$post_per_page = $settings['ma_el_blog_posts_per_page'];
+
+				$new_offset = $offset + (($paged - 1) * $post_per_page);
+
+				$post_args = Master_Addons_Helper::ma_el_blog_get_post_settings($settings);
+
+				$posts = Master_Addons_Helper::ma_el_blog_get_post_data($post_args, $paged, $new_offset);
+			}
+
+			if (count($posts)) {
+				global $post;
+				$i = 0;
+
+				foreach ($posts as $post) {
+					$i++;
+
+					$active_class = ($i == 1) ? "active" : "";
+
+					setup_postdata($post);
+					echo '<div class="ma-el-blog-timeline-post ' . $active_class . '">';
+					$this->ma_el_timeline();
+					echo '</div>';
+				}
+			}
+		}
+		public function jltma_vertical_timeline()
+		{
+			$settings = $this->get_settings_for_display();
+
+			$j = 0;
+			foreach ($settings['ma_el_custom_timeline_items'] as $index => $item) {
+				$j++;
+				$active_class = ($j == 1) ? "active" : "";
+
+				$card_tag 		= 'div';
+				$item_key 		= $this->get_repeater_setting_key('item', 'ma_el_custom_timeline_items', $index);
+				$card_key 		= $this->get_repeater_setting_key('card', 'ma_el_custom_timeline_items', $index);
+				$point_content 	= '';
+				$wysiwyg_key 	= $this->get_repeater_setting_key('content', 'ma_el_custom_timeline_items', $index);
+				$meta_key 		= $this->get_repeater_setting_key('date', 'ma_el_custom_timeline_items', $index);
+
+
+				$this->add_render_attribute([
+					$item_key => [
+						'class' => [
+							'elementor-repeater-item-' . $item['_id'],
+							'ma-el-blog-timeline-post',
+							$active_class
+						],
+					],
+					$card_key => [
+						'class' => 'timeline-item__card',
+					],
+					$wysiwyg_key => [
+						'class' => 'ma-el-timeline-entry-content',
+					],
+					$meta_key => [
+						'class' => [
+							'timeline-item__meta',
+							'meta',
+						],
+					],
+				]);
+
+
+				if (!empty($item['ma_el_custom_timeline_link']['url'])) {
+					$card_tag = 'a';
+
+					$this->add_render_attribute($card_key, 'href', $item['ma_el_custom_timeline_link']['url']);
+
+					if ($item['ma_el_custom_timeline_link']['is_external']) {
+						$this->add_render_attribute($card_key, 'target', '_blank');
+					}
+
+					if ($item['ma_el_custom_timeline_link']['nofollow']) {
+						$this->add_render_attribute($card_key, 'rel', 'nofollow');
+					}
+				}
+
+				if (ma_el_fs()->can_use_premium_code()) {
+
+					if (('yes' === $item['ma_el_custom_timeline_custom_style'] && '' !== $item['ma_el_custom_timeline_point_content_type'])) {
+						$point_content_type = $item['ma_el_custom_timeline_point_content_type'];
+					} else {
+						$point_content_type = $item['ma_el_custom_timeline_point_content'];
+					}
+
+
+					switch ($point_content_type) {
+						case 'numbers':
+
+						case 'letters':
+							$point_content = $this->ma_timeline_points_text($point_content_type, $index, $item);
+							break;
+
+						case 'image':
+							$point_content = $this->ma_timeline_points_image($item);
+							break;
+
+						case 'icons':
+							$point_content = $this->ma_timeline_points_icon($item);
+							break;
+
+						default:
+							$point_content = $this->ma_timeline_points_global_points();
+					}
+				}
+	?>
+		<div <?php echo $this->get_render_attribute_string($item_key); ?>>
+
+			<div class="ma-el-timeline-post-inner">
+				<<?php echo $card_tag; ?> <?php echo $this->get_render_attribute_string($card_key); ?>>
+					<div class="ma-el-timeline-post-top">
+
+						<?php echo $point_content; ?>
+
+						<div class="ma-el-timeline-post-date">
+							<time datetime="<?php echo get_the_modified_date('c'); ?>">
+								<?php
+								$timeline_date = $this->parse_text_editor($item['ma_el_custom_timeline_date']);
+								echo date($settings['ma_el_timeline_date_format'], strtotime($timeline_date));
+								?>
+								<?php //echo $this->render_date(false);
+								?>
+								<?php //echo get_the_date($item['ma_el_custom_timeline_date']);
+								?>
+							</time>
+						</div><!-- /.ma-el-timeline-post-date -->
+
+					</div><!-- /.ma-el-timeline-post-top -->
+
+					<article class="post post-type-custom">
+
+						<?php if ($item['ma_el_custom_timeline_image']['url']) { ?>
+							<div <?php echo $this->get_render_attribute_string('image'); ?>>
+								<?php echo Group_Control_Image_Size::get_attachment_image_html($item, 'ma_el_custom_timeline_image'); ?>
+							</div>
+						<?php } ?>
+
+						<div <?php echo $this->get_render_attribute_string($wysiwyg_key); ?>>
+							<?php echo $this->parse_text_editor($item['ma_el_custom_timeline_content']); ?>
+						</div>
+					</article><!-- /.post -->
+				</<?php echo $card_tag; ?>>
+
+			</div><!-- /.ma-el-timeline-post-inner -->
+		</div>
+
+	<?php } ?>
+
+<?php }
+
+		protected function jltma_navigation()
+		{ ?>
+
+	<!-- <div class="ma-el-blog-timeline-slider-navigation text-center">
+                                    <ul>
+                                        <li class="ma-el-blog-timeline-slider-prev"><i class="fa fa-angle-left"></i></li>
+                                        <li class="ma-el-blog-timeline-slider-next"><i class="fa fa-angle-right"></i></li>
+                                    </ul>
+                                </div> -->
+<?php }
+
+		protected function jltma_horizontal_timeline()
+		{
+			$settings = $this->get_settings_for_display();
+?>
+
+	<div class="ma-el-blog-timeline-slider">
+		<div class="ma-el-timeline-slider-inner">
+
+			<?php
+			$j = 0;
+			foreach ($settings['ma_el_custom_timeline_items'] as $index => $item) {
+				$j++;
+				$active_class = ($j == 1) ? "active" : "";
+
+				$card_tag 		= 'div';
+				$item_key 		= $this->get_repeater_setting_key('item', 'ma_el_custom_timeline_items', $index);
+				$card_key 		= $this->get_repeater_setting_key('card', 'ma_el_custom_timeline_items', $index);
+				$point_content 	= '';
+				$wysiwyg_key 	= $this->get_repeater_setting_key('content', 'ma_el_custom_timeline_items', $index);
+				$meta_key 		= $this->get_repeater_setting_key('date', 'ma_el_custom_timeline_items', $index);
+
+
+				$this->add_render_attribute([
+					$item_key => [
+						'class' => [
+							'elementor-repeater-item-' . $item['_id'],
+							'ma-el-blog-timeline-post',
+							$active_class
+						],
+					],
+					$card_key => [
+						'class' => 'timeline-item__card',
+					],
+					$wysiwyg_key => [
+						'class' => 'ma-el-timeline-entry-content',
+					],
+					$meta_key => [
+						'class' => [
+							'timeline-item__meta',
+							'meta',
+						],
+					],
+				]);
+
+				if (!empty($item['ma_el_custom_timeline_link']['url'])) {
+					$card_tag = 'a';
+
+					$this->add_render_attribute($card_key, 'href', $item['ma_el_custom_timeline_link']['url']);
+
+					if ($item['ma_el_custom_timeline_link']['is_external']) {
+						$this->add_render_attribute($card_key, 'target', '_blank');
+					}
+
+					if ($item['ma_el_custom_timeline_link']['nofollow']) {
+						$this->add_render_attribute($card_key, 'rel', 'nofollow');
+					}
+				}
+
+
+				if (('yes' === isset($item['ma_el_custom_timeline_custom_style']) && isset($item['ma_el_timeline_points_content']) !== '')) {
+					$point_content_type = $item['ma_el_timeline_points_content'];
+				} else {
+					$point_content_type = $settings['ma_el_timeline_points_content'];
+				}
+
+
+
+				switch ($point_content_type) {
+					case 'numbers':
+
+					case 'letters':
+						$point_content = $this->ma_timeline_points_text($point_content_type, $index, $item);
+						break;
+
+					case 'image':
+						$point_content = $this->ma_timeline_points_image($item);
+						break;
+
+					case 'icons':
+						$point_content = $this->ma_timeline_points_icon($item);
+						break;
+
+					default:
+						$point_content = '<span class="hexagon"></span>';
+				}
+
+				//                                        if($settings['ma_el_timeline_selected_global_icon']['value']){
+				//	                                            $point_content = $this->ma_timeline_points_global_points();
+				//                                        } else{
+				//            				                    $point_content = '<span class="hexagon"></span>';
+				//                                        }
+
+			?>
+
+				<<?php echo esc_attr($card_tag); ?> <?php echo $this->get_render_attribute_string($item_key); ?>>
+
+					<div class="ma-el-timeline-post-top">
+
+						<div class="ma-el-timeline-post-date">
+							<time datetime="<?php echo get_the_modified_date('c'); ?>">
+								<?php echo $this->parse_text_editor($item['ma_el_custom_timeline_date']); ?>
+							</time>
+						</div><!-- /.ma-el-timeline-post-date -->
+
+					</div><!-- /.ma-el-timeline-post-top -->
+
+					<div class="ma-el-timeline-horz-pointer">
+						<?php echo $point_content; ?>
+					</div>
+
+					<div class="ma-el-timeline-post-inner">
+
+						<article class="post post-type">
+
+							<?php if ($item['ma_el_custom_timeline_image']['url']) { ?>
+								<div <?php echo $this->get_render_attribute_string('image'); ?>>
+									<?php echo Group_Control_Image_Size::get_attachment_image_html($item, 'ma_el_custom_timeline_image'); ?>
+								</div>
+							<?php } ?>
+
+							<div class="ma-el-timeline-entry-content">
+
+								<div <?php echo $this->get_render_attribute_string($wysiwyg_key); ?>>
+									<?php echo $this->parse_text_editor($item['ma_el_custom_timeline_content']); ?>
+								</div>
+
+							</div><!-- /.ma-el-timeline-entry-content -->
+						</article><!-- /.post -->
+					</div><!-- /.ma-el-timeline-post-inner -->
+				</<?php echo esc_attr($card_tag); ?>><!-- /.ma-el-timeline-tag -->
+
+			<?php } ?>
+
+		</div><!-- /.ma-el-timeline-slider-inner -->
+
+	<?php }
 
 		protected function ma_timeline_points_text($type, $index = false, $item = false)
 		{
@@ -2023,35 +2061,35 @@ Customization Options.</span>'
 		{
 			$settings = $this->get_settings();
 	?>
-	<div class="ma-el-timeline-post-inner">
-		<div class="ma-el-timeline-post-top">
-			<div class="ma-el-timeline-post-type-icon">
-				<i class="fa fa-pencil"></i>
-			</div><!-- /.ma-el-timeline-post-type-icon -->
+		<div class="ma-el-timeline-post-inner">
+			<div class="ma-el-timeline-post-top">
+				<div class="ma-el-timeline-post-type-icon">
+					<i class="fa fa-pencil"></i>
+				</div><!-- /.ma-el-timeline-post-type-icon -->
 
-			<div class="ma-el-timeline-post-date">
-				<time datetime="<?php echo get_the_modified_date('c'); ?>">
-					<?php echo $this->render_date(false); ?>
-				</time>
-			</div><!-- /.ma-el-timeline-post-date -->
-		</div><!-- /.ma-el-timeline-post-top -->
+				<div class="ma-el-timeline-post-date">
+					<time datetime="<?php echo get_the_modified_date('c'); ?>">
+						<?php echo $this->render_date(false); ?>
+					</time>
+				</div><!-- /.ma-el-timeline-post-date -->
+			</div><!-- /.ma-el-timeline-post-top -->
 
-		<article class="post post-type-">
-			<div class="ma-el-timeline-entry-content">
+			<article class="post post-type-">
+				<div class="ma-el-timeline-entry-content">
 
-				<?php if ($settings['ma_el_timeline_post_title'] == "yes") { ?>
-					<h3 class="ma-el-timeline-entry-title">
-						<a href="<?php the_permalink(); ?>">
-							<?php the_title(); ?>
-						</a>
-					</h3>
-				<?php } ?>
+					<?php if ($settings['ma_el_timeline_post_title'] == "yes") { ?>
+						<h3 class="ma-el-timeline-entry-title">
+							<a href="<?php the_permalink(); ?>">
+								<?php the_title(); ?>
+							</a>
+						</h3>
+					<?php } ?>
 
-				<?php $this->ma_el_timeline_content(); ?>
+					<?php $this->ma_el_timeline_content(); ?>
 
-			</div><!-- /.ma-el-timeline-entry-content -->
-		</article><!-- /.post -->
-	</div><!-- /.ma-el-timeline-post-inner -->
+				</div><!-- /.ma-el-timeline-entry-content -->
+			</article><!-- /.post -->
+		</div><!-- /.ma-el-timeline-post-inner -->
 <?php }
 
 

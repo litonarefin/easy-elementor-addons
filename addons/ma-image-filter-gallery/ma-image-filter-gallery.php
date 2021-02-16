@@ -1308,7 +1308,7 @@ class Filterable_Image_Gallery extends Widget_Base
 
 		$settings       = $this->get_settings_for_display();
 
-		if (!Plugin::$instance->editor->is_edit_mode()) {
+		if (!\Elementor\Plugin::$instance->editor->is_edit_mode()) {
 			$this->add_render_attribute(
 				'ma_el_image_filter_gallery',
 				'class',
