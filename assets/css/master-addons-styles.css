@@ -9732,7 +9732,7 @@ body a.toc-link.clicked {
     background-color: #fff;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    max-width: 495px;
+    /* max-width: 495px; */
     margin-bottom: 3.75rem;
     padding: 1.875rem;
     position: relative;
@@ -9897,17 +9897,14 @@ body a.toc-link.clicked {
     text-transform: uppercase;
 }
 
-.ma-el-blog-timeline-posts.solid-bg-color {
-    padding: 8rem 0 5rem;
-}
-.ma-el-blog-timeline-posts.solid-bg-color .ma-el-blog-timeline-post {
+/* .ma-el-blog-timeline-posts.solid-bg-color .ma-el-blog-timeline-post {
     float: left;
     left: 0;
     right: 0;
-    /* padding: 100px 15px 0; */
+    padding: 100px 15px 0;
     position: relative;
     width: 100%;
-}
+} */
 .ma-el-blog-timeline-posts.solid-bg-color .hexagon {
     background-color: #fff;
     border-left: solid 3px #7f49f0;
@@ -9994,7 +9991,6 @@ body a.toc-link.clicked {
 }
 
 .ma-el-blog-timeline-slider {
-    overflow: hidden;
     position: relative;
 }
 .ma-el-blog-timeline-slider article {
@@ -10040,138 +10036,6 @@ body a.toc-link.clicked {
     margin: 0 auto !important;
 }
 
-@media (min-width: 768px) {
-    .ma-el-blog-timeline-post {
-        clear: both;
-        position: relative;
-        width: 50%;
-    }
-    .solid-bg-color .ma-el-blog-timeline-post {
-        clear: inherit;
-    }
-    .ma-el-blog-timeline-post:before {
-        content: "";
-        background-color: #e8e8eb;
-        height: 100%;
-        width: 4px;
-        position: absolute;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 1) {
-        float: right;
-        right: 2px;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 2) {
-        float: left;
-        left: 2px;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 1):before {
-        left: 0;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 2):before {
-        right: 0;
-    }
-    .ma-el-blog-timeline-post:last-child:before {
-        height: 50px;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 1) article {
-        float: right;
-        margin-left: 80px;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 2) article {
-        margin-right: 80px;
-    }
-    .ma-el-timeline-post-inner {
-        position: relative;
-    }
-    .ma-el-timeline-post-top {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: flex-end;
-        left: -100%;
-        width: 100%;
-        top: 40px;
-        position: absolute;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 2) .ma-el-timeline-post-top {
-        justify-content: flex-start;
-        left: inherit;
-        right: -100%;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 2) .ma-el-timeline-post-date {
-        order: 1;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 1) .ma-el-timeline-post-type-icon {
-        margin: 0 -21px 0 40px;
-        order: 1;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 2) .ma-el-timeline-post-type-icon {
-        margin: 0 40px 0 -34px;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 1) .ma-el-timeline-post-mini-thumb {
-        margin: 0 -40px 0 40px;
-        order: 1;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 2) .ma-el-timeline-post-mini-thumb {
-        margin: 0 40px 0 -40px;
-    }
-
-    .ma-el-blog-timeline-posts.solid-bg-color .ma-el-timeline-post-top {
-        justify-content: center;
-        margin-bottom: 30px;
-        position: static;
-    }
-}
-
-@media (max-width: 992px) {
-    .ma-el-blog-timeline-posts article {
-        padding: 1rem;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 1) article {
-        margin-left: 60px;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 2) article {
-        margin-right: 60px;
-    }
-}
-
-@media (max-width: 767px) {
-    .ma-el-blog-timeline-post:nth-child(2n + 1) article {
-        margin-left: 0;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 2) article {
-        margin-right: 0;
-    }
-    .ma-el-blog-timeline-post:nth-child(2n + 1) .ma-el-timeline-post-date:before {
-        border-top: 15px solid transparent;
-        border-right: 20px solid #fff;
-        border-bottom: 16px solid transparent;
-        border-left: none;
-        left: -20px;
-    }
-    .ma-el-timeline-post-top {
-        display: flex;
-        align-items: center;
-        margin-bottom: 2rem;
-    }
-    .ma-el-timeline-post-type-icon,
-    .ma-el-timeline-post-mini-thumb {
-        margin-right: 2.5rem;
-    }
-    .ma-el-blog-timeline-posts.solid-bg-color .ma-el-blog-timeline-post:before {
-        width: 100%;
-    }
-    .solid-bg-color .ma-el-timeline-post-top {
-        justify-content: center;
-        margin: 1rem 0;
-    }
-    /*   .ma-el-blog-timeline-posts.solid-bg-color .ma-el-blog-timeline-post:before {
-        top: -11px;
-      }
-      .ma-el-blog-timeline-posts.solid-bg-color .hexagon {
-        top: -25px;
-      } */
-}
 /* End of MA Timeline */
 
 /* Start of MA Image Filter Gallery */

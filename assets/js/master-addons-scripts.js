@@ -929,34 +929,104 @@
             try {
                 (function ($) {
 
-                    var horzTimeline = $scope.find(".ma-el-timeline-slider-inner");
+                    var elementSettings     = getElementSettings( $scope ),
+                        uniqueId 		    = getUniqueLoopScopeId( $scope ),
+                        scopeId 		    = $scope.data('id'),
+                        $swiperCarousel 	= $scope.find('.jltma-swiper__container'),
+                        // $swiperCarousel     = $scope.find('.jltma-timeline-slider'),
+                        hasCarousel         = $swiperCarousel.length,
+                        $timeline           = $scope.find(".ma-el-timeline");
 
-                    $(horzTimeline).slick({
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        autoplay: false,
-                        autoplaySpeed: 2000,
-                        pauseOnHover: false,
-                        adaptiveHeight: true,
-                        // prevArrow: $('.ma-el-blog-timeline-slider-prev'),
-                        // nextArrow: $('.ma-el-blog-timeline-slider-next'),
-                        responsive: [
-                            {
-                                breakpoint: 768,
-                                settings: {
-                                    arrows: false,
-                                    slidesToShow: 2
-                                }
+
+
+                    if ( elementSettings.ma_el_timeline_carousel_direction == 'horizontal' ) {
+
+                        var swiper        = null,
+                        sliderSettings       = {
+                            key 		    : 'slider',
+                            scope 		    : $scope,
+                            id 			    : uniqueId,
+                            element : {
+                                autoHeight 				: 'yes' === elementSettings.ma_el_timeline_carousel_autoheight ? true : false,
+                                autoplay 				: 'yes' === elementSettings.ma_el_timeline_carousel_auto_play ? true : false,
+                                autoplaySpeed 					: elementSettings.ma_el_timeline_carousel_auto_play ? elementSettings.ma_el_timeline_carousel_autoplay_speed : false,
+                                disableOnInteraction 	: '' !== elementSettings.pause_on_interaction,
+                                stopOnHover 			: 'yes' === elementSettings.stop_on_hover,
+                                loop 					: 'yes' === elementSettings.ma_el_timeline_carousel_loop,
+                                arrows 					: '' !== elementSettings.ma_el_timeline_carousel_arrows,
+                                slidesPerView 			: elementSettings.slides_per_view_mobile,
+                                slidesPerColumn 		: 'vertical' === elementSettings.ma_el_timeline_carousel_direction ? 1 : elementSettings.slides_per_column_mobile,
+                                slidesPerGroup 			: elementSettings.slides_to_scroll_mobile,
+                                spaceBetween 			: elementSettings.ma_el_timeline_carousel_grid_columns_spacing_mobile.size || 0,
+                                arrowPrev 				: '.jltma-arrow--prev',
+                                arrowNext 				: '.jltma-arrow--next',
+                                effect 					: elementSettings.ma_el_timeline_carousel_effect,
+                                speed 					: elementSettings.ma_el_timeline_carousel_speed ? elementSettings.ma_el_timeline_carousel_speed.size : 500,
+                                resistance 				: elementSettings.ma_el_timeline_carousel_resistance_ratio ? elementSettings.ma_el_timeline_carousel_resistance_ratio.size : 0.25,
+                                pagination 						: '' !== elementSettings.ma_el_timeline_carousel_pagination,
+                                paginationType 					: elementSettings.ma_el_timeline_carousel_pagination_type,
+                                paginationClickable 			: 'yes' === elementSettings.ma_el_timeline_carousel_pagination_clickable,
+                                keyboard: {
+                                        // enabled: "yes" === slider_data.jltma_slider_keyboard ? true : false
+                                        enabled: true
+                                },
+                                breakpoints 		: {
+                                    tablet : {
+                                        slidesPerView 	: elementSettings.slides_per_view_tablet,
+                                        slidesPerColumn : 'vertical' === elementSettings.ma_el_timeline_carousel_direction ? 1 : elementSettings.slides_per_column_tablet,
+                                        slidesPerGroup 	: elementSettings.slides_to_scroll_tablet,
+                                        spaceBetween 	: elementSettings.ma_el_timeline_carousel_grid_columns_spacing_tablet.size || 0,
+                                    },
+                                    desktop : {
+                                        slidesPerView 	: elementSettings.slides_per_view,
+                                        slidesPerColumn : 'vertical' === elementSettings.ma_el_timeline_carousel_direction ? 1 : elementSettings.slides_per_column,
+                                        slidesPerGroup 	: elementSettings.slides_to_scroll,
+                                        spaceBetween 	: elementSettings.ma_el_timeline_carousel_grid_columns_spacing.size || 0,
+                                    },
+                                },
                             },
-                            {
-                                breakpoint: 480,
-                                settings: {
-                                    arrows: false,
-                                    slidesToShow: 1
-                                }
+                            default : {
+                                // effect 			: 'slide',
+                                // direction 		: 'horizontal',
+                                // slidesPerView 	: 1,
+                                // slidesPerGroup 	: 1,
+                                // slidesPerColumn : 1,
+                                // spaceBetween 	: 0,
+                                effect 			: 'slide',
+                                slidesPerView 	: 1,
+                                slidesPerGroup 	: 1,
+                                slidesPerColumn : 1,
+                                spaceBetween 	: 6
                             }
-                        ]
-                    });
+                        };
+
+                        console.log('Elements Settings:', elementSettings.slides_per_view );
+                        console.log('Elements Settings:', elementSettings.slides_per_column );
+                        console.log('Elements Settings:', elementSettings.slides_to_scroll );
+                        console.log('Elements Settings:', elementSettings.ma_el_timeline_carousel_autoheight );
+                        console.log('Elements Settings:', elementSettings.ma_el_timeline_carousel_auto_play );
+                        console.log('Elements Settings:', elementSettings.ma_el_timeline_carousel_autoplay_speed );
+                        console.log('Elements Settings:', elementSettings.pause_on_interaction );
+                        console.log('Elements Settings:', elementSettings.stop_on_hover );
+                        console.log('Elements Settings:', elementSettings.ma_el_timeline_carousel_loop );
+                        console.log('Elements Settings:', elementSettings.ma_el_timeline_carousel_arrows );
+
+
+                        Master_Addons.MA_Timeline.init = function() {
+                            swiper = Master_Addons.MA_Carousel( $swiperCarousel, sliderSettings );
+                            console.log('Elements Settings:', swiper );
+                        };
+
+                        Master_Addons.onElementRemove( $scope, function() {
+                            $scope.find('.swiper-container').each( function() {
+                                if ( $(this).data('swiper') ) {
+                                    $(this).data('swiper').destroy();
+                                }
+                            });
+                        });
+
+                        Master_Addons.MA_Timeline.init();
+                    }
 
 
                 })(jQuery);
@@ -1216,9 +1286,6 @@
 
             // if (carousel && grid) {
 
-            console.log('Elements Settings:', elementSettings.autoheight );
-            console.log('Elements Settings:', elementSettings.ma_el_blog_carousel_auto_play );
-
 			var swiper = null,
 				settings = {
 					scope : $scope,
@@ -1289,12 +1356,8 @@
 					},
 				};
 
-            console.log('Initial swiper posts', settings );
-
 			Master_Addons.MA_Blog.init = function() {
 				swiper = Master_Addons.MA_Carousel( $swiper, settings );
-                //console.log('Initial swiper posts', swiper );
-
 			};
 
 			Master_Addons.onElementRemove( $scope, function() {

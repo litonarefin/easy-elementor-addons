@@ -135,6 +135,7 @@ class Timeline extends Widget_Base
 				'condition' => [
 					'ma_el_timeline_type' => ['post', 'custom']
 				],
+				'frontend_available' 	=> true,
 			]
 		);
 
@@ -881,8 +882,385 @@ class Timeline extends Widget_Base
 
 
 		/*
-			 * MA Timeline: Image Style
-			 */
+		* MA Timeline: Image Style
+		*/
+
+		$this->start_controls_section(
+			'ma_el_timeline_carousel_horizontal_section',
+			[
+				'label' 		=> __('Slides', MELA_TD),
+				'condition'		=> [
+					'ma_el_timeline_design_type'	=> 'horizontal'
+				]
+
+			]
+		);
+
+
+		$this->add_control(
+			'ma_el_timeline_carousel_effect',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Effect', MELA_TD),
+				'default' 		=> 'slide',
+				'options' 		=> [
+					'slide' 	=> __('Slide', MELA_TD),
+					'fade' 		=> __('Fade', MELA_TD),
+				],
+				'frontend_available' => true,
+			]
+		);
+
+
+		$this->add_control(
+			'ma_el_timeline_carousel_speed',
+			[
+				'label' 	=> __('Duration (ms)', MELA_TD),
+				'description' => __('Duration of the effect transition.', MELA_TD),
+				'type' 		=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 300,
+					'unit' 	=> 'px',
+				],
+				'range' 	=> [
+					'px' 	=> [
+						'min' 	=> 0,
+						'max' 	=> 2000,
+						'step'	=> 100,
+					],
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_timeline_carousel_resistance_ratio',
+			[
+				'label' 		=> __('Resistance', MELA_TD),
+				'description'	=> __('Set the value for resistant bounds.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'default' 		=> [
+					'size' 		=> 0.25,
+					'unit' 		=> 'px',
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 1,
+						'step'	=> 0.05,
+					],
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_timeline_carousel_direction',
+			[
+				'type' 				=> Controls_Manager::SELECT,
+				'label' 			=> __('Orientation', MELA_TD),
+				'default'			=> 'horizontal',
+				'tablet_default'	=> 'horizontal',
+				'mobile_default'	=> 'horizontal',
+				'options' 			=> [
+					'horizontal' 	=> __('Horizontal', MELA_TD),
+					'vertical' 		=> __('Vertical', MELA_TD),
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$slides_per_column = range(1, 6);
+		$slides_per_column = array_combine($slides_per_column, $slides_per_column);
+
+		$this->add_responsive_control(
+			'slides_per_view',
+			[
+				'label' 			=> __('Slides Per View', MELA_TD),
+				'type' 				=> Controls_Manager::SELECT,
+				'default' 			=> '',
+				'tablet_default' 	=> '',
+				'mobile_default' 	=> '',
+				'options' => [
+					''	=> __('Default', MELA_TD),
+					'1' => '1',
+					'2' => '2',
+					'3' => '3',
+					'4' => '4',
+					'5' => '5',
+					'6' => '6',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_responsive_control(
+			'slides_per_column',
+			[
+				'type' 					=> Controls_Manager::SELECT,
+				'label' 				=> __('Slides Per Column', MELA_TD),
+				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_column,
+				'condition'				=> [
+					'ma_el_timeline_carousel_direction' => 'horizontal',
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->add_responsive_control(
+			'slides_to_scroll',
+			[
+				'type' 					=> Controls_Manager::SELECT,
+				'label' 				=> __('Slides to Scroll', MELA_TD),
+				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_column,
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_timeline_carousel_grid_columns_spacing',
+			[
+				'label' 			=> __('Columns Spacing', MELA_TD),
+				'type' 				=> Controls_Manager::SLIDER,
+				'default'			=> [
+					'size' => 24,
+					'unit' => 'px',
+				],
+				'tablet_default'	=> [
+					'size' => 12,
+					'unit' => 'px',
+				],
+				'mobile_default'	=> [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'size_units' 		=> ['px'],
+				'range' 			=> [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'condition'				=> [
+					'ma_el_timeline_carousel_direction' => 'horizontal',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+
+		$this->add_control(
+			'ma_el_timeline_carousel_loop',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Loop', MELA_TD),
+				'default' 		=> '',
+				'condition'		=> [
+					'ma_el_timeline_design_type'	=> 'horizontal'
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_timeline_carousel_autoheight',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Auto Height', MELA_TD),
+				'default' 		=> '',
+				'frontend_available' 	=> true,
+				'condition'		=> [
+					'ma_el_timeline_design_type'	=> 'horizontal'
+				]
+				// 'conditions' => [
+				// 	'relation' 	=> 'or',
+				// 	'terms' 	=> [
+				// 		[
+				// 			'name' 		=> 'slides_per_column',
+				// 			'operator' 	=> '==',
+				// 			'value' 	=> '1',
+				// 		],
+				// 		[
+				// 			'name' 		=> 'slides_per_column',
+				// 			'operator' 	=> '==',
+				// 			'value' 	=> '',
+				// 		],
+				// 	]
+				// ]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_timeline_carousel_auto_play',
+			[
+				'label'         => __('Auto Play', MELA_TD),
+				'type'          => Controls_Manager::POPOVER_TOGGLE,
+				'condition'     => [
+					'ma_el_timeline_design_type'	=> 'horizontal'
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			'ma_el_timeline_carousel_autoplay_speed',
+			[
+				'label'			=> __('Autoplay Speed', MELA_TD),
+				'description'	=> __('Autoplay Speed means at which time the next slide should come. Set a value in milliseconds (ms)', MELA_TD),
+				'type'			=> Controls_Manager::NUMBER,
+				'default'		=> 5000,
+				'condition'		=> [
+					'ma_el_timeline_design_type'	=> 'horizontal',
+					'ma_el_timeline_carousel_auto_play' => 'yes',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'pause_on_interaction',
+			[
+				'label' 		=> __('Disable on Interaction', MELA_TD),
+				'description' 	=> __('Removes autoplay completely on the first interaction with the carousel.', MELA_TD),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'default' 		=> '',
+				'condition' 	=> [
+					'ma_el_timeline_design_type'	=> 'horizontal',
+					'ma_el_timeline_carousel_auto_play' => 'yes',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'stop_on_hover',
+			[
+				'label' 	=> __('Pause on Hover', MELA_TD),
+				'type' 		=> Controls_Manager::SWITCHER,
+				'default' 	=> '',
+				'condition'	=> [
+					'ma_el_timeline_design_type'	=> 'horizontal',
+					'ma_el_timeline_carousel_auto_play' => 'yes'
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->end_popover();
+
+		$this->add_control(
+			'ma_el_timeline_carousel_arrows',
+			[
+				'label'         => __('Arrows', MELA_TD),
+				'type'          => Controls_Manager::POPOVER_TOGGLE,
+				'default'       => 'yes',
+				'return_value' 	=> 'yes',
+				'condition'     => [
+					'ma_el_timeline_design_type'	=> 'horizontal',
+				],
+				'frontend_available' => true
+			]
+		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			'ma_el_timeline_carousel_arrows_placement',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Placement', MELA_TD),
+				'default'		=> 'inside',
+				'options' 		=> [
+					'inside' 	=> __('Inside', MELA_TD),
+					'outside' 	=> __('Outside', MELA_TD),
+				],
+				'condition'		=> [
+					'ma_el_timeline_carousel_arrows' => 'yes',
+				]
+			]
+		);
+
+		$this->end_popover();
+
+
+
+		// Pagination
+
+		$this->add_control(
+			'ma_el_timeline_carousel_pagination',
+			[
+				'label' 		=> __('Pagination', MELA_TD),
+				'type' 			=> Controls_Manager::POPOVER_TOGGLE,
+				'default' 		=> 'on',
+				'label_on' 		=> __('On', MELA_TD),
+				'label_off' 	=> __('Off', MELA_TD),
+				'return_value' 	=> 'on',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->start_popover();
+		$this->add_control(
+			'ma_el_timeline_carousel_pagination_position',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'inside',
+				'options' 		=> [
+					'inside' 		=> __('Inside', MELA_TD),
+					'outside' 		=> __('Outside', MELA_TD),
+				],
+				'frontend_available' 	=> true,
+				'condition'		=> [
+					'ma_el_timeline_carousel_pagination!'         => '',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_timeline_carousel_pagination_type',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Type', MELA_TD),
+				'default'		=> 'bullets',
+				'options' 		=> [
+					'bullets' 		=> __('Bullets', MELA_TD),
+					'fraction' 		=> __('Fraction', MELA_TD),
+				],
+				'condition'		=> [
+					'ma_el_timeline_carousel_pagination!'         => '',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_timeline_carousel_pagination_clickable',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Clickable', MELA_TD),
+				'default' 		=> 'yes',
+				'return_value' 	=> 'yes',
+				'condition' => [
+					'ma_el_timeline_carousel_pagination!'         	=> '',
+					'ma_el_timeline_carousel_pagination_type'       => 'bullets'
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+		$this->end_popover();
+
+
+
+		$this->end_controls_section();
+
+
+
+		/*
+		* MA Timeline: Image Style
+		*/
 
 		$this->start_controls_section(
 			'ma_el_timeline_section_images',
@@ -1523,16 +1901,19 @@ Customization Options.</span>'
 
 		$solid_bg_class = ($timeline_layout_type == "horizontal") ? "solid-bg-color" : "";
 
-		$this->add_render_attribute(
-			'ma_el_timeline',
-			'class',
-			[
-				'ma-el-timeline',
-				'ma-el-blog-timeline-posts',
-				'ma-el-timeline-' . $settings['ma_el_timeline_type'],
-				$solid_bg_class
+		$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
+
+		$this->add_render_attribute([
+			'ma_el_timeline' => [
+				'class' =>			[
+					'ma-el-timeline',
+					'ma-el-blog-timeline-posts',
+					'ma-el-timeline-' . $settings['ma_el_timeline_type'],
+					'elementor-jltma-element-' . $unique_id,
+					$solid_bg_class
+				]
 			]
-		);
+		]);
 
 		$this->ma_el_timeline_global_render_attributes();
 
@@ -1553,8 +1934,6 @@ Customization Options.</span>'
 					// If Custom and Vertical Horizontal Design
 					$this->jltma_horizontal_timeline();
 				} ?>
-
-				<?php $this->jltma_navigation(); ?>
 
 		</div><!-- /.ma-el-blog-timeline-slider -->
 
@@ -1692,14 +2071,7 @@ Customization Options.</span>'
 
 						<div class="ma-el-timeline-post-date">
 							<time datetime="<?php echo get_the_modified_date('c'); ?>">
-								<?php
-								$timeline_date = $this->parse_text_editor($item['ma_el_custom_timeline_date']);
-								echo date($settings['ma_el_timeline_date_format'], strtotime($timeline_date));
-								?>
-								<?php //echo $this->render_date(false);
-								?>
-								<?php //echo get_the_date($item['ma_el_custom_timeline_date']);
-								?>
+								<?php echo $this->render_date(false); ?>
 							</time>
 						</div><!-- /.ma-el-timeline-post-date -->
 
@@ -1726,24 +2098,42 @@ Customization Options.</span>'
 
 <?php }
 
-		protected function jltma_navigation()
-		{ ?>
 
-	<!-- <div class="ma-el-blog-timeline-slider-navigation text-center">
-                                    <ul>
-                                        <li class="ma-el-blog-timeline-slider-prev"><i class="fa fa-angle-left"></i></li>
-                                        <li class="ma-el-blog-timeline-slider-next"><i class="fa fa-angle-right"></i></li>
-                                    </ul>
-                                </div> -->
-<?php }
+
 
 		protected function jltma_horizontal_timeline()
 		{
 			$settings = $this->get_settings_for_display();
+			$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
+
+			if ($settings['ma_el_timeline_design_type'] === 'horizontal') {
+				$this->add_render_attribute([
+					'swiper-container' => [
+						'class' =>			[
+							'jltma-swiper',
+							'jltma-swiper__container',
+							'jltma-timeline-slider',
+							'swiper-container'
+						],
+						'data-jltma-template-widget-id' => $unique_id
+					],
+
+					'swiper-wrapper' => [
+						'class' => [
+							'jltma-timeline-carousel',
+							'jltma-swiper__wrapper',
+							'swiper-wrapper',
+							'ma-el-timeline-slider',
+							'jltma-timeline-horizontal'
+						],
+					]
+
+				]);
+			}
 ?>
 
-	<div class="ma-el-blog-timeline-slider">
-		<div class="ma-el-timeline-slider-inner">
+	<div <?php echo $this->get_render_attribute_string('swiper-container'); ?>>
+		<div <?php echo $this->get_render_attribute_string('swiper-wrapper'); ?>>
 
 			<?php
 			$j = 0;
@@ -1765,6 +2155,13 @@ Customization Options.</span>'
 							'elementor-repeater-item-' . $item['_id'],
 							'ma-el-blog-timeline-post',
 							$active_class
+						],
+					],
+					'slider-item' => [
+						'class' => [
+							'jltma-slider__item',
+							'jltma-swiper__slide',
+							'swiper-slide',
 						],
 					],
 					$card_key => [
@@ -1831,43 +2228,44 @@ Customization Options.</span>'
 
 			?>
 
-				<<?php echo esc_attr($card_tag); ?> <?php echo $this->get_render_attribute_string($item_key); ?>>
+				<div <?php echo $this->get_render_attribute_string('slider-item'); ?>>
+					<<?php echo esc_attr($card_tag); ?> <?php echo $this->get_render_attribute_string($item_key); ?>>
 
-					<div class="ma-el-timeline-post-top">
+						<div class="ma-el-timeline-post-top">
 
-						<div class="ma-el-timeline-post-date">
-							<time datetime="<?php echo get_the_modified_date('c'); ?>">
-								<?php echo $this->parse_text_editor($item['ma_el_custom_timeline_date']); ?>
-							</time>
-						</div><!-- /.ma-el-timeline-post-date -->
+							<div class="ma-el-timeline-post-date">
+								<time datetime="<?php echo get_the_modified_date('c'); ?>">
+									<?php echo $this->parse_text_editor($item['ma_el_custom_timeline_date']); ?>
+								</time>
+							</div><!-- /.ma-el-timeline-post-date -->
 
-					</div><!-- /.ma-el-timeline-post-top -->
+						</div><!-- /.ma-el-timeline-post-top -->
 
-					<div class="ma-el-timeline-horz-pointer">
-						<?php echo $point_content; ?>
-					</div>
+						<div class="ma-el-timeline-horz-pointer">
+							<?php echo $point_content; ?>
+						</div>
 
-					<div class="ma-el-timeline-post-inner">
+						<div class="ma-el-timeline-post-inner">
 
-						<article class="post post-type">
+							<article class="post post-type">
 
-							<?php if ($item['ma_el_custom_timeline_image']['url']) { ?>
-								<div <?php echo $this->get_render_attribute_string('image'); ?>>
-									<?php echo Group_Control_Image_Size::get_attachment_image_html($item, 'ma_el_custom_timeline_image'); ?>
-								</div>
-							<?php } ?>
+								<?php if ($item['ma_el_custom_timeline_image']['url']) { ?>
+									<div <?php echo $this->get_render_attribute_string('image'); ?>>
+										<?php echo Group_Control_Image_Size::get_attachment_image_html($item, 'ma_el_custom_timeline_image'); ?>
+									</div>
+								<?php } ?>
 
-							<div class="ma-el-timeline-entry-content">
+								<div class="ma-el-timeline-entry-content">
 
-								<div <?php echo $this->get_render_attribute_string($wysiwyg_key); ?>>
-									<?php echo $this->parse_text_editor($item['ma_el_custom_timeline_content']); ?>
-								</div>
+									<div <?php echo $this->get_render_attribute_string($wysiwyg_key); ?>>
+										<?php echo $this->parse_text_editor($item['ma_el_custom_timeline_content']); ?>
+									</div>
 
-							</div><!-- /.ma-el-timeline-entry-content -->
-						</article><!-- /.post -->
-					</div><!-- /.ma-el-timeline-post-inner -->
-				</<?php echo esc_attr($card_tag); ?>><!-- /.ma-el-timeline-tag -->
-
+								</div><!-- /.ma-el-timeline-entry-content -->
+							</article><!-- /.post -->
+						</div><!-- /.ma-el-timeline-post-inner -->
+					</<?php echo esc_attr($card_tag); ?>><!-- /.ma-el-timeline-tag -->
+				</div>
 			<?php } ?>
 
 		</div><!-- /.ma-el-timeline-slider-inner -->
