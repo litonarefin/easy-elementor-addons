@@ -44,7 +44,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 		{
 			if (!self::$instance) {
 				self::$instance = new self;
-				self::$instance->ma_el_init();
+				self::$instance->jltma_init();
 			}
 			return self::$instance;
 		}
@@ -55,6 +55,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 			$this->reflection = new \ReflectionClass($this);
 
 			$this->constants();
+			$this->jltma_register_autoloader();
 			$this->maad_el_include_files();
 			$this->jltma_load_extensions();
 
@@ -63,7 +64,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 			self::$plugin_url  = untrailingslashit(plugins_url('/', __FILE__));
 
 			// Initialize Plugin
-			add_action('plugins_loaded', [$this, 'ma_el_plugins_loaded']);
+			add_action('plugins_loaded', [$this, 'jltma_plugins_loaded']);
 
 			add_filter('plugin_action_links_' . plugin_basename(__FILE__), [$this, 'plugin_actions_links']);
 
@@ -86,21 +87,20 @@ if (!class_exists('Master_Elementor_Addons')) {
 			add_action('body_class', [$this, 'jltma_body_class']);
 
 			// Override Freemius Filters
-			ma_el_fs()->add_filter('support_forum_submenu', [$this, 'override_support_menu_text']);
+			ma_el_fs()->add_filter('support_forum_submenu', [$this, 'jltma_override_support_menu_text']);
 		}
 
-
-		public function ma_el_init()
+		public function jltma_init()
 		{
 
-			$this->mela_load_textdomain();
+			$this->jltma_load_textdomain();
 			$this->ma_el_image_size();
 
 			//Redirect Hook
 			add_action('admin_init', [$this, 'mael_ad_redirect_hook']);
 		}
 
-		public function override_support_menu_text()
+		public function jltma_override_support_menu_text()
 		{
 			return __('Support', MELA_TD);
 		}
@@ -145,7 +145,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 
 		// Initialize
-		public function ma_el_plugins_loaded()
+		public function jltma_plugins_loaded()
 		{
 
 			// Check if Elementor installed and activated
@@ -228,7 +228,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 			// Master Addons Text Domain
 			if (!defined('MELA_TD')) {
-				define('MELA_TD', $this->mela_load_textdomain());
+				define('MELA_TD', $this->jltma_load_textdomain());
 			}
 
 			if (!defined('MELA_FILE')) {
@@ -249,6 +249,37 @@ if (!class_exists('Master_Elementor_Addons')) {
 		}
 
 
+
+		public function jltma_register_autoloader()
+		{
+			spl_autoload_register([__CLASS__, 'jltma_autoload']);
+		}
+
+		function jltma_autoload($class)
+		{
+
+			if (0 !== strpos($class, __NAMESPACE__)) {
+				return;
+			}
+
+
+			if (!class_exists($class)) {
+
+				$filename = strtolower(
+					preg_replace(
+						['/^' . __NAMESPACE__ . '\\\/', '/([a-z])([A-Z])/', '/_/', '/\\\/'],
+						['', '$1-$2', '-', DIRECTORY_SEPARATOR],
+						$class
+					)
+				);
+
+				$filename = MELA_PLUGIN_PATH . $filename . '.php';
+
+				if (is_readable($filename)) {
+					include($filename);
+				}
+			}
+		}
 
 		function jltma_add_category_to_editor()
 		{
@@ -577,7 +608,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 
 		// Text Domains
-		public function mela_load_textdomain()
+		public function jltma_load_textdomain()
 		{
 			load_plugin_textdomain('mela');
 		}

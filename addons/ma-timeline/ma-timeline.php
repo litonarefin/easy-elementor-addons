@@ -13,6 +13,7 @@ use \Elementor\Scheme_Typography;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Text_Shadow;
 
+use MasterAddons\Addons\Timeline\Skins;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
@@ -79,6 +80,14 @@ class Timeline extends Widget_Base
 	public function get_help_url()
 	{
 		return 'https://master-addons.com/demos/timeline/';
+	}
+
+	protected function _register_skins()
+	{
+		$this->add_skin(new Skins\Skin_1($this));
+		// $this->add_skin(new Skins\Skin_2($this));
+		// $this->add_skin(new Skins\Skin_3($this));
+		// $this->add_skin(new Skins\Skin_4($this));
 	}
 
 
