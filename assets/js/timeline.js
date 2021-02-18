@@ -28,9 +28,9 @@
 				ticking 				= false,
 				updateAF				= null,
 
-				$line 			= $element.find( '.jltma-timeline__line' ),
-				$progress		= $line.find( '.jltma-timeline__line__inner' ),
-				$cards			= $element.find( '.jltma-timeline__item' );
+				$line 			= $element.find( '.ma-el-timeline__line' ),
+				$progress		= $line.find( '.ma-el-timeline__line__inner' ),
+				$cards			= $element.find( '.ma-el-timeline__item' );
 
 			plugin.init = function() {
 				plugin.opts = $.extend({}, defaults, options);

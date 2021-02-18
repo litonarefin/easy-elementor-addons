@@ -12,9 +12,13 @@ use \Elementor\Group_Control_Typography;
 use \Elementor\Scheme_Typography;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Text_Shadow;
+use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
-use MasterAddons\Addons\Timeline\Skins;
+// Master Addons Class
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
+use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
 
 /**
  * Author Name: Liton Arefin
@@ -1647,6 +1651,333 @@ class Timeline extends Widget_Base
 
 		$this->end_controls_section();
 
+
+		/*
+		* Timeline: Cards
+		*/
+
+		$this->start_controls_section(
+			'section_cards',
+			[
+				'label' => __( 'Cards', MELA_TD ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+			$this->add_responsive_control(
+				'cards_padding',
+				[
+					'label' 		=> __( 'Card Padding', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'cards_margin',
+				[
+					'label' 		=> __( 'Card Margin', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ma-el-timeline .timeline-item__card' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'cards_content_padding',
+				[
+					'label' 		=> __( 'Content Padding', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ma-el-timeline .timeline-item__content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_control(
+				'cards_border_radius',
+				[
+					'label' 		=> __( 'Border Radius', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'animate_in',
+				[
+					'label' 		=> __( 'Animate Cards', MELA_TD ),
+					'type' 			=> Controls_Manager::SWITCHER,
+					'default'		=> 'animate',
+					'label_on' 		=> __( 'Yes', MELA_TD ),
+					'label_off' 	=> __( 'No', MELA_TD ),
+					'return_value' 	=> 'animate',
+					'prefix_class'	=> 'ma-el-timeline%s-'
+				]
+			);
+
+			$this->add_group_control(
+				MA_Group_Control_Transition::get_type(),
+				[
+					'name' 		=> 'cards',
+					'selector' 	=> '{{WRAPPER}} .timeline-item__content-wrapper,
+							 		{{WRAPPER}} .timeline-item__content__wysiwyg *,
+							 		{{WRAPPER}} .timeline-item__title,
+							 		{{WRAPPER}} .timeline-item__meta,
+							 		{{WRAPPER}} .timeline-item__excerpt,
+									{{WRAPPER}} .timeline-item__card__arrow::after',
+					'separator'	=> '',
+				]
+			);
+
+			$this->start_controls_tabs( 'tabs_cards' );
+
+			$this->start_controls_tab( 'tab_cards_default', [ 'label' => __( 'Default', MELA_TD ) ] );
+
+				$this->add_responsive_control(
+					'cards_color',
+					[
+						'label' 	=> __( 'Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .timeline-item__content-wrapper,
+							 {{WRAPPER}} .timeline-item__content-wrapper *' => 'color: {{VALUE}};',
+						],
+					]
+				);
+
+				$this->add_responsive_control(
+					'cards_background_color',
+					[
+						'label' 	=> __( 'Background Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .timeline-item__content-wrapper' 										=> 'background-color: {{VALUE}};',
+							'{{WRAPPER}} .timeline-item__card .timeline-item__card__arrow::after' 	=> 'border-left-color: {{VALUE}}; border-right-color: {{VALUE}};',
+						],
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Box_Shadow::get_type(),
+					[
+						'name' 		=> 'cards_box_shadow',
+						'selector' 	=> '{{WRAPPER}} .timeline-item__content-wrapper',
+					]
+				);
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab( 'tab_cards_hover', [ 'label' => __( 'Hover', MELA_TD ) ] );
+
+				$this->add_responsive_control(
+					'cards_color_hover',
+					[
+						'label' 	=> __( 'Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .timeline-item:hover .timeline-item__content-wrapper,
+							 {{WRAPPER}} .timeline-item:hover .timeline-item__content-wrapper *' => 'color: {{VALUE}};',
+						],
+					]
+				);
+
+				$this->add_responsive_control(
+					'cards_background_color_hover',
+					[
+						'label' 	=> __( 'Background Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .timeline-item:not(.is--focused):hover .timeline-item__content-wrapper' => 'background-color: {{VALUE}};',
+							'{{WRAPPER}} .timeline-item:not(.is--focused):hover .timeline-item__card .timeline-item__card__arrow::after' 	=> 'border-left-color: {{VALUE}}; border-right-color: {{VALUE}};',
+						],
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Box_Shadow::get_type(),
+					[
+						'name' 		=> 'cards_box_shadow_hover',
+						'selector' 	=> '{{WRAPPER}} .timeline-item:hover .timeline-item__content-wrapper',
+					]
+				);
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab( 'tab_cards_focused', [ 'label' => __( 'Focused', MELA_TD ) ] );
+
+				$this->add_responsive_control(
+					'cards_color_focused',
+					[
+						'label' 	=> __( 'Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper,
+							 {{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper *' => 'color: {{VALUE}};',
+						],
+					]
+				);
+
+				$this->add_responsive_control(
+					'cards_background_color_focused',
+					[
+						'label' 	=> __( 'Background Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper' 				=> 'background-color: {{VALUE}};',
+							'{{WRAPPER}} .timeline-item.is--focused .timeline-item__card__arrow::after' => 'border-left-color: {{VALUE}}; border-right-color: {{VALUE}};',
+						],
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Box_Shadow::get_type(),
+					[
+						'name' 		=> 'cards_box_shadow_focused',
+						'selector' 	=> '{{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper',
+					]
+				);
+
+			$this->end_controls_tab();
+
+			$this->end_controls_tabs();
+
+			$this->add_group_control(
+				Group_Control_Text_Shadow::get_type(),
+				[
+					'name' 		=> 'cards_text_shadow',
+					'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper',
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' 		=> 'cards_typography',
+					'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper',
+					'global' => [
+						'default' => Global_Typography::TYPOGRAPHY_TEXT,
+					],
+					'condition'		=> [
+						'post_skin' => 'default',
+					],
+				]
+			);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_dates',
+			[
+				'label' 	=> __( 'Dates', MELA_TD ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+			$this->add_responsive_control(
+				'dates_padding',
+				[
+					'label' 		=> __( 'Padding', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ma-el-timeline .timeline-item__meta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'dates_margin',
+				[
+					'label' 		=> __( 'Margin', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ma-el-timeline .timeline-item__meta' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Text_Shadow::get_type(),
+				[
+					'name' 		=> 'dates_text_shadow',
+					'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__meta',
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' 		=> 'dates_typography',
+					'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__meta',
+					'global' => [
+						'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+					],
+				]
+			);
+
+			$this->start_controls_tabs( 'tabs_dates_style' );
+
+			$this->start_controls_tab( 'tab_dates_default', [ 'label' => __( 'Default', MELA_TD ) ] );
+
+				$this->add_responsive_control(
+					'dates_color',
+					[
+						'label' 	=> __( 'Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-timeline .timeline-item__meta' => 'color: {{VALUE}};',
+						],
+					]
+				);
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab( 'tab_dates_hover', [ 'label' => __( 'Hover', MELA_TD ) ] );
+
+				$this->add_responsive_control(
+					'dates_color_hover',
+					[
+						'label' 	=> __( 'Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-timeline .ma-el-timeline__item:hover .timeline-item__meta' => 'color: {{VALUE}};',
+						],
+					]
+				);
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab( 'tab_dates_focused', [ 'label' => __( 'Focused', MELA_TD ) ] );
+
+				$this->add_responsive_control(
+					'dates_color_focused',
+					[
+						'label' 	=> __( 'Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .ma-el-timeline .ma-el-timeline__item.is--focused .timeline-item__meta' => 'color: {{VALUE}};',
+						],
+					]
+				);
+
+			$this->end_controls_tab();
+
+			$this->end_controls_tabs();
+
+		$this->end_controls_section();
+
+
 		/*
              * MA Timeline: Points
              */
@@ -1979,12 +2310,12 @@ class Timeline extends Widget_Base
 
 		$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
 
-		$solid_bg_class = ($timeline_layout_type == "horizontal") ? "solid-bg-color" : "";
+		$solid_bg_class = ($settings['ma_el_timeline_design_type'] === "horizontal") ? "solid-bg-color" : "";
 
 		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute([
-			'ma_el_timeline' => [
+			'ma_el_timeline_wrapper' => [
 				'class' =>			[
 					'ma-el-timeline',
 					'ma-el-blog-timeline-posts',
@@ -1997,12 +2328,6 @@ class Timeline extends Widget_Base
 			'ma_el_timeline_posts' => [
 				'class' => [
 					'ma-el-blog-timeline-posts',
-				],
-			],
-			'wrapper' => [
-				'class' => [
-					'ma-el-timeline',
-					'ma-el-timeline--vertical',
 				],
 			],
 			'item' => [
@@ -2057,6 +2382,11 @@ class Timeline extends Widget_Base
 		}
 	}
 
+	protected function jltma_render_line() {
+		?><div <?php echo $this->get_render_attribute_string( 'line' ); ?>>
+			<div <?php echo $this->get_render_attribute_string( 'line-inner' ); ?>></div>
+		</div><?php
+	}
 
 	protected function render()
 	{
@@ -2090,10 +2420,17 @@ class Timeline extends Widget_Base
 			$posts = Master_Addons_Helper::ma_el_blog_get_post_data($post_args, $paged, $new_offset);
 		}
 ?>
+		<div <?php echo $this->get_render_attribute_string('ma_el_timeline_wrapper'); ?>>
 
-		<div <?php echo $this->get_render_attribute_string('ma_el_timeline'); ?>>
+			<?php
 
-			<?php if ($ma_el_timeline_type == "post") {
+			$this->jltma_render_line();
+
+			if ( 'yes' === $settings['ma_el_timeline_reverse'] ) {
+				?><span></span><?php
+			}
+
+			if ($ma_el_timeline_type == "post") {
 
 				$this->jltma_post_timeline();
 
