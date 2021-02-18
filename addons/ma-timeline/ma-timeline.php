@@ -1974,70 +1974,6 @@ class Timeline extends Widget_Base
 		}
 	}
 
-	protected function jltma_global_render_attributes(){
-
-		$settings = $this->get_settings_for_display();
-
-		$this->add_render_attribute( [
-
-			'item' => [
-				'class' => [
-					'ma-el-timeline__item',
-					'timeline-item',
-				],
-			],
-			'icon-wrapper' => [
-				'class' => [
-					'ma-el-icon',
-					'ma-el-icon-support--svg',
-					'ma-el-timeline__item__icon',
-				],
-			],
-			'line' => [
-				'class' => 'ma-el-timeline__line',
-			],
-			'line-inner' => [
-				'class' => 'ma-el-timeline__line__inner',
-			],
-			'card-wrapper' => [
-				'class' => 'timeline-item__card-wrapper',
-			],
-			'point' => [
-				'class' => 'timeline-item__point',
-			],
-			'meta' => [
-				'class' => 'timeline-item__meta',
-			],
-			'image' => [
-				'class' => [
-					'timeline-item__img',
-					'ma-el-post__thumbnail',
-				],
-			],
-			'content-wrapper' => [
-				'class' => 'timeline-item__content-wrapper',
-			],
-			'content' => [
-				'class' => 'timeline-item__content',
-			],
-			'post-title' => [
-				'class' => 'timeline-item__title',
-			],
-			'post-excerpt' => [
-				'class' => 'timeline-item__excerpt',
-			],
-			'arrow' => [
-				'class' => 'timeline-item__card__arrow',
-			],
-			'meta-wrapper' => [
-				'class' => 'timeline-item__meta-wrapper',
-			],
-		] );
-
-
-	}
-
-
 	protected function ma_el_timeline_global_render_attributes()
 	{
 
@@ -2124,7 +2060,6 @@ class Timeline extends Widget_Base
 
 	protected function render()
 	{
-
 		if (get_query_var('paged')) {
 			$paged = get_query_var('paged');
 		} elseif (get_query_var('page')) {
@@ -2135,7 +2070,7 @@ class Timeline extends Widget_Base
 
 		$settings = $this->get_settings_for_display();
 
-		$this->jltma_global_render_attributes();
+		$this->ma_el_timeline_global_render_attributes();
 
 		$ma_el_timeline_type = $settings['ma_el_timeline_type'];
 		$timeline_layout_type = $settings['ma_el_timeline_design_type'];
@@ -2154,9 +2089,6 @@ class Timeline extends Widget_Base
 
 			$posts = Master_Addons_Helper::ma_el_blog_get_post_data($post_args, $paged, $new_offset);
 		}
-
-		$this->ma_el_timeline_global_render_attributes();
-
 ?>
 
 		<div <?php echo $this->get_render_attribute_string('ma_el_timeline'); ?>>
