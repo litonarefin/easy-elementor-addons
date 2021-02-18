@@ -1142,4 +1142,29 @@ class Master_Addons_Helper
 
 		return sprintf('<img src="%s"  class="%s" alt="%s" />', esc_url($image_src), esc_attr($class), esc_html(get_post_meta($image_id, '_wp_attachment_image_alt', true)));
 	}
+
+
+	/**
+	 * Get Elementor Pro Locked Html
+	 *
+	 * Returns the markup to display when a feature requires Elementor Pro
+	 *
+	 * @since  2.1.0
+	 * @return \Elementor\Plugin|$instace
+	 */
+	public static function jltma_pro_locked_html() {
+		return '<div class="elementor-nerd-box">
+			<i class="elementor-nerd-box-icon eicon-hypster"></i>
+			<div class="elementor-nerd-box-title">' .
+				__( 'Oups, hang on!', MELA_TD ) .
+			'</div>
+			<div class="elementor-nerd-box-message">' .
+				__( 'This feature is only available if you have Master Addons Pro.', MELA_TD ) .
+			'</div>
+			<a class="elementor-nerd-box-link elementor-button elementor-button-default elementor-go-pro" href="https://master-addons.com/pricing" target="_blank">' .
+			__( 'Go Pro', MELA_TD ) .
+			'</a>
+		</div>';
+	}
+
 }

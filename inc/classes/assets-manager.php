@@ -90,6 +90,8 @@ class Master_Addons_Assets
 
         wp_register_script('fancybox', MELA_PLUGIN_URL . '/assets/vendor/fancybox/jquery.fancybox.min.js', array('jquery'), MELA_VERSION, true);
 
+        wp_register_script('ma-timeline', MELA_PLUGIN_URL . '/assets/js/timeline.js', array('jquery'), MELA_VERSION, true);
+
 
         // Image Comparison
         wp_register_script('jquery-event-move', MELA_PLUGIN_URL . '/assets/vendor/image-comparison/js/jquery.event.move.js', array('jquery'), MELA_VERSION, true);
