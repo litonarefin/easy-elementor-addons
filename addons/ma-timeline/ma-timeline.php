@@ -561,13 +561,13 @@ class Timeline extends Widget_Base
 			$repeater->add_control(
 				'ma_el_custom_timeline_selected_icon',
 				[
-					'label'            => __('Point Icon', MELA_TD),
-					'type'             => Controls_Manager::ICONS,
-					'fa4compatibility' => 'selected_point_icon',
-					'label_block'      => false,
+					'label'             => __('Point Icon', MELA_TD),
+					'type' 				=> Controls_Manager::ICONS,
+					'fa4compatibility' => 'global_icon',
+					'label_block'      => true,
 					'default'          => [
-						'value'   => 'fas fa-calendar-alt',
-						'library' => 'fa-solid',
+						'value'     => 'fab fa-wordpress',
+						'library'   => 'brand',
 					],
 					'conditions'       => [
 						'terms' => [
@@ -1303,7 +1303,7 @@ class Timeline extends Widget_Base
 					'label_off' 	=> __( 'No', MELA_TD ),
 					'return_value' 	=> 'yes',
 					'condition' 	=> [
-						'align' => [ 'center' ],
+						'ma_el_timeline_align' => [ 'center' ],
 					],
 				]
 			);
@@ -1331,7 +1331,9 @@ class Timeline extends Widget_Base
 							'icon' 	=> 'eicon-v-align-bottom',
 						],
 					],
-					// 'prefix_class'	=> 'mama-el-timeline-cards-align-'
+					'condition' 	=> [
+						'ma_el_timeline_align!' => 'overlay'
+					],
 					'prefix_class' 	=> 'ma-el-timeline-cards-align--',
 				]
 			);
@@ -1377,20 +1379,6 @@ class Timeline extends Widget_Base
 					],
 				]
 			);
-
-
-
-		$this->add_control(
-			'ma_el_timeline_bar_color',
-			[
-				'label' 	=> __('Bar Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .ma-el-blog-timeline-posts.solid-bg-color .ma-el-timeline-horz-pointer:before,
-						{{WRAPPER}} .ma-el-blog-timeline-posts .ma-el-blog-timeline-post:before' => 'background-color: {{VALUE}};',
-				],
-			]
-		);
 
 		$this->end_controls_section();
 
@@ -1522,7 +1510,9 @@ class Timeline extends Widget_Base
 			[
 				'name' 		=> 'ma_el_timeline_titles_typography',
 				'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__title',
-				'scheme' 	=> Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'condition'			=> [
 					'ma_el_timeline_type'	        => 'post',
 					'ma_el_timeline_post_title!' 	=> '',
@@ -1588,7 +1578,9 @@ class Timeline extends Widget_Base
 			[
 				'name' 		=> 'ma_el_timeline_excerpt_typography',
 				'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__excerpt',
-				'scheme' 	=> Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'condition'			=> [
 					'ma_el_timeline_type'	        => 'post',
 					'ma_el_timeline_post_title!' 	=> '',
@@ -2243,9 +2235,8 @@ class Timeline extends Widget_Base
 			[
 				'label' 	=> __('Background Color', MELA_TD),
 				'type' 		=> Controls_Manager::COLOR,
-				'scheme' 	=> [
-					'type' 		=> Scheme_Color::get_type(),
-					'value' 	=> Scheme_Color::COLOR_1,
+				'global' => [
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-timeline-post-type-icon' 	=> 'background-color: {{VALUE}};',
@@ -2332,6 +2323,65 @@ class Timeline extends Widget_Base
 		);
 
 		$this->end_controls_tab();
+
+			$this->start_controls_tab( 'ma_el_timeline_points_focused', [ 'label' => __( 'Focused', MELA_TD ) ] );
+
+				$this->add_control(
+					'ma_el_timeline_points_size_focused',
+					[
+						'label' 	=> __( 'Scale', MELA_TD ),
+						'type' 		=> Controls_Manager::SLIDER,
+						'default' 	=> [
+							'size' 	=> 1,
+						],
+						'range' 		=> [
+							'px' 		=> [
+								'min' 	=> 0.5,
+								'max' 	=> 2,
+								'step'	=> 0.01
+							],
+						],
+						'selectors' => [
+							'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' 		=> 'transform: scale({{SIZE}})',
+						],
+					]
+				);
+
+				$this->add_control(
+					'ma_el_timeline_points_background_focused',
+					[
+						'label' 	=> __( 'Background Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'global' => [
+							'default' => Global_Colors::COLOR_PRIMARY,
+						],
+						'selectors' => [
+							'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' 			=> 'background-color: {{VALUE}};',
+						],
+					]
+				);
+
+				$this->add_control(
+					'ma_el_timeline_icons_color_focused',
+					[
+						'label' 	=> __( 'Points Color', MELA_TD ),
+						'type' 		=> Controls_Manager::COLOR,
+						'default'	=> '',
+						'selectors' => [
+							'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' 		=> 'color: {{VALUE}};',
+						],
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Text_Shadow::get_type(),
+					[
+						'name' 		=> 'ma_el_timeline_points_text_shadow_focused',
+						'selector' 	=> '{{WRAPPER}} .timeline-item.is--focused .timeline-item__point',
+					]
+				);
+
+			$this->end_controls_tab();
 
 		$this->end_controls_tabs();
 
@@ -2467,8 +2517,7 @@ class Timeline extends Widget_Base
 				'class' => [
 					'timeline-item__img',
 					'ma-el-post__thumbnail',
-					// 'ma-el-timeline-entry-thimbnail',
-					// 'ma-el-timeline-thumbnail',
+					'ma-el-timeline-entry-thimbnail'
 				],
 			],
 			'content' => [

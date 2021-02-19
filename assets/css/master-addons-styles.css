@@ -10052,8 +10052,8 @@ body a.toc-link.clicked {
     margin-right: 10px;
   }
   .ma-el-timeline-align--right .ma-el-timeline .timeline-item__meta {
-    visibility: visible !important;
-    animation: none !important;
+    /* visibility: visible !important;
+    animation: none !important; */
     margin-bottom: 12px;
   }
   .ma-el-timeline-cards-align--middle .ma-el-timeline .timeline-item {
