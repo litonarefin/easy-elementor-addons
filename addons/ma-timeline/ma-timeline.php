@@ -8,6 +8,7 @@ use \Elementor\Icons_Manager;
 use \Elementor\Controls_Manager;
 use \Elementor\Repeater;
 use \Elementor\Scheme_Color;
+use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Scheme_Typography;
 use \Elementor\Group_Control_Image_Size;
@@ -63,9 +64,7 @@ class Timeline extends Widget_Base
 	{
 		return [
 			'ma-timeline',
-			'gsap-js',
-			'swiper',
-			'master-addons-scripts'
+			'gsap-js'
 		];
 	}
 
@@ -1875,6 +1874,9 @@ class Timeline extends Widget_Base
 
 		$this->end_controls_section();
 
+		/*
+		* Timeline Style: Dates
+		 */
 		$this->start_controls_section(
 			'section_dates',
 			[
@@ -1974,6 +1976,108 @@ class Timeline extends Widget_Base
 			$this->end_controls_tab();
 
 			$this->end_controls_tabs();
+
+		$this->end_controls_section();
+
+
+		/*
+		* Timeline Style: Line
+		 */
+
+		$this->start_controls_section(
+			'section_line',
+			[
+				'label' 	=> __( 'Line', MELA_TD ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+			$this->add_control(
+				'line_background',
+				[
+					'label' 	=> __( 'Background Color', MELA_TD ),
+					'type' 		=> Controls_Manager::COLOR,
+					'global' => [
+						'default' => Global_Colors::COLOR_SECONDARY,
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-timeline__line' => 'background-color: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_control(
+				'progress_background',
+				[
+					'label' 	=> __( 'Progress Color', MELA_TD ),
+					'type' 		=> Controls_Manager::COLOR,
+					'global' => [
+						'default' => Global_Colors::COLOR_PRIMARY,
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-timeline__line__inner' => 'background-color: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_control(
+				'line_thickness',
+				[
+					'label' 	=> __( 'Thickness', MELA_TD ),
+					'type' 		=> Controls_Manager::SLIDER,
+					'default' 	=> [
+						'size' 	=> 4,
+					],
+					'range' 		=> [
+						'px' 		=> [
+							'min' 	=> 1,
+							'max' 	=> 8,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .ma-el-timeline__line' => 'width: {{SIZE}}px;',
+					],
+				]
+			);
+
+			$this->add_control(
+				'line_location',
+				[
+					'label' 	=> __( 'Location', MELA_TD ),
+					'type' 		=> Controls_Manager::SLIDER,
+					'default' 	=> [
+						'size' 	=> 50,
+					],
+					'range' 		=> [
+						'px' 		=> [
+							'min' 	=> 0,
+							'max' 	=> 100,
+						],
+					],
+					'frontend_available' => true,
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+				[
+					'name' 		=> 'line_border',
+					'label' 	=> __( 'Image Border', MELA_TD ),
+					'selector' 	=> '{{WRAPPER}} .ma-el-timeline__line',
+				]
+			);
+
+			$this->add_control(
+				'line_border_radius',
+				[
+					'label' 		=> __( 'Border Radius', MELA_TD ),
+					'type' 			=> Controls_Manager::DIMENSIONS,
+					'size_units' 	=> [ 'px', '%' ],
+					'selectors' 	=> [
+						'{{WRAPPER}} .ma-el-timeline__line' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
 
 		$this->end_controls_section();
 
@@ -2307,12 +2411,11 @@ class Timeline extends Widget_Base
 
 	protected function ma_el_timeline_global_render_attributes()
 	{
+		$settings = $this->get_settings_for_display();
 
 		$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
 
 		$solid_bg_class = ($settings['ma_el_timeline_design_type'] === "horizontal") ? "solid-bg-color" : "";
-
-		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute([
 			'ma_el_timeline_wrapper' => [
@@ -2353,16 +2456,18 @@ class Timeline extends Widget_Base
 			'card-wrapper' => [
 				'class' => 'timeline-item__card-wrapper',
 			],
-			//				'point' => [
-			//					'class' => 'ma-el-timeline-item__point',
-			//				],
+			'point' => [
+				'class' => 'timeline-item__point',
+			],
 			'meta' => [
 				'class' => 'timeline-item__meta',
 			],
 			'image' => [
 				'class' => [
-					'ma-el-timeline-entry-thimbnail',
-					'ma-el-timeline-thumbnail',
+					'timeline-item__img',
+					'ma-el-post__thumbnail',
+					// 'ma-el-timeline-entry-thimbnail',
+					// 'ma-el-timeline-thumbnail',
 				],
 			],
 			'content' => [
@@ -2377,9 +2482,9 @@ class Timeline extends Widget_Base
 		]);
 
 
-		if ( 'posts' === $settings['source'] && 'content' === $settings['post_excerpt'] ) {
-			$this->add_render_attribute( 'post-excerpt', 'class', 'timeline-item__excerpt--content' );
-		}
+		// if ( 'posts' === $settings['source'] && 'content' === $settings['post_excerpt'] ) {
+		// 	$this->add_render_attribute( 'post-excerpt', 'class', 'timeline-item__excerpt--content' );
+		// }
 	}
 
 	protected function jltma_render_line() {
@@ -2511,6 +2616,8 @@ class Timeline extends Widget_Base
 						'class' => [
 							'elementor-repeater-item-' . $item['_id'],
 							'ma-el-blog-timeline-post',
+							'ma-el-timeline__item',
+							'timeline-item',
 							$active_class
 						],
 					],
@@ -2573,36 +2680,33 @@ class Timeline extends Widget_Base
 				}
 	?>
 		<div <?php echo $this->get_render_attribute_string($item_key); ?>>
+			<div <?php echo $this->get_render_attribute_string( 'point' ); ?>><?php echo $point_content; ?></div>
+			<div <?php echo $this->get_render_attribute_string( 'card-wrapper' ); ?>>
+				<div class="ma-el-timeline-post-inner">
+					<<?php echo $card_tag; ?> <?php echo $this->get_render_attribute_string($card_key); ?>>
+						<div class="timeline-item__content-wrapper">
 
-			<div class="ma-el-timeline-post-inner">
-				<<?php echo $card_tag; ?> <?php echo $this->get_render_attribute_string($card_key); ?>>
-					<div class="ma-el-timeline-post-top">
+							<?php if ($item['ma_el_custom_timeline_image']['url']) { ?>
+								<div <?php echo $this->get_render_attribute_string('image'); ?>>
+									<?php echo Group_Control_Image_Size::get_attachment_image_html($item, 'ma_el_custom_timeline_image'); ?>
+								</div>
+							<?php } ?>
 
-						<?php echo $point_content; ?>
-
-						<div class="ma-el-timeline-post-date">
-							<time datetime="<?php echo get_the_modified_date('c'); ?>">
+							<div class="timeline-item__meta meta">
 								<?php echo $this->render_date(false); ?>
-							</time>
-						</div><!-- /.ma-el-timeline-post-date -->
+							</div><!-- /.ma-el-timeline-post-date -->
 
-					</div><!-- /.ma-el-timeline-post-top -->
-
-					<article class="post post-type-custom">
-
-						<?php if ($item['ma_el_custom_timeline_image']['url']) { ?>
-							<div <?php echo $this->get_render_attribute_string('image'); ?>>
-								<?php echo Group_Control_Image_Size::get_attachment_image_html($item, 'ma_el_custom_timeline_image'); ?>
+							<div <?php echo $this->get_render_attribute_string($wysiwyg_key); ?>>
+								<?php echo $this->parse_text_editor($item['ma_el_custom_timeline_content']); ?>
 							</div>
-						<?php } ?>
-
-						<div <?php echo $this->get_render_attribute_string($wysiwyg_key); ?>>
-							<?php echo $this->parse_text_editor($item['ma_el_custom_timeline_content']); ?>
-						</div>
-					</article><!-- /.post -->
-				</<?php echo $card_tag; ?>>
-
-			</div><!-- /.ma-el-timeline-post-inner -->
+							<?php $this->render_card_arrow(); ?>
+						</div><!-- /.post -->
+					</<?php echo $card_tag; ?>>
+				</div><!-- /.ma-el-timeline-post-inner -->
+			</div>  <!-- card-wrapper -->
+			<div <?php echo $this->get_render_attribute_string( 'meta-wrapper' ); ?>><?php
+				$this->render_custom_card_meta( $index, $item );
+			?></div>
 		</div>
 
 	<?php } ?>
@@ -2610,6 +2714,72 @@ class Timeline extends Widget_Base
 <?php }
 
 
+protected function render_image( $item = false ) {
+	call_user_func( [ $this, 'render_' . $this->get_settings('ma_el_timeline_type') . '_thumbnail' ], $item );
+}
+
+
+protected function render_custom_thumbnail( $item ) {
+	if ( '' === $item['ma_el_custom_timeline_image']['url'] )
+		return;
+
+	?><div <?php echo $this->get_render_attribute_string( 'image' ); ?>><?php
+		echo Group_Control_Image_Size::get_attachment_image_html( $item );
+	?></div><?php
+}
+
+	/**
+	 * Render Thumbnail
+	 */
+	protected function render_post_thumbnail() {
+		global $post;
+
+		$settings = $this->get_settings_for_display();
+
+		if ( ! has_post_thumbnail() || '' === $settings['post_thumbnail'] )
+			return;
+
+		$settings['post_thumbnail_size'] = [
+			'id' => get_post_thumbnail_id(),
+		];
+
+		?><div <?php echo $this->get_render_attribute_string( 'image' ); ?>><?php
+
+		if ( '' === $settings['card_links'] ) {
+			?><a href="<?php echo the_permalink(); ?>"><?php
+		}
+
+		echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'post_thumbnail_size' );
+
+		if ( '' === $settings['card_links'] ) {
+			?></a><?php
+		}
+
+		?></div><?php
+	}
+protected function render_card_arrow() {
+	?><div <?php echo $this->get_render_attribute_string( 'arrow' ); ?>></div><?php
+}
+
+	protected function render_custom_card_meta( $index, $item ) {
+		$meta_key = $this->get_repeater_setting_key( 'date', 'items', $index );
+
+		$this->add_inline_editing_attributes( $meta_key, 'basic' );
+
+		$this->add_render_attribute([
+			$meta_key => [
+				'class' => [
+					'timeline-item__meta',
+					'meta',
+				],
+			],
+		]);
+
+		?><!-- meta -->
+		<div <?php echo $this->get_render_attribute_string( $meta_key ); ?>>
+			<?php echo $this->parse_text_editor( $item['date'] ); ?>
+		</div><?php
+	}
 
 
 protected function jltma_horizontal_timeline()

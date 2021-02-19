@@ -926,9 +926,10 @@
         //Master Addons: Timeline
         MA_Timeline: function ($scope, $) {
 
-			Master_Addons.MA_Timeline.elementSettings 	= Master_Addons.getElementSettings( $scope );
+			// Master_Addons.MA_Timeline.elementSettings 	= Master_Addons.getElementSettings( $scope );
 
-			var $timeline = $scope.find('.ee-timeline'),
+			var elementSettings     = getElementSettings( $scope ),
+                $timeline = $scope.find('.ma-el-timeline'),
 				timelineArgs = {};
 
 			Master_Addons.MA_Timeline.init = function() {
@@ -936,8 +937,8 @@
 					timelineArgs.scope = window.elementor.$previewContents;
 				}
 
-				if ( 'undefined' !== typeof Master_Addons.MA_Timeline.elementSettings.line_location && Master_Addons.MA_Timeline.elementSettings.line_location.size ) {
-					timelineArgs.lineLocation = Master_Addons.MA_Timeline.elementSettings.line_location.size;
+				if ( 'undefined' !== typeof elementSettings.line_location && elementSettings.line_location.size ) {
+					timelineArgs.lineLocation = elementSettings.line_location.size;
 				}
 
 				$timeline.maTimeline( timelineArgs );
