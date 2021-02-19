@@ -420,21 +420,6 @@ class Timeline extends Widget_Base
 			]
 		);
 
-		$default_title = '<h2>' . __('Nam commodo suscipit', MELA_TD) . '</h2>';
-		$default_paragraph = '<p>' . _x('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', MELA_TD) . '</p>';
-
-
-		$repeater->add_control(
-			'ma_el_custom_timeline_content',
-			[
-				'label' 		=> '',
-				'type' 			=> Controls_Manager::WYSIWYG,
-				'dynamic'		=> ['active' => true],
-				'default' 		=> $default_title . $default_paragraph,
-			]
-		);
-
-
 		$repeater->add_control(
 			'ma_el_custom_timeline_date',
 			[
@@ -464,6 +449,21 @@ class Timeline extends Widget_Base
 				],
 			]
 		);
+
+		$default_title = '<h2>' . __('Nam commodo suscipit', MELA_TD) . '</h2>';
+		$default_paragraph = '<p>' . _x('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', MELA_TD) . '</p>';
+
+
+		$repeater->add_control(
+			'ma_el_custom_timeline_content',
+			[
+				'label' 		=> '',
+				'type' 			=> Controls_Manager::WYSIWYG,
+				'dynamic'		=> ['active' => true],
+				'default' 		=> $default_title . $default_paragraph,
+			]
+		);
+
 
 		$repeater->end_controls_tab();
 
@@ -1331,7 +1331,8 @@ class Timeline extends Widget_Base
 							'icon' 	=> 'eicon-v-align-bottom',
 						],
 					],
-					'prefix_class' 	=> 'ma-el-timeline-cards-align%s--',
+					// 'prefix_class'	=> 'mama-el-timeline-cards-align-'
+					'prefix_class' 	=> 'ma-el-timeline-cards-align--',
 				]
 			);
 
@@ -2761,25 +2762,25 @@ protected function render_card_arrow() {
 	?><div <?php echo $this->get_render_attribute_string( 'arrow' ); ?>></div><?php
 }
 
-	protected function render_custom_card_meta( $index, $item ) {
-		$meta_key = $this->get_repeater_setting_key( 'date', 'items', $index );
+protected function render_custom_card_meta( $index, $item ) {
+	$meta_key = $this->get_repeater_setting_key( 'date', 'items', $index );
 
-		$this->add_inline_editing_attributes( $meta_key, 'basic' );
+	$this->add_inline_editing_attributes( $meta_key, 'basic' );
 
-		$this->add_render_attribute([
-			$meta_key => [
-				'class' => [
-					'timeline-item__meta',
-					'meta',
-				],
+	$this->add_render_attribute([
+		$meta_key => [
+			'class' => [
+				'timeline-item__meta',
+				'meta',
 			],
-		]);
+		],
+	]);
 
-		?><!-- meta -->
-		<div <?php echo $this->get_render_attribute_string( $meta_key ); ?>>
-			<?php echo $this->parse_text_editor( $item['date'] ); ?>
-		</div><?php
-	}
+	?><!-- meta -->
+	<div <?php echo $this->get_render_attribute_string( $meta_key ); ?>>
+		<?php echo $this->parse_text_editor( $item['ma_el_custom_timeline_date'] ); ?>
+	</div><?php
+}
 
 
 protected function jltma_horizontal_timeline()
