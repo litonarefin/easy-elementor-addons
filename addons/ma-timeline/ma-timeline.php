@@ -3187,45 +3187,105 @@ protected function jltma_horizontal_timeline()
 			);
 		}
 
-		protected function render_date($echo = true)
-		{
 
-			$settings = $this->get_settings_for_display();
-
-			if ('custom' === $settings['ma_el_timeline_date_format']) {
-				$format = $settings['ma_el_timeline_date_custom_format'];
+		public function get_date_formatted( $custom = false, $custom_format, $date_format, $time_format, $post_id = null ) {
+			if ( $custom ) {
+				$format = $custom_format;
 			} else {
-				$date_format = $settings['ma_el_timeline_date_format'];
-				$time_format = $settings['ma_el_timeline_time_format'];
+				$date_format = $date_format;
+				$time_format = $time_format;
 				$format = '';
 
-				if ('default' === $date_format) {
-					$date_format = get_option('ma_el_timeline_date_format');
+				if ( 'default' === $date_format ) {
+					$date_format = get_option( 'ma_el_timeline_date_format' );
 				}
 
-				if ('default' === $time_format) {
-					$time_format = get_option('ma_el_timeline_time_format');
+				if ( 'default' === $time_format ) {
+					$time_format = get_option( 'ma_el_timeline_time_format' );
 				}
 
-				if ($date_format) {
+				if ( $date_format ) {
 					$format = $date_format;
 					$has_date = true;
 				} else {
 					$has_date = false;
 				}
 
-				if ($time_format) {
-					if ($has_date) {
+				if ( $time_format ) {
+					if ( $has_date ) {
 						$format .= ' ';
 					}
 					$format .= $time_format;
 				}
 			}
 
-			$value = get_the_date($format);
+			$value = get_the_date( $format, $post_id );
 
-			if ($echo)
-				echo wp_kses_post($value);
-			else return wp_kses_post($value);
+			return wp_kses_post( $value );
 		}
+
+
+		protected function render_date( $echo = true, $post_id = null ) {
+
+			$settings 		= $this->get_settings_for_display();
+			$loop_settings 	= $this->get_settings_for_loop_display( $post_id );
+
+			if ( 'custom' === $settings['date_source'] ) {
+				$date = $loop_settings[ 'date_custom' ];
+			} else {
+				$custom = 'custom' === $settings['ma_el_timeline_date_format'];
+				$date = $this->get_date_formatted( $custom, $settings['ma_el_timeline_date_custom_format'], $settings['ma_el_timeline_date_format'], $settings['ma_el_timeline_time_format'], $post_id );
+			}
+
+			if ( ! $echo ) {
+				return $date;
+			}
+
+			echo $date;
+		}
+
+		// protected function render_date($echo = true)
+		// {
+
+		// 	$settings = $this->get_settings_for_display();
+
+		// 	if ('custom' === $settings['ma_el_timeline_date_format']) {
+		// 		$format = $settings['ma_el_timeline_date_custom_format'];
+		// 	} else {
+		// 		$date_format = $settings['ma_el_timeline_date_format'];
+		// 		$time_format = $settings['ma_el_timeline_time_format'];
+		// 		$format = '';
+
+		// 		if ('default' === $date_format) {
+		// 			$date_format = get_option('ma_el_timeline_date_format');
+		// 		}
+
+		// 		if ('default' === $time_format) {
+		// 			$time_format = get_option('ma_el_timeline_time_format');
+		// 		}
+
+		// 		if ($date_format) {
+		// 			$format = $date_format;
+		// 			$has_date = true;
+		// 		} else {
+		// 			$has_date = false;
+		// 		}
+
+		// 		if ($time_format) {
+		// 			if ($has_date) {
+		// 				$format .= ' ';
+		// 			}
+		// 			$format .= $time_format;
+		// 		}
+		// 	}
+
+		// 	$value = get_the_date($format);
+
+		// 	if ($echo)
+		// 		echo wp_kses_post($value);
+		// 	else return wp_kses_post($value);
+		// }
+
+
+
 	}
