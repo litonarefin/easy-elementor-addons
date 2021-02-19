@@ -126,22 +126,22 @@ class Timeline extends Widget_Base
 		}
 
 
-		$this->add_control(
-			'ma_el_timeline_design_type',
-			[
-				'label'    => __('Timeline Style', MELA_TD),
-				'type'     => Controls_Manager::SELECT,
-				'options'  => [
-					'vertical'              => __('Vertical Timeline', MELA_TD),
-					'horizontal'            => __('Horizontal Timeline', MELA_TD)
-				],
-				'default'  => 'vertical',
-				'condition' => [
-					'ma_el_timeline_type' => ['post', 'custom']
-				],
-				'frontend_available' 	=> true,
-			]
-		);
+		// $this->add_control(
+		// 	'ma_el_timeline_design_type',
+		// 	[
+		// 		'label'    => __('Timeline Style', MELA_TD),
+		// 		'type'     => Controls_Manager::SELECT,
+		// 		'options'  => [
+		// 			'vertical'              => __('Vertical Timeline', MELA_TD),
+		// 			'horizontal'            => __('Horizontal Timeline', MELA_TD)
+		// 		],
+		// 		'default'  => 'vertical',
+		// 		'condition' => [
+		// 			'ma_el_timeline_type' => ['post', 'custom']
+		// 		],
+		// 		'frontend_available' 	=> true,
+		// 	]
+		// );
 
 
 		if (ma_el_fs()->can_use_premium_code()) {
