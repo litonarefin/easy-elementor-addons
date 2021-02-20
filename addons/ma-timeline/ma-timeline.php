@@ -1172,22 +1172,22 @@ class Timeline extends Widget_Base
 				'frontend_available' 	=> true,
 				'condition'		=> [
 					'ma_el_timeline_design_type'	=> 'horizontal'
-				]
-				'conditions' => [
-					'relation' 	=> 'or',
-					'terms' 	=> [
-						[
-							'name' 		=> 'slides_per_column',
-							'operator' 	=> '==',
-							'value' 	=> '1',
-						],
-						[
-							'name' 		=> 'slides_per_column',
-							'operator' 	=> '==',
-							'value' 	=> '',
-						],
-					]
-				]
+				],
+				// 'conditions' => [
+				// 	'relation' 	=> 'or',
+				// 	'terms' 	=> [
+				// 		[
+				// 			'name' 		=> 'slides_per_column',
+				// 			'operator' 	=> '==',
+				// 			'value' 	=> '1',
+				// 		],
+				// 		[
+				// 			'name' 		=> 'slides_per_column',
+				// 			'operator' 	=> '==',
+				// 			'value' 	=> '',
+				// 		],
+				// 	]
+				// ]
 			]
 		);
 
