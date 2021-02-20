@@ -162,12 +162,12 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'ma_el_timeline_post_card_links',
 				[
-					'label' 		=> __( 'Enable Links', MELA_TD ),
+					'label' 		=> __('Enable Links', MELA_TD),
 					'type' 			=> Controls_Manager::SWITCHER,
-					'label_on' 		=> __( 'Yes', MELA_TD ),
-					'label_off' 	=> __( 'No', MELA_TD ),
+					'label_on' 		=> __('Yes', MELA_TD),
+					'label_off' 	=> __('No', MELA_TD),
 					'return_value' 	=> 'yes',
-					'description'   => __( 'Enable links at card level. If you have links inside the content of a card, make sure you have this disabled. Links within links are not allowed.', MELA_TD ),
+					'description'   => __('Enable links at card level. If you have links inside the content of a card, make sure you have this disabled. Links within links are not allowed.', MELA_TD),
 					'condition'	=> [
 						'ma_el_timeline_type' => 'post',
 					]
@@ -177,7 +177,7 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'ma_el_timeline_post_title_heading',
 				[
-					'label' => __( 'Title', MELA_TD ),
+					'label' => __('Title', MELA_TD),
 					'type' 	=> Controls_Manager::HEADING,
 					'separator' => 'before',
 					'condition'		=> [
@@ -204,10 +204,10 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'ma_el_timeline_post_title_link',
 				[
-					'label' 		=> __( 'Title Link', MELA_TD ),
+					'label' 		=> __('Title Link', MELA_TD),
 					'type' 			=> Controls_Manager::SWITCHER,
-					'label_on' 		=> __( 'Yes', MELA_TD ),
-					'label_off' 	=> __( 'No', MELA_TD ),
+					'label_on' 		=> __('Yes', MELA_TD),
+					'label_off' 	=> __('No', MELA_TD),
 					'return_value' 	=> 'yes',
 					'condition'	=> [
 						'ma_el_timeline_type' 			=> 'post',
@@ -232,7 +232,7 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'ma_el_timeline_post_thumb_heading',
 				[
-					'label' => __( 'Thumbnail', MELA_TD ),
+					'label' => __('Thumbnail', MELA_TD),
 					'type' 	=> Controls_Manager::HEADING,
 					'separator' => 'before',
 					'condition'		=> [
@@ -245,11 +245,11 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'ma_el_timeline_post_thumbnail',
 				[
-					'label' 		=> __( 'Show Image', MELA_TD ),
+					'label' 		=> __('Show Image', MELA_TD),
 					'type' 			=> Controls_Manager::SWITCHER,
 					'default'		=> 'yes',
-					'label_on' 		=> __( 'Yes', MELA_TD ),
-					'label_off' 	=> __( 'No', MELA_TD ),
+					'label_on' 		=> __('Yes', MELA_TD),
+					'label_off' 	=> __('No', MELA_TD),
 					'return_value' 	=> 'yes',
 					'condition'		=> [
 						'ma_el_timeline_type'			=> 'post'
@@ -261,7 +261,7 @@ class Timeline extends Widget_Base
 				Group_Control_Image_Size::get_type(),
 				[
 					'name' 			=> 'ma_el_timeline_post_thumbnail_size',
-					'label' 		=> __( 'Image Size', MELA_TD ),
+					'label' 		=> __('Image Size', MELA_TD),
 					'default' 		=> 'medium',
 					'prefix_class' 	=> 'elementor-portfolio--thumbnail-size-',
 					'condition'		=> [
@@ -1372,110 +1372,110 @@ class Timeline extends Widget_Base
 		);
 
 
-			$this->add_responsive_control(
-				'ma_el_timeline_align',
-				[
-					'label' 		=> __( 'Horizontal Align', MELA_TD ),
-					'type' 			=> Controls_Manager::SELECT,
-					'label_block'	=> true,
-					'default'		=> 'center',
-					'tablet_default'=> 'left',
-					'mobile_default'=> 'left',
-					'options' 		=> [
-						'left' 		=> __( 'Left', MELA_TD ),
-						'center' 	=> __( 'Center', MELA_TD ),
-						'overlay' 	=> __( 'Overlay', MELA_TD ),
-						'right' 	=> __( 'Right', MELA_TD ),
-					],
-					'prefix_class' 	=> 'ma-el-timeline-align%s--',
-				]
-			);
+		$this->add_responsive_control(
+			'ma_el_timeline_align',
+			[
+				'label' 		=> __('Horizontal Align', MELA_TD),
+				'type' 			=> Controls_Manager::SELECT,
+				'label_block'	=> true,
+				'default'		=> 'center',
+				'tablet_default' => 'left',
+				'mobile_default' => 'left',
+				'options' 		=> [
+					'left' 		=> __('Left', MELA_TD),
+					'center' 	=> __('Center', MELA_TD),
+					'overlay' 	=> __('Overlay', MELA_TD),
+					'right' 	=> __('Right', MELA_TD),
+				],
+				'prefix_class' 	=> 'ma-el-timeline-align%s--',
+			]
+		);
 
-			$this->add_control(
-				'ma_el_timeline_reverse',
-				[
-					'label' 		=> __( 'Reverse Cards Positions', MELA_TD ),
-					'type' 			=> Controls_Manager::SWITCHER,
-					'label_on' 		=> __( 'Yes', MELA_TD ),
-					'label_off' 	=> __( 'No', MELA_TD ),
-					'return_value' 	=> 'yes',
-					'condition' 	=> [
-						'ma_el_timeline_align' => [ 'center' ],
-					],
-				]
-			);
-
-
-			$this->add_control(
-				'ma_el_timeline_cards_align',
-				[
-					'label' 		=> __('Vertical Align', MELA_TD),
-					'type' 			=> Controls_Manager::CHOOSE,
-					'default'		=> 'top',
-					'tablet_default'=> 'top',
-					'mobile_default'=> 'top',
-					'options' 		=> [
-						'top' 		=> [
-							'title' => __('Left', MELA_TD),
-							'icon' 	=> 'eicon-v-align-top',
-						],
-						'middle' 	=> [
-							'title' => __('Center', MELA_TD),
-							'icon' 	=> 'eicon-v-align-middle',
-						],
-						'bottom' 	=> [
-							'title' => __('Right', MELA_TD),
-							'icon' 	=> 'eicon-v-align-bottom',
-						],
-					],
-					'condition' 	=> [
-						'ma_el_timeline_align!' => 'overlay'
-					],
-					'prefix_class' 	=> 'ma-el-timeline-cards-align--',
-				]
-			);
+		$this->add_control(
+			'ma_el_timeline_reverse',
+			[
+				'label' 		=> __('Reverse Cards Positions', MELA_TD),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label_on' 		=> __('Yes', MELA_TD),
+				'label_off' 	=> __('No', MELA_TD),
+				'return_value' 	=> 'yes',
+				'condition' 	=> [
+					'ma_el_timeline_align' => ['center'],
+				],
+			]
+		);
 
 
-			$this->add_responsive_control(
-				'ma_el_timeline_horizontal_spacing',
-				[
-					'label' 	=> __( 'Horizontal Spacing', MELA_TD ),
-					'type' 		=> Controls_Manager::SLIDER,
-					'default' 	=> [
-						'size' 	=> '',
+		$this->add_control(
+			'ma_el_timeline_cards_align',
+			[
+				'label' 		=> __('Vertical Align', MELA_TD),
+				'type' 			=> Controls_Manager::CHOOSE,
+				'default'		=> 'top',
+				'tablet_default' => 'top',
+				'mobile_default' => 'top',
+				'options' 		=> [
+					'top' 		=> [
+						'title' => __('Left', MELA_TD),
+						'icon' 	=> 'eicon-v-align-top',
 					],
-					'range' 		=> [
-						'px' 		=> [
-							'min' 	=> 0,
-							'max' 	=> 100,
-						],
+					'middle' 	=> [
+						'title' => __('Center', MELA_TD),
+						'icon' 	=> 'eicon-v-align-middle',
 					],
-					'selectors' => [
-						'{{WRAPPER}} .ma-el-timeline .timeline-item .timeline-item__point' 	=> 'margin-left: {{SIZE}}px; margin-right: {{SIZE}}px;',
+					'bottom' 	=> [
+						'title' => __('Right', MELA_TD),
+						'icon' 	=> 'eicon-v-align-bottom',
 					],
-				]
-			);
+				],
+				'condition' 	=> [
+					'ma_el_timeline_align!' => 'overlay'
+				],
+				'prefix_class' 	=> 'ma-el-timeline-cards-align--',
+			]
+		);
 
-			$this->add_responsive_control(
-				'ma_el_timeline_vertical_spacing',
-				[
-					'label' 	=> __( 'Vertical Spacing', MELA_TD ),
-					'type' 		=> Controls_Manager::SLIDER,
-					'default' 	=> [
-						'size' 	=> '',
+
+		$this->add_responsive_control(
+			'ma_el_timeline_horizontal_spacing',
+			[
+				'label' 	=> __('Horizontal Spacing', MELA_TD),
+				'type' 		=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> '',
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 100,
 					],
-					'range' 		=> [
-						'px' 		=> [
-							'min' 	=> 0,
-							'max' 	=> 100,
-						],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .ma-el-timeline .timeline-item .timeline-item__point' 	=> 'margin-left: {{SIZE}}px; margin-right: {{SIZE}}px;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_timeline_vertical_spacing',
+			[
+				'label' 	=> __('Vertical Spacing', MELA_TD),
+				'type' 		=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> '',
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 100,
 					],
-					'selectors' => [
-						'{{WRAPPER}} .ma-el-timeline .ma-el-timeline__item,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .ma-el-timeline .ma-el-timeline__item,
 						 {{WRAPPER}}.ma-el-timeline-align--overlay .timeline-item__point' => 'margin-bottom: {{SIZE}}px;',
-					],
-				]
-			);
+				],
+			]
+		);
 
 		$this->end_controls_section();
 
@@ -1748,219 +1748,219 @@ class Timeline extends Widget_Base
 		$this->start_controls_section(
 			'section_cards',
 			[
-				'label' => __( 'Cards', MELA_TD ),
+				'label' => __('Cards', MELA_TD),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 
-			$this->add_responsive_control(
-				'cards_padding',
-				[
-					'label' 		=> __( 'Card Padding', MELA_TD ),
-					'type' 			=> Controls_Manager::DIMENSIONS,
-					'size_units' 	=> [ 'px' ],
-					'selectors' 	=> [
-						'{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			);
+		$this->add_responsive_control(
+			'cards_padding',
+			[
+				'label' 		=> __('Card Padding', MELA_TD),
+				'type' 			=> Controls_Manager::DIMENSIONS,
+				'size_units' 	=> ['px'],
+				'selectors' 	=> [
+					'{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-			$this->add_responsive_control(
-				'cards_margin',
-				[
-					'label' 		=> __( 'Card Margin', MELA_TD ),
-					'type' 			=> Controls_Manager::DIMENSIONS,
-					'size_units' 	=> [ 'px' ],
-					'selectors' 	=> [
-						'{{WRAPPER}} .ma-el-timeline .timeline-item__card' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			);
+		$this->add_responsive_control(
+			'cards_margin',
+			[
+				'label' 		=> __('Card Margin', MELA_TD),
+				'type' 			=> Controls_Manager::DIMENSIONS,
+				'size_units' 	=> ['px'],
+				'selectors' 	=> [
+					'{{WRAPPER}} .ma-el-timeline .timeline-item__card' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-			$this->add_responsive_control(
-				'cards_content_padding',
-				[
-					'label' 		=> __( 'Content Padding', MELA_TD ),
-					'type' 			=> Controls_Manager::DIMENSIONS,
-					'size_units' 	=> [ 'px' ],
-					'selectors' 	=> [
-						'{{WRAPPER}} .ma-el-timeline .timeline-item__content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			);
+		$this->add_responsive_control(
+			'cards_content_padding',
+			[
+				'label' 		=> __('Content Padding', MELA_TD),
+				'type' 			=> Controls_Manager::DIMENSIONS,
+				'size_units' 	=> ['px'],
+				'selectors' 	=> [
+					'{{WRAPPER}} .ma-el-timeline .timeline-item__content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-			$this->add_control(
-				'cards_border_radius',
-				[
-					'label' 		=> __( 'Border Radius', MELA_TD ),
-					'type' 			=> Controls_Manager::DIMENSIONS,
-					'size_units' 	=> [ 'px', '%' ],
-					'selectors' 	=> [
-						'{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			);
+		$this->add_control(
+			'cards_border_radius',
+			[
+				'label' 		=> __('Border Radius', MELA_TD),
+				'type' 			=> Controls_Manager::DIMENSIONS,
+				'size_units' 	=> ['px', '%'],
+				'selectors' 	=> [
+					'{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-			$this->add_responsive_control(
-				'animate_in',
-				[
-					'label' 		=> __( 'Animate Cards', MELA_TD ),
-					'type' 			=> Controls_Manager::SWITCHER,
-					'default'		=> 'animate',
-					'label_on' 		=> __( 'Yes', MELA_TD ),
-					'label_off' 	=> __( 'No', MELA_TD ),
-					'return_value' 	=> 'animate',
-					'prefix_class'	=> 'ma-el-timeline%s-'
-				]
-			);
+		$this->add_responsive_control(
+			'animate_in',
+			[
+				'label' 		=> __('Animate Cards', MELA_TD),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'default'		=> 'animate',
+				'label_on' 		=> __('Yes', MELA_TD),
+				'label_off' 	=> __('No', MELA_TD),
+				'return_value' 	=> 'animate',
+				'prefix_class'	=> 'ma-el-timeline%s-'
+			]
+		);
 
-			$this->add_group_control(
-				MA_Group_Control_Transition::get_type(),
-				[
-					'name' 		=> 'cards',
-					'selector' 	=> '{{WRAPPER}} .timeline-item__content-wrapper,
+		$this->add_group_control(
+			MA_Group_Control_Transition::get_type(),
+			[
+				'name' 		=> 'cards',
+				'selector' 	=> '{{WRAPPER}} .timeline-item__content-wrapper,
 							 		{{WRAPPER}} .timeline-item__content__wysiwyg *,
 							 		{{WRAPPER}} .timeline-item__title,
 							 		{{WRAPPER}} .timeline-item__meta,
 							 		{{WRAPPER}} .timeline-item__excerpt,
 									{{WRAPPER}} .timeline-item__card__arrow::after',
-					'separator'	=> '',
-				]
-			);
+				'separator'	=> '',
+			]
+		);
 
-			$this->start_controls_tabs( 'tabs_cards' );
+		$this->start_controls_tabs('tabs_cards');
 
-			$this->start_controls_tab( 'tab_cards_default', [ 'label' => __( 'Default', MELA_TD ) ] );
+		$this->start_controls_tab('tab_cards_default', ['label' => __('Default', MELA_TD)]);
 
-				$this->add_responsive_control(
-					'cards_color',
-					[
-						'label' 	=> __( 'Color', MELA_TD ),
-						'type' 		=> Controls_Manager::COLOR,
-						'selectors' => [
-							'{{WRAPPER}} .timeline-item__content-wrapper,
+		$this->add_responsive_control(
+			'cards_color',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .timeline-item__content-wrapper,
 							 {{WRAPPER}} .timeline-item__content-wrapper *' => 'color: {{VALUE}};',
-						],
-					]
-				);
+				],
+			]
+		);
 
-				$this->add_responsive_control(
-					'cards_background_color',
-					[
-						'label' 	=> __( 'Background Color', MELA_TD ),
-						'type' 		=> Controls_Manager::COLOR,
-						'selectors' => [
-							'{{WRAPPER}} .timeline-item__content-wrapper' 										=> 'background-color: {{VALUE}};',
-							'{{WRAPPER}} .timeline-item__card .timeline-item__card__arrow::after' 	=> 'border-left-color: {{VALUE}}; border-right-color: {{VALUE}};',
-						],
-					]
-				);
+		$this->add_responsive_control(
+			'cards_background_color',
+			[
+				'label' 	=> __('Background Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .timeline-item__content-wrapper' 										=> 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-item__card .timeline-item__card__arrow::after' 	=> 'border-left-color: {{VALUE}}; border-right-color: {{VALUE}};',
+				],
+			]
+		);
 
-				$this->add_group_control(
-					Group_Control_Box_Shadow::get_type(),
-					[
-						'name' 		=> 'cards_box_shadow',
-						'selector' 	=> '{{WRAPPER}} .timeline-item__content-wrapper',
-					]
-				);
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' 		=> 'cards_box_shadow',
+				'selector' 	=> '{{WRAPPER}} .timeline-item__content-wrapper',
+			]
+		);
 
-			$this->end_controls_tab();
+		$this->end_controls_tab();
 
-			$this->start_controls_tab( 'tab_cards_hover', [ 'label' => __( 'Hover', MELA_TD ) ] );
+		$this->start_controls_tab('tab_cards_hover', ['label' => __('Hover', MELA_TD)]);
 
-				$this->add_responsive_control(
-					'cards_color_hover',
-					[
-						'label' 	=> __( 'Color', MELA_TD ),
-						'type' 		=> Controls_Manager::COLOR,
-						'selectors' => [
-							'{{WRAPPER}} .timeline-item:hover .timeline-item__content-wrapper,
+		$this->add_responsive_control(
+			'cards_color_hover',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .timeline-item:hover .timeline-item__content-wrapper,
 							 {{WRAPPER}} .timeline-item:hover .timeline-item__content-wrapper *' => 'color: {{VALUE}};',
-						],
-					]
-				);
+				],
+			]
+		);
 
-				$this->add_responsive_control(
-					'cards_background_color_hover',
-					[
-						'label' 	=> __( 'Background Color', MELA_TD ),
-						'type' 		=> Controls_Manager::COLOR,
-						'selectors' => [
-							'{{WRAPPER}} .timeline-item:not(.is--focused):hover .timeline-item__content-wrapper' => 'background-color: {{VALUE}};',
-							'{{WRAPPER}} .timeline-item:not(.is--focused):hover .timeline-item__card .timeline-item__card__arrow::after' 	=> 'border-left-color: {{VALUE}}; border-right-color: {{VALUE}};',
-						],
-					]
-				);
+		$this->add_responsive_control(
+			'cards_background_color_hover',
+			[
+				'label' 	=> __('Background Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .timeline-item:not(.is--focused):hover .timeline-item__content-wrapper' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-item:not(.is--focused):hover .timeline-item__card .timeline-item__card__arrow::after' 	=> 'border-left-color: {{VALUE}}; border-right-color: {{VALUE}};',
+				],
+			]
+		);
 
-				$this->add_group_control(
-					Group_Control_Box_Shadow::get_type(),
-					[
-						'name' 		=> 'cards_box_shadow_hover',
-						'selector' 	=> '{{WRAPPER}} .timeline-item:hover .timeline-item__content-wrapper',
-					]
-				);
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' 		=> 'cards_box_shadow_hover',
+				'selector' 	=> '{{WRAPPER}} .timeline-item:hover .timeline-item__content-wrapper',
+			]
+		);
 
-			$this->end_controls_tab();
+		$this->end_controls_tab();
 
-			$this->start_controls_tab( 'tab_cards_focused', [ 'label' => __( 'Focused', MELA_TD ) ] );
+		$this->start_controls_tab('tab_cards_focused', ['label' => __('Focused', MELA_TD)]);
 
-				$this->add_responsive_control(
-					'cards_color_focused',
-					[
-						'label' 	=> __( 'Color', MELA_TD ),
-						'type' 		=> Controls_Manager::COLOR,
-						'selectors' => [
-							'{{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper,
+		$this->add_responsive_control(
+			'cards_color_focused',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper,
 							 {{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper *' => 'color: {{VALUE}};',
-						],
-					]
-				);
+				],
+			]
+		);
 
-				$this->add_responsive_control(
-					'cards_background_color_focused',
-					[
-						'label' 	=> __( 'Background Color', MELA_TD ),
-						'type' 		=> Controls_Manager::COLOR,
-						'selectors' => [
-							'{{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper' 				=> 'background-color: {{VALUE}};',
-							'{{WRAPPER}} .timeline-item.is--focused .timeline-item__card__arrow::after' => 'border-left-color: {{VALUE}}; border-right-color: {{VALUE}};',
-						],
-					]
-				);
+		$this->add_responsive_control(
+			'cards_background_color_focused',
+			[
+				'label' 	=> __('Background Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper' 				=> 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__card__arrow::after' => 'border-left-color: {{VALUE}}; border-right-color: {{VALUE}};',
+				],
+			]
+		);
 
-				$this->add_group_control(
-					Group_Control_Box_Shadow::get_type(),
-					[
-						'name' 		=> 'cards_box_shadow_focused',
-						'selector' 	=> '{{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper',
-					]
-				);
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' 		=> 'cards_box_shadow_focused',
+				'selector' 	=> '{{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper',
+			]
+		);
 
-			$this->end_controls_tab();
+		$this->end_controls_tab();
 
-			$this->end_controls_tabs();
+		$this->end_controls_tabs();
 
-			$this->add_group_control(
-				Group_Control_Text_Shadow::get_type(),
-				[
-					'name' 		=> 'cards_text_shadow',
-					'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper',
-				]
-			);
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name' 		=> 'cards_text_shadow',
+				'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper',
+			]
+		);
 
-			$this->add_group_control(
-				Group_Control_Typography::get_type(),
-				[
-					'name' 		=> 'cards_typography',
-					'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper',
-					'global' => [
-						'default' => Global_Typography::TYPOGRAPHY_TEXT,
-					],
-					'condition'		=> [
-						'post_skin' => 'default',
-					],
-				]
-			);
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' 		=> 'cards_typography',
+				'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper',
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
+				'condition'		=> [
+					'post_skin' => 'default',
+				],
+			]
+		);
 
 		$this->end_controls_section();
 
@@ -1970,102 +1970,102 @@ class Timeline extends Widget_Base
 		$this->start_controls_section(
 			'section_dates',
 			[
-				'label' 	=> __( 'Dates', MELA_TD ),
+				'label' 	=> __('Dates', MELA_TD),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 
-			$this->add_responsive_control(
-				'dates_padding',
-				[
-					'label' 		=> __( 'Padding', MELA_TD ),
-					'type' 			=> Controls_Manager::DIMENSIONS,
-					'size_units' 	=> [ 'px' ],
-					'selectors' 	=> [
-						'{{WRAPPER}} .ma-el-timeline .timeline-item__meta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			);
+		$this->add_responsive_control(
+			'dates_padding',
+			[
+				'label' 		=> __('Padding', MELA_TD),
+				'type' 			=> Controls_Manager::DIMENSIONS,
+				'size_units' 	=> ['px'],
+				'selectors' 	=> [
+					'{{WRAPPER}} .ma-el-timeline .timeline-item__meta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-			$this->add_responsive_control(
-				'dates_margin',
-				[
-					'label' 		=> __( 'Margin', MELA_TD ),
-					'type' 			=> Controls_Manager::DIMENSIONS,
-					'size_units' 	=> [ 'px' ],
-					'selectors' 	=> [
-						'{{WRAPPER}} .ma-el-timeline .timeline-item__meta' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			);
+		$this->add_responsive_control(
+			'dates_margin',
+			[
+				'label' 		=> __('Margin', MELA_TD),
+				'type' 			=> Controls_Manager::DIMENSIONS,
+				'size_units' 	=> ['px'],
+				'selectors' 	=> [
+					'{{WRAPPER}} .ma-el-timeline .timeline-item__meta' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-			$this->add_group_control(
-				Group_Control_Text_Shadow::get_type(),
-				[
-					'name' 		=> 'dates_text_shadow',
-					'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__meta',
-				]
-			);
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name' 		=> 'dates_text_shadow',
+				'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__meta',
+			]
+		);
 
-			$this->add_group_control(
-				Group_Control_Typography::get_type(),
-				[
-					'name' 		=> 'dates_typography',
-					'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__meta',
-					'global' => [
-						'default' => Global_Typography::TYPOGRAPHY_ACCENT,
-					],
-				]
-			);
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' 		=> 'dates_typography',
+				'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__meta',
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
+			]
+		);
 
-			$this->start_controls_tabs( 'tabs_dates_style' );
+		$this->start_controls_tabs('tabs_dates_style');
 
-			$this->start_controls_tab( 'tab_dates_default', [ 'label' => __( 'Default', MELA_TD ) ] );
+		$this->start_controls_tab('tab_dates_default', ['label' => __('Default', MELA_TD)]);
 
-				$this->add_responsive_control(
-					'dates_color',
-					[
-						'label' 	=> __( 'Color', MELA_TD ),
-						'type' 		=> Controls_Manager::COLOR,
-						'selectors' => [
-							'{{WRAPPER}} .ma-el-timeline .timeline-item__meta' => 'color: {{VALUE}};',
-						],
-					]
-				);
+		$this->add_responsive_control(
+			'dates_color',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .ma-el-timeline .timeline-item__meta' => 'color: {{VALUE}};',
+				],
+			]
+		);
 
-			$this->end_controls_tab();
+		$this->end_controls_tab();
 
-			$this->start_controls_tab( 'tab_dates_hover', [ 'label' => __( 'Hover', MELA_TD ) ] );
+		$this->start_controls_tab('tab_dates_hover', ['label' => __('Hover', MELA_TD)]);
 
-				$this->add_responsive_control(
-					'dates_color_hover',
-					[
-						'label' 	=> __( 'Color', MELA_TD ),
-						'type' 		=> Controls_Manager::COLOR,
-						'selectors' => [
-							'{{WRAPPER}} .ma-el-timeline .ma-el-timeline__item:hover .timeline-item__meta' => 'color: {{VALUE}};',
-						],
-					]
-				);
+		$this->add_responsive_control(
+			'dates_color_hover',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .ma-el-timeline .ma-el-timeline__item:hover .timeline-item__meta' => 'color: {{VALUE}};',
+				],
+			]
+		);
 
-			$this->end_controls_tab();
+		$this->end_controls_tab();
 
-			$this->start_controls_tab( 'tab_dates_focused', [ 'label' => __( 'Focused', MELA_TD ) ] );
+		$this->start_controls_tab('tab_dates_focused', ['label' => __('Focused', MELA_TD)]);
 
-				$this->add_responsive_control(
-					'dates_color_focused',
-					[
-						'label' 	=> __( 'Color', MELA_TD ),
-						'type' 		=> Controls_Manager::COLOR,
-						'selectors' => [
-							'{{WRAPPER}} .ma-el-timeline .ma-el-timeline__item.is--focused .timeline-item__meta' => 'color: {{VALUE}};',
-						],
-					]
-				);
+		$this->add_responsive_control(
+			'dates_color_focused',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .ma-el-timeline .ma-el-timeline__item.is--focused .timeline-item__meta' => 'color: {{VALUE}};',
+				],
+			]
+		);
 
-			$this->end_controls_tab();
+		$this->end_controls_tab();
 
-			$this->end_controls_tabs();
+		$this->end_controls_tabs();
 
 		$this->end_controls_section();
 
@@ -2077,97 +2077,97 @@ class Timeline extends Widget_Base
 		$this->start_controls_section(
 			'section_line',
 			[
-				'label' 	=> __( 'Line', MELA_TD ),
+				'label' 	=> __('Line', MELA_TD),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 
-			$this->add_control(
-				'line_background',
-				[
-					'label' 	=> __( 'Background Color', MELA_TD ),
-					'type' 		=> Controls_Manager::COLOR,
-					'global' => [
-						'default' => Global_Colors::COLOR_SECONDARY,
-					],
-					'selectors' => [
-						'{{WRAPPER}} .ma-el-timeline__line' => 'background-color: {{VALUE}};',
-					],
-				]
-			);
+		$this->add_control(
+			'line_background',
+			[
+				'label' 	=> __('Background Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'global' => [
+					'default' => Global_Colors::COLOR_SECONDARY,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .ma-el-timeline__line' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
 
-			$this->add_control(
-				'progress_background',
-				[
-					'label' 	=> __( 'Progress Color', MELA_TD ),
-					'type' 		=> Controls_Manager::COLOR,
-					'global' => [
-						'default' => Global_Colors::COLOR_PRIMARY,
-					],
-					'selectors' => [
-						'{{WRAPPER}} .ma-el-timeline__line__inner' => 'background-color: {{VALUE}};',
-					],
-				]
-			);
+		$this->add_control(
+			'progress_background',
+			[
+				'label' 	=> __('Progress Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'global' => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .ma-el-timeline__line__inner' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
 
-			$this->add_control(
-				'line_thickness',
-				[
-					'label' 	=> __( 'Thickness', MELA_TD ),
-					'type' 		=> Controls_Manager::SLIDER,
-					'default' 	=> [
-						'size' 	=> 4,
+		$this->add_control(
+			'line_thickness',
+			[
+				'label' 	=> __('Thickness', MELA_TD),
+				'type' 		=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 4,
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 1,
+						'max' 	=> 8,
 					],
-					'range' 		=> [
-						'px' 		=> [
-							'min' 	=> 1,
-							'max' 	=> 8,
-						],
-					],
-					'selectors' => [
-						'{{WRAPPER}} .ma-el-timeline__line' => 'width: {{SIZE}}px;',
-					],
-				]
-			);
+				],
+				'selectors' => [
+					'{{WRAPPER}} .ma-el-timeline__line' => 'width: {{SIZE}}px;',
+				],
+			]
+		);
 
-			$this->add_control(
-				'line_location',
-				[
-					'label' 	=> __( 'Location', MELA_TD ),
-					'type' 		=> Controls_Manager::SLIDER,
-					'default' 	=> [
-						'size' 	=> 50,
+		$this->add_control(
+			'line_location',
+			[
+				'label' 	=> __('Location', MELA_TD),
+				'type' 		=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 50,
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 100,
 					],
-					'range' 		=> [
-						'px' 		=> [
-							'min' 	=> 0,
-							'max' 	=> 100,
-						],
-					],
-					'frontend_available' => true,
-				]
-			);
+				],
+				'frontend_available' => true,
+			]
+		);
 
-			$this->add_group_control(
-				Group_Control_Border::get_type(),
-				[
-					'name' 		=> 'line_border',
-					'label' 	=> __( 'Image Border', MELA_TD ),
-					'selector' 	=> '{{WRAPPER}} .ma-el-timeline__line',
-				]
-			);
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' 		=> 'line_border',
+				'label' 	=> __('Image Border', MELA_TD),
+				'selector' 	=> '{{WRAPPER}} .ma-el-timeline__line',
+			]
+		);
 
-			$this->add_control(
-				'line_border_radius',
-				[
-					'label' 		=> __( 'Border Radius', MELA_TD ),
-					'type' 			=> Controls_Manager::DIMENSIONS,
-					'size_units' 	=> [ 'px', '%' ],
-					'selectors' 	=> [
-						'{{WRAPPER}} .ma-el-timeline__line' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			);
+		$this->add_control(
+			'line_border_radius',
+			[
+				'label' 		=> __('Border Radius', MELA_TD),
+				'type' 			=> Controls_Manager::DIMENSIONS,
+				'size_units' 	=> ['px', '%'],
+				'selectors' 	=> [
+					'{{WRAPPER}} .ma-el-timeline__line' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
 		$this->end_controls_section();
 
@@ -2421,64 +2421,64 @@ class Timeline extends Widget_Base
 
 		$this->end_controls_tab();
 
-			$this->start_controls_tab( 'ma_el_timeline_points_focused', [ 'label' => __( 'Focused', MELA_TD ) ] );
+		$this->start_controls_tab('ma_el_timeline_points_focused', ['label' => __('Focused', MELA_TD)]);
 
-				$this->add_control(
-					'ma_el_timeline_points_size_focused',
-					[
-						'label' 	=> __( 'Scale', MELA_TD ),
-						'type' 		=> Controls_Manager::SLIDER,
-						'default' 	=> [
-							'size' 	=> 1,
-						],
-						'range' 		=> [
-							'px' 		=> [
-								'min' 	=> 0.5,
-								'max' 	=> 2,
-								'step'	=> 0.01
-							],
-						],
-						'selectors' => [
-							'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' 		=> 'transform: scale({{SIZE}})',
-						],
-					]
-				);
+		$this->add_control(
+			'ma_el_timeline_points_size_focused',
+			[
+				'label' 	=> __('Scale', MELA_TD),
+				'type' 		=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 1,
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0.5,
+						'max' 	=> 2,
+						'step'	=> 0.01
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' 		=> 'transform: scale({{SIZE}})',
+				],
+			]
+		);
 
-				$this->add_control(
-					'ma_el_timeline_points_background_focused',
-					[
-						'label' 	=> __( 'Background Color', MELA_TD ),
-						'type' 		=> Controls_Manager::COLOR,
-						'global' => [
-							'default' => Global_Colors::COLOR_PRIMARY,
-						],
-						'selectors' => [
-							'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' 			=> 'background-color: {{VALUE}};',
-						],
-					]
-				);
+		$this->add_control(
+			'ma_el_timeline_points_background_focused',
+			[
+				'label' 	=> __('Background Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'global' => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' 			=> 'background-color: {{VALUE}};',
+				],
+			]
+		);
 
-				$this->add_control(
-					'ma_el_timeline_icons_color_focused',
-					[
-						'label' 	=> __( 'Points Color', MELA_TD ),
-						'type' 		=> Controls_Manager::COLOR,
-						'default'	=> '',
-						'selectors' => [
-							'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' 		=> 'color: {{VALUE}};',
-						],
-					]
-				);
+		$this->add_control(
+			'ma_el_timeline_icons_color_focused',
+			[
+				'label' 	=> __('Points Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'default'	=> '',
+				'selectors' => [
+					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' 		=> 'color: {{VALUE}};',
+				],
+			]
+		);
 
-				$this->add_group_control(
-					Group_Control_Text_Shadow::get_type(),
-					[
-						'name' 		=> 'ma_el_timeline_points_text_shadow_focused',
-						'selector' 	=> '{{WRAPPER}} .timeline-item.is--focused .timeline-item__point',
-					]
-				);
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name' 		=> 'ma_el_timeline_points_text_shadow_focused',
+				'selector' 	=> '{{WRAPPER}} .timeline-item.is--focused .timeline-item__point',
+			]
+		);
 
-			$this->end_controls_tab();
+		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
 
@@ -2628,197 +2628,194 @@ class Timeline extends Widget_Base
 				'class' => 'timeline-item__meta-wrapper',
 			],
 		]);
-
 	}
 
-	protected function jltma_render_line() {
-		?><div <?php echo $this->get_render_attribute_string( 'line' ); ?>>
-			<div <?php echo $this->get_render_attribute_string( 'line-inner' ); ?>></div>
-		</div><?php
-	}
-
-	protected function render()
+	protected function jltma_render_line()
 	{
-		if (get_query_var('paged')) {
-			$paged = get_query_var('paged');
-		} elseif (get_query_var('page')) {
-			$paged = get_query_var('page');
-		} else {
-			$paged = 1;
-		}
+?><div <?php echo $this->get_render_attribute_string('line'); ?>>
+			<div <?php echo $this->get_render_attribute_string('line-inner'); ?>></div>
+		</div><?php
+			}
 
-		$settings = $this->get_settings_for_display();
+			protected function render()
+			{
+				if (get_query_var('paged')) {
+					$paged = get_query_var('paged');
+				} elseif (get_query_var('page')) {
+					$paged = get_query_var('page');
+				} else {
+					$paged = 1;
+				}
 
-		$this->ma_el_timeline_global_render_attributes();
+				$settings = $this->get_settings_for_display();
 
-		$ma_el_timeline_type = $settings['ma_el_timeline_type'];
-		$timeline_layout_type = $settings['ma_el_timeline_design_type'];
+				$this->ma_el_timeline_global_render_attributes();
 
-		if (ma_el_fs()->can_use_premium_code()) {
+				$ma_el_timeline_type = $settings['ma_el_timeline_type'];
+				$timeline_layout_type = $settings['ma_el_timeline_design_type'];
 
-			$settings[] = $settings['ma_el_blog_posts_per_page'];
+				if (ma_el_fs()->can_use_premium_code()) {
 
-			$offset = $settings['ma_el_timeline_post_offset'];
+					$settings[] = $settings['ma_el_blog_posts_per_page'];
 
-			$post_per_page = $settings['ma_el_blog_posts_per_page'];
+					$offset = $settings['ma_el_timeline_post_offset'];
 
-			$new_offset = $offset + (($paged - 1) * $post_per_page);
+					$post_per_page = $settings['ma_el_blog_posts_per_page'];
 
-			$post_args = Master_Addons_Helper::ma_el_blog_get_post_settings($settings);
+					$new_offset = $offset + (($paged - 1) * $post_per_page);
 
-			$posts = Master_Addons_Helper::ma_el_blog_get_post_data($post_args, $paged, $new_offset);
-		}
-?>
+					$post_args = Master_Addons_Helper::ma_el_blog_get_post_settings($settings);
+
+					$posts = Master_Addons_Helper::ma_el_blog_get_post_data($post_args, $paged, $new_offset);
+				}
+				?>
 		<div <?php echo $this->get_render_attribute_string('ma_el_timeline_wrapper'); ?>>
 
 			<?php
 
-			$this->jltma_render_line();
+				$this->jltma_render_line();
 
-			if ( 'yes' === $settings['ma_el_timeline_reverse'] ) {
-				?><span></span><?php
-			}
+				if ('yes' === $settings['ma_el_timeline_reverse']) {
+			?><span></span><?php
+						}
 
-			if ($ma_el_timeline_type == "post") {
+						if ($ma_el_timeline_type == "post") {
 
-				$this->jltma_post_timeline();
+							$this->jltma_post_timeline();
+						} elseif ($ma_el_timeline_type == "custom") {
 
-			} elseif ($ma_el_timeline_type == "custom") {
+							// Vertical Layout Design & Custom Layout
+							if ($timeline_layout_type == "vertical") {
 
-				// Vertical Layout Design & Custom Layout
-				if ($timeline_layout_type == "vertical") {
+								$this->jltma_vertical_timeline();
+							} elseif ($timeline_layout_type == "horizontal") {
 
-					$this->jltma_vertical_timeline();
-
-				} elseif ($timeline_layout_type == "horizontal") {
-
-					// If Custom and Vertical Horizontal Design
-					$this->jltma_horizontal_timeline();
-
-				} ?>
+								// If Custom and Vertical Horizontal Design
+								$this->jltma_horizontal_timeline();
+							} ?>
 
 		</div>
 
 	<?php }
-		}
-
-		protected function jltma_post_timeline()
-		{
-
-			$settings = $this->get_settings_for_display();
-
-			if (ma_el_fs()->can_use_premium_code()) {
-
-				$settings[] = $settings['ma_el_blog_posts_per_page'];
-
-				$offset = $settings['ma_el_timeline_post_offset'];
-
-				$post_per_page = $settings['ma_el_blog_posts_per_page'];
-
-				$new_offset = $offset + (($paged - 1) * $post_per_page);
-
-				$post_args = Master_Addons_Helper::ma_el_blog_get_post_settings($settings);
-
-				$posts = Master_Addons_Helper::ma_el_blog_get_post_data($post_args, $paged, $new_offset);
-			}
-
-			if (count($posts)) {
-				global $post;
-				foreach ($posts as $post) {
-					setup_postdata($post);
-					$this->jltma_post_query_timeline();
-					wp_reset_postdata();
-				}
-			}
-		}
-		public function jltma_vertical_timeline()
-		{
-			$settings = $this->get_settings_for_display();
-
-			$j = 0;
-			foreach ($settings['ma_el_custom_timeline_items'] as $index => $item) {
-				$j++;
-				$active_class = ($j == 1) ? "active" : "";
-
-				$card_tag 		= 'div';
-				$item_key 		= $this->get_repeater_setting_key('item', 'ma_el_custom_timeline_items', $index);
-				$card_key 		= $this->get_repeater_setting_key('card', 'ma_el_custom_timeline_items', $index);
-				$point_content 	= '';
-				$wysiwyg_key 	= $this->get_repeater_setting_key('content', 'ma_el_custom_timeline_items', $index);
-				$meta_key 		= $this->get_repeater_setting_key('date', 'ma_el_custom_timeline_items', $index);
-
-
-				$this->add_render_attribute([
-					$item_key => [
-						'class' => [
-							'elementor-repeater-item-' . $item['_id'],
-							'ma-el-blog-timeline-post',
-							'ma-el-timeline__item',
-							'timeline-item',
-							$active_class
-						],
-					],
-					$card_key => [
-						'class' => 'timeline-item__card',
-					],
-					$wysiwyg_key => [
-						'class' => 'ma-el-timeline-entry-content',
-					],
-					$meta_key => [
-						'class' => [
-							'timeline-item__meta',
-							'meta',
-						],
-					],
-				]);
-
-
-				if (!empty($item['ma_el_custom_timeline_link']['url'])) {
-					$card_tag = 'a';
-
-					$this->add_render_attribute($card_key, 'href', $item['ma_el_custom_timeline_link']['url']);
-
-					if ($item['ma_el_custom_timeline_link']['is_external']) {
-						$this->add_render_attribute($card_key, 'target', '_blank');
 					}
 
-					if ($item['ma_el_custom_timeline_link']['nofollow']) {
-						$this->add_render_attribute($card_key, 'rel', 'nofollow');
+					protected function jltma_post_timeline()
+					{
+
+						$settings = $this->get_settings_for_display();
+
+						if (ma_el_fs()->can_use_premium_code()) {
+
+							$settings[] = $settings['ma_el_blog_posts_per_page'];
+
+							$offset = $settings['ma_el_timeline_post_offset'];
+
+							$post_per_page = $settings['ma_el_blog_posts_per_page'];
+
+							$new_offset = $offset + (($paged - 1) * $post_per_page);
+
+							$post_args = Master_Addons_Helper::ma_el_blog_get_post_settings($settings);
+
+							$posts = Master_Addons_Helper::ma_el_blog_get_post_data($post_args, $paged, $new_offset);
+						}
+
+						if (count($posts)) {
+							global $post;
+							foreach ($posts as $post) {
+								setup_postdata($post);
+								$this->jltma_post_query_timeline();
+								wp_reset_postdata();
+							}
+						}
 					}
-				}
+					public function jltma_vertical_timeline()
+					{
+						$settings = $this->get_settings_for_display();
 
-				if (ma_el_fs()->can_use_premium_code()) {
+						$j = 0;
+						foreach ($settings['ma_el_custom_timeline_items'] as $index => $item) {
+							$j++;
+							$active_class = ($j == 1) ? "active" : "";
 
-					if (('yes' === $item['ma_el_custom_timeline_custom_style'] && '' !== $item['ma_el_custom_timeline_point_content_type'])) {
-						$point_content_type = $item['ma_el_custom_timeline_point_content_type'];
-					} else {
-						$point_content_type = $item['ma_el_custom_timeline_point_content'];
-					}
+							$card_tag 		= 'div';
+							$item_key 		= $this->get_repeater_setting_key('item', 'ma_el_custom_timeline_items', $index);
+							$card_key 		= $this->get_repeater_setting_key('card', 'ma_el_custom_timeline_items', $index);
+							$point_content 	= '';
+							$wysiwyg_key 	= $this->get_repeater_setting_key('content', 'ma_el_custom_timeline_items', $index);
+							$meta_key 		= $this->get_repeater_setting_key('date', 'ma_el_custom_timeline_items', $index);
 
 
-					switch ($point_content_type) {
-						case 'numbers':
+							$this->add_render_attribute([
+								$item_key => [
+									'class' => [
+										'elementor-repeater-item-' . $item['_id'],
+										'ma-el-blog-timeline-post',
+										'ma-el-timeline__item',
+										'timeline-item',
+										$active_class
+									],
+								],
+								$card_key => [
+									'class' => 'timeline-item__card',
+								],
+								$wysiwyg_key => [
+									'class' => 'ma-el-timeline-entry-content',
+								],
+								$meta_key => [
+									'class' => [
+										'timeline-item__meta',
+										'meta',
+									],
+								],
+							]);
 
-						case 'letters':
-							$point_content = $this->ma_timeline_points_text($point_content_type, $index, $item);
-							break;
 
-						case 'image':
-							$point_content = $this->ma_timeline_points_image($item);
-							break;
+							if (!empty($item['ma_el_custom_timeline_link']['url'])) {
+								$card_tag = 'a';
 
-						case 'icons':
-							$point_content = $this->ma_timeline_points_icon($item);
-							break;
+								$this->add_render_attribute($card_key, 'href', $item['ma_el_custom_timeline_link']['url']);
 
-						default:
-							$point_content = $this->ma_timeline_points_global_points();
-					}
-				}
+								if ($item['ma_el_custom_timeline_link']['is_external']) {
+									$this->add_render_attribute($card_key, 'target', '_blank');
+								}
+
+								if ($item['ma_el_custom_timeline_link']['nofollow']) {
+									$this->add_render_attribute($card_key, 'rel', 'nofollow');
+								}
+							}
+
+							if (ma_el_fs()->can_use_premium_code()) {
+
+								if (('yes' === $item['ma_el_custom_timeline_custom_style'] && '' !== $item['ma_el_custom_timeline_point_content_type'])) {
+									$point_content_type = $item['ma_el_custom_timeline_point_content_type'];
+								} else {
+									$point_content_type = $item['ma_el_custom_timeline_point_content'];
+								}
+
+
+								switch ($point_content_type) {
+									case 'numbers':
+
+									case 'letters':
+										$point_content = $this->ma_timeline_points_text($point_content_type, $index, $item);
+										break;
+
+									case 'image':
+										$point_content = $this->ma_timeline_points_image($item);
+										break;
+
+									case 'icons':
+										$point_content = $this->ma_timeline_points_icon($item);
+										break;
+
+									default:
+										$point_content = $this->ma_timeline_points_global_points();
+								}
+							}
 	?>
 		<div <?php echo $this->get_render_attribute_string($item_key); ?>>
-			<div <?php echo $this->get_render_attribute_string( 'point' ); ?>><?php echo $point_content; ?></div>
-			<div <?php echo $this->get_render_attribute_string( 'card-wrapper' ); ?>>
+			<div <?php echo $this->get_render_attribute_string('point'); ?>><?php echo $point_content; ?></div>
+			<div <?php echo $this->get_render_attribute_string('card-wrapper'); ?>>
 				<div class="ma-el-timeline-post-inner">
 					<<?php echo $card_tag; ?> <?php echo $this->get_render_attribute_string($card_key); ?>>
 						<div class="timeline-item__content-wrapper">
@@ -2829,7 +2826,7 @@ class Timeline extends Widget_Base
 								</div>
 							<?php } ?>
 
-							<?php $this->render_custom_card_meta( $index, $item ); ?>
+							<?php $this->render_custom_card_meta($index, $item); ?>
 
 							<div <?php echo $this->get_render_attribute_string($wysiwyg_key); ?>>
 								<?php echo $this->parse_text_editor($item['ma_el_custom_timeline_content']); ?>
@@ -2838,186 +2835,198 @@ class Timeline extends Widget_Base
 						</div><!-- /.post -->
 					</<?php echo $card_tag; ?>>
 				</div><!-- /.ma-el-timeline-post-inner -->
-			</div>  <!-- card-wrapper -->
-			<div <?php echo $this->get_render_attribute_string( 'meta-wrapper' ); ?>><?php
-				$this->render_custom_card_meta( $index, $item );
-			?></div>
+			</div> <!-- card-wrapper -->
+			<div <?php echo $this->get_render_attribute_string('meta-wrapper'); ?>>
+				<?php
+							$this->render_custom_card_meta($index, $item);
+				?>
+			</div>
 		</div>
 
 	<?php } ?>
 
-<?php }
+<?php
+					}
 
 
-protected function render_image( $item = false ) {
-	call_user_func( [ $this, 'render_' . $this->get_settings('ma_el_timeline_type') . '_thumbnail' ], $item );
-}
+					protected function render_image($item = false)
+					{
+						call_user_func([$this, 'render_' . $this->get_settings('ma_el_timeline_type') . '_thumbnail'], $item);
+					}
 
 
-protected function render_custom_thumbnail( $item ) {
-	if ( '' === $item['ma_el_custom_timeline_image']['url'] )
-		return;
+					protected function render_custom_thumbnail($item)
+					{
+						if ('' === $item['ma_el_custom_timeline_image']['url'])
+							return;
 
-	?><div <?php echo $this->get_render_attribute_string( 'image' ); ?>><?php
-		echo Group_Control_Image_Size::get_attachment_image_html( $item );
-	?></div><?php
-}
-
-protected function render_card_arrow() {
-	?><div <?php echo $this->get_render_attribute_string( 'arrow' ); ?>></div><?php
-}
-
-protected function render_custom_card_meta( $index, $item ) {
-	$settings = $this->get_settings_for_display();
-
-	$meta_key = $this->get_repeater_setting_key( 'date', 'items', $index );
-
-	$this->add_inline_editing_attributes( $meta_key, 'basic' );
-
-	$this->add_render_attribute([
-		$meta_key => [
-			'class' => [
-				'timeline-item__meta',
-				'meta',
-			],
-		],
-	]);
-
-	?>
-	<div <?php echo $this->get_render_attribute_string( $meta_key ); ?>>
+?>
+	<div <?php echo $this->get_render_attribute_string('image'); ?>>
 		<?php
-			$item_date = $this->parse_text_editor( $item['ma_el_custom_timeline_date'] );
-			echo date($settings['ma_el_timeline_date_format'], strtotime($item_date));
+						echo Group_Control_Image_Size::get_attachment_image_html($item);
+		?></div>
+<?php
+					}
+
+					protected function render_card_arrow()
+					{
+?>
+	<div <?php echo $this->get_render_attribute_string('arrow'); ?>></div>
+<?php
+					}
+
+					protected function render_custom_card_meta($index, $item)
+					{
+						$settings = $this->get_settings_for_display();
+
+						$meta_key = $this->get_repeater_setting_key('date', 'items', $index);
+
+						$this->add_inline_editing_attributes($meta_key, 'basic');
+
+						$this->add_render_attribute([
+							$meta_key => [
+								'class' => [
+									'timeline-item__meta',
+									'meta',
+								],
+							],
+						]);
+
+?>
+	<div <?php echo $this->get_render_attribute_string($meta_key); ?>>
+		<?php
+						$item_date = $this->parse_text_editor($item['ma_el_custom_timeline_date']);
+						echo date($settings['ma_el_timeline_date_format'], strtotime($item_date));
 		?>
 	</div><!-- meta -->
-	<?php
-}
+<?php
+					}
 
 
-protected function jltma_horizontal_timeline()
-{
-	$settings = $this->get_settings_for_display();
-	$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
+					protected function jltma_horizontal_timeline()
+					{
+						$settings = $this->get_settings_for_display();
+						$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
 
-	if ($settings['ma_el_timeline_design_type'] === 'horizontal') {
-		$this->add_render_attribute([
-			'swiper-container' => [
-				'class' =>			[
-					'jltma-swiper',
-					'jltma-swiper__container',
-					'ma-el-timeline-slider',
-					'swiper-container'
-				],
-				'data-jltma-template-widget-id' => $unique_id
-			],
+						if ($settings['ma_el_timeline_design_type'] === 'horizontal') {
+							$this->add_render_attribute([
+								'swiper-container' => [
+									'class' =>			[
+										'jltma-swiper',
+										'jltma-swiper__container',
+										'ma-el-timeline-slider',
+										'swiper-container'
+									],
+									'data-jltma-template-widget-id' => $unique_id
+								],
 
-			'swiper-wrapper' => [
-				'class' => [
-					'ma-el-timeline-carousel',
-					'jltma-swiper__wrapper',
-					'swiper-wrapper',
-					'ma-el-timeline-slider',
-					'ma-el-timeline-horizontal'
-				],
-			]
+								'swiper-wrapper' => [
+									'class' => [
+										'ma-el-timeline-carousel',
+										'jltma-swiper__wrapper',
+										'swiper-wrapper',
+										'ma-el-timeline-slider',
+										'ma-el-timeline-horizontal'
+									],
+								]
 
-		]);
-	}
+							]);
+						}
 ?>
 
 	<div <?php echo $this->get_render_attribute_string('swiper-container'); ?>>
 		<div <?php echo $this->get_render_attribute_string('swiper-wrapper'); ?>>
 
 			<?php
-			$j = 0;
-			foreach ($settings['ma_el_custom_timeline_items'] as $index => $item) {
-				$j++;
-				$active_class = ($j == 1) ? "active" : "";
+						$j = 0;
+						foreach ($settings['ma_el_custom_timeline_items'] as $index => $item) {
+							$j++;
+							$active_class = ($j == 1) ? "active" : "";
 
-				$card_tag 		= 'div';
-				$item_key 		= $this->get_repeater_setting_key('item', 'ma_el_custom_timeline_items', $index);
-				$card_key 		= $this->get_repeater_setting_key('card', 'ma_el_custom_timeline_items', $index);
-				$point_content 	= '';
-				$wysiwyg_key 	= $this->get_repeater_setting_key('content', 'ma_el_custom_timeline_items', $index);
-				$meta_key 		= $this->get_repeater_setting_key('date', 'ma_el_custom_timeline_items', $index);
-
-
-				$this->add_render_attribute([
-					$item_key => [
-						'class' => [
-							'elementor-repeater-item-' . $item['_id'],
-							'ma-el-blog-timeline-post',
-							$active_class
-						],
-					],
-					'slider-item' => [
-						'class' => [
-							'jltma-slider__item',
-							'jltma-swiper__slide',
-							'swiper-slide',
-						],
-					],
-					$card_key => [
-						'class' => 'timeline-item__card',
-					],
-					$wysiwyg_key => [
-						'class' => 'ma-el-timeline-entry-content',
-					],
-					$meta_key => [
-						'class' => [
-							'timeline-item__meta',
-							'meta',
-						],
-					],
-				]);
-
-				if (!empty($item['ma_el_custom_timeline_link']['url'])) {
-					$card_tag = 'a';
-
-					$this->add_render_attribute($card_key, 'href', $item['ma_el_custom_timeline_link']['url']);
-
-					if ($item['ma_el_custom_timeline_link']['is_external']) {
-						$this->add_render_attribute($card_key, 'target', '_blank');
-					}
-
-					if ($item['ma_el_custom_timeline_link']['nofollow']) {
-						$this->add_render_attribute($card_key, 'rel', 'nofollow');
-					}
-				}
+							$card_tag 		= 'div';
+							$item_key 		= $this->get_repeater_setting_key('item', 'ma_el_custom_timeline_items', $index);
+							$card_key 		= $this->get_repeater_setting_key('card', 'ma_el_custom_timeline_items', $index);
+							$point_content 	= '';
+							$wysiwyg_key 	= $this->get_repeater_setting_key('content', 'ma_el_custom_timeline_items', $index);
+							$meta_key 		= $this->get_repeater_setting_key('date', 'ma_el_custom_timeline_items', $index);
 
 
-				if (('yes' === isset($item['ma_el_custom_timeline_custom_style']) && isset($item['ma_el_timeline_points_content']) !== '')) {
-					$point_content_type = $item['ma_el_timeline_points_content'];
-				} else {
-					$point_content_type = $settings['ma_el_timeline_points_content'];
-				}
+							$this->add_render_attribute([
+								$item_key => [
+									'class' => [
+										'elementor-repeater-item-' . $item['_id'],
+										'ma-el-blog-timeline-post',
+										$active_class
+									],
+								],
+								'slider-item' => [
+									'class' => [
+										'jltma-slider__item',
+										'jltma-swiper__slide',
+										'swiper-slide',
+									],
+								],
+								$card_key => [
+									'class' => 'timeline-item__card',
+								],
+								$wysiwyg_key => [
+									'class' => 'ma-el-timeline-entry-content',
+								],
+								$meta_key => [
+									'class' => [
+										'timeline-item__meta',
+										'meta',
+									],
+								],
+							]);
+
+							if (!empty($item['ma_el_custom_timeline_link']['url'])) {
+								$card_tag = 'a';
+
+								$this->add_render_attribute($card_key, 'href', $item['ma_el_custom_timeline_link']['url']);
+
+								if ($item['ma_el_custom_timeline_link']['is_external']) {
+									$this->add_render_attribute($card_key, 'target', '_blank');
+								}
+
+								if ($item['ma_el_custom_timeline_link']['nofollow']) {
+									$this->add_render_attribute($card_key, 'rel', 'nofollow');
+								}
+							}
+
+
+							if (('yes' === isset($item['ma_el_custom_timeline_custom_style']) && isset($item['ma_el_timeline_points_content']) !== '')) {
+								$point_content_type = $item['ma_el_timeline_points_content'];
+							} else {
+								$point_content_type = $settings['ma_el_timeline_points_content'];
+							}
 
 
 
-				switch ($point_content_type) {
-					case 'numbers':
+							switch ($point_content_type) {
+								case 'numbers':
 
-					case 'letters':
-						$point_content = $this->ma_timeline_points_text($point_content_type, $index, $item);
-						break;
+								case 'letters':
+									$point_content = $this->ma_timeline_points_text($point_content_type, $index, $item);
+									break;
 
-					case 'image':
-						$point_content = $this->ma_timeline_points_image($item);
-						break;
+								case 'image':
+									$point_content = $this->ma_timeline_points_image($item);
+									break;
 
-					case 'icons':
-						$point_content = $this->ma_timeline_points_icon($item);
-						break;
+								case 'icons':
+									$point_content = $this->ma_timeline_points_icon($item);
+									break;
 
-					default:
-						$point_content = '<span class="hexagon"></span>';
-				}
+								default:
+									$point_content = '<span class="hexagon"></span>';
+							}
 
-				//                                        if($settings['ma_el_timeline_selected_global_icon']['value']){
-				//	                                            $point_content = $this->ma_timeline_points_global_points();
-				//                                        } else{
-				//            				                    $point_content = '<span class="hexagon"></span>';
-				//                                        }
+							//                                        if($settings['ma_el_timeline_selected_global_icon']['value']){
+							//	                                            $point_content = $this->ma_timeline_points_global_points();
+							//                                        } else{
+							//            				                    $point_content = '<span class="hexagon"></span>';
+							//                                        }
 
 			?>
 
@@ -3065,203 +3074,203 @@ protected function jltma_horizontal_timeline()
 
 	<?php }
 
-		protected function ma_timeline_points_text($type, $index = false, $item = false)
-		{
+					protected function ma_timeline_points_text($type, $index = false, $item = false)
+					{
 
-			$settings 	= $this->get_settings();
-			$letters 	= range('A', 'Z');
-			$point_key 	= ($item) ? $this->get_repeater_setting_key('icon', 'items', $index) : 'point-text';
-			$text 		= 0;
+						$settings 	= $this->get_settings();
+						$letters 	= range('A', 'Z');
+						$point_key 	= ($item) ? $this->get_repeater_setting_key('icon', 'items', $index) : 'point-text';
+						$text 		= 0;
 
-			$text 		= ($type === 'numbers') ? $index + 1 : $letters[$index];
+						$text 		= ($type === 'numbers') ? $index + 1 : $letters[$index];
 
-			if ($item) {
-				if ($item['ma_el_custom_timeline_custom_style'] === 'yes' && '' !== $item['ma_el_custom_timeline_point_content']) {
-					$text = $item['ma_el_custom_timeline_point_content'];
-				}
-			}
+						if ($item) {
+							if ($item['ma_el_custom_timeline_custom_style'] === 'yes' && '' !== $item['ma_el_custom_timeline_point_content']) {
+								$text = $item['ma_el_custom_timeline_point_content'];
+							}
+						}
 
-			$this->add_render_attribute($point_key, 'class', [
-				'ma-el-timeline-post-type-icon',
-				'timeline-item__point__text'
-			]);
+						$this->add_render_attribute($point_key, 'class', [
+							'ma-el-timeline-post-type-icon',
+							'timeline-item__point__text'
+						]);
 
-			$output = '<div ' . $this->get_render_attribute_string($point_key) . '>' . $text . '</div>';
+						$output = '<div ' . $this->get_render_attribute_string($point_key) . '>' . $text . '</div>';
 
-			return $output;
-		}
+						return $output;
+					}
 
-		protected function ma_timeline_points_image($item = false)
-		{
-			$settings 	= $this->get_settings();
+					protected function ma_timeline_points_image($item = false)
+					{
+						$settings 	= $this->get_settings();
 
-			$output = '<div class="ma-el-timeline-post-mini-thumb">';
+						$output = '<div class="ma-el-timeline-post-mini-thumb">';
 
-			if (isset($item['ma_el_custom_timeline_pointer_image']) && $item['ma_el_custom_timeline_pointer_image'] != "") {
+						if (isset($item['ma_el_custom_timeline_pointer_image']) && $item['ma_el_custom_timeline_pointer_image'] != "") {
 
-				$output .= Group_Control_Image_Size::get_attachment_image_html($item, 'ma_el_custom_timeline_pointer_image');
-			} elseif ($settings['ma_el_timeline_points_image'] != "") {
+							$output .= Group_Control_Image_Size::get_attachment_image_html($item, 'ma_el_custom_timeline_pointer_image');
+						} elseif ($settings['ma_el_timeline_points_image'] != "") {
 
-				$output .= Group_Control_Image_Size::get_attachment_image_html($settings, 'ma_el_timeline_points_image');
-			}
-
-
-			$output .= '</div>';
-
-			return $output;
-		}
+							$output .= Group_Control_Image_Size::get_attachment_image_html($settings, 'ma_el_timeline_points_image');
+						}
 
 
-		protected function ma_timeline_points_global_points()
-		{
-			$settings 	= $this->get_settings();
+						$output .= '</div>';
 
-			$global_point_content_type = $settings['ma_el_timeline_points_content'];
-
-			switch ($global_point_content_type) {
-
-				case 'numbers':
-
-				case 'letters':
-					$point_content = $this->ma_timeline_points_text($global_point_content_type, true, false);
-					break;
-
-				case 'image':
-					$point_content = $this->ma_timeline_points_image($item = false);
-					break;
-
-				case 'icons':
-					$point_content = $this->ma_timeline_points_icon($item = false);
-					break;
-
-				default:
-					$point_content = $this->ma_timeline_points_icon($item = false);
-			}
-
-			return $point_content;
-		}
+						return $output;
+					}
 
 
-		protected function ma_timeline_points_icon($item = false)
-		{
-			$settings = $this->get_settings();
+					protected function ma_timeline_points_global_points()
+					{
+						$settings 	= $this->get_settings();
+
+						$global_point_content_type = $settings['ma_el_timeline_points_content'];
+
+						switch ($global_point_content_type) {
+
+							case 'numbers':
+
+							case 'letters':
+								$point_content = $this->ma_timeline_points_text($global_point_content_type, true, false);
+								break;
+
+							case 'image':
+								$point_content = $this->ma_timeline_points_image($item = false);
+								break;
+
+							case 'icons':
+								$point_content = $this->ma_timeline_points_icon($item = false);
+								break;
+
+							default:
+								$point_content = $this->ma_timeline_points_icon($item = false);
+						}
+
+						return $point_content;
+					}
 
 
-			$global_icon_migrated 	= isset($item['__fa4_migrated']['ma_el_timeline_selected_global_icon']);
-			$global_icon_is_new 	= empty($item['global_icon']) && Icons_Manager::is_migration_allowed();
-			$has_global_icon 		= !empty($settings['global_icon']) || !empty($settings['ma_el_timeline_selected_global_icon']['value']);
-
-			if ($item) {
-				$has_item_icon = !empty($item['selected_point_icon']) || !empty($item['ma_el_custom_timeline_selected_icon']['value']);
-				$item_icon_migrated = isset($item['__fa4_migrated']['ma_el_custom_timeline_selected_icon']);
-				$item_icon_is_new = empty($item['selected_point_icon']) && Icons_Manager::is_migration_allowed();
-			}
-
-			$output = '<div ' . $this->get_render_attribute_string('icon-wrapper') . '>';
-
-			$icon_markup = '<i class="%s "></i>';
-
-			if ($item && '' !== isset($item['selected_point_icon']) && $has_item_icon) {
-				if ($item_icon_is_new || $item_icon_migrated) {
-					$output .= $this->get_library_point_icon($item['ma_el_custom_timeline_selected_icon']);
-				} else {
-					$output .= sprintf($icon_markup, $item['selected_point_icon']);
-				}
-			} else if ($has_global_icon) {
-				if ($global_icon_is_new || $global_icon_migrated) {
-					$output .= $this->get_library_point_icon($settings['ma_el_timeline_selected_global_icon']);
-				} else {
-					$output .= sprintf($icon_markup, $settings['global_icon']);
-				}
-			}
-
-			$output .= '</div>';
-
-			return $output;
-		}
+					protected function ma_timeline_points_icon($item = false)
+					{
+						$settings = $this->get_settings();
 
 
-		protected function get_library_point_icon($setting)
-		{
-			ob_start();
-			Icons_Manager::render_icon($setting);
-			return ob_get_clean();
-		}
+						$global_icon_migrated 	= isset($item['__fa4_migrated']['ma_el_timeline_selected_global_icon']);
+						$global_icon_is_new 	= empty($item['global_icon']) && Icons_Manager::is_migration_allowed();
+						$has_global_icon 		= !empty($settings['global_icon']) || !empty($settings['ma_el_timeline_selected_global_icon']['value']);
+
+						if ($item) {
+							$has_item_icon = !empty($item['selected_point_icon']) || !empty($item['ma_el_custom_timeline_selected_icon']['value']);
+							$item_icon_migrated = isset($item['__fa4_migrated']['ma_el_custom_timeline_selected_icon']);
+							$item_icon_is_new = empty($item['selected_point_icon']) && Icons_Manager::is_migration_allowed();
+						}
+
+						$output = '<div ' . $this->get_render_attribute_string('icon-wrapper') . '>';
+
+						$icon_markup = '<i class="%s "></i>';
+
+						if ($item && '' !== isset($item['selected_point_icon']) && $has_item_icon) {
+							if ($item_icon_is_new || $item_icon_migrated) {
+								$output .= $this->get_library_point_icon($item['ma_el_custom_timeline_selected_icon']);
+							} else {
+								$output .= sprintf($icon_markup, $item['selected_point_icon']);
+							}
+						} else if ($has_global_icon) {
+							if ($global_icon_is_new || $global_icon_migrated) {
+								$output .= $this->get_library_point_icon($settings['ma_el_timeline_selected_global_icon']);
+							} else {
+								$output .= sprintf($icon_markup, $settings['global_icon']);
+							}
+						}
+
+						$output .= '</div>';
+
+						return $output;
+					}
+
+
+					protected function get_library_point_icon($setting)
+					{
+						ob_start();
+						Icons_Manager::render_icon($setting);
+						return ob_get_clean();
+					}
 
 
 
-		protected function jltma_post_query_timeline()
-		{
-			$settings = $this->get_settings();
-			$title_html_tag = $settings['title_html_tag'];
-			$card_tag 		= 'div';
-			$point_content 	= '';
+					protected function jltma_post_query_timeline()
+					{
+						$settings = $this->get_settings();
+						$title_html_tag = $settings['title_html_tag'];
+						$card_tag 		= 'div';
+						$point_content 	= '';
 
-			if (ma_el_fs()->can_use_premium_code()) {
+						if (ma_el_fs()->can_use_premium_code()) {
 
-				if (('yes' === $item['ma_el_custom_timeline_custom_style'] && '' !== $item['ma_el_custom_timeline_point_content_type'])) {
-					$point_content_type = $item['ma_el_custom_timeline_point_content_type'];
-				} else {
-					$point_content_type = $item['ma_el_custom_timeline_point_content'];
-				}
+							if (('yes' === $item['ma_el_custom_timeline_custom_style'] && '' !== $item['ma_el_custom_timeline_point_content_type'])) {
+								$point_content_type = $item['ma_el_custom_timeline_point_content_type'];
+							} else {
+								$point_content_type = $item['ma_el_custom_timeline_point_content'];
+							}
 
 
-				switch ($point_content_type) {
-					case 'numbers':
+							switch ($point_content_type) {
+								case 'numbers':
 
-					case 'letters':
-						$point_content = $this->ma_timeline_points_text($point_content_type, $index, $item);
-						break;
+								case 'letters':
+									$point_content = $this->ma_timeline_points_text($point_content_type, $index, $item);
+									break;
 
-					case 'image':
-						$point_content = $this->ma_timeline_points_image($item);
-						break;
+								case 'image':
+									$point_content = $this->ma_timeline_points_image($item);
+									break;
 
-					case 'icons':
-						$point_content = $this->ma_timeline_points_icon($item);
-						break;
+								case 'icons':
+									$point_content = $this->ma_timeline_points_icon($item);
+									break;
 
-					default:
-						$point_content = $this->ma_timeline_points_global_points();
-				}
-			}
+								default:
+									$point_content = $this->ma_timeline_points_global_points();
+							}
+						}
 
-			// Card Links
-			$this->add_render_attribute( [
-				$post_card_key => [
-					'class' => [
-						'timeline-item__card',
-						implode( ' ', get_post_class() ),
-					],
-				],
-			] );
+						// Card Links
+						$this->add_render_attribute([
+							$post_card_key => [
+								'class' => [
+									'timeline-item__card',
+									implode(' ', get_post_class()),
+								],
+							],
+						]);
 
-			if ( 'yes' === $settings['ma_el_timeline_post_card_links'] ) {
-				$card_tag = 'a';
-				$this->add_render_attribute( $post_card_key, 'href', get_permalink(get_the_ID()) );
-			}
+						if ('yes' === $settings['ma_el_timeline_post_card_links']) {
+							$card_tag = 'a';
+							$this->add_render_attribute($post_card_key, 'href', get_permalink(get_the_ID()));
+						}
 	?>
 
 		<div <?php echo $this->get_render_attribute_string('ma_el_timeline_posts'); ?>>
-			<div <?php echo $this->get_render_attribute_string( 'point' ); ?>><?php echo $point_content; ?></div>
-			<div <?php echo $this->get_render_attribute_string( 'card-wrapper' ); ?>>
+			<div <?php echo $this->get_render_attribute_string('point'); ?>><?php echo $point_content; ?></div>
+			<div <?php echo $this->get_render_attribute_string('card-wrapper'); ?>>
 				<div class="ma-el-timeline-post-inner">
 					<<?php echo $card_tag; ?> <?php
-					if ( 'yes' === $settings['ma_el_timeline_post_card_links'] ) {
-						echo 'class="timeline-item__card '. implode( ' ', get_post_class() ) . '" ';
-						echo "href=" . get_permalink(get_the_ID());
-					}
-					?>>
+												if ('yes' === $settings['ma_el_timeline_post_card_links']) {
+													echo 'class="timeline-item__card ' . implode(' ', get_post_class()) . '" ';
+													echo "href=" . get_permalink(get_the_ID());
+												}
+												?>>
 						<div class="timeline-item__content-wrapper">
 
-							<?php if ( has_post_thumbnail() || (isset($settings['ma_el_timeline_post_thumbnail']) && $settings['ma_el_timeline_post_thumbnail']) ){ ?>
+							<?php if (has_post_thumbnail() || (isset($settings['ma_el_timeline_post_thumbnail']) && $settings['ma_el_timeline_post_thumbnail'])) { ?>
 								<div <?php echo $this->get_render_attribute_string('image'); ?>>
 									<?php echo $this->render_posts_thumbnail(); ?>
 								</div>
 							<?php } ?>
 
 							<div class="timeline-item__meta meta">
-								<?php $this->render_date( true, $post_id ); ?>
+								<?php $this->render_date(true, $post_id); ?>
 							</div><!-- meta -->
 
 							<div class="ma-el-timeline-entry-content">
@@ -3269,7 +3278,7 @@ protected function jltma_horizontal_timeline()
 									<<?php echo $title_html_tag; ?> class="ma-el-timeline-entry-title">
 										<?php if ($settings['ma_el_timeline_post_title_link'] == "yes") { ?><a href="<?php the_permalink(); ?>"><?php } ?>
 											<?php the_title(); ?>
-										<?php if ($settings['ma_el_timeline_post_title_link'] == "yes") { ?></a><?php } ?>
+											<?php if ($settings['ma_el_timeline_post_title_link'] == "yes") { ?></a><?php } ?>
 									</<?php echo $title_html_tag; ?>>
 								<?php } ?>
 								<?php $this->ma_el_timeline_content(); ?>
@@ -3280,128 +3289,130 @@ protected function jltma_horizontal_timeline()
 						</div><!-- /.post -->
 					</<?php echo $card_tag; ?>>
 				</div><!-- /.ma-el-timeline-post-inner -->
-			</div>  <!-- card-wrapper -->
-			<div <?php echo $this->get_render_attribute_string( 'meta-wrapper' ); ?>>
-				<?php $this->render_date( true, $post_id ); ?>
+			</div> <!-- card-wrapper -->
+			<div <?php echo $this->get_render_attribute_string('meta-wrapper'); ?>>
+				<?php $this->render_date(true, $post_id); ?>
 			</div>
 		</div>
-<?php
-}
-
-	protected function render_posts_thumbnail() {
-		global $post;
-
-		$settings = $this->get_settings_for_display();
-
-		if ( ! has_post_thumbnail() || '' === $settings['ma_el_timeline_post_thumbnail'] )
-			return;
-
-		$settings['ma_el_timeline_post_thumbnail_size'] = [
-			'id' => get_post_thumbnail_id(),
-		];
-
-		?><div <?php echo $this->get_render_attribute_string( 'image' ); ?>><?php
-
-		if ( '' === $settings['ma_el_timeline_post_card_links'] ) {
-			?><a href="<?php echo the_permalink(); ?>"><?php
-		}
-
-		echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'ma_el_timeline_post_thumbnail_size' );
-
-		if ( '' === $settings['ma_el_timeline_post_card_links'] ) {
-			?></a><?php
-		}
-
-		?></div><?php
-	}
-
-		protected function ma_el_timeline_content()
-		{
-
-			$settings = $this->get_settings();
-
-			$excerpt_type = $settings['ma_el_timeline_excerpt_type'];
-			$excerpt_text = $settings['ma_el_timeline_excerpt_text'];
-			//			$excerpt_src  = $settings['ma_el_post_grid_excerpt_content'];
-			$excerpt_length = $settings['ma_el_timeline_excerpt_length'] ? $settings['ma_el_timeline_excerpt_length'] : 25;
-			echo Master_Addons_Helper::ma_el_get_excerpt_by_id(
-				get_the_ID(),
-				$excerpt_length,
-				$excerpt_type,
-				$this->parse_text_editor($excerpt_text),
-				true,
-				'',
-				'',
-				''
-			);
-		}
-
-
-		public function get_date_formatted( $custom = false, $custom_format, $date_format, $time_format, $post_id = null ) {
-			if ( $custom ) {
-				$format = $custom_format;
-			} else {
-				$date_format = $date_format;
-				$time_format = $time_format;
-				$format = '';
-
-				if ( 'default' === $date_format ) {
-					$date_format = get_option( 'date_format' );
-				}
-
-				if ( 'default' === $time_format ) {
-					$time_format = get_option( 'time_format' );
-				}
-
-				if ( $date_format ) {
-					$format = $date_format;
-					$has_date = true;
-				} else {
-					$has_date = false;
-				}
-
-				if ( $time_format ) {
-					if ( $has_date ) {
-						$format .= ' ';
+	<?php
 					}
-					$format .= $time_format;
-				}
-			}
 
-			$value = get_the_date( $format, $post_id );
+					protected function render_posts_thumbnail()
+					{
+						global $post;
 
-			return wp_kses_post( $value );
-		}
+						$settings = $this->get_settings_for_display();
 
-		protected function get_settings_for_loop_display( $post_id = false ) {
-			$loop_post_id = [];
-			if ( $post_id ) {
-				if ( array_key_exists( $post_id, $loop_post_id ) ) {
-					return $loop_post_id[ $post_id ];
-				}
-			}
-			return $loop_post_id;
-		}
+						if (!has_post_thumbnail() || '' === $settings['ma_el_timeline_post_thumbnail'])
+							return;
 
-		protected function render_date( $echo = true, $post_id = null ) {
+						$settings['ma_el_timeline_post_thumbnail_size'] = [
+							'id' => get_post_thumbnail_id(),
+						];
 
-			$settings 		= $this->get_settings_for_display();
-			$loop_settings 	= $this->get_settings_for_loop_display( get_the_ID() );
+	?><div <?php echo $this->get_render_attribute_string('image'); ?>><?php
 
-			print_r($post_id);
+																		if ('' === $settings['ma_el_timeline_post_card_links']) {
+																		?><a href="<?php echo the_permalink(); ?>"><?php
+																												}
 
-			if ( 'custom' === $settings['ma_el_timeline_date_format'] ) {
-				$date = $loop_settings['ma_el_timeline_date_custom_format'];
-			} else {
-				$date = $this->get_date_formatted( $custom, $settings['ma_el_timeline_date_custom_format'], $settings['ma_el_timeline_date_format'], $settings['ma_el_timeline_time_format'], $post_id );
-			}
-			echo $date;
-			if ( ! $echo ) {
-				return $date;
-			}
+																												echo Group_Control_Image_Size::get_attachment_image_html($settings, 'ma_el_timeline_post_thumbnail_size');
 
-			return $date;
-		}
+																												if ('' === $settings['ma_el_timeline_post_card_links']) {
+																													?></a><?php
+																														}
+
+																															?></div><?php
+																																}
+
+																																protected function ma_el_timeline_content()
+																																{
+
+																																	$settings = $this->get_settings();
+
+																																	$excerpt_type = $settings['ma_el_timeline_excerpt_type'];
+																																	$excerpt_text = $settings['ma_el_timeline_excerpt_text'];
+																																	//			$excerpt_src  = $settings['ma_el_post_grid_excerpt_content'];
+																																	$excerpt_length = $settings['ma_el_timeline_excerpt_length'] ? $settings['ma_el_timeline_excerpt_length'] : 25;
+																																	echo Master_Addons_Helper::ma_el_get_excerpt_by_id(
+																																		get_the_ID(),
+																																		$excerpt_length,
+																																		$excerpt_type,
+																																		$this->parse_text_editor($excerpt_text),
+																																		true,
+																																		'',
+																																		'',
+																																		''
+																																	);
+																																}
 
 
-	}
+																																public function get_date_formatted($custom = false, $custom_format, $date_format, $time_format, $post_id = null)
+																																{
+																																	if ($custom) {
+																																		$format = $custom_format;
+																																	} else {
+																																		$date_format = $date_format;
+																																		$time_format = $time_format;
+																																		$format = '';
+
+																																		if ('default' === $date_format) {
+																																			$date_format = get_option('date_format');
+																																		}
+
+																																		if ('default' === $time_format) {
+																																			$time_format = get_option('time_format');
+																																		}
+
+																																		if ($date_format) {
+																																			$format = $date_format;
+																																			$has_date = true;
+																																		} else {
+																																			$has_date = false;
+																																		}
+
+																																		if ($time_format) {
+																																			if ($has_date) {
+																																				$format .= ' ';
+																																			}
+																																			$format .= $time_format;
+																																		}
+																																	}
+
+																																	$value = get_the_date($format, $post_id);
+
+																																	return wp_kses_post($value);
+																																}
+
+																																protected function get_settings_for_loop_display($post_id = false)
+																																{
+																																	$loop_post_id = [];
+																																	if ($post_id) {
+																																		if (array_key_exists($post_id, $loop_post_id)) {
+																																			return $loop_post_id[$post_id];
+																																		}
+																																	}
+																																	return $loop_post_id;
+																																}
+
+																																protected function render_date($echo = true, $post_id = null)
+																																{
+
+																																	$settings 		= $this->get_settings_for_display();
+																																	$loop_settings 	= $this->get_settings_for_loop_display(get_the_ID());
+
+																																	print_r($post_id);
+
+																																	if ('custom' === $settings['ma_el_timeline_date_format']) {
+																																		$date = $loop_settings['ma_el_timeline_date_custom_format'];
+																																	} else {
+																																		$date = $this->get_date_formatted($custom, $settings['ma_el_timeline_date_custom_format'], $settings['ma_el_timeline_date_format'], $settings['ma_el_timeline_time_format'], $post_id);
+																																	}
+																																	echo $date;
+																																	if (!$echo) {
+																																		return $date;
+																																	}
+
+																																	return $date;
+																																}
+																															}
