@@ -1475,6 +1475,17 @@ class Blog extends Widget_Base
 		);
 
 		$this->add_control(
+			'ma_el_blog_cat_tabs_all_text',
+			[
+				'label'             => __('All Text', MELA_TD),
+				'type'              => Controls_Manager::TEXT,
+				'placeholder'       => __('All', MELA_TD),
+				'default'           => __('All', MELA_TD),
+
+			]
+		);
+
+		$this->add_control(
 			'ma_el_blog_categories',
 			[
 				'label'         => __('Filter By Category', MELA_TD),
@@ -3977,7 +3988,7 @@ class Blog extends Widget_Base
 									<ul class="ma-el-blog-cats-container">
 										<li>
 											<a href="javascript:;" class="category active" data-filter="*">
-												<span><?php echo __('All', MELA_TD); ?></span>
+												<span><?php echo $settings['ma_el_blog_cat_tabs_all_text']; ?></span>
 											</a>
 										</li>
 										<?php foreach ($settings['ma_el_blog_categories'] as $index => $id) {
