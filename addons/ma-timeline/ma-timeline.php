@@ -2837,16 +2837,13 @@ class Timeline extends Widget_Base
 				</div><!-- /.ma-el-timeline-post-inner -->
 			</div> <!-- card-wrapper -->
 			<div <?php echo $this->get_render_attribute_string('meta-wrapper'); ?>>
-				<?php
-							$this->render_custom_card_meta($index, $item);
-				?>
+				<?php $this->render_custom_card_meta($index, $item); ?>
 			</div>
 		</div>
 
 	<?php } ?>
 
-<?php
-					}
+<?php }
 
 
 					protected function render_image($item = false)
