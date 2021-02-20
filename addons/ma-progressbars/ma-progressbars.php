@@ -26,7 +26,7 @@ class Progress_Bars extends Widget_Base
 
 	public function get_title()
 	{
-		return esc_html__('MA Progressbars', MELA_TD);
+		return esc_html__('Progressbars', MELA_TD);
 	}
 
 	public function get_icon()

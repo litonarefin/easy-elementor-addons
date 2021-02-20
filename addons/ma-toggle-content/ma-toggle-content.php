@@ -41,7 +41,7 @@ class Toggle_Content extends Widget_Base
 
     public function get_title()
     {
-        return esc_html__('MA Toggle Content', MELA_TD);
+        return esc_html__('Toggle Content', MELA_TD);
     }
 
     public function get_icon()
@@ -1037,20 +1037,20 @@ class Toggle_Content extends Widget_Base
                                                                                                                                                                                                                                     if (!empty($item['jltma_toggle_content_text']) && !$has_icon) {
                                                                                                                                                                                                                                     ?><span <?php echo $this->get_render_attribute_string($control_text_key); ?>><?php }
 
-                                                                                                                                                                                                                                        if (!empty($item['jltma_toggle_content_text'])) {
-                                                                                                                                                                                                                                            echo $item['jltma_toggle_content_text'];
-                                                                                                                                                                                                                                        } else if (!$has_icon) {
-                                                                                                                                                                                                                                            echo '&nbsp;';
-                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                                                                if (!empty($item['jltma_toggle_content_text'])) {
+                                                                                                                                                                                                                                                                                                                    echo $item['jltma_toggle_content_text'];
+                                                                                                                                                                                                                                                                                                                } else if (!$has_icon) {
+                                                                                                                                                                                                                                                                                                                    echo '&nbsp;';
+                                                                                                                                                                                                                                                                                                                }
 
-                                                                                                                                                                                                                                        if (!empty($item['jltma_toggle_content_text']) && !$has_icon) {
-                                                                                                                                                                                                                                            ?></span><?php }
+                                                                                                                                                                                                                                                                                                                if (!empty($item['jltma_toggle_content_text']) && !$has_icon) {
+                                                                                                                                                                                                                                                                                                                    ?></span><?php }
 
-                                                                                                                                                                                        ?></li><?php
-                                                                                                                                                            }
-                                                                                                                                ?></ul><?php
-                                                                                        }
-                                                        ?>
+                                                                                                                                                                                                                                                        ?></li><?php
+                                                                                                                                                                                            }
+                                                                                                                                                                                                ?></ul><?php
+                                                                                                                                    }
+                                                                                                                                        ?>
         </div><?php
             }
 

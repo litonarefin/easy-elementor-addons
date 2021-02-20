@@ -37,7 +37,7 @@ class Image_Carousel extends Widget_Base
 
 	public function get_title()
 	{
-		return __('MA Image Carousel', MELA_TD);
+		return __('Image Carousel', MELA_TD);
 	}
 
 	public function get_icon()

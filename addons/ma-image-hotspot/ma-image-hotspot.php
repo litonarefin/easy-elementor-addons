@@ -43,7 +43,7 @@ class Image_Hotspot extends Widget_Base
 
 	public function get_title()
 	{
-		return __('MA Image Hotspot', MELA_TD);
+		return __('Image Hotspot', MELA_TD);
 	}
 
 	public function get_categories()

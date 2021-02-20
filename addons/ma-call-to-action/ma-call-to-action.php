@@ -30,7 +30,7 @@ class Call_to_Action extends Widget_Base
 
 	public function get_title()
 	{
-		return esc_html__('MA Call to Action', MELA_TD);
+		return esc_html__('Call to Action', MELA_TD);
 	}
 
 	public function get_icon()

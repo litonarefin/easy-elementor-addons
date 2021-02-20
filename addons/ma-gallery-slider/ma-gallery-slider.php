@@ -36,7 +36,7 @@ class Gallery_Slider extends Widget_Base
 	}
 	public function get_title()
 	{
-		return esc_html__('MA Gallery Slider', MELA_TD);
+		return esc_html__('Gallery Slider', MELA_TD);
 	}
 	public function get_icon()
 	{

@@ -28,7 +28,7 @@ class Creative_Button extends Widget_Base
 
 	public function get_title()
 	{
-		return esc_html__('MA Creative Buttons', MELA_TD);
+		return esc_html__('Creative Buttons', MELA_TD);
 	}
 
 	public function get_icon()

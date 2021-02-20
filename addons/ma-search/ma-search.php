@@ -37,7 +37,7 @@ class Search extends Widget_Base
     }
     public function get_title()
     {
-        return __('MA Search', MELA_TD);
+        return __('Search', MELA_TD);
     }
 
     public function get_categories()

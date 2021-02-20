@@ -28,7 +28,7 @@ class Master_Addons_Mailchimp extends Widget_Base
 
 	public function get_title()
 	{
-		return __('MA Mailchimp', MELA_TD);
+		return __('Mailchimp', MELA_TD);
 	}
 
 	public function get_icon()

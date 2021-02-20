@@ -28,7 +28,7 @@ class Instagram_Feed extends Widget_Base
 
     public function get_title()
     {
-        return esc_html__('MA Instagram Feed', MELA_TD);
+        return esc_html__('Instagram Feed', MELA_TD);
     }
 
     public function get_icon()

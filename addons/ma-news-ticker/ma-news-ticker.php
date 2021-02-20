@@ -36,7 +36,7 @@ class News_Ticker extends Widget_Base
 	}
 	public function get_title()
 	{
-		return __('MA News Ticker', MELA_TD);
+		return __('News Ticker', MELA_TD);
 	}
 
 	public function get_categories()

@@ -38,7 +38,7 @@ class Nav_Menu extends Widget_Base
     }
     public function get_title()
     {
-        return __('MA Navigation Menu', MELA_TD);
+        return __('Nav Menu', MELA_TD);
     }
 
     public function get_categories()

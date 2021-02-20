@@ -33,7 +33,7 @@ class Business_Hours extends Widget_Base
 	}
 	public function get_title()
 	{
-		return esc_html__('MA Business Hours', MELA_TD);
+		return esc_html__('Business Hours', MELA_TD);
 	}
 
 	public function get_categories()

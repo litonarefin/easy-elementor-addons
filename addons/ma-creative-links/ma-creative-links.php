@@ -29,7 +29,7 @@ class Creative_Links extends Widget_Base
 
 	public function get_title()
 	{
-		return esc_html__('MA Creative Links', MELA_TD);
+		return esc_html__('Creative Links', MELA_TD);
 	}
 
 	public function get_icon()

@@ -47,7 +47,7 @@ class Timeline extends Widget_Base
 
 	public function get_title()
 	{
-		return __('MA Timeline', MELA_TD);
+		return __('Timeline', MELA_TD);
 	}
 
 	public function get_categories()

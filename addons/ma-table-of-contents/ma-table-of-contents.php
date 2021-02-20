@@ -34,7 +34,7 @@ class Table_of_Contents extends Widget_Base
 	}
 	public function get_title()
 	{
-		return __('MA Table of Contents', MELA_TD);
+		return __('Table of Contents', MELA_TD);
 	}
 
 	public function get_categories()

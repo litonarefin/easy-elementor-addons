@@ -30,7 +30,7 @@ class Countdown_Timer extends Widget_Base
 	}
 	public function get_title()
 	{
-		return esc_html__('MA Countdown Timer', MELA_TD);
+		return esc_html__('Countdown Timer', MELA_TD);
 	}
 	public function get_icon()
 	{

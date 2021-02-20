@@ -22,7 +22,7 @@ class Gradient_Headline extends Widget_Base
 
 	public function get_title()
 	{
-		return esc_html__('MA Gradient Headline', MELA_TD);
+		return esc_html__('Gradient Headline', MELA_TD);
 	}
 
 	public function get_icon()

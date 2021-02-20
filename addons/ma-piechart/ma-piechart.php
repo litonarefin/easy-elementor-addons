@@ -19,7 +19,7 @@ class Master_Addons_Piechart extends Widget_Base
 
 	public function get_title()
 	{
-		return esc_html__('MA Piecharts', MELA_TD);
+		return esc_html__('Piecharts', MELA_TD);
 	}
 
 	public function get_icon()

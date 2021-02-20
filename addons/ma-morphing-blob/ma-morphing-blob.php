@@ -7,7 +7,7 @@ use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Image_Size;
 
-class Morphong_Blob extends Widget_Base
+class Morphing_Blob extends Widget_Base
 {
 
     public function get_name()

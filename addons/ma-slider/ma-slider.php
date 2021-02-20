@@ -29,7 +29,7 @@ if (!defined('ABSPATH')) {
 /**
  * Modulify Site Title
  */
-class Modulify_All_Widgets extends Widget_Base
+class Slider extends Widget_Base
 {
 
 	public function get_name()
@@ -39,7 +39,7 @@ class Modulify_All_Widgets extends Widget_Base
 
 	public function get_title()
 	{
-		return __('Modulify Widgets', 'modulify');
+		return __('Modulify Widgets', MELA_TD);
 	}
 
 	public function get_icon()
@@ -55,12 +55,10 @@ class Modulify_All_Widgets extends Widget_Base
 	protected function _register_controls()
 	{
 
-
-
 		$this->start_controls_section(
 			'all_filter',
 			[
-				'label' => __('Filter', 'modulify'),
+				'label' => __('Filter', MELA_TD),
 			]
 		);
 
@@ -68,23 +66,23 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'fn_widget_layout',
 			[
-				'label' => esc_html__('Layout', 'modulify'),
+				'label' => esc_html__('Layout', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'carousel_circle' 	=> esc_html__('Carousel Circle', 'modulify'),
-					'carousel_full_a' 	=> esc_html__('Carousel Full Alpha', 'modulify'),
-					'carousel_full_b' 	=> esc_html__('Carousel Full Beta', 'modulify'),
-					'carousel_full_i' 	=> esc_html__('Carousel Full Interactive', 'modulify'),
-					'carousel_square' 	=> esc_html__('Carousel Square', 'modulify'),
-					'carousel_with_c' 	=> esc_html__('Carousel With Content', 'modulify'),
-					'list_just' 		=> esc_html__('List Justified', 'modulify'),
-					'list_masonry' 		=> esc_html__('List Masonry', 'modulify'),
-					'slider_a' 			=> esc_html__('Slider Alpha', 'modulify'),
-					'slider_b' 			=> esc_html__('Slider Beta', 'modulify'),
-					'slider_d' 			=> esc_html__('Slider Delta', 'modulify'),
-					'slider_e' 			=> esc_html__('Slider Epsilon', 'modulify'),
-					'slider_g' 			=> esc_html__('Slider Gamma', 'modulify'),
-					'slider_z' 			=> esc_html__('Slider Zeta', 'modulify'),
+					'carousel_circle' 	=> esc_html__('Carousel Circle', MELA_TD),
+					'carousel_full_a' 	=> esc_html__('Carousel Full Alpha', MELA_TD),
+					'carousel_full_b' 	=> esc_html__('Carousel Full Beta', MELA_TD),
+					'carousel_full_i' 	=> esc_html__('Carousel Full Interactive', MELA_TD),
+					'carousel_square' 	=> esc_html__('Carousel Square', MELA_TD),
+					'carousel_with_c' 	=> esc_html__('Carousel With Content', MELA_TD),
+					'list_just' 		=> esc_html__('List Justified', MELA_TD),
+					'list_masonry' 		=> esc_html__('List Masonry', MELA_TD),
+					'slider_a' 			=> esc_html__('Slider Alpha', MELA_TD),
+					'slider_b' 			=> esc_html__('Slider Beta', MELA_TD),
+					'slider_d' 			=> esc_html__('Slider Delta', MELA_TD),
+					'slider_e' 			=> esc_html__('Slider Epsilon', MELA_TD),
+					'slider_g' 			=> esc_html__('Slider Gamma', MELA_TD),
+					'slider_z' 			=> esc_html__('Slider Zeta', MELA_TD),
 				],
 				'default' => 'carousel_circle',
 
@@ -204,7 +202,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'carousel_circle_design',
 			[
-				'label' => __('Design', 'modulify'),
+				'label' => __('Design', MELA_TD),
 				'condition' => [
 					'fn_widget_layout' => array('carousel_circle')
 				]
@@ -213,7 +211,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_main_style',
 			[
-				'label' => __('Main Styles', 'modulify'),
+				'label' => __('Main Styles', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -222,14 +220,14 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_main_layout',
 			[
-				'label' => esc_html__('Layout', 'modulify'),
+				'label' => esc_html__('Layout', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'alpha' 			=> esc_html__('Alpha', 'modulify'),
-					'beta' 				=> esc_html__('Beta', 'modulify'),
-					'gamma' 			=> esc_html__('Gamma', 'modulify'),
-					'numbered' 			=> esc_html__('Numbered', 'modulify'),
-					'numbered2' 		=> esc_html__('Numbered 2', 'modulify'),
+					'alpha' 			=> esc_html__('Alpha', MELA_TD),
+					'beta' 				=> esc_html__('Beta', MELA_TD),
+					'gamma' 			=> esc_html__('Gamma', MELA_TD),
+					'numbered' 			=> esc_html__('Numbered', MELA_TD),
+					'numbered2' 		=> esc_html__('Numbered 2', MELA_TD),
 				],
 				'default' => 'alpha',
 
@@ -239,11 +237,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered_img_thumb',
 			[
-				'label' => __('Image Thumb', 'modulify'),
+				'label' => __('Image Thumb', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 				'condition' => [
 					'cc_main_layout' => array('numbered', 'numbered2')
@@ -254,11 +252,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered_hover_thumb',
 			[
-				'label' => __('Hover Thumb', 'modulify'),
+				'label' => __('Hover Thumb', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 				'condition' => [
 					'cc_main_layout' => array('numbered', 'numbered2')
@@ -269,11 +267,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_beta_bg_line',
 			[
-				'label' => esc_html__('Background Line', 'modulify'),
+				'label' => esc_html__('Background Line', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'gradient' 			=> esc_html__('Gradient Overlay', 'modulify'),
-					'color' 			=> esc_html__('Color Overlay', 'modulify'),
+					'gradient' 			=> esc_html__('Gradient Overlay', MELA_TD),
+					'color' 			=> esc_html__('Color Overlay', MELA_TD),
 				],
 				'default' => 'gradient',
 				'condition' => [
@@ -286,11 +284,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_box_shadow_gamma',
 			[
-				'label' => __('Box Shadow for Active Item', 'modulify'),
+				'label' => __('Box Shadow for Active Item', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 				'condition' => [
 					'cc_main_layout' => 'gamma'
@@ -301,11 +299,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_box_shadow_numbered',
 			[
-				'label' => __('Box Shadow Item on hover', 'modulify'),
+				'label' => __('Box Shadow Item on hover', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 				'condition' => [
 					'cc_main_layout' => 'numbered'
@@ -315,11 +313,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_box_shadow_numbered2',
 			[
-				'label' => __('Box Shadow Item on hover', 'modulify'),
+				'label' => __('Box Shadow Item on hover', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 				'condition' => [
 					'cc_main_layout' => 'numbered2'
@@ -330,7 +328,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_alpha_nav_color',
 			[
-				'label' => __('Navigation Icon Color', 'modulify'),
+				'label' => __('Navigation Icon Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -355,7 +353,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_alpha_nav_hover_color',
 			[
-				'label' => __('Navigation Icon Hover Color', 'modulify'),
+				'label' => __('Navigation Icon Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -376,7 +374,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_alpha_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -395,7 +393,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_alpha_title_bg_color',
 			[
-				'label' => __('Title Background Color', 'modulify'),
+				'label' => __('Title Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -414,7 +412,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_beta_nav_color',
 			[
-				'label' => __('Navigation Icon Color', 'modulify'),
+				'label' => __('Navigation Icon Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -435,7 +433,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_beta_nav_hover_color',
 			[
-				'label' => __('Navigation Icon Hover Color', 'modulify'),
+				'label' => __('Navigation Icon Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -454,7 +452,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_beta_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -474,7 +472,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_nav_color',
 			[
-				'label' => __('Navigation Icon Color', 'modulify'),
+				'label' => __('Navigation Icon Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -493,7 +491,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -511,7 +509,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_gamma_line_color',
 			[
-				'label' => __('Line Color', 'modulify'),
+				'label' => __('Line Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -530,7 +528,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered_nav_color',
 			[
-				'label' => __('Navigation Icon Color', 'modulify'),
+				'label' => __('Navigation Icon Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -551,7 +549,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -569,7 +567,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered_number_color',
 			[
-				'label' => __('Number Color', 'modulify'),
+				'label' => __('Number Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -587,7 +585,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered_number_bg_color',
 			[
-				'label' => __('Number Background Color', 'modulify'),
+				'label' => __('Number Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -605,7 +603,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered_number_active_color',
 			[
-				'label' => __('Number Active Color', 'modulify'),
+				'label' => __('Number Active Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -623,7 +621,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered_number_active_bg_color',
 			[
-				'label' => __('Number Active Background Color', 'modulify'),
+				'label' => __('Number Active Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -642,7 +640,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered2_nav_color',
 			[
-				'label' => __('Navigation Icon Color', 'modulify'),
+				'label' => __('Navigation Icon Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -663,7 +661,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered2_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -681,7 +679,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered2_number_color',
 			[
-				'label' => __('Number Color', 'modulify'),
+				'label' => __('Number Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -699,7 +697,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered2_number_bg_color',
 			[
-				'label' => __('Number Background Color', 'modulify'),
+				'label' => __('Number Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -717,7 +715,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered2_number_active_color',
 			[
-				'label' => __('Number Active Color', 'modulify'),
+				'label' => __('Number Active Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -735,7 +733,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered2_number_active_bg_color',
 			[
-				'label' => __('Number Active Background Color', 'modulify'),
+				'label' => __('Number Active Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -753,7 +751,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_category_style',
 			[
-				'label' => __('Category Style', 'modulify'),
+				'label' => __('Category Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -762,11 +760,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_category_show',
 			[
-				'label' => __('Category Show', 'modulify'),
+				'label' => __('Category Show', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -775,7 +773,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cc_typography_2',
-				'label' => __('Category Typography', 'modulify'),
+				'label' => __('Category Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_carousel_circle .title_holder p,{{WRAPPER}} .modulify_carousel_circle .title_holder span',
 				'condition' => [
@@ -787,7 +785,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_alpha_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -807,7 +805,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_beta_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -827,7 +825,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_gamma_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -847,7 +845,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -867,7 +865,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered2_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -886,7 +884,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_title_style',
 			[
-				'label' => __('Title Style', 'modulify'),
+				'label' => __('Title Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -896,7 +894,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cc_typography_3',
-				'label' => __('Title Typography', 'modulify'),
+				'label' => __('Title Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_carousel_circle .title_holder h3',
 			]
@@ -906,7 +904,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -926,7 +924,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -947,7 +945,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_beta_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -967,7 +965,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_beta_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -988,7 +986,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_gamma_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1008,7 +1006,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_gamma_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1029,7 +1027,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1049,7 +1047,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1070,7 +1068,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered2_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1090,7 +1088,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cc_numbered2_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1117,7 +1115,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'carousel_full_alpha_design',
 			[
-				'label' => __('Design', 'modulify'),
+				'label' => __('Design', MELA_TD),
 				'condition' => [
 					'fn_widget_layout' => array('carousel_full_a')
 				]
@@ -1126,7 +1124,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_main_style',
 			[
-				'label' => __('Main Styles', 'modulify'),
+				'label' => __('Main Styles', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1134,11 +1132,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_autoplay_switch',
 			[
-				'label' => esc_html__('Autoplay', 'modulify'),
+				'label' => esc_html__('Autoplay', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'enabled' 				=> esc_html__('Enabled', 'modulify'),
-					'disabled' 				=> esc_html__('Disabled', 'modulify'),
+					'enabled' 				=> esc_html__('Enabled', MELA_TD),
+					'disabled' 				=> esc_html__('Disabled', MELA_TD),
 				],
 				'default' => 'disabled',
 
@@ -1147,7 +1145,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_autoplay_time',
 			[
-				'label'   => __('Autoplay Time in Milliseconds', 'modulify'),
+				'label'   => __('Autoplay Time in Milliseconds', MELA_TD),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 5000,
 				'min'     => 500,
@@ -1159,7 +1157,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_columns_number',
 			[
-				'label' => __('Columns Number', 'modulify'),
+				'label' => __('Columns Number', MELA_TD),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 4,
@@ -1177,12 +1175,12 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_title_holder_type',
 			[
-				'label' => esc_html__('Title Holder Type', 'modulify'),
+				'label' => esc_html__('Title Holder Type', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'static' 			=> esc_html__('Static', 'modulify'),
-					'dynamic' 			=> esc_html__('Dynamic', 'modulify'),
-					'smooth' 			=> esc_html__('Smooth', 'modulify'),
+					'static' 			=> esc_html__('Static', MELA_TD),
+					'dynamic' 			=> esc_html__('Dynamic', MELA_TD),
+					'smooth' 			=> esc_html__('Smooth', MELA_TD),
 				],
 				'default' => 'static',
 
@@ -1191,7 +1189,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_separator_color',
 			[
-				'label' => __('Separator Color', 'modulify'),
+				'label' => __('Separator Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1207,11 +1205,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_nav_types',
 			[
-				'label' => esc_html__('Navigation Types', 'modulify'),
+				'label' => esc_html__('Navigation Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'round' 			=> esc_html__('Round', 'modulify'),
-					'square' 			=> esc_html__('Square', 'modulify'),
+					'round' 			=> esc_html__('Round', MELA_TD),
+					'square' 			=> esc_html__('Square', MELA_TD),
 				],
 				'default' => 'round',
 
@@ -1221,7 +1219,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_nav_color',
 			[
-				'label' => __('Navigation Color', 'modulify'),
+				'label' => __('Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1242,7 +1240,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1257,7 +1255,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_category_style',
 			[
-				'label' => __('Category Style', 'modulify'),
+				'label' => __('Category Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1266,11 +1264,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_category_show',
 			[
-				'label' => __('Category Show', 'modulify'),
+				'label' => __('Category Show', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -1279,7 +1277,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cfa_typography_2',
-				'label' => __('Category Typography', 'modulify'),
+				'label' => __('Category Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_carousel_full_alpha .item .title_holder p',
 				'condition' => [
@@ -1290,7 +1288,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1310,7 +1308,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_title_style',
 			[
-				'label' => __('Title Style', 'modulify'),
+				'label' => __('Title Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1320,7 +1318,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cfa_typography_3',
-				'label' => __('Title Typography', 'modulify'),
+				'label' => __('Title Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_carousel_full_alpha .item .title_holder h3 a',
 			]
@@ -1329,7 +1327,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1345,7 +1343,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1360,7 +1358,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_read_more_style',
 			[
-				'label' => __('Read More Style', 'modulify'),
+				'label' => __('Read More Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1369,13 +1367,13 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_read_more_types',
 			[
-				'label' => esc_html__('Link Types', 'modulify'),
+				'label' => esc_html__('Link Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'none' 				=> esc_html__('None', 'modulify'),
-					'extendable' 		=> esc_html__('Extendable', 'modulify'),
-					'transform' 		=> esc_html__('Transform', 'modulify'),
-					'static' 			=> esc_html__('Static', 'modulify'),
+					'none' 				=> esc_html__('None', MELA_TD),
+					'extendable' 		=> esc_html__('Extendable', MELA_TD),
+					'transform' 		=> esc_html__('Transform', MELA_TD),
+					'static' 			=> esc_html__('Static', MELA_TD),
 				],
 				'default' => 'extendable',
 
@@ -1384,7 +1382,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfa_read_more_color',
 			[
-				'label' => __('Read More Color', 'modulify'),
+				'label' => __('Read More Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1413,7 +1411,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'carousel_full_beta_design',
 			[
-				'label' => __('Design', 'modulify'),
+				'label' => __('Design', MELA_TD),
 				'condition' => [
 					'fn_widget_layout' => array('carousel_full_b')
 				]
@@ -1422,7 +1420,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_main_style',
 			[
-				'label' => __('Main Styles', 'modulify'),
+				'label' => __('Main Styles', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1430,11 +1428,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_autoplay_switch',
 			[
-				'label' => esc_html__('Autoplay', 'modulify'),
+				'label' => esc_html__('Autoplay', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'enabled' 				=> esc_html__('Enabled', 'modulify'),
-					'disabled' 				=> esc_html__('Disabled', 'modulify'),
+					'enabled' 				=> esc_html__('Enabled', MELA_TD),
+					'disabled' 				=> esc_html__('Disabled', MELA_TD),
 				],
 				'default' => 'disabled',
 
@@ -1443,7 +1441,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_autoplay_time',
 			[
-				'label'   => __('Autoplay Time in Milliseconds', 'modulify'),
+				'label'   => __('Autoplay Time in Milliseconds', MELA_TD),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 5000,
 				'min'     => 500,
@@ -1455,7 +1453,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_columns_number',
 			[
-				'label' => __('Columns Number', 'modulify'),
+				'label' => __('Columns Number', MELA_TD),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 4,
@@ -1473,11 +1471,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_title_holder_type',
 			[
-				'label' => esc_html__('Title Holder Type', 'modulify'),
+				'label' => esc_html__('Title Holder Type', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'static' 			=> esc_html__('Static', 'modulify'),
-					'dynamic' 			=> esc_html__('Dynamic', 'modulify'),
+					'static' 			=> esc_html__('Static', MELA_TD),
+					'dynamic' 			=> esc_html__('Dynamic', MELA_TD),
 				],
 				'default' => 'static',
 				'condition' => [
@@ -1489,12 +1487,12 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_title_holder_position',
 			[
-				'label' => esc_html__('Title Holder Position', 'modulify'),
+				'label' => esc_html__('Title Holder Position', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'top' 				=> esc_html__('Top', 'modulify'),
-					'middle' 			=> esc_html__('Middle', 'modulify'),
-					'bottom' 			=> esc_html__('Bottom', 'modulify'),
+					'top' 				=> esc_html__('Top', MELA_TD),
+					'middle' 			=> esc_html__('Middle', MELA_TD),
+					'bottom' 			=> esc_html__('Bottom', MELA_TD),
 				],
 				'default' => 'bottom',
 
@@ -1503,12 +1501,12 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_title_holder_alignment',
 			[
-				'label' => esc_html__('Title Holder Alignment', 'modulify'),
+				'label' => esc_html__('Title Holder Alignment', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'left' 				=> esc_html__('Left Align', 'modulify'),
-					'center' 			=> esc_html__('Center Align', 'modulify'),
-					'right' 			=> esc_html__('Right Align', 'modulify'),
+					'left' 				=> esc_html__('Left Align', MELA_TD),
+					'center' 			=> esc_html__('Center Align', MELA_TD),
+					'right' 			=> esc_html__('Right Align', MELA_TD),
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_beta .owl-carousel .item .title_holder' => 'text-align: {{VALUE}};',
@@ -1520,7 +1518,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_title_holder_bg',
 			[
-				'label' => __('Title Holder Background', 'modulify'),
+				'label' => __('Title Holder Background', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1536,7 +1534,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_separator_color',
 			[
-				'label' => __('Separator Color', 'modulify'),
+				'label' => __('Separator Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1552,11 +1550,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_nav_types',
 			[
-				'label' => esc_html__('Navigation Types', 'modulify'),
+				'label' => esc_html__('Navigation Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'round' 			=> esc_html__('Round', 'modulify'),
-					'square' 			=> esc_html__('Square', 'modulify'),
+					'round' 			=> esc_html__('Round', MELA_TD),
+					'square' 			=> esc_html__('Square', MELA_TD),
 				],
 				'default' => 'round',
 
@@ -1566,7 +1564,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_nav_color',
 			[
-				'label' => __('Navigation Color', 'modulify'),
+				'label' => __('Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1588,7 +1586,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1603,7 +1601,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_category_style',
 			[
-				'label' => __('Category Style', 'modulify'),
+				'label' => __('Category Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1612,11 +1610,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_category_show',
 			[
-				'label' => __('Category Show', 'modulify'),
+				'label' => __('Category Show', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -1625,7 +1623,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cfb_typography_2',
-				'label' => __('Category Typography', 'modulify'),
+				'label' => __('Category Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_carousel_full_beta .item .title_holder p',
 				'condition' => [
@@ -1636,7 +1634,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1656,7 +1654,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_title_style',
 			[
-				'label' => __('Title Style', 'modulify'),
+				'label' => __('Title Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1666,7 +1664,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cfb_typography_3',
-				'label' => __('Title Typography', 'modulify'),
+				'label' => __('Title Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_carousel_full_beta .owl-carousel .item .title_holder h3 a',
 			]
@@ -1675,7 +1673,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1691,7 +1689,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfb_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1712,7 +1710,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'carousel_full_interactive_design',
 			[
-				'label' => __('Design', 'modulify'),
+				'label' => __('Design', MELA_TD),
 				'condition' => [
 					'fn_widget_layout' => array('carousel_full_i')
 				]
@@ -1721,7 +1719,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_main_style',
 			[
-				'label' => __('Main Styles', 'modulify'),
+				'label' => __('Main Styles', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1729,11 +1727,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_autoplay_switch',
 			[
-				'label' => esc_html__('Autoplay', 'modulify'),
+				'label' => esc_html__('Autoplay', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'enabled' 				=> esc_html__('Enabled', 'modulify'),
-					'disabled' 				=> esc_html__('Disabled', 'modulify'),
+					'enabled' 				=> esc_html__('Enabled', MELA_TD),
+					'disabled' 				=> esc_html__('Disabled', MELA_TD),
 				],
 				'default' => 'disabled',
 
@@ -1742,7 +1740,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_autoplay_time',
 			[
-				'label'   => __('Autoplay Time in Milliseconds', 'modulify'),
+				'label'   => __('Autoplay Time in Milliseconds', MELA_TD),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 5000,
 				'min'     => 500,
@@ -1754,7 +1752,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_columns_number',
 			[
-				'label' => __('Columns Number', 'modulify'),
+				'label' => __('Columns Number', MELA_TD),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 4,
@@ -1772,12 +1770,12 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_title_holder_type',
 			[
-				'label' => esc_html__('Title Holder Type', 'modulify'),
+				'label' => esc_html__('Title Holder Type', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'static' 			=> esc_html__('Static', 'modulify'),
-					'dynamic' 			=> esc_html__('Dynamic', 'modulify'),
-					'smooth' 			=> esc_html__('Smooth', 'modulify'),
+					'static' 			=> esc_html__('Static', MELA_TD),
+					'dynamic' 			=> esc_html__('Dynamic', MELA_TD),
+					'smooth' 			=> esc_html__('Smooth', MELA_TD),
 				],
 				'default' => 'static',
 
@@ -1786,7 +1784,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_separator_color',
 			[
-				'label' => __('Separator Color', 'modulify'),
+				'label' => __('Separator Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1801,11 +1799,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_nav_types',
 			[
-				'label' => esc_html__('Navigation Types', 'modulify'),
+				'label' => esc_html__('Navigation Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'round' 			=> esc_html__('Round', 'modulify'),
-					'square' 			=> esc_html__('Square', 'modulify'),
+					'round' 			=> esc_html__('Round', MELA_TD),
+					'square' 			=> esc_html__('Square', MELA_TD),
 				],
 				'default' => 'round',
 			]
@@ -1814,7 +1812,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_nav_color',
 			[
-				'label' => __('Navigation Color', 'modulify'),
+				'label' => __('Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1835,7 +1833,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1850,7 +1848,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_category_style',
 			[
-				'label' => __('Category Style', 'modulify'),
+				'label' => __('Category Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1859,11 +1857,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_category_show',
 			[
-				'label' => __('Category Show', 'modulify'),
+				'label' => __('Category Show', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -1872,7 +1870,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cfi_typography_2',
-				'label' => __('Category Typography', 'modulify'),
+				'label' => __('Category Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_carousel_full_interactive .item .title_holder p',
 				'condition' => [
@@ -1883,7 +1881,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1903,7 +1901,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_title_style',
 			[
-				'label' => __('Title Style', 'modulify'),
+				'label' => __('Title Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1913,7 +1911,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cfi_typography_3',
-				'label' => __('Title Typography', 'modulify'),
+				'label' => __('Title Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_carousel_full_interactive .item .title_holder h3 a',
 			]
@@ -1922,7 +1920,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1938,7 +1936,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -1953,7 +1951,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_read_more_style',
 			[
-				'label' => __('Read More Style', 'modulify'),
+				'label' => __('Read More Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1962,13 +1960,13 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_read_more_types',
 			[
-				'label' => esc_html__('Link Types', 'modulify'),
+				'label' => esc_html__('Link Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'none' 				=> esc_html__('None', 'modulify'),
-					'extendable' 		=> esc_html__('Extendable', 'modulify'),
-					'transform' 		=> esc_html__('Transform', 'modulify'),
-					'static' 			=> esc_html__('Static', 'modulify'),
+					'none' 				=> esc_html__('None', MELA_TD),
+					'extendable' 		=> esc_html__('Extendable', MELA_TD),
+					'transform' 		=> esc_html__('Transform', MELA_TD),
+					'static' 			=> esc_html__('Static', MELA_TD),
 				],
 				'default' => 'extendable',
 
@@ -1977,7 +1975,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cfi_read_more_color',
 			[
-				'label' => __('Read More Color', 'modulify'),
+				'label' => __('Read More Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2005,7 +2003,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'carousel_square_design',
 			[
-				'label' => __('Design', 'modulify'),
+				'label' => __('Design', MELA_TD),
 				'condition' => [
 					'fn_widget_layout' => array('carousel_square')
 				]
@@ -2015,7 +2013,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_main_style',
 			[
-				'label' => __('Main Styles', 'modulify'),
+				'label' => __('Main Styles', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -2024,14 +2022,14 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_main_layout',
 			[
-				'label' => esc_html__('Layout', 'modulify'),
+				'label' => esc_html__('Layout', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'alpha' 			=> esc_html__('Alpha', 'modulify'),
-					'beta' 				=> esc_html__('Beta', 'modulify'),
-					'gamma' 			=> esc_html__('Gamma', 'modulify'),
-					'mini' 				=> esc_html__('Mini', 'modulify'),
-					'numbered' 			=> esc_html__('Numbered', 'modulify'),
+					'alpha' 			=> esc_html__('Alpha', MELA_TD),
+					'beta' 				=> esc_html__('Beta', MELA_TD),
+					'gamma' 			=> esc_html__('Gamma', MELA_TD),
+					'mini' 				=> esc_html__('Mini', MELA_TD),
+					'numbered' 			=> esc_html__('Numbered', MELA_TD),
 				],
 				'default' => 'alpha',
 
@@ -2041,12 +2039,12 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_item_ratio',
 			[
-				'label' => esc_html__('Item Ratio', 'modulify'),
+				'label' => esc_html__('Item Ratio', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'landscape' 			=> esc_html__('Landscape', 'modulify'),
-					'portrait' 				=> esc_html__('Portrait', 'modulify'),
-					'square' 				=> esc_html__('Square', 'modulify'),
+					'landscape' 			=> esc_html__('Landscape', MELA_TD),
+					'portrait' 				=> esc_html__('Portrait', MELA_TD),
+					'square' 				=> esc_html__('Square', MELA_TD),
 				],
 				'default' => 'portrait',
 			]
@@ -2055,11 +2053,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_box_shadow_alpha',
 			[
-				'label' => __('Box Shadow for Active Item', 'modulify'),
+				'label' => __('Box Shadow for Active Item', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 				'condition' => [
 					'cs_main_layout' => 'alpha'
@@ -2070,11 +2068,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_box_shadow_beta',
 			[
-				'label' => __('Box Shadow Item on hover', 'modulify'),
+				'label' => __('Box Shadow Item on hover', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 				'condition' => [
 					'cs_main_layout' => 'beta'
@@ -2084,7 +2082,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_title_bg_color_gamma',
 			[
-				'label' => __('Title Holder Background Color', 'modulify'),
+				'label' => __('Title Holder Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2103,11 +2101,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_nav_types',
 			[
-				'label' => esc_html__('Navigation Types', 'modulify'),
+				'label' => esc_html__('Navigation Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'round' 			=> esc_html__('Round', 'modulify'),
-					'square' 			=> esc_html__('Square', 'modulify'),
+					'round' 			=> esc_html__('Round', MELA_TD),
+					'square' 			=> esc_html__('Square', MELA_TD),
 				],
 				'default' => 'round',
 				'condition' => [
@@ -2120,7 +2118,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_nav_color',
 			[
-				'label' => __('Navigation Color', 'modulify'),
+				'label' => __('Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2146,7 +2144,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2167,7 +2165,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_numbered_nav_color',
 			[
-				'label' => __('Navigation Color', 'modulify'),
+				'label' => __('Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2186,7 +2184,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_numbered_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2205,7 +2203,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_numbered_number_color',
 			[
-				'label' => __('Numbers Color', 'modulify'),
+				'label' => __('Numbers Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2223,7 +2221,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_numbered_line_color',
 			[
-				'label' => __('Line Color', 'modulify'),
+				'label' => __('Line Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2241,7 +2239,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_category_style',
 			[
-				'label' => __('Category Style', 'modulify'),
+				'label' => __('Category Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -2250,11 +2248,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_category_show',
 			[
-				'label' => __('Category Show', 'modulify'),
+				'label' => __('Category Show', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -2263,7 +2261,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cs_typography_2',
-				'label' => __('Category Typography', 'modulify'),
+				'label' => __('Category Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_carousel_square .item .title_holder p',
 				'condition' => [
@@ -2274,7 +2272,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2295,7 +2293,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_mininum_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2315,7 +2313,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_title_style',
 			[
-				'label' => __('Title Style', 'modulify'),
+				'label' => __('Title Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -2325,7 +2323,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cs_typography_3',
-				'label' => __('Title Typography', 'modulify'),
+				'label' => __('Title Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_carousel_square .item .title_holder h3 a',
 			]
@@ -2334,7 +2332,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2355,7 +2353,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2378,7 +2376,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_mininum_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2398,7 +2396,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cs_mininum_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2424,7 +2422,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'carousel_with_content_design',
 			[
-				'label' => __('Design', 'modulify'),
+				'label' => __('Design', MELA_TD),
 				'condition' => [
 					'fn_widget_layout' => array('carousel_with_c')
 				]
@@ -2434,7 +2432,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_content_part',
 			[
-				'label' => __('Content Part', 'modulify'),
+				'label' => __('Content Part', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 			]
 		);
@@ -2442,10 +2440,10 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_fslide_title',
 			[
-				'label'       => __('Title', 'modulify'),
+				'label'       => __('Title', MELA_TD),
 				'type'        => Controls_Manager::TEXT,
-				'placeholder' => __('Type your title text here', 'modulify'),
-				'default' 	   => __('Modern Photo Carousel', 'modulify'),
+				'placeholder' => __('Type your title text here', MELA_TD),
+				'default' 	   => __('Modern Photo Carousel', MELA_TD),
 				'label_block' => true
 			]
 		);
@@ -2453,7 +2451,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_fslide_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2469,17 +2467,17 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_fslide_desc',
 			[
-				'label'   => __('Description', 'modulify'),
+				'label'   => __('Description', MELA_TD),
 				'type'    => Controls_Manager::TEXTAREA,
-				'placeholder' => __('Type your description text here', 'modulify'),
-				'default' => __('Cras aliquam sagitadditis urna in vutsanili consectetur.Vivamus nuriaec lacus sed odio metus lobortis at.', 'modulify'),
+				'placeholder' => __('Type your description text here', MELA_TD),
+				'default' => __('Cras aliquam sagitadditis urna in vutsanili consectetur.Vivamus nuriaec lacus sed odio metus lobortis at.', MELA_TD),
 			]
 		);
 
 		$this->add_control(
 			'cwc_fslide_desc_color',
 			[
-				'label' => __('Description Color', 'modulify'),
+				'label' => __('Description Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2495,7 +2493,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_fslide_sign',
 			[
-				'label' => __('Choose Your Sign', 'modulify'),
+				'label' => __('Choose Your Sign', MELA_TD),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -2506,7 +2504,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_main_style',
 			[
-				'label' => __('Main Styles', 'modulify'),
+				'label' => __('Main Styles', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -2515,11 +2513,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_main_layout',
 			[
-				'label' => esc_html__('Layout', 'modulify'),
+				'label' => esc_html__('Layout', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'alpha' 			=> esc_html__('Alpha', 'modulify'),
-					'beta' 				=> esc_html__('Beta', 'modulify'),
+					'alpha' 			=> esc_html__('Alpha', MELA_TD),
+					'beta' 				=> esc_html__('Beta', MELA_TD),
 				],
 				'default' => 'alpha',
 
@@ -2529,12 +2527,12 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_img_ratio',
 			[
-				'label' => esc_html__('Image Ratio', 'modulify'),
+				'label' => esc_html__('Image Ratio', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'landscape' 		=> esc_html__('Landscape', 'modulify'),
-					'portrait' 			=> esc_html__('Portrait', 'modulify'),
-					'square' 			=> esc_html__('Square', 'modulify'),
+					'landscape' 		=> esc_html__('Landscape', MELA_TD),
+					'portrait' 			=> esc_html__('Portrait', MELA_TD),
+					'square' 			=> esc_html__('Square', MELA_TD),
 				],
 				'default' => 'square',
 
@@ -2544,12 +2542,12 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_alpha_bg_type',
 			[
-				'label' => esc_html__('Title Background Overlay', 'modulify'),
+				'label' => esc_html__('Title Background Overlay', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'no_o' 				=> esc_html__('No Overlay', 'modulify'),
-					'color_o' 			=> esc_html__('Color Overlay', 'modulify'),
-					'gradient_o'		=> esc_html__('Gradient Overlay', 'modulify'),
+					'no_o' 				=> esc_html__('No Overlay', MELA_TD),
+					'color_o' 			=> esc_html__('Color Overlay', MELA_TD),
+					'gradient_o'		=> esc_html__('Gradient Overlay', MELA_TD),
 				],
 				'default' => 'color_o',
 				'condition' => [
@@ -2561,7 +2559,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_alpha_bg_color',
 			[
-				'label' => __('Title Background Color', 'modulify'),
+				'label' => __('Title Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2580,7 +2578,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_category_style',
 			[
-				'label' => __('Category Style', 'modulify'),
+				'label' => __('Category Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -2589,11 +2587,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_category_show',
 			[
-				'label' => __('Category Show', 'modulify'),
+				'label' => __('Category Show', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -2602,7 +2600,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cwc_typography_2',
-				'label' => __('Category Typography', 'modulify'),
+				'label' => __('Category Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_carousel_with_content .title_holder p',
 				'condition' => [
@@ -2613,7 +2611,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2636,7 +2634,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_title_style',
 			[
-				'label' => __('Title Style', 'modulify'),
+				'label' => __('Title Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -2646,7 +2644,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cwc_typography_3',
-				'label' => __('Title Typography', 'modulify'),
+				'label' => __('Title Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_carousel_with_content .title_holder h3 a',
 			]
@@ -2655,7 +2653,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2674,7 +2672,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'cwc_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2698,7 +2696,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'list_justified_design',
 			[
-				'label' => __('Design', 'modulify'),
+				'label' => __('Design', MELA_TD),
 				'condition' => [
 					'fn_widget_layout' => array('list_just')
 				]
@@ -2708,7 +2706,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lj_main_style',
 			[
-				'label' => __('Main Styles', 'modulify'),
+				'label' => __('Main Styles', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -2717,7 +2715,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lj_img_height',
 			[
-				'label' => __('Image Height (px)', 'modulify'),
+				'label' => __('Image Height (px)', MELA_TD),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 300,
@@ -2736,7 +2734,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lj_img_gutter',
 			[
-				'label' => __('Image Gutter (px)', 'modulify'),
+				'label' => __('Image Gutter (px)', MELA_TD),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 10,
@@ -2754,7 +2752,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lj_category_style',
 			[
-				'label' => __('Category Style', 'modulify'),
+				'label' => __('Category Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -2763,11 +2761,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lj_category_show',
 			[
-				'label' => __('Category Show', 'modulify'),
+				'label' => __('Category Show', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -2776,7 +2774,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'lj_typography_2',
-				'label' => __('Category Typography', 'modulify'),
+				'label' => __('Category Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_justified_images .caption p',
 				'condition' => [
@@ -2787,7 +2785,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lj_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2806,7 +2804,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lj_title_style',
 			[
-				'label' => __('Title Style', 'modulify'),
+				'label' => __('Title Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -2816,7 +2814,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'lj_typography_3',
-				'label' => __('Title Typography', 'modulify'),
+				'label' => __('Title Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_justified_images .caption h3 a',
 			]
@@ -2825,7 +2823,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lj_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2842,7 +2840,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lj_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2865,7 +2863,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'list_masonry_design',
 			[
-				'label' => __('Design', 'modulify'),
+				'label' => __('Design', MELA_TD),
 				'condition' => [
 					'fn_widget_layout' => array('list_masonry')
 				]
@@ -2875,7 +2873,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_main_style',
 			[
-				'label' => __('Main Styles', 'modulify'),
+				'label' => __('Main Styles', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -2884,11 +2882,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_main_layout',
 			[
-				'label' => esc_html__('Layout', 'modulify'),
+				'label' => esc_html__('Layout', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'masonry' 			=> esc_html__('Masonry', 'modulify'),
-					'grid' 				=> esc_html__('Grid', 'modulify'),
+					'masonry' 			=> esc_html__('Masonry', MELA_TD),
+					'grid' 				=> esc_html__('Grid', MELA_TD),
 				],
 				'default' => 'masonry',
 
@@ -2898,12 +2896,12 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_grid_ratio',
 			[
-				'label' => esc_html__('Grid Ratio', 'modulify'),
+				'label' => esc_html__('Grid Ratio', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'landscape' 			=> esc_html__('Landscape', 'modulify'),
-					'portrait' 				=> esc_html__('Portrait', 'modulify'),
-					'square' 				=> esc_html__('Square', 'modulify'),
+					'landscape' 			=> esc_html__('Landscape', MELA_TD),
+					'portrait' 				=> esc_html__('Portrait', MELA_TD),
+					'square' 				=> esc_html__('Square', MELA_TD),
 				],
 				'default' => 'square',
 				'condition' => [
@@ -2915,12 +2913,12 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_title_holder_pos',
 			[
-				'label' => esc_html__('Title Holder Position', 'modulify'),
+				'label' => esc_html__('Title Holder Position', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'inside' 			=> esc_html__('Inside', 'modulify'),
-					'outside' 			=> esc_html__('Outside', 'modulify'),
-					'hover' 			=> esc_html__('On Hover', 'modulify'),
+					'inside' 			=> esc_html__('Inside', MELA_TD),
+					'outside' 			=> esc_html__('Outside', MELA_TD),
+					'hover' 			=> esc_html__('On Hover', MELA_TD),
 				],
 				'default' => 'outside',
 			]
@@ -2929,12 +2927,12 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_title_holder_bg',
 			[
-				'label' => esc_html__('Title Holder Background', 'modulify'),
+				'label' => esc_html__('Title Holder Background', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'no_o' 					=> esc_html__('No Overlay', 'modulify'),
-					'color_o' 				=> esc_html__('Color Overlay', 'modulify'),
-					'gradient_o' 			=> esc_html__('Gradient Overlay', 'modulify'),
+					'no_o' 					=> esc_html__('No Overlay', MELA_TD),
+					'color_o' 				=> esc_html__('Color Overlay', MELA_TD),
+					'gradient_o' 			=> esc_html__('Gradient Overlay', MELA_TD),
 				],
 				'default' => 'color_o',
 				'condition' => [
@@ -2946,7 +2944,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_title_holder_bgcolor',
 			[
-				'label' => __('Title Holder Background Color', 'modulify'),
+				'label' => __('Title Holder Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2964,7 +2962,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_title_holder_bghovercolor',
 			[
-				'label' => __('Title Holder Background Color on Hover', 'modulify'),
+				'label' => __('Title Holder Background Color on Hover', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -2983,11 +2981,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_title_holder_animation',
 			[
-				'label' => esc_html__('Title Holder Animation', 'modulify'),
+				'label' => esc_html__('Title Holder Animation', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'full' 					=> esc_html__('Full Overlay', 'modulify'),
-					'boxed' 				=> esc_html__('Boxed Overlay', 'modulify'),
+					'full' 					=> esc_html__('Full Overlay', MELA_TD),
+					'boxed' 				=> esc_html__('Boxed Overlay', MELA_TD),
 				],
 				'default' => 'full',
 				'condition' => [
@@ -2999,7 +2997,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_cols_number',
 			[
-				'label' => __('Columns Number', 'modulify'),
+				'label' => __('Columns Number', MELA_TD),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 3,
@@ -3021,7 +3019,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_cols_gutter',
 			[
-				'label' => __('Columns Gutter (px)', 'modulify'),
+				'label' => __('Columns Gutter (px)', MELA_TD),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 10,
@@ -3045,11 +3043,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_term_filter',
 			[
-				'label' => __('Filter By Category', 'modulify'),
+				'label' => __('Filter By Category', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -3058,7 +3056,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'lm_typography_4',
-				'label' => __('Filter Typography', 'modulify'),
+				'label' => __('Filter Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_all_list_wrap ul.modulify_filter li a',
 				'condition' => [
@@ -3069,7 +3067,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_filter_color',
 			[
-				'label' => __('Filter Color', 'modulify'),
+				'label' => __('Filter Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3087,7 +3085,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_filter_hover_color',
 			[
-				'label' => __('On Hover and Selected Filter Color', 'modulify'),
+				'label' => __('On Hover and Selected Filter Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3106,7 +3104,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_category_style',
 			[
-				'label' => __('Category Style', 'modulify'),
+				'label' => __('Category Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -3115,11 +3113,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_category_show',
 			[
-				'label' => __('Category Show', 'modulify'),
+				'label' => __('Category Show', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -3128,7 +3126,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'lm_typography_2',
-				'label' => __('Category Typography', 'modulify'),
+				'label' => __('Category Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_all_list_wrap .title_holder p',
 				'condition' => [
@@ -3139,7 +3137,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3158,7 +3156,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_title_style',
 			[
-				'label' => __('Title Style', 'modulify'),
+				'label' => __('Title Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -3168,7 +3166,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'lm_typography_3',
-				'label' => __('Title Typography', 'modulify'),
+				'label' => __('Title Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_all_list_wrap .title_holder h3 a',
 			]
@@ -3177,7 +3175,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3194,7 +3192,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'lm_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3216,7 +3214,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'slider_alpha_design',
 			[
-				'label' => __('Design', 'modulify'),
+				'label' => __('Design', MELA_TD),
 				'condition' => [
 					'fn_widget_layout' => array('slider_a')
 				]
@@ -3227,7 +3225,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_main_style',
 			[
-				'label' => __('Main Styles', 'modulify'),
+				'label' => __('Main Styles', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -3235,11 +3233,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_autoplay_switch',
 			[
-				'label' => esc_html__('Autoplay', 'modulify'),
+				'label' => esc_html__('Autoplay', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'enabled' 				=> esc_html__('Enabled', 'modulify'),
-					'disabled' 				=> esc_html__('Disabled', 'modulify'),
+					'enabled' 				=> esc_html__('Enabled', MELA_TD),
+					'disabled' 				=> esc_html__('Disabled', MELA_TD),
 				],
 				'default' => 'disabled',
 
@@ -3248,7 +3246,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_autoplay_time',
 			[
-				'label'   => __('Autoplay Time in Milliseconds', 'modulify'),
+				'label'   => __('Autoplay Time in Milliseconds', MELA_TD),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 5000,
 				'min'     => 500,
@@ -3260,7 +3258,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_title_bgcolor',
 			[
-				'label' => __('Title Holder Background Color', 'modulify'),
+				'label' => __('Title Holder Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3275,11 +3273,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_nav_types',
 			[
-				'label' => esc_html__('Navigation Types', 'modulify'),
+				'label' => esc_html__('Navigation Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'round' 			=> esc_html__('Round', 'modulify'),
-					'square' 			=> esc_html__('Square', 'modulify'),
+					'round' 			=> esc_html__('Round', MELA_TD),
+					'square' 			=> esc_html__('Square', MELA_TD),
 				],
 				'default' => 'square',
 
@@ -3289,7 +3287,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_nav_color',
 			[
-				'label' => __('Navigation Color', 'modulify'),
+				'label' => __('Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3310,7 +3308,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3325,7 +3323,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_category_style',
 			[
-				'label' => __('Category Style', 'modulify'),
+				'label' => __('Category Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -3334,11 +3332,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_category_show',
 			[
-				'label' => __('Category Show', 'modulify'),
+				'label' => __('Category Show', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -3347,7 +3345,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'sa_typography_2',
-				'label' => __('Category Typography', 'modulify'),
+				'label' => __('Category Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_slider_alpha .item .title_holder p',
 				'condition' => [
@@ -3358,7 +3356,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3377,7 +3375,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_title_style',
 			[
-				'label' => __('Title Style', 'modulify'),
+				'label' => __('Title Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -3387,7 +3385,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'sa_typography_3',
-				'label' => __('Title Typography', 'modulify'),
+				'label' => __('Title Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_slider_alpha .title_holder h3 a',
 			]
@@ -3396,7 +3394,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3413,7 +3411,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3428,7 +3426,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_read_more_style',
 			[
-				'label' => __('Read More Style', 'modulify'),
+				'label' => __('Read More Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -3437,13 +3435,13 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_read_more_types',
 			[
-				'label' => esc_html__('Link Types', 'modulify'),
+				'label' => esc_html__('Link Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'none' 				=> esc_html__('None', 'modulify'),
-					'extendable' 		=> esc_html__('Extendable', 'modulify'),
-					'transform' 		=> esc_html__('Transform', 'modulify'),
-					'static' 			=> esc_html__('Static', 'modulify'),
+					'none' 				=> esc_html__('None', MELA_TD),
+					'extendable' 		=> esc_html__('Extendable', MELA_TD),
+					'transform' 		=> esc_html__('Transform', MELA_TD),
+					'static' 			=> esc_html__('Static', MELA_TD),
 				],
 				'default' => 'extendable',
 
@@ -3452,7 +3450,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sa_read_more_color',
 			[
-				'label' => __('Read More Color', 'modulify'),
+				'label' => __('Read More Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3479,7 +3477,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'slider_beta_design',
 			[
-				'label' => __('Design', 'modulify'),
+				'label' => __('Design', MELA_TD),
 				'condition' => [
 					'fn_widget_layout' => array('slider_b')
 				]
@@ -3488,7 +3486,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_main_style',
 			[
-				'label' => __('Main Styles', 'modulify'),
+				'label' => __('Main Styles', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -3496,11 +3494,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_autoplay_switch',
 			[
-				'label' => esc_html__('Autoplay', 'modulify'),
+				'label' => esc_html__('Autoplay', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'enabled' 				=> esc_html__('Enabled', 'modulify'),
-					'disabled' 				=> esc_html__('Disabled', 'modulify'),
+					'enabled' 				=> esc_html__('Enabled', MELA_TD),
+					'disabled' 				=> esc_html__('Disabled', MELA_TD),
 				],
 				'default' => 'disabled',
 
@@ -3509,7 +3507,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_autoplay_time',
 			[
-				'label'   => __('Autoplay Time in Milliseconds', 'modulify'),
+				'label'   => __('Autoplay Time in Milliseconds', MELA_TD),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 5000,
 				'min'     => 500,
@@ -3521,11 +3519,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_nav_types',
 			[
-				'label' => esc_html__('Navigation Types', 'modulify'),
+				'label' => esc_html__('Navigation Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'round' 			=> esc_html__('Round', 'modulify'),
-					'square' 			=> esc_html__('Square', 'modulify'),
+					'round' 			=> esc_html__('Round', MELA_TD),
+					'square' 			=> esc_html__('Square', MELA_TD),
 				],
 				'default' => 'round',
 
@@ -3534,7 +3532,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_numbered_nav_color',
 			[
-				'label' => __('Numbered Navigation Color', 'modulify'),
+				'label' => __('Numbered Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3551,7 +3549,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_nav_color',
 			[
-				'label' => __('Navigation Color', 'modulify'),
+				'label' => __('Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3572,7 +3570,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3587,7 +3585,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_category_style',
 			[
-				'label' => __('Category Style', 'modulify'),
+				'label' => __('Category Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -3596,11 +3594,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_category_show',
 			[
-				'label' => __('Category Show', 'modulify'),
+				'label' => __('Category Show', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -3609,7 +3607,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'sb_typography_2',
-				'label' => __('Category Typography', 'modulify'),
+				'label' => __('Category Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_slider_beta .item .title_holder p',
 				'condition' => [
@@ -3620,7 +3618,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3639,7 +3637,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_title_style',
 			[
-				'label' => __('Title Style', 'modulify'),
+				'label' => __('Title Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -3649,7 +3647,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'sb_typography_3',
-				'label' => __('Title Typography', 'modulify'),
+				'label' => __('Title Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_slider_beta .title_holder h3 a',
 			]
@@ -3658,7 +3656,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3675,7 +3673,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3690,7 +3688,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_read_more_style',
 			[
-				'label' => __('Read More Style', 'modulify'),
+				'label' => __('Read More Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -3699,13 +3697,13 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_read_more_types',
 			[
-				'label' => esc_html__('Link Types', 'modulify'),
+				'label' => esc_html__('Link Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'none' 				=> esc_html__('None', 'modulify'),
-					'extendable' 		=> esc_html__('Extendable', 'modulify'),
-					'transform' 		=> esc_html__('Transform', 'modulify'),
-					'static' 			=> esc_html__('Static', 'modulify'),
+					'none' 				=> esc_html__('None', MELA_TD),
+					'extendable' 		=> esc_html__('Extendable', MELA_TD),
+					'transform' 		=> esc_html__('Transform', MELA_TD),
+					'static' 			=> esc_html__('Static', MELA_TD),
 				],
 				'default' => 'transform',
 
@@ -3714,7 +3712,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sb_read_more_color',
 			[
-				'label' => __('Read More Color', 'modulify'),
+				'label' => __('Read More Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3740,7 +3738,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'slider_delta_design',
 			[
-				'label' => __('Design', 'modulify'),
+				'label' => __('Design', MELA_TD),
 				'condition' => [
 					'fn_widget_layout' => array('slider_d')
 				]
@@ -3749,7 +3747,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_main_style',
 			[
-				'label' => __('Main Styles', 'modulify'),
+				'label' => __('Main Styles', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -3757,11 +3755,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_autoplay_switch',
 			[
-				'label' => esc_html__('Autoplay', 'modulify'),
+				'label' => esc_html__('Autoplay', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'enabled' 				=> esc_html__('Enabled', 'modulify'),
-					'disabled' 				=> esc_html__('Disabled', 'modulify'),
+					'enabled' 				=> esc_html__('Enabled', MELA_TD),
+					'disabled' 				=> esc_html__('Disabled', MELA_TD),
 				],
 				'default' => 'disabled',
 
@@ -3770,7 +3768,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_autoplay_time',
 			[
-				'label'   => __('Autoplay Time in Milliseconds', 'modulify'),
+				'label'   => __('Autoplay Time in Milliseconds', MELA_TD),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 5000,
 				'min'     => 500,
@@ -3782,11 +3780,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_nav_types',
 			[
-				'label' => esc_html__('Navigation Types', 'modulify'),
+				'label' => esc_html__('Navigation Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'round' 			=> esc_html__('Round', 'modulify'),
-					'square' 			=> esc_html__('Square', 'modulify'),
+					'round' 			=> esc_html__('Round', MELA_TD),
+					'square' 			=> esc_html__('Square', MELA_TD),
 				],
 				'default' => 'round',
 
@@ -3795,7 +3793,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_numbered_nav_color',
 			[
-				'label' => __('Numbered Navigation Color', 'modulify'),
+				'label' => __('Numbered Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3812,7 +3810,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_nav_color',
 			[
-				'label' => __('Navigation Color', 'modulify'),
+				'label' => __('Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3833,7 +3831,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3848,7 +3846,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_category_style',
 			[
-				'label' => __('Category Style', 'modulify'),
+				'label' => __('Category Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -3857,11 +3855,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_category_show',
 			[
-				'label' => __('Category Show', 'modulify'),
+				'label' => __('Category Show', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -3870,7 +3868,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'sd_typography_2',
-				'label' => __('Category Typography', 'modulify'),
+				'label' => __('Category Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_slider_delta .item .title_holder p',
 				'condition' => [
@@ -3881,7 +3879,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3900,7 +3898,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_title_style',
 			[
-				'label' => __('Title Style', 'modulify'),
+				'label' => __('Title Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -3910,7 +3908,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'sd_typography_3',
-				'label' => __('Title Typography', 'modulify'),
+				'label' => __('Title Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_slider_delta .title_holder h3 a',
 			]
@@ -3919,7 +3917,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3936,7 +3934,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3951,7 +3949,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_read_more_style',
 			[
-				'label' => __('Read More Style', 'modulify'),
+				'label' => __('Read More Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -3961,7 +3959,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_read_more_bgcolor',
 			[
-				'label' => __('Read More Background Color', 'modulify'),
+				'label' => __('Read More Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3977,7 +3975,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sd_read_more_color',
 			[
-				'label' => __('Read More Arrow Color', 'modulify'),
+				'label' => __('Read More Arrow Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -3999,7 +3997,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'slider_epsilon_design',
 			[
-				'label' => __('Design', 'modulify'),
+				'label' => __('Design', MELA_TD),
 				'condition' => [
 					'fn_widget_layout' => array('slider_e')
 				]
@@ -4008,7 +4006,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_main_style',
 			[
-				'label' => __('Main Styles', 'modulify'),
+				'label' => __('Main Styles', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -4016,11 +4014,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_autoplay_switch',
 			[
-				'label' => esc_html__('Autoplay', 'modulify'),
+				'label' => esc_html__('Autoplay', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'enabled' 				=> esc_html__('Enabled', 'modulify'),
-					'disabled' 				=> esc_html__('Disabled', 'modulify'),
+					'enabled' 				=> esc_html__('Enabled', MELA_TD),
+					'disabled' 				=> esc_html__('Disabled', MELA_TD),
 				],
 				'default' => 'disabled',
 
@@ -4029,7 +4027,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_autoplay_time',
 			[
-				'label'   => __('Autoplay Time in Milliseconds', 'modulify'),
+				'label'   => __('Autoplay Time in Milliseconds', MELA_TD),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 5000,
 				'min'     => 500,
@@ -4041,11 +4039,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_title_holder_gradient',
 			[
-				'label' => esc_html__('Title Holder Skin', 'modulify'),
+				'label' => esc_html__('Title Holder Skin', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'black' 			=> esc_html__('Black', 'modulify'),
-					'white' 			=> esc_html__('White', 'modulify'),
+					'black' 			=> esc_html__('Black', MELA_TD),
+					'white' 			=> esc_html__('White', MELA_TD),
 				],
 				'default' => 'white',
 
@@ -4054,11 +4052,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_nav_types',
 			[
-				'label' => esc_html__('Navigation Types', 'modulify'),
+				'label' => esc_html__('Navigation Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'round' 			=> esc_html__('Round', 'modulify'),
-					'square' 			=> esc_html__('Square', 'modulify'),
+					'round' 			=> esc_html__('Round', MELA_TD),
+					'square' 			=> esc_html__('Square', MELA_TD),
 				],
 				'default' => 'round',
 
@@ -4067,7 +4065,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_numbered_nav_color',
 			[
-				'label' => __('Numbered Navigation Color', 'modulify'),
+				'label' => __('Numbered Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4084,7 +4082,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_nav_color',
 			[
-				'label' => __('Navigation Color', 'modulify'),
+				'label' => __('Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4105,7 +4103,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4120,7 +4118,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_category_style',
 			[
-				'label' => __('Category Style', 'modulify'),
+				'label' => __('Category Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -4129,11 +4127,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_category_show',
 			[
-				'label' => __('Category Show', 'modulify'),
+				'label' => __('Category Show', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -4142,7 +4140,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'se_typography_2',
-				'label' => __('Category Typography', 'modulify'),
+				'label' => __('Category Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_slider_epsilon .item .title_holder p',
 				'condition' => [
@@ -4153,7 +4151,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4172,7 +4170,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_title_style',
 			[
-				'label' => __('Title Style', 'modulify'),
+				'label' => __('Title Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -4182,7 +4180,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'se_typography_3',
-				'label' => __('Title Typography', 'modulify'),
+				'label' => __('Title Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_slider_epsilon .title_holder h3 a',
 			]
@@ -4191,7 +4189,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4208,7 +4206,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4224,7 +4222,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_read_more_style',
 			[
-				'label' => __('Read More Style', 'modulify'),
+				'label' => __('Read More Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -4233,13 +4231,13 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_read_more_types',
 			[
-				'label' => esc_html__('Link Types', 'modulify'),
+				'label' => esc_html__('Link Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'none' 				=> esc_html__('None', 'modulify'),
-					'extendable' 		=> esc_html__('Extendable', 'modulify'),
-					'transform' 		=> esc_html__('Transform', 'modulify'),
-					'static' 			=> esc_html__('Static', 'modulify'),
+					'none' 				=> esc_html__('None', MELA_TD),
+					'extendable' 		=> esc_html__('Extendable', MELA_TD),
+					'transform' 		=> esc_html__('Transform', MELA_TD),
+					'static' 			=> esc_html__('Static', MELA_TD),
 				],
 				'default' => 'transform',
 
@@ -4248,7 +4246,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'se_read_more_color',
 			[
-				'label' => __('Read More Color', 'modulify'),
+				'label' => __('Read More Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4275,7 +4273,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'slider_gamma_design',
 			[
-				'label' => __('Design', 'modulify'),
+				'label' => __('Design', MELA_TD),
 				'condition' => [
 					'fn_widget_layout' => array('slider_g')
 				]
@@ -4284,7 +4282,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_main_style',
 			[
-				'label' => __('Main Styles', 'modulify'),
+				'label' => __('Main Styles', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -4292,11 +4290,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_autoplay_switch',
 			[
-				'label' => esc_html__('Autoplay', 'modulify'),
+				'label' => esc_html__('Autoplay', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'enabled' 				=> esc_html__('Enabled', 'modulify'),
-					'disabled' 				=> esc_html__('Disabled', 'modulify'),
+					'enabled' 				=> esc_html__('Enabled', MELA_TD),
+					'disabled' 				=> esc_html__('Disabled', MELA_TD),
 				],
 				'default' => 'disabled',
 
@@ -4305,7 +4303,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_autoplay_time',
 			[
-				'label'   => __('Autoplay Time in Milliseconds', 'modulify'),
+				'label'   => __('Autoplay Time in Milliseconds', MELA_TD),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 5000,
 				'min'     => 500,
@@ -4317,11 +4315,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_nav_types',
 			[
-				'label' => esc_html__('Navigation Types', 'modulify'),
+				'label' => esc_html__('Navigation Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'round' 			=> esc_html__('Round', 'modulify'),
-					'square' 			=> esc_html__('Square', 'modulify'),
+					'round' 			=> esc_html__('Round', MELA_TD),
+					'square' 			=> esc_html__('Square', MELA_TD),
 				],
 				'default' => 'round',
 
@@ -4330,7 +4328,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_numbered_nav_color',
 			[
-				'label' => __('Numbered Navigation Color', 'modulify'),
+				'label' => __('Numbered Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4347,7 +4345,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_nav_color',
 			[
-				'label' => __('Navigation Color', 'modulify'),
+				'label' => __('Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4368,7 +4366,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4383,7 +4381,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_category_style',
 			[
-				'label' => __('Category Style', 'modulify'),
+				'label' => __('Category Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -4392,11 +4390,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_category_show',
 			[
-				'label' => __('Category Show', 'modulify'),
+				'label' => __('Category Show', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -4405,7 +4403,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'sg_typography_2',
-				'label' => __('Category Typography', 'modulify'),
+				'label' => __('Category Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_slider_gamma .item .title_holder p',
 				'condition' => [
@@ -4416,7 +4414,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4435,7 +4433,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_title_style',
 			[
-				'label' => __('Title Style', 'modulify'),
+				'label' => __('Title Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -4445,7 +4443,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'sg_typography_3',
-				'label' => __('Title Typography', 'modulify'),
+				'label' => __('Title Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_slider_gamma .title_holder h3 a',
 			]
@@ -4454,7 +4452,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4471,7 +4469,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4486,7 +4484,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_read_more_style',
 			[
-				'label' => __('Read More Style', 'modulify'),
+				'label' => __('Read More Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -4495,13 +4493,13 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_read_more_types',
 			[
-				'label' => esc_html__('Link Types', 'modulify'),
+				'label' => esc_html__('Link Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'none' 				=> esc_html__('None', 'modulify'),
-					'extendable' 		=> esc_html__('Extendable', 'modulify'),
-					'transform' 		=> esc_html__('Transform', 'modulify'),
-					'static' 			=> esc_html__('Static', 'modulify'),
+					'none' 				=> esc_html__('None', MELA_TD),
+					'extendable' 		=> esc_html__('Extendable', MELA_TD),
+					'transform' 		=> esc_html__('Transform', MELA_TD),
+					'static' 			=> esc_html__('Static', MELA_TD),
 				],
 				'default' => 'extendable',
 
@@ -4510,7 +4508,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sg_read_more_color',
 			[
-				'label' => __('Read More Color', 'modulify'),
+				'label' => __('Read More Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4537,7 +4535,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'slider_zeta_design',
 			[
-				'label' => __('Design', 'modulify'),
+				'label' => __('Design', MELA_TD),
 				'condition' => [
 					'fn_widget_layout' => array('slider_z')
 				]
@@ -4546,7 +4544,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_main_style',
 			[
-				'label' => __('Main Styles', 'modulify'),
+				'label' => __('Main Styles', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -4554,11 +4552,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_autoplay_switch',
 			[
-				'label' => esc_html__('Autoplay', 'modulify'),
+				'label' => esc_html__('Autoplay', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'enabled' 				=> esc_html__('Enabled', 'modulify'),
-					'disabled' 				=> esc_html__('Disabled', 'modulify'),
+					'enabled' 				=> esc_html__('Enabled', MELA_TD),
+					'disabled' 				=> esc_html__('Disabled', MELA_TD),
 				],
 				'default' => 'disabled',
 
@@ -4567,7 +4565,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_autoplay_time',
 			[
-				'label'   => __('Autoplay Time in Milliseconds', 'modulify'),
+				'label'   => __('Autoplay Time in Milliseconds', MELA_TD),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 5000,
 				'min'     => 500,
@@ -4579,11 +4577,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_nav_types',
 			[
-				'label' => esc_html__('Navigation Types', 'modulify'),
+				'label' => esc_html__('Navigation Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'round' 			=> esc_html__('Round', 'modulify'),
-					'square' 			=> esc_html__('Square', 'modulify'),
+					'round' 			=> esc_html__('Round', MELA_TD),
+					'square' 			=> esc_html__('Square', MELA_TD),
 				],
 				'default' => 'round',
 
@@ -4592,7 +4590,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_numbered_nav_color',
 			[
-				'label' => __('Numbered Navigation Color', 'modulify'),
+				'label' => __('Numbered Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4609,7 +4607,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_nav_color',
 			[
-				'label' => __('Navigation Color', 'modulify'),
+				'label' => __('Navigation Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4630,7 +4628,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_nav_bg_color',
 			[
-				'label' => __('Navigation Background Color', 'modulify'),
+				'label' => __('Navigation Background Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4645,7 +4643,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_category_style',
 			[
-				'label' => __('Category Style', 'modulify'),
+				'label' => __('Category Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -4654,11 +4652,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_category_show',
 			[
-				'label' => __('Category Show', 'modulify'),
+				'label' => __('Category Show', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' 	=> __('Show', 'modulify'),
-				'label_off' => __('Hide', 'modulify'),
+				'label_on' 	=> __('Show', MELA_TD),
+				'label_off' => __('Hide', MELA_TD),
 				'return_value' => 'yes',
 			]
 		);
@@ -4667,7 +4665,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'sz_typography_2',
-				'label' => __('Category Typography', 'modulify'),
+				'label' => __('Category Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_slider_zeta .item .title_holder p',
 				'condition' => [
@@ -4678,7 +4676,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_category_color',
 			[
-				'label' => __('Category Color', 'modulify'),
+				'label' => __('Category Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4697,7 +4695,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_title_style',
 			[
-				'label' => __('Title Style', 'modulify'),
+				'label' => __('Title Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -4707,7 +4705,7 @@ class Modulify_All_Widgets extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'sz_typography_3',
-				'label' => __('Title Typography', 'modulify'),
+				'label' => __('Title Typography', MELA_TD),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .modulify_slider_zeta .title_holder h3 a',
 			]
@@ -4716,7 +4714,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_title_color',
 			[
-				'label' => __('Title Color', 'modulify'),
+				'label' => __('Title Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4733,7 +4731,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_title_hover_color',
 			[
-				'label' => __('Title Hover Color', 'modulify'),
+				'label' => __('Title Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4749,7 +4747,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_read_more_style',
 			[
-				'label' => __('Read More Style', 'modulify'),
+				'label' => __('Read More Style', MELA_TD),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -4758,13 +4756,13 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_read_more_types',
 			[
-				'label' => esc_html__('Link Types', 'modulify'),
+				'label' => esc_html__('Link Types', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'none' 				=> esc_html__('None', 'modulify'),
-					'extendable' 		=> esc_html__('Extendable', 'modulify'),
-					'transform' 		=> esc_html__('Transform', 'modulify'),
-					'static' 			=> esc_html__('Static', 'modulify'),
+					'none' 				=> esc_html__('None', MELA_TD),
+					'extendable' 		=> esc_html__('Extendable', MELA_TD),
+					'transform' 		=> esc_html__('Transform', MELA_TD),
+					'static' 			=> esc_html__('Static', MELA_TD),
 				],
 				'default' => 'static',
 
@@ -4773,7 +4771,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'sz_read_more_color',
 			[
-				'label' => __('Read More Color', 'modulify'),
+				'label' => __('Read More Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -4797,7 +4795,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'mdlfy_lightbox_s',
 			[
-				'label' => __('Lightbox', 'modulify'),
+				'label' => __('Lightbox', MELA_TD),
 				'condition' => [
 					'fn_widget_layout!' => 'list_just'
 				]
@@ -4807,11 +4805,11 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->add_control(
 			'mdlfy_lightbox',
 			[
-				'label' => esc_html__('Lightbox to Images', 'modulify'),
+				'label' => esc_html__('Lightbox to Images', MELA_TD),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'enable' 			=> esc_html__('Enable', 'modulify'),
-					'disable' 			=> esc_html__('Disable', 'modulify'),
+					'enable' 			=> esc_html__('Enable', MELA_TD),
+					'disable' 			=> esc_html__('Disable', MELA_TD),
 				],
 				'default' => 'disable',
 
@@ -4823,7 +4821,7 @@ class Modulify_All_Widgets extends Widget_Base
 		$this->start_controls_section(
 			'mdlfy_read_more_section',
 			[
-				'label' => __('Read More', 'modulify'),
+				'label' => __('Read More', MELA_TD),
 			]
 		);
 		$this->add_control(

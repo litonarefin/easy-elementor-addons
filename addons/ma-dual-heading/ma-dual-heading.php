@@ -24,7 +24,7 @@ class Dual_Heading extends Widget_Base
 
 	public function get_title()
 	{
-		return esc_html__('MA Dual Heading', MELA_TD);
+		return esc_html__('Dual Heading', MELA_TD);
 	}
 
 	public function get_icon()

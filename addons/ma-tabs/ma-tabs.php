@@ -24,7 +24,7 @@ class Tabs extends Widget_Base
 
 	public function get_title()
 	{
-		return esc_html__('MA Tabs', MELA_TD);
+		return esc_html__('Advanced Tabs', MELA_TD);
 	}
 
 	public function get_icon()

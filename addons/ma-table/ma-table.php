@@ -40,7 +40,7 @@ class Dynamic_Table extends Widget_Base
 
     public function get_title()
     {
-        return __('MA Table', MELA_TD);
+        return __('Dynamic Table', MELA_TD);
     }
 
     public function get_categories()
