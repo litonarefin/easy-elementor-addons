@@ -2639,6 +2639,10 @@ class Timeline extends Widget_Base
 
 			protected function render()
 			{
+				$settings = $this->get_settings_for_display();
+
+				$this->ma_el_timeline_global_render_attributes();
+
 				if (get_query_var('paged')) {
 					$paged = get_query_var('paged');
 				} elseif (get_query_var('page')) {
@@ -2647,9 +2651,6 @@ class Timeline extends Widget_Base
 					$paged = 1;
 				}
 
-				$settings = $this->get_settings_for_display();
-
-				$this->ma_el_timeline_global_render_attributes();
 
 				$ma_el_timeline_type = $settings['ma_el_timeline_type'];
 				$timeline_layout_type = $settings['ma_el_timeline_design_type'];
@@ -2701,6 +2702,13 @@ class Timeline extends Widget_Base
 
 					protected function jltma_post_timeline()
 					{
+						if (get_query_var('paged')) {
+							$paged = get_query_var('paged');
+						} elseif (get_query_var('page')) {
+							$paged = get_query_var('page');
+						} else {
+							$paged = 1;
+						}
 
 						$settings = $this->get_settings_for_display();
 
@@ -3205,10 +3213,10 @@ class Timeline extends Widget_Base
 
 						if (ma_el_fs()->can_use_premium_code()) {
 
-							if (('yes' === $item['ma_el_custom_timeline_custom_style'] && '' !== $item['ma_el_custom_timeline_point_content_type'])) {
-								$point_content_type = $item['ma_el_custom_timeline_point_content_type'];
+							if ('' !== $settings['ma_el_timeline_points_content']) {
+								$point_content_type = $settings['ma_el_timeline_points_content'];
 							} else {
-								$point_content_type = $item['ma_el_custom_timeline_point_content'];
+								$point_content_type = $settings['ma_el_custom_timeline_point_content'];
 							}
 
 
@@ -3216,35 +3224,20 @@ class Timeline extends Widget_Base
 								case 'numbers':
 
 								case 'letters':
-									$point_content = $this->ma_timeline_points_text($point_content_type, $index, $item);
+									$point_content = $this->ma_timeline_points_text($point_content_type, $index, false);
 									break;
 
 								case 'image':
-									$point_content = $this->ma_timeline_points_image($item);
+									$point_content = $this->ma_timeline_points_image(false);
 									break;
 
 								case 'icons':
-									$point_content = $this->ma_timeline_points_icon($item);
+									$point_content = $this->ma_timeline_points_icon(false);
 									break;
 
 								default:
 									$point_content = $this->ma_timeline_points_global_points();
 							}
-						}
-
-						// Card Links
-						$this->add_render_attribute([
-							$post_card_key => [
-								'class' => [
-									'timeline-item__card',
-									implode(' ', get_post_class()),
-								],
-							],
-						]);
-
-						if ('yes' === $settings['ma_el_timeline_post_card_links']) {
-							$card_tag = 'a';
-							$this->add_render_attribute($post_card_key, 'href', get_permalink(get_the_ID()));
 						}
 	?>
 
@@ -3267,7 +3260,7 @@ class Timeline extends Widget_Base
 							<?php } ?>
 
 							<div class="timeline-item__meta meta">
-								<?php $this->render_date(true, $post_id); ?>
+								<?php $this->render_date(true, get_the_ID()); ?>
 							</div><!-- meta -->
 
 							<div class="ma-el-timeline-entry-content">
@@ -3288,7 +3281,7 @@ class Timeline extends Widget_Base
 				</div><!-- /.ma-el-timeline-post-inner -->
 			</div> <!-- card-wrapper -->
 			<div <?php echo $this->get_render_attribute_string('meta-wrapper'); ?>>
-				<?php $this->render_date(true, $post_id); ?>
+				<?php $this->render_date(true, get_the_ID()); ?>
 			</div>
 		</div>
 	<?php
@@ -3398,12 +3391,10 @@ class Timeline extends Widget_Base
 																																	$settings 		= $this->get_settings_for_display();
 																																	$loop_settings 	= $this->get_settings_for_loop_display(get_the_ID());
 
-																																	print_r($post_id);
-
 																																	if ('custom' === $settings['ma_el_timeline_date_format']) {
 																																		$date = $loop_settings['ma_el_timeline_date_custom_format'];
 																																	} else {
-																																		$date = $this->get_date_formatted($custom, $settings['ma_el_timeline_date_custom_format'], $settings['ma_el_timeline_date_format'], $settings['ma_el_timeline_time_format'], $post_id);
+																																		$date = $this->get_date_formatted(false, $settings['ma_el_timeline_date_custom_format'], $settings['ma_el_timeline_date_format'], $settings['ma_el_timeline_time_format'], $post_id);
 																																	}
 																																	echo $date;
 																																	if (!$echo) {
