@@ -456,6 +456,11 @@ class Blog extends Widget_Base
 					'relation' 	=> 'or',
 					'terms' 	=> [
 						[
+							'name' 		=> 'ma_el_blog_carousel',
+							'operator' 	=> '!==',
+							'value' 	=> '',
+						],
+						[
 							'name' 		=> 'slides_per_column',
 							'operator' 	=> '==',
 							'value' 	=> '1',
@@ -502,6 +507,7 @@ class Blog extends Widget_Base
 				],
 				'condition'		=> [
 					'ma_el_blog_carousel_autoheight!' => '',
+					'ma_el_blog_carousel'			=> 'yes'
 				],
 			]
 		);
@@ -518,6 +524,9 @@ class Blog extends Widget_Base
 					'fade' 		=> __('Fade', MELA_TD),
 				],
 				'frontend_available' => true,
+				'condition'		=> [
+					'ma_el_blog_carousel'			=> 'yes'
+				],
 			]
 		);
 
@@ -529,6 +538,7 @@ class Blog extends Widget_Base
 				'content_classes' 	=> 'elementor-panel-alert elementor-panel-alert-info',
 				'condition' 		=> [
 					'ma_el_blog_carousel_effect' => 'fade',
+					'ma_el_blog_carousel'			=> 'yes'
 				],
 			]
 		);
@@ -551,6 +561,9 @@ class Blog extends Widget_Base
 					],
 				],
 				'frontend_available' => true,
+				'condition' 		=> [
+					'ma_el_blog_carousel'			=> 'yes'
+				],
 			]
 		);
 
@@ -563,6 +576,9 @@ class Blog extends Widget_Base
 					'ma_el_blog_cols' => '100%'
 				],
 				'frontend_available' 	=> true,
+				'condition' 		=> [
+					'ma_el_blog_carousel'			=> 'yes'
+				],
 			]
 		);
 
@@ -585,6 +601,9 @@ class Blog extends Widget_Base
 					],
 				],
 				'frontend_available' => true,
+				'condition' 		=> [
+					'ma_el_blog_carousel'			=> 'yes'
+				],
 			]
 		);
 
@@ -594,7 +613,10 @@ class Blog extends Widget_Base
 			[
 				'label' 			=> __('Layout', MELA_TD),
 				'type' 				=> Controls_Manager::HEADING,
-				'separator'			=> 'before'
+				'separator'			=> 'before',
+				'condition' 		=> [
+					'ma_el_blog_carousel'			=> 'yes'
+				],
 			]
 		);
 
@@ -611,6 +633,9 @@ class Blog extends Widget_Base
 					'vertical' 		=> __('Vertical', MELA_TD),
 				],
 				'frontend_available' 	=> true,
+				'condition' 		=> [
+					'ma_el_blog_carousel'			=> 'yes'
+				],
 			]
 		);
 
@@ -635,6 +660,9 @@ class Blog extends Widget_Base
 					'6' => '6',
 				],
 				'frontend_available' => true,
+				'condition' 		=> [
+					'ma_el_blog_carousel'			=> 'yes'
+				],
 			]
 		);
 
@@ -648,6 +676,9 @@ class Blog extends Widget_Base
 					'ma_el_blog_carousel_direction' => 'horizontal',
 				],
 				'frontend_available' 	=> true,
+				'condition' 		=> [
+					'ma_el_blog_carousel'			=> 'yes'
+				],
 			]
 		);
 
@@ -658,6 +689,9 @@ class Blog extends Widget_Base
 				'label' 				=> __('Slides to Scroll', MELA_TD),
 				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_column,
 				'frontend_available' 	=> true,
+				'condition' 		=> [
+					'ma_el_blog_carousel'			=> 'yes'
+				],
 			]
 		);
 
@@ -686,6 +720,7 @@ class Blog extends Widget_Base
 					],
 				],
 				'condition'				=> [
+					'ma_el_blog_carousel'			=> 'yes',
 					'ma_el_blog_carousel_direction' => 'horizontal',
 				],
 				'frontend_available' => true,
@@ -713,7 +748,10 @@ class Blog extends Widget_Base
 				'label' 		=> __('Trigger Resize on Slide', MELA_TD),
 				'description'	=> __('Some widgets inside post skins templates might require triggering a window resize event when changing slides to display correctly.', MELA_TD),
 				'default' 		=> '',
-				'frontend_available' => true
+				'frontend_available' => true,
+				'condition' 		=> [
+					'ma_el_blog_carousel'			=> 'yes'
+				],
 			]
 		);
 
@@ -726,6 +764,7 @@ class Blog extends Widget_Base
 					'ma_el_blog_carousel'  => 'yes'
 				],
 				'frontend_available' 	=> true,
+
 			]
 		);
 
@@ -768,6 +807,7 @@ class Blog extends Widget_Base
 				'type' 		=> Controls_Manager::SWITCHER,
 				'default' 	=> '',
 				'condition'	=> [
+					'ma_el_blog_carousel'           => 'yes',
 					'ma_el_blog_carousel_auto_play' => 'yes'
 				],
 				'frontend_available' => true,
@@ -786,6 +826,9 @@ class Blog extends Widget_Base
 				'default' 				=> '',
 				'return_value' 			=> 'yes',
 				'frontend_available' 	=> true,
+				'condition'	=> [
+					'ma_el_blog_carousel'           => 'yes'
+				],
 			]
 		);
 
@@ -801,6 +844,7 @@ class Blog extends Widget_Base
 				'return_value' 			=> 'yes',
 				'frontend_available' 	=> true,
 				'condition' 			=> [
+					'ma_el_blog_carousel'           => 'yes',
 					'ma_el_blog_carousel_free_mode!' => '',
 				],
 			]
@@ -948,6 +992,9 @@ class Blog extends Widget_Base
 				'label_off' 	=> __('Off', MELA_TD),
 				'return_value' 	=> 'on',
 				'frontend_available' => true,
+				'condition' 		=> [
+					'ma_el_blog_carousel'			=> 'yes'
+				],
 			]
 		);
 

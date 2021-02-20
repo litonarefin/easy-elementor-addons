@@ -389,6 +389,7 @@ Paste on your Local Computer
 * Updated: Blog Element updated with Swiper Slider support and improved functionality.
 * Updated: Gallery Slider updated with Swiper Slider support
 * Updated: Timeline Element fully revamped with new UI and fixed bugs
+* Removed: "MA" word removed from all Elements
 
 
 = 1.5.6.2 (24-01-2021) =

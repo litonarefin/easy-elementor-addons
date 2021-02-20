@@ -42,7 +42,7 @@ class Filterable_Image_Gallery extends Widget_Base
 
 	public function get_title()
 	{
-		return __('Filter Gallery', MELA_TD);
+		return __('Filterable Gallery', MELA_TD);
 	}
 
 	public function get_categories()
