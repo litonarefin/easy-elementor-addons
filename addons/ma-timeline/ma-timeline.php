@@ -126,22 +126,22 @@ class Timeline extends Widget_Base
 		}
 
 
-		// $this->add_control(
-		// 	'ma_el_timeline_design_type',
-		// 	[
-		// 		'label'    => __('Timeline Style', MELA_TD),
-		// 		'type'     => Controls_Manager::SELECT,
-		// 		'options'  => [
-		// 			'vertical'              => __('Vertical Timeline', MELA_TD),
-		// 			'horizontal'            => __('Horizontal Timeline', MELA_TD)
-		// 		],
-		// 		'default'  => 'vertical',
-		// 		'condition' => [
-		// 			'ma_el_timeline_type' => ['post', 'custom']
-		// 		],
-		// 		'frontend_available' 	=> true,
-		// 	]
-		// );
+		$this->add_control(
+			'ma_el_timeline_design_type',
+			[
+				'label'    => __('Timeline Style', MELA_TD),
+				'type'     => Controls_Manager::SELECT,
+				'options'  => [
+					'vertical'              => __('Vertical Timeline', MELA_TD),
+					'horizontal'            => __('Horizontal Timeline', MELA_TD)
+				],
+				'default'  => 'vertical',
+				'condition' => [
+					'ma_el_timeline_type' => ['post', 'custom']
+				],
+				'frontend_available' 	=> true,
+			]
+		);
 
 
 		if (ma_el_fs()->can_use_premium_code()) {
@@ -2742,9 +2742,8 @@ class Timeline extends Widget_Base
 								</div>
 							<?php } ?>
 
-							<div class="timeline-item__meta meta">
-								<?php echo $this->render_date(false); ?>
-							</div><!-- /.ma-el-timeline-post-date -->
+								<?php //echo $this->render_date(false); ?>
+								<?php $this->render_custom_card_meta( $index, $item ); ?>
 
 							<div <?php echo $this->get_render_attribute_string($wysiwyg_key); ?>>
 								<?php echo $this->parse_text_editor($item['ma_el_custom_timeline_content']); ?>
@@ -2812,6 +2811,8 @@ protected function render_card_arrow() {
 }
 
 protected function render_custom_card_meta( $index, $item ) {
+	$settings = $this->get_settings_for_display();
+
 	$meta_key = $this->get_repeater_setting_key( 'date', 'items', $index );
 
 	$this->add_inline_editing_attributes( $meta_key, 'basic' );
@@ -2825,10 +2826,14 @@ protected function render_custom_card_meta( $index, $item ) {
 		],
 	]);
 
-	?><!-- meta -->
+	?>
 	<div <?php echo $this->get_render_attribute_string( $meta_key ); ?>>
-		<?php echo $this->parse_text_editor( $item['ma_el_custom_timeline_date'] ); ?>
-	</div><?php
+		<?php
+			$item_date = $this->parse_text_editor( $item['ma_el_custom_timeline_date'] );
+			echo date($settings['ma_el_timeline_date_format'], strtotime($item_date));
+		?>
+	</div><!-- meta -->
+	<?php
 }
 
 
@@ -3197,11 +3202,11 @@ protected function jltma_horizontal_timeline()
 				$format = '';
 
 				if ( 'default' === $date_format ) {
-					$date_format = get_option( 'ma_el_timeline_date_format' );
+					$date_format = get_option( 'date_format' );
 				}
 
 				if ( 'default' === $time_format ) {
-					$time_format = get_option( 'ma_el_timeline_time_format' );
+					$time_format = get_option( 'time_format' );
 				}
 
 				if ( $date_format ) {
@@ -3219,7 +3224,11 @@ protected function jltma_horizontal_timeline()
 				}
 			}
 
-			$value = get_the_date( $format, $post_id );
+			if($post_id){
+				$value = get_the_date( $format, $post_id );
+			}else{
+				$value = get_the_date($format);
+			}
 
 			return wp_kses_post( $value );
 		}
@@ -3228,20 +3237,19 @@ protected function jltma_horizontal_timeline()
 		protected function render_date( $echo = true, $post_id = null ) {
 
 			$settings 		= $this->get_settings_for_display();
-			$loop_settings 	= $this->get_settings_for_loop_display( $post_id );
+			print_r($settings['ma_el_timeline_date_format']);
 
-			if ( 'custom' === $settings['date_source'] ) {
-				$date = $loop_settings[ 'date_custom' ];
+			if ( 'custom' === $settings['ma_el_timeline_type'] ) {
+				$date = $settings['ma_el_timeline_date_format'];
 			} else {
-				$custom = 'custom' === $settings['ma_el_timeline_date_format'];
-				$date = $this->get_date_formatted( $custom, $settings['ma_el_timeline_date_custom_format'], $settings['ma_el_timeline_date_format'], $settings['ma_el_timeline_time_format'], $post_id );
+				$date = $this->get_date_formatted( $settings['ma_el_timeline_date_format'], $settings['ma_el_timeline_date_custom_format'], $settings['ma_el_timeline_date_format'], $settings['ma_el_timeline_time_format'], $post_id );
 			}
 
 			if ( ! $echo ) {
 				return $date;
 			}
 
-			echo $date;
+			return $date;
 		}
 
 		// protected function render_date($echo = true)
@@ -3256,12 +3264,15 @@ protected function jltma_horizontal_timeline()
 		// 		$time_format = $settings['ma_el_timeline_time_format'];
 		// 		$format = '';
 
+		// 		print_r($date_format);
+		// 		print_r($settings['ma_el_timeline_date_format']);
+
 		// 		if ('default' === $date_format) {
-		// 			$date_format = get_option('ma_el_timeline_date_format');
+		// 			$date_format = get_option('date_format');
 		// 		}
 
 		// 		if ('default' === $time_format) {
-		// 			$time_format = get_option('ma_el_timeline_time_format');
+		// 			$time_format = get_option('time_format');
 		// 		}
 
 		// 		if ($date_format) {
