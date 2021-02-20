@@ -202,6 +202,20 @@ class Timeline extends Widget_Base
 			);
 
 			$this->add_control(
+				'ma_el_timeline_post_title_link',
+				[
+					'label' 		=> __( 'Title Link', MELA_TD ),
+					'type' 			=> Controls_Manager::SWITCHER,
+					'label_on' 		=> __( 'Yes', MELA_TD ),
+					'label_off' 	=> __( 'No', MELA_TD ),
+					'return_value' 	=> 'yes',
+					'condition'	=> [
+						'ma_el_timeline_type' 			=> 'post',
+						'ma_el_timeline_post_title!' 	=> ''
+					]
+				]
+			);
+			$this->add_control(
 				'title_html_tag',
 				[
 					'label'   => __('Heading Tag', MELA_TD),
@@ -209,8 +223,8 @@ class Timeline extends Widget_Base
 					'options' => Master_Addons_Helper::ma_el_title_tags(),
 					'default' => 'h2',
 					'condition'		=> [
-						'ma_el_timeline_type' => 'post',
-						'ma_el_timeline_post_title!' 			=> '',
+						'ma_el_timeline_type' 			=> 'post',
+						'ma_el_timeline_post_title!' 	=> '',
 					],
 				]
 			);
@@ -1159,21 +1173,21 @@ class Timeline extends Widget_Base
 				'condition'		=> [
 					'ma_el_timeline_design_type'	=> 'horizontal'
 				]
-				// 'conditions' => [
-				// 	'relation' 	=> 'or',
-				// 	'terms' 	=> [
-				// 		[
-				// 			'name' 		=> 'slides_per_column',
-				// 			'operator' 	=> '==',
-				// 			'value' 	=> '1',
-				// 		],
-				// 		[
-				// 			'name' 		=> 'slides_per_column',
-				// 			'operator' 	=> '==',
-				// 			'value' 	=> '',
-				// 		],
-				// 	]
-				// ]
+				'conditions' => [
+					'relation' 	=> 'or',
+					'terms' 	=> [
+						[
+							'name' 		=> 'slides_per_column',
+							'operator' 	=> '==',
+							'value' 	=> '1',
+						],
+						[
+							'name' 		=> 'slides_per_column',
+							'operator' 	=> '==',
+							'value' 	=> '',
+						],
+					]
+				]
 			]
 		);
 
@@ -2551,38 +2565,10 @@ class Timeline extends Widget_Base
 
 		$solid_bg_class = ($settings['ma_el_timeline_design_type'] === "horizontal") ? "solid-bg-color" : "";
 
-
-				// $this->add_render_attribute([
-				// 	$item_key => [
-				// 		'class' => [
-				// 			'elementor-repeater-item-' . $item['_id'],
-				// 			'ma-el-blog-timeline-post',
-				// 			'ma-el-timeline__item',
-				// 			'timeline-item',
-				// 			$active_class
-				// 		],
-				// 	],
-				// 	$card_key => [
-				// 		'class' => 'timeline-item__card',
-				// 	],
-				// 	$wysiwyg_key => [
-				// 		'class' => 'ma-el-timeline-entry-content',
-				// 	],
-				// 	$meta_key => [
-				// 		'class' => [
-				// 			'timeline-item__meta',
-				// 			'meta',
-				// 		],
-				// 	],
-				// ]);
-
-
-
 		$this->add_render_attribute([
 			'ma_el_timeline_wrapper' => [
 				'class' =>			[
 					'ma-el-timeline',
-					// 'ma-el-blog-timeline-posts',
 					'ma-el-timeline--' . $settings['ma_el_timeline_design_type'],
 					'ma-el-timeline-' . $settings['ma_el_timeline_type'],
 					'elementor-jltma-element-' . $unique_id,
@@ -2643,10 +2629,6 @@ class Timeline extends Widget_Base
 			],
 		]);
 
-
-		// if ( 'posts' === $settings['source'] && 'content' === $settings['post_excerpt'] ) {
-		// 	$this->add_render_attribute( 'post-excerpt', 'class', 'timeline-item__excerpt--content' );
-		// }
 	}
 
 	protected function jltma_render_line() {
@@ -3111,7 +3093,6 @@ protected function jltma_horizontal_timeline()
 
 		protected function ma_timeline_points_image($item = false)
 		{
-
 			$settings 	= $this->get_settings();
 
 			$output = '<div class="ma-el-timeline-post-mini-thumb">';
@@ -3247,7 +3228,7 @@ protected function jltma_horizontal_timeline()
 
 			// Card Links
 			$this->add_render_attribute( [
-				$card_key => [
+				$post_card_key => [
 					'class' => [
 						'timeline-item__card',
 						implode( ' ', get_post_class() ),
@@ -3257,7 +3238,7 @@ protected function jltma_horizontal_timeline()
 
 			if ( 'yes' === $settings['ma_el_timeline_post_card_links'] ) {
 				$card_tag = 'a';
-				$this->add_render_attribute( $card_key, 'href', get_permalink() );
+				$this->add_render_attribute( $post_card_key, 'href', get_permalink(get_the_ID()) );
 			}
 	?>
 
@@ -3265,7 +3246,12 @@ protected function jltma_horizontal_timeline()
 			<div <?php echo $this->get_render_attribute_string( 'point' ); ?>><?php echo $point_content; ?></div>
 			<div <?php echo $this->get_render_attribute_string( 'card-wrapper' ); ?>>
 				<div class="ma-el-timeline-post-inner">
-					<<?php echo $card_tag; ?>  <?php echo $this->get_render_attribute_string( $card_key ); ?>>
+					<<?php echo $card_tag; ?> <?php
+					if ( 'yes' === $settings['ma_el_timeline_post_card_links'] ) {
+						echo 'class="timeline-item__card '. implode( ' ', get_post_class() ) . '" ';
+						echo "href=" . get_permalink(get_the_ID());
+					}
+					?>>
 						<div class="timeline-item__content-wrapper">
 
 							<?php if ( has_post_thumbnail() || (isset($settings['ma_el_timeline_post_thumbnail']) && $settings['ma_el_timeline_post_thumbnail']) ){ ?>
@@ -3281,9 +3267,9 @@ protected function jltma_horizontal_timeline()
 							<div class="ma-el-timeline-entry-content">
 								<?php if ($settings['ma_el_timeline_post_title'] == "yes") { ?>
 									<<?php echo $title_html_tag; ?> class="ma-el-timeline-entry-title">
-										<a href="<?php the_permalink(); ?>">
+										<?php if ($settings['ma_el_timeline_post_title_link'] == "yes") { ?><a href="<?php the_permalink(); ?>"><?php } ?>
 											<?php the_title(); ?>
-										</a>
+										<?php if ($settings['ma_el_timeline_post_title_link'] == "yes") { ?></a><?php } ?>
 									</<?php echo $title_html_tag; ?>>
 								<?php } ?>
 								<?php $this->ma_el_timeline_content(); ?>
@@ -3299,7 +3285,8 @@ protected function jltma_horizontal_timeline()
 				<?php $this->render_date( true, $post_id ); ?>
 			</div>
 		</div>
-<?php }
+<?php
+}
 
 	protected function render_posts_thumbnail() {
 		global $post;
@@ -3415,52 +3402,6 @@ protected function jltma_horizontal_timeline()
 
 			return $date;
 		}
-
-		// protected function render_date($echo = true)
-		// {
-
-		// 	$settings = $this->get_settings_for_display();
-
-		// 	if ('custom' === $settings['ma_el_timeline_date_format']) {
-		// 		$format = $settings['ma_el_timeline_date_custom_format'];
-		// 	} else {
-		// 		$date_format = $settings['ma_el_timeline_date_format'];
-		// 		$time_format = $settings['ma_el_timeline_time_format'];
-		// 		$format = '';
-
-		// 		print_r($date_format);
-		// 		print_r($settings['ma_el_timeline_date_format']);
-
-		// 		if ('default' === $date_format) {
-		// 			$date_format = get_option('date_format');
-		// 		}
-
-		// 		if ('default' === $time_format) {
-		// 			$time_format = get_option('time_format');
-		// 		}
-
-		// 		if ($date_format) {
-		// 			$format = $date_format;
-		// 			$has_date = true;
-		// 		} else {
-		// 			$has_date = false;
-		// 		}
-
-		// 		if ($time_format) {
-		// 			if ($has_date) {
-		// 				$format .= ' ';
-		// 			}
-		// 			$format .= $time_format;
-		// 		}
-		// 	}
-
-		// 	$value = get_the_date($format);
-
-		// 	if ($echo)
-		// 		echo wp_kses_post($value);
-		// 	else return wp_kses_post($value);
-		// }
-
 
 
 	}
