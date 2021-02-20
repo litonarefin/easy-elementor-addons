@@ -300,6 +300,18 @@ class Filterable_Image_Gallery extends Widget_Base
 			]
 		);
 
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name' 			=> 'ma_el_image_gallery_thumbnail', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `ma_el_image_gallery_thumbnail_size` and `thumbnail_custom_dimension`.
+				'exclude' 		=> ['custom'],
+				'default' 		=> 'full',
+				'separator' 	=> 'none',
+			]
+		);
+
+
 		$this->end_controls_section();
 
 
@@ -435,7 +447,7 @@ class Filterable_Image_Gallery extends Widget_Base
 		$this->add_control(
 			'ma_el_image_gallery_popup_icon',
 			[
-				'label'         	=> esc_html__('Lightbox Icon', MELA_TD),
+				'label'         	=> esc_html__('Hover Icon', MELA_TD),
 				'description' 		=> __('Please choose an icon from the list.', MELA_TD),
 				'type'          	=> Controls_Manager::ICONS,
 				'fa4compatibility' 	=> 'icon',
@@ -445,8 +457,19 @@ class Filterable_Image_Gallery extends Widget_Base
 				],
 				'render_type'      => 'template',
 				'condition' => [
-					'ma_el_image_gallery_hover_icon' => ['yes'],
+					'ma_el_image_gallery_hover_icon' 	=> 'yes',
 				],
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_lightbox',
+			[
+				'label'        => esc_html__('Enable Lightbox?', MELA_TD),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'return_value' => 'yes',
+				'frontend_available' => true,
 			]
 		);
 
@@ -1405,13 +1428,13 @@ class Filterable_Image_Gallery extends Widget_Base
 					// if ($item['ma_el_image_gallery_img']['id']) :
 					if (!empty($images)) {
 						foreach ($images as $image) {
-							$image_url = wp_get_attachment_image_url($image['id'], $settings['thumbnail_size']);
+							$image_url = wp_get_attachment_image_url($image['id'], $settings['ma_el_image_gallery_thumbnail_size']);
 							echo '<div class="ma-el-image-filter-item jltma-col-lg-' . esc_attr($column) . ' jltma-col-md-6 ' . ma_el_image_filter_gallery_category_classes($item['gallery_category_name'], $this->get_id()) . '">';
 							echo '<div class="ma-image-hover-thumb">';
 
 							// echo $this->render_image($item['ma_el_image_gallery_img']['id'], $settings);
 							if (!empty($image['id'])) {
-								$img = wp_get_attachment_image($image['id'], $settings['thumbnail_size']);
+								$img = wp_get_attachment_image($image['id'], $settings['ma_el_image_gallery_thumbnail_size']);
 								echo $img;
 							} else {
 								echo "<img src=" . $image . ">";
@@ -1438,7 +1461,7 @@ class Filterable_Image_Gallery extends Widget_Base
 							echo '<div class="ma-image-hover-content">';
 
 							if ($item['ma_el_image_gallery_buttons'] == "popup") {
-								echo '<a class="ma-el-fancybox elementor-clickable" href="' . esc_url($image_url) . '" data-fancybox="gallery" aria-label="Fancybox Popup">';
+								echo '<a class="ma-el-fancybox elementor-clickable" href="' . esc_url($image_url) . '" data-fancybox="images" aria-label="Fancybox Popup">';
 
 								// Lightbox Icon
 								if ('yes' === $settings['ma_el_image_gallery_hover_icon'] && (!empty($settings['icon']) || !empty($settings['ma_el_image_gallery_popup_icon']['value']))) {

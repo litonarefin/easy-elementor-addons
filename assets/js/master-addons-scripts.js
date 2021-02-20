@@ -473,7 +473,8 @@
         //Master Addons: Image Filter Gallery
         MA_Image_Filter_Gallery: function ($scope, $) {
 
-            var $ma_el_image_filter_gallery_container   = $scope.find('.ma-el-image-filter-gallery').eq(0),
+            var elementSettings     = getElementSettings( $scope ),
+                $ma_el_image_filter_gallery_container   = $scope.find('.ma-el-image-filter-gallery').eq(0),
                 $ma_el_image_filter_gallery_nav         = $scope.find('.ma-el-image-filter-nav');
 
 
@@ -501,23 +502,49 @@
                 }
             });
 
+            if( elementSettings.ma_el_image_gallery_lightbox  == "yes"){
+                // if ($.isFunction($.fn.fancybox)) {
+                //     // $('a.ma-el-fancybox').fancybox({
+                //     $scope.find('.ma-el-fancybox').fancybox({
+                //         openEffect	: 'none',
+                //         closeEffect	: 'none',
+                //         afterLoad : function(instance, current) {
+                //             var pixelRatio = window.devicePixelRatio || 1;
 
+                //             if ( pixelRatio > 1.5 ) {
+                //             current.width  = current.width  / pixelRatio;
+                //             current.height = current.height / pixelRatio;
+                //             }
+                //         }
+                //     });
+                // }
+                    $( ".ma-el-fancybox" ).fancybox({
+                        protect: true,
+                        animationDuration: 366,
+                        transitionDuration: 366,
+                        transitionEffect: 'slide', // Transition effect between slides
+                        animationEffect: 'zoom',
+                        preventCaptionOverlap : true,
+                        loop: false,
+                        infobar: false,
+                        buttons: [
+                            "zoom",
+                            "fullScreen",
+                            "close"
+                        ],
 
+                        afterLoad : function(instance, current) {
+                            var pixelRatio = window.devicePixelRatio || 1;
 
-            if ($.isFunction($.fn.fancybox)) {
-                $('.ma-el-fancybox').fancybox({
-                    openEffect	: 'none',
-                    closeEffect	: 'none',
-                    afterLoad : function(instance, current) {
-                        var pixelRatio = window.devicePixelRatio || 1;
-
-                        if ( pixelRatio > 1.5 ) {
-                        current.width  = current.width  / pixelRatio;
-                        current.height = current.height / pixelRatio;
+                            if ( pixelRatio > 1.5 ) {
+                                current.width  = current.width  / pixelRatio;
+                                current.height = current.height / pixelRatio;
+                            }
                         }
-                    }
-                });
-            }
+                    });
+                }
+            // }
+
         },
 
 
@@ -2203,18 +2230,11 @@
          * Fancybox popup
          */
         MA_Fancybox_Popup: function ($scope, $) {
-
-            try {
-                (function ($) {
-                    if ($.isFunction($.fn.fancybox)) {
-                        $("[data-fancybox]").fancybox({});
-                    }
-                })(jQuery);
-            } catch (e) {
-                //We can also throw from try block and catch it here
-                // No Error Show
-            }
-
+            (function ($) {
+                if ($.isFunction($.fn.fancybox)) {
+                    $("[data-fancybox]").fancybox({});
+                }
+            })(jQuery);
         },
 
         /*
