@@ -63,8 +63,9 @@ class Timeline extends Widget_Base
 	public function get_script_depends()
 	{
 		return [
-			'ma-timeline',
-			'gsap-js'
+			'jltma-timeline',
+			'gsap-js',
+			'master-addons-scripts'
 		];
 	}
 
@@ -72,7 +73,8 @@ class Timeline extends Widget_Base
 	{
 		return [
 			'font-awesome-5-all',
-			'font-awesome-4-shim'
+			'font-awesome-4-shim',
+			'master-addons-main-style'
 		];
 	}
 

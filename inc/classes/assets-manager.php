@@ -11,13 +11,25 @@ class Master_Addons_Assets
 
     public function __construct()
     {
+        add_action('elementor/init', [$this, 'jltma_on_elementor_init'], 0);
+
+        // Enqueue Styles and Scripts
+        add_action('wp_enqueue_scripts', [$this, 'jltma_enqueue_scripts'], 100);
+    }
+
+    public function jltma_on_elementor_init()
+    {
+        // Elementor hooks
+        $this->add_actions();
+    }
+
+    public function add_actions()
+    {
         // Elementor Scripts Dependencies
         add_action('elementor/frontend/after_register_styles', [$this, 'jltma_register_frontend_styles']);
         add_action('elementor/frontend/after_register_scripts', [$this, 'jltma_register_frontend_scripts']);
         // add_action( 'elementor/frontend/after_enqueue_scripts', [$this, 'jltma_enqueue_scripts'] );
 
-        //		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'ma_el_enqueue_frontend_styles' ] );
-        //		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'ma_el_enqueue_frontend_scripts' ] );
 
         // add_action( 'elementor/editor/before_enqueue_scripts'  , array( $this, 'jltma_editor_scripts_enqueue_js' ) );
 
@@ -26,12 +38,7 @@ class Master_Addons_Assets
 
         add_action('elementor/preview/enqueue_styles', [$this, 'jltma_enqueue_preview_scripts'], 100);
         add_action('elementor/preview/enqueue_scripts', [$this, 'jltma_enqueue_preview_scripts'], 100);
-
-
-        // Enqueue Styles and Scripts
-        add_action('wp_enqueue_scripts', [$this, 'jltma_enqueue_scripts'], 100);
     }
-
 
 
     /** Enqueue Elementor Editor Styles */
@@ -45,6 +52,7 @@ class Master_Addons_Assets
     public function jltma_enqueue_preview_scripts()
     {
         wp_enqueue_style('ma-creative-buttons');
+        wp_enqueue_script('jltma-timeline');
     }
 
 
@@ -90,7 +98,7 @@ class Master_Addons_Assets
 
         wp_register_script('fancybox', MELA_PLUGIN_URL . '/assets/vendor/fancybox/jquery.fancybox.min.js', array('jquery'), MELA_VERSION, true);
 
-        wp_register_script('ma-timeline', MELA_PLUGIN_URL . '/assets/js/timeline.js', array('jquery'), MELA_VERSION, true);
+        wp_register_script('jltma-timeline', MELA_PLUGIN_URL . '/assets/js/timeline.js', array('jquery'), MELA_VERSION, true);
 
 
         // Image Comparison

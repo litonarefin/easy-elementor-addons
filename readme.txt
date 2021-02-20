@@ -388,6 +388,7 @@ Paste on your Local Computer
 * Removed: Slick Slider removed from Twitter Carousel
 * Updated: Blog Element updated with Swiper Slider support and improved functionality.
 * Updated: Gallery Slider updated with Swiper Slider support
+* Updated: Timeline Element fully revamped with new UI and fixed bugs
 
 
 = 1.5.6.2 (24-01-2021) =
