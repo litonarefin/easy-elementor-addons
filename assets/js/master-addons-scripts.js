@@ -518,12 +518,12 @@
                 //         }
                 //     });
                 // }
-                    $( ".ma-el-fancybox" ).fancybox({
+                    $scope.find( ".ma-el-fancybox" ).fancybox({
                         protect: true,
                         animationDuration: 366,
                         transitionDuration: 366,
-                        transitionEffect: 'slide', // Transition effect between slides
-                        animationEffect: 'zoom',
+                        transitionEffect: "fade", // Transition effect between slides
+                        animationEffect: "fade",
                         preventCaptionOverlap : true,
                         loop: false,
                         infobar: false,

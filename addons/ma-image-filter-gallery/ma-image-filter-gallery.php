@@ -59,6 +59,7 @@ class Filterable_Image_Gallery extends Widget_Base
 	public function get_style_depends()
 	{
 		return [
+			'fancybox',
 			'font-awesome-5-all',
 			'font-awesome-4-shim',
 			'master-addons-main-style'
@@ -435,6 +436,17 @@ class Filterable_Image_Gallery extends Widget_Base
 		);
 
 		$this->add_control(
+			'ma_el_image_gallery_lightbox',
+			[
+				'label'        => esc_html__('Enable Lightbox?', MELA_TD),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'return_value' => 'yes',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
 			'ma_el_image_gallery_hover_icon',
 			[
 				'label'        => esc_html__('Hover Icon?', MELA_TD),
@@ -462,14 +474,122 @@ class Filterable_Image_Gallery extends Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'ma_el_image_gallery_lightbox',
+		$this->end_controls_section();
+
+
+		// Lightbox Settings
+		$this->start_controls_section(
+			'ma_el_image_gallery_lightbox_section',
 			[
-				'label'        => esc_html__('Enable Lightbox?', MELA_TD),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'no',
-				'return_value' => 'yes',
-				'frontend_available' => true,
+				'label'         => __('Lightbox', MELA_TD),
+				'condition'     => [
+					'ma_el_image_gallery_lightbox' => 'yes'
+				],
+
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_lightbox_caption',
+			[
+				'label'                 => esc_html__('Show Caption?', MELA_TD),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => 'yes',
+				'label_on'              => esc_html__('Show', MELA_TD),
+				'label_off'             => esc_html__('Hide', MELA_TD),
+				'return_value'          => 'yes',
+				'frontend_available' 	=> true
+			]
+		);
+
+
+		$this->add_control(
+			'ma_el_image_gallery_lightbox_protect',
+			[
+				'label'                 => esc_html__('Protect Download', MELA_TD),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => 'yes',
+				'label_on'              => esc_html__('Show', MELA_TD),
+				'label_off'             => esc_html__('Hide', MELA_TD),
+				'return_value'          => 'yes',
+				'frontend_available' 	=> true
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_lightbox_transition_effect',
+			[
+				'label'                 => esc_html__('Transition Effect', MELA_TD),
+				'description'           => esc_html__('Transition effect between Slides', MELA_TD),
+				'type'                  => Controls_Manager::SELECT,
+				'options'               => [
+					'false'               => esc_html__('Disable', MELA_TD),
+					'fade'                => esc_html__('Fade', MELA_TD),
+					'slide'               => esc_html__('Slide', MELA_TD),
+					'circular'            => esc_html__('Circular', MELA_TD),
+					'tube'                => esc_html__('Tube', MELA_TD),
+					'tube'                => esc_html__('Tube', MELA_TD),
+					'zoom-in-out'         => esc_html__('Zoom in Out', MELA_TD),
+					'rotate'              => esc_html__('Rotate', MELA_TD)
+				],
+				'frontend_available' 	=> true,
+				'default'               => 'fade'
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_lightbox_animation_effect',
+			[
+				'label'                 => esc_html__('Animation Effect', MELA_TD),
+				'type'                  => Controls_Manager::SELECT,
+				'description'           => esc_html__('Open/Close animation effect', MELA_TD),
+				'options'               => [
+					'false'              => esc_html__('Disable', MELA_TD),
+					'fade'               => esc_html__('Fade', MELA_TD),
+					'zoom'               => esc_html__('Zoom', MELA_TD),
+					'zoom-in-out'        => esc_html__('Zoom in Out', MELA_TD),
+				],
+				'frontend_available' 	=> true,
+				'default'               => 'fade'
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_lightbox_buttons',
+			[
+				'label'                 => esc_html__('Buttons', MELA_TD),
+				'type'                  => Controls_Manager::SELECT2,
+				'multiple'              => true,
+				'options'               => [
+					'zoom'              => esc_html__('Zoom', MELA_TD),
+					'share'             => esc_html__('Share', MELA_TD),
+					'slideShow'         => esc_html__('SlideShow', MELA_TD),
+					'fullScreen'        => esc_html__('Full Screen', MELA_TD),
+					'download'          => esc_html__('Download', MELA_TD),
+					'thumbs'            => esc_html__('Thumbs', MELA_TD),
+					'close'             => esc_html__('Close', MELA_TD),
+				],
+				'default' => ['zoom', 'fullScreen', 'close'],
+				'frontend_available' 	=> true
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_lightbox_width',
+			[
+				'label'                 => esc_html__('Width', MELA_TD),
+				'type'                  => Controls_Manager::TEXT,
+				'default'               => '800',
+				'title'                 => esc_html__('800', MELA_TD),
+			]
+		);
+		$this->add_control(
+			'ma_el_image_gallery_lightbox_hieght',
+			[
+				'label'                 => esc_html__('Height', MELA_TD),
+				'type'                  => Controls_Manager::TEXT,
+				'default'               => '600',
+				'title'                 => esc_html__('600', MELA_TD),
 			]
 		);
 
@@ -1336,6 +1456,30 @@ class Filterable_Image_Gallery extends Widget_Base
 			);
 		}
 
+		if ($settings['ma_el_image_gallery_lightbox'] === 'yes') {
+			$this->add_render_attribute('item_link', [
+				'class' => [
+					'ma-el-fancybox',
+					'elementor-clickable'
+				],
+				'data-elementor-open-lightbox' => $settings['ma_el_image_gallery_lightbox'],
+				'data-elementor-lightbox-slideshow' => 'ma-el-fg-gallery-' . rand(0, 99999),
+				// 'data-caption' => $settings['ma_el_image_gallery_lightbox_caption'],
+				'data-fancybox' => "images"
+			]);
+		} else {
+			$this->add_render_attribute('item_link', [
+				'data-elementor-open-lightbox' => 'no',
+			]);
+		}
+
+		if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
+			$this->add_render_attribute('item_link', [
+				'class' => 'elementor-clickable',
+			]);
+		}
+
+
 		if (function_exists('ma_el_image_filter_gallery_array_flatten')) {
 			$gallery_categories = ma_el_image_filter_gallery_categories($settings['ma_el_image_gallery_items']);
 		}
@@ -1396,7 +1540,7 @@ class Filterable_Image_Gallery extends Widget_Base
 
 			$demo_images = [];
 
-			if (empty($settings['ma_el_image_gallery_items'][0]['eae_img_gallery']) && empty($settings['ma_el_image_gallery_items'][1]['eae_img_gallery']) && empty($settings['ma_el_image_gallery_items'][0]['eae_img_gallery'])) {
+			if (empty($settings['ma_el_image_gallery_items'][0]['ma_el_image_gallery_img']) && empty($settings['ma_el_image_gallery_items'][1]['ma_el_image_gallery_img']) && empty($settings['ma_el_image_gallery_items'][0]['ma_el_image_gallery_img'])) {
 				$demo_images[] = $this->get_placeholder_images();
 			}
 
@@ -1461,7 +1605,7 @@ class Filterable_Image_Gallery extends Widget_Base
 							echo '<div class="ma-image-hover-content">';
 
 							if ($item['ma_el_image_gallery_buttons'] == "popup") {
-								echo '<a class="ma-el-fancybox elementor-clickable" href="' . esc_url($image_url) . '" data-fancybox="images" aria-label="Fancybox Popup">';
+								echo '<a ' . $this->get_render_attribute_string('item_link') . ' href="' . esc_url($image_url) . '">';
 
 								// Lightbox Icon
 								if ('yes' === $settings['ma_el_image_gallery_hover_icon'] && (!empty($settings['icon']) || !empty($settings['ma_el_image_gallery_popup_icon']['value']))) {
