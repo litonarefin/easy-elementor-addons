@@ -502,7 +502,7 @@
                 }
             });
 
-            if( elementSettings.ma_el_image_gallery_lightbox  == "yes"){
+            // if( elementSettings.ma_el_image_gallery_lightbox  == "yes"){
                 // if ($.isFunction($.fn.fancybox)) {
                 //     // $('a.ma-el-fancybox').fancybox({
                 //     $scope.find('.ma-el-fancybox').fancybox({
@@ -518,31 +518,34 @@
                 //         }
                 //     });
                 // }
-                    $scope.find( ".ma-el-fancybox" ).fancybox({
-                        protect: true,
+                    $( ".ma-el-fancybox" ).fancybox({
+                        // protect: false,
                         animationDuration: 366,
                         transitionDuration: 366,
                         transitionEffect: "fade", // Transition effect between slides
                         animationEffect: "fade",
                         preventCaptionOverlap : true,
-                        loop: false,
+                        // loop: false,
                         infobar: false,
                         buttons: [
                             "zoom",
-                            "fullScreen",
+                            "share",
+                            "slideShow",
+                            //"fullScreen",
+                            "download",
+                            "thumbs",
                             "close"
                         ],
+                        // afterLoad : function(instance, current) {
+                        //     var pixelRatio = window.devicePixelRatio || 1;
 
-                        afterLoad : function(instance, current) {
-                            var pixelRatio = window.devicePixelRatio || 1;
-
-                            if ( pixelRatio > 1.5 ) {
-                                current.width  = current.width  / pixelRatio;
-                                current.height = current.height / pixelRatio;
-                            }
-                        }
+                        //     if ( pixelRatio > 1.5 ) {
+                        //         current.width  = current.width  / pixelRatio;
+                        //         current.height = current.height / pixelRatio;
+                        //     }
+                        // }
                     });
-                }
+                // }
             // }
 
         },
