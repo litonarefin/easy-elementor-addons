@@ -1260,34 +1260,11 @@ class Filterable_Image_Gallery extends Widget_Base
 			[
 				'label' => __('Animation', MELA_TD),
 				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'' => __('None', MELA_TD),
-					'pulse' => __('Pulse', MELA_TD),
-					'headShake' => __('Head Shake', MELA_TD),
-					'tada' => __('Tada', MELA_TD),
-					'fadeIn' => __('Fade In', MELA_TD),
-					'fadeInDown' => __('Fade In Down', MELA_TD),
-					'fadeInLeft' => __('Fade In Left', MELA_TD),
-					'fadeInRight' => __('Fade In Right', MELA_TD),
-					'fadeInUp' => __('Fade In Up', MELA_TD),
-					'rotateInDownLeft' => __('Rotate In Down Left', MELA_TD),
-					'rotateInDownRight' => __('Rotate In Down Right', MELA_TD),
-					'rotateInUpLeft' => __('Rotate In Up Left', MELA_TD),
-					'rotateInUpRight' => __('Rotate In Up Right', MELA_TD),
-					'zoomIn' => __('Zoom In', MELA_TD),
-					'zoomInDown' => __('Zoom In Down', MELA_TD),
-					'zoomInLeft' => __('Zoom In Left', MELA_TD),
-					'zoomInRight' => __('Zoom In Right', MELA_TD),
-					'zoomInUp' => __('Zoom In Up', MELA_TD),
-					'slideInLeft' => __('Slide In Left', MELA_TD),
-					'slideInRight' => __('Slide In Right', MELA_TD),
-					'slideInUp' => __('Slide In Up', MELA_TD),
-					'slideInDown' => __('Slide In Down', MELA_TD),
-				],
-				'default' => 'fadeIn',
+				'options' => Master_Addons_Helper::jltma_animation_options(),
+				'default' => 'jltma-fade-in',
 				'condition' => [
-					'ma_el_image_gallery_show_overlay' => ['hover', 'hide-on-hover'],
-					'ma_el_image_gallery_hover_direction_aware!' => 'yes',
+					'ma_el_image_gallery_show_overlay' 				=> ['hover', 'hide-on-hover'],
+					'ma_el_image_gallery_hover_direction_aware!' 	=> 'yes',
 				]
 			]
 		);
@@ -1982,6 +1959,14 @@ class Filterable_Image_Gallery extends Widget_Base
 	{
 
 		$settings       = $this->get_settings_for_display();
+		$max_tilt    = $settings['ma_el_image_gallery_max_tilt'];
+		$perspective = $settings['ma_el_image_gallery_perspective'];
+		$speed       = $settings['ma_el_image_gallery_speed'];
+		$tilt_axis   = $settings['ma_el_image_gallery_tilt_axis'];
+		$glare       = $settings['ma_el_image_gallery_glare'];
+		$max_glare   = $settings['ma_el_image_gallery_max_glare'];
+		$animation   = $settings['ma_el_image_filter_overlay_animation'];
+
 
 		if (!\Elementor\Plugin::$instance->editor->is_edit_mode()) {
 			$this->add_render_attribute(
@@ -1994,12 +1979,33 @@ class Filterable_Image_Gallery extends Widget_Base
 			);
 		}
 
+		if ($settings['ma_el_image_gallery_show_overlay'] != 'never') {
+			$icon = $settings['ma_el_image_gallery_icon']['value'];
+		}
+		if ($settings['ma_el_image_gallery_hover_direction_aware'] == 'yes') {
+			$overlay_speed = $settings['ma_el_image_gallery_overlay_speed']['size'];
+		}
+
+		$filter_groups = $settings['ma_el_image_gallery_items'];
+
+		$this->add_render_attribute('gallery-wrapper', 'class', 'ma-el-image-filter-gallery-wrapper');
+		if ($settings['ma_el_image_gallery_hover_tilt'] == 'yes') {
+			$this->add_render_attribute('gallery-wrapper', 'class', 'jltma-tilt-box');
+			$this->add_render_attribute('gallery-wrapper', 'data-maxtilt', $max_tilt);
+			$this->add_render_attribute('gallery-wrapper', 'data-perspective', $perspective);
+			$this->add_render_attribute('gallery-wrapper', 'data-speed', $speed);
+			$this->add_render_attribute('gallery-wrapper', 'data-tilt-axis', $tilt_axis);
+			$this->add_render_attribute('gallery-wrapper', 'data-glare', $glare);
+			if ($glare == 'yes') {
+				$this->add_render_attribute('gallery-wrapper', 'data-max-glare', $max_glare);
+			}
+		}
 
 		if (function_exists('ma_el_image_filter_gallery_array_flatten')) {
 			$gallery_categories = ma_el_image_filter_gallery_categories($settings['ma_el_image_gallery_items']);
 		}
 
-		echo '<div class="ma-el-image-filter-gallery-wrapper">';
+		echo '<div ' . $this->get_render_attribute_string('gallery-wrapper') . '>';
 
 		if ($settings['ma_el_image_gallery_filter_nav'] == "yes") {
 
@@ -2072,7 +2078,7 @@ class Filterable_Image_Gallery extends Widget_Base
 						$images = $demo_images;
 					}
 
-					$slide_key 			= $this->get_repeater_setting_key('slide', 'ma_el_image_gallery_items', $index);
+					// $slide_key 			= $this->get_repeater_setting_key('slide', 'ma_el_image_gallery_items', $index);
 					$images_setting_key = $this->get_repeater_setting_key('ma_el_image_gallery_title', 'ma_el_image_gallery_items', $index);
 
 					$this->add_render_attribute([
@@ -2093,7 +2099,6 @@ class Filterable_Image_Gallery extends Widget_Base
 
 							echo '<div class="ma-el-image-filter-item jltma-col-lg-' . esc_attr($column) . ' jltma-col-md-6 ' . ma_el_image_filter_gallery_category_classes($item['gallery_category_name'], $this->get_id()) . '">';
 							echo '<div class="ma-image-hover-thumb">';
-
 
 							if (!empty($image['id'])) {
 								// $img = wp_get_attachment_image($image['id'], $settings['ma_el_image_gallery_image_size']);
@@ -2121,7 +2126,7 @@ class Filterable_Image_Gallery extends Widget_Base
 							}
 
 							echo '</div>';
-							echo '<div class="ma-image-hover-content">';
+							echo '<div class="ma-image-hover-content ' . $animation . '">';
 
 							if ($item['ma_el_image_gallery_buttons'] == "popup") {
 								echo '<a ' . $this->get_render_attribute_string($images_setting_key) . ' href="' . esc_url($image_url) . '">';
