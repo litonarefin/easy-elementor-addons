@@ -19,7 +19,11 @@ use \Elementor\Group_Control_Typography;
 use \Elementor\Scheme_Typography;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Group_Control_Background;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
+// Master Addons Classes
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 
@@ -295,27 +299,34 @@ class Filterable_Image_Gallery extends Widget_Base
 						]
 					],
 
-
-
-
-
 				],
 				'title_field' => '{{title}}'
 			]
 		);
 
-
+		// Image Size
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
-				'name' 			=> 'ma_el_image_gallery_thumbnail', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `ma_el_image_gallery_thumbnail_size` and `thumbnail_custom_dimension`.
+				'name'          => 'ma_el_image_gallery_image', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `ma_el_image_gallery_image_size` and `thumbnail_custom_dimension`.
+				'default'       => 'medium_large',
 				'exclude' 		=> ['custom'],
-				'default' 		=> 'full',
-				'separator' 	=> 'none',
+				'seperator'     => 'after'
 			]
 		);
 
+		$image_per_column = range(1, 6);
+		$image_per_column = array_combine($image_per_column, $image_per_column);
 
+		$this->add_control(
+			'ma_el_image_gallery_column_number',
+			[
+				'label'     => __('Columns', MELA_TD),
+				'type'      => Controls_Manager::NUMBER,
+				'default'   => 3,
+				'options' 	=> $image_per_column,
+			]
+		);
 		$this->end_controls_section();
 
 
@@ -336,20 +347,6 @@ class Filterable_Image_Gallery extends Widget_Base
 				'return_value' 		=> 'yes'
 			]
 		);
-
-		$this->add_control(
-			'ma_el_image_gallery_tooltip',
-			[
-				'label'        		=> esc_html__('Show Tooltip?', MELA_TD),
-				'type'         		=> Controls_Manager::SWITCHER,
-				'default'      		=> 'no',
-				'return_value' 		=> 'yes',
-				'condition' => [
-					'ma_el_image_gallery_filter_nav' => 'yes',
-				]
-			]
-		);
-
 
 		$this->add_control(
 			'ma_el_image_gallery_show_all',
@@ -383,28 +380,119 @@ class Filterable_Image_Gallery extends Widget_Base
 		);
 
 		$this->add_control(
-			'ma_el_image_gallery_column_number',
+			'ma_el_image_gallery_tooltip',
 			[
-				'label'     => __('Number of Columns', MELA_TD),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 3,
-				'options'   => [
-					1       => __('1 Column', MELA_TD),
-					2       => __('2 Columns',   MELA_TD),
-					3       => __('3 Columns', MELA_TD),
-					4       => __('4 Columns',  MELA_TD),
-					6       => __('6 Columns',  MELA_TD)
+				'label'        		=> esc_html__('Show Tooltip?', MELA_TD),
+				'type'         		=> Controls_Manager::SWITCHER,
+				'default'      		=> 'no',
+				'return_value' 		=> 'yes',
+				'condition' => [
+					'ma_el_image_gallery_filter_nav' => 'yes',
 				]
 			]
 		);
 
-		// Image Size
-		$this->add_group_control(
-			Group_Control_Image_Size::get_type(),
+		$this->add_control(
+			'ma_el_image_gallery_enable_image_ratio',
 			[
-				'name'          => 'ma_el_image_gallery_image',
-				'default'       => 'medium_large',
-				'seperator'         => 'after'
+				'label' 			=> __('Image Aspect Ratio', MELA_TD),
+				'type' 				=> Controls_Manager::SWITCHER,
+				'label_on' 			=> __('Yes', MELA_TD),
+				'label_off' 		=> __('No', MELA_TD),
+				'return_value' 		=> 'yes',
+				'default' 			=> 'no',
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_image_gallery_image_ratio',
+			[
+				'label' => __('Image Ratio', MELA_TD),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 0.66,
+				],
+				'tablet_default' => [
+					'size' => '',
+				],
+				'mobile_default' => [
+					'size' => 0.5,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0.1,
+						'max' => 2,
+						'step' => 0.01,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eae-fg-wrapper.eae-image-ratio-yes .eae-gallery-item-inner .eae-fg-img-wrapper' => 'padding-bottom: calc( {{SIZE}} * 100% );',
+				],
+				'condition' => [
+					'ma_el_image_gallery_enable_image_ratio' => 'yes',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_image_gallery_image_gutter',
+			[
+				'label' => __('Gutter', MELA_TD),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 40,
+						'step' => 2,
+					]
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eae-gallery-item' => 'padding-left:calc({{SIZE}}{{UNIT}}/2);  padding-right:calc({{SIZE}}{{UNIT}}/2);  margin-bottom:{{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .eae-gallery-filter' => 'margin-left:calc({{SIZE}}{{UNIT}}/2);  margin-right:calc({{SIZE}}{{UNIT}}/2);  margin-bottom:{{SIZE}}{{UNIT}}',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_masonry',
+			[
+				'label' 		=> __('Masonry', MELA_TD),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label_on' 		=> __('Yes', MELA_TD),
+				'label_off' 	=> __('No', MELA_TD),
+				'return_value' 	=> 'yes',
+				'default' 		=> '',
+				'render_type' 	=> 'template',
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_hover_tilt',
+			[
+				'label' 		=> __('Hover Tilt', MELA_TD),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label_on' 		=> __('Yes', MELA_TD),
+				'label_off' 	=> __('No', MELA_TD),
+				'return_value' 	=> 'yes',
+				'default' 		=> 'no',
+			]
+		);
+
+		$this->end_controls_section();
+
+
+
+		/*
+		 Settings: Overlay Settings
+		 */
+		$this->start_controls_section(
+			'ma_el_image_gallery_overlay_section',
+			[
+				'label' => __('Overlay Setting', MELA_TD),
 			]
 		);
 
@@ -466,20 +554,6 @@ class Filterable_Image_Gallery extends Widget_Base
 			]
 		);
 
-		$this->end_controls_section();
-
-
-
-		/*
-		 Settings: Overlay Settings
-		 */
-		$this->start_controls_section(
-			'ma_el_image_gallery_overlay_section',
-			[
-				'label' => __('Overlay Setting', MELA_TD),
-			]
-		);
-
 		$this->add_control(
 			'ma_el_image_gallery_show_overlay',
 			[
@@ -511,8 +585,6 @@ class Filterable_Image_Gallery extends Widget_Base
 					'ma_el_image_gallery_show_overlay!' => 'never',
 				]
 			]
-
-
 		);
 
 
@@ -895,7 +967,9 @@ class Filterable_Image_Gallery extends Widget_Base
 
 		$this->end_controls_section();
 
-
+		/*
+		Tab: Image Style
+		*/
 		$this->start_controls_section(
 			'ma_el_image_gallery_image_typography_style',
 			[
@@ -1047,8 +1121,458 @@ class Filterable_Image_Gallery extends Widget_Base
 
 
 
+		/*
+		Tab: Tilt Hover Style
+		*/
+		$this->start_controls_section(
+			'ma_el_image_gallery_tilt_setting',
+			[
+				'label' 	=> __('Tilt Style', MELA_TD),
+				'condition' => [
+					'ma_el_image_gallery_hover_tilt' => 'yes',
+				]
+			]
+		);
+		$this->add_control(
+			'ma_el_image_gallery_max_tilt',
+			[
+				'label' 	=> __('Max Tilt', MELA_TD),
+				'type' 		=> Controls_Manager::NUMBER,
+				'min' 		=> 5,
+				'max' 		=> 100,
+				'step' 		=> 5,
+				'default' 	=> 20,
 
-		/* Demo & Download Button Styles */
+			]
+		);
+		$this->add_control(
+			'ma_el_image_gallery_perspective',
+			[
+				'label' 		=> __('Perspective', MELA_TD),
+				'type' 			=> Controls_Manager::NUMBER,
+				'description' 	=> __('Transform perspective, the lower the more extreme the tilt gets.', MELA_TD),
+				'min' 			=> 100,
+				'max' 			=> 1000,
+				'step' 			=> 50,
+				'default' 		=> 800,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_speed',
+			[
+				'label' 		=> __('Speed', MELA_TD),
+				'type' 			=> Controls_Manager::NUMBER,
+				'min' 			=> 100,
+				'max' 			=> 1000,
+				'step' 			=> 50,
+				'default' 		=> 300,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_tilt_axis',
+			[
+				'label' => __('Tilt Axis', MELA_TD),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'both',
+				'options' => [
+					'both' => __('Both', MELA_TD),
+					'x' => __('X', MELA_TD),
+					'y' => __('Y', MELA_TD),
+				],
+			]
+		);
+
+
+		$this->add_control(
+			'ma_el_image_gallery_glare',
+			[
+				'label' => __('Glare', MELA_TD),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __('Yes', MELA_TD),
+				'label_off' => __('No', MELA_TD),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_max_glare',
+			[
+				'label' => __('Glare', MELA_TD),
+				'type' => Controls_Manager::NUMBER,
+				'min' => 0,
+				'max' => 1,
+				'step' => .1,
+				'default' => 0.5,
+				'condition' => ['ma_el_image_gallery_glare' => 'yes']
+			]
+		);
+
+
+		$this->end_controls_section();
+
+		/*
+		Tab: Demo & Download Button Style
+		*/
+
+		$this->start_controls_section(
+			'ma_el_image_filter_overlay_style_section',
+			[
+				'label' => __('Overlay', MELA_TD),
+				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'ma_el_image_gallery_show_overlay!' => 'never',
+				],
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_filter_overlay',
+			[
+				'label' => __('Overlay', MELA_TD),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'ma_el_image_gallery_show_overlay!' => 'never',
+				]
+			]
+
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'ma_el_image_filter_overlay_color',
+				'label' => __('Color', MELA_TD),
+				'types' => ['none', 'classic', 'gradient'],
+				'selector' => '{{WRAPPER}} .eae-gallery-item-inner .eae-grid-overlay',
+				'condition' => [
+					'ma_el_image_gallery_show_overlay!' => 'never',
+				],
+			]
+		);
+
+
+		$this->add_control(
+			'ma_el_image_filter_overlay_animation',
+			[
+				'label' => __('Animation', MELA_TD),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'' => __('None', MELA_TD),
+					'pulse' => __('Pulse', MELA_TD),
+					'headShake' => __('Head Shake', MELA_TD),
+					'tada' => __('Tada', MELA_TD),
+					'fadeIn' => __('Fade In', MELA_TD),
+					'fadeInDown' => __('Fade In Down', MELA_TD),
+					'fadeInLeft' => __('Fade In Left', MELA_TD),
+					'fadeInRight' => __('Fade In Right', MELA_TD),
+					'fadeInUp' => __('Fade In Up', MELA_TD),
+					'rotateInDownLeft' => __('Rotate In Down Left', MELA_TD),
+					'rotateInDownRight' => __('Rotate In Down Right', MELA_TD),
+					'rotateInUpLeft' => __('Rotate In Up Left', MELA_TD),
+					'rotateInUpRight' => __('Rotate In Up Right', MELA_TD),
+					'zoomIn' => __('Zoom In', MELA_TD),
+					'zoomInDown' => __('Zoom In Down', MELA_TD),
+					'zoomInLeft' => __('Zoom In Left', MELA_TD),
+					'zoomInRight' => __('Zoom In Right', MELA_TD),
+					'zoomInUp' => __('Zoom In Up', MELA_TD),
+					'slideInLeft' => __('Slide In Left', MELA_TD),
+					'slideInRight' => __('Slide In Right', MELA_TD),
+					'slideInUp' => __('Slide In Up', MELA_TD),
+					'slideInDown' => __('Slide In Down', MELA_TD),
+				],
+				'default' => 'fadeIn',
+				'condition' => [
+					'ma_el_image_gallery_show_overlay' => ['hover', 'hide-on-hover'],
+					'ma_el_image_gallery_hover_direction_aware!' => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_animation_time',
+			[
+				'label' => __('Animation Time', MELA_TD),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1.00
+				],
+				'range' => [
+					'min' => 1.00,
+					'max' => 10.00,
+					'step' => 0.01
+				],
+				'condition' => [
+					'animation!' => ''
+				],
+				'selectors' => [
+					'{{WRAPPER}}.eae-grid-overlay' => 'animation-duration:{{SIZE}}s;'
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_caption_style',
+			[
+				'label' => __('Caption', MELA_TD),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'ma_el_image_gallery_caption' => 'yes',
+				]
+			]
+
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'ma_el_image_gallery_overlay_typography',
+				'label' => __('Typography', MELA_TD),
+				'global'    =>  [
+					'default'   =>  Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
+				'selector' => '{{WRAPPER}} .eae-overlay-caption',
+				'condition' => [
+					'ma_el_image_gallery_caption' => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_caption_color',
+			[
+				'label' => __('Color', MELA_TD),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .eae-overlay-caption' => 'color:{{VALUE}};'
+				],
+				'global'    =>  [
+					'default'   =>  Global_Colors::COLOR_PRIMARY,
+				],
+				'condition' => [
+					'ma_el_image_gallery_caption' => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_caption_color_hover',
+			[
+				'label' => __('Hover Color', MELA_TD),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .eae-overlay-caption:hover' => 'color:{{VALUE}};'
+				],
+				'condition' => [
+					'ma_el_image_gallery_caption' => 'yes',
+				]
+			]
+		);
+
+
+		$this->add_control(
+			'ma_el_image_gallery_icon_overlay_style',
+			[
+				'label' => __('Icon', MELA_TD),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'ma_el_image_gallery_icon!' => '',
+					'ma_el_image_gallery_show_overlay!' => 'never',
+				],
+
+			]
+
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_overlay_primary_color',
+			[
+				'label' => __('Primary Color', MELA_TD),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}}.eae-icon-view-stacked .eae-overlay-icon' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}}.eae-icon-view-framed .eae-overlay-icon, {{WRAPPER}}.eae-icon-view-default .eae-overlay-icon' => 'color: {{VALUE}}; border-color: {{VALUE}};',
+					'{{WRAPPER}}.eae-icon-view-framed .eae-overlay-icon svg, {{WRAPPER}}.eae-icon-view-default .eae-overlay-icon svg' => 'fill : {{VALUE}};',
+				],
+				'global'    =>  [
+					'default'   =>  Global_Colors::COLOR_PRIMARY,
+				],
+				'condition' => [
+					'ma_el_image_gallery_icon!' => '',
+					'ma_el_image_gallery_show_overlay!' => 'never',
+
+				],
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_secondary_color',
+			[
+				'label' => __('Secondary Color', MELA_TD),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}}.eae-icon-view-framed .eae-overlay-icon' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}}.eae-icon-view-stacked .eae-overlay-icon i' => 'color: {{VALUE}};',
+					'{{WRAPPER}}.eae-icon-view-stacked .eae-overlay-icon svg' => 'fill: {{VALUE}};',
+				],
+				'condition' => [
+					'ma_el_image_gallery_icon!' => '',
+					'ma_el_image_gallery_view!' => 'default',
+					'ma_el_image_gallery_show_overlay!' => 'never',
+				],
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_primary_color_hover',
+			[
+				'label' => __('Primary Color Hover', MELA_TD),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}}.eae-icon-view-stacked .eae-overlay-icon:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}}.eae-icon-view-framed .eae-overlay-icon:hover, {{WRAPPER}}.eae-icon-view-default .eae-overlay-icon' => 'color: {{VALUE}}; border-color: {{VALUE}};',
+					'{{WRAPPER}}.eae-icon-view-framed .eae-overlay-icon:hover svg, {{WRAPPER}}.eae-icon-view-default  .eae-overlay-icon:hover svg' => 'fill: {{VALUE}}',
+				],
+				'condition' => [
+					'ma_el_image_gallery_icon!' => '',
+					'ma_el_image_gallery_show_overlay!' => 'never',
+				],
+
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_secondary_color_hover',
+			[
+				'label' => __('Secondary Color Hover', MELA_TD),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'condition' => [
+					'ma_el_image_gallery_view!' => 'default',
+					'ma_el_image_gallery_show_overlay!' => 'never',
+				],
+				'selectors' => [
+					'{{WRAPPER}}.eae-icon-view-framed:hover .eae-overlay-icon:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}}.eae-icon-view-stacked:hover .eae-overlay-icon:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}}.eae-icon-view-stacked:hover .eae-overlay-icon:hover svg' => 'fill: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_overlay_size',
+			[
+				'label' => __('Size', MELA_TD),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 6,
+						'max' => 300,
+					],
+				],
+				'default' => [
+					'size' => '20',
+					'unit' => 'px',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eae-overlay-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eae-overlay-icon svg' => 'width : {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'ma_el_image_gallery_icon!' => '',
+					'ma_el_image_gallery_show_overlay!' => 'never',
+				],
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_icon_padding',
+			[
+				'label' => __('Icon Padding', MELA_TD),
+				'type' => Controls_Manager::SLIDER,
+				'selectors' => [
+					'{{WRAPPER}} .eae-overlay-icon' => 'padding: {{SIZE}}{{UNIT}};',
+				],
+				'range' => [
+					'em' => [
+						'min' => 0,
+						'max' => 5,
+					],
+				],
+				'condition' => [
+					'ma_el_image_gallery_view!' => 'default',
+					'ma_el_image_gallery_show_overlay!' => 'never',
+				],
+
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_rotate',
+			[
+				'label' => __('Rotate', MELA_TD),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 0,
+					'unit' => 'deg',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eae-overlay-icon i , {{WRAPPER}} .eae-overlay-icon svg' => 'transform: rotate({{SIZE}}{{UNIT}});',
+				],
+				'condition' => [
+					'ma_el_image_gallery_icon!' => '',
+					'ma_el_image_gallery_show_overlay!' => 'never',
+				],
+			]
+		);
+
+		$this->add_control(
+			'border_width',
+			[
+				'label' => __('Border Width', MELA_TD),
+				'type' => Controls_Manager::DIMENSIONS,
+				'selectors' => [
+					'{{WRAPPER}} .eae-overlay-icon' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'condition' => [
+					'ma_el_image_gallery_view' => 'framed',
+					'ma_el_image_gallery_show_overlay!' => 'never',
+				],
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_overlay_border_radius',
+			[
+				'label' => __('Border Radius', MELA_TD),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .eae-overlay-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'condition' => [
+					'ma_el_image_gallery_view!' => 'default',
+					'ma_el_image_gallery_show_overlay!' => 'never',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+
+
+
+		/*
+		Tab: Demo & Download Button Style
+		*/
 		$this->start_controls_section(
 			'ma_el_image_filter_button_settings',
 			[
@@ -1557,61 +2081,24 @@ class Filterable_Image_Gallery extends Widget_Base
 								'ma-el-fancybox',
 								'elementor-clickable'
 							],
-							// 'data-elementor-open-lightbox' 			=> ($item['ma_el_image_gallery_buttons'] == "popup") ? "yes" : "no",
-							// 'data-elementor-lightbox-slideshow' 	=> 'ma-el-gallery-' . $this->get_id(),
-							// 'data-elementor-lightbox-index' 		=> 'link_' . $index,
 							'data-caption' 							=> ($settings['ma_el_image_gallery_lightbox_caption'] == "yes") ? $item['ma_el_image_gallery_title'] : '',
 							'data-fancybox' 						=> "images"
 						]
 					]);
 
-					// if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
-					// 	$this->add_render_attribute($images_setting_key, [
-					// 		'class' => 'elementor-clickable',
-					// 	]);
-					// }
-
-
-					// $ma_el_image_gallery_image = $settings['ma_el_image_gallery_image_size'];
-					// if ('custom' === $ma_el_image_gallery_image) {
-					// 	$image_src = Group_Control_Image_Size::get_attachment_image_src($image_id, 'ma_el_image_gallery_image', $settings);
-					// } else {
-					// 	$image_src = wp_get_attachment_image_src($image_id, $ma_el_image_gallery_image);
-					// 	$image_src = $image_src[0];
-					// }
-					// return sprintf('<img src="%s" alt="%s" />', esc_url($image_src), esc_html(get_post_meta($image_id, '_wp_attachment_image_alt', true)));
-
-					//echo $this->render_image($item['ma_el_image_gallery_img']['id'], $settings);
-
-
-
-					// if ($item['ma_el_image_gallery_img']['id']) :
 					if (!empty($images)) {
 						foreach ($images as $image) {
 
-							$image_url = wp_get_attachment_image_url($image['id'], $settings['ma_el_image_gallery_thumbnail_size']);
-							// print_r($image);
-							// echo "<br>";
-							// print_r($image_url);
-
-							// $this->add_render_attribute($images_setting_key, [
-							// 	'href' 								=> $image_url,
-							// 	'data-src' 							=> $image_url,
-							// 	// 'class' 							=> 'elementor-clickable',
-							// 	// 'data-elementor-open-lightbox' 		=> ($item['ma_el_image_gallery_buttons'] == "popup") ? "yes" : "no",
-							// 	// 'data-elementor-lightbox-slideshow' => $this->get_id(),
-							// 	// 'data-elementor-lightbox-index' 	=> $index
-							// ]);
-
-
+							$image_url = wp_get_attachment_image_url($image['id'], $settings['ma_el_image_gallery_image_size']);
 
 							echo '<div class="ma-el-image-filter-item jltma-col-lg-' . esc_attr($column) . ' jltma-col-md-6 ' . ma_el_image_filter_gallery_category_classes($item['gallery_category_name'], $this->get_id()) . '">';
 							echo '<div class="ma-image-hover-thumb">';
 
-							// echo $this->render_image($item['ma_el_image_gallery_img']['id'], $settings);
+
 							if (!empty($image['id'])) {
-								$img = wp_get_attachment_image($image['id'], $settings['ma_el_image_gallery_thumbnail_size']);
-								echo $img;
+								// $img = wp_get_attachment_image($image['id'], $settings['ma_el_image_gallery_image_size']);
+								// echo $img;
+								echo $this->render_image($image['id'], $settings['ma_el_image_gallery_image_size']);
 							} else {
 								echo "<img src=" . $image . ">";
 							}
