@@ -501,7 +501,7 @@ class Filterable_Image_Gallery extends Widget_Base
 			[
 				'label'        => __('Show Title?', MELA_TD),
 				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'yes',
+				'default'      => 'no',
 				'return_value' => 'yes'
 			]
 		);
@@ -511,7 +511,7 @@ class Filterable_Image_Gallery extends Widget_Base
 			[
 				'label'        => __('Show Subtitle?', MELA_TD),
 				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'yes',
+				'default'      => 'no',
 				'return_value' => 'yes'
 			]
 		);
@@ -521,7 +521,7 @@ class Filterable_Image_Gallery extends Widget_Base
 			[
 				'label'        => __('Show Category?', MELA_TD),
 				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'yes',
+				'default'      => 'no',
 				'return_value' => 'yes'
 			]
 		);
@@ -589,37 +589,6 @@ class Filterable_Image_Gallery extends Widget_Base
 
 
 		$this->add_control(
-			'ma_el_image_gallery_icon_style',
-			[
-				'label' => __('Icon', MELA_TD),
-				'type' => Controls_Manager::HEADING,
-				'separator' => 'before',
-				'condition' =>
-				[
-					'ma_el_image_gallery_show_overlay!' => 'never',
-				]
-
-			]
-		);
-
-		$this->add_control(
-			'ma_el_image_gallery_icon',
-			[
-				'label' => __('Icon', MELA_TD),
-				'type' => Controls_Manager::ICONS,
-				'label_block' => true,
-				'default' => [
-					'value' => 'fas fa-star',
-					'library' => 'fa-solid',
-				],
-				'condition' =>
-				[
-					'ma_el_image_gallery_show_overlay!' => 'never',
-				]
-			]
-		);
-
-		$this->add_control(
 			'ma_el_image_gallery_view',
 			[
 				'label' => __('View', MELA_TD),
@@ -642,7 +611,7 @@ class Filterable_Image_Gallery extends Widget_Base
 		$this->add_control(
 			'ma_el_image_gallery_hover_direction_aware',
 			[
-				'label' => __('Hover Direction Aware', MELA_TD),
+				'label' => __('Hover Direction', MELA_TD),
 				'type' => Controls_Manager::SWITCHER,
 				'label_on' => __('Yes', MELA_TD),
 				'label_off' => __('No', MELA_TD),
@@ -1136,51 +1105,54 @@ class Filterable_Image_Gallery extends Widget_Base
 		$this->add_control(
 			'ma_el_image_gallery_max_tilt',
 			[
-				'label' 	=> __('Max Tilt', MELA_TD),
-				'type' 		=> Controls_Manager::NUMBER,
-				'min' 		=> 5,
-				'max' 		=> 100,
-				'step' 		=> 5,
-				'default' 	=> 20,
-
+				'label' 				=> __('Max Tilt', MELA_TD),
+				'type' 					=> Controls_Manager::NUMBER,
+				'min' 					=> 5,
+				'max' 					=> 100,
+				'step' 					=> 5,
+				'default' 				=> 20,
+				'frontend_available' 	=> true,
 			]
 		);
 		$this->add_control(
 			'ma_el_image_gallery_perspective',
 			[
-				'label' 		=> __('Perspective', MELA_TD),
-				'type' 			=> Controls_Manager::NUMBER,
-				'description' 	=> __('Transform perspective, the lower the more extreme the tilt gets.', MELA_TD),
-				'min' 			=> 100,
-				'max' 			=> 1000,
-				'step' 			=> 50,
-				'default' 		=> 800,
+				'label' 				=> __('Perspective', MELA_TD),
+				'type' 					=> Controls_Manager::NUMBER,
+				'description' 			=> __('Transform perspective, the lower the more extreme the tilt gets.', MELA_TD),
+				'min' 					=> 100,
+				'max' 					=> 1000,
+				'step' 					=> 50,
+				'default' 				=> 800,
+				'frontend_available' 	=> true,
 			]
 		);
 
 		$this->add_control(
 			'ma_el_image_gallery_speed',
 			[
-				'label' 		=> __('Speed', MELA_TD),
-				'type' 			=> Controls_Manager::NUMBER,
-				'min' 			=> 100,
-				'max' 			=> 1000,
-				'step' 			=> 50,
-				'default' 		=> 300,
+				'label' 				=> __('Speed', MELA_TD),
+				'type' 					=> Controls_Manager::NUMBER,
+				'min' 					=> 100,
+				'max' 					=> 1000,
+				'step' 					=> 50,
+				'default' 				=> 300,
+				'frontend_available' 	=> true,
 			]
 		);
 
 		$this->add_control(
 			'ma_el_image_gallery_tilt_axis',
 			[
-				'label' => __('Tilt Axis', MELA_TD),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'both',
-				'options' => [
-					'both' => __('Both', MELA_TD),
-					'x' => __('X', MELA_TD),
-					'y' => __('Y', MELA_TD),
+				'label' 				=> __('Tilt Axis', MELA_TD),
+				'type' 					=> Controls_Manager::SELECT,
+				'default' 				=> 'both',
+				'options' 				=> [
+					'both' 		=> __('Both', MELA_TD),
+					'x' 		=> __('X', MELA_TD),
+					'y' 		=> __('Y', MELA_TD),
 				],
+				'frontend_available' 	=> true,
 			]
 		);
 
@@ -1188,25 +1160,29 @@ class Filterable_Image_Gallery extends Widget_Base
 		$this->add_control(
 			'ma_el_image_gallery_glare',
 			[
-				'label' => __('Glare', MELA_TD),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __('Yes', MELA_TD),
-				'label_off' => __('No', MELA_TD),
-				'return_value' => 'yes',
-				'default' => 'yes',
+				'label' 				=> __('Glare', MELA_TD),
+				'type' 					=> Controls_Manager::SWITCHER,
+				'label_on' 				=> __('Yes', MELA_TD),
+				'label_off' 			=> __('No', MELA_TD),
+				'return_value' 			=> 'yes',
+				'default' 				=> 'yes',
+				'frontend_available' 	=> true,
 			]
 		);
 
 		$this->add_control(
 			'ma_el_image_gallery_max_glare',
 			[
-				'label' => __('Glare', MELA_TD),
-				'type' => Controls_Manager::NUMBER,
-				'min' => 0,
-				'max' => 1,
-				'step' => .1,
-				'default' => 0.5,
-				'condition' => ['ma_el_image_gallery_glare' => 'yes']
+				'label' 				=> __('Glare', MELA_TD),
+				'type' 					=> Controls_Manager::NUMBER,
+				'min' 					=> 0,
+				'max' 					=> 1,
+				'step' 					=> .1,
+				'default' 				=> 0.5,
+				'frontend_available' 	=> true,
+				'condition' => [
+					'ma_el_image_gallery_glare' => 'yes'
+				]
 			]
 		);
 
@@ -1358,7 +1334,7 @@ class Filterable_Image_Gallery extends Widget_Base
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
-					'ma_el_image_gallery_icon!' => '',
+					'ma_el_image_gallery_popup_icon!' => '',
 					'ma_el_image_gallery_show_overlay!' => 'never',
 				],
 
@@ -1381,7 +1357,7 @@ class Filterable_Image_Gallery extends Widget_Base
 					'default'   =>  Global_Colors::COLOR_PRIMARY,
 				],
 				'condition' => [
-					'ma_el_image_gallery_icon!' => '',
+					'ma_el_image_gallery_popup_icon!' => '',
 					'ma_el_image_gallery_show_overlay!' => 'never',
 
 				],
@@ -1400,7 +1376,7 @@ class Filterable_Image_Gallery extends Widget_Base
 					'{{WRAPPER}}.eae-icon-view-stacked .eae-overlay-icon svg' => 'fill: {{VALUE}};',
 				],
 				'condition' => [
-					'ma_el_image_gallery_icon!' => '',
+					'ma_el_image_gallery_popup_icon!' => '',
 					'ma_el_image_gallery_view!' => 'default',
 					'ma_el_image_gallery_show_overlay!' => 'never',
 				],
@@ -1419,7 +1395,7 @@ class Filterable_Image_Gallery extends Widget_Base
 					'{{WRAPPER}}.eae-icon-view-framed .eae-overlay-icon:hover svg, {{WRAPPER}}.eae-icon-view-default  .eae-overlay-icon:hover svg' => 'fill: {{VALUE}}',
 				],
 				'condition' => [
-					'ma_el_image_gallery_icon!' => '',
+					'ma_el_image_gallery_popup_icon!' => '',
 					'ma_el_image_gallery_show_overlay!' => 'never',
 				],
 
@@ -1464,7 +1440,7 @@ class Filterable_Image_Gallery extends Widget_Base
 					'{{WRAPPER}} .eae-overlay-icon svg' => 'width : {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
-					'ma_el_image_gallery_icon!' => '',
+					'ma_el_image_gallery_popup_icon!' => '',
 					'ma_el_image_gallery_show_overlay!' => 'never',
 				],
 			]
@@ -1505,7 +1481,7 @@ class Filterable_Image_Gallery extends Widget_Base
 					'{{WRAPPER}} .eae-overlay-icon i , {{WRAPPER}} .eae-overlay-icon svg' => 'transform: rotate({{SIZE}}{{UNIT}});',
 				],
 				'condition' => [
-					'ma_el_image_gallery_icon!' => '',
+					'ma_el_image_gallery_popup_icon!' => '',
 					'ma_el_image_gallery_show_overlay!' => 'never',
 				],
 			]
@@ -1959,12 +1935,13 @@ class Filterable_Image_Gallery extends Widget_Base
 	{
 
 		$settings       = $this->get_settings_for_display();
-		$max_tilt    = $settings['ma_el_image_gallery_max_tilt'];
-		$perspective = $settings['ma_el_image_gallery_perspective'];
-		$speed       = $settings['ma_el_image_gallery_speed'];
-		$tilt_axis   = $settings['ma_el_image_gallery_tilt_axis'];
-		$glare       = $settings['ma_el_image_gallery_glare'];
-		$max_glare   = $settings['ma_el_image_gallery_max_glare'];
+
+		// $max_tilt    = $settings['ma_el_image_gallery_max_tilt'];
+		// $perspective = $settings['ma_el_image_gallery_perspective'];
+		// $speed       = $settings['ma_el_image_gallery_speed'];
+		// $tilt_axis   = $settings['ma_el_image_gallery_tilt_axis'];
+		// $glare       = $settings['ma_el_image_gallery_glare'];
+		// $max_glare   = $settings['ma_el_image_gallery_max_glare'];
 		$animation   = $settings['ma_el_image_filter_overlay_animation'];
 
 
@@ -1979,9 +1956,6 @@ class Filterable_Image_Gallery extends Widget_Base
 			);
 		}
 
-		if ($settings['ma_el_image_gallery_show_overlay'] != 'never') {
-			$icon = $settings['ma_el_image_gallery_icon']['value'];
-		}
 		if ($settings['ma_el_image_gallery_hover_direction_aware'] == 'yes') {
 			$overlay_speed = $settings['ma_el_image_gallery_overlay_speed']['size'];
 		}
@@ -1991,14 +1965,14 @@ class Filterable_Image_Gallery extends Widget_Base
 		$this->add_render_attribute('gallery-wrapper', 'class', 'ma-el-image-filter-gallery-wrapper');
 		if ($settings['ma_el_image_gallery_hover_tilt'] == 'yes') {
 			$this->add_render_attribute('gallery-wrapper', 'class', 'jltma-tilt-box');
-			$this->add_render_attribute('gallery-wrapper', 'data-maxtilt', $max_tilt);
-			$this->add_render_attribute('gallery-wrapper', 'data-perspective', $perspective);
-			$this->add_render_attribute('gallery-wrapper', 'data-speed', $speed);
-			$this->add_render_attribute('gallery-wrapper', 'data-tilt-axis', $tilt_axis);
-			$this->add_render_attribute('gallery-wrapper', 'data-glare', $glare);
-			if ($glare == 'yes') {
-				$this->add_render_attribute('gallery-wrapper', 'data-max-glare', $max_glare);
-			}
+			// $this->add_render_attribute('gallery-wrapper', 'data-maxtilt', $max_tilt);
+			// $this->add_render_attribute('gallery-wrapper', 'data-perspective', $perspective);
+			// $this->add_render_attribute('gallery-wrapper', 'data-speed', $speed);
+			// $this->add_render_attribute('gallery-wrapper', 'data-tilt-axis', $tilt_axis);
+			// $this->add_render_attribute('gallery-wrapper', 'data-glare', $glare);
+			// if ($settings['ma_el_image_gallery_glare'] == 'yes') {
+			// 	$this->add_render_attribute('gallery-wrapper', 'data-max-glare', $max_glare);
+			// }
 		}
 
 		if (function_exists('ma_el_image_filter_gallery_array_flatten')) {
