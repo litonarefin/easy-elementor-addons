@@ -452,25 +452,8 @@ class Blog extends Widget_Base
 				'label' 		=> __('Auto Height', MELA_TD),
 				'default' 		=> '',
 				'frontend_available' 	=> true,
-				'conditions' => [
-					'relation' 	=> 'or',
-					'terms' 	=> [
-						[
-							'name' 		=> 'ma_el_blog_carousel',
-							'operator' 	=> '!==',
-							'value' 	=> '',
-						],
-						[
-							'name' 		=> 'slides_per_column',
-							'operator' 	=> '==',
-							'value' 	=> '1',
-						],
-						[
-							'name' 		=> 'slides_per_column',
-							'operator' 	=> '==',
-							'value' 	=> '',
-						],
-					]
+				'condition' => [
+					'ma_el_blog_carousel'	=> 'yes'
 				]
 			]
 		);
@@ -3823,7 +3806,7 @@ class Blog extends Widget_Base
 								'jltma-arrows--' . $settings['ma_el_blog_carousel_direction'],
 								'jltma-swiper__navigation',
 								'jltma-swiper__navigation--' . $settings['ma_el_blog_carousel_arrows_placement'],
-								'jltma-swiper__navigation--' . $settings['ma_el_blog_carousel_arrows_pos']['size'],
+								'jltma-swiper__navigation--' . $settings['ma_el_blog_carousel_arrows_position'],
 								'jltma-swiper__navigation--' . $settings['ma_el_blog_carousel_arrows_position_vertical']
 							],
 						],

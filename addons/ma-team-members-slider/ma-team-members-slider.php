@@ -815,24 +815,73 @@ class Team_Slider extends Widget_Base
 				'type' 			=> Controls_Manager::SWITCHER,
 				'label' 		=> __('Auto Height', MELA_TD),
 				'default' 		=> '',
-				'frontend_available' 	=> true,
-				'conditions' => [
-					'relation' 	=> 'or',
-					'terms' 	=> [
-						[
-							'name' 		=> 'slides_per_column',
-							'operator' 	=> '==',
-							'value' 	=> '1',
-						],
-						[
-							'name' 		=> 'slides_per_column',
-							'operator' 	=> '==',
-							'value' 	=> '',
-						],
-					]
-				]
+				'frontend_available' 	=> true
 			]
 		);
+
+		$this->add_control(
+			'carousel_height',
+			[
+				'label' 		=> __('Custom Height', MELA_TD),
+				'description'	=> __('The carousel needs to have a fixed defined height to work in vertical mode.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'size_units' 	=> [
+					'px', '%', 'vh'
+				],
+				'default' => [
+					'size' => 500,
+					'unit' => 'px',
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 200,
+						'max' => 2000,
+					],
+					'%' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+					'vh' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__container' => 'height: {{SIZE}}{{UNIT}};',
+				],
+				'condition'		=> [
+					'autoheight!' => 'yes'
+				],
+			]
+		);
+
+
+		$this->add_control(
+			'slide_effect',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Effect', MELA_TD),
+				'default' 		=> 'slide',
+				'options' 		=> [
+					'slide' 	=> __('Slide', MELA_TD),
+					'fade' 		=> __('Fade', MELA_TD),
+				],
+				'frontend_available' => true
+			]
+		);
+
+		$this->add_control(
+			'slide_effect_fade_warning',
+			[
+				'type' 				=> Controls_Manager::RAW_HTML,
+				'raw' 				=> __('The Fade effect ignores the Slides per View and Slides per Column settings', MELA_TD),
+				'content_classes' 	=> 'elementor-panel-alert elementor-panel-alert-info',
+				'condition' 		=> [
+					'slide_effect' => 'fade'
+				],
+			]
+		);
+
 
 		$slides_per_view = range(1, 6);
 		$slides_per_view = array_combine($slides_per_view, $slides_per_view);
@@ -872,123 +921,6 @@ class Team_Slider extends Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'ma_el_team_carousel_nav',
-			[
-				'label' => esc_html__('Navigation Style', MELA_TD),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'arrows',
-				'separator' => 'before',
-				'options' => [
-					'arrows' => esc_html__('Arrows', MELA_TD),
-					'dots' => esc_html__('Dots', MELA_TD),
-
-				],
-				'frontend_available' 	=> true,
-			]
-		);
-
-
-		$this->start_controls_tabs('ma_el_team_carousel_navigation_tabs');
-
-		$this->start_controls_tab('ma_el_team_carousel_navigation_control', ['label' => esc_html__(
-			'Normal',
-			MELA_TD
-		)]);
-
-		$this->add_control(
-			'ma_el_team_carousel_arrow_color',
-			[
-				'label' => esc_html__('Arrow Background', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#b8bfc7',
-				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next' => 'background: {{VALUE}};',
-				],
-				'condition' => [
-					'ma_el_team_carousel_nav' => 'arrows',
-				],
-			]
-		);
-
-		$this->add_control(
-			'ma_el_team_carousel_dot_color',
-			[
-				'label' => esc_html__('Dot Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#8a8d91',
-				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-carousel-wrapper .slick-dots li button' => 'background-color: {{VALUE}};',
-				],
-				'condition' => [
-					'ma_el_team_carousel_nav' => 'dots',
-				],
-			]
-		);
-
-
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name'        => 'ma_el_team_carousel_border',
-				'placeholder' => '1px',
-				'default'     => '0px',
-				'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next'
-			]
-		);
-
-
-		$this->end_controls_tab();
-
-		$this->start_controls_tab('ma_el_team_carousel_social_icon_hover', [
-			'label' => esc_html__('Hover', MELA_TD)
-		]);
-
-		$this->add_control(
-			'ma_el_team_carousel_arrow_hover_color',
-			[
-				'label' => esc_html__('Arrow Hover', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#917cff',
-				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-carousel-prev:hover, {{WRAPPER}} .ma-el-team-carousel-next:hover' =>
-					'background: {{VALUE}};',
-				],
-				'condition' => [
-					'ma_el_team_carousel_nav' => 'arrows',
-				],
-			]
-		);
-
-		$this->add_control(
-			'ma_el_team_carousel_dot_hover_color',
-			[
-				'label' => esc_html__('Dot Hover', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#8a8d91',
-				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-carousel-wrapper .slick-dots li.slick-active button, {{WRAPPER}} .ma-el-team-carousel-wrapper .slick-dots li button:hover' => 'background: {{VALUE}};',
-				],
-				'condition' => [
-					'ma_el_team_carousel_nav' => 'dots',
-				],
-			]
-		);
-
-
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name'        => 'ma_el_team_carousel_hover_border',
-				'placeholder' => '1px',
-				'default'     => '0px',
-				'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev:hover, {{WRAPPER}} .ma-el-team-carousel-next:hover'
-			]
-		);
-
-		$this->end_controls_tab();
-
-		$this->end_controls_tabs();
 
 		$this->add_control(
 			'ma_el_team_transition_duration',
@@ -1005,14 +937,16 @@ class Team_Slider extends Widget_Base
 			'ma_el_team_autoplay',
 			[
 				'label'     => esc_html__('Autoplay', MELA_TD),
-				'type'      => Controls_Manager::SWITCHER,
+				'type'          => Controls_Manager::POPOVER_TOGGLE,
 				'default'   => 'no',
 				'frontend_available' 	=> true,
 			]
 		);
 
+		$this->start_popover();
+
 		$this->add_control(
-			'ma_el_team_autoplay_speed',
+			'autoplay_speed',
 			[
 				'label'     => esc_html__('Autoplay Speed', MELA_TD),
 				'type'      => Controls_Manager::NUMBER,
@@ -1025,12 +959,16 @@ class Team_Slider extends Widget_Base
 		);
 
 		$this->add_control(
-			'ma_el_team_loop',
+			'pause_on_interaction',
 			[
-				'label'   => esc_html__('Infinite Loop', MELA_TD),
-				'type'    => Controls_Manager::SWITCHER,
-				'default' => 'yes',
-				'frontend_available' 	=> true,
+				'label' 		=> __('Disable on Interaction', MELA_TD),
+				'description' 	=> __('Removes autoplay completely on the first interaction with the carousel.', MELA_TD),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'default' 		=> '',
+				'condition' 	=> [
+					'ma_el_team_autoplay'           => 'yes'
+				],
+				'frontend_available' => true,
 			]
 		);
 
@@ -1046,6 +984,213 @@ class Team_Slider extends Widget_Base
 				'frontend_available' 	=> true,
 			]
 		);
+
+		$this->end_popover();
+
+		$this->add_control(
+			'duration_speed',
+			[
+				'label' 	=> __('Duration (ms)', MELA_TD),
+				'description' => __('Duration of the effect transition.', MELA_TD),
+				'type' 		=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 300,
+					'unit' 	=> 'px',
+				],
+				'range' 	=> [
+					'px' 	=> [
+						'min' 	=> 0,
+						'max' 	=> 2000,
+						'step'	=> 100,
+					],
+				],
+				'frontend_available' => true
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'columns_spacing',
+			[
+				'label' 			=> __('Columns Spacing', MELA_TD),
+				'type' 				=> Controls_Manager::SLIDER,
+				'default'			=> [
+					'size' => 24,
+					'unit' => 'px',
+				],
+				'tablet_default'	=> [
+					'size' => 12,
+					'unit' => 'px',
+				],
+				'mobile_default'	=> [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'size_units' 		=> ['px'],
+				'range' 			=> [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'frontend_available' => true,
+			]
+		);
+
+
+		$this->add_control(
+			'ma_el_team_loop',
+			[
+				'label'   => esc_html__('Infinite Loop', MELA_TD),
+				'type'    => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->add_control(
+			'slide_change_resize',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Trigger Resize on Slide', MELA_TD),
+				'description'	=> __('Some widgets inside post skins templates might require triggering a window resize event when changing slides to display correctly.', MELA_TD),
+				'default' 		=> '',
+				'frontend_available' => true,
+			]
+		);
+
+
+		$this->add_control(
+			'carousel_pagination',
+			[
+				'label' 		=> __('Pagination', MELA_TD),
+				'type' 			=> Controls_Manager::POPOVER_TOGGLE,
+				'default' 		=> 'on',
+				'label_on' 		=> __('On', MELA_TD),
+				'label_off' 	=> __('Off', MELA_TD),
+				'return_value' 	=> 'on',
+				'frontend_available' => true
+			]
+		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			'pagination_position',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'inside',
+				'options' 		=> [
+					'inside' 		=> __('Inside', MELA_TD),
+					'outside' 		=> __('Outside', MELA_TD),
+				],
+				'frontend_available' 	=> true,
+				'condition'		=> [
+					'carousel_pagination!'         => '',
+				]
+			]
+		);
+
+		$this->add_control(
+			'pagination_type',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Type', MELA_TD),
+				'default'		=> 'bullets',
+				'options' 		=> [
+					'bullets' 		=> __('Bullets', MELA_TD),
+					'fraction' 		=> __('Fraction', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_pagination!'         => '',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'carousel_pagination_clickable',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Clickable', MELA_TD),
+				'default' 		=> 'yes',
+				'return_value' 	=> 'yes',
+				'condition' => [
+					'carousel_pagination!'         	=> '',
+					'pagination_type'       		=> 'bullets'
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+		$this->end_popover();
+
+
+
+		$this->add_control(
+			'carousel_arrows',
+			[
+				'label'         => __('Arrows', MELA_TD),
+				'type'          => Controls_Manager::POPOVER_TOGGLE,
+				'default'       => 'yes',
+				'return_value' 	=> 'yes',
+				'frontend_available' => true
+			]
+		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			'arrows_placement',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Placement', MELA_TD),
+				'default'		=> 'inside',
+				'options' 		=> [
+					'inside' 	=> __('Inside', MELA_TD),
+					'outside' 	=> __('Outside', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_arrows' => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'arrows_position',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'middle',
+				'options' 		=> [
+					'top' 		=> __('Top', MELA_TD),
+					'middle' 	=> __('Middle', MELA_TD),
+					'bottom' 	=> __('Bottom', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_arrows' 	=> 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'arrows_position_vertical',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'center',
+				'options' 		=> [
+					'left' 		=> __('Left', MELA_TD),
+					'center' 	=> __('Center', MELA_TD),
+					'right' 	=> __('Right', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_arrows' 	=> 'yes',
+				]
+			]
+		);
+
+		$this->end_popover();
 
 		$this->end_controls_section();
 
@@ -1244,21 +1389,43 @@ Customization Options.</span>'
 
 		$team_preset = $settings['ma_el_team_carousel_preset'];
 
-		$this->add_render_attribute(
-			'ma_el_team_carousel',
-			[
+		$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
+
+		$this->add_render_attribute([
+			'ma_el_team_carousel' => [
 				'class' => [
 					'ma-el-team-members-slider-section',
 					'ma-el-team-carousel-wrapper',
-					'ma-el-team-carousel' . $team_preset
+					'ma-el-team-carousel' . $team_preset,
+					'jltma-swiper',
+					'jltma-swiper__container',
+					'swiper-container',
+					'elementor-jltma-element-' . $unique_id
 				],
+				'data-jltma-template-widget-id' => $unique_id
 				// 'data-team-preset' 		=> $team_preset,
 				// 'data-carousel-nav' 	=> $settings['ma_el_team_carousel_nav'],
 				// 'data-slidestoshow' 	=> $settings['ma_el_team_per_view'],
 				// 'data-slidestoscroll' 	=> $settings['ma_el_team_slides_to_scroll'],
 				// 'data-speed' 			=> $settings['ma_el_team_transition_duration'],
-			]
-		);
+			],
+			'swiper-wrapper' => [
+				'class' => [
+					'jltma-blog-carousel',
+					'jltma-swiper__wrapper',
+					'swiper-wrapper',
+				],
+			],
+
+			'swiper-item' => [
+				'class' => [
+					'jltma-slider__item',
+					'jltma-swiper__slide',
+					'swiper-slide',
+					'ma-el-team-carousel' . $team_preset . '-inner'
+				],
+			],
+		]);
 
 
 		$this->add_render_attribute(
@@ -1389,107 +1556,201 @@ Customization Options.</span>'
 
 
 			<div <?php echo $this->get_render_attribute_string('ma_el_team_carousel'); ?>>
+				<div <?php echo $this->get_render_attribute_string('swiper-wrapper'); ?>>
+					<?php foreach ($settings['team_carousel_repeater'] as $key => $member) {
+						$team_carousel_image = $member['ma_el_team_carousel_image'];
+						$team_carousel_image_url = Group_Control_Image_Size::get_attachment_image_src($team_carousel_image['id'], 'thumbnail', $member);
+						if (empty($team_carousel_image_url)) : $team_carousel_image_url = $team_carousel_image['url'];
+						else : $team_carousel_image_url = $team_carousel_image_url;
+						endif;
+					?>
 
-				<?php foreach ($settings['team_carousel_repeater'] as $key => $member) :
-
-					$team_carousel_image = $member['ma_el_team_carousel_image'];
-					$team_carousel_image_url = Group_Control_Image_Size::get_attachment_image_src($team_carousel_image['id'], 'thumbnail', $member);
-					if (empty($team_carousel_image_url)) : $team_carousel_image_url = $team_carousel_image['url'];
-					else : $team_carousel_image_url = $team_carousel_image_url;
-					endif;
-				?>
-
-					<div class="ma-el-team-carousel<?php echo $team_preset; ?>-inner">
-						<div class="ma-el-team-member<?php echo $team_preset; ?> text-center">
-							<div class="ma-el-team-member-thumb">
-								<?php
-								//                                            if( $team_preset == '-circle' && isset( $settings['ma_el_team_circle_image'] ) && !isset( $settings['ma_el_team_circle_image_animation'] )) {
-								if ($team_preset == '-circle' && isset($settings['ma_el_team_circle_image'])) {
-									$file_path =  MELA_PLUGIN_PATH . '/assets/images/circlesvg/' . $settings['ma_el_team_circle_image'] . '.svg';
-									echo file_get_contents($file_path);
-									echo '<img src="' . esc_url($team_carousel_image_url) . '" class="circled" alt="' . $member['ma_el_team_carousel_name'] . '">';
-								} elseif ($team_preset == '-circle-animation' && isset($settings['ma_el_team_circle_image_animation'])) {
-
-									if ($settings['ma_el_team_circle_image_animation'] == "animation_svg_02") {
-
-										echo '<div class="animation_svg_02"><img src="' . esc_url($team_carousel_image_url) . '" class="circled" alt="' . $member['ma_el_team_carousel_name'] . '"></div>';
-									} elseif ($settings['ma_el_team_circle_image_animation'] == "animation_svg_03") {
-
-										echo '<div class="animation_svg_03"></div><div class="animation_svg_03"></div><div class="animation_svg_03"></div><div class="animation_svg_03_center"><img src="' . esc_url($team_carousel_image_url) . '" class="circled" alt="' . $member['ma_el_team_carousel_name'] . '"></div>';
-									} else {
-
-										$file_path =  MELA_PLUGIN_PATH . '/assets/images/animation/' .
-											$settings['ma_el_team_circle_image_animation'] . '.svg';
+						<div <?php echo $this->get_render_attribute_string('swiper-item'); ?>>
+							<div class="ma-el-team-member<?php echo $team_preset; ?> text-center">
+								<div class="ma-el-team-member-thumb">
+									<?php
+									//                                            if( $team_preset == '-circle' && isset( $settings['ma_el_team_circle_image'] ) && !isset( $settings['ma_el_team_circle_image_animation'] )) {
+									if ($team_preset == '-circle' && isset($settings['ma_el_team_circle_image'])) {
+										$file_path =  MELA_PLUGIN_PATH . '/assets/images/circlesvg/' . $settings['ma_el_team_circle_image'] . '.svg';
 										echo file_get_contents($file_path);
 										echo '<img src="' . esc_url($team_carousel_image_url) . '" class="circled" alt="' . $member['ma_el_team_carousel_name'] . '">';
-									}
-								} else {
+									} elseif ($team_preset == '-circle-animation' && isset($settings['ma_el_team_circle_image_animation'])) {
 
-									echo '<img src="' . esc_url($team_carousel_image_url) . '" class="circled" alt="' . $member['ma_el_team_carousel_name'] . '">';
-								} ?>
+										if ($settings['ma_el_team_circle_image_animation'] == "animation_svg_02") {
 
-							</div>
-							<div class="ma-el-team-member-content">
-								<<?php echo $settings['title_html_tag']; ?> class="ma-el-team-member-name">
-									<?php echo $member['ma_el_team_carousel_name'];
-									?>
-								</<?php echo $settings['title_html_tag']; ?>>
-								<span class="ma-el-team-member-designation"><?php echo $member['ma_el_team_carousel_designation']; ?></span>
-								<p class="ma-el-team-member-about">
-									<?php echo $member['ma_el_team_carousel_description']; ?>
-								</p>
-								<?php if ($member['ma_el_team_carousel_enable_social_profiles'] == 'yes') : ?>
-									<ul class="list-inline ma-el-team-member-social">
+											echo '<div class="animation_svg_02"><img src="' . esc_url($team_carousel_image_url) . '" class="circled" alt="' . $member['ma_el_team_carousel_name'] . '"></div>';
+										} elseif ($settings['ma_el_team_circle_image_animation'] == "animation_svg_03") {
 
-										<?php if (!empty($member['ma_el_team_carousel_facebook_link']['url'])) : ?>
-											<?php $target = $member['ma_el_team_carousel_facebook_link']['is_external'] ? ' target="_blank"' : ''; ?>
-											<li>
-												<a href="<?php echo esc_url($member['ma_el_team_carousel_facebook_link']['url']); ?>" <?php echo $target; ?>><i class="fa fa-facebook"></i></a>
-											</li>
-										<?php endif; ?>
+											echo '<div class="animation_svg_03"></div><div class="animation_svg_03"></div><div class="animation_svg_03"></div><div class="animation_svg_03_center"><img src="' . esc_url($team_carousel_image_url) . '" class="circled" alt="' . $member['ma_el_team_carousel_name'] . '"></div>';
+										} else {
 
-										<?php if (!empty($member['ma_el_team_carousel_twitter_link']['url'])) : ?>
-											<?php $target = $member['ma_el_team_carousel_twitter_link']['is_external'] ? ' target="_blank"' : ''; ?>
-											<li>
-												<a href="<?php echo esc_url($member['ma_el_team_carousel_twitter_link']['url']); ?>" <?php echo $target; ?>><i class="fa fa-twitter"></i></a>
-											</li>
-										<?php endif; ?>
+											$file_path =  MELA_PLUGIN_PATH . '/assets/images/animation/' .
+												$settings['ma_el_team_circle_image_animation'] . '.svg';
+											echo file_get_contents($file_path);
+											echo '<img src="' . esc_url($team_carousel_image_url) . '" class="circled" alt="' . $member['ma_el_team_carousel_name'] . '">';
+										}
+									} else {
 
-										<?php if (!empty($member['ma_el_team_carousel_instagram_link']['url'])) : ?>
-											<?php $target = $member['ma_el_team_carousel_instagram_link']['is_external'] ?
-												' target="_blank"' : ''; ?>
-											<li>
-												<a href="<?php echo esc_url(
-																$member['ma_el_team_carousel_instagram_link']['url']
-															); ?>" <?php echo $target; ?>><i class="fa fa-instagram"></i></a>
-											</li>
-										<?php endif; ?>
+										echo '<img src="' . esc_url($team_carousel_image_url) . '" class="circled" alt="' . $member['ma_el_team_carousel_name'] . '">';
+									} ?>
 
-										<?php if (!empty($member['ma_el_team_carousel_linkedin_link']['url'])) : ?>
-											<?php $target = $member['ma_el_team_carousel_linkedin_link']['is_external'] ? ' target="_blank"' : ''; ?>
-											<li>
-												<a href="<?php echo esc_url($member['ma_el_team_carousel_linkedin_link']['url']); ?>" <?php echo $target; ?>><i class="fa fa-linkedin"></i></a>
-											</li>
-										<?php endif; ?>
+								</div>
+								<div class="ma-el-team-member-content">
+									<<?php echo $settings['title_html_tag']; ?> class="ma-el-team-member-name">
+										<?php echo $member['ma_el_team_carousel_name'];
+										?>
+									</<?php echo $settings['title_html_tag']; ?>>
+									<span class="ma-el-team-member-designation"><?php echo $member['ma_el_team_carousel_designation']; ?></span>
+									<p class="ma-el-team-member-about">
+										<?php echo $member['ma_el_team_carousel_description']; ?>
+									</p>
+									<?php if ($member['ma_el_team_carousel_enable_social_profiles'] == 'yes') : ?>
+										<ul class="list-inline ma-el-team-member-social">
 
-										<?php if (!empty($member['ma_el_team_carousel_dribbble_link']['url'])) : ?>
-											<?php $target = $member['ma_el_team_carousel_dribbble_link']['is_external'] ? ' target="_blank"' : ''; ?>
-											<li>
-												<a href="<?php echo esc_url($member['ma_el_team_carousel_dribbble_link']['url']); ?>" <?php echo $target; ?>><i class="fa fa-dribbble"></i></a>
-											</li>
-										<?php endif; ?>
+											<?php if (!empty($member['ma_el_team_carousel_facebook_link']['url'])) : ?>
+												<?php $target = $member['ma_el_team_carousel_facebook_link']['is_external'] ? ' target="_blank"' : ''; ?>
+												<li>
+													<a href="<?php echo esc_url($member['ma_el_team_carousel_facebook_link']['url']); ?>" <?php echo $target; ?>><i class="fa fa-facebook"></i></a>
+												</li>
+											<?php endif; ?>
 
-									</ul>
-								<?php endif; ?>
+											<?php if (!empty($member['ma_el_team_carousel_twitter_link']['url'])) : ?>
+												<?php $target = $member['ma_el_team_carousel_twitter_link']['is_external'] ? ' target="_blank"' : ''; ?>
+												<li>
+													<a href="<?php echo esc_url($member['ma_el_team_carousel_twitter_link']['url']); ?>" <?php echo $target; ?>><i class="fa fa-twitter"></i></a>
+												</li>
+											<?php endif; ?>
+
+											<?php if (!empty($member['ma_el_team_carousel_instagram_link']['url'])) : ?>
+												<?php $target = $member['ma_el_team_carousel_instagram_link']['is_external'] ?
+													' target="_blank"' : ''; ?>
+												<li>
+													<a href="<?php echo esc_url(
+																	$member['ma_el_team_carousel_instagram_link']['url']
+																); ?>" <?php echo $target; ?>><i class="fa fa-instagram"></i></a>
+												</li>
+											<?php endif; ?>
+
+											<?php if (!empty($member['ma_el_team_carousel_linkedin_link']['url'])) : ?>
+												<?php $target = $member['ma_el_team_carousel_linkedin_link']['is_external'] ? ' target="_blank"' : ''; ?>
+												<li>
+													<a href="<?php echo esc_url($member['ma_el_team_carousel_linkedin_link']['url']); ?>" <?php echo $target; ?>><i class="fa fa-linkedin"></i></a>
+												</li>
+											<?php endif; ?>
+
+											<?php if (!empty($member['ma_el_team_carousel_dribbble_link']['url'])) : ?>
+												<?php $target = $member['ma_el_team_carousel_dribbble_link']['is_external'] ? ' target="_blank"' : ''; ?>
+												<li>
+													<a href="<?php echo esc_url($member['ma_el_team_carousel_dribbble_link']['url']); ?>" <?php echo $target; ?>><i class="fa fa-dribbble"></i></a>
+												</li>
+											<?php endif; ?>
+
+										</ul>
+									<?php endif; ?>
+								</div>
 							</div>
 						</div>
-					</div>
-				<?php endforeach; ?>
+					<?php } // repeater loop end
+
+					$this->render_swiper_navigation();
+					$this->render_swiper_pagination();
+					?>
+				</div>
 			</div>
 
-		<?php } ?>
+		<?php } // carousel layout
+		?>
 
 
-<?php
+	<?php
 	}
-}
+
+	protected function render_swiper_navigation()
+	{
+		$settings = $this->get_settings_for_display();
+		$this->add_render_attribute([
+			'navigation' => [
+				'class' => [
+					'jltma-arrows',
+					'jltma-swiper__navigation',
+					'jltma-swiper__navigation--' . $settings['arrows_placement'],
+					'jltma-swiper__navigation--' . $settings['arrows_position'],
+					'jltma-swiper__navigation--' . $settings['arrows_position_vertical']
+				],
+			],
+		]);
+	?>
+		<div <?php echo $this->get_render_attribute_string('navigation'); ?>>
+			<?php
+			$this->render_swiper_arrows();
+			?>
+		</div>
+	<?php
+	}
+
+
+
+	public function render_swiper_pagination()
+	{
+		$settings = $this->get_settings_for_display();
+
+		if ('' === $settings['carousel_pagination'])
+			return;
+
+		$this->add_render_attribute('pagination', 'class', [
+			'jltma-swiper__pagination',
+			// 'jltma-swiper__pagination--' . $settings['ma_el_blog_carousel_direction'],
+			'jltma-swiper__pagination--' . $settings['pagination_position'],
+			'jltma-swiper__pagination-' . $this->get_id(),
+			'swiper-pagination',
+		]);
+
+	?>
+		<div <?php echo $this->get_render_attribute_string('pagination'); ?>>
+		</div>
+	<?php
+	}
+	protected function render_swiper_arrows()
+	{
+		$settings = $this->get_settings_for_display();
+		if ('yes' !== $settings['carousel_arrows'])
+			return;
+
+		$prev = is_rtl() ? 'right' : 'left';
+		$next = is_rtl() ? 'left' : 'right';
+
+		$this->add_render_attribute([
+			'button-prev' => [
+				'class' => [
+					'jltma-swiper__button',
+					'jltma-swiper__button--prev',
+					'jltma-arrow',
+					'jltma-arrow--prev',
+					'jltma-swiper__button--prev-' . $this->get_id(),
+				],
+			],
+			'button-prev-icon' => [
+				'class' => 'eicon-chevron-' . $prev,
+			],
+			'button-next' => [
+				'class' => [
+					'jltma-swiper__button',
+					'jltma-swiper__button--next',
+					'jltma-arrow',
+					'jltma-arrow--next',
+					'jltma-swiper__button--next-' . $this->get_id(),
+				],
+			],
+			'button-next-icon' => [
+				'class' => 'eicon-chevron-' . $next,
+			],
+		]);
+
+	?><div <?php echo $this->get_render_attribute_string('button-prev'); ?>>
+			<i <?php echo $this->get_render_attribute_string('button-prev-icon'); ?>></i>
+		</div>
+		<div <?php echo $this->get_render_attribute_string('button-next'); ?>>
+			<i <?php echo $this->get_render_attribute_string('button-next-icon'); ?>></i>
+		</div><?php
+			}
+		}
