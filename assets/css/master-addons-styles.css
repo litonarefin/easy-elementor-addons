@@ -10578,6 +10578,25 @@ body a.toc-link.clicked {
     text-transform: capitalize;
     cursor: pointer;
 }
+.jltma-image-ratio-yes.ma-el-image-filter-gallery-wrapper .ma-el-image-filter-item .ma-image-hover-thumb {
+    position: relative;
+    top: 0;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    border: 0;
+}
+
+.jltma-image-ratio-yes.ma-el-image-filter-gallery-wrapper .ma-el-image-filter-item .ma-image-hover-thumb img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
 .ma-el-image-filter-nav .ma-el-tooltip .ma-el-tooltip-content {
     line-height: inherit;
 }
@@ -10619,11 +10638,11 @@ body a.toc-link.clicked {
     -o-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
 }
-.ma-el-image-filter-gallery .ma-el-image-filter-item:hover .ma-el-image-hover-title,
-.ma-el-image-filter-gallery .ma-el-image-filter-item:hover .ma-el-image-hover-desc {
-}
-.ma-image-hover-thumb {
-    position: relative;
+.ma-image-hover-thumb img{
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 .ma-el-image-filter-item h2 {

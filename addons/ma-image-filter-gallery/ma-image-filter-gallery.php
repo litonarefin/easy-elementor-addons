@@ -427,8 +427,7 @@ class Filterable_Image_Gallery extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-image-filter-item .ma-image-hover-thumb,
-					{{WRAPPER}} .ma-el-image-filter-item .ma-image-hover-thumb img' => 'padding-bottom: calc( {{SIZE}} * 100% );',
+					'{{WRAPPER}} .jltma-image-ratio-yes.ma-el-image-filter-gallery-wrapper .ma-el-image-filter-item .ma-image-hover-thumb' => 'padding-bottom: calc( {{SIZE}} * 100% );',
 				],
 				'condition' => [
 					'ma_el_image_gallery_enable_image_ratio' => 'yes',
@@ -474,16 +473,137 @@ class Filterable_Image_Gallery extends Widget_Base
 		);
 
 		$this->add_control(
+			'ma_el_image_gallery_hover_scale',
+			[
+				'label' 				=> __('Hover Scale', MELA_TD),
+				'type' 					=> Controls_Manager::SWITCHER,
+				'options' 				=> [
+					'default' 		=> __('Default', MELA_TD),
+					'yes' 			=> __('Yes', MELA_TD),
+					'no' 			=> __('No', MELA_TD),
+				],
+				'default' 				=> 'yes',
+				'return_value' 			=> 'yes',
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_scale_value',
+			[
+				'label' 				=> __('Scale Value', MELA_TD),
+				'type' 					=> Controls_Manager::NUMBER,
+				'min' 					=> 0,
+				'max' 					=> 2,
+				'step' 					=> .1,
+				'default' 				=> 1.1,
+				'selectors' 		=> [
+					'{{WRAPPER}} .ma-el-image-filter-gallery-wrapper .ma-el-image-filter-item .ma-image-hover-thumb:hover img' => 'transform: scale({{VALUE}})',
+				],
+				'condition' => [
+					'ma_el_image_gallery_hover_scale' => 'yes',
+				]
+
+			]
+		);
+
+		$this->add_control(
 			'ma_el_image_gallery_hover_tilt',
 			[
-				'label' 		=> __('Hover Tilt', MELA_TD),
-				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Tilt Effect', MELA_TD),
+				'type'          => Controls_Manager::POPOVER_TOGGLE,
 				'label_on' 		=> __('Yes', MELA_TD),
 				'label_off' 	=> __('No', MELA_TD),
 				'return_value' 	=> 'yes',
 				'default' 		=> 'no',
 			]
 		);
+
+		$this->start_popover();
+		$this->add_control(
+			'ma_el_image_gallery_max_tilt',
+			[
+				'label' 				=> __('Max Tilt', MELA_TD),
+				'type' 					=> Controls_Manager::NUMBER,
+				'min' 					=> 5,
+				'max' 					=> 100,
+				'step' 					=> 5,
+				'default' 				=> 20,
+				'frontend_available' 	=> true,
+			]
+		);
+		$this->add_control(
+			'ma_el_image_gallery_perspective',
+			[
+				'label' 				=> __('Perspective', MELA_TD),
+				'type' 					=> Controls_Manager::NUMBER,
+				'description' 			=> __('Transform perspective, the lower the more extreme the tilt gets.', MELA_TD),
+				'min' 					=> 100,
+				'max' 					=> 1000,
+				'step' 					=> 50,
+				'default' 				=> 800,
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_speed',
+			[
+				'label' 				=> __('Speed', MELA_TD),
+				'type' 					=> Controls_Manager::NUMBER,
+				'min' 					=> 100,
+				'max' 					=> 1000,
+				'step' 					=> 50,
+				'default' 				=> 300,
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_tilt_axis',
+			[
+				'label' 				=> __('Tilt Axis', MELA_TD),
+				'type' 					=> Controls_Manager::SELECT,
+				'default' 				=> 'both',
+				'options' 				=> [
+					'both' 		=> __('Both', MELA_TD),
+					'x' 		=> __('X', MELA_TD),
+					'y' 		=> __('Y', MELA_TD),
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+
+
+		$this->add_control(
+			'ma_el_image_gallery_glare',
+			[
+				'label' 				=> __('Glare', MELA_TD),
+				'type' 					=> Controls_Manager::SWITCHER,
+				'label_on' 				=> __('Yes', MELA_TD),
+				'label_off' 			=> __('No', MELA_TD),
+				'return_value' 			=> 'yes',
+				'default' 				=> 'yes',
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->add_control(
+			'ma_el_image_gallery_max_glare',
+			[
+				'label' 				=> __('Glare', MELA_TD),
+				'type' 					=> Controls_Manager::NUMBER,
+				'min' 					=> 0,
+				'max' 					=> 1,
+				'step' 					=> .1,
+				'default' 				=> 0.5,
+				'frontend_available' 	=> true,
+				'condition' => [
+					'ma_el_image_gallery_glare' => 'yes'
+				]
+			]
+		);
+
+		$this->end_popover();
 
 		$this->end_controls_section();
 
@@ -1092,110 +1212,9 @@ class Filterable_Image_Gallery extends Widget_Base
 		$this->end_controls_section();
 
 
-
 		/*
-		Tab: Tilt Hover Style
+		Tab: Overlay Settings
 		*/
-		$this->start_controls_section(
-			'ma_el_image_gallery_tilt_setting',
-			[
-				'label' 	=> __('Tilt Style', MELA_TD),
-				'condition' => [
-					'ma_el_image_gallery_hover_tilt' => 'yes',
-				]
-			]
-		);
-		$this->add_control(
-			'ma_el_image_gallery_max_tilt',
-			[
-				'label' 				=> __('Max Tilt', MELA_TD),
-				'type' 					=> Controls_Manager::NUMBER,
-				'min' 					=> 5,
-				'max' 					=> 100,
-				'step' 					=> 5,
-				'default' 				=> 20,
-				'frontend_available' 	=> true,
-			]
-		);
-		$this->add_control(
-			'ma_el_image_gallery_perspective',
-			[
-				'label' 				=> __('Perspective', MELA_TD),
-				'type' 					=> Controls_Manager::NUMBER,
-				'description' 			=> __('Transform perspective, the lower the more extreme the tilt gets.', MELA_TD),
-				'min' 					=> 100,
-				'max' 					=> 1000,
-				'step' 					=> 50,
-				'default' 				=> 800,
-				'frontend_available' 	=> true,
-			]
-		);
-
-		$this->add_control(
-			'ma_el_image_gallery_speed',
-			[
-				'label' 				=> __('Speed', MELA_TD),
-				'type' 					=> Controls_Manager::NUMBER,
-				'min' 					=> 100,
-				'max' 					=> 1000,
-				'step' 					=> 50,
-				'default' 				=> 300,
-				'frontend_available' 	=> true,
-			]
-		);
-
-		$this->add_control(
-			'ma_el_image_gallery_tilt_axis',
-			[
-				'label' 				=> __('Tilt Axis', MELA_TD),
-				'type' 					=> Controls_Manager::SELECT,
-				'default' 				=> 'both',
-				'options' 				=> [
-					'both' 		=> __('Both', MELA_TD),
-					'x' 		=> __('X', MELA_TD),
-					'y' 		=> __('Y', MELA_TD),
-				],
-				'frontend_available' 	=> true,
-			]
-		);
-
-
-		$this->add_control(
-			'ma_el_image_gallery_glare',
-			[
-				'label' 				=> __('Glare', MELA_TD),
-				'type' 					=> Controls_Manager::SWITCHER,
-				'label_on' 				=> __('Yes', MELA_TD),
-				'label_off' 			=> __('No', MELA_TD),
-				'return_value' 			=> 'yes',
-				'default' 				=> 'yes',
-				'frontend_available' 	=> true,
-			]
-		);
-
-		$this->add_control(
-			'ma_el_image_gallery_max_glare',
-			[
-				'label' 				=> __('Glare', MELA_TD),
-				'type' 					=> Controls_Manager::NUMBER,
-				'min' 					=> 0,
-				'max' 					=> 1,
-				'step' 					=> .1,
-				'default' 				=> 0.5,
-				'frontend_available' 	=> true,
-				'condition' => [
-					'ma_el_image_gallery_glare' => 'yes'
-				]
-			]
-		);
-
-
-		$this->end_controls_section();
-
-		/*
-		Tab: Demo & Download Button Style
-		*/
-
 		$this->start_controls_section(
 			'ma_el_image_filter_overlay_style_section',
 			[
@@ -1952,8 +1971,15 @@ class Filterable_Image_Gallery extends Widget_Base
 			);
 		}
 
+		if (isset($animation) && $animation) {
+			$animation = 'jltma-animated ' . $animation;
+		}
 		if ($settings['ma_el_image_gallery_masonry'] == 'yes') {
 			$this->add_render_attribute('gallery-wrapper', 'class', 'jltma-masonry-yes');
+		}
+
+		if ($settings['ma_el_image_gallery_enable_image_ratio'] == 'yes') {
+			$this->add_render_attribute('gallery-wrapper', 'class', 'jltma-image-ratio-yes');
 		}
 
 		if ($settings['ma_el_image_gallery_hover_direction_aware'] == 'yes') {
@@ -1997,7 +2023,6 @@ class Filterable_Image_Gallery extends Widget_Base
 
 
 				foreach ($gallery_categories as $gallery_category) {
-
 					if ($settings['ma_el_image_gallery_tooltip'] == "yes") {
 						printf(
 							'<li class="ma-el-tooltip-item tooltip-top" data-filter=".%s"><div class="ma-el-tooltip-content"><span>%s</span></div><div class="ma-el-tooltip-text">' . $gallery_category . '</div></li>',
@@ -2048,7 +2073,7 @@ class Filterable_Image_Gallery extends Widget_Base
 								'ma-el-fancybox',
 								'elementor-clickable'
 							],
-							'data-caption' 							=> ($settings['ma_el_image_gallery_lightbox_caption'] == "yes") ? $item['ma_el_image_gallery_title'] : '',
+							'data-caption' 							=> $item['ma_el_image_gallery_title'],
 							'data-fancybox' 						=> "images"
 						]
 					]);
@@ -2071,15 +2096,17 @@ class Filterable_Image_Gallery extends Widget_Base
 					if (!empty($images)) {
 						foreach ($images as $image) {
 
-							$image_url = wp_get_attachment_image_url($image['id'], $settings['ma_el_image_gallery_image_size']);
+							if (isset($image['id']) && $image['id']) {
+								$image_url = wp_get_attachment_image_url($image['id'], $settings['ma_el_image_gallery_image_size']);
+							}
 
 							echo '<div ' . $this->get_render_attribute_string($gallery_item_key) . '>';
 							echo '<div class="ma-image-hover-thumb">';
 
 							if (!empty($image['id'])) {
-								// $img = wp_get_attachment_image($image['id'], $settings['ma_el_image_gallery_image_size']);
-								// echo $img;
-								echo $this->render_image($image['id'], $settings['ma_el_image_gallery_image_size']);
+								$img = wp_get_attachment_image($image['id'], $settings['ma_el_image_gallery_image_size']);
+								echo $img;
+								// echo $this->render_image($image['id'], $settings['ma_el_image_gallery_image_size']);
 							} else {
 								echo "<img src=" . $image . ">";
 							}

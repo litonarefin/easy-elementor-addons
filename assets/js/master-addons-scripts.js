@@ -484,10 +484,11 @@
                 $glare           = elementSettings.ma_el_image_gallery_glare,
                 $overlay_speed   = elementSettings.line_location,
                 $container       = $('.elementor-element-' + $uniqueId + ' .ma-el-image-filter-gallery'),
-                layoutMode       = $scope.hasClass('jltma-masonry-yes') ? 'masonry' : 'fitRows',
-                container_outerheight = $container.outerHeight();
+                layoutMode       = $scope.hasClass('jltma-masonry-yes') ? 'masonry' : 'fitRows';
+
 
             //Masonry Start
+            let container_outerheight = $container.outerHeight();
             var adata = {
                 percentPosition : true,
                 animationOptions : {
