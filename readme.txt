@@ -391,6 +391,9 @@ Paste on your Local Computer
 * Updated: Timeline Element fully revamped with new UI and fixed bugs
 * Removed: "MA" word removed from all Elements
 * Added: Blog Posts Element - Added "All" text change option on Category Tabs filter
+* Fixed: Filterable Gallery - Tooltip not working issue fixed
+* Fixed: Filterable Gallery - Filterable Navigation Show/Hide issue fixed
+* Added: Filterable Gallery - Tilt Effect with option settings added
 
 
 = 1.5.6.2 (24-01-2021) =

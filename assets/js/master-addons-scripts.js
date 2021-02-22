@@ -475,8 +475,44 @@
 
             var elementSettings     = getElementSettings( $scope ),
                 $ma_el_image_filter_gallery_container   = $scope.find('.ma-el-image-filter-gallery').eq(0),
-                $ma_el_image_filter_gallery_nav         = $scope.find('.ma-el-image-filter-nav');
+                $ma_el_image_filter_gallery_nav         = $scope.find('.ma-el-image-filter-nav'),
+                $uniqueId 		    = getUniqueLoopScopeId( $scope ),
+                $maxtilt         = elementSettings.ma_el_image_gallery_max_tilt,
+                $perspective     = elementSettings.ma_el_image_gallery_perspective,
+                $speed           = elementSettings.ma_el_image_gallery_speed,
+                $axis            = elementSettings.ma_el_image_gallery_tilt_axis,
+                $glare           = elementSettings.ma_el_image_gallery_glare,
+                $overlay_speed   = elementSettings.line_location,
+                $container       = $('.elementor-element-' + $uniqueId + ' .ma-el-image-filter-gallery'),
+                layoutMode       = $scope.hasClass('jltma-masonry-yes') ? 'masonry' : 'fitRows',
+                container_outerheight = $container.outerHeight();
 
+            //Masonry Start
+            var adata = {
+                percentPosition : true,
+                animationOptions : {
+                    duration    : 750,
+                    easing      : 'linear',
+                    queue       : false
+                }
+            };
+
+            if(layoutMode === 'fitRows'){
+                adata['layoutMode'] = 'fitRows';
+            }
+
+            if(layoutMode === 'masonry'){
+                adata['masonry'] = {
+                    columnWidth     : '.ma-el-image-filter-item',
+                    horizontalOrder : true
+                }
+            };
+
+            var $grid = $container.isotope(adata);
+            $grid.imagesLoaded().progress(function() {
+                $grid.isotope('layout');
+                $scope.find('.ma-el-image-filter-gallery').css({"min-height":"300px" ,"height" : container_outerheight});
+            });
 
             if ($.isFunction($.fn.imagesLoaded)) {
                 $ma_el_image_filter_gallery_container.imagesLoaded(function () {
@@ -488,6 +524,47 @@
                     }
                 });
             }
+            //Masonry End
+
+
+            // Tilt Effect Start
+            if($axis === 'x'){
+                $axis = 'y';
+            }else if($axis === 'y'){
+                $axis = 'x';
+            }else{
+                $axis = 'both';
+            }
+
+            if($glare === 'yes'){
+                var $max_glare =   elementSettings.ma_el_image_gallery_max_glare;
+            }
+
+            if($glare === 'yes'){
+                $glare = true;
+            } else{
+                $glare = false;
+            }
+
+            if($scope.find('.jltma-tilt-enable')){
+                var tilt_args = {
+                    maxTilt:        $maxtilt,
+                    perspective:    $perspective,   // Transform perspective, the lower the more extreme the tilt gets.
+                    //easing:         "cubic-bezier(.03,.98,.52,.99)",   // Easing on enter/exit.
+                    easing :        "linear",
+                    scale:          1,      // 2 = 200%, 1.5 = 150%, etc..
+                    speed:          $speed,    // Speed of the enter/exit transition.
+                    disableAxis:    $axis,
+                    transition:     true,   // Set a transition on enter/exit.
+                    reset:          true,   // If the tilt effect has to be reset on exit.
+                    glare:          $glare,  // Enables glare effect
+                    maxGlare:       $max_glare       // From 0 - 1.
+                }
+
+                $scope.find('.jltma-tilt').tilt(tilt_args);
+            }
+            // Tilt Effect End
+
 
             $ma_el_image_filter_gallery_nav.on('click', 'li', function () {
                 $ma_el_image_filter_gallery_nav.find('.active').removeClass('active');
@@ -502,51 +579,33 @@
                 }
             });
 
-            // if( elementSettings.ma_el_image_gallery_lightbox  == "yes"){
-                // if ($.isFunction($.fn.fancybox)) {
-                //     // $('a.ma-el-fancybox').fancybox({
-                //     $scope.find('.ma-el-fancybox').fancybox({
-                //         openEffect	: 'none',
-                //         closeEffect	: 'none',
-                //         afterLoad : function(instance, current) {
-                //             var pixelRatio = window.devicePixelRatio || 1;
+            $( ".ma-el-fancybox" ).fancybox({
+                // protect: false,
+                animationDuration: 366,
+                transitionDuration: 366,
+                transitionEffect: "fade", // Transition effect between slides
+                animationEffect: "fade",
+                preventCaptionOverlap : true,
+                // loop: false,
+                infobar: false,
+                buttons: [
+                    "zoom",
+                    "share",
+                    "slideShow",
+                    "fullScreen",
+                    "download",
+                    "thumbs",
+                    "close"
+                ],
+                afterLoad : function(instance, current) {
+                    var pixelRatio = window.devicePixelRatio || 1;
 
-                //             if ( pixelRatio > 1.5 ) {
-                //             current.width  = current.width  / pixelRatio;
-                //             current.height = current.height / pixelRatio;
-                //             }
-                //         }
-                //     });
-                // }
-                    $( ".ma-el-fancybox" ).fancybox({
-                        // protect: false,
-                        animationDuration: 366,
-                        transitionDuration: 366,
-                        transitionEffect: "fade", // Transition effect between slides
-                        animationEffect: "fade",
-                        preventCaptionOverlap : true,
-                        // loop: false,
-                        infobar: false,
-                        buttons: [
-                            "zoom",
-                            "share",
-                            "slideShow",
-                            //"fullScreen",
-                            "download",
-                            "thumbs",
-                            "close"
-                        ],
-                        // afterLoad : function(instance, current) {
-                        //     var pixelRatio = window.devicePixelRatio || 1;
-
-                        //     if ( pixelRatio > 1.5 ) {
-                        //         current.width  = current.width  / pixelRatio;
-                        //         current.height = current.height / pixelRatio;
-                        //     }
-                        // }
-                    });
-                // }
-            // }
+                    if ( pixelRatio > 1.5 ) {
+                        current.width  = current.width  / pixelRatio;
+                        current.height = current.height / pixelRatio;
+                    }
+                }
+            });
 
         },
 

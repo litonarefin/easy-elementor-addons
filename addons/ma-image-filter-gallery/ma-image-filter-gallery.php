@@ -74,6 +74,7 @@ class Filterable_Image_Gallery extends Widget_Base
 	{
 		return [
 			'imagesloaded',
+			'jltma-tilt',
 			'fancybox',
 			'isotope',
 			'master-addons-scripts'
@@ -426,7 +427,8 @@ class Filterable_Image_Gallery extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eae-fg-wrapper.eae-image-ratio-yes .eae-gallery-item-inner .eae-fg-img-wrapper' => 'padding-bottom: calc( {{SIZE}} * 100% );',
+					'{{WRAPPER}} .ma-el-image-filter-item .ma-image-hover-thumb,
+					{{WRAPPER}} .ma-el-image-filter-item .ma-image-hover-thumb img' => 'padding-bottom: calc( {{SIZE}} * 100% );',
 				],
 				'condition' => [
 					'ma_el_image_gallery_enable_image_ratio' => 'yes',
@@ -451,8 +453,8 @@ class Filterable_Image_Gallery extends Widget_Base
 					'size' => 10,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eae-gallery-item' => 'padding-left:calc({{SIZE}}{{UNIT}}/2);  padding-right:calc({{SIZE}}{{UNIT}}/2);  margin-bottom:{{SIZE}}{{UNIT}}',
-					'{{WRAPPER}} .eae-gallery-filter' => 'margin-left:calc({{SIZE}}{{UNIT}}/2);  margin-right:calc({{SIZE}}{{UNIT}}/2);  margin-bottom:{{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .ma-el-image-filter-item' => 'padding-left:calc({{SIZE}}{{UNIT}}/2);  padding-right:calc({{SIZE}}{{UNIT}}/2);  margin-bottom:{{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .ma-el-image-filter-nav' => 'margin-left:calc({{SIZE}}{{UNIT}}/2);  margin-right:calc({{SIZE}}{{UNIT}}/2);  margin-bottom:{{SIZE}}{{UNIT}}',
 				]
 			]
 		);
@@ -460,13 +462,14 @@ class Filterable_Image_Gallery extends Widget_Base
 		$this->add_control(
 			'ma_el_image_gallery_masonry',
 			[
-				'label' 		=> __('Masonry', MELA_TD),
-				'type' 			=> Controls_Manager::SWITCHER,
-				'label_on' 		=> __('Yes', MELA_TD),
-				'label_off' 	=> __('No', MELA_TD),
-				'return_value' 	=> 'yes',
-				'default' 		=> '',
-				'render_type' 	=> 'template',
+				'label' 				=> __('Masonry', MELA_TD),
+				'type' 					=> Controls_Manager::SWITCHER,
+				'label_on' 				=> __('Yes', MELA_TD),
+				'label_off' 			=> __('No', MELA_TD),
+				'return_value' 			=> 'yes',
+				'default' 				=> '',
+				'render_type' 			=> 'template',
+				'frontend_available' 	=> true,
 			]
 		);
 
@@ -1936,14 +1939,7 @@ class Filterable_Image_Gallery extends Widget_Base
 
 		$settings       = $this->get_settings_for_display();
 
-		// $max_tilt    = $settings['ma_el_image_gallery_max_tilt'];
-		// $perspective = $settings['ma_el_image_gallery_perspective'];
-		// $speed       = $settings['ma_el_image_gallery_speed'];
-		// $tilt_axis   = $settings['ma_el_image_gallery_tilt_axis'];
-		// $glare       = $settings['ma_el_image_gallery_glare'];
-		// $max_glare   = $settings['ma_el_image_gallery_max_glare'];
 		$animation   = $settings['ma_el_image_filter_overlay_animation'];
-
 
 		if (!\Elementor\Plugin::$instance->editor->is_edit_mode()) {
 			$this->add_render_attribute(
@@ -1956,6 +1952,10 @@ class Filterable_Image_Gallery extends Widget_Base
 			);
 		}
 
+		if ($settings['ma_el_image_gallery_masonry'] == 'yes') {
+			$this->add_render_attribute('gallery-wrapper', 'class', 'jltma-masonry-yes');
+		}
+
 		if ($settings['ma_el_image_gallery_hover_direction_aware'] == 'yes') {
 			$overlay_speed = $settings['ma_el_image_gallery_overlay_speed']['size'];
 		}
@@ -1963,16 +1963,9 @@ class Filterable_Image_Gallery extends Widget_Base
 		$filter_groups = $settings['ma_el_image_gallery_items'];
 
 		$this->add_render_attribute('gallery-wrapper', 'class', 'ma-el-image-filter-gallery-wrapper');
+
 		if ($settings['ma_el_image_gallery_hover_tilt'] == 'yes') {
-			$this->add_render_attribute('gallery-wrapper', 'class', 'jltma-tilt-box');
-			// $this->add_render_attribute('gallery-wrapper', 'data-maxtilt', $max_tilt);
-			// $this->add_render_attribute('gallery-wrapper', 'data-perspective', $perspective);
-			// $this->add_render_attribute('gallery-wrapper', 'data-speed', $speed);
-			// $this->add_render_attribute('gallery-wrapper', 'data-tilt-axis', $tilt_axis);
-			// $this->add_render_attribute('gallery-wrapper', 'data-glare', $glare);
-			// if ($settings['ma_el_image_gallery_glare'] == 'yes') {
-			// 	$this->add_render_attribute('gallery-wrapper', 'data-max-glare', $max_glare);
-			// }
+			$this->add_render_attribute('gallery-wrapper', 'class', 'jltma-tilt-enable');
 		}
 
 		if (function_exists('ma_el_image_filter_gallery_array_flatten')) {
@@ -1987,19 +1980,17 @@ class Filterable_Image_Gallery extends Widget_Base
 				echo '<div class="ma-el-image-filter-nav' . ($settings['ma_el_image_gallery_filter_active_border_bottom_enabled'] == 'yes' ? ' has-border-bottom' : ' no-border-bottom') . '">';
 
 				if ($settings['ma_el_image_gallery_tooltip'] == "yes") {
-					echo '<ul>';
-				} else {
 					echo '<ul class="ma-el-tooltip">';
+				} else {
+					echo '<ul>';
 				}
 
-				if ($settings['ma_el_image_gallery_tooltip'] == "yes") {
-					if ($settings['ma_el_image_gallery_show_all'] == "yes" && count($settings['ma_el_image_gallery_items']) > 1) {
+				if ($settings['ma_el_image_gallery_show_all'] == "yes") {
+					if ($settings['ma_el_image_gallery_tooltip'] == "yes") {
 						echo '<li data-filter="*" class="ma-el-tooltip-item tooltip-top active"> <div class="ma-el-tooltip-content"><span>' . esc_html(
 							$settings['ma_el_image_gallery_all_cat_text']
 						) . ' </span></div><div class="ma-el-tooltip-text">' . $settings['ma_el_image_gallery_all_cat_text'] . '</div></li>';
-					}
-				} else {
-					if ($settings['ma_el_image_gallery_show_all'] == "yes" && count($settings['ma_el_image_gallery_items']) > 1) {
+					} else {
 						echo '<li data-filter="*" class="active"> <span>' . esc_html($settings['ma_el_image_gallery_all_cat_text']) . ' </span></li>';
 					}
 				}
@@ -2008,17 +1999,13 @@ class Filterable_Image_Gallery extends Widget_Base
 				foreach ($gallery_categories as $gallery_category) {
 
 					if ($settings['ma_el_image_gallery_tooltip'] == "yes") {
-						if ($settings['ma_el_image_gallery_show_all'] == "yes" && count($settings['ma_el_image_gallery_items']) > 1) {
-							printf(
-								'<li class="ma-el-tooltip-item tooltip-top" data-filter=".%s"><div class="ma-el-tooltip-content"><span>%s</span></div><div class="ma-el-tooltip-text">' . $gallery_category . '</div></li>',
-								esc_attr(sanitize_title($gallery_category) . '-' . $this->get_id()),
-								esc_html($gallery_category)
-							);
-						}
+						printf(
+							'<li class="ma-el-tooltip-item tooltip-top" data-filter=".%s"><div class="ma-el-tooltip-content"><span>%s</span></div><div class="ma-el-tooltip-text">' . $gallery_category . '</div></li>',
+							esc_attr(sanitize_title($gallery_category) . '-' . $this->get_id()),
+							esc_html($gallery_category)
+						);
 					} else {
-						if ($settings['ma_el_image_gallery_show_all'] == "yes" && count($settings['ma_el_image_gallery_items']) > 1) {
-							printf('<li data-filter=".%s"><span>%s</span></li>', esc_attr(sanitize_title($gallery_category) . '-' . $this->get_id()), esc_html($gallery_category));
-						}
+						printf('<li data-filter=".%s"><span>%s</span></li>', esc_attr(sanitize_title($gallery_category) . '-' . $this->get_id()), esc_html($gallery_category));
 					}
 				}
 
@@ -2052,7 +2039,7 @@ class Filterable_Image_Gallery extends Widget_Base
 						$images = $demo_images;
 					}
 
-					// $slide_key 			= $this->get_repeater_setting_key('slide', 'ma_el_image_gallery_items', $index);
+					$gallery_item_key 	= $this->get_repeater_setting_key('ma_el_image_gallery_item', 'ma_el_image_gallery_items', $index);
 					$images_setting_key = $this->get_repeater_setting_key('ma_el_image_gallery_title', 'ma_el_image_gallery_items', $index);
 
 					$this->add_render_attribute([
@@ -2066,12 +2053,27 @@ class Filterable_Image_Gallery extends Widget_Base
 						]
 					]);
 
+					$this->add_render_attribute([
+						$gallery_item_key => [
+							'class' => [
+								'ma-el-image-filter-item',
+								'jltma-col-lg-' . esc_attr($column),
+								'jltma-col-md-6',
+								ma_el_image_filter_gallery_category_classes($item['gallery_category_name'], $this->get_id()),
+							],
+						]
+					]);
+
+					if ($settings['ma_el_image_gallery_hover_tilt'] == 'yes') {
+						$this->add_render_attribute($gallery_item_key, 'class', 'jltma-tilt');
+					}
+
 					if (!empty($images)) {
 						foreach ($images as $image) {
 
 							$image_url = wp_get_attachment_image_url($image['id'], $settings['ma_el_image_gallery_image_size']);
 
-							echo '<div class="ma-el-image-filter-item jltma-col-lg-' . esc_attr($column) . ' jltma-col-md-6 ' . ma_el_image_filter_gallery_category_classes($item['gallery_category_name'], $this->get_id()) . '">';
+							echo '<div ' . $this->get_render_attribute_string($gallery_item_key) . '>';
 							echo '<div class="ma-image-hover-thumb">';
 
 							if (!empty($image['id'])) {

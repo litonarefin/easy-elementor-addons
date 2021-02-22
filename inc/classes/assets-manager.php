@@ -99,6 +99,7 @@ class Master_Addons_Assets
         wp_register_script('fancybox', MELA_PLUGIN_URL . '/assets/vendor/fancybox/jquery.fancybox.min.js', array('jquery'), MELA_VERSION, true);
 
         wp_register_script('jltma-timeline', MELA_PLUGIN_URL . '/assets/js/timeline.js', array('jquery'), MELA_VERSION, true);
+        wp_register_script('jltma-tilt', MELA_PLUGIN_URL . '/assets/vendor/tilt/tilt.jquery.min.js', array('jquery'), MELA_VERSION, true);
 
 
         // Image Comparison
