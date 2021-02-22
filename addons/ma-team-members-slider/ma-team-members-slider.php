@@ -809,6 +809,31 @@ class Team_Slider extends Widget_Base
 			]
 		);
 
+		$this->add_control(
+			'autoheight',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Auto Height', MELA_TD),
+				'default' 		=> '',
+				'frontend_available' 	=> true,
+				'conditions' => [
+					'relation' 	=> 'or',
+					'terms' 	=> [
+						[
+							'name' 		=> 'slides_per_column',
+							'operator' 	=> '==',
+							'value' 	=> '1',
+						],
+						[
+							'name' 		=> 'slides_per_column',
+							'operator' 	=> '==',
+							'value' 	=> '',
+						],
+					]
+				]
+			]
+		);
+
 		$slides_per_view = range(1, 6);
 		$slides_per_view = array_combine($slides_per_view, $slides_per_view);
 
@@ -824,6 +849,17 @@ class Team_Slider extends Widget_Base
 				'frontend_available' 	=> true,
 			]
 		);
+
+		$this->add_responsive_control(
+			'slides_per_column',
+			[
+				'type' 					=> Controls_Manager::SELECT,
+				'label' 				=> __('Slides Per Column', MELA_TD),
+				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_view,
+				'frontend_available' 	=> true
+			]
+		);
+
 
 		$this->add_responsive_control(
 			'ma_el_team_slides_to_scroll',
@@ -971,6 +1007,7 @@ class Team_Slider extends Widget_Base
 				'label'     => esc_html__('Autoplay', MELA_TD),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'no',
+				'frontend_available' 	=> true,
 			]
 		);
 
@@ -983,6 +1020,7 @@ class Team_Slider extends Widget_Base
 				'condition' => [
 					'ma_el_team_autoplay' => 'yes',
 				],
+				'frontend_available' 	=> true,
 			]
 		);
 
@@ -992,6 +1030,7 @@ class Team_Slider extends Widget_Base
 				'label'   => esc_html__('Infinite Loop', MELA_TD),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
+				'frontend_available' 	=> true,
 			]
 		);
 
@@ -1004,6 +1043,7 @@ class Team_Slider extends Widget_Base
 				'condition' => [
 					'ma_el_team_autoplay' => 'yes',
 				],
+				'frontend_available' 	=> true,
 			]
 		);
 
@@ -1229,18 +1269,18 @@ Customization Options.</span>'
 			]
 		);
 
-		if ($settings['ma_el_team_autoplay'] == 'yes') {
-			$this->add_render_attribute('ma_el_team_carousel', 'data-autoplay', "true");
-			$this->add_render_attribute('ma_el_team_carousel', 'data-autoplayspeed', $settings['ma_el_team_autoplay_speed']);
-		}
+		// if ($settings['ma_el_team_autoplay'] == 'yes') {
+		// 	$this->add_render_attribute('ma_el_team_carousel', 'data-autoplay', "true");
+		// 	$this->add_render_attribute('ma_el_team_carousel', 'data-autoplayspeed', $settings['ma_el_team_autoplay_speed']);
+		// }
 
-		if ($settings['ma_el_team_pause'] == 'yes') {
-			$this->add_render_attribute('ma_el_team_carousel', 'data-pauseonhover', "true");
-		}
+		// if ($settings['ma_el_team_pause'] == 'yes') {
+		// 	$this->add_render_attribute('ma_el_team_carousel', 'data-pauseonhover', "true");
+		// }
 
-		if ($settings['ma_el_team_loop'] == 'yes') {
-			$this->add_render_attribute('ma_el_team_carousel', 'data-loop', "true");
-		}
+		// if ($settings['ma_el_team_loop'] == 'yes') {
+		// 	$this->add_render_attribute('ma_el_team_carousel', 'data-loop', "true");
+		// }
 ?>
 
 

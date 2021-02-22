@@ -672,12 +672,10 @@ class Blog extends Widget_Base
 				'type' 					=> Controls_Manager::SELECT,
 				'label' 				=> __('Slides Per Column', MELA_TD),
 				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_column,
-				'condition'				=> [
-					'ma_el_blog_carousel_direction' => 'horizontal',
-				],
 				'frontend_available' 	=> true,
 				'condition' 		=> [
-					'ma_el_blog_carousel'			=> 'yes'
+					'ma_el_blog_carousel'			=> 'yes',
+					'ma_el_blog_carousel_direction' => 'horizontal',
 				],
 			]
 		);

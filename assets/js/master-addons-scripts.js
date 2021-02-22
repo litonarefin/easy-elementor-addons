@@ -1291,7 +1291,7 @@
 					scope : $scope,
 					id : uniqueId,
 					element : {
-						autoHeight 						: 'yes' === elementSettings.autoheight,
+						autoHeight 						: 'yes' === elementSettings.ma_el_blog_carousel_autoheight,
 						autoplay 						: 'yes' === elementSettings.ma_el_blog_carousel_auto_play,
 						loop 							: 'yes' === elementSettings.ma_el_blog_carousel_loop,
 						direction 						: elementSettings.ma_el_blog_carousel_direction,
@@ -1443,9 +1443,10 @@
 
         MA_TeamSlider: function ($scope, $) {
 
-            Master_Addons.MA_TeamSlider.elementSettings    = getElementSettings( $scope );
-
-            var $teamCarouselWrapper = $scope.find('.ma-el-team-members-slider-section').eq(0),
+            var elementSettings     = getElementSettings( $scope ),
+                uniqueId 		    = getUniqueLoopScopeId( $scope ),
+                scopeId 		    = $scope.data('id'),
+                $teamCarouselWrapper = $scope.find('.ma-el-team-members-slider-section').eq(0),
                 $team_preset = $teamCarouselWrapper.data("team-preset"),
                 $ma_el_team_circle_image_animation = $teamCarouselWrapper.data("ma_el_team_circle_image_animation");
 
@@ -1487,75 +1488,101 @@
                 try {
                     (function ($) {
 
-                        var $teamCarouselWrapper = $scope.find('.ma-el-team-members-slider-section').eq(0),
-                            $carousel_nav = $teamCarouselWrapper.data("carousel-nav"),
-                            $loop = ($teamCarouselWrapper.data("loop") !== undefined) ? $teamCarouselWrapper.data("loop") : false,
-                            $slidesToShow = $teamCarouselWrapper.data("slidestoshow"),
-                            $slidesToScroll = $teamCarouselWrapper.data("slidestoscroll"),
-                            $autoPlay = ($teamCarouselWrapper.data("autoplay") !== undefined) ? $teamCarouselWrapper.data("autoplay") : false,
-                            $autoplaySpeed = ($teamCarouselWrapper.data("autoplayspeed") !== undefined) ? $teamCarouselWrapper.data("autoplayspeed") : false,
-                            $transitionSpeed = $teamCarouselWrapper.data("speed"),
-                            $pauseOnHover = ($teamCarouselWrapper.data("pauseonhover") !== undefined) ? $teamCarouselWrapper.data("pauseonhover") : false
+                        var $teamCarousel 	        = $scope.find('.ma-el-team-members-slider-section');
+                            // $carousel_nav = $teamCarouselWrapper.data("carousel-nav"),
+                            // $loop = ($teamCarouselWrapper.data("loop") !== undefined) ? $teamCarouselWrapper.data("loop") : false,
+                            // $slidesToShow = $teamCarouselWrapper.data("slidestoshow"),
+                            // $slidesToScroll = $teamCarouselWrapper.data("slidestoscroll"),
+                            // $autoPlay = ($teamCarouselWrapper.data("autoplay") !== undefined) ? $teamCarouselWrapper.data("autoplay") : false,
+                            // $autoplaySpeed = ($teamCarouselWrapper.data("autoplayspeed") !== undefined) ? $teamCarouselWrapper.data("autoplayspeed") : false,
+                            // $transitionSpeed = $teamCarouselWrapper.data("speed"),
+                            // $pauseOnHover = ($teamCarouselWrapper.data("pauseonhover") !== undefined) ? $teamCarouselWrapper.data("pauseonhover") : false
 
 
-                        // Team Carousel
-                        if ($carousel_nav == "arrows") {
-                            var arrows = true;
-                            var dots = false;
-                        } else {
-                            var arrows = false;
-                            var dots = true;
-                        }
-
-                        $teamCarouselWrapper.slick({
-                            infinite: $loop,
-                            slidesToShow: $slidesToShow,
-                            slidesToScroll: $slidesToScroll,
-                            autoplay: $autoPlay,
-                            autoplaySpeed: $autoplaySpeed,
-                            speed: $transitionSpeed,
-                            mobileFirst:true,
-                            pauseOnHover: $pauseOnHover,
-                            dots: dots,
-                            arrows: arrows,
-                            prevArrow: "<div class='ma-el-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-                            nextArrow: "<div class='ma-el-team-carousel-next'><i class='fa fa-angle-right'></i></div>",
-                            rows: 0,
-                            responsive: [
-
-                                {
-                                    breakpoint: 350,
-                                    settings: {
-                                        dots: dots,
-                                        arrow: arrows,
-                                        rows:1,
-                                        slidesToShow: Master_Addons.MA_TeamSlider.elementSettings.ma_el_team_per_view_mobile,
-                                        slidesToScroll: $slidesToScroll
-                                    }
+                        var $team_swiper = null,
+                            settings = {
+                                scope : $scope,
+                                id : uniqueId,
+                                element : {
+                                    autoHeight 						: 'yes' === elementSettings.autoheight,
+                                    autoplay 						: 'yes' === elementSettings.auto_play,
+                                    loop 							: 'yes' === elementSettings.ma_el_blog_carousel_loop,
+                                    direction 						: elementSettings.ma_el_blog_carousel_direction,
+                                    effect 							: elementSettings.ma_el_blog_carousel_effect,
+                                    speed 							: elementSettings.ma_el_blog_carousel_speed.size || 500,
+                                    resistance 						: elementSettings.resistance_ratio.size || 0.25,
+                                    autoplaySpeed 					: elementSettings.ma_el_blog_carousel_auto_play ? elementSettings.ma_el_blog_carousel_autoplay_speed : false,
+                                    slidesPerView 					: elementSettings.slides_per_view_mobile,
+                                    slidesPerColumn 				: 'vertical' === elementSettings.ma_el_blog_carousel_direction ? 1 : elementSettings.slides_per_column_mobile,
+                                    slidesPerGroup 					: elementSettings.slides_to_scroll_mobile,
+                                    spaceBetween 					: elementSettings.ma_el_blog_carousel_grid_columns_spacing_mobile.size || 0,
+                                    disableOnInteraction 			: 'yes' === elementSettings.pause_on_interaction,
+                                    stopOnHover 					: 'yes' === elementSettings.stop_on_hover,
+                                    arrows 							: 'yes' === elementSettings.ma_el_blog_carousel_arrows,
+                                    arrowPrev 						: '.jltma-arrow--prev',
+                                    arrowNext 						: '.jltma-arrow--next',
+                                    freeMode 						: 'yes' === elementSettings.ma_el_blog_carousel_free_mode,
+                                    freeModeSticky 					: 'yes' === elementSettings.ma_el_blog_carousel_free_mode_sticky,
+                                    freeModeMomentum 				: 'yes' === elementSettings.ma_el_blog_carousel_free_mode_momentum,
+                                    freeModeMomentumBounce 			: 'yes' === elementSettings.ma_el_blog_carousel_free_mode_momentum_bounce,
+                                    freeModeMomentumRatio 			: elementSettings.ma_el_blog_carousel_free_mode_momentum_ratio ? elementSettings.ma_el_blog_carousel_free_mode_momentum_ratio.size : false,
+                                    freeModeMomentumVelocityRatio 	: elementSettings.ma_el_blog_carousel_free_mode_momentum_velocity ? elementSettings.ma_el_blog_carousel_free_mode_momentum_velocity.size : false,
+                                    freeModeMomentumBounceRatio 	: elementSettings.ma_el_blog_carousel_free_mode_momentum_bounce_ratio ? elementSettings.ma_el_blog_carousel_free_mode_momentum_bounce_ratio.size : false,
+                                    pagination 						: '' !== elementSettings.ma_el_blog_carousel_pagination,
+                                    paginationType 					: elementSettings.ma_el_blog_carousel_pagination_type,
+                                    paginationClickable 			: 'yes' === elementSettings.ma_el_blog_carousel_pagination_clickable,
+                                    slideChangeTriggerResize 		: 'yes' === elementSettings.ma_el_blog_carousel_slide_change_resize,
+                                    breakpoints 		: {
+                                        tablet : {
+                                            slidesPerView 	: elementSettings.slides_per_view_tablet,
+                                            slidesPerColumn : 'vertical' === elementSettings.ma_el_blog_carousel_direction ? 1 : elementSettings.slides_per_column_tablet,
+                                            slidesPerGroup 	: elementSettings.slides_to_scroll_tablet,
+                                            spaceBetween 	: elementSettings.ma_el_blog_carousel_grid_columns_spacing_tablet.size || 0,
+                                        },
+                                        desktop : {
+                                            slidesPerView 	: elementSettings.slides_per_view,
+                                            slidesPerColumn : 'vertical' === elementSettings.ma_el_blog_carousel_direction ? 1 : elementSettings.slides_per_column,
+                                            slidesPerGroup 	: elementSettings.slides_to_scroll,
+                                            spaceBetween 	: elementSettings.ma_el_blog_carousel_grid_columns_spacing.size || 0,
+                                        },
+                                    },
                                 },
-                                {
-                                    breakpoint: 576,
-                                    settings: {
-                                        dots: dots,
-                                        arrow: arrows,
-                                        slidesToShow: Master_Addons.MA_TeamSlider.elementSettings.ma_el_team_per_view_tablet,
-                                        slidesToScroll: $slidesToScroll
-                                    }
+                                default : {
+                                    slidesPerView 	: 1,
+                                    slidesPerGroup 	: 1,
+                                    slidesPerColumn : 1,
+                                    spaceBetween 	: 6,
+                                    breakpoints 	: {
+                                        tablet : {
+                                            slidesPerView 	: 2,
+                                            slidesPerGroup 	: 1,
+                                            slidesPerColumn : 1,
+                                            spaceBetween 	: 12,
+                                        },
+                                        desktop : {
+                                            slidesPerView 	: 3,
+                                            slidesPerGroup 	: 1,
+                                            slidesPerColumn : 1,
+                                            spaceBetween 	: 24,
+                                        },
+                                    },
                                 },
-                                {
-                                    breakpoint: 720,
-                                    settings: {
-                                        slidesToShow: $slidesToShow,
-                                        slidesToScroll: $slidesToScroll,
-                                        infinite: true,
-                                        centerMode: false,
-                                        dots: dots,
-                                        arrow: arrows
-                                    }
-                                },
+                            };
 
-                            ],
+                        Master_Addons.MA_Blog.init = function() {
+                            $team_swiper = Master_Addons.MA_Carousel( $teamCarousel, settings );
+                        };
+
+                        Master_Addons.onElementRemove( $scope, function() {
+                            $scope.find('.swiper-container').each( function() {
+                                if ( $(this).data('swiper') ) {
+                                    $(this).data('swiper').destroy();
+                                }
+                            });
                         });
+
+                        Master_Addons.MA_Blog.init();
+
 
                     })(jQuery);
                 } catch (e) {
