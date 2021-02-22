@@ -101,15 +101,16 @@ class Team_Slider extends Widget_Base
 						'-content-hover'        => __('Content on Hover', MELA_TD),
 						'-content-drawer'       => __('Content Drawer', MELA_TD),
 					],
+					'frontend_available' 	=> true,
 				]
 			);
 		} else {
 			$this->add_control(
 				'ma_el_team_carousel_preset',
 				[
-					'label' => __('Style Preset', MELA_TD),
-					'type' => Controls_Manager::SELECT,
-					'default' => '-default',
+					'label' 					=> __('Style Preset', MELA_TD),
+					'type' 						=> Controls_Manager::SELECT,
+					'default' 					=> '-default',
 					'options' => [
 						'-default'                    => __('Team Carousel', MELA_TD),
 						'-circle'                     => __('Circle Gradient', MELA_TD),
@@ -118,7 +119,8 @@ class Team_Slider extends Widget_Base
 						'-pro-team-slider-2'          => __('Content Drawer (Pro)', MELA_TD),
 						'-pro-team-slider-3'          => __('Circle Animation (Pro)', MELA_TD)
 					],
-					'description' => sprintf(
+					'frontend_available' 		=> true,
+					'description' 				=> sprintf(
 						'5+ more Variations on <a href="%s" target="_blank">%s</a>',
 						esc_url_raw(admin_url('admin.php?page=master-addons-settings-pricing')),
 						__('Upgrade Now', MELA_TD)
@@ -830,6 +832,7 @@ class Team_Slider extends Widget_Base
 				'label'     => esc_html__('Items to Scroll', MELA_TD),
 				'options'   => $slides_per_view,
 				'default'   => '1',
+				'frontend_available' 	=> true,
 			]
 		);
 
@@ -845,6 +848,7 @@ class Team_Slider extends Widget_Base
 					'dots' => esc_html__('Dots', MELA_TD),
 
 				],
+				'frontend_available' 	=> true,
 			]
 		);
 
@@ -957,6 +961,7 @@ class Team_Slider extends Widget_Base
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 1000,
 				'separator' => 'before',
+				'frontend_available' 	=> true,
 			]
 		);
 
@@ -1207,11 +1212,11 @@ Customization Options.</span>'
 					'ma-el-team-carousel-wrapper',
 					'ma-el-team-carousel' . $team_preset
 				],
-				'data-team-preset' 		=> $team_preset,
-				'data-carousel-nav' 	=> $settings['ma_el_team_carousel_nav'],
-				'data-slidestoshow' 	=> $settings['ma_el_team_per_view'],
-				'data-slidestoscroll' 	=> $settings['ma_el_team_slides_to_scroll'],
-				'data-speed' 			=> $settings['ma_el_team_transition_duration'],
+				// 'data-team-preset' 		=> $team_preset,
+				// 'data-carousel-nav' 	=> $settings['ma_el_team_carousel_nav'],
+				// 'data-slidestoshow' 	=> $settings['ma_el_team_per_view'],
+				// 'data-slidestoscroll' 	=> $settings['ma_el_team_slides_to_scroll'],
+				// 'data-speed' 			=> $settings['ma_el_team_transition_duration'],
 			]
 		);
 

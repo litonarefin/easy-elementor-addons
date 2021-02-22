@@ -231,6 +231,9 @@ class Team_Member extends Widget_Base
 			'ma_el_team_member_social_profile_links',
 			[
 				'type' => Controls_Manager::REPEATER,
+				'fields' 	  => $repeater->get_controls(),
+				// 'title_field' => '<i class="{{ social }}"></i> {{{ social.replace( \'fab fa-\', \'\' ).replace( \'-\', \' \' ).replace( /\b\w/g, function( letter ){ return letter.toUpperCase() } ) }}}',
+				'title_field' => 'Social Icon',
 				'condition' => [
 					'ma_el_team_member_enable_social_profiles!' => '',
 				],
@@ -271,8 +274,6 @@ class Team_Member extends Widget_Base
 						'placeholder' => esc_html__('Place URL here', MELA_TD),
 					],
 				],
-				// 'title_field' => '<i class="{{ social }}"></i> {{{ social.replace( \'fab fa-\', \'\' ).replace( \'-\', \' \' ).replace( /\b\w/g, function( letter ){ return letter.toUpperCase() } ) }}}',
-				'title_field' => 'Social Icon',
 			]
 		);
 		$this->end_controls_section();
