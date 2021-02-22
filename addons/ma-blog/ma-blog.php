@@ -555,12 +555,10 @@ class Blog extends Widget_Base
 			[
 				'label'         => __('Fade', MELA_TD),
 				'type'          => Controls_Manager::SWITCHER,
-				'condition'     => [
-					'ma_el_blog_cols' => '100%'
-				],
 				'frontend_available' 	=> true,
 				'condition' 		=> [
-					'ma_el_blog_carousel'			=> 'yes'
+					'ma_el_blog_carousel'			=> 'yes',
+					'ma_el_blog_cols' 				=> '100%'
 				],
 			]
 		);
@@ -980,6 +978,7 @@ class Blog extends Widget_Base
 		);
 
 		$this->start_popover();
+
 		$this->add_control(
 			'ma_el_blog_carousel_pagination_position',
 			[

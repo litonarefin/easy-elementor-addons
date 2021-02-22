@@ -1488,7 +1488,8 @@
                 try {
                     (function ($) {
 
-                        var $teamCarousel 	        = $scope.find('.ma-el-team-members-slider-section');
+                        var $teamCarousel 	        = $scope.find('.ma-el-team-members-slider-section'),
+                            $swiper 	        = $scope.find('.jltma-swiper__container');
                             // $carousel_nav = $teamCarouselWrapper.data("carousel-nav"),
                             // $loop = ($teamCarouselWrapper.data("loop") !== undefined) ? $teamCarouselWrapper.data("loop") : false,
                             // $slidesToShow = $teamCarouselWrapper.data("slidestoshow"),
@@ -1501,16 +1502,16 @@
                         console.log($teamCarousel);
                         console.log(elementSettings.autoheight);
                         console.log(elementSettings.ma_el_team_autoplay);
-                        console.log(elementSettings.ma_el_team_loop);
+                        console.log('loop',elementSettings.ma_el_team_loop);
                         console.log(elementSettings.slide_effect);
                         console.log(elementSettings.duration_speed.size);
-                        // console.log(elementSettings.resistance_ratio.size);
+                        console.log(elementSettings.resistance_ratio.size);
                         console.log(elementSettings.autoplay_speed);
                         console.log(elementSettings.ma_el_team_per_view);
-                        console.log(elementSettings.pause_on_interaction);
-                        console.log('columng', elementSettings.slides_per_column);
-                        console.log('columng', elementSettings.carousel_pagination);
-                        console.log('columng', elementSettings.carousel_direction);
+                        console.log('pause_on_interaction',elementSettings.pause_on_interaction);
+                        console.log('slides_per_column', elementSettings.slides_per_column);
+                        console.log('carousel_pagination', elementSettings.carousel_pagination);
+                        console.log('carousel_direction', elementSettings.carousel_direction);
 
                         var team_swiper = null,
                             settings = {
@@ -1523,7 +1524,7 @@
                                     direction 						: elementSettings.carousel_direction,
                                     effect 							: elementSettings.slide_effect,
                                     speed 							: elementSettings.duration_speed.size || 500,
-                                    // resistance 						: elementSettings.resistance_ratio.size || 0.25,
+                                    resistance 						: elementSettings.resistance_ratio.size || 0.25,
                                     autoplaySpeed 					: elementSettings.ma_el_team_autoplay ? elementSettings.autoplay_speed : false,
                                     slidesPerView 					: elementSettings.ma_el_team_per_view_mobile,
                                     slidesPerColumn 				:  'vertical' === elementSettings.carousel_direction ? 1 : elementSettings.slides_per_column_mobile,
@@ -1583,7 +1584,7 @@
                             };
 
                         Master_Addons.MA_TeamSlider.init = function() {
-                            team_swiper = Master_Addons.MA_Carousel( $teamCarousel, settings );
+                            team_swiper = Master_Addons.MA_Carousel( $swiper, settings );
                         };
 
                         Master_Addons.onElementRemove( $scope, function() {

@@ -814,7 +814,7 @@ class Team_Slider extends Widget_Base
 			[
 				'type' 			=> Controls_Manager::SWITCHER,
 				'label' 		=> __('Auto Height', MELA_TD),
-				'default' 		=> '',
+				'default' 		=> 'yes',
 				'frontend_available' 	=> true
 			]
 		);
@@ -855,23 +855,6 @@ class Team_Slider extends Widget_Base
 			]
 		);
 
-
-		$this->add_responsive_control(
-			'carousel_direction',
-			[
-				'type' 				=> Controls_Manager::SELECT,
-				'label' 			=> __('Orientation', MELA_TD),
-				'default'			=> 'horizontal',
-				'tablet_default'	=> 'horizontal',
-				'mobile_default'	=> 'horizontal',
-				'options' 			=> [
-					'horizontal' 	=> __('Horizontal', MELA_TD),
-					'vertical' 		=> __('Vertical', MELA_TD),
-				],
-				'frontend_available' 	=> true
-			]
-		);
-
 		$this->add_control(
 			'slide_effect',
 			[
@@ -899,6 +882,79 @@ class Team_Slider extends Widget_Base
 		);
 
 
+		$this->add_control(
+			'duration_speed',
+			[
+				'label' 	=> __('Duration (ms)', MELA_TD),
+				'description' => __('Duration of the effect transition.', MELA_TD),
+				'type' 		=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 300,
+					'unit' 	=> 'px',
+				],
+				'range' 	=> [
+					'px' 	=> [
+						'min' 	=> 0,
+						'max' 	=> 2000,
+						'step'	=> 100,
+					],
+				],
+				'frontend_available' => true
+			]
+		);
+
+
+
+		$this->add_control(
+			'resistance_ratio',
+			[
+				'label' 		=> __('Resistance', MELA_TD),
+				'description'	=> __('Set the value for resistant bounds.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'default' 		=> [
+					'size' 		=> 0.25,
+					'unit' 		=> 'px',
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 1,
+						'step'	=> 0.05,
+					],
+				],
+				'frontend_available' => true
+			]
+		);
+
+
+		$this->add_control(
+			'ma_el_team_carousel_layout_heading',
+			[
+				'label' 			=> __('Layout', MELA_TD),
+				'type' 				=> Controls_Manager::HEADING,
+				'separator'			=> 'before'
+			]
+		);
+
+		$this->add_responsive_control(
+			'carousel_direction',
+			[
+				'type' 				=> Controls_Manager::SELECT,
+				'label' 			=> __('Orientation', MELA_TD),
+				'default'			=> 'horizontal',
+				'tablet_default'	=> 'horizontal',
+				'mobile_default'	=> 'horizontal',
+				'options' 			=> [
+					'horizontal' 	=> __('Horizontal', MELA_TD),
+					'vertical' 		=> __('Vertical', MELA_TD),
+				],
+				'frontend_available' 	=> true
+			]
+		);
+
+
+
+
 		$slides_per_view = range(1, 6);
 		$slides_per_view = array_combine($slides_per_view, $slides_per_view);
 
@@ -906,8 +962,8 @@ class Team_Slider extends Widget_Base
 			'ma_el_team_per_view',
 			[
 				'type'           		=> Controls_Manager::SELECT,
-				'label'          		=> esc_html__('Columns', MELA_TD),
-				'options'        		=> $slides_per_view,
+				'label'          		=> esc_html__('Slides Per View', MELA_TD),
+				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_view,
 				'default'        		=> '4',
 				'tablet_default' 		=> '3',
 				'mobile_default' 		=> '2',
@@ -921,7 +977,10 @@ class Team_Slider extends Widget_Base
 				'type' 					=> Controls_Manager::SELECT,
 				'label' 				=> __('Slides Per Column', MELA_TD),
 				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_view,
-				'frontend_available' 	=> true
+				'frontend_available' 	=> true,
+				'condition' 		=> [
+					'ma_el_blog_carousel_direction' => 'horizontal',
+				],
 			]
 		);
 
@@ -930,13 +989,44 @@ class Team_Slider extends Widget_Base
 			'ma_el_team_slides_to_scroll',
 			[
 				'type'      => Controls_Manager::SELECT,
-				'label'     => esc_html__('Items to Scroll', MELA_TD),
-				'options'   => $slides_per_view,
+				'label'     => esc_html__('Slides to Scroll', MELA_TD),
+				'options' 	=> ['' => __('Default', MELA_TD)] + $slides_per_view,
 				'default'   => '1',
 				'frontend_available' 	=> true,
 			]
 		);
 
+
+		$this->add_responsive_control(
+			'columns_spacing',
+			[
+				'label' 			=> __('Columns Spacing', MELA_TD),
+				'type' 				=> Controls_Manager::SLIDER,
+				'default'			=> [
+					'size' => 24,
+					'unit' => 'px',
+				],
+				'tablet_default'	=> [
+					'size' => 12,
+					'unit' => 'px',
+				],
+				'mobile_default'	=> [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'size_units' 		=> ['px'],
+				'range' 			=> [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'frontend_available' => true,
+				'condition'				=> [
+					'carousel_direction' => 'horizontal',
+				],
+			]
+		);
 
 
 		$this->add_control(
@@ -944,7 +1034,7 @@ class Team_Slider extends Widget_Base
 			[
 				'label'     	=> esc_html__('Autoplay', MELA_TD),
 				'type'          => Controls_Manager::POPOVER_TOGGLE,
-				'default'   	=> 'no',
+				'default'   	=> 'yes',
 				'return_value' 	=> 'yes',
 				'frontend_available' 	=> true,
 			]
@@ -994,55 +1084,7 @@ class Team_Slider extends Widget_Base
 
 		$this->end_popover();
 
-		$this->add_control(
-			'duration_speed',
-			[
-				'label' 	=> __('Duration (ms)', MELA_TD),
-				'description' => __('Duration of the effect transition.', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 300,
-					'unit' 	=> 'px',
-				],
-				'range' 	=> [
-					'px' 	=> [
-						'min' 	=> 0,
-						'max' 	=> 2000,
-						'step'	=> 100,
-					],
-				],
-				'frontend_available' => true
-			]
-		);
 
-
-		$this->add_responsive_control(
-			'columns_spacing',
-			[
-				'label' 			=> __('Columns Spacing', MELA_TD),
-				'type' 				=> Controls_Manager::SLIDER,
-				'default'			=> [
-					'size' => 24,
-					'unit' => 'px',
-				],
-				'tablet_default'	=> [
-					'size' => 12,
-					'unit' => 'px',
-				],
-				'mobile_default'	=> [
-					'size' => 0,
-					'unit' => 'px',
-				],
-				'size_units' 		=> ['px'],
-				'range' 			=> [
-					'px' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'frontend_available' => true,
-			]
-		);
 
 
 		$this->add_control(
@@ -1175,6 +1217,73 @@ class Team_Slider extends Widget_Base
 
 
 		$this->add_control(
+			'carousel_arrows',
+			[
+				'label'         => __('Arrows', MELA_TD),
+				'type'          => Controls_Manager::POPOVER_TOGGLE,
+				'default'       => 'yes',
+				'return_value' 	=> 'yes',
+				'frontend_available' => true
+			]
+		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			'arrows_placement',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Placement', MELA_TD),
+				'default'		=> 'inside',
+				'options' 		=> [
+					'inside' 	=> __('Inside', MELA_TD),
+					'outside' 	=> __('Outside', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_arrows' => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'arrows_position',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'middle',
+				'options' 		=> [
+					'top' 		=> __('Top', MELA_TD),
+					'middle' 	=> __('Middle', MELA_TD),
+					'bottom' 	=> __('Bottom', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_arrows' 	=> 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'arrows_position_vertical',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'center',
+				'options' 		=> [
+					'left' 		=> __('Left', MELA_TD),
+					'center' 	=> __('Center', MELA_TD),
+					'right' 	=> __('Right', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_arrows' 	=> 'yes',
+				]
+			]
+		);
+
+		$this->end_popover();
+
+
+
+		$this->add_control(
 			'ma_el_team_loop',
 			[
 				'label'   => esc_html__('Infinite Loop', MELA_TD),
@@ -1257,72 +1366,6 @@ class Team_Slider extends Widget_Base
 		);
 		$this->end_popover();
 
-
-
-		$this->add_control(
-			'carousel_arrows',
-			[
-				'label'         => __('Arrows', MELA_TD),
-				'type'          => Controls_Manager::POPOVER_TOGGLE,
-				'default'       => 'yes',
-				'return_value' 	=> 'yes',
-				'frontend_available' => true
-			]
-		);
-
-		$this->start_popover();
-
-		$this->add_control(
-			'arrows_placement',
-			[
-				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Placement', MELA_TD),
-				'default'		=> 'inside',
-				'options' 		=> [
-					'inside' 	=> __('Inside', MELA_TD),
-					'outside' 	=> __('Outside', MELA_TD),
-				],
-				'condition'		=> [
-					'carousel_arrows' => 'yes',
-				]
-			]
-		);
-
-		$this->add_control(
-			'arrows_position',
-			[
-				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Position', MELA_TD),
-				'default'		=> 'middle',
-				'options' 		=> [
-					'top' 		=> __('Top', MELA_TD),
-					'middle' 	=> __('Middle', MELA_TD),
-					'bottom' 	=> __('Bottom', MELA_TD),
-				],
-				'condition'		=> [
-					'carousel_arrows' 	=> 'yes',
-				]
-			]
-		);
-
-		$this->add_control(
-			'arrows_position_vertical',
-			[
-				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Position', MELA_TD),
-				'default'		=> 'center',
-				'options' 		=> [
-					'left' 		=> __('Left', MELA_TD),
-					'center' 	=> __('Center', MELA_TD),
-					'right' 	=> __('Right', MELA_TD),
-				],
-				'condition'		=> [
-					'carousel_arrows' 	=> 'yes',
-				]
-			]
-		);
-
-		$this->end_popover();
 
 		$this->end_controls_section();
 
