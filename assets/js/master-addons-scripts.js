@@ -1490,28 +1490,6 @@
 
                         var $teamCarousel 	        = $scope.find('.ma-el-team-members-slider-section'),
                             $swiper 	        = $scope.find('.jltma-swiper__container');
-                            // $carousel_nav = $teamCarouselWrapper.data("carousel-nav"),
-                            // $loop = ($teamCarouselWrapper.data("loop") !== undefined) ? $teamCarouselWrapper.data("loop") : false,
-                            // $slidesToShow = $teamCarouselWrapper.data("slidestoshow"),
-                            // $slidesToScroll = $teamCarouselWrapper.data("slidestoscroll"),
-                            // $autoPlay = ($teamCarouselWrapper.data("autoplay") !== undefined) ? $teamCarouselWrapper.data("autoplay") : false,
-                            // $autoplaySpeed = ($teamCarouselWrapper.data("autoplayspeed") !== undefined) ? $teamCarouselWrapper.data("autoplayspeed") : false,
-                            // $transitionSpeed = $teamCarouselWrapper.data("speed"),
-                            // $pauseOnHover = ($teamCarouselWrapper.data("pauseonhover") !== undefined) ? $teamCarouselWrapper.data("pauseonhover") : false
-
-                        console.log($teamCarousel);
-                        console.log(elementSettings.autoheight);
-                        console.log(elementSettings.ma_el_team_autoplay);
-                        console.log('loop',elementSettings.ma_el_team_loop);
-                        console.log(elementSettings.slide_effect);
-                        console.log(elementSettings.duration_speed.size);
-                        console.log(elementSettings.resistance_ratio.size);
-                        console.log(elementSettings.autoplay_speed);
-                        console.log(elementSettings.ma_el_team_per_view);
-                        console.log('pause_on_interaction',elementSettings.pause_on_interaction);
-                        console.log('slides_per_column', elementSettings.slides_per_column);
-                        console.log('carousel_pagination', elementSettings.carousel_pagination);
-                        console.log('carousel_direction', elementSettings.carousel_direction);
 
                         var team_swiper = null,
                             settings = {
