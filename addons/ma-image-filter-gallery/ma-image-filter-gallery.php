@@ -11,6 +11,7 @@ namespace MasterAddons\Addons;
 // Elementor Classes
 use \Elementor\Widget_Base;
 use \Elementor\Utils;
+use \Elementor\Repeater;
 use \Elementor\Icons_Manager;
 use \Elementor\Controls_Manager;
 use \Elementor\Scheme_Color;
@@ -106,15 +107,57 @@ class Filterable_Image_Gallery extends Widget_Base
 			]
 		);
 
+
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'gallery_category_name',
+			[
+				'type'          => Controls_Manager::TEXT,
+				'label'         => __('Filter Label', MELA_TD),
+				'label_block'   => false,
+				'dynamic' => [
+					'active' => true,
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'ma_el_image_gallery_img',
+			[
+				'label'   => __('Image', MELA_TD),
+				'type'    => Controls_Manager::GALLERY,
+				'dynamic' => [
+					'active' => true,
+				],
+				'show_label' => false,
+				'render'    =>  'template',
+				'default' => [
+					'url' => Utils::get_placeholder_image_src(),
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'title',
+			[
+				'label_block'   => true,
+				'label'         => __('Title', MELA_TD),
+				'default'       => __('Item Title', MELA_TD)
+			]
+		);
+
 		$this->add_control(
 			'ma_el_image_gallery_items',
 			[
 				'label'       => __('Gallery Contents', MELA_TD),
 				'show_label'  => false,
 				'type'        => Controls_Manager::REPEATER,
-				'seperator'         => 'before',
-				'default'     => [
-
+				'seperator'   => 'before',
+				'fields' 	  => $repeater->get_controls(),
+				'title_field' => '{{title}}',
+				'show_label' 	=> true,
+				'default' => [
 					[
 						'title'                                 => __('Example Title One', MELA_TD),
 						'subtitle'                              => __('Example Sub Title One', MELA_TD),
@@ -146,164 +189,9 @@ class Filterable_Image_Gallery extends Widget_Base
 						'ma_el_image_gallery_link_two_url'      => "#"
 					]
 				],
-				'fields'          => [
-					[
-						'name'          => 'gallery_category_name',
-						'type'          => Controls_Manager::TEXT,
-						'label'         => __('Filter Name', MELA_TD),
-						'label_block'   => false,
-						'dynamic' => [
-							'active' => true,
-						]
-					],
-					[
-						'name'    => 'ma_el_image_gallery_img',
-						'label'   => __('Image', MELA_TD),
-						'type'    => Controls_Manager::GALLERY,
-						'dynamic' => [
-							'active' => true,
-						],
-						'show_label' => false,
-						'render'    =>  'template',
-						'default' => [
-							'url' => Utils::get_placeholder_image_src(),
-						],
-					],
-					[
-						'type'          => Controls_Manager::TEXT,
-						'name'          => 'title',
-						'label_block'   => true,
-						'label'         => __('Title', MELA_TD),
-						'default'       => __('Item Title', MELA_TD)
-					],
-					[
-						'type'          => Controls_Manager::TEXT,
-						'name'          => 'subtitle',
-						'label'         => __('Subtitle', MELA_TD),
-						'label_block'   => true,
-						'default'       => __('item sub-title', MELA_TD)
-					],
-					[
-						'name'          => 'ma_el_image_gallery_show_ribbon',
-						'label'        => __('Show Ribbon?', MELA_TD),
-						'type'         => Controls_Manager::SWITCHER,
-						'default'      => 'no',
-						'return_value' => 'yes'
-					],
-
-					[
-						'name'          => 'ma_el_image_gallery_ribbon',
-						'label'         => __('Ribbon', MELA_TD),
-						'type'          => Controls_Manager::SELECT,
-						'options'   => [
-							'new'           => __('New', MELA_TD),
-							'popular'       => __('Popular', MELA_TD),
-							'free'          => __('Free', MELA_TD),
-							'pro'           => __('Pro', MELA_TD),
-							'sale'          => __('Sale', MELA_TD),
-							'discount'      => __('Discount', MELA_TD),
-							'added'         => __('Added', MELA_TD),
-							'updated'       => __('Updated', MELA_TD),
-							'changed'       => __('Changed', MELA_TD),
-							'fixed'         => __('Fixed', MELA_TD),
-							'removed'       => __('Removed', MELA_TD),
-							'note'          => __('Note', MELA_TD),
-						],
-						'default'   => 'new',
-						'condition'     => [
-							'ma_el_image_gallery_show_ribbon' => 'yes'
-						]
-					],
-
-					[
-						'type'          => Controls_Manager::TEXT,
-						'name'          => 'ma_el_image_gallery_discount',
-						'label'         => __('Discount', MELA_TD),
-						'default'       => __('30% Off', MELA_TD),
-						'condition'     => [
-							'ma_el_image_gallery_ribbon' => ['discount', 'sale']
-						]
-					],
-
-					[
-						'name'          => 'ma_el_image_gallery_buttons',
-						'label'        => __('Popup or Links ?', MELA_TD),
-						'type'         => Controls_Manager::CHOOSE,
-						'options' => [
-							'popup' => [
-								'title' => __('Popup', MELA_TD),
-								'icon' => 'eicon-search',
-							],
-							'links' => [
-								'title' => __('External Links', MELA_TD),
-								'icon' => 'eicon-editor-external-link',
-							],
-						],
-						'default' => 'popup',
-						'frontend_available' 	=> true,
-					],
-
-
-					[
-						'name'          => 'ma_el_image_gallery_button_one_text',
-						'label'        => __('Button One Text', MELA_TD),
-						'type'         => Controls_Manager::TEXT,
-						'default'     => __('Details', MELA_TD),
-						'placeholder' => __('Details', MELA_TD),
-						'title'       => __('Enter Button text here', MELA_TD),
-						'condition'     => [
-							'ma_el_image_gallery_buttons' => 'links'
-						]
-					],
-
-					[
-						'name'          => 'ma_el_image_gallery_link_one_url',
-						'label'        => __('Button One URL', MELA_TD),
-						'type'         => Controls_Manager::URL,
-						'label_block'   => false,
-						'default'     => [
-							'url' => '#',
-							'is_external' => true,
-							'nofollow' => true,
-						],
-						'show_external' => true,
-						'condition'     => [
-							'ma_el_image_gallery_buttons' => 'links'
-						]
-					],
-
-					[
-						'name'          => 'ma_el_image_gallery_button_two_text',
-						'label'        => __('Button Two Text', MELA_TD),
-						'type'         => Controls_Manager::TEXT,
-						'default'     => __('Demo', MELA_TD),
-						'placeholder' => __('Demo', MELA_TD),
-						'title'       => __('Enter Button text here', MELA_TD),
-						'condition'     => [
-							'ma_el_image_gallery_buttons' => 'links'
-						]
-					],
-
-					[
-						'name'          => 'ma_el_image_gallery_link_two_url',
-						'label'        => __('Button Two URL', MELA_TD),
-						'label_block'   => false,
-						'type'         => Controls_Manager::URL,
-						'default'     => [
-							'url' => '#',
-							'is_external' => true,
-							'nofollow' => true,
-						],
-						'show_external' => true,
-						'condition'     => [
-							'ma_el_image_gallery_buttons' => 'links'
-						]
-					],
-
-				],
-				'title_field' => '{{title}}'
 			]
 		);
+
 
 		// Image Size
 		$this->add_group_control(
