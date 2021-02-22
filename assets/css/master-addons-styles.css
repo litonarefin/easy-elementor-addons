@@ -15542,6 +15542,7 @@ ul.jltma-toggle-content-controls {
     margin: 24px;
     font-size: 24px;
     cursor: pointer;
+    outline: none;
 }
 .jltma-arrow--prev {
     left: 0;

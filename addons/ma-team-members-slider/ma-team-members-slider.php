@@ -856,6 +856,22 @@ class Team_Slider extends Widget_Base
 		);
 
 
+		$this->add_responsive_control(
+			'carousel_direction',
+			[
+				'type' 				=> Controls_Manager::SELECT,
+				'label' 			=> __('Orientation', MELA_TD),
+				'default'			=> 'horizontal',
+				'tablet_default'	=> 'horizontal',
+				'mobile_default'	=> 'horizontal',
+				'options' 			=> [
+					'horizontal' 	=> __('Horizontal', MELA_TD),
+					'vertical' 		=> __('Vertical', MELA_TD),
+				],
+				'frontend_available' 	=> true
+			]
+		);
+
 		$this->add_control(
 			'slide_effect',
 			[
@@ -922,23 +938,14 @@ class Team_Slider extends Widget_Base
 		);
 
 
-		$this->add_control(
-			'ma_el_team_transition_duration',
-			[
-				'label'   => esc_html__('Transition Duration', MELA_TD),
-				'type'    => Controls_Manager::NUMBER,
-				'default' => 1000,
-				'separator' => 'before',
-				'frontend_available' 	=> true,
-			]
-		);
 
 		$this->add_control(
 			'ma_el_team_autoplay',
 			[
-				'label'     => esc_html__('Autoplay', MELA_TD),
+				'label'     	=> esc_html__('Autoplay', MELA_TD),
 				'type'          => Controls_Manager::POPOVER_TOGGLE,
-				'default'   => 'no',
+				'default'   	=> 'no',
+				'return_value' 	=> 'yes',
 				'frontend_available' 	=> true,
 			]
 		);
@@ -1039,6 +1046,135 @@ class Team_Slider extends Widget_Base
 
 
 		$this->add_control(
+			'free_mode',
+			[
+				'type' 					=> Controls_Manager::POPOVER_TOGGLE,
+				'label' 				=> __('Free Mode', MELA_TD),
+				'description'			=> __('Disable fixed positions for slides.', MELA_TD),
+				'default' 				=> '',
+				'return_value' 			=> 'yes',
+				'frontend_available' 	=> true
+			]
+		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			'free_mode_sticky',
+			[
+				'type' 					=> Controls_Manager::SWITCHER,
+				'label' 				=> __('Snap to position', MELA_TD),
+				'description'			=> __('Enable to snap slides to positions in free mode.', MELA_TD),
+				'default' 				=> '',
+				'return_value' 			=> 'yes',
+				'frontend_available' 	=> true,
+				'condition' 			=> [
+					'free_mode!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'free_mode_momentum',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Momentum', MELA_TD),
+				'description'	=> __('Enable to keep slide moving for a while after you release it.', MELA_TD),
+				'default' 		=> 'yes',
+				'return_value' 	=> 'yes',
+				'separator'		=> 'before',
+				'frontend_available' => true,
+				'condition' => [
+					'free_mode!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'free_mode_momentum_ratio',
+			[
+				'label' 		=> __('Ratio', MELA_TD),
+				'description'	=> __('Higher value produces larger momentum distance after you release slider.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 5,
+						'step'	=> 0.1,
+					],
+				],
+				'condition' => [
+					'free_mode!' 			=> '',
+					'free_mode_momentum!' 	=> '',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'free_mode_momentum_velocity',
+			[
+				'label' 		=> __('Velocity', MELA_TD),
+				'description'	=> __('Higher value produces larger momentum velocity after you release slider.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 5,
+						'step'	=> 0.1,
+					],
+				],
+				'condition' => [
+					'free_mode!' 			=> '',
+					'free_mode_momentum!' 	=> '',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'free_mode_momentum_bounce',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Bounce', MELA_TD),
+				'description'	=> __('Set to No if you want to disable momentum bounce in free mode.', MELA_TD),
+				'default' 		=> 'yes',
+				'return_value' 	=> 'yes',
+				'frontend_available' => true,
+				'condition' => [
+					'free_mode!' 			=> '',
+					'free_mode_momentum!' 	=> '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'free_mode_momentum_bounce_ratio',
+			[
+				'label' 		=> __('Bounce Ratio', MELA_TD),
+				'description'	=> __('Higher value produces larger momentum bounce effect.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 5,
+						'step'	=> 0.1,
+					],
+				],
+				'condition' => [
+					'free_mode!' => '',
+					'free_mode_momentum!' => '',
+					'free_mode_momentum_bounce!' => '',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->end_popover();
+
+
+
+		$this->add_control(
 			'ma_el_team_loop',
 			[
 				'label'   => esc_html__('Infinite Loop', MELA_TD),
@@ -1065,10 +1201,6 @@ class Team_Slider extends Widget_Base
 			[
 				'label' 		=> __('Pagination', MELA_TD),
 				'type' 			=> Controls_Manager::POPOVER_TOGGLE,
-				'default' 		=> 'on',
-				'label_on' 		=> __('On', MELA_TD),
-				'label_off' 	=> __('Off', MELA_TD),
-				'return_value' 	=> 'on',
 				'frontend_available' => true
 			]
 		);
@@ -1087,7 +1219,7 @@ class Team_Slider extends Widget_Base
 				],
 				'frontend_available' 	=> true,
 				'condition'		=> [
-					'carousel_pagination!'         => '',
+					'carousel_pagination'         => 'yes',
 				]
 			]
 		);
@@ -1103,7 +1235,7 @@ class Team_Slider extends Widget_Base
 					'fraction' 		=> __('Fraction', MELA_TD),
 				],
 				'condition'		=> [
-					'carousel_pagination!'         => '',
+					'carousel_pagination'         => 'yes',
 				],
 				'frontend_available' => true,
 			]
@@ -1117,7 +1249,7 @@ class Team_Slider extends Widget_Base
 				'default' 		=> 'yes',
 				'return_value' 	=> 'yes',
 				'condition' => [
-					'carousel_pagination!'         	=> '',
+					'carousel_pagination'         => 'yes',
 					'pagination_type'       		=> 'bullets'
 				],
 				'frontend_available' 	=> true,
@@ -1403,11 +1535,6 @@ Customization Options.</span>'
 					'elementor-jltma-element-' . $unique_id
 				],
 				'data-jltma-template-widget-id' => $unique_id
-				// 'data-team-preset' 		=> $team_preset,
-				// 'data-carousel-nav' 	=> $settings['ma_el_team_carousel_nav'],
-				// 'data-slidestoshow' 	=> $settings['ma_el_team_per_view'],
-				// 'data-slidestoscroll' 	=> $settings['ma_el_team_slides_to_scroll'],
-				// 'data-speed' 			=> $settings['ma_el_team_transition_duration'],
 			],
 			'swiper-wrapper' => [
 				'class' => [
@@ -1651,11 +1778,14 @@ Customization Options.</span>'
 							</div>
 						</div>
 					<?php } // repeater loop end
-
-					$this->render_swiper_navigation();
-					$this->render_swiper_pagination();
 					?>
-				</div>
+				</div> <!-- swiper-wrapper -->
+
+				<?php
+				$this->render_swiper_navigation();
+				$this->render_swiper_pagination();
+				?>
+
 			</div>
 
 		<?php } // carousel layout
@@ -1693,13 +1823,12 @@ Customization Options.</span>'
 	public function render_swiper_pagination()
 	{
 		$settings = $this->get_settings_for_display();
-
-		if ('' === $settings['carousel_pagination'])
+		if ('yes' !== $settings['carousel_pagination'])
 			return;
 
 		$this->add_render_attribute('pagination', 'class', [
 			'jltma-swiper__pagination',
-			// 'jltma-swiper__pagination--' . $settings['ma_el_blog_carousel_direction'],
+			'jltma-swiper__pagination--' . $settings['carousel_direction'],
 			'jltma-swiper__pagination--' . $settings['pagination_position'],
 			'jltma-swiper__pagination-' . $this->get_id(),
 			'swiper-pagination',
