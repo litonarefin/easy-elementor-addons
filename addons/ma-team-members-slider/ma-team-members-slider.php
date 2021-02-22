@@ -10,6 +10,7 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Image_Size;
 
+use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
@@ -617,36 +618,6 @@ class Team_Slider extends Widget_Base
 			]
 		);
 
-
-
-		$this->add_responsive_control(
-			'ma_el_team_carousel_item_gap',
-			[
-				'label' => __('Item Padding', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
-				'size_units'    => ['px', '%', 'em'],
-				'condition' => [
-					'ma_el_team_carousel_preset' => ['-default', '-circle', '-content-drawer', '-circle-animation']
-				],
-				'devices' => ['desktop', 'tablet', 'mobile'],
-				'desktop_default' => [
-					'size' => 15,
-					'unit' => 'px',
-				],
-				'tablet_default' => [
-					'size' => 10,
-					'unit' => 'px',
-				],
-
-				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-carousel-wrapper .slick-track .ma-el-team-carousel-default-inner,
-						{{WRAPPER}} .ma-el-team-carousel-wrapper .slick-track .ma-el-team-carousel-circle-inner,
-						{{WRAPPER}} .gridder .gridder-list' => 'padding: {{SIZE}}{{UNIT}};'
-				]
-			]
-		);
-
-
 		$this->add_control(
 			'ma_el_team_carousel_avatar_bg',
 			[
@@ -672,6 +643,7 @@ class Team_Slider extends Widget_Base
 					'{{WRAPPER}} .ma-el-team-member-basic,
 						{{WRAPPER}} .ma-el-team-member-circle,
 						{{WRAPPER}} .ma-el-team-member-social-left,
+						{{WRAPPER}} .ma-el-team-members-slider-section,
 						{{WRAPPER}} .ma-el-team-member-rounded' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .gridder .gridder-show' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} #animation_svg_04 circle' => 'fill: {{VALUE}}'
@@ -709,6 +681,621 @@ class Team_Slider extends Widget_Base
 		$this->end_controls_section();
 
 
+
+		/*
+		Style Tab: Carousel Settings
+		*/
+
+		$this->start_controls_section(
+			'ma_el_team_carousel_style_section',
+			[
+				'label'         => __('Carousel', MELA_TD),
+				'tab'           => Controls_Manager::TAB_STYLE,
+				'condition'     => [
+					'ma_el_team_carousel_preset!'         => '-content-drawer'
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_team_carousel_arrows_style_heading',
+			[
+				'label' 	=> __('Arrows', MELA_TD),
+				'type' 		=> Controls_Manager::HEADING,
+				'condition'     => [
+					'carousel_arrows'         => 'yes'
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_team_carousel_arrows_position',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'middle',
+				'options' 		=> [
+					'top' 		=> __('Top', MELA_TD),
+					'middle' 	=> __('Middle', MELA_TD),
+					'bottom' 	=> __('Bottom', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_arrows'         => 'yes',
+					'carousel_direction' => 'horizontal',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_team_carousel_arrows_position_vertical',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'center',
+				'options' 		=> [
+					'left' 		=> __('Left', MELA_TD),
+					'center' 	=> __('Center', MELA_TD),
+					'right' 	=> __('Right', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_arrows'         => 'yes',
+					'carousel_direction' => 'vertical'
+				]
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'ma_el_team_carousel_arrows_size',
+			[
+				'label' 		=> __('Size', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 12,
+						'max' => 48,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__button' => 'font-size: {{SIZE}}px;',
+				],
+				'condition'		=> [
+					'carousel_arrows'         => 'yes'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_team_carousel_arrows_padding',
+			[
+				'label' 		=> __('Padding', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 1,
+						'step'	=> 0.1,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__button' => 'padding: {{SIZE}}em;',
+				],
+				'condition'		=> [
+					'carousel_arrows'         => 'yes'
+				]
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'arrows_distance',
+			[
+				'label' 		=> __('Distance', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 200,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__navigation--inside.jltma-swiper__navigation--middle.jltma-arrows--horizontal .jltma-swiper__button' => 'margin-left: {{SIZE}}px; margin-right: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--inside:not(.jltma-swiper__navigation--middle).jltma-arrows--horizontal .jltma-swiper__button' => 'margin: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--outside.jltma-arrows--horizontal .jltma-swiper__button--prev' => 'left: -{{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--outside.jltma-arrows--horizontal .jltma-swiper__button--next' => 'right: -{{SIZE}}px;',
+
+					'{{WRAPPER}} .jltma-swiper__navigation--inside.jltma-swiper__navigation--center.jltma-arrows--vertical .jltma-swiper__button' => 'margin-top: {{SIZE}}px; margin-bottom: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--inside:not(.jltma-swiper__navigation--center).jltma-arrows--vertical .jltma-swiper__button' => 'margin: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--outside.jltma-arrows--vertical .jltma-swiper__button--prev' => 'top: -{{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--outside.jltma-arrows--vertical .jltma-swiper__button--next' => 'bottom: -{{SIZE}}px;',
+				],
+				'condition'		=> [
+					'carousel_arrows'         => 'yes'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'arrows_border_radius',
+			[
+				'label' 		=> __('Border Radius', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 100,
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__button' => 'border-radius: {{SIZE}}%;',
+				],
+				'separator'		=> 'after',
+				'condition'		=> [
+					'carousel_arrows'         => 'yes'
+				]
+			]
+		);
+
+		$this->add_group_control(
+			MA_Group_Control_Transition::get_type(),
+			[
+				'name' 			=> 'arrows',
+				'selector' 		=> '{{WRAPPER}} .jltma-swiper__button',
+				'condition'		=> [
+					'carousel_arrows'         => 'yes'
+				]
+			]
+		);
+
+
+		$this->start_controls_tabs('ma_el_team_carousel_arrow_style_tabs');
+
+		// Normal Tab
+		$this->start_controls_tab(
+			'ma_el_team_carousel_arrow_style_tab',
+			[
+				'label'         => __('Normal', MELA_TD),
+				'condition'		=> [
+					'carousel_arrows'         => 'yes'
+				]
+
+			]
+		);
+		$this->add_control(
+			'ma_el_blog_arrow_color',
+			[
+				'label'         => __('Arrow Color', MELA_TD),
+				'type'          => Controls_Manager::COLOR,
+				'selectors'     => [
+					'{{WRAPPER}} .jltma-swiper__button i:before' => 'color: {{VALUE}};',
+				]
+			]
+		);
+		$this->add_control(
+			'ma_el_blog_arrow_bg_color',
+			[
+				'label'         => __('Background Color', MELA_TD),
+				'type'          => Controls_Manager::COLOR,
+				'selectors'     => [
+					'{{WRAPPER}} .jltma-swiper__button' => 'background: {{VALUE}};',
+				]
+			]
+		);
+		$this->end_controls_tab();
+
+
+
+		// Hover Tab
+		$this->start_controls_tab(
+			'ma_el_team_carousel_arrow_hover_style_tab',
+			[
+				'label'         => __('Hover', MELA_TD),
+				'condition'		=> [
+					'carousel_arrows'         => 'yes'
+				]
+
+			]
+		);
+		$this->add_control(
+			'ma_el_blog_arrow_hover_color',
+			[
+				'label'         => __('Arrow Color', MELA_TD),
+				'type'          => Controls_Manager::COLOR,
+				'selectors'     => [
+					'{{WRAPPER}} .jltma-swiper__button:not(.jltma-swiper__button--disabled):hover i:before' => 'color: {{VALUE}};',
+				]
+			]
+		);
+		$this->add_control(
+			'ma_el_blog_arrow_hover_bg_color',
+			[
+				'label'         => __('Background Color', MELA_TD),
+				'type'          => Controls_Manager::COLOR,
+				'selectors'     => [
+					'{{WRAPPER}} .jltma-swiper__button:not(.jltma-swiper__button--disabled):hover' => 'background: {{VALUE}};',
+				]
+			]
+		);
+		$this->end_controls_tab();
+		$this->end_controls_tabs();
+
+
+		$this->add_control(
+			'ma_el_team_carousel_pagination_style_heading',
+			[
+				'separator'	=> 'before',
+				'label' 	=> __('Pagination', MELA_TD),
+				'type' 		=> Controls_Manager::HEADING,
+				'condition'		=> [
+					'carousel_pagination' => 'yes',
+				]
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'ma_el_team_carousel_pagination_align',
+			[
+				'label' 		=> __('Align', MELA_TD),
+				'type' 			=> Controls_Manager::CHOOSE,
+				'default' 		=> 'center',
+				'options' 		=> [
+					'left'    		=> [
+						'title' 	=> __('Left', MELA_TD),
+						'icon' 		=> 'fa fa-align-left',
+					],
+					'center' 		=> [
+						'title' 	=> __('Center', MELA_TD),
+						'icon' 		=> 'fa fa-align-center',
+					],
+					'right' 		=> [
+						'title' 	=> __('Right', MELA_TD),
+						'icon' 		=> 'fa fa-align-right',
+					],
+				],
+				'selectors'		=> [
+					'{{WRAPPER}} .jltma-swiper__pagination.jltma-swiper__pagination--horizontal' => 'text-align: {{VALUE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' => 'yes',
+					'carousel_direction' => 'horizontal',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_team_carousel_pagination_align_vertical',
+			[
+				'label' 		=> __('Align', MELA_TD),
+				'type' 			=> Controls_Manager::CHOOSE,
+				'default' 		=> 'middle',
+				'options' 		=> [
+					'flex-start'    => [
+						'title' 	=> __('Top', MELA_TD),
+						'icon' 		=> 'eicon-v-align-top',
+					],
+					'center' 		=> [
+						'title' 	=> __('Center', MELA_TD),
+						'icon' 		=> 'eicon-v-align-middle',
+					],
+					'flex-end' 		=> [
+						'title' 	=> __('Right', MELA_TD),
+						'icon' 		=> 'eicon-v-align-bottom',
+					],
+				],
+				'selectors'		=> [
+					'{{WRAPPER}} .jltma-swiper__pagination.jltma-swiper__pagination--vertical' => 'justify-content: {{VALUE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' => 'yes',
+					'carousel_direction' => 'vertical'
+				]
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'ma_el_team_carousel_pagination_distance',
+			[
+				'label' 		=> __('Distance', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__pagination--inside.jltma-swiper__pagination--horizontal' => 'padding: 0 {{SIZE}}px {{SIZE}}px {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__pagination--outside.jltma-swiper__pagination--horizontal' => 'padding: {{SIZE}}px 0 0 0;',
+					'{{WRAPPER}} .jltma-swiper__pagination--inside.jltma-swiper__pagination--vertical' => 'padding: {{SIZE}}px {{SIZE}}px {{SIZE}}px 0;',
+					'{{WRAPPER}} .jltma-swiper__pagination--outside.jltma-swiper__pagination--vertical' => 'padding: 0 0 0 {{SIZE}}px;',
+				],
+				'condition'		=> [
+					'carousel_pagination' => 'yes',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_team_carousel_pagination_bullets_spacing',
+			[
+				'label' 		=> __('Spacing', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 20,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__pagination--horizontal .swiper-pagination-bullet' => 'margin: 0 {{SIZE}}px',
+					'{{WRAPPER}} .jltma-swiper__pagination--vertical .swiper-pagination-bullet' => 'margin: {{SIZE}}px 0',
+				],
+				'condition'		=> [
+					'carousel_pagination' => 'yes',
+					'pagination_type' => 'bullets',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'pagination_bullets_border_radius',
+			[
+				'label' 		=> __('Border Radius', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'border-radius: {{SIZE}}px;',
+				],
+				'condition'		=> [
+					'carousel_pagination' => 'yes',
+					'pagination_type' => 'bullets',
+				],
+				'separator'		=> 'after',
+			]
+		);
+
+		$this->add_group_control(
+			MA_Group_Control_Transition::get_type(),
+			[
+				'name' 			=> 'ma_el_team_carousel_pagination_bullet',
+				'selector' 		=> '{{WRAPPER}} .swiper-pagination-bullet',
+				'condition'		=> [
+					'carousel_pagination' => 'yes'
+				]
+			]
+		);
+
+
+		$this->start_controls_tabs('ma_el_team_carousel_pagination_bullets_tabs_hover');
+
+		$this->start_controls_tab('ma_el_team_carousel_pagination_bullets_tab_default', [
+			'label' 		=> __('Default', MELA_TD),
+			'condition'		=> [
+				'carousel_pagination' 		=> 'yes',
+				'pagination_type' 	=> 'bullets',
+			]
+		]);
+
+		$this->add_responsive_control(
+			'ma_el_team_carousel_pagination_bullets_size',
+			[
+				'label' 		=> __('Size', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 12,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'width: {{SIZE}}px; height: {{SIZE}}px;',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_team_carousel_pagination_bullets_color',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'background-color: {{VALUE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_team_carousel_pagination_bullets_opacity',
+			[
+				'label' 		=> __('Opacity', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 1,
+						'step' => 0.05,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'opacity: {{SIZE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'on',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab('ma_el_team_carousel_pagination_bullets_tab_hover', [
+			'label' 		=> __('Hover', MELA_TD),
+			'condition'		=> [
+				'carousel_pagination' 		=> 'yes',
+				'pagination_type' 	=> 'bullets',
+			]
+		]);
+
+		$this->add_responsive_control(
+			'ma_el_team_carousel_pagination_bullets_size_hover',
+			[
+				'label' 		=> __('Size', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 1,
+						'max' => 1.5,
+						'step' => 0.1,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'transform: scale({{SIZE}});',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_team_carousel_pagination_bullets_color_hover',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'background-color: {{VALUE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_team_carousel_pagination_bullets_opacity_hover',
+			[
+				'label' 		=> __('Opacity', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 1,
+						'step' => 0.05,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'opacity: {{SIZE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab('ma_el_team_carousel_pagination_bullets_tab_active', [
+			'label' => __('Active', MELA_TD),
+			'condition'	=> [
+				'carousel_pagination' 		=> 'yes',
+				'pagination_type' 	=> 'bullets',
+			]
+		]);
+
+		$this->add_responsive_control(
+			'ma_el_team_carousel_pagination_bullets_size_active',
+			[
+				'label' 		=> __('Size', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 1,
+						'max' => 1.5,
+						'step' => 0.1,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet-active' => 'transform: scale({{SIZE}});',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_control(
+			'ma_el_team_carousel_pagination_bullets_color_active',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .swiper-pagination-bullet-active' => 'background-color: {{VALUE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'ma_el_team_carousel_pagination_bullets_opacity_active',
+			[
+				'label' 		=> __('Opacity', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 1,
+						'step' => 0.05,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet-active' => 'opacity: {{SIZE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+
+		$this->end_controls_section();
+
+
+
+
+
+		/*
+		Style Tab: Name
+		*/
 		$this->start_controls_section(
 			'section_team_carousel_name',
 			[
