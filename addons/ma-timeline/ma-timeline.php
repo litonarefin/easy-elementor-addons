@@ -293,14 +293,13 @@ class Timeline extends Widget_Base
 					'type'      => Controls_Manager::SELECT,
 					'options'   => [
 						'default' => __('Default', MELA_TD),
-						// ''        => __('None', MELA_TD),
 						'F j, Y'  => date('F j, Y'),
 						'Y-m-d'   => date('Y-m-d'),
 						'm/d/Y'   => date('m/d/Y'),
 						'd/m/Y'   => date('d/m/Y'),
 						'custom'  => __('Custom', MELA_TD),
 					],
-					'default'   => 'default',
+					'default'   => 'F j, Y',
 					'condition' => [
 						'ma_el_timeline_type' => ['post', 'custom']
 					],
@@ -971,7 +970,7 @@ class Timeline extends Widget_Base
 						'ma_el_custom_timeline_date' => __('June 21, 2016', MELA_TD)
 					],
 				],
-				'fields' 		=> array_values($repeater->get_controls()),
+				'fields' 	    => $repeater->get_controls(),
 				'title_field' 	=> '{{{ ma_el_custom_timeline_date }}}',
 				'condition'		=> [
 					'ma_el_timeline_type'	=> 'custom'

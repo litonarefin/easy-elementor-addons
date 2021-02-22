@@ -394,6 +394,8 @@ Paste on your Local Computer
 * Fixed: Filterable Gallery - Tooltip not working issue fixed
 * Fixed: Filterable Gallery - Filterable Navigation Show/Hide issue fixed
 * Added: Filterable Gallery - Tilt Effect with option settings added
+* Added: Filterable Gallery - Editor not working and "global" undefined console error issue fixed.
+* Added: Vertical Timeline - Editor not working and "global" undefined console error issue fixed.
 
 
 = 1.5.6.2 (24-01-2021) =

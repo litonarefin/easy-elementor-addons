@@ -147,6 +147,150 @@ class Filterable_Image_Gallery extends Widget_Base
 			]
 		);
 
+		$repeater->add_control(
+			'subtitle',
+			[
+				'name'          => 'subtitle',
+				'label'         => __('Subtitle', MELA_TD),
+				'label_block'   => true,
+				'default'       => __('This is Sub Title', MELA_TD)
+			]
+		);
+
+		$repeater->add_control(
+			'ma_el_image_gallery_show_ribbon',
+			[
+				'label'        => __('Show Ribbon?', MELA_TD),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'return_value' => 'yes'
+			]
+		);
+
+		$repeater->add_control(
+			'ma_el_image_gallery_ribbon',
+			[
+				'label'         => __('Ribbon', MELA_TD),
+				'type'          => Controls_Manager::SELECT,
+				'options'   => [
+					'new'           => __('New', MELA_TD),
+					'popular'       => __('Popular', MELA_TD),
+					'free'          => __('Free', MELA_TD),
+					'pro'           => __('Pro', MELA_TD),
+					'sale'          => __('Sale', MELA_TD),
+					'discount'      => __('Discount', MELA_TD),
+					'added'         => __('Added', MELA_TD),
+					'updated'       => __('Updated', MELA_TD),
+					'changed'       => __('Changed', MELA_TD),
+					'fixed'         => __('Fixed', MELA_TD),
+					'removed'       => __('Removed', MELA_TD),
+					'note'          => __('Note', MELA_TD),
+				],
+				'default'   => 'new',
+				'condition'     => [
+					'ma_el_image_gallery_show_ribbon' => 'yes'
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'ma_el_image_gallery_discount',
+			[
+				'type'          => Controls_Manager::TEXT,
+				'name'          => 'ma_el_image_gallery_discount',
+				'label'         => __('Discount', MELA_TD),
+				'default'       => __('30% Off', MELA_TD),
+				'condition'     => [
+					'ma_el_image_gallery_ribbon' => ['discount', 'sale']
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'ma_el_image_gallery_buttons',
+			[
+				'label'        => __('Popup or Links ?', MELA_TD),
+				'type'         => Controls_Manager::CHOOSE,
+				'options' => [
+					'popup' => [
+						'title' => __('Popup', MELA_TD),
+						'icon' => 'eicon-search',
+					],
+					'links' => [
+						'title' => __('External Links', MELA_TD),
+						'icon' => 'eicon-editor-external-link',
+					],
+				],
+				'default' => 'popup',
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$repeater->add_control(
+			'ma_el_image_gallery_button_one_text',
+			[
+				'label'        => __('Button One Text', MELA_TD),
+				'type'         => Controls_Manager::TEXT,
+				'default'     => __('Details', MELA_TD),
+				'placeholder' => __('Details', MELA_TD),
+				'title'       => __('Enter Button text here', MELA_TD),
+				'condition'     => [
+					'ma_el_image_gallery_buttons' => 'links'
+				]
+			]
+		);
+
+
+		$repeater->add_control(
+			'ma_el_image_gallery_link_one_url',
+			[
+				'label'        => __('Button One URL', MELA_TD),
+				'type'         => Controls_Manager::URL,
+				'label_block'   => false,
+				'default'     => [
+					'url' => '#',
+					'is_external' => true,
+					'nofollow' => true,
+				],
+				'show_external' => true,
+				'condition'     => [
+					'ma_el_image_gallery_buttons' => 'links'
+				]
+			]
+		);
+		$repeater->add_control(
+			'ma_el_image_gallery_button_two_text',
+			[
+				'label'        => __('Button Two Text', MELA_TD),
+				'type'         => Controls_Manager::TEXT,
+				'default'     => __('Demo', MELA_TD),
+				'placeholder' => __('Demo', MELA_TD),
+				'title'       => __('Enter Button text here', MELA_TD),
+				'condition'     => [
+					'ma_el_image_gallery_buttons' => 'links'
+				]
+			]
+		);
+
+
+		$repeater->add_control(
+			'ma_el_image_gallery_link_two_url',
+			[
+				'label'        => __('Button Two URL', MELA_TD),
+				'label_block'   => false,
+				'type'         => Controls_Manager::URL,
+				'default'     => [
+					'url' => '#',
+					'is_external' => true,
+					'nofollow' => true,
+				],
+				'show_external' => true,
+				'condition'     => [
+					'ma_el_image_gallery_buttons' => 'links'
+				]
+			]
+		);
+
 		$this->add_control(
 			'ma_el_image_gallery_items',
 			[
@@ -1985,7 +2129,7 @@ class Filterable_Image_Gallery extends Widget_Base
 						foreach ($images as $image) {
 
 							if (isset($image['id']) && $image['id']) {
-								$image_url = wp_get_attachment_image_url($image['id'], $settings['ma_el_image_gallery_image_size']);
+								$image_url = wp_get_attachment_image_url($image['id'], 'full');
 							}
 
 							echo '<div ' . $this->get_render_attribute_string($gallery_item_key) . '>';
