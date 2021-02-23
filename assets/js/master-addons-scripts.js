@@ -1388,20 +1388,6 @@
                     $imageCarousel 	    = $scope.find('.ma-el-image-carousel'),
                     $swiper 	        = $scope.find('.jltma-swiper__container');
 
-                console.log('autoheight',elementSettings.autoheight);
-                console.log('autoplay',elementSettings.autoplay);
-                console.log('loop',elementSettings.loop);
-                console.log('carousel_direction',elementSettings.carousel_direction);
-                console.log('slide_effect',elementSettings.slide_effect);
-                console.log('autoplay_speed',elementSettings.autoplay_speed);
-                console.log('slides_per_column',elementSettings.slides_per_column);
-                console.log('slides_to_scroll',elementSettings.slides_to_scroll);
-                console.log('columns_spacing',elementSettings.columns_spacing);
-                console.log('pause_on_interaction',elementSettings.pause_on_interaction);
-                console.log('pause',elementSettings.pause);
-                console.log('carousel_arrows',elementSettings.carousel_arrows);
-
-
                 var swiper = null,
                     settings = {
                         scope : $scope,
