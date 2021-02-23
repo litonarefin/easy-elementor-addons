@@ -1382,54 +1382,110 @@
             try {
                 (function ($) {
 
-                    var $imageCarouselWrapper = $scope.find('.ma-el-image-carousel').eq(0),
-                        $carousel_nav = $imageCarouselWrapper.data("carousel-nav"),
-                        $loop = ($imageCarouselWrapper.data("loop") !== undefined) ? $imageCarouselWrapper.data("loop") : false,
-                        $slidesToShow = $imageCarouselWrapper.data("slidestoshow"),
-                        $slidesToScroll = $imageCarouselWrapper.data("slidestoscroll"),
-                        $autoPlay = ($imageCarouselWrapper.data("autoplay") !== undefined) ? $imageCarouselWrapper.data("autoplay") : false,
-                        $autoplaySpeed = ($imageCarouselWrapper.data("autoplayspeed") !== undefined) ? $imageCarouselWrapper.data("autoplayspeed") : false,
-                        $transitionSpeed = $imageCarouselWrapper.data("speed"),
-                        $pauseOnHover = ($imageCarouselWrapper.data("pauseonhover") !== undefined) ? $imageCarouselWrapper.data("pauseonhover") : false
+                var elementSettings     = getElementSettings( $scope ),
+                    uniqueId 		    = getUniqueLoopScopeId( $scope ),
+                    scopeId 		    = $scope.data('id'),
+                    $imageCarousel 	    = $scope.find('.ma-el-image-carousel'),
+                    $swiper 	        = $scope.find('.jltma-swiper__container');
+
+                console.log('autoheight',elementSettings.autoheight);
+                console.log('autoplay',elementSettings.autoplay);
+                console.log('loop',elementSettings.loop);
+                console.log('carousel_direction',elementSettings.carousel_direction);
+                console.log('slide_effect',elementSettings.slide_effect);
+                console.log('autoplay_speed',elementSettings.autoplay_speed);
+                console.log('slides_per_column',elementSettings.slides_per_column);
+                console.log('slides_to_scroll',elementSettings.slides_to_scroll);
+                console.log('columns_spacing',elementSettings.columns_spacing);
+                console.log('pause_on_interaction',elementSettings.pause_on_interaction);
+                console.log('pause',elementSettings.pause);
+                console.log('carousel_arrows',elementSettings.carousel_arrows);
 
 
-                    // Team Carousel
-                    if ($carousel_nav == "arrows") {
-                        var arrows = true;
-                        var dots = false;
-                    } else {
-                        var arrows = false;
-                        var dots = true;
-                    }
-
-                    $imageCarouselWrapper.slick({
-                        infinite: $loop,
-                        slidesToShow: $slidesToShow,
-                        slidesToScroll: $slidesToScroll,
-                        autoplay: $autoPlay,
-                        autoplaySpeed: $autoplaySpeed,
-                        speed: $transitionSpeed,
-                        pauseOnHover: $pauseOnHover,
-                        dots: dots,
-                        arrows: arrows,
-                        prevArrow: "<div class='ma-el-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-                        nextArrow: "<div class='ma-el-team-carousel-next'><i class='fa fa-angle-right'></i></div>",
-                        rows: 0,
-                        responsive: [
-                            {
-                                breakpoint: 1024,
-                                settings: {
-                                    slidesToShow: 3,
-                                }
+                var swiper = null,
+                    settings = {
+                        scope : $scope,
+                        id : uniqueId,
+                        element : {
+                            autoHeight 						: 'yes' === elementSettings.autoheight,
+                            autoplay 						: 'yes' === elementSettings.autoplay,
+                            loop 							: 'yes' === elementSettings.loop,
+                            direction 						: elementSettings.carousel_direction,
+                            effect 							: elementSettings.slide_effect,
+                            speed 							: elementSettings.duration_speed.size || 500,
+                            resistance 						: elementSettings.resistance_ratio.size || 0.25,
+                            autoplaySpeed 					: elementSettings.autoplay ? elementSettings.autoplay_speed : false,
+                            slidesPerView 					: elementSettings.per_view_mobile,
+                            slidesPerColumn 				:  'vertical' === elementSettings.carousel_direction ? 1 : elementSettings.slides_per_column_mobile,
+                            slidesPerGroup 					: elementSettings.slides_to_scroll_mobile,
+                            spaceBetween 					: elementSettings.columns_spacing_mobile.size || 0,
+                            disableOnInteraction 			: 'yes' === elementSettings.pause_on_interaction,
+                            stopOnHover 					: 'yes' === elementSettings.pause,
+                            arrows 							: 'yes' === elementSettings.carousel_arrows,
+                            arrowPrev 						: '.jltma-arrow--prev',
+                            arrowNext 						: '.jltma-arrow--next',
+                            freeMode 						: 'yes' === elementSettings.free_mode,
+                            freeModeSticky 					: 'yes' === elementSettings.free_mode_sticky,
+                            freeModeMomentum 				: 'yes' === elementSettings.free_mode_momentum,
+                            freeModeMomentumBounce 			: 'yes' === elementSettings.free_mode_momentum_bounce,
+                            freeModeMomentumRatio 			: elementSettings.free_mode_momentum_ratio ? elementSettings.free_mode_momentum_ratio.size : false,
+                            freeModeMomentumVelocityRatio 	: elementSettings.free_mode_momentum_velocity ? elementSettings.free_mode_momentum_velocity.size : false,
+                            freeModeMomentumBounceRatio 	: elementSettings.free_mode_momentum_bounce_ratio ? elementSettings.free_mode_momentum_bounce_ratio.size : false,
+                            pagination 						: 'yes' === elementSettings.carousel_pagination,
+                            paginationType 					: elementSettings.pagination_type,
+                            paginationClickable 			: 'yes' === elementSettings.carousel_pagination_clickable,
+                            slideChangeTriggerResize 		: 'yes' === elementSettings.slide_change_resize,
+                            breakpoints 		: {
+                                tablet : {
+                                    slidesPerView 	: elementSettings.per_view_tablet,
+                                    slidesPerColumn : 'vertical' === elementSettings.carousel_direction ? 1 : elementSettings.slides_per_column_tablet,
+                                    slidesPerGroup 	: elementSettings.slides_to_scroll_tablet,
+                                    spaceBetween 	: elementSettings.columns_spacing_tablet.size || 0,
+                                },
+                                desktop : {
+                                    slidesPerView 	: elementSettings.per_view,
+                                    slidesPerColumn : 'vertical' === elementSettings.carousel_direction ? 1 : elementSettings.slides_per_column,
+                                    slidesPerGroup 	: elementSettings.slides_to_scroll,
+                                    spaceBetween 	: elementSettings.columns_spacing.size || 0,
+                                },
                             },
-                            {
-                                breakpoint: 576,
-                                settings: {
-                                    slidesToShow: 2,
-                                }
-                            }
-                        ],
+                        },
+                        default : {
+                            slidesPerView 	: 1,
+                            slidesPerGroup 	: 1,
+                            slidesPerColumn : 1,
+                            spaceBetween 	: 6,
+                            breakpoints 	: {
+                                tablet : {
+                                    slidesPerView 	: 2,
+                                    slidesPerGroup 	: 1,
+                                    slidesPerColumn : 1,
+                                    spaceBetween 	: 12,
+                                },
+                                desktop : {
+                                    slidesPerView 	: 3,
+                                    slidesPerGroup 	: 1,
+                                    slidesPerColumn : 1,
+                                    spaceBetween 	: 24,
+                                },
+                            },
+                        },
+                    };
+
+                Master_Addons.MA_Image_Carousel.init = function() {
+                    swiper = Master_Addons.MA_Carousel( $swiper, settings );
+                };
+
+                Master_Addons.onElementRemove( $scope, function() {
+                    $scope.find('.swiper-container').each( function() {
+                        if ( $(this).data('swiper') ) {
+                            $(this).data('swiper').destroy();
+                        }
                     });
+                });
+
+                Master_Addons.MA_Image_Carousel.init();
+
 
                 })(jQuery);
             } catch (e) {

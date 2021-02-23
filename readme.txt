@@ -396,6 +396,7 @@ Paste on your Local Computer
 * Added: Filterable Gallery - Tilt Effect with option settings added
 * Added: Filterable Gallery - Editor not working and "global" undefined console error issue fixed.
 * Added: Vertical Timeline - Editor not working and "global" undefined console error issue fixed.
+* Updated: Team Slider - Carousel Settings updated with latest Swiper compatibility
 
 
 = 1.5.6.2 (24-01-2021) =

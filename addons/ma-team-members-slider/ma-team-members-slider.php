@@ -865,7 +865,7 @@ class Team_Slider extends Widget_Base
 			]
 		);
 		$this->add_control(
-			'ma_el_blog_arrow_color',
+			'ma_el_team_arrow_color',
 			[
 				'label'         => __('Arrow Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
@@ -875,7 +875,7 @@ class Team_Slider extends Widget_Base
 			]
 		);
 		$this->add_control(
-			'ma_el_blog_arrow_bg_color',
+			'ma_el_team_arrow_bg_color',
 			[
 				'label'         => __('Background Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
@@ -900,7 +900,7 @@ class Team_Slider extends Widget_Base
 			]
 		);
 		$this->add_control(
-			'ma_el_blog_arrow_hover_color',
+			'ma_el_team_arrow_hover_color',
 			[
 				'label'         => __('Arrow Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
@@ -910,7 +910,7 @@ class Team_Slider extends Widget_Base
 			]
 		);
 		$this->add_control(
-			'ma_el_blog_arrow_hover_bg_color',
+			'ma_el_team_arrow_hover_bg_color',
 			[
 				'label'         => __('Background Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
@@ -1566,7 +1566,7 @@ class Team_Slider extends Widget_Base
 				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_view,
 				'frontend_available' 	=> true,
 				'condition' 		=> [
-					'ma_el_blog_carousel_direction' => 'horizontal',
+					'ma_el_team_carousel_direction' => 'horizontal',
 				],
 			]
 		);
@@ -1622,6 +1622,7 @@ class Team_Slider extends Widget_Base
 				'label'     	=> esc_html__('Autoplay', MELA_TD),
 				'type'          => Controls_Manager::POPOVER_TOGGLE,
 				'default'   	=> 'yes',
+				'separator'   	=> 'before',
 				'return_value' 	=> 'yes',
 				'frontend_available' 	=> true,
 			]
@@ -2192,19 +2193,6 @@ Customization Options.</span>'
 				'data-team-preset' => $team_preset,
 			]
 		);
-
-		// if ($settings['ma_el_team_autoplay'] == 'yes') {
-		// 	$this->add_render_attribute('ma_el_team_carousel', 'data-autoplay', "true");
-		// 	$this->add_render_attribute('ma_el_team_carousel', 'data-autoplayspeed', $settings['ma_el_team_autoplay_speed']);
-		// }
-
-		// if ($settings['ma_el_team_pause'] == 'yes') {
-		// 	$this->add_render_attribute('ma_el_team_carousel', 'data-pauseonhover', "true");
-		// }
-
-		// if ($settings['ma_el_team_loop'] == 'yes') {
-		// 	$this->add_render_attribute('ma_el_team_carousel', 'data-loop', "true");
-		// }
 ?>
 
 
@@ -2229,8 +2217,6 @@ Customization Options.</span>'
 						<li class="gridder-list" data-griddercontent="#ma-el-team<?php echo $key + 1; ?>">
 							<img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled" alt="<?php echo $member['ma_el_team_carousel_name']; ?>">
 							<div class="ma-team-drawer-hover-content">
-
-								<?php echo $settings['title_html_tag']; ?>
 
 								<<?php echo $settings['title_html_tag']; ?> class="ma-el-team-member-name">
 									<?php echo $member['ma_el_team_carousel_name']; ?>
