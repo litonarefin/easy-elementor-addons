@@ -1167,4 +1167,18 @@ class Master_Addons_Helper
 		</div>';
 	}
 
+
+
+	public static function jltma_placeholder_images()
+	{
+		$demo_images =
+			[
+				'id'    =>  0,
+				'url'   =>  Utils::get_placeholder_image_src(),
+			];
+		return $demo_images;
+	}
+
+
+
 }

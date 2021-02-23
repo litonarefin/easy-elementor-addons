@@ -9,6 +9,7 @@ use \Elementor\Repeater;
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Image_Size;
+use \Elementor\Group_Control_Css_Filter;
 
 // Master Addons Classes
 use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
@@ -1511,17 +1512,6 @@ class Image_Carousel extends Widget_Base
 	{
 		$settings = $this->get_settings_for_display();
 
-		// $id       = $this->get_id();
-		// $this->add_render_attribute('jltma-img-carousel-wrapper', 'id', 'jltma-image-carousel-' . esc_attr($id));
-		// $this->add_render_attribute('jltma-img-carousel-wrapper', 'class', ['jltma-image-carousel-wrapper']);
-
-		// $this->add_render_attribute('jltma-img-carousel-wrapper', 'class', [
-		// 	'slider-items',
-		// 	('both' == $settings['jltma_image_carousel_nav']) ? 'jltma-arrows-dots-align-' . $settings['jltma_image_carousel_nav_both_position'] : '',
-		// 	('arrows' == $settings['jltma_image_carousel_nav']) ? 'jltma-arrows-align-' . $settings['jltma_image_carousel_nav_arrows_position'] : '',
-		// 	('dots' == $settings['jltma_image_carousel_nav']) ? 'jltma-dots-align-' . $settings['jltma_image_carousel_nav_dots_position'] : '',
-		// ]);
-
 		$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
 
 		$this->add_render_attribute([
@@ -1656,7 +1646,6 @@ class Image_Carousel extends Widget_Base
 
 										echo '<a ' . $this->get_render_attribute_string($image_link) . '>';
 									}
-
 
 									echo wp_get_attachment_image(
 										$item['jltma_image_carousel_img']['id'],
