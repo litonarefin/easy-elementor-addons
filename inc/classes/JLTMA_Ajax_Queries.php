@@ -101,7 +101,7 @@
                 // output media
                 echo '' . $content . '</a></div>';
             }
-
+        }
 
 
         public function jltma_register_ajax_actions( $ajax_manager ) {
