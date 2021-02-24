@@ -397,6 +397,9 @@ Paste on your Local Computer
 * Added: Filterable Gallery - Editor not working and "global" undefined console error issue fixed.
 * Added: Vertical Timeline - Editor not working and "global" undefined console error issue fixed.
 * Updated: Team Slider - Carousel Settings updated with latest Swiper compatibility
+* Updated: Image Carousel - Carousel updated with Swiper Compatibility
+* Updated: Logo Slider - Carousel updated with Swiper Compatibility
+* Updated: Twitter Slider - Carousel updated with Swiper Compatibility
 
 
 = 1.5.6.2 (24-01-2021) =

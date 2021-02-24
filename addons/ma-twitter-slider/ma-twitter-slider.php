@@ -105,26 +105,6 @@ class Twitter_Slider extends Widget_Base
             ]
         );
 
-
-        $this->add_responsive_control(
-            'jltma_ts_columns',
-            [
-                'label'          => esc_html__('Columns', MELA_TD),
-                'type'           => Controls_Manager::SELECT,
-                'default'        => '3',
-                'tablet_default' => '2',
-                'mobile_default' => '1',
-                'options'        => [
-                    '1' => '1',
-                    '2' => '2',
-                    '3' => '3',
-                    '4' => '4',
-                    '5' => '5',
-                    '6' => '6',
-                ],
-            ]
-        );
-
         $this->add_control(
             'jltma_ts_tweet_num',
             [
@@ -1327,17 +1307,17 @@ class Twitter_Slider extends Widget_Base
         $this->add_render_attribute('jltma_twitter_slider', 'id', 'jltma-twitter-slider-' . $this->get_id());
         $this->add_render_attribute('jltma_twitter_slider', 'class', 'jltma-twitter-slider jltma-carousel text-center');
 
-        if ('both' == $settings['jltma_ts_navigation']) {
-            $this->add_render_attribute('jltma_twitter_slider', 'class', 'jltma-arrows-dots-align-' . $settings['jltma_ts_both_position']);
-        }
+        // if ('both' == $settings['jltma_ts_navigation']) {
+        //     $this->add_render_attribute('jltma_twitter_slider', 'class', 'jltma-arrows-dots-align-' . $settings['jltma_ts_both_position']);
+        // }
 
-        if ('arrows' == $settings['jltma_ts_navigation']) {
-            $this->add_render_attribute('jltma_twitter_slider', 'class', 'jltma-arrows-align-' . $settings['jltma_ts_arrows_position']);
-        }
+        // if ('arrows' == $settings['jltma_ts_navigation']) {
+        //     $this->add_render_attribute('jltma_twitter_slider', 'class', 'jltma-arrows-align-' . $settings['jltma_ts_arrows_position']);
+        // }
 
-        if ('dots' == $settings['jltma_ts_navigation']) {
-            $this->add_render_attribute('jltma_twitter_slider', 'class', 'jltma-dots-align-' . $settings['jltma_ts_dots_position']);
-        }
+        // if ('dots' == $settings['jltma_ts_navigation']) {
+        //     $this->add_render_attribute('jltma_twitter_slider', 'class', 'jltma-dots-align-' . $settings['jltma_ts_dots_position']);
+        // }
 
         ?>
 
@@ -1356,121 +1336,104 @@ class Twitter_Slider extends Widget_Base
                 </div>
             </div>
 
-
-            <?php
-                if ('both' == $settings['jltma_ts_navigation']) {
-
-                    $this->jltma_ts_render_both_navigation($settings);
-
-                    if ('center' === $settings['jltma_ts_both_position']) {
-                        $this->jltma_ts_render_dots_navigation($settings);
-                    }
-                } elseif ('arrows' == $settings['jltma_ts_navigation']) {
-
-                    $this->jltma_ts_render_arrow_navigation($settings);
-                } elseif ('dots' == $settings['jltma_ts_navigation']) {
-
-                    $this->jltma_ts_render_dots_navigation($settings);
-                } ?>
-
-
+				<?php
+				$this->render_swiper_navigation();
+				$this->render_swiper_pagination();
+				?>
         </div>
     <?php
             }
 
 
 
-            /*
-    * Arrow & Dots Navigation
-    */
-            public function jltma_ts_render_both_navigation($settings)
-            { ?>
-
-        <div class="jltma-position-z-index jltma-position-<?php echo esc_attr($settings['jltma_ts_both_position']); ?>">
-            <div class="jltma-ts-arrows-dots-container jltma-ts-container">
-
-                <div class="d-flex flex-row justify-content-center">
-
-                    <a href="#" class="jltma-ts-prev jltma-slide-prev slick-arrow">
-                        <svg width="38" height="38" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <polyline fill="none" stroke="#000" stroke-width="1.03" points="13 16 7 10 13 4"></polyline>
-                        </svg>
-                    </a>
-
-                    <?php if ('center' !== $settings['jltma_ts_both_position']) : ?>
-                        <div class="jltma-slide-dotnav d-flex align-items-center"></div>
-                    <?php endif; ?>
-
-                    <a href="" class="jltma-ts-next jltma-slide-next slick-arrow">
-                        <svg width="38" height="38" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <polyline fill="none" stroke="#000" stroke-width="1.03" points="7 4 13 10 7 16"></polyline>
-                        </svg>
-                    </a>
-
-                </div>
-            </div>
-        </div>
-
-    <?php }
+	protected function render_swiper_navigation()
+	{
+		$settings = $this->get_settings_for_display();
+		$this->add_render_attribute([
+			'navigation' => [
+				'class' => [
+					'jltma-arrows',
+					'jltma-swiper__navigation',
+					'jltma-swiper__navigation--' . $settings['arrows_placement'],
+					'jltma-swiper__navigation--' . $settings['arrows_position'],
+					'jltma-swiper__navigation--' . $settings['arrows_position_vertical']
+				],
+			],
+		]);
+	?>
+		<div <?php echo $this->get_render_attribute_string('navigation'); ?>>
+			<?php
+			$this->render_swiper_arrows();
+			?>
+		</div>
+	<?php
+	}
 
 
 
-            /*
-    * Arrow Navigation
-    */
-            public function jltma_ts_render_arrow_navigation($settings)
-            {
+	public function render_swiper_pagination()
+	{
+		$settings = $this->get_settings_for_display();
+		if ('yes' !== $settings['carousel_pagination'])
+			return;
 
-                if (('both' == $settings['jltma_ts_navigation']) and ('center' == $settings['jltma_ts_both_position'])) {
-                    $arrows_position = 'center';
-                } else {
-                    $arrows_position = $settings['jltma_ts_arrows_position'];
-                } ?>
+		$this->add_render_attribute('pagination', 'class', [
+			'jltma-swiper__pagination',
+			'jltma-swiper__pagination--' . $settings['carousel_direction'],
+			'jltma-swiper__pagination--' . $settings['pagination_position'],
+			'jltma-swiper__pagination-' . $this->get_id(),
+			'swiper-pagination',
+		]);
 
-        <div class="jltma-position-z-index jltma-position-<?php echo esc_attr($arrows_position); ?>">
-            <div class="jltma-ts-arrows-container jltma-ts-container">
-                <div class="d-flex flex-row justify-content-center">
+	?>
+		<div <?php echo $this->get_render_attribute_string('pagination'); ?>>
+		</div>
+	<?php
+	}
 
-                    <a href="#" class="jltma-ts-prev jltma-slide-prev slick-arrow">
-                        <svg width="38" height="38" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <polyline fill="none" stroke="#000" stroke-width="1.03" points="13 16 7 10 13 4"></polyline>
-                        </svg>
-                    </a>
-                    <a href="" class="jltma-ts-next jltma-slide-next slick-arrow">
-                        <svg width="38" height="38" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <polyline fill="none" stroke="#000" stroke-width="1.03" points="7 4 13 10 7 16"></polyline>
-                        </svg>
-                    </a>
+	protected function render_swiper_arrows()
+	{
+		$settings = $this->get_settings_for_display();
+		if ('yes' !== $settings['carousel_arrows'])
+			return;
 
-                </div>
-            </div>
-        </div>
+		$prev = is_rtl() ? 'right' : 'left';
+		$next = is_rtl() ? 'left' : 'right';
 
-    <?php
-            }
+		$this->add_render_attribute([
+			'button-prev' => [
+				'class' => [
+					'jltma-swiper__button',
+					'jltma-swiper__button--prev',
+					'jltma-arrow',
+					'jltma-arrow--prev',
+					'jltma-swiper__button--prev-' . $this->get_id(),
+				],
+			],
+			'button-prev-icon' => [
+				'class' => 'eicon-chevron-' . $prev,
+			],
+			'button-next' => [
+				'class' => [
+					'jltma-swiper__button',
+					'jltma-swiper__button--next',
+					'jltma-arrow',
+					'jltma-arrow--next',
+					'jltma-swiper__button--next-' . $this->get_id(),
+				],
+			],
+			'button-next-icon' => [
+				'class' => 'eicon-chevron-' . $next,
+			],
+		]);
 
-
-            /*
-    * Dots Navigation
-    */
-            public function jltma_ts_render_dots_navigation($settings)
-            {
-
-                if (('both' == $settings['jltma_ts_navigation']) and ('center' == $settings['jltma_ts_both_position'])) {
-                    $dots_position = 'bottom-center';
-                } else {
-                    $dots_position = $settings['jltma_ts_dots_position'];
-                } ?>
-
-        <div class="jltma-position-z-index jltma-position-<?php echo esc_attr($dots_position); ?>">
-            <div class="jltma-ts-dots-container jltma-ts-container">
-                <div class="d-flex flex-row justify-content-center">
-                    <div class="jltma-slide-dotnav d-flex align-items-center"></div>
-                </div>
-            </div>
-        </div>
-
-<?php  }
+	?><div <?php echo $this->get_render_attribute_string('button-prev'); ?>>
+			<i <?php echo $this->get_render_attribute_string('button-prev-icon'); ?>></i>
+		</div>
+		<div <?php echo $this->get_render_attribute_string('button-next'); ?>>
+			<i <?php echo $this->get_render_attribute_string('button-next-icon'); ?>></i>
+		</div><?php
+}
 
 
 

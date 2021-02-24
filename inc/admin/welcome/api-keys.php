@@ -9,9 +9,9 @@
 	</div>
 
 	<?php $jltma_api_options = get_option('jltma_api_save_settings'); ?>
-	
+
 	<form action="" method="POST" id="jltma-api-forms-settings" class="jltma-api-forms-settings" name="jltma-api-forms-settings">
-		<div class="master_addons_feature">	
+		<div class="master_addons_feature">
 
 			<!-- Start of reCaptcha Settings -->
 			<div class="api-settings-element">
@@ -85,6 +85,10 @@
 							<input type="text" name="twitter_access_token_secret" class="form-control twitter_access_token_secret" value="<?php echo isset($jltma_api_options['twitter_access_token_secret'])?$jltma_api_options['twitter_access_token_secret']:"";?>">
 						</div>
 
+						<p>
+							<?php echo sprintf( __( 'Go to <a href="%1$s" target="_blank"> https://developer.twitter.com/en/apps/create</a> for creating your Consumer key and Access Token.', MELA_TD ), esc_url('https://developer.twitter.com/en/apps/create') );
+							?>
+						</p>
 					</div>
 				</div><!-- /.api-element-inner -->
 			</div><!-- /.api-settings-element -->
