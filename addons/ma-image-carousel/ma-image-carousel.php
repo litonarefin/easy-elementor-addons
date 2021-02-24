@@ -1824,21 +1824,21 @@ class Image_Carousel extends Widget_Base
 
 
 
-			private function render_image($image_id, $settings)
-			{
-				$jltma_image_carousel_image = $settings['jltma_image_carousel_image_size'];
-				if ('custom' === $jltma_image_carousel_image) {
-					$image_src = Group_Control_Image_Size::get_attachment_image_src($image_id, 'jltma_image_carousel_image', $settings);
-				} else {
-					$image_src = wp_get_attachment_image_src($image_id, $jltma_image_carousel_image);
-					$image_src = $image_src[0];
-				}
-
-				return sprintf('<img src="%s" alt="%s" />', esc_url($image_src), esc_html(get_post_meta($image_id, '_wp_attachment_image_alt', true)));
-			}
-
-
-			protected function _content_template()
-			{
-			}
+	private function render_image($image_id, $settings)
+	{
+		$jltma_image_carousel_image = $settings['jltma_image_carousel_image_size'];
+		if ('custom' === $jltma_image_carousel_image) {
+			$image_src = Group_Control_Image_Size::get_attachment_image_src($image_id, 'jltma_image_carousel_image', $settings);
+		} else {
+			$image_src = wp_get_attachment_image_src($image_id, $jltma_image_carousel_image);
+			$image_src = $image_src[0];
 		}
+
+		return sprintf('<img src="%s" alt="%s" />', esc_url($image_src), esc_html(get_post_meta($image_id, '_wp_attachment_image_alt', true)));
+	}
+
+
+	protected function _content_template()
+	{
+	}
+}

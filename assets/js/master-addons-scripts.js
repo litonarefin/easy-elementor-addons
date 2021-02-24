@@ -1758,97 +1758,96 @@
 
         MA_Twitter_Slider: function ($scope, $) {
 
-            Master_Addons.MA_Twitter_Slider.elementSettings    = getElementSettings( $scope );
+            var elementSettings     = getElementSettings( $scope ),
+                uniqueId 		    = getUniqueLoopScopeId( $scope ),
+                scopeId 		    = $scope.data('id'),
+                $TwitterCarousel    = $scope.find('.jltma-twitter-slider'),
+                $swiper 	        = $scope.find('.jltma-swiper__container');
 
-            var $TwitterSliderWrapper   = $scope.find('.jltma-twitter-slider .swiper-wrapper').eq(0),
-                $twitter_slider_nav    = Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_navigation,
-                // $loop = ($TwitterSliderWrapper.data("loop") !== undefined) ? $TwitterSliderWrapper.data("loop") : false,
-                $slidesToShow       = Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_columns,
-                start               = elementorFrontend.config.is_rtl ? 'right' : 'left',
-                end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',
-                $slidesToScroll     = Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_tweet_num;
-
-
-                // Logo Slider Navigation
-                if ($twitter_slider_nav == "arrows") {
-                    var arrows = true;
-                    var dots = false;
-                } else if($twitter_slider_nav == "both") {
-                    var arrows = true;
-                    var dots = true;
-                } else if($twitter_slider_nav == "dots") {
-                    var arrows = false;
-                    var dots = true;
-                }
-
-
-                var twitterSlickArgs       = {
-
-                    slidesToShow    : $slidesToShow,
-                    slidesToScroll  : $slidesToScroll,
-                    cssEase         : "linear",
-                    draggable       : false,
-                    // autoplayspeed
-                    autoplay        : 'yes' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_autoplay,
-                    autoplaySpeed   : Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_autoplay_speed,
-                    infinite        : 'yes' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_loop,
-                    pauseOnHover    : 'yes' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_pauseonhover,
-                    speed           : Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_speed.size,
-                    arrows          : true,
-                    // centerMode      : Master_Addons.MA_Twitter_Slider.elementSettings.jltma_logo_slider_center_mode,
-                    // centerPadding: '60px',
-                    prevArrow       : $('.jltma-twitter-slider .jltma-slide-prev'),
-                    nextArrow       : $('.jltma-twitter-slider .jltma-slide-next'),
-                    dots            : true,
-                    dotsClass       : $('.jltma-twitter-slider .jltma-slide-dotnav'),
-                    appendDots      : $('.jltma-twitter-slider .jltma-slide-dotnav'),
-                    // rtl             : 'rtl' === Master_Addons.MA_Twitter_Slider.elementSettings.jltMA_Logo_Slider_direction,
-                    // fade            : 'fade' === Master_Addons.MA_Twitter_Slider.elementSettings.jltma_gallery_slider_effect,
-                    responsive: [
-
-                        {
-                            breakpoint: 350,
-                            settings: {
-                                dots: dots,
-                                arrow: arrows,
-                                rows:1,
-                                slidesToShow: Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_columns_mobile,
-                                slidesToScroll: $slidesToScroll
-                            }
+            var swiper = null,
+                settings = {
+                    scope : $scope,
+                    id : uniqueId,
+                    element : {
+                        autoHeight 						: 'yes' === elementSettings.autoheight,
+                        autoplay 						: 'yes' === elementSettings.autoplay,
+                        loop 							: 'yes' === elementSettings.loop,
+                        direction 						: elementSettings.carousel_direction ? elementSettings.carousel_direction : 'horizontal',
+                        effect 							: elementSettings.slide_effect,
+                        speed 							: elementSettings.duration_speed.size || 500,
+                        resistance 						: elementSettings.resistance_ratio.size || 0.25,
+                        autoplaySpeed 					: elementSettings.autoplay ? elementSettings.autoplay_speed : false,
+                        slidesPerView 					: elementSettings.per_view_mobile,
+                        slidesPerColumn 				:  'vertical' === elementSettings.carousel_direction ? 1 : elementSettings.slides_per_column_mobile,
+                        slidesPerGroup 					: elementSettings.slides_to_scroll_mobile,
+                        spaceBetween 					: elementSettings.columns_spacing_mobile.size || 0,
+                        disableOnInteraction 			: 'yes' === elementSettings.pause_on_interaction,
+                        stopOnHover 					: 'yes' === elementSettings.pause,
+                        arrows 							: 'yes' === elementSettings.carousel_arrows,
+                        arrowPrev 						: '.jltma-arrow--prev',
+                        arrowNext 						: '.jltma-arrow--next',
+                        freeMode 						: 'yes' === elementSettings.free_mode,
+                        freeModeSticky 					: 'yes' === elementSettings.free_mode_sticky,
+                        freeModeMomentum 				: 'yes' === elementSettings.free_mode_momentum,
+                        freeModeMomentumBounce 			: 'yes' === elementSettings.free_mode_momentum_bounce,
+                        freeModeMomentumRatio 			: elementSettings.free_mode_momentum_ratio ? elementSettings.free_mode_momentum_ratio.size : false,
+                        freeModeMomentumVelocityRatio 	: elementSettings.free_mode_momentum_velocity ? elementSettings.free_mode_momentum_velocity.size : false,
+                        freeModeMomentumBounceRatio 	: elementSettings.free_mode_momentum_bounce_ratio ? elementSettings.free_mode_momentum_bounce_ratio.size : false,
+                        pagination 						: 'yes' === elementSettings.carousel_pagination,
+                        paginationType 					: elementSettings.pagination_type,
+                        paginationClickable 			: 'yes' === elementSettings.carousel_pagination_clickable,
+                        slideChangeTriggerResize 		: 'yes' === elementSettings.slide_change_resize,
+                        breakpoints 		: {
+                            tablet : {
+                                slidesPerView 	: elementSettings.per_view_tablet,
+                                slidesPerColumn : 'vertical' === elementSettings.carousel_direction ? 1 : elementSettings.slides_per_column_tablet,
+                                slidesPerGroup 	: elementSettings.slides_to_scroll_tablet,
+                                spaceBetween 	: elementSettings.columns_spacing_tablet.size || 0,
+                            },
+                            desktop : {
+                                slidesPerView 	: elementSettings.per_view,
+                                slidesPerColumn : 'vertical' === elementSettings.carousel_direction ? 1 : elementSettings.slides_per_column,
+                                slidesPerGroup 	: elementSettings.slides_to_scroll,
+                                spaceBetween 	: elementSettings.columns_spacing.size || 0,
+                            },
                         },
-                        {
-                            breakpoint: 576,
-                            settings: {
-                                dots: dots,
-                                arrow: arrows,
-                                slidesToShow: Master_Addons.MA_Twitter_Slider.elementSettings.jltma_ts_columns_tablet,
-                                slidesToScroll: $slidesToScroll
-                            }
+                    },
+                    default : {
+                        effect 			: 'slide',
+                        slidesPerView 	: 1,
+                        slidesPerGroup 	: 1,
+                        slidesPerColumn : 1,
+                        spaceBetween 	: 6,
+                        breakpoints 	: {
+                            tablet : {
+                                slidesPerView 	: 2,
+                                slidesPerGroup 	: 1,
+                                slidesPerColumn : 2,
+                                spaceBetween 	: 12,
+                            },
+                            desktop : {
+                                slidesPerView 	: 3,
+                                slidesPerGroup 	: 1,
+                                slidesPerColumn : 3,
+                                spaceBetween 	: 24,
+                            },
                         },
-                        {
-                            breakpoint: 720,
-                            settings: {
-                                slidesToShow: $slidesToShow,
-                                slidesToScroll: $slidesToScroll,
-                                infinite: true,
-                                dots: dots,
-                                arrow: arrows
-                            }
-                        },
+                    },
+                };
 
-                    ],
+            Master_Addons.MA_Twitter_Slider.init = function() {
+                swiper = Master_Addons.MA_Carousel( $swiper, settings );
             };
 
-
-            $TwitterSliderWrapper.slick( twitterSlickArgs );
-
-            $('.jltma-twitter-slider .jltma-slide-dotnav li a').click(function(e){
-                e.preventDefault();
-
-                var slideIndex = $(this).parent().index();
-                $('.jltma-twitter-slider .jltma-slide-dotnav li a.active').removeClass('active');
-                $TwitterSliderWrapper.slick('slickGoTo', parseInt(slideIndex));
+            Master_Addons.onElementRemove( $scope, function() {
+                $scope.find('.swiper-container').each( function() {
+                    if ( $(this).data('swiper') ) {
+                        $(this).data('swiper').destroy();
+                    }
+                });
             });
+
+            Master_Addons.MA_Twitter_Slider.init();
 
         },
 
