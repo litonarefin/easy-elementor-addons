@@ -211,6 +211,7 @@ class Image_Carousel extends Widget_Base
 				'return_value' 		=> 'yes',
 				'default' 			=> 'yes',
 				'label' 			=> esc_html__('Enable Lightbox Gallery?', MELA_TD),
+				'frontend_available' 	=> true
 			]
 		);
 

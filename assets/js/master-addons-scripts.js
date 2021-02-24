@@ -1388,34 +1388,36 @@
                     $imageCarousel 	    = $scope.find('.ma-el-image-carousel'),
                     $swiper 	        = $scope.find('.jltma-swiper__container');
 
+                // Lightbox Enable
+                if(elementSettings.jltma_image_carousel_enable_lightbox ==="yes"){
+                    $( ".ma-el-fancybox" ).fancybox({
+                        // protect: false,
+                        animationDuration: 366,
+                        transitionDuration: 366,
+                        transitionEffect: "fade", // Transition effect between slides
+                        animationEffect: "fade",
+                        preventCaptionOverlap : true,
+                        // loop: false,
+                        infobar: false,
+                        buttons: [
+                            "zoom",
+                            "share",
+                            "slideShow",
+                            "fullScreen",
+                            "download",
+                            "thumbs",
+                            "close"
+                        ],
+                        afterLoad : function(instance, current) {
+                            var pixelRatio = window.devicePixelRatio || 1;
 
-                $( ".ma-el-fancybox" ).fancybox({
-                    // protect: false,
-                    animationDuration: 366,
-                    transitionDuration: 366,
-                    transitionEffect: "fade", // Transition effect between slides
-                    animationEffect: "fade",
-                    preventCaptionOverlap : true,
-                    // loop: false,
-                    infobar: false,
-                    buttons: [
-                        "zoom",
-                        "share",
-                        "slideShow",
-                        "fullScreen",
-                        "download",
-                        "thumbs",
-                        "close"
-                    ],
-                    afterLoad : function(instance, current) {
-                        var pixelRatio = window.devicePixelRatio || 1;
-
-                        if ( pixelRatio > 1.5 ) {
-                            current.width  = current.width  / pixelRatio;
-                            current.height = current.height / pixelRatio;
+                            if ( pixelRatio > 1.5 ) {
+                                current.width  = current.width  / pixelRatio;
+                                current.height = current.height / pixelRatio;
+                            }
                         }
-                    }
-                });
+                    });
+                }
 
 
                 var swiper = null,
