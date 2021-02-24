@@ -7,7 +7,10 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Widget_Base;
 
+// Master Addons Classes
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
+use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
+
 
 /**
  * Author Name: Liton Arefin
@@ -746,275 +749,577 @@ class Instagram_Feed extends Widget_Base
 
 
 
-
-        /**
-         * Content Tab: Carousel Settings
-         */
-        $this->start_controls_section(
-            'jltma_instafeed_carousel_section_settings',
-            [
-                'label'                 => esc_html__('Carousel Settings', MELA_TD),
+		/* Carousel Settings */
+		$this->start_controls_section(
+			'section_carousel_settings',
+			[
+				'label' => esc_html__('Carousel Settings', MELA_TD),
                 'condition'             => [
                     'jltma_instafeed_layout'   => 'carousel',
                 ],
-            ]
-        );
+			]
+		);
 
-        $this->add_control(
-            'jltma_instafeed_carousel_itmes_to_scroll',
-            [
-                'type'                  => Controls_Manager::SLIDER,
-                'label'                 => esc_html__('Slides to Scroll', MELA_TD),
-                'default'               => ['size' => 1],
-                'range'                 => [
-                    'px' => [
-                        'min'   => 1,
-                        'max'   => 10,
-                        'step'  => 1,
-                    ],
-                ],
-                'size_units'            => '',
-                'condition'             => [
-                    'jltma_instafeed_layout' => 'carousel',
-                ],
-            ]
-        );
+		$this->add_control(
+			'autoheight',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Auto Height', MELA_TD),
+				'default' 		=> 'yes',
+				'frontend_available' 	=> true
+			]
+		);
 
+		$this->add_control(
+			'carousel_height',
+			[
+				'label' 		=> __('Custom Height', MELA_TD),
+				'description'	=> __('The carousel needs to have a fixed defined height to work in vertical mode.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'size_units' 	=> [
+					'px', '%', 'vh'
+				],
+				'default' => [
+					'size' => 500,
+					'unit' => 'px',
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 200,
+						'max' => 2000,
+					],
+					'%' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+					'vh' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__container' => 'height: {{SIZE}}{{UNIT}};',
+				],
+				'condition'		=> [
+					'autoheight!' => 'yes'
+				],
+			]
+		);
 
-        $this->add_control(
-            'jltma_instafeed_carousel_navigation_heading',
-            [
-                'label'                 => esc_html__('Navigation', MELA_TD),
-                'type'                  => Controls_Manager::HEADING,
-                'separator'             => 'before',
-                'condition' => [
-                    'jltma_instafeed_layout' => 'carousel',
-                ],
-            ]
-        );
+		$this->add_control(
+			'slide_effect',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Effect', MELA_TD),
+				'default' 		=> 'slide',
+				'options' 		=> [
+					'slide' 	=> __('Slide', MELA_TD),
+					'fade' 		=> __('Fade', MELA_TD),
+				],
+				'frontend_available' => true
+			]
+		);
 
-
-        $this->add_control(
-            'jltma_instafeed_carousel_nav',
-            [
-                'label'         => esc_html__('Navigation Style', MELA_TD),
-                'type'          => Controls_Manager::SELECT,
-                'default'       => 'arrows',
-                'options'       => [
-                    'arrows'    => esc_html__('Arrows', MELA_TD),
-                    'dots'      => esc_html__('Dots', MELA_TD),
-                ],
-                'condition' => [
-                    'jltma_instafeed_layout' => 'carousel',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'jltma_instafeed_carousel_arrow_style',
-            [
-                'label' => esc_html__('Arrow Position', MELA_TD),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'outer',
-                'options' => [
-                    'inner' => esc_html__('Inner Content', MELA_TD),
-                    'outer' => esc_html__('Outer Content', MELA_TD),
-                ],
-                'condition' => [
-                    'jltma_instafeed_layout'        => 'carousel',
-                    'jltma_instafeed_carousel_nav'  => 'arrows',
-                ]
-            ]
-        );
-
-
-        $this->start_controls_tabs('jltma_instafeed_carousel_navigation_tabs');
-
-        $this->start_controls_tab('jltma_instafeed_carousel_navigation_control', ['label' => esc_html__(
-            'Normal',
-            MELA_TD
-        )]);
-
-        $this->add_control(
-            'jltma_instafeed_carousel_arrow_color',
-            [
-                'label' => esc_html__('Arrow Background', MELA_TD),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#620acc',
-                'selectors' => [
-                    '{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next' => 'background: {{VALUE}};',
-                ],
-                'condition' => [
-                    'jltma_instafeed_carousel_nav' => 'arrows',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'jltma_instafeed_carousel_dot_color',
-            [
-                'label' => esc_html__('Dot Color', MELA_TD),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#41008e',
-                'selectors' => [
-                    '{{WRAPPER}} .slick-dots li button' => 'background-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'jltma_instafeed_carousel_nav' => 'dots',
-                ],
-            ]
-        );
+		$this->add_control(
+			'slide_effect_fade_warning',
+			[
+				'type' 				=> Controls_Manager::RAW_HTML,
+				'raw' 				=> __('The Fade effect ignores the Slides per View and Slides per Column settings', MELA_TD),
+				'content_classes' 	=> 'elementor-panel-alert elementor-panel-alert-info',
+				'condition' 		=> [
+					'slide_effect' => 'fade'
+				],
+			]
+		);
 
 
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name'        => 'jltma_instafeed_carousel_border',
-                'placeholder' => '1px',
-                'default'     => '0px',
-                'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev, {{WRAPPER}} .ma-el-team-carousel-next'
-            ]
-        );
+		$this->add_control(
+			'duration_speed',
+			[
+				'label' 	=> __('Duration (ms)', MELA_TD),
+				'description' => __('Duration of the effect transition.', MELA_TD),
+				'type' 		=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 300,
+					'unit' 	=> 'px',
+				],
+				'range' 	=> [
+					'px' 	=> [
+						'min' 	=> 0,
+						'max' 	=> 2000,
+						'step'	=> 100,
+					],
+				],
+				'frontend_available' => true
+			]
+		);
 
 
-        $this->end_controls_tab();
 
-        $this->start_controls_tab('jltma_instafeed_carousel_social_icon_hover', [
-            'label' => esc_html__('Hover', MELA_TD)
-        ]);
-
-        $this->add_control(
-            'jltma_instafeed_carousel_arrow_hover_color',
-            [
-                'label' => esc_html__('Arrow Hover', MELA_TD),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#41008e',
-                'selectors' => [
-                    '{{WRAPPER}} .ma-el-team-carousel-prev:hover, {{WRAPPER}} .ma-el-team-carousel-next:hover' =>
-                    'background: {{VALUE}};',
-                ],
-                'condition' => [
-                    'jltma_instafeed_carousel_nav' => 'arrows',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'jltma_instafeed_carousel_dot_hover_color',
-            [
-                'label' => esc_html__('Dot Hover', MELA_TD),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#41008e',
-                'selectors' => [
-                    '{{WRAPPER}} .slick-dots li.slick-active button, {{WRAPPER}} .slick-dots li button:hover' => 'background: {{VALUE}};',
-                ],
-                'condition' => [
-                    'jltma_instafeed_carousel_nav' => 'dots',
-                ],
-            ]
-        );
+		$this->add_control(
+			'resistance_ratio',
+			[
+				'label' 		=> __('Resistance', MELA_TD),
+				'description'	=> __('Set the value for resistant bounds.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'default' 		=> [
+					'size' 		=> 0.25,
+					'unit' 		=> 'px',
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 1,
+						'step'	=> 0.05,
+					],
+				],
+				'frontend_available' => true
+			]
+		);
 
 
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name'        => 'jltma_instafeed_carousel_hover_border',
-                'placeholder' => '1px',
-                'default'     => '0px',
-                'selector'    => '{{WRAPPER}} .ma-el-team-carousel-prev:hover, {{WRAPPER}} .ma-el-team-carousel-next:hover'
-            ]
-        );
+		$this->add_control(
+			'carousel_layout_heading',
+			[
+				'label' 			=> __('Layout', MELA_TD),
+				'type' 				=> Controls_Manager::HEADING,
+				'separator'			=> 'before'
+			]
+		);
 
-        $this->end_controls_tab();
-
-        $this->end_controls_tabs();
-
-
-        $this->add_control(
-            'jltma_instafeed_carousel_direction',
-            [
-                'label'                 => esc_html__('Direction', MELA_TD),
-                'type'                  => Controls_Manager::SELECT,
-                'default'               => 'rtl',
-                'options'               => [
-                    'rtl'       => esc_html__('Right to Left', MELA_TD),
-                    'ltr'       => esc_html__('Left to Right', MELA_TD),
-                ],
-                'separator'             => 'before',
-            ]
-        );
-
-        $this->add_control(
-            'jltma_instafeed_carousel_duration',
-            [
-                'label'   => esc_html__('Transition Duration', MELA_TD),
-                'type'    => Controls_Manager::NUMBER,
-                'default' => 1000,
-                'separator' => 'before',
-            ]
-        );
-
-        $this->add_control(
-            'jltma_instafeed_carousel_autoplay',
-            [
-                'label'                 => esc_html__('Autoplay', MELA_TD),
-                'type'                  => Controls_Manager::SWITCHER,
-                'default'               => 'yes',
-                'label_on'              => esc_html__('Yes', MELA_TD),
-                'label_off'             => esc_html__('No', MELA_TD),
-                'return_value'          => 'yes',
-                'condition'             => [
-                    'jltma_instafeed_layout'  => 'carousel',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'jltma_instafeed_carousel_autoplay_speed',
-            [
-                'label'                 => esc_html__('Autoplay Speed', MELA_TD),
-                'type'                  => Controls_Manager::TEXT,
-                'default'               => '2400',
-                'title'                 => esc_html__('Enter carousel speed', MELA_TD),
-                'condition'             => [
-                    'jltma_instafeed_carousel_autoplay'     => 'yes',
-                    'jltma_instafeed_layout'  => 'carousel',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'jltma_instafeed_carousel_infinite_loop',
-            [
-                'label'                 => esc_html__('Infinite Loop', MELA_TD),
-                'type'                  => Controls_Manager::SWITCHER,
-                'default'               => 'yes',
-                'label_on'              => esc_html__('Yes', MELA_TD),
-                'label_off'             => esc_html__('No', MELA_TD),
-                'return_value'          => 'yes',
-                'condition'             => [
-                    'jltma_instafeed_layout' => 'carousel',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'jltma_instafeed_carousel_pause_on_hover',
-            [
-                'label'                 => esc_html__('Pause on Hover', MELA_TD),
-                'description'           => esc_html__('Pause & grab cursor when you hover over the slider', MELA_TD),
-                'type'                  => Controls_Manager::SWITCHER,
-                'default'               => 'No',
-                'label_on'              => esc_html__('Yes', MELA_TD),
-                'label_off'             => esc_html__('No', MELA_TD),
-                'return_value'          => 'yes',
-            ]
-        );
+		$this->add_responsive_control(
+			'carousel_direction',
+			[
+				'type' 				=> Controls_Manager::SELECT,
+				'label' 			=> __('Orientation', MELA_TD),
+				'default'			=> 'horizontal',
+				'tablet_default'	=> 'horizontal',
+				'mobile_default'	=> 'horizontal',
+				'options' 			=> [
+					'horizontal' 	=> __('Horizontal', MELA_TD),
+					'vertical' 		=> __('Vertical', MELA_TD),
+				],
+				'frontend_available' 	=> true
+			]
+		);
 
 
-        $this->end_controls_section();
 
 
+		$slides_per_view = range(1, 6);
+		$slides_per_view = array_combine($slides_per_view, $slides_per_view);
+
+		$this->add_responsive_control(
+			'slides_per_view',
+			[
+				'type'           		=> Controls_Manager::SELECT,
+				'label'          		=> esc_html__('Slides Per View', MELA_TD),
+				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_view,
+				'default'        		=> '4',
+				'tablet_default' 		=> '3',
+				'mobile_default' 		=> '2',
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->add_responsive_control(
+			'slides_per_column',
+			[
+				'type' 					=> Controls_Manager::SELECT,
+				'label' 				=> __('Slides Per Column', MELA_TD),
+				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_view,
+				'frontend_available' 	=> true,
+				'condition' 		=> [
+					'carousel_direction' => 'horizontal',
+				],
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'slides_to_scroll',
+			[
+				'type'      => Controls_Manager::SELECT,
+				'label'     => esc_html__('Slides to Scroll', MELA_TD),
+				'options' 	=> ['' => __('Default', MELA_TD)] + $slides_per_view,
+				'default'   => '1',
+				'frontend_available' 	=> true,
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'columns_spacing',
+			[
+				'label' 			=> __('Columns Spacing', MELA_TD),
+				'type' 				=> Controls_Manager::SLIDER,
+				'default'			=> [
+					'size' => 24,
+					'unit' => 'px',
+				],
+				'tablet_default'	=> [
+					'size' => 12,
+					'unit' => 'px',
+				],
+				'mobile_default'	=> [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'size_units' 		=> ['px'],
+				'range' 			=> [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'frontend_available' => true,
+				'condition'				=> [
+					'carousel_direction' => 'horizontal',
+				],
+			]
+		);
+
+
+		$this->add_control(
+			'autoplay',
+			[
+				'label'     	=> esc_html__('Autoplay', MELA_TD),
+				'type'          => Controls_Manager::POPOVER_TOGGLE,
+				'default'   	=> 'yes',
+				'separator'   	=> 'before',
+				'return_value' 	=> 'yes',
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			'autoplay_speed',
+			[
+				'label'     => esc_html__('Autoplay Speed', MELA_TD),
+				'type'      => Controls_Manager::NUMBER,
+				'default'   => 5000,
+				'condition' => [
+					'autoplay' => 'yes',
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->add_control(
+			'pause_on_interaction',
+			[
+				'label' 		=> __('Disable on Interaction', MELA_TD),
+				'description' 	=> __('Removes autoplay completely on the first interaction with the carousel.', MELA_TD),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'default' 		=> '',
+				'condition' 	=> [
+					'autoplay'           => 'yes'
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'pause',
+			[
+				'label'     => esc_html__('Pause on Hover', MELA_TD),
+				'type'      => Controls_Manager::SWITCHER,
+				'default'   => 'yes',
+				'condition' => [
+					'autoplay' => 'yes',
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->end_popover();
+
+
+
+
+		$this->add_control(
+			'free_mode',
+			[
+				'type' 					=> Controls_Manager::POPOVER_TOGGLE,
+				'label' 				=> __('Free Mode', MELA_TD),
+				'description'			=> __('Disable fixed positions for slides.', MELA_TD),
+				'default' 				=> '',
+				'return_value' 			=> 'yes',
+				'frontend_available' 	=> true
+			]
+		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			'free_mode_sticky',
+			[
+				'type' 					=> Controls_Manager::SWITCHER,
+				'label' 				=> __('Snap to position', MELA_TD),
+				'description'			=> __('Enable to snap slides to positions in free mode.', MELA_TD),
+				'default' 				=> '',
+				'return_value' 			=> 'yes',
+				'frontend_available' 	=> true,
+				'condition' 			=> [
+					'free_mode!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'free_mode_momentum',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Momentum', MELA_TD),
+				'description'	=> __('Enable to keep slide moving for a while after you release it.', MELA_TD),
+				'default' 		=> 'yes',
+				'return_value' 	=> 'yes',
+				'separator'		=> 'before',
+				'frontend_available' => true,
+				'condition' => [
+					'free_mode!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'free_mode_momentum_ratio',
+			[
+				'label' 		=> __('Ratio', MELA_TD),
+				'description'	=> __('Higher value produces larger momentum distance after you release slider.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 5,
+						'step'	=> 0.1,
+					],
+				],
+				'condition' => [
+					'free_mode!' 			=> '',
+					'free_mode_momentum!' 	=> '',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'free_mode_momentum_velocity',
+			[
+				'label' 		=> __('Velocity', MELA_TD),
+				'description'	=> __('Higher value produces larger momentum velocity after you release slider.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 5,
+						'step'	=> 0.1,
+					],
+				],
+				'condition' => [
+					'free_mode!' 			=> '',
+					'free_mode_momentum!' 	=> '',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'free_mode_momentum_bounce',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Bounce', MELA_TD),
+				'description'	=> __('Set to No if you want to disable momentum bounce in free mode.', MELA_TD),
+				'default' 		=> 'yes',
+				'return_value' 	=> 'yes',
+				'frontend_available' => true,
+				'condition' => [
+					'free_mode!' 			=> '',
+					'free_mode_momentum!' 	=> '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'free_mode_momentum_bounce_ratio',
+			[
+				'label' 		=> __('Bounce Ratio', MELA_TD),
+				'description'	=> __('Higher value produces larger momentum bounce effect.', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 5,
+						'step'	=> 0.1,
+					],
+				],
+				'condition' => [
+					'free_mode!' => '',
+					'free_mode_momentum!' => '',
+					'free_mode_momentum_bounce!' => '',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->end_popover();
+
+
+
+		$this->add_control(
+			'carousel_arrows',
+			[
+				'label'         => __('Arrows', MELA_TD),
+				'type'          => Controls_Manager::POPOVER_TOGGLE,
+				'default'       => 'yes',
+				'return_value' 	=> 'yes',
+				'frontend_available' => true
+			]
+		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			'arrows_placement',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Placement', MELA_TD),
+				'default'		=> 'inside',
+				'options' 		=> [
+					'inside' 	=> __('Inside', MELA_TD),
+					'outside' 	=> __('Outside', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_arrows' => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'arrows_position',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'middle',
+				'options' 		=> [
+					'top' 		=> __('Top', MELA_TD),
+					'middle' 	=> __('Middle', MELA_TD),
+					'bottom' 	=> __('Bottom', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_arrows' 	=> 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'arrows_position_vertical',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'center',
+				'options' 		=> [
+					'left' 		=> __('Left', MELA_TD),
+					'center' 	=> __('Center', MELA_TD),
+					'right' 	=> __('Right', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_arrows' 	=> 'yes',
+				]
+			]
+		);
+
+		$this->end_popover();
+
+
+
+		$this->add_control(
+			'loop',
+			[
+				'label'   => esc_html__('Infinite Loop', MELA_TD),
+				'type'    => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'frontend_available' 	=> true,
+			]
+		);
+
+		$this->add_control(
+			'slide_change_resize',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Trigger Resize on Slide', MELA_TD),
+				'description'	=> __('Some widgets inside post skins templates might require triggering a window resize event when changing slides to display correctly.', MELA_TD),
+				'default' 		=> '',
+				'frontend_available' => true,
+			]
+		);
+
+
+		$this->add_control(
+			'carousel_pagination',
+			[
+				'label' 		=> __('Pagination', MELA_TD),
+				'type' 			=> Controls_Manager::POPOVER_TOGGLE,
+				'frontend_available' => true
+			]
+		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			'pagination_position',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'inside',
+				'options' 		=> [
+					'inside' 		=> __('Inside', MELA_TD),
+					'outside' 		=> __('Outside', MELA_TD),
+				],
+				'frontend_available' 	=> true,
+				'condition'		=> [
+					'carousel_pagination'         => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'pagination_type',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Type', MELA_TD),
+				'default'		=> 'bullets',
+				'options' 		=> [
+					'bullets' 		=> __('Bullets', MELA_TD),
+					'fraction' 		=> __('Fraction', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_pagination'         => 'yes',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'carousel_pagination_clickable',
+			[
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label' 		=> __('Clickable', MELA_TD),
+				'default' 		=> 'yes',
+				'return_value' 	=> 'yes',
+				'condition' => [
+					'carousel_pagination'         => 'yes',
+					'pagination_type'       		=> 'bullets'
+				],
+				'frontend_available' 	=> true,
+			]
+		);
+		$this->end_popover();
+
+
+		$this->end_controls_section();
 
 
 
@@ -1126,6 +1431,611 @@ class Instagram_Feed extends Widget_Base
         );
 
         $this->end_controls_section();
+
+
+		/*
+		Style Tab: Carousel Settings
+		*/
+
+		$this->start_controls_section(
+			'carousel_style_section',
+			[
+				'label'         => __('Carousel', MELA_TD),
+				'tab'           => Controls_Manager::TAB_STYLE
+			]
+		);
+
+		$this->add_control(
+			'carousel_arrows_style_heading',
+			[
+				'label' 	=> __('Arrows', MELA_TD),
+				'type' 		=> Controls_Manager::HEADING,
+				'condition'     => [
+					'carousel_arrows'         => 'yes'
+				]
+			]
+		);
+
+		$this->add_control(
+			'carousel_arrows_position',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'middle',
+				'options' 		=> [
+					'top' 		=> __('Top', MELA_TD),
+					'middle' 	=> __('Middle', MELA_TD),
+					'bottom' 	=> __('Bottom', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_arrows'         => 'yes',
+					'carousel_direction' => 'horizontal',
+				]
+			]
+		);
+
+		$this->add_control(
+			'carousel_arrows_position_vertical',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'label' 		=> __('Position', MELA_TD),
+				'default'		=> 'center',
+				'options' 		=> [
+					'left' 		=> __('Left', MELA_TD),
+					'center' 	=> __('Center', MELA_TD),
+					'right' 	=> __('Right', MELA_TD),
+				],
+				'condition'		=> [
+					'carousel_arrows'         => 'yes',
+					'carousel_direction' => 'vertical'
+				]
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'carousel_arrows_size',
+			[
+				'label' 		=> __('Size', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 12,
+						'max' => 48,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__button' => 'font-size: {{SIZE}}px;',
+				],
+				'condition'		=> [
+					'carousel_arrows'         => 'yes'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'carousel_arrows_padding',
+			[
+				'label' 		=> __('Padding', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' 	=> 0,
+						'max' 	=> 1,
+						'step'	=> 0.1,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__button' => 'padding: {{SIZE}}em;',
+				],
+				'condition'		=> [
+					'carousel_arrows'         => 'yes'
+				]
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'arrows_distance',
+			[
+				'label' 		=> __('Distance', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 200,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__navigation--inside.jltma-swiper__navigation--middle.jltma-arrows--horizontal .jltma-swiper__button' => 'margin-left: {{SIZE}}px; margin-right: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--inside:not(.jltma-swiper__navigation--middle).jltma-arrows--horizontal .jltma-swiper__button' => 'margin: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--outside.jltma-arrows--horizontal .jltma-swiper__button--prev' => 'left: -{{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--outside.jltma-arrows--horizontal .jltma-swiper__button--next' => 'right: -{{SIZE}}px;',
+
+					'{{WRAPPER}} .jltma-swiper__navigation--inside.jltma-swiper__navigation--center.jltma-arrows--vertical .jltma-swiper__button' => 'margin-top: {{SIZE}}px; margin-bottom: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--inside:not(.jltma-swiper__navigation--center).jltma-arrows--vertical .jltma-swiper__button' => 'margin: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--outside.jltma-arrows--vertical .jltma-swiper__button--prev' => 'top: -{{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__navigation--outside.jltma-arrows--vertical .jltma-swiper__button--next' => 'bottom: -{{SIZE}}px;',
+				],
+				'condition'		=> [
+					'carousel_arrows'         => 'yes'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'arrows_border_radius',
+			[
+				'label' 		=> __('Border Radius', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'default' 	=> [
+					'size' 	=> 100,
+				],
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__button' => 'border-radius: {{SIZE}}%;',
+				],
+				'separator'		=> 'after',
+				'condition'		=> [
+					'carousel_arrows'         => 'yes'
+				]
+			]
+		);
+
+		$this->add_group_control(
+			MA_Group_Control_Transition::get_type(),
+			[
+				'name' 			=> 'arrows',
+				'selector' 		=> '{{WRAPPER}} .jltma-swiper__button',
+				'condition'		=> [
+					'carousel_arrows'         => 'yes'
+				]
+			]
+		);
+
+
+		$this->start_controls_tabs('carousel_arrow_style_tabs');
+
+		// Normal Tab
+		$this->start_controls_tab(
+			'carousel_arrow_style_tab',
+			[
+				'label'         => __('Normal', MELA_TD),
+				'condition'		=> [
+					'carousel_arrows'         => 'yes'
+				]
+
+			]
+		);
+		$this->add_control(
+			'arrow_color',
+			[
+				'label'         => __('Arrow Color', MELA_TD),
+				'type'          => Controls_Manager::COLOR,
+				'selectors'     => [
+					'{{WRAPPER}} .jltma-swiper__button i:before' => 'color: {{VALUE}};',
+				]
+			]
+		);
+		$this->add_control(
+			'arrow_bg_color',
+			[
+				'label'         => __('Background Color', MELA_TD),
+				'type'          => Controls_Manager::COLOR,
+				'selectors'     => [
+					'{{WRAPPER}} .jltma-swiper__button' => 'background: {{VALUE}};',
+				]
+			]
+		);
+		$this->end_controls_tab();
+
+
+
+		// Hover Tab
+		$this->start_controls_tab(
+			'carousel_arrow_hover_style_tab',
+			[
+				'label'         => __('Hover', MELA_TD),
+				'condition'		=> [
+					'carousel_arrows'         => 'yes'
+				]
+
+			]
+		);
+		$this->add_control(
+			'arrow_hover_color',
+			[
+				'label'         => __('Arrow Color', MELA_TD),
+				'type'          => Controls_Manager::COLOR,
+				'selectors'     => [
+					'{{WRAPPER}} .jltma-swiper__button:not(.jltma-swiper__button--disabled):hover i:before' => 'color: {{VALUE}};',
+				]
+			]
+		);
+		$this->add_control(
+			'arrow_hover_bg_color',
+			[
+				'label'         => __('Background Color', MELA_TD),
+				'type'          => Controls_Manager::COLOR,
+				'selectors'     => [
+					'{{WRAPPER}} .jltma-swiper__button:not(.jltma-swiper__button--disabled):hover' => 'background: {{VALUE}};',
+				]
+			]
+		);
+		$this->end_controls_tab();
+		$this->end_controls_tabs();
+
+
+		$this->add_control(
+			'carousel_pagination_style_heading',
+			[
+				'separator'	=> 'before',
+				'label' 	=> __('Pagination', MELA_TD),
+				'type' 		=> Controls_Manager::HEADING,
+				'condition'		=> [
+					'carousel_pagination' => 'yes',
+				]
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'carousel_pagination_align',
+			[
+				'label' 		=> __('Align', MELA_TD),
+				'type' 			=> Controls_Manager::CHOOSE,
+				'default' 		=> 'center',
+				'options' 		=> [
+					'left'    		=> [
+						'title' 	=> __('Left', MELA_TD),
+						'icon' 		=> 'fa fa-align-left',
+					],
+					'center' 		=> [
+						'title' 	=> __('Center', MELA_TD),
+						'icon' 		=> 'fa fa-align-center',
+					],
+					'right' 		=> [
+						'title' 	=> __('Right', MELA_TD),
+						'icon' 		=> 'fa fa-align-right',
+					],
+				],
+				'selectors'		=> [
+					'{{WRAPPER}} .jltma-swiper__pagination.jltma-swiper__pagination--horizontal' => 'text-align: {{VALUE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' => 'yes',
+					'carousel_direction' => 'horizontal',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'carousel_pagination_align_vertical',
+			[
+				'label' 		=> __('Align', MELA_TD),
+				'type' 			=> Controls_Manager::CHOOSE,
+				'default' 		=> 'middle',
+				'options' 		=> [
+					'flex-start'    => [
+						'title' 	=> __('Top', MELA_TD),
+						'icon' 		=> 'eicon-v-align-top',
+					],
+					'center' 		=> [
+						'title' 	=> __('Center', MELA_TD),
+						'icon' 		=> 'eicon-v-align-middle',
+					],
+					'flex-end' 		=> [
+						'title' 	=> __('Right', MELA_TD),
+						'icon' 		=> 'eicon-v-align-bottom',
+					],
+				],
+				'selectors'		=> [
+					'{{WRAPPER}} .jltma-swiper__pagination.jltma-swiper__pagination--vertical' => 'justify-content: {{VALUE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' => 'yes',
+					'carousel_direction' => 'vertical'
+				]
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'carousel_pagination_distance',
+			[
+				'label' 		=> __('Distance', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__pagination--inside.jltma-swiper__pagination--horizontal' => 'padding: 0 {{SIZE}}px {{SIZE}}px {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-swiper__pagination--outside.jltma-swiper__pagination--horizontal' => 'padding: {{SIZE}}px 0 0 0;',
+					'{{WRAPPER}} .jltma-swiper__pagination--inside.jltma-swiper__pagination--vertical' => 'padding: {{SIZE}}px {{SIZE}}px {{SIZE}}px 0;',
+					'{{WRAPPER}} .jltma-swiper__pagination--outside.jltma-swiper__pagination--vertical' => 'padding: 0 0 0 {{SIZE}}px;',
+				],
+				'condition'		=> [
+					'carousel_pagination' => 'yes',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'carousel_pagination_bullets_spacing',
+			[
+				'label' 		=> __('Spacing', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 20,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .jltma-swiper__pagination--horizontal .swiper-pagination-bullet' => 'margin: 0 {{SIZE}}px',
+					'{{WRAPPER}} .jltma-swiper__pagination--vertical .swiper-pagination-bullet' => 'margin: {{SIZE}}px 0',
+				],
+				'condition'		=> [
+					'carousel_pagination' => 'yes',
+					'pagination_type' => 'bullets',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'pagination_bullets_border_radius',
+			[
+				'label' 		=> __('Border Radius', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'border-radius: {{SIZE}}px;',
+				],
+				'condition'		=> [
+					'carousel_pagination' => 'yes',
+					'pagination_type' => 'bullets',
+				],
+				'separator'		=> 'after',
+			]
+		);
+
+		$this->add_group_control(
+			MA_Group_Control_Transition::get_type(),
+			[
+				'name' 			=> 'carousel_pagination_bullet',
+				'selector' 		=> '{{WRAPPER}} .swiper-pagination-bullet',
+				'condition'		=> [
+					'carousel_pagination' => 'yes'
+				]
+			]
+		);
+
+
+		$this->start_controls_tabs('carousel_pagination_bullets_tabs_hover');
+
+		$this->start_controls_tab('carousel_pagination_bullets_tab_default', [
+			'label' 		=> __('Default', MELA_TD),
+			'condition'		=> [
+				'carousel_pagination' 		=> 'yes',
+				'pagination_type' 	=> 'bullets',
+			]
+		]);
+
+		$this->add_responsive_control(
+			'carousel_pagination_bullets_size',
+			[
+				'label' 		=> __('Size', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 12,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'width: {{SIZE}}px; height: {{SIZE}}px;',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_control(
+			'carousel_pagination_bullets_color',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'background-color: {{VALUE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'carousel_pagination_bullets_opacity',
+			[
+				'label' 		=> __('Opacity', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 1,
+						'step' => 0.05,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'opacity: {{SIZE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'on',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab('carousel_pagination_bullets_tab_hover', [
+			'label' 		=> __('Hover', MELA_TD),
+			'condition'		=> [
+				'carousel_pagination' 		=> 'yes',
+				'pagination_type' 	=> 'bullets',
+			]
+		]);
+
+		$this->add_responsive_control(
+			'carousel_pagination_bullets_size_hover',
+			[
+				'label' 		=> __('Size', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 1,
+						'max' => 1.5,
+						'step' => 0.1,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'transform: scale({{SIZE}});',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_control(
+			'carousel_pagination_bullets_color_hover',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'background-color: {{VALUE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'carousel_pagination_bullets_opacity_hover',
+			[
+				'label' 		=> __('Opacity', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 1,
+						'step' => 0.05,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'opacity: {{SIZE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab('carousel_pagination_bullets_tab_active', [
+			'label' => __('Active', MELA_TD),
+			'condition'	=> [
+				'carousel_pagination' 		=> 'yes',
+				'pagination_type' 	=> 'bullets',
+			]
+		]);
+
+		$this->add_responsive_control(
+			'carousel_pagination_bullets_size_active',
+			[
+				'label' 		=> __('Size', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 1,
+						'max' => 1.5,
+						'step' => 0.1,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet-active' => 'transform: scale({{SIZE}});',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_control(
+			'carousel_pagination_bullets_color_active',
+			[
+				'label' 	=> __('Color', MELA_TD),
+				'type' 		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .swiper-pagination-bullet-active' => 'background-color: {{VALUE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'carousel_pagination_bullets_opacity_active',
+			[
+				'label' 		=> __('Opacity', MELA_TD),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' 		=> [
+						'min' => 0,
+						'max' => 1,
+						'step' => 0.05,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .swiper-pagination-bullet-active' => 'opacity: {{SIZE}};',
+				],
+				'condition'		=> [
+					'carousel_pagination' 		=> 'yes',
+					'pagination_type' 	=> 'bullets',
+				]
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+
+		$this->end_controls_section();
 
 
 
@@ -1971,31 +2881,40 @@ class Instagram_Feed extends Widget_Base
     {
         $settings = $this->get_settings();
 
-        //Carousel Settings
-        $slider_options = [
-            "carousel_nav"           => ($settings['jltma_instafeed_carousel_nav']) ? $settings['jltma_instafeed_carousel_nav'] : "arrows",
-            'slidestoshow'           => ($settings['jltma_instafeed_image_count']['size'] !== '') ? absint($settings['jltma_instafeed_image_count']['size']) : 2,
-            'slidestoscroll'         => ($settings['jltma_instafeed_carousel_itmes_to_scroll']['size'] !== '') ? absint($settings['jltma_instafeed_carousel_itmes_to_scroll']['size']) : 1,
-            'autoplay'               => ($settings['jltma_instafeed_carousel_autoplay'] === 'yes') ? true : false,
-            'autoplayspeed'          => ($settings['jltma_instafeed_carousel_autoplay_speed'] !== '') ? $settings['jltma_instafeed_carousel_autoplay_speed'] : '2400',
-            "loop"                   => ($settings['jltma_instafeed_carousel_infinite_loop']) ? true : false,
-            'speed'                  => ($settings['jltma_instafeed_carousel_duration']) ? $settings['jltma_instafeed_carousel_duration'] : 1000,
-            'pauseonHover'           => ($settings['jltma_instafeed_carousel_pause_on_hover'] === 'yes'),
-            'spaceBetween'           => ($settings['jltma_instafeed_space_between_item']['size'] !== '') ? $settings['jltma_instafeed_space_between_item']['size'] : 10,
-            'direction'              => ($settings['jltma_instafeed_carousel_direction'] === "rtl") ? false : true,
-            'autoHeight'             => ($settings['jltma_instafeed_force_square'] == 'yes') ? false : true,
-        ];
+        // $this->add_render_attribute([
+        //     'jltma_instagram' => [
+        //         'class' => implode(' ', [
+        //             'jltma-insta-slider-container',
+        //             'jltma-insta-slider-' . esc_attr($this->get_id())
+        //         ]),
+        //         'data-slider-settings' => wp_json_encode($slider_options)
+        //     ]
+        // ]);
+
+		$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
+
+		$this->add_render_attribute([
+			'jltma_instagram' => [
+				'class' => [
+					'jltma-insta-slider-container',
+					'jltma-swiper',
+					'jltma-swiper__container',
+					'swiper-container',
+					'elementor-jltma-element-' . $unique_id
+				],
+				'data-instagram-carousel-template-widget-id' => $unique_id
+			],
+			'swiper-wrapper' => [
+				'class' => [
+					'jltma-instagram-carousel',
+					'jltma-swiper__wrapper',
+					'swiper-wrapper',
+				],
+			]
+		]);
 
 
-        $this->add_render_attribute([
-            'jltma_instagram' => [
-                'class' => implode(' ', [
-                    'jltma-insta-slider-container',
-                    'jltma-insta-slider-' . esc_attr($this->get_id())
-                ]),
-                'data-slider-settings' => wp_json_encode($slider_options)
-            ]
-        ]);
+
     }
 
     protected function render()
@@ -2065,28 +2984,36 @@ class Instagram_Feed extends Widget_Base
         ); ?>
 
         <div <?php echo ($this->get_render_attribute_string('jltma_instagram')); ?>>
+            <div <?php echo ($this->get_render_attribute_string('swiper-wrapper')); ?>>
+                <?php
+                $this->jltma_instagram_link_title();
+                $this->jltma_instafeed_render_items($settings); ?>
+            </div>
+
             <?php
-            $this->jltma_instagram_link_title();
-            $this->jltma_instafeed_render_items($settings); ?>
+            $this->render_swiper_navigation();
+            $this->render_swiper_pagination();
+            ?>
+
         </div>
         <div class="clearfix"></div>
 
 <?php
-        $settings_var = [
-            'jltma_instafeed_access_token' => $settings['jltma_instafeed_access_token'],
-            // 'jltma_instafeed_image_count' =>  $settings['jltma_instafeed_image_count']['size'],
-            'jltma_instafeed_sort_by' => $settings['jltma_instafeed_sort_by'],
-            'jltma_instafeed_image_size' => $settings['jltma_instafeed_image_size'],
-            'jltma_instafeed_layout' => $settings['jltma_instafeed_layout'],
-            'jltma_instafeed_view_style' => $settings['jltma_instafeed_view_style'],
-            'jltma_instafeed_date' => $settings['jltma_instafeed_date'],
-            'jltma_instafeed_show_likes' => $settings['jltma_instafeed_show_likes'],
-            'jltma_instafeed_show_comments' => $settings['jltma_instafeed_show_comments'],
-            'jltma_instafeed_show_caption' => $settings['jltma_instafeed_show_caption'],
-            'jltma_instafeed_show_link' => $settings['jltma_instafeed_show_link'],
-            'jltma_instafeed_profile_link' => $settings['jltma_instafeed_profile_link'],
-            'jltma_instafeed_link_target' => $settings['jltma_instafeed_link_target']
-        ];
+        // $settings_var = [
+        //     'jltma_instafeed_access_token' => $settings['jltma_instafeed_access_token'],
+        //     // 'jltma_instafeed_image_count' =>  $settings['jltma_instafeed_image_count']['size'],
+        //     'jltma_instafeed_sort_by' => $settings['jltma_instafeed_sort_by'],
+        //     'jltma_instafeed_image_size' => $settings['jltma_instafeed_image_size'],
+        //     'jltma_instafeed_layout' => $settings['jltma_instafeed_layout'],
+        //     'jltma_instafeed_view_style' => $settings['jltma_instafeed_view_style'],
+        //     'jltma_instafeed_date' => $settings['jltma_instafeed_date'],
+        //     'jltma_instafeed_show_likes' => $settings['jltma_instafeed_show_likes'],
+        //     'jltma_instafeed_show_comments' => $settings['jltma_instafeed_show_comments'],
+        //     'jltma_instafeed_show_caption' => $settings['jltma_instafeed_show_caption'],
+        //     'jltma_instafeed_show_link' => $settings['jltma_instafeed_show_link'],
+        //     'jltma_instafeed_profile_link' => $settings['jltma_instafeed_profile_link'],
+        //     'jltma_instafeed_link_target' => $settings['jltma_instafeed_link_target']
+        // ];
 
         // if (($settings['jltma_instafeed_load_more'] == 'yes')) {
         //     echo '<div class="jltma-load-more-button-wrap">
@@ -2109,6 +3036,208 @@ class Instagram_Feed extends Widget_Base
             printf('<style>.elementor-element-%1$s .ma-el-team-carousel-prev{ left: %2$s;  } .elementor-element-%1$s .ma-el-team-carousel-next{ right: %2$s;  }</style>', $this->get_id(), '3%');
         }
     }
+
+
+
+	protected function render_swiper_navigation()
+	{
+		$settings = $this->get_settings_for_display();
+		$this->add_render_attribute([
+			'navigation' => [
+				'class' => [
+					'jltma-arrows',
+					'jltma-swiper__navigation',
+					'jltma-swiper__navigation--' . $settings['arrows_placement'],
+					'jltma-swiper__navigation--' . $settings['arrows_position'],
+					'jltma-swiper__navigation--' . $settings['arrows_position_vertical']
+				],
+			],
+		]);
+	?>
+		<div <?php echo $this->get_render_attribute_string('navigation'); ?>>
+			<?php
+			$this->render_swiper_arrows();
+			?>
+		</div>
+	<?php
+	}
+
+
+
+	public function render_swiper_pagination()
+	{
+		$settings = $this->get_settings_for_display();
+		if ('yes' !== $settings['carousel_pagination'])
+			return;
+
+		$this->add_render_attribute('pagination', 'class', [
+			'jltma-swiper__pagination',
+			'jltma-swiper__pagination--' . $settings['carousel_direction'],
+			'jltma-swiper__pagination--' . $settings['pagination_position'],
+			'jltma-swiper__pagination-' . $this->get_id(),
+			'swiper-pagination',
+		]);
+
+	?>
+		<div <?php echo $this->get_render_attribute_string('pagination'); ?>>
+		</div>
+	<?php
+	}
+
+	protected function render_swiper_arrows()
+	{
+		$settings = $this->get_settings_for_display();
+		if ('yes' !== $settings['carousel_arrows'])
+			return;
+
+		$prev = is_rtl() ? 'right' : 'left';
+		$next = is_rtl() ? 'left' : 'right';
+
+		$this->add_render_attribute([
+			'button-prev' => [
+				'class' => [
+					'jltma-swiper__button',
+					'jltma-swiper__button--prev',
+					'jltma-arrow',
+					'jltma-arrow--prev',
+					'jltma-swiper__button--prev-' . $this->get_id(),
+				],
+			],
+			'button-prev-icon' => [
+				'class' => 'eicon-chevron-' . $prev,
+			],
+			'button-next' => [
+				'class' => [
+					'jltma-swiper__button',
+					'jltma-swiper__button--next',
+					'jltma-arrow',
+					'jltma-arrow--next',
+					'jltma-swiper__button--next-' . $this->get_id(),
+				],
+			],
+			'button-next-icon' => [
+				'class' => 'eicon-chevron-' . $next,
+			],
+		]);
+
+	?><div <?php echo $this->get_render_attribute_string('button-prev'); ?>>
+			<i <?php echo $this->get_render_attribute_string('button-prev-icon'); ?>></i>
+		</div>
+		<div <?php echo $this->get_render_attribute_string('button-next'); ?>>
+			<i <?php echo $this->get_render_attribute_string('button-next-icon'); ?>></i>
+		</div><?php
+}
+
+
+
+
+    public function kite_pretty_number( $x = 0 ) {
+        $x = (int) $x;
+
+        if ( $x > 1000000 ) {
+            return floor( $x / 1000000 ) . 'M';
+        }
+
+        if ( $x > 10000 ) {
+            return floor( $x / 1000 ) . 'k';
+        }
+        return $x;
+    }
+
+
+	public function kite_scrape_instagram( $username, $slice = 9 ) {
+		$username       = strtolower( $username );
+		$by_hashtag     = ( substr( $username, 0, 1 ) == '#' );
+		$transient_name = 'instagram-media-new-' . sanitize_title_with_dashes( $username );
+		$instagram      = get_transient( $transient_name );
+
+		if ( false === $instagram ) {
+
+			$request_param = ( $by_hashtag ) ? 'explore/tags/' . substr( $username, 1 ) : trim( $username );
+			$remote        = wp_remote_get( 'https://instagram.com/' . $request_param );
+			if ( is_wp_error( $remote ) ) {
+				return new WP_Error( 'site_down', esc_html__( 'Unable to communicate with Instagram.', 'pinkmart' ) );
+			}
+
+			if ( 200 != wp_remote_retrieve_response_code( $remote ) ) {
+				return new WP_Error( 'invalid_response', esc_html__( 'Instagram did not return a 200.', 'pinkmart' ) );
+			}
+			$instagram = kite_instagram_decode( $remote['body'], false, $by_hashtag );
+			// do not set an empty transient - should help catch private or empty accounts
+			if ( ! empty( $instagram ) && ! is_wp_error( $instagram ) ) {
+				$instagram = maybe_serialize( $instagram );
+				set_transient( $transient_name, $instagram, apply_filters( 'null_instagram_cache_time', DAY_IN_SECONDS * 2 ) );
+			}
+		}
+		if ( ! empty( $instagram ) && ! is_wp_error( $instagram ) ) {
+			$instagram = maybe_unserialize( $instagram );
+			return array_slice( $instagram, 0, $slice );
+		} else {
+			return new WP_Error( 'no_images', esc_html__( 'Instagram did not return any images.', 'pinkmart' ) );
+		}
+	}
+
+    public function kite_instagram_decode( $insta_html_response, $ajax_request = false, $by_hashtag ) {
+        if ( empty( $insta_html_response ) ) {
+            return;
+        }
+        $shards     = explode( 'window._sharedData = ', $insta_html_response );
+        $insta_json = explode( ';</script>', $shards[1] );
+        if ( $ajax_request ) {
+            $insta_array = json_decode( stripslashes( $insta_json[0] ), true );
+        } else {
+            $insta_array = json_decode( $insta_json[0], true );
+        }
+        if ( ! $insta_array ) {
+            return new WP_Error( 'bad_json', esc_html__( 'Instagram has returned invalid data.', 'pinkmart' ) );
+        }
+
+        if ( isset( $insta_array['entry_data']['ProfilePage'][0]['graphql']['user']['edge_owner_to_timeline_media']['edges'] ) ) {
+            $images = $insta_array['entry_data']['ProfilePage'][0]['graphql']['user']['edge_owner_to_timeline_media']['edges'];
+        } elseif ( $by_hashtag && isset( $insta_array['entry_data']['TagPage'][0]['graphql']['hashtag']['edge_hashtag_to_media']['edges'] ) ) {
+            $images = $insta_array['entry_data']['TagPage'][0]['graphql']['hashtag']['edge_hashtag_to_media']['edges'];
+        } else {
+            return new WP_Error( 'bad_json_2', esc_html__( 'Instagram has returned invalid data.', 'pinkmart' ) );
+        }
+
+        if ( ! is_array( $images ) ) {
+            return new WP_Error( 'bad_array', esc_html__( 'Instagram has returned invalid data.', 'pinkmart' ) );
+        }
+
+        $instagram = array();
+
+        foreach ( $images as $image ) {
+            $image = $image['node'];
+
+            $caption = esc_html__( 'Instagram Image', 'pinkmart' );
+            if ( ! empty( $image['edge_media_to_caption']['edges'][0]['node']['text'] ) ) {
+                $caption = $image['edge_media_to_caption']['edges'][0]['node']['text'];
+            }
+
+            $image['thumbnail_src'] = preg_replace( '/^https:/i', '', $image['thumbnail_src'] );
+            $image['thumbnail']     = preg_replace( '/^https:/i', '', $image['thumbnail_resources'][0]['src'] );
+            $image['medium']        = preg_replace( '/^https:/i', '', $image['thumbnail_resources'][2]['src'] );
+            $image['large']         = $image['thumbnail_src'];
+
+            $type = ( $image['is_video'] ) ? 'video' : 'image';
+
+            $instagram[] = array(
+                'description' => $caption,
+                'link'        => '//instagram.com/p/' . $image['shortcode'],
+                'comments'    => $image['edge_media_to_comment']['count'],
+                'likes'       => $image['edge_liked_by']['count'],
+                'thumbnail'   => $image['thumbnail'],
+                'medium'      => $image['medium'],
+                'large'       => $image['large'],
+                'type'        => $type,
+            );
+        }
+        return $instagram;
+    }
+
+
+
+
 
     protected function render_editor_script()
     {

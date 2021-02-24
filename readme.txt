@@ -400,6 +400,7 @@ Paste on your Local Computer
 * Updated: Image Carousel - Carousel updated with Swiper Compatibility
 * Updated: Logo Slider - Carousel updated with Swiper Compatibility
 * Updated: Twitter Slider - Carousel updated with Swiper Compatibility
+* Updated: Instagram Feed Slider - Carousel updated with Swiper Compatibility
 
 
 = 1.5.6.2 (24-01-2021) =

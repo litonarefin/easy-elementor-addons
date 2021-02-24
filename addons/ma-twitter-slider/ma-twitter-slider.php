@@ -19,7 +19,7 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Group_Control_Text_Shadow;
 
-
+// Master Addons Classes
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
 
@@ -368,7 +368,7 @@ class Twitter_Slider extends Widget_Base
 				'mobile_default' 		=> '1',
 				'frontend_available' 	=> true,
 				'condition' 		=> [
-					'ma_el_blog_carousel_direction' => 'horizontal',
+					'carousel_direction' => 'horizontal',
 				],
 			]
 		);
@@ -1790,24 +1790,21 @@ class Twitter_Slider extends Widget_Base
         // Now display the tweets, if we can.
         if ($tweets) {
 
-
-		$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
-
-		$this->add_render_attribute([
-			'swiper-item' => [
-				'class' => [
-					'jltma-twitter_slider__item',
-					'jltma-swiper__slide',
-					'swiper-slide',
-				],
-			],
-		]);
+            $this->add_render_attribute([
+                'swiper-item' => [
+                    'class' => [
+                        'jltma-twitter_slider__item',
+                        'jltma-swiper__slide',
+                        'swiper-slide',
+                    ],
+                ],
+            ]);
 
 
             foreach ((array) $tweets as $t) {  ?>
                 <div <?php echo $this->get_render_attribute_string('swiper-item'); ?>>
-                    <!-- <div class="card text-center">
-                            <div class="card-body"> -->
+                    <div class="card text-center">
+                            <div class="card-body">
                     <?php if ('yes' === $settings['jltma_ts_show_avatar']) : ?>
 
                         <?php if ('yes' === $settings['jltma_ts_avatar_link']) : ?>
@@ -1863,8 +1860,8 @@ class Twitter_Slider extends Widget_Base
                         <?php } ?>
 
                     </div>
-                    <!-- </div>
-                        </div> -->
+                    </div>
+                        </div>
                 </div>
 
             <?php } // endforeach

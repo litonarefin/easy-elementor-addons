@@ -1433,7 +1433,7 @@
                             speed 							: elementSettings.duration_speed.size || 500,
                             resistance 						: elementSettings.resistance_ratio.size || 0.25,
                             autoplaySpeed 					: elementSettings.autoplay ? elementSettings.autoplay_speed : false,
-                            slidesPerView 					: elementSettings.per_view_mobile,
+                            slidesPerView 					: elementSettings.slides_per_view_mobile,
                             slidesPerColumn 				:  'vertical' === elementSettings.carousel_direction ? 1 : elementSettings.slides_per_column_mobile,
                             slidesPerGroup 					: elementSettings.slides_to_scroll_mobile,
                             spaceBetween 					: elementSettings.columns_spacing_mobile.size || 0,
@@ -1455,13 +1455,13 @@
                             slideChangeTriggerResize 		: 'yes' === elementSettings.slide_change_resize,
                             breakpoints 		: {
                                 tablet : {
-                                    slidesPerView 	: elementSettings.per_view_tablet,
+                                    slidesPerView 	: elementSettings.slides_per_view_tablet,
                                     slidesPerColumn : 'vertical' === elementSettings.carousel_direction ? 1 : elementSettings.slides_per_column_tablet,
                                     slidesPerGroup 	: elementSettings.slides_to_scroll_tablet,
                                     spaceBetween 	: elementSettings.columns_spacing_tablet.size || 0,
                                 },
                                 desktop : {
-                                    slidesPerView 	: elementSettings.per_view,
+                                    slidesPerView 	: elementSettings.slides_per_view,
                                     slidesPerColumn : 'vertical' === elementSettings.carousel_direction ? 1 : elementSettings.slides_per_column,
                                     slidesPerGroup 	: elementSettings.slides_to_scroll,
                                     spaceBetween 	: elementSettings.columns_spacing.size || 0,
@@ -1777,7 +1777,7 @@
                         speed 							: elementSettings.duration_speed.size || 500,
                         resistance 						: elementSettings.resistance_ratio.size || 0.25,
                         autoplaySpeed 					: elementSettings.autoplay ? elementSettings.autoplay_speed : false,
-                        slidesPerView 					: elementSettings.per_view_mobile,
+                        slidesPerView 					: elementSettings.slides_per_view_mobile,
                         slidesPerColumn 				:  'vertical' === elementSettings.carousel_direction ? 1 : elementSettings.slides_per_column_mobile,
                         slidesPerGroup 					: elementSettings.slides_to_scroll_mobile,
                         spaceBetween 					: elementSettings.columns_spacing_mobile.size || 0,
@@ -1799,13 +1799,13 @@
                         slideChangeTriggerResize 		: 'yes' === elementSettings.slide_change_resize,
                         breakpoints 		: {
                             tablet : {
-                                slidesPerView 	: elementSettings.per_view_tablet,
+                                slidesPerView 	: elementSettings.slides_per_view_tablet,
                                 slidesPerColumn : 'vertical' === elementSettings.carousel_direction ? 1 : elementSettings.slides_per_column_tablet,
                                 slidesPerGroup 	: elementSettings.slides_to_scroll_tablet,
                                 spaceBetween 	: elementSettings.columns_spacing_tablet.size || 0,
                             },
                             desktop : {
-                                slidesPerView 	: elementSettings.per_view,
+                                slidesPerView 	: elementSettings.slides_per_view,
                                 slidesPerColumn : 'vertical' === elementSettings.carousel_direction ? 1 : elementSettings.slides_per_column,
                                 slidesPerGroup 	: elementSettings.slides_to_scroll,
                                 spaceBetween 	: elementSettings.columns_spacing.size || 0,
@@ -1813,7 +1813,6 @@
                         },
                     },
                     default : {
-                        effect 			: 'slide',
                         slidesPerView 	: 1,
                         slidesPerGroup 	: 1,
                         slidesPerColumn : 1,
@@ -1822,13 +1821,13 @@
                             tablet : {
                                 slidesPerView 	: 2,
                                 slidesPerGroup 	: 1,
-                                slidesPerColumn : 2,
+                                slidesPerColumn : 1,
                                 spaceBetween 	: 12,
                             },
                             desktop : {
-                                slidesPerView 	: 3,
+                                slidesPerView 	: 4,
                                 slidesPerGroup 	: 1,
-                                slidesPerColumn : 3,
+                                slidesPerColumn : 1,
                                 spaceBetween 	: 24,
                             },
                         },
@@ -1848,6 +1847,10 @@
             });
 
             Master_Addons.MA_Twitter_Slider.init();
+
+
+
+
 
         },
 

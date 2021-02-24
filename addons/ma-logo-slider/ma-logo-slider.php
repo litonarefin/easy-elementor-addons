@@ -426,7 +426,7 @@ class Logo_Slider extends Widget_Base
 				'tablet_default' 		=> '3',
 				'mobile_default' 		=> '2',
 				'condition' 		=> [
-					'ma_el_blog_carousel_direction' => 'horizontal',
+					'carousel_direction' => 'horizontal',
 				],
 			]
 		);
