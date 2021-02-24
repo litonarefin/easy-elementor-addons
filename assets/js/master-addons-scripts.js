@@ -1385,7 +1385,7 @@
                 var elementSettings     = getElementSettings( $scope ),
                     uniqueId 		    = getUniqueLoopScopeId( $scope ),
                     scopeId 		    = $scope.data('id'),
-                    $imageCarousel 	    = $scope.find('.ma-el-image-carousel'),
+                    $imageCarousel 	    = $scope.find('.jltma-image-carousel'),
                     $swiper 	        = $scope.find('.jltma-swiper__container');
 
                 // Lightbox Enable
@@ -1428,7 +1428,7 @@
                             autoHeight 						: 'yes' === elementSettings.autoheight,
                             autoplay 						: 'yes' === elementSettings.autoplay,
                             loop 							: 'yes' === elementSettings.loop,
-                            direction 						: elementSettings.carousel_direction,
+                            direction 						: elementSettings.carousel_direction ? elementSettings.carousel_direction : 'horizontal',
                             effect 							: elementSettings.slide_effect,
                             speed 							: elementSettings.duration_speed.size || 500,
                             resistance 						: elementSettings.resistance_ratio.size || 0.25,
@@ -1481,7 +1481,7 @@
                                     spaceBetween 	: 12,
                                 },
                                 desktop : {
-                                    slidesPerView 	: 3,
+                                    slidesPerView 	: 4,
                                     slidesPerGroup 	: 1,
                                     slidesPerColumn : 1,
                                     spaceBetween 	: 24,
@@ -1669,23 +1669,23 @@
 
         /**** MA Logo Slider ****/
 
-        MA_Logo_Slider: function ($scope, $) {
+        // MA_Logo_Slider: function ($scope, $) {
 
-            Master_Addons.MA_Logo_Slider.elementSettings    = getElementSettings( $scope );
+        //     Master_Addons.MA_Logo_Slider.elementSettings    = getElementSettings( $scope );
 
-            var $logSliderWrapper   = $scope.find('.jltma-logo-slider').eq(0),
-                $logo_slider_nav    = Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_nav,
-                // $loop = ($logSliderWrapper.data("loop") !== undefined) ? $logSliderWrapper.data("loop") : false,
-                $slidesToShow       = Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_show,
-                start               = elementorFrontend.config.is_rtl ? 'right' : 'left',
-                end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',
-                $slidesToScroll     = Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_scroll;
-
-
+        //     var $logSliderWrapper   = $scope.find('.jltma-logo-slider').eq(0),
+        //         $logo_slider_nav    = Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_nav,
+        //         // $loop = ($logSliderWrapper.data("loop") !== undefined) ? $logSliderWrapper.data("loop") : false,
+        //         $slidesToShow       = Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_show,
+        //         start               = elementorFrontend.config.is_rtl ? 'right' : 'left',
+        //         end                 = elementorFrontend.config.is_rtl ? 'left' : 'right',
+        //         $slidesToScroll     = Master_Addons.MA_Logo_Slider.elementSettings.jltma_logo_slider_slides_to_scroll;
 
 
 
-        },
+
+
+        // },
 
 
         /**** MA Advanced Image ****/
@@ -2964,7 +2964,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-instagram-feed.default', Master_Addons.MA_Instagram_Feed);
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-toggle-content.default', Master_Addons.MA_Toggle_Content);
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-comments.default', Master_Addons.MA_Comment_Form_reCaptcha);
-        elementorFrontend.hooks.addAction('frontend/element_ready/jltma-logo-slider.default', Master_Addons.MA_Logo_Slider);
+        elementorFrontend.hooks.addAction('frontend/element_ready/jltma-logo-slider.default', Master_Addons.MA_Image_Carousel);
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-twitter-slider.default', Master_Addons.MA_Twitter_Slider);
         elementorFrontend.hooks.addAction('frontend/element_ready/jltma-advanced-image.default', Master_Addons.MA_Advanced_Image);
 

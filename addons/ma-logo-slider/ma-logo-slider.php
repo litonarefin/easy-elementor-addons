@@ -390,7 +390,7 @@ class Logo_Slider extends Widget_Base
 				'mobile_default'	=> 'horizontal',
 				'options' 			=> [
 					'horizontal' 	=> __('Horizontal', MELA_TD),
-					'vertical' 		=> __('Vertical', MELA_TD),
+					'' 		=> __('Default', MELA_TD),
 				],
 				'frontend_available' 	=> true
 			]
@@ -422,6 +422,9 @@ class Logo_Slider extends Widget_Base
 				'label' 				=> __('Slides Per Column', MELA_TD),
 				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_view,
 				'frontend_available' 	=> true,
+				'default'        		=> '4',
+				'tablet_default' 		=> '3',
+				'mobile_default' 		=> '2',
 				'condition' 		=> [
 					'ma_el_blog_carousel_direction' => 'horizontal',
 				],
@@ -1864,7 +1867,7 @@ class Logo_Slider extends Widget_Base
 		$this->add_render_attribute([
 			'jltma-logo-carousel-wrapper' => [
 				'class' => [
-					'jltma-logo-carousel-wrapper',
+					'jltma-image-carousel-wrapper',
 					'jltma-swiper',
 					'jltma-swiper__container',
 					'swiper-container',
@@ -1874,19 +1877,11 @@ class Logo_Slider extends Widget_Base
 			],
 			'swiper-wrapper' => [
 				'class' => [
-					'jltma-logo-carousel',
+					'jltma-image-carousel',
 					'jltma-swiper__wrapper',
 					'swiper-wrapper',
 				],
-			],
-
-			'swiper-item' => [
-				'class' => [
-					'jltma-slider__item',
-					'jltma-swiper__slide',
-					'swiper-slide',
-				],
-			],
+			]
 		]);
 ?>
 
@@ -1941,6 +1936,17 @@ class Logo_Slider extends Widget_Base
                             $this->add_render_attribute($repeater_key, 'href', esc_url($item['jltma_logo_slider_website_link']['url']));
                             $this->add_render_attribute($repeater_key, 'title', $item['jltma_logo_slider_brand_name']);
                         }
+
+                        // Slider Items
+                        $this->add_render_attribute([
+                            $repeater_key => [
+                                'class' => [
+                                    'jltma-slider__item',
+                                    'jltma-swiper__slide',
+                                    'swiper-slide',
+                                ],
+                            ]
+                        ]);
 
                         // Tooltips
                         if ($item['jltma_logo_slider_brand_name'] and $item['jltma_logo_slider_brand_description'] and $item['jltma_logo_slider_item_logo_tooltip'] == "yes") {

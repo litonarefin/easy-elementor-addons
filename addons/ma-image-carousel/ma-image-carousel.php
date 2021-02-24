@@ -422,9 +422,12 @@ class Image_Carousel extends Widget_Base
 				'type' 					=> Controls_Manager::SELECT,
 				'label' 				=> __('Slides Per Column', MELA_TD),
 				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_view,
+				'default'        		=> '4',
+				'tablet_default' 		=> '3',
+				'mobile_default' 		=> '2',
 				'frontend_available' 	=> true,
-				'condition' 		=> [
-					'carousel_direction' => 'horizontal',
+				'condition' 			=> [
+					'carousel_direction' 	=> 'horizontal',
 				],
 			]
 		);
@@ -1557,118 +1560,137 @@ class Image_Carousel extends Widget_Base
 			{
 				$settings = $this->get_settings_for_display();
 
-				if (empty($settings['jltma_image_carousel_items'])) {
+				$slider_items = $settings['jltma_image_carousel_items'];
+
+				if (empty($slider_items)) {
 					return;
 				}
 
-				foreach ($settings['jltma_image_carousel_items'] as $index => $item) {
-					$slider_image = wp_get_attachment_image_url($item['jltma_image_carousel_img']['id'], $item['jltma_image_carousel_image_size']);
 
-					// $repeater_key = 'carousel_item' . $index;
-					$tag = 'div';
-					$image_alt = esc_html($item['title']) . ' : ' . esc_html($item['subtitle']);
+                if (count($slider_items) > 1) {
+                    $demo_images = [];
 
-					// $repeater_key 				= $this->get_repeater_setting_key('title', 'jltma_image_carousel_items', $index);
-					$repeater_key = 'carousel_item' . $index;
-					$this->add_render_attribute([
-						$repeater_key => [
-							'class' => [
-								'jltma-slider__item',
-								'jltma-swiper__slide',
-								'swiper-slide',
-							],
-						]
-					]);
+                    if (empty($slider_items[0]['jltma_image_carousel_img']) && empty($slider_items[1]['jltma_image_carousel_img']) && empty($slider_items[0]['jltma_image_carousel_img'])) {
+                        $demo_images[] = Master_Addons_Helper::jltma_placeholder_images();
+                    }
+
+					foreach ($slider_items as $index => $item) {
+
+                        $images = $item['jltma_image_carousel_img'];
+                        if (empty($images)) {
+                            $images = $demo_images;
+                        }
+
+						// $repeater_key = 'carousel_item' . $index;
+						$tag = 'div';
+						$image_alt = esc_html($item['title']) . ' : ' . esc_html($item['subtitle']);
+
+						// $repeater_key 				= $this->get_repeater_setting_key('title', 'jltma_image_carousel_items', $index);
+						$repeater_key = 'carousel_item' . $index;
+						$this->add_render_attribute([
+							$repeater_key => [
+								'class' => [
+									'jltma-slider__item',
+									'jltma-swiper__slide',
+									'swiper-slide',
+								],
+							]
+						]);
 
 
-					$tag = 'div';
-					$image_alt = esc_html($item['jltma_logo_slider_brand_name']) . ' : ' . esc_html($item['jltma_logo_slider_brand_description']);
-					$title_html_tag = ($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
-					$this->add_render_attribute($repeater_key, 'class', 'jltma-logo-slider-item');
+						$tag = 'div';
+						$image_alt = esc_html($item['title']) . esc_html($item['subtitle']);
+						$title_html_tag = ($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
+						$this->add_render_attribute($repeater_key, 'class', 'jltma-logo-slider-item');
 
-					// Website Links
-					if ((isset($item['link']['url']) && $item['link']['url']) || $settings['jltma_image_carousel_enable_lightbox'] == "yes") {
-						$tag = 'a';
-						$this->add_render_attribute($repeater_key, 'class', 'jltma-image-slider-link');
-						$this->add_render_attribute($repeater_key, 'target', '_blank');
-						$this->add_render_attribute($repeater_key, 'rel', 'noopener');
-						$this->add_render_attribute($repeater_key, 'href', esc_url($item['link']['url']));
-						$this->add_render_attribute($repeater_key, 'title', $item['title']);
-					}
-
-					// Lightbox Conditions
-					if ($settings['jltma_image_carousel_enable_lightbox'] == "yes") {
-
-						if ($settings['jltma_image_carousel_lightbox_library'] === 'fancybox'){
-
-							$anchor_type = (empty($item['link']['url']) ? 'jltma-click-anywhere' : 'jltma-click-icon');
-
-							$thumbnail_src = wp_get_attachment_image_src($item['jltma_image_carousel_img']['id'],'full');
-
-							if ($thumbnail_src)
-								$thumbnail_src = $thumbnail_src[0];
-
-							$this->add_render_attribute([
-								$repeater_key => [
-									'class' => [
-										'jltma-lightbox-item ' . $anchor_type,
-										'elementor-clickable',
-										'ma-el-fancybox'
-									],
-									'href' => $item['jltma_image_carousel_img']['url'],
-									'data-elementor-open-lightbox' => "yes",
-									'data-elementor-lightbox-slideshow' => esc_attr($this->get_id()),
-									'title' => esc_html($item['title']),
-									'data-description'=> wp_kses_post($item['subtitle'])
-								]
-							]);
-
-						} elseif ($settings['jltma_image_carousel_lightbox_library'] === 'elementor'){
-
-							$this->add_render_attribute([
-								$repeater_key => [
-									'class' => [
-										'jltma-lightbox-item' . $anchor_type
-									],
-									'data-thumb'=> $thumbnail_src,
-									'href'=> $item['jltma_image_carousel_img']['url'],
-									'data-elementor-open-lightbox'=>"no",
-									'title' =>  esc_html($item['title']),
-									'data-description'=> wp_kses_post($item['subtitle'])
-								]
-							]);
+						// Website Links
+						if ((isset($item['link']['url']) && $item['link']['url']) || $settings['jltma_image_carousel_enable_lightbox'] == "yes") {
+							$tag = 'a';
+							$this->add_render_attribute($repeater_key, 'class', 'jltma-image-slider-link');
+							$this->add_render_attribute($repeater_key, 'target', '_blank');
+							$this->add_render_attribute($repeater_key, 'rel', 'noopener');
+							$this->add_render_attribute($repeater_key, 'href', esc_url($item['link']['url']));
+							$this->add_render_attribute($repeater_key, 'title', $item['title']);
 						}
-					}
-				?>
 
+						// Lightbox Conditions
+						if ($settings['jltma_image_carousel_enable_lightbox'] == "yes") {
 
-					<<?php echo $tag; ?> <?php echo $this->get_render_attribute_string($repeater_key); ?>>
-						<figure class="jltma-image-carousel-figure">
+							if ($settings['jltma_image_carousel_lightbox_library'] === 'fancybox'){
 
-							<?php
-								if ($settings['jltma_image_carousel_enable_lightbox'] == "yes") {
-									echo '<i class="eicon eicon-slider-full-screen"></i>';
-								}
+								$anchor_type = (empty($item['link']['url']) ? 'jltma-click-anywhere' : 'jltma-click-icon');
 
-								echo wp_get_attachment_image(
-									$item['jltma_image_carousel_img']['id'],
-									$item['jltma_image_carousel_image_size'],
-									false,
-									[
-										'class' => 'jltma-carousel-img elementor-animation-',
-										'alt' => esc_attr($image_alt),
+								$thumbnail_src = wp_get_attachment_image_src($item['jltma_image_carousel_img']['id'],'full');
+
+								if ($thumbnail_src)
+									$thumbnail_src = $thumbnail_src[0];
+
+								$this->add_render_attribute([
+									$repeater_key => [
+										'class' => [
+											'jltma-lightbox-item ' . $anchor_type,
+											'elementor-clickable',
+											'ma-el-fancybox'
+										],
+										'href' => $item['jltma_image_carousel_img']['url'],
+										'data-elementor-open-lightbox' => "yes",
+										'data-elementor-lightbox-slideshow' => esc_attr($this->get_id()),
+										'title' => esc_html($item['title']),
+										'data-description'=> wp_kses_post($item['subtitle'])
 									]
-								);
+								]);
 
-								$this->jltma_image_carousel_title_subtitle();
-							?>
-						</figure>
+							} elseif ($settings['jltma_image_carousel_lightbox_library'] === 'elementor'){
 
-					</<?php echo $tag; ?>>
+								$this->add_render_attribute([
+									$repeater_key => [
+										'class' => [
+											'jltma-lightbox-item' . $anchor_type
+										],
+										'data-thumb'=> $thumbnail_src,
+										'href'=> $item['jltma_image_carousel_img']['url'],
+										'data-elementor-open-lightbox'=>"no",
+										'title' =>  esc_html($item['title']),
+										'data-description'=> wp_kses_post($item['subtitle'])
+									]
+								]);
+							}
+						}
+					?>
+						<<?php echo $tag; ?> <?php echo $this->get_render_attribute_string($repeater_key); ?>>
+							<figure class="jltma-image-carousel-figure">
 
-				<?php
+								<?php
+									if ($settings['jltma_image_carousel_enable_lightbox'] == "yes") {
+										echo '<i class="eicon eicon-slider-full-screen"></i>';
+									}
 
-				}  // end of foreach
+
+									if (isset($item['jltma_image_carousel_img']['id']) && $item['jltma_image_carousel_img']['id']) {
+										echo wp_get_attachment_image(
+											$item['jltma_image_carousel_img']['id'],
+											$item['jltma_image_carousel_image_size'],
+											false,
+											[
+												'class' => 'jltma-carousel-img elementor-animation-',
+												'alt' => esc_attr($image_alt),
+											]
+										);
+									} else {
+										echo "<img src=" . $images['url'] . ">";
+									}
+
+									$this->jltma_image_carousel_title_subtitle();
+								?>
+							</figure>
+
+						</<?php echo $tag; ?>>
+
+					<?php
+
+					}  // end of foreach
+
+				}
 
 			}
 
