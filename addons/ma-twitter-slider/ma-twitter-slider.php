@@ -350,9 +350,9 @@ class Twitter_Slider extends Widget_Base
 				'type'           		=> Controls_Manager::SELECT,
 				'label'          		=> esc_html__('Slides Per View', MELA_TD),
 				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_view,
-				'default'        		=> '4',
-				'tablet_default' 		=> '3',
-				'mobile_default' 		=> '2',
+				'default'        		=> '1',
+				'tablet_default' 		=> '1',
+				'mobile_default' 		=> '1',
 				'frontend_available' 	=> true,
 			]
 		);
@@ -363,6 +363,9 @@ class Twitter_Slider extends Widget_Base
 				'type' 					=> Controls_Manager::SELECT,
 				'label' 				=> __('Slides Per Column', MELA_TD),
 				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_view,
+				'default'        		=> '1',
+				'tablet_default' 		=> '1',
+				'mobile_default' 		=> '1',
 				'frontend_available' 	=> true,
 				'condition' 		=> [
 					'ma_el_blog_carousel_direction' => 'horizontal',
@@ -1915,9 +1918,6 @@ class Twitter_Slider extends Widget_Base
 
 		$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
 
-        $this->add_render_attribute('jltma_twitter_slider', 'id', 'jltma-twitter-slider-' . $this->get_id());
-        $this->add_render_attribute('jltma_twitter_slider', 'class', 'jltma-twitter-slider jltma-carousel text-center');
-
 		$this->add_render_attribute([
 			'jltma_twitter_slider' => [
 				'class' => [
@@ -1925,11 +1925,11 @@ class Twitter_Slider extends Widget_Base
 					'jltma-swiper',
 					'jltma-swiper__container',
 					'swiper-container',
-                    'jltma-arrows-dots-align-' . $settings['jltma_ts_both_position'],
-                    'jltma-arrows-align-' . $settings['jltma_ts_arrows_position'],
+                    // 'jltma-arrows-dots-align-' . $settings['jltma_ts_both_position'],
+                    // 'jltma-arrows-align-' . $settings['jltma_ts_arrows_position'],
 					'elementor-twitter-slider-element-' . $unique_id
 				],
-                'id'   => 'jltma-twitter-slider-' . $this->get_id(),
+                // 'id'   => 'jltma-twitter-slider-' . $this->get_id(),
 				'data-image-carousel-template-widget-id' => $unique_id
 			],
 			'swiper-wrapper' => [
@@ -1953,7 +1953,7 @@ class Twitter_Slider extends Widget_Base
                 $settings = $this->get_settings();
                 ?>
 
-                </div>
+                </div> <!-- swiper-wrapper -->
 
 				<?php
 				$this->render_swiper_navigation();
