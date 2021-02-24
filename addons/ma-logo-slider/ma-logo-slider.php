@@ -1916,7 +1916,7 @@ class Logo_Slider extends Widget_Base
                     $demo_images = [];
 
                     if (empty($slider_items[0]['jltma_logo_slider_image_normal']) && empty($slider_items[1]['jltma_logo_slider_image_normal']) && empty($slider_items[0]['jltma_logo_slider_image_normal'])) {
-                        $demo_images[] = $this->get_placeholder_images();
+                        $demo_images[] = Master_Addons_Helper::jltma_placeholder_images();
                     }
 
                     foreach ($slider_items as $index => $item) {
@@ -1925,8 +1925,6 @@ class Logo_Slider extends Widget_Base
                         if (empty($images)) {
                             $images = $demo_images;
                         }
-
-                        $slider_image = wp_get_attachment_image_url($item['jltma_logo_slider_image_normal']['id'], $item['normal_img_thumb_size']);
 
                         $repeater_key = 'carousel_item' . $index;
                         $tag = 'div';
@@ -1957,17 +1955,21 @@ class Logo_Slider extends Widget_Base
                             <figure class="jltma-logo-slider-figure">
 
                                 <?php
-                                if ($slider_image) {
-                                    echo wp_get_attachment_image(
-                                        $item['jltma_logo_slider_image_normal']['id'],
-                                        $item['normal_img_thumb_size'],
-                                        false,
-                                        [
-                                            'class' => 'jltma-logo-slider-img elementor-animation-' . esc_attr($settings['jltma_logo_slider_carousel_hover_animation']),
-                                            'alt' => esc_attr($image_alt),
-                                        ]
-                                    );
-                                }
+                                    if (!empty($images)) {
+                                        if (isset($item['jltma_logo_slider_image_normal']['id']) && $item['jltma_logo_slider_image_normal']['id']) {
+                                            echo wp_get_attachment_image(
+                                                $item['jltma_logo_slider_image_normal']['id'],
+                                                $item['normal_img_thumb_size'],
+                                                false,
+                                                [
+                                                    'class' => 'jltma-logo-slider-img elementor-animation-' . esc_attr($settings['jltma_logo_slider_carousel_hover_animation']),
+                                                    'alt' => esc_attr($image_alt),
+                                                ]
+                                            );
+                                        } else {
+                                            echo "<img src=" . $images['url'] . ">";
+                                        }
+                                    }
                                 ?>
 
                             </figure>
