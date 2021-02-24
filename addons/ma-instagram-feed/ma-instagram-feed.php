@@ -3031,9 +3031,8 @@ class Instagram_Feed extends Widget_Base
             }
         }
 
-
-        if ('inner' == $settings['jltma_instafeed_carousel_arrow_style']) {
-            printf('<style>.elementor-element-%1$s .ma-el-team-carousel-prev{ left: %2$s;  } .elementor-element-%1$s .ma-el-team-carousel-next{ right: %2$s;  }</style>', $this->get_id(), '3%');
+        if ('inner' == $settings['arrows_placement']) {
+            printf('<style>.elementor-element-%1$s .jltma-arrow--prev{ left: %2$s;  } .elementor-element-%1$s .jltma-arrow--next{ right: %2$s;  }</style>', $this->get_id(), '3%');
         }
     }
 
@@ -3146,7 +3145,7 @@ class Instagram_Feed extends Widget_Base
 			if ( 200 != wp_remote_retrieve_response_code( $remote ) ) {
 				return new WP_Error( 'invalid_response', esc_html__( 'Instagram did not return a 200.', MELA_TD ) );
 			}
-			$instagram = $this->jltma_instagram_decode( $remote['body'], false, $by_hashtag );
+			$instagram = jltma_instagram_decode( $remote['body'], false, $by_hashtag );
 			// do not set an empty transient - should help catch private or empty accounts
 			if ( ! empty( $instagram ) && ! is_wp_error( $instagram ) ) {
 				$instagram = maybe_serialize( $instagram );
@@ -3161,65 +3160,6 @@ class Instagram_Feed extends Widget_Base
 		}
 	}
 
-    public function jltma_instagram_decode( $insta_html_response, $ajax_request = false, $by_hashtag ) {
-        if ( empty( $insta_html_response ) ) {
-            return;
-        }
-        $shards     = explode( 'window._sharedData = ', $insta_html_response );
-        $insta_json = explode( ';</script>', $shards[1] );
-        if ( $ajax_request ) {
-            $insta_array = json_decode( stripslashes( $insta_json[0] ), true );
-        } else {
-            $insta_array = json_decode( $insta_json[0], true );
-        }
-        if ( ! $insta_array ) {
-            return new WP_Error( 'bad_json', esc_html__( 'Instagram has returned invalid data.', MELA_TD ) );
-        }
-
-        if ( isset( $insta_array['entry_data']['ProfilePage'][0]['graphql']['user']['edge_owner_to_timeline_media']['edges'] ) ) {
-            $images = $insta_array['entry_data']['ProfilePage'][0]['graphql']['user']['edge_owner_to_timeline_media']['edges'];
-        } elseif ( $by_hashtag && isset( $insta_array['entry_data']['TagPage'][0]['graphql']['hashtag']['edge_hashtag_to_media']['edges'] ) ) {
-            $images = $insta_array['entry_data']['TagPage'][0]['graphql']['hashtag']['edge_hashtag_to_media']['edges'];
-        } else {
-            return new WP_Error( 'bad_json_2', esc_html__( 'Instagram has returned invalid data.', MELA_TD ) );
-        }
-
-        if ( ! is_array( $images ) ) {
-            return new WP_Error( 'bad_array', esc_html__( 'Instagram has returned invalid data.', MELA_TD ) );
-        }
-
-        $instagram = array();
-
-        foreach ( $images as $image ) {
-            $image = $image['node'];
-
-            $caption = esc_html__( 'Instagram Image', MELA_TD );
-            if ( ! empty( $image['edge_media_to_caption']['edges'][0]['node']['text'] ) ) {
-                $caption = $image['edge_media_to_caption']['edges'][0]['node']['text'];
-            }
-
-            $image['thumbnail_src'] = preg_replace( '/^https:/i', '', $image['thumbnail_src'] );
-            $image['thumbnail']     = preg_replace( '/^https:/i', '', $image['thumbnail_resources'][0]['src'] );
-            $image['medium']        = preg_replace( '/^https:/i', '', $image['thumbnail_resources'][2]['src'] );
-            $image['large']         = $image['thumbnail_src'];
-
-            $type = ( $image['is_video'] ) ? 'video' : 'image';
-
-            $instagram[] = array(
-                'description' => $caption,
-                'link'        => '//instagram.com/p/' . $image['shortcode'],
-                'comments'    => $image['edge_media_to_comment']['count'],
-                'likes'       => $image['edge_liked_by']['count'],
-                'thumbnail'   => $image['thumbnail'],
-                'medium'      => $image['medium'],
-                'large'       => $image['large'],
-                'type'        => $type,
-            );
-        }
-        return $instagram;
-    }
-
-
 	function jltma_pretty_number( $x = 0 ) {
 		$x = (int) $x;
 
@@ -3232,8 +3172,6 @@ class Instagram_Feed extends Widget_Base
 		}
 		return $x;
 	}
-
-
 
 
     protected function render_editor_script()

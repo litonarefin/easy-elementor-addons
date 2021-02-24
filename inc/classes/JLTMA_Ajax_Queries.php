@@ -6,7 +6,6 @@
     use MasterAddons\Master_Elementor_Addons;
     use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
-
 	/**
 	 * Author Name: Liton Arefin
 	 * Author URL: https://jeweltheme.com
@@ -50,7 +49,7 @@
         }
 
 
-        function jltma_instagram_generate_dom() {
+        public function jltma_instagram_generate_dom() {
 
             $insta_data = $_POST['insta_data'];
             $insta_html = $_POST['insta_html'];

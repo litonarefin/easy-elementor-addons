@@ -1849,9 +1849,6 @@
             Master_Addons.MA_Twitter_Slider.init();
 
 
-
-
-
         },
 
 
@@ -2064,13 +2061,16 @@
         // Instagram Feed
         MA_Instagram_Feed: function ($scope, $) {
 
-            var $instagramWrapper = $scope.find(".jltma-instagram-feed"),
-                $insta_data = $instagramWrapper.data("settings"),
-                $insta_carousel_data = $instagramWrapper.data("slider-settings"),
-                $insta_lightbox_data = $instagramWrapper.data("lightbox-settings"),
-                $layout = $insta_data.layout,
-                $gallery = $(this),
-                $scope = $(".elementor-element-"+ $insta_data.container_id +"");
+            var elementSettings         = getElementSettings( $scope ),
+                uniqueId 		        = getUniqueLoopScopeId( $scope ),
+                scopeId 		        = $scope.data('id'),
+                $instagramWrapper       = $scope.find(".jltma-instagram-feed"),
+                $insta_data             = $instagramWrapper.data("settings"),
+                $insta_carousel_data    = $instagramWrapper.data("slider-settings"),
+                $insta_lightbox_data    = $instagramWrapper.data("lightbox-settings"),
+                $layout                 = $insta_data.layout,
+                $gallery                = $(this),
+                $scope                  = $(".elementor-element-"+ $insta_data.container_id +"");
 
                 // Carousel Layout
                 if($layout == 'carousel'){

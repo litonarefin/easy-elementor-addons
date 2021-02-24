@@ -2020,16 +2020,15 @@ class Logo_Slider extends Widget_Base
             /*
     * Render Footer
     */
-            public function jltma_render_logo_slider_footer($settings)
-            {
+	public function jltma_render_logo_slider_footer($settings)
+	{
+		$settings = $this->get_settings_for_display(); ?>
 
-                $settings = $this->get_settings_for_display(); ?>
-
-            </div>
-				<?php
-				$this->render_swiper_navigation();
-				$this->render_swiper_pagination();
-				?>
+		</div>
+			<?php
+			$this->render_swiper_navigation();
+			$this->render_swiper_pagination();
+			?>
         </div>
         <!--/.jltma-logo-slider-->
 
@@ -2124,30 +2123,29 @@ class Logo_Slider extends Widget_Base
 		<div <?php echo $this->get_render_attribute_string('button-next'); ?>>
 			<i <?php echo $this->get_render_attribute_string('button-next-icon'); ?>></i>
 		</div><?php
+	}
+
+
+	public function render()
+	{
+
+		$settings = $this->get_settings_for_display();
+
+		$this->jltma_render_logo_slider_header($settings);
+		$this->jltma_render_logo_slider_loop_item($settings);
+		$this->jltma_render_logo_slider_footer($settings);
+	}
+
+
+	/**
+		* Render logo box widget output in the editor.
+		*
+		* Written as a Backbone JavaScript template and used to generate the live preview.
+		*
+		* @since 1.0.0
+		* @access protected
+		*/
+	protected function _content_template()
+	{
+	}
 }
-
-
-            public function render()
-            {
-
-                $settings = $this->get_settings_for_display();
-
-                $this->jltma_render_logo_slider_header($settings);
-                $this->jltma_render_logo_slider_loop_item($settings);
-                $this->jltma_render_logo_slider_footer($settings);
-            }
-
-
-
-            /**
-             * Render logo box widget output in the editor.
-             *
-             * Written as a Backbone JavaScript template and used to generate the live preview.
-             *
-             * @since 1.0.0
-             * @access protected
-             */
-            protected function _content_template()
-            {
-            }
-        }
