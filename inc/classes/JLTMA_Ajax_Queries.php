@@ -5,7 +5,7 @@
 
     use MasterAddons\Master_Elementor_Addons;
     use MasterAddons\Inc\Helper\Master_Addons_Helper;
-    
+
 
 	/**
 	 * Author Name: Liton Arefin
@@ -28,7 +28,7 @@
 
 
 		public function __construct() {
-            
+
             // $this->loaded_templates[] = $this->loaded_templates;
 
             // Restrict Content
@@ -48,6 +48,61 @@
 
 
         }
+
+
+        function jltma_instagram_generate_dom() {
+
+            $insta_data = $_POST['insta_data'];
+            $insta_html = $_POST['insta_html'];
+            if ( empty( $insta_html ) ) {
+                die();
+            }
+            $instagram = jltma_instagram_decode( $insta_html, true, $insta_data['hashtag'] );
+            if ( is_wp_error( $instagram ) ) {
+                die();
+            }
+            $i                   = 1;
+            $transient_name      = 'instagram-media-new-' . sanitize_title_with_dashes( $insta_data['username'] );
+            $instagram_serialize = maybe_serialize( $instagram );
+            set_transient( $transient_name, $instagram_serialize, apply_filters( 'null_instagram_cache_time', DAY_IN_SECONDS * 2 ) );
+            foreach ( $instagram as $item ) {
+
+                if ( $i > $insta_data['image_num'] ) {
+                    break;
+                }
+                $i++;
+
+                if ( $insta_data['resolution'] == 'low_resolution' || $insta_data['resolution'] == 'low_resolution_crop' || $insta_data['resolution'] == 'standard_resolution' || $insta_data['image_resolution'] == 'standard_resolution_crop' ) {
+                    $image = $item['large'];
+                } else {
+                    $image = $item[ $insta_data['resolution'] ];
+                }
+
+                $media_tag = "<img src=\"data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==\" class=\"media\" data-src=\"{$image}\" />";
+
+                $content  = '<div class="instagram-img ' . esc_attr( $insta_data['carousel'] ) . ' " >';
+                $content .= '<a  href="' . esc_url( $item['link'] ) . '" target="_blank">';
+
+                $content .= '<img src="' . esc_url( $image ) . '" alt="instagram_feed"/>';
+
+                $content .= '<div class="hover"></div>
+                        <div class="content">';
+
+                if ( $insta_data['like'] == 'enable' ) {
+                    $content .= '<span class="like">' . $this->jltma_pretty_number( $item['likes'] ) . '</span>';
+                }
+
+                if ( $insta_data['comment'] == 'enable' ) {
+                    $content .= '<span class="comment">' . $this->jltma_pretty_number( $item['comments'] ) . '</span>';
+                }
+
+                $content .= '</div>';
+
+                // output media
+                echo '' . $content . '</a></div>';
+            }
+
+
 
         public function jltma_register_ajax_actions( $ajax_manager ) {
             $ajax_manager->register_ajax_action( 'jltma_query_control_value_titles', [ $this, 'jltma_ajax_call_control_value_titles' ] );
@@ -73,7 +128,7 @@
             return [
                 'results' => $results,
             ];
-        }    
+        }
 
         // Gets autocomplete values for 'posts' query type
         protected function get_autocomplete_for_posts( $data ) {
@@ -158,7 +213,7 @@
             return $results;
         }
 
-    
+
         // Restrict Content
 		public function ma_el_restrict_content() {
 

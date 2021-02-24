@@ -3129,23 +3129,7 @@ class Instagram_Feed extends Widget_Base
 }
 
 
-
-
-    public function kite_pretty_number( $x = 0 ) {
-        $x = (int) $x;
-
-        if ( $x > 1000000 ) {
-            return floor( $x / 1000000 ) . 'M';
-        }
-
-        if ( $x > 10000 ) {
-            return floor( $x / 1000 ) . 'k';
-        }
-        return $x;
-    }
-
-
-	public function kite_scrape_instagram( $username, $slice = 9 ) {
+	public function jltma_scrape_instagram( $username, $slice = 9 ) {
 		$username       = strtolower( $username );
 		$by_hashtag     = ( substr( $username, 0, 1 ) == '#' );
 		$transient_name = 'instagram-media-new-' . sanitize_title_with_dashes( $username );
@@ -3156,13 +3140,13 @@ class Instagram_Feed extends Widget_Base
 			$request_param = ( $by_hashtag ) ? 'explore/tags/' . substr( $username, 1 ) : trim( $username );
 			$remote        = wp_remote_get( 'https://instagram.com/' . $request_param );
 			if ( is_wp_error( $remote ) ) {
-				return new WP_Error( 'site_down', esc_html__( 'Unable to communicate with Instagram.', 'pinkmart' ) );
+				return new WP_Error( 'site_down', esc_html__( 'Unable to communicate with Instagram.', MELA_TD ) );
 			}
 
 			if ( 200 != wp_remote_retrieve_response_code( $remote ) ) {
-				return new WP_Error( 'invalid_response', esc_html__( 'Instagram did not return a 200.', 'pinkmart' ) );
+				return new WP_Error( 'invalid_response', esc_html__( 'Instagram did not return a 200.', MELA_TD ) );
 			}
-			$instagram = kite_instagram_decode( $remote['body'], false, $by_hashtag );
+			$instagram = $this->jltma_instagram_decode( $remote['body'], false, $by_hashtag );
 			// do not set an empty transient - should help catch private or empty accounts
 			if ( ! empty( $instagram ) && ! is_wp_error( $instagram ) ) {
 				$instagram = maybe_serialize( $instagram );
@@ -3173,11 +3157,11 @@ class Instagram_Feed extends Widget_Base
 			$instagram = maybe_unserialize( $instagram );
 			return array_slice( $instagram, 0, $slice );
 		} else {
-			return new WP_Error( 'no_images', esc_html__( 'Instagram did not return any images.', 'pinkmart' ) );
+			return new WP_Error( 'no_images', esc_html__( 'Instagram did not return any images.', MELA_TD ) );
 		}
 	}
 
-    public function kite_instagram_decode( $insta_html_response, $ajax_request = false, $by_hashtag ) {
+    public function jltma_instagram_decode( $insta_html_response, $ajax_request = false, $by_hashtag ) {
         if ( empty( $insta_html_response ) ) {
             return;
         }
@@ -3189,7 +3173,7 @@ class Instagram_Feed extends Widget_Base
             $insta_array = json_decode( $insta_json[0], true );
         }
         if ( ! $insta_array ) {
-            return new WP_Error( 'bad_json', esc_html__( 'Instagram has returned invalid data.', 'pinkmart' ) );
+            return new WP_Error( 'bad_json', esc_html__( 'Instagram has returned invalid data.', MELA_TD ) );
         }
 
         if ( isset( $insta_array['entry_data']['ProfilePage'][0]['graphql']['user']['edge_owner_to_timeline_media']['edges'] ) ) {
@@ -3197,11 +3181,11 @@ class Instagram_Feed extends Widget_Base
         } elseif ( $by_hashtag && isset( $insta_array['entry_data']['TagPage'][0]['graphql']['hashtag']['edge_hashtag_to_media']['edges'] ) ) {
             $images = $insta_array['entry_data']['TagPage'][0]['graphql']['hashtag']['edge_hashtag_to_media']['edges'];
         } else {
-            return new WP_Error( 'bad_json_2', esc_html__( 'Instagram has returned invalid data.', 'pinkmart' ) );
+            return new WP_Error( 'bad_json_2', esc_html__( 'Instagram has returned invalid data.', MELA_TD ) );
         }
 
         if ( ! is_array( $images ) ) {
-            return new WP_Error( 'bad_array', esc_html__( 'Instagram has returned invalid data.', 'pinkmart' ) );
+            return new WP_Error( 'bad_array', esc_html__( 'Instagram has returned invalid data.', MELA_TD ) );
         }
 
         $instagram = array();
@@ -3209,7 +3193,7 @@ class Instagram_Feed extends Widget_Base
         foreach ( $images as $image ) {
             $image = $image['node'];
 
-            $caption = esc_html__( 'Instagram Image', 'pinkmart' );
+            $caption = esc_html__( 'Instagram Image', MELA_TD );
             if ( ! empty( $image['edge_media_to_caption']['edges'][0]['node']['text'] ) ) {
                 $caption = $image['edge_media_to_caption']['edges'][0]['node']['text'];
             }
@@ -3235,6 +3219,19 @@ class Instagram_Feed extends Widget_Base
         return $instagram;
     }
 
+
+	function jltma_pretty_number( $x = 0 ) {
+		$x = (int) $x;
+
+		if ( $x > 1000000 ) {
+			return floor( $x / 1000000 ) . 'M';
+		}
+
+		if ( $x > 10000 ) {
+			return floor( $x / 1000 ) . 'k';
+		}
+		return $x;
+	}
 
 
 
