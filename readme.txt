@@ -401,6 +401,8 @@ Paste on your Local Computer
 * Updated: Logo Slider - Carousel updated with Swiper Compatibility
 * Updated: Twitter Slider - Carousel updated with Swiper Compatibility
 * Removed: "Instagram Feed" removed due to recent update of Instagram API changes
+* Updated: Repeater Fields not working on Editor and having a gray color background issue fixed for - Advanced Accordion, Animated Headlines, Business Hours, Changelogs, Image Filterable Gallery, Image Carousel, Image Hotspot, Image Hover Effects, Logo Slider, Pricing Table, Slider Element, Dynamic Table, Avanced Tabs, Timeline, Toggle Content etc
+* Updated: Dual Heading - First Heading and Description Alignment not working issue fixed. Conditions applied for First Heading and Description alignment
 
 
 = 1.5.6.2 (24-01-2021) =

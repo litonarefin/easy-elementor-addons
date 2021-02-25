@@ -142,10 +142,6 @@ class Dual_Heading extends Widget_Base
 				'type' 			=> Controls_Manager::URL,
 				'placeholder' 	=> esc_html__('https://master-addons.com', MELA_TD),
 				'label_block' 	=> true,
-				'default' => [
-					'url' => '#',
-					'is_external' => true,
-				],
 				'condition' 	=> [
 					'ma_el_dual_heading_styles_preset' => '-style2',
 				],
@@ -306,7 +302,7 @@ class Dual_Heading extends Widget_Base
 			[
 				'label' => esc_html__('Alignment', MELA_TD),
 				'type' => Controls_Manager::CHOOSE,
-				'label_block' => true,
+				'label_block' => false,
 				'options' => [
 					'left' => [
 						'title' => esc_html__('Left', MELA_TD),
@@ -323,7 +319,10 @@ class Dual_Heading extends Widget_Base
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-section-title' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-dual-heading-title' => 'text-align: {{VALUE}};',
+				],
+				'condition' 	=> [
+					'ma_el_dual_heading_styles_preset' => '-style2',
 				],
 			]
 		);
@@ -459,7 +458,7 @@ class Dual_Heading extends Widget_Base
 			[
 				'label' => esc_html__('Alignment', MELA_TD),
 				'type' => Controls_Manager::CHOOSE,
-				'label_block' => true,
+				'label_block' => false,
 				'options' => [
 					'left' => [
 						'title' => esc_html__('Left', MELA_TD),
@@ -477,6 +476,9 @@ class Dual_Heading extends Widget_Base
 				'default' => 'center',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-section-description' => 'text-align: {{VALUE}};',
+				],
+				'condition' 	=> [
+					'ma_el_dual_heading_styles_preset' => '-style2',
 				],
 			]
 		);
