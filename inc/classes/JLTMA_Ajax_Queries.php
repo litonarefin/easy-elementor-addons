@@ -38,10 +38,6 @@
             add_action('wp_ajax_jltma_domain_checker', array( $this,'jltma_domain_checker' ));
             add_action('wp_ajax_nopriv_jltma_domain_checker', array( $this,'jltma_domain_checker' ));
 
-            //Instagram Feed
-            // add_action('wp_ajax_jltma_instafeed_load_more_action', [$this, 'jltma_instafeed_render_items' ] );
-            // add_action('wp_ajax_nopriv_jltma_instafeed_load_more_action', [$this, 'jltma_instafeed_render_items'] );
-
             // Elementor Ajax Requests
             add_action( 'elementor/ajax/register_actions', [ $this, 'jltma_register_ajax_actions' ] );
 
