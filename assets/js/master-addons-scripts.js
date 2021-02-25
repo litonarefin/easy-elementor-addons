@@ -2075,79 +2075,58 @@
                 // Carousel Layout
                 if($layout == 'carousel'){
 
-                    var $carousel_nav       = $insta_carousel_data.carousel_nav,
-                        $loop               = ($insta_carousel_data.loop !== undefined) ? $insta_carousel_data.loop : false,
-                        $slidesToShow       = $insta_carousel_data.slidestoshow,
-                        $slidesToScroll     = $insta_carousel_data.slidestoscroll,
-                        $autoPlay           = ( $insta_carousel_data.autoplay !== undefined) ? $insta_carousel_data.autoplay : false,
-                        $autoplaySpeed      = ($insta_carousel_data.autoplayspeed) ? $insta_carousel_data.autoplayspeed : '2400',
-                        $transitionSpeed    = $insta_carousel_data.speed,
-                        $pauseOnHover       = ($insta_carousel_data.pauseonHover !== undefined) ? $insta_carousel_data.pauseonHover : false,
-                        $direction          = $insta_carousel_data.direction;
-                        // $adaptiveHeight     = $insta_carousel_data.autoHeight;
-
-
-                    // Instagram Slider Carousel
-                    if ($carousel_nav == "arrows") {
-                        var arrows = true;
-                        var dots = false;
-                    } else {
-                        var arrows = false;
-                        var dots = true;
-                    }
-
-                    $("#jltma-instagram-" + $insta_data.container_id).slick({
-                        infinite: $loop,
-                        rtl: $direction,
-                        slidesToShow: $slidesToShow,
-                        slidesToScroll: $slidesToScroll,
-                        autoplay: $autoPlay,
-                        autoplaySpeed: $autoplaySpeed,
-                        speed: $transitionSpeed,
-                        mobileFirst:true,
-                        pauseOnHover: $pauseOnHover,
-                        // adaptiveHeight: $adaptiveHeight,
-                        dots: dots,
-                        arrows: arrows,
-                        prevArrow: "<div class='ma-el-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-                        nextArrow: "<div class='ma-el-team-carousel-next'><i class='fa fa-angle-right'></i></div>",
-                        rows: 0,
-                        lazyLoad: 'ondemand',
-                        touchMove: true,
-                        responsive: [
-                            {
-                                breakpoint: 480,
-                                settings: {
-                                    dots: dots,
-                                    arrow: arrows,
-                                    slidesToShow: 1,
-                                    rows:1,
-                                    slidesPerRow:1,
-                                    slidesToScroll: 1
-                                }
-                            },
-                            {
-                                breakpoint: 600,
-                                settings: {
-                                    dots: dots,
-                                    arrow: arrows,
-                                    slidesToShow: 2,
-                                    slidesToScroll: 2
-                                }
-                            },
-                            {
-                                breakpoint: 1024,
-                                settings: {
-                                    slidesToShow: 3,
-                                    slidesToScroll: 3,
-                                    infinite: true,
-                                    centerMode: false,
-                                    dots: dots,
-                                    arrow: arrows
-                                }
-                            },
-                        ],
-                    });
+                    // $("#jltma-instagram-" + $insta_data.container_id).slick({
+                    //     infinite: $loop,
+                    //     rtl: $direction,
+                    //     slidesToShow: $slidesToShow,
+                    //     slidesToScroll: $slidesToScroll,
+                    //     autoplay: $autoPlay,
+                    //     autoplaySpeed: $autoplaySpeed,
+                    //     speed: $transitionSpeed,
+                    //     mobileFirst:true,
+                    //     pauseOnHover: $pauseOnHover,
+                    //     // adaptiveHeight: $adaptiveHeight,
+                    //     dots: dots,
+                    //     arrows: arrows,
+                    //     prevArrow: "<div class='ma-el-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
+                    //     nextArrow: "<div class='ma-el-team-carousel-next'><i class='fa fa-angle-right'></i></div>",
+                    //     rows: 0,
+                    //     lazyLoad: 'ondemand',
+                    //     touchMove: true,
+                    //     responsive: [
+                    //         {
+                    //             breakpoint: 480,
+                    //             settings: {
+                    //                 dots: dots,
+                    //                 arrow: arrows,
+                    //                 slidesToShow: 1,
+                    //                 rows:1,
+                    //                 slidesPerRow:1,
+                    //                 slidesToScroll: 1
+                    //             }
+                    //         },
+                    //         {
+                    //             breakpoint: 600,
+                    //             settings: {
+                    //                 dots: dots,
+                    //                 arrow: arrows,
+                    //                 slidesToShow: 2,
+                    //                 slidesToScroll: 2
+                    //             }
+                    //         },
+                    //         {
+                    //             breakpoint: 1024,
+                    //             settings: {
+                    //                 slidesToShow: 3,
+                    //                 slidesToScroll: 3,
+                    //                 infinite: true,
+                    //                 centerMode: false,
+                    //                 dots: dots,
+                    //                 arrow: arrows
+                    //             }
+                    //         },
+                    //     ],
+                    // });
 
 
                 }

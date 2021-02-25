@@ -39,6 +39,8 @@
             add_action('wp_ajax_nopriv_jltma_domain_checker', array( $this,'jltma_domain_checker' ));
 
             //Instagram Feed
+            add_action('wp_ajax_jltma_instagram_generate_dom', [$this, 'jltma_instagram_generate_dom' ] );
+            add_action('wp_ajax_nopriv_jltma_instagram_generate_dom', [$this, 'jltma_instagram_generate_dom'] );
             // add_action('wp_ajax_jltma_instafeed_load_more_action', [$this, 'jltma_instafeed_render_items' ] );
             // add_action('wp_ajax_nopriv_jltma_instafeed_load_more_action', [$this, 'jltma_instafeed_render_items'] );
 

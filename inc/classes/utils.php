@@ -420,7 +420,7 @@ function jltma_update_options($option_name, $option_value)
 }
 
 
-public function jltma_instagram_decode( $insta_html_response, $ajax_request = false, $by_hashtag ) {
+function jltma_instagram_decode( $insta_html_response, $ajax_request = false, $by_hashtag ) {
 	if ( empty( $insta_html_response ) ) {
 		return;
 	}
@@ -450,6 +450,7 @@ public function jltma_instagram_decode( $insta_html_response, $ajax_request = fa
 	$instagram = array();
 
 	foreach ( $images as $image ) {
+
 		$image = $image['node'];
 
 		$caption = esc_html__( 'Instagram Image', MELA_TD );
@@ -462,18 +463,50 @@ public function jltma_instagram_decode( $insta_html_response, $ajax_request = fa
 		$image['medium']        = preg_replace( '/^https:/i', '', $image['thumbnail_resources'][2]['src'] );
 		$image['large']         = $image['thumbnail_src'];
 
+
+		$followers	= $insta_array['entry_data']['ProfilePage'][0]['graphql']['user']['edge_followed_by']['count'];
+		$follow 	= $insta_array['entry_data']['ProfilePage'][0]['graphql']['user']['edge_follow']['count'];
+		$fullname 	= $insta_array['entry_data']['ProfilePage'][0]['graphql']['user']['full_name'];
+		$username	= $insta_array['entry_data']['ProfilePage'][0]['graphql']['user']['username'];
+		$profilepic = $insta_array['entry_data']['ProfilePage'][0]['graphql']['user']['profile_pic_url_hd'];
+
+
+
 		$type = ( $image['is_video'] ) ? 'video' : 'image';
 
 		$instagram[] = array(
-			'description' => $caption,
-			'link'        => '//instagram.com/p/' . $image['shortcode'],
-			'comments'    => $image['edge_media_to_comment']['count'],
-			'likes'       => $image['edge_liked_by']['count'],
-			'thumbnail'   => $image['thumbnail'],
-			'medium'      => $image['medium'],
-			'large'       => $image['large'],
-			'type'        => $type,
+			'description' 		=> $caption,
+			'link'        		=> '//instagram.com/p/' . $image['shortcode'],
+			'comments'    		=> $image['edge_media_to_comment']['count'],
+			'likes'       		=> $image['edge_liked_by']['count'],
+			'thumbnail'   		=> $image['thumbnail'],
+			'medium'      		=> $image['medium'],
+			'large'       		=> $image['large'],
+			'type'        		=> $type,
+			'created'			=> $image['taken_at_timestamp'],
+			'original' 			=> $image['display_url'],
+            'fullname' 			=> $fullname,
+            'username' 			=> $username,
+            'followers' 		=> $followers,
+            'follow' 			=> $follow,
+            'profilepic' 		=> $profilepic
 		);
+
+		// print_r($instagram);
 	}
+
 	return $instagram;
+}
+
+function jltma_pretty_number( $x = 0 ) {
+	$x = (int) $x;
+
+	if ( $x > 1000000 ) {
+		return floor( $x / 1000000 ) . 'M';
+	}
+
+	if ( $x > 10000 ) {
+		return floor( $x / 1000 ) . 'k';
+	}
+	return $x;
 }

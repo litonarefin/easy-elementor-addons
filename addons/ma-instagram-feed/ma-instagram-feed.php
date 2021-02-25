@@ -104,15 +104,23 @@ class Instagram_Feed extends Widget_Base
             ]
         );
 
+        // $this->add_control(
+        //     'jltma_instafeed_access_token',
+        //     [
+        //         'label' => esc_html__('Access Token', MELA_TD),
+        //         'type' => Controls_Manager::TEXT,
+        //         'label_block' => true,
+        //         'default' => esc_html__('36409282899.8f4c5bf.2b5a056d124f4b83aa8bd90824d229d9', MELA_TD),
+        //         'description' => '<a href="https://www.jetseotools.com/instagram-access-token/" class="jtlma-btn" target="_blank">Get Access Token</a>', MELA_TD,
+        //     ]
+        // );
+
         $this->add_control(
-            'jltma_instafeed_access_token',
-            [
-                'label' => esc_html__('Access Token', MELA_TD),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'default' => esc_html__('36409282899.8f4c5bf.2b5a056d124f4b83aa8bd90824d229d9', MELA_TD),
-                'description' => '<a href="https://www.jetseotools.com/instagram-access-token/" class="jtlma-btn" target="_blank">Get Access Token</a>', MELA_TD,
-            ]
+        	'jltma_instafeed_username',
+        	[
+        		'label'     => esc_html__( 'Username', MELA_TD ),
+        		'type'      => Controls_Manager::TEXT
+        	]
         );
 
         // $this->add_control(
@@ -2510,7 +2518,7 @@ class Instagram_Feed extends Widget_Base
                     </span>
                 </a>
             </span>
-            <?php }
+        <?php }
     }
 
 
@@ -2530,24 +2538,17 @@ class Instagram_Feed extends Widget_Base
             $settings = $this->get_settings();
         }
 
-        $key = 'jltma_instafeed_' . str_replace('.', '_', $settings['jltma_instafeed_access_token']);
+        // $key = 'jltma_instafeed_' . str_replace('.', '_', $settings['jltma_instafeed_access_token']);
         $html = '';
 
-        if (get_transient($key) === false) {
+        $jltma_insta_username = $settings['jltma_instafeed_username'];
+        $posts_count          = $settings['jltma_instafeed_image_count']['size'];
+        $image_resolution     = $settings['jltma_instafeed_image_size'];
 
-            // Show Feed by Username/Tags
-            $instagram_data = wp_remote_retrieve_body(wp_remote_get('https://api.instagram.com/v1/users/self/media/recent/?access_token=' . $settings['jltma_instafeed_access_token']));
-            //     $instagram_data = wp_remote_retrieve_body('https://api.instagram.com/v1/tags/' . $settings['jltma_instafeed_tags'] . '/media/recent?access_token=' . $settings['jltma_instafeed_access_token'] );
+        $instagram_data  = $this->jltma_scrape_instagram($jltma_insta_username, $posts_count);
+        print_r($instagram_data);
 
-            set_transient($key, $instagram_data, 1800);
-        } else {
-            $instagram_data = get_transient($key);
-        }
-
-        $instagram_data = json_decode($instagram_data, true);
-
-
-        if (empty($instagram_data['data'])) {
+        if (empty($instagram_data)) {
             return;
         }
 
@@ -2555,39 +2556,45 @@ class Instagram_Feed extends Widget_Base
             return;
         }
 
+        if ( is_wp_error( $instagram_data ) ) {
+            if ( defined( 'WP_DEBUG' ) && defined( 'WP_DEBUG_LOG' ) ) {
+                error_log( print_r( $instagram_data, true ) );
+            }
+        }
+
         switch ($settings['jltma_instafeed_sort_by']) {
             case 'recent-posts':
-                usort($instagram_data['data'], function ($a, $b) {
+                usort($instagram_data, function ($a, $b) {
                     return $a['created_time'] < $b['created_time'];
                 });
                 break;
 
             case 'old-posts':
-                usort($instagram_data['data'], function ($a, $b) {
+                usort($instagram_data, function ($a, $b) {
                     return $a['created_time'] > $b['created_time'];
                 });
                 break;
 
             case 'most-liked':
-                usort($instagram_data['data'], function ($a, $b) {
+                usort($instagram_data, function ($a, $b) {
                     return $a['likes']['count'] <= $b['likes']['count'];
                 });
                 break;
 
             case 'less-liked':
-                usort($instagram_data['data'], function ($a, $b) {
+                usort($instagram_data, function ($a, $b) {
                     return $a['likes']['count'] >= $b['likes']['count'];
                 });
                 break;
 
             case 'most-commented':
-                usort($instagram_data['data'], function ($a, $b) {
+                usort($instagram_data, function ($a, $b) {
                     return $a['comments']['count'] <= $b['comments']['count'];
                 });
                 break;
 
             case 'less-commented':
-                usort($instagram_data['data'], function ($a, $b) {
+                usort($instagram_data, function ($a, $b) {
                     return $a['comments']['count'] >= $b['comments']['count'];
                 });
                 break;
@@ -2612,41 +2619,55 @@ class Instagram_Feed extends Widget_Base
 
         $this->add_render_attribute('jltma_insta_inner', 'class', ['jltma-instafeed-item-inner']);
 
-        if ($items = $instagram_data['data']) {
+        if ($items = $instagram_data) {
             $items = array_splice($items, ($page *  $settings['jltma_instafeed_image_count']['size']),  $settings['jltma_instafeed_image_count']['size']);
 
+            // print_r($items);
+
+            $i = 1;
             foreach ($items as $k => $item) {
+                if ( $i > $posts_count ) break;
+                $i++;
 
                 if ('yes' === $settings['jltma_instafeed_show_link']) {
                     $target = ('_blank' == $settings['jltma_instafeed_link_target']) ? 'target=_blank' : 'target=_self';
                 } else {
                     $item['link'] = '#';
                     $target = '';
-                } ?>
+                }
+
+                if ( $image_resolution == 'low_resolution' || $image_resolution == 'low_resolution_crop' || $image_resolution == 'standard_resolution' || $image_resolution == 'standard_resolution_crop' ) {
+                    $image = $item['large'];
+                } else {
+                    $image = $item[ $image_resolution ];
+                }
+                ?>
 
 
                 <?php if ($settings['jltma_instafeed_lightbox_type'] == "inline") { ?>
+
                     <div class="card" style="display:none;" id="jltma-insta-lightbox-<?php echo $this->get_id() . $k; ?>">
 
                         <div class="jltma-instafeed-item jltma-lightbox p-0 clearfix" style="background:#fff;">
 
                             <div class="float-left text-light jltma-col-6 p-0">
-                                <img class="jltma-instafeed-card-img card-img" src="<?php echo esc_url($item['images'][$settings['jltma_instafeed_image_size']]['url']); ?>">
+                                <img class="jltma-instafeed-card-img card-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo esc_url($image);?>" />
                             </div>
 
                             <div class="float-right jltma-col-6 pt-0 px-0 pb-4">
                                 <header class="jltma-instafeed-item-header media">
 
                                     <div class="jltma-instafeed-item-user clearfix media-left m-3 float-left">
-                                        <a class="align-self-center rounded-circle m-3" href="//www.instagram.com/<?php echo esc_attr($item['user']['username']); ?>">
-                                            <img class="jltma-instafeed-avatar-img rounded-circle " style="width: 85px; height: 85px;" src="<?php echo esc_url($item['user']['profile_picture']); ?>" alt="<?php echo esc_attr($item['user']['username']); ?>">
+                                        <a class="align-self-center rounded-circle m-3" href="<?php echo esc_url( $item['link'] ); ?>">
+                                            <img class="jltma-instafeed-avatar-img rounded-circle " style="width: 85px; height: 85px;" src="<?php echo esc_url($item['profilepic']); ?>"
+                                            alt="<?php echo esc_url( $item['link'] ); ?>">
                                         </a>
                                     </div>
 
                                     <div class="media-body align-self-center">
-                                        <a class="text-light" href="//www.instagram.com/<?php echo esc_attr($item['user']['username']); ?>">
+                                        <a class="text-light" href="//www.instagram.com/<?php echo esc_url( $item['link'] ); ?>">
                                             <span class="jltma-instafeed-username jltma-insta-user-meta">
-                                                <?php echo esc_html($item['user']['full_name']); ?>
+                                                <?php echo esc_html($item['full_name']); ?>
                                             </span>
                                         </a>
                                     </div>
@@ -2662,7 +2683,7 @@ class Instagram_Feed extends Widget_Base
                                             <h5>
                                                 <?php if ($settings['jltma_instafeed_show_likes'] == 'yes') { ?>
                                                     <span class="jltma-instafeed-post-likes">
-                                                        <?php echo esc_html($item['likes']['count']); ?>
+                                                        <?php echo jltma_pretty_number( $item['likes'] ); ?>
                                                     </span>
                                                 <?php } ?>
                                             </h5>
@@ -2673,7 +2694,7 @@ class Instagram_Feed extends Widget_Base
                                             <li>
                                                 <h5>
                                                     <span class="jltma-instafeed-post-comments">
-                                                        <?php echo esc_html($item['comments']['count']); ?>
+                                                        <?php echo jltma_pretty_number( $item['comments'] ); ?>
                                                     </span>
                                                 </h5>
                                                 <?php echo esc_html__('Comments', MELA_TD); ?>
@@ -2684,7 +2705,7 @@ class Instagram_Feed extends Widget_Base
                                             <li>
                                                 <h5>
                                                     <span class="jltma-instafeed-post-time">
-                                                        <?php echo date("d M Y", $item['created_time']); ?>
+                                                        <?php echo esc_html(date('d M, Y', preg_replace('/[^\d]/', '', $item['created']))); ?>
                                                     </span>
                                                 </h5>
                                                 <?php echo esc_html__('Posted on', MELA_TD); ?>
@@ -2696,18 +2717,18 @@ class Instagram_Feed extends Widget_Base
                                 <footer class="jltma-instafeed-item-footer p-4">
                                     <div class="clearfix">
 
-                                        <?php if ($settings['jltma_instafeed_show_caption'] == 'yes' && !empty($item['caption']['text'])) { ?>
+                                        <?php if ($settings['jltma_instafeed_show_caption'] == 'yes' && !empty($item['description'])) { ?>
                                             <div class="jltma-instafeed-caption">
                                                 <p class="jltma-instafeed-caption-text">
-                                                    <?php echo substr($item['caption']['text'], 0, 60); ?>...
+                                                    <?php echo substr($item['description'], 0, 60); ?>...
                                                 </p>
                                             </div>
                                         <?php } ?>
                                     </div>
 
-                                    <?php if ($settings['jltma_instafeed_view_style'] == 'outer' && $settings['jltma_instafeed_show_caption'] == "yes" && !empty($item['caption']['text'])) { ?>
+                                    <?php if ($settings['jltma_instafeed_view_style'] == 'outer' && $settings['jltma_instafeed_show_caption'] == "yes" && !empty($item['description'])) { ?>
                                         <p class="jltma-instafeed-caption-text">
-                                            <?php echo $item['caption']['text']; ?>
+                                            <?php echo $item['description']; ?>
                                         </p>
                                     <?php } ?>
                                 </footer>
@@ -2725,41 +2746,42 @@ class Instagram_Feed extends Widget_Base
                     $settings['jltma_instafeed_layout'] == 'carousel'
                 ) { ?>
 
-                    <a <?php if ($settings['jltma_instafeed_show_lightbox'] == "yes") { ?> data-fancybox="<?php echo esc_attr($settings['jltma_instafeed_lightbox_type']); ?>" <?php if ($settings['jltma_instafeed_lightbox_type'] == "images") { ?> href="<?php echo esc_url($item['images'][$settings['jltma_instafeed_image_size']]['url']); ?>" <?php if ($settings['jltma_instafeed_lightbox_caption'] == "yes") { ?> data-caption="<?php echo esc_attr($item['caption']['text']); ?>" <?php }
+                    <a <?php if ($settings['jltma_instafeed_show_lightbox'] == "yes") { ?> data-fancybox="<?php echo esc_attr($settings['jltma_instafeed_lightbox_type']); ?>" <?php if ($settings['jltma_instafeed_lightbox_type'] == "images") { ?> href="<?php echo esc_url($image);?>" <?php if ($settings['jltma_instafeed_lightbox_caption'] == "yes") { ?> data-caption="<?php echo esc_attr($item['description']); ?>" <?php }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         } elseif ($settings['jltma_instafeed_lightbox_type'] == "inline") { ?> data-src="#jltma-insta-lightbox-<?php echo $this->get_id() . $k; ?>" href="javascript:;" data-width="<?php echo esc_attr($settings['jltma_instafeed_lightbox_width']); ?>" data-height="<?php echo esc_attr($settings['jltma_instafeed_lightbox_hieght']); ?>" <?php }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         } else { ?> href="<?php echo esc_url($item['link']); ?>" <?php echo esc_attr($target); ?> <?php } ?> class="jltma-instafeed-item">
 
                         <div <?php echo $this->get_render_attribute_string('jltma_insta_inner'); ?>>
-                            <img class="jltma-instafeed-img" src="<?php echo esc_url($item['images'][$settings['jltma_instafeed_image_size']]['url']); ?>" width="<?php echo esc_attr($item['images'][$settings['jltma_instafeed_image_size']]['width']); ?>" height="<?php echo esc_attr($item['images'][$settings['jltma_instafeed_image_size']]['height']); ?>">
-
+                            <img class="jltma-instafeed-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                            width="<?php //echo esc_attr($item[$settings['jltma_instafeed_image_size']]['width']); ?>" height="<?php //echo esc_attr($item['images'][$settings['jltma_instafeed_image_size']]['height']); ?>"
+                            data-src="<?php echo esc_url($image);?>" />
 
                             <div class="jltma-instafeed-item-details">
                                 <div class="jltma-instafeed-meta">
                                     <?php if ($settings['jltma_instafeed_show_likes'] == 'yes') { ?>
                                         <span class="jltma-instafeed-post-likes">
                                             <i class="far fa-heart" aria-hidden="true"></i>
-                                            <?php echo $item['likes']['count']; ?>
+                                            <?php echo jltma_pretty_number( $item['likes'] ); ?>
                                         </span>
                                     <?php } ?>
 
                                     <?php if ($settings['jltma_instafeed_show_comments'] == "yes") { ?>
                                         <span class="jltma-instafeed-post-comments">
                                             <i class="far fa-comments" aria-hidden="true"></i>
-                                            <?php echo $item['comments']['count']; ?>
+                                            <?php echo jltma_pretty_number( $item['comments'] ); ?>
                                         </span>
                                     <?php } ?>
 
                                     <?php if ($settings['jltma_instafeed_date'] == "yes") { ?>
                                         <span class="jltma-instafeed-post-time">
                                             <i class="far fa-clock" aria-hidden="true"></i>
-                                            <?php echo esc_html(date('d M, Y', preg_replace('/[^\d]/', '', $item['created_time']))); ?>
+                                            <?php echo esc_html(date('d M, Y', preg_replace('/[^\d]/', '', $item['created']))); ?>
                                         </span>
                                     <?php } ?>
 
-                                    <?php if ($settings['jltma_instafeed_view_style'] == 'hover-info' && $settings['jltma_instafeed_show_caption'] == 'yes' && !empty($item['caption']['text'])) { ?>
+                                    <?php if ($settings['jltma_instafeed_view_style'] == 'hover-info' && $settings['jltma_instafeed_show_caption'] == 'yes' && !empty($item['caption'])) { ?>
                                         <div class="jltma-insta-caption">
                                             <p class="jltma-instafeed-caption-text">
-                                                <?php echo substr($item['caption']['text'], 0, 60); ?>
+                                                <?php echo substr($item['description'], 0, 60); ?>
                                             </p>
                                         </div>
                                     <?php } ?>
@@ -2782,22 +2804,22 @@ class Instagram_Feed extends Widget_Base
                             <header class="jltma-instafeed-item-header media">
 
                                 <div class="jltma-instafeed-item-user clearfix media-left mr-3 mb-4 float-left">
-                                    <a href="//www.instagram.com/<?php echo esc_attr($item['user']['username']); ?>">
-                                        <img src="<?php echo esc_url($item['user']['profile_picture']); ?>" alt="<?php echo esc_attr($item['user']['username']); ?>" class="jltma-instafeed-avatar-img rounded-circle align-self-center">
+                                    <a href="//www.instagram.com/<?php echo esc_url( $item['username'] ); ?>">
+                                        <img src="<?php echo esc_url($item['profilepic']); ?>" alt="<?php echo esc_url( $item['username'] ); ?>" class="jltma-instafeed-avatar-img rounded-circle align-self-center">
                                     </a>
                                 </div>
 
                                 <div class="media-body">
-                                    <a href="//www.instagram.com/<?php echo esc_attr($item['user']['username']); ?>" <?php echo esc_attr($target); ?>>
+                                    <a href="//www.instagram.com/<?php echo esc_url( $item['username'] ); ?>" <?php echo esc_attr($target); ?>>
                                         <span class="jltma-instafeed-username jltma-insta-user-meta">
-                                            <?php echo esc_html($item['user']['full_name']); ?>
+                                            <?php echo esc_html($item['fullname']); ?>
                                         </span>
                                     </a>
 
                                     <?php if ($settings['jltma_instafeed_date'] == 'yes') { ?>
                                         <span class="jltma-instafeed-post-time jltma-insta-user-meta">
                                             <i class="far fa-clock" aria-hidden="true"></i>
-                                            <?php echo esc_html(date('d M, Y', preg_replace('/[^\d]/', '', $item['created_time']))); ?>
+                                            <?php echo esc_html(date('d M, Y', preg_replace('/[^\d]/', '', $item['created']))); ?>
                                         </span>
                                     <?php } ?>
                                 </div>
@@ -2812,7 +2834,9 @@ class Instagram_Feed extends Widget_Base
                             </header>
 
                             <a href="<?php echo esc_url($item['link']); ?>" <?php echo esc_attr($target); ?> class="jltma-instafeed-item-content">
-                                <img class="jltma-instafeed-card-img" src="<?php echo esc_url($item['images'][$settings['jltma_instafeed_image_size']]['url']); ?>">
+                                <img class="jltma-instafeed-card-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                width="<?php //echo esc_attr($item[$settings['jltma_instafeed_image_size']]['width']); ?>" height="<?php //echo esc_attr($item['images'][$settings['jltma_instafeed_image_size']]['height']); ?>"
+                                data-src="<?php echo esc_url($image);?>" />
                             </a>
 
                             <footer class="jltma-instafeed-item-footer">
@@ -2821,7 +2845,7 @@ class Instagram_Feed extends Widget_Base
                                     <?php if ($settings['jltma_instafeed_show_likes'] == 'yes') { ?>
                                         <span class="jltma-instafeed-post-likes">
                                             <i class="far fa-heart" aria-hidden="true"></i>
-                                            <?php echo esc_html($item['likes']['count']); ?>
+                                            <?php echo jltma_pretty_number( $item['likes'] ); ?>
                                         </span>
 
                                     <?php }
@@ -2829,15 +2853,15 @@ class Instagram_Feed extends Widget_Base
 
                                         <span class="jltma-instafeed-post-comments">
                                             <i class="far fa-comments" aria-hidden="true"></i>
-                                            <?php echo esc_html($item['comments']['count']); ?>
+                                            <?php echo jltma_pretty_number( $item['comments'] ); ?>
                                         </span>
 
                                     <?php } ?>
                                 </div>
 
-                                <?php if ($settings['jltma_instafeed_show_caption'] == "yes" && !empty($item['caption']['text'])) { ?>
+                                <?php if ($settings['jltma_instafeed_show_caption'] == "yes" && !empty($item['description'])) { ?>
                                     <p class="jltma-instafeed-caption-text">
-                                        <?php echo substr($item['caption']['text'], 0, 60); ?>...
+                                        <?php echo substr($item['description'], 0, 60); ?>...
                                     </p>
                                 <?php } ?>
                             </footer>
@@ -2851,7 +2875,7 @@ class Instagram_Feed extends Widget_Base
 
         if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'jltma_instafeed_load_more_action') {
             wp_send_json([
-                'num_pages' => ceil(count($instagram_data['data']) / $settings['jltma_instafeed_image_count']['size']),
+                'num_pages' => ceil(count($instagram_data) / $settings['jltma_instafeed_image_count']['size']),
                 'html' => $html
             ]);
         }
@@ -2863,12 +2887,12 @@ class Instagram_Feed extends Widget_Base
     {
         $settings = $this->get_settings();
 
-        if ($settings['jltma_instafeed_show_caption'] == 'yes' && !empty($item['caption']['text'])) { ?>
+        if ($settings['jltma_instafeed_show_caption'] == 'yes' && !empty($item['description'])) { ?>
             <div class="jltma-instafeed-caption">
                 <div class="jltma-instafeed-caption-inner">
                     <div class="jltma-instafeed-meta">
                         <p class="jltma-instafeed-caption-text">
-                            <?php echo substr($item['caption']['text'], 0, 60); ?>
+                            <?php echo substr($item['description'], 0, 60); ?>
                         </p>
                     </div>
                 </div>
@@ -2880,16 +2904,6 @@ class Instagram_Feed extends Widget_Base
     protected function jltma_slider_settings()
     {
         $settings = $this->get_settings();
-
-        // $this->add_render_attribute([
-        //     'jltma_instagram' => [
-        //         'class' => implode(' ', [
-        //             'jltma-insta-slider-container',
-        //             'jltma-insta-slider-' . esc_attr($this->get_id())
-        //         ]),
-        //         'data-slider-settings' => wp_json_encode($slider_options)
-        //     ]
-        // ]);
 
 		$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
 
@@ -2931,7 +2945,6 @@ class Instagram_Feed extends Widget_Base
             $layout = 'grid';
         }
 
-
         $jltma_lightbox = ($settings['jltma_instafeed_show_lightbox'] == "yes") ? "lightbox-enabled" : "lightbox-disabled";
 
         if ($settings['jltma_instafeed_show_lightbox'] == "yes") {
@@ -2947,7 +2960,6 @@ class Instagram_Feed extends Widget_Base
 
             $this->add_render_attribute(['jltma_instagram' => ['data-lightbox-settings' => wp_json_encode($lightbox_options)]]);
         }
-
 
         // Grayscale Image
         if ($settings['jltma_instafeed_image_grayscale'] == 'yes') {
@@ -3129,6 +3141,7 @@ class Instagram_Feed extends Widget_Base
 
 
 	public function jltma_scrape_instagram( $username, $slice = 9 ) {
+
 		$username       = strtolower( $username );
 		$by_hashtag     = ( substr( $username, 0, 1 ) == '#' );
 		$transient_name = 'instagram-media-new-' . sanitize_title_with_dashes( $username );
@@ -3139,38 +3152,28 @@ class Instagram_Feed extends Widget_Base
 			$request_param = ( $by_hashtag ) ? 'explore/tags/' . substr( $username, 1 ) : trim( $username );
 			$remote        = wp_remote_get( 'https://instagram.com/' . $request_param );
 			if ( is_wp_error( $remote ) ) {
-				return new WP_Error( 'site_down', esc_html__( 'Unable to communicate with Instagram.', MELA_TD ) );
+				return new \WP_Error( 'site_down', esc_html__( 'Unable to communicate with Instagram.', MELA_TD ) );
 			}
 
 			if ( 200 != wp_remote_retrieve_response_code( $remote ) ) {
-				return new WP_Error( 'invalid_response', esc_html__( 'Instagram did not return a 200.', MELA_TD ) );
+				return new \WP_Error( 'invalid_response', esc_html__( 'Instagram did not return a 200.', MELA_TD ) );
 			}
+
 			$instagram = jltma_instagram_decode( $remote['body'], false, $by_hashtag );
+
 			// do not set an empty transient - should help catch private or empty accounts
 			if ( ! empty( $instagram ) && ! is_wp_error( $instagram ) ) {
 				$instagram = maybe_serialize( $instagram );
 				set_transient( $transient_name, $instagram, apply_filters( 'null_instagram_cache_time', DAY_IN_SECONDS * 2 ) );
 			}
 		}
+
 		if ( ! empty( $instagram ) && ! is_wp_error( $instagram ) ) {
 			$instagram = maybe_unserialize( $instagram );
 			return array_slice( $instagram, 0, $slice );
 		} else {
-			return new WP_Error( 'no_images', esc_html__( 'Instagram did not return any images.', MELA_TD ) );
+			return new \WP_Error( 'no_images', esc_html__( 'Instagram did not return any images.', MELA_TD ) );
 		}
-	}
-
-	function jltma_pretty_number( $x = 0 ) {
-		$x = (int) $x;
-
-		if ( $x > 1000000 ) {
-			return floor( $x / 1000000 ) . 'M';
-		}
-
-		if ( $x > 10000 ) {
-			return floor( $x / 1000 ) . 'k';
-		}
-		return $x;
 	}
 
 
