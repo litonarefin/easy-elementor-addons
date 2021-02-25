@@ -474,8 +474,7 @@ class Business_Hours extends Widget_Base
 						'ma_el_bh_day'      => esc_html__('Saturday', MELA_TD),
 					],
 				],
-				'fields'                => array_values($repeater->get_controls()),
-				//			    'title_field'           => '{{tab_title}}',
+				'fields' 				=> $repeater->get_controls(),
 				'title_field'           => '{{{ ma_el_bh_day }}}',
 				'condition'         => [
 					'ma_el_business_timings' => 'default',
@@ -615,7 +614,7 @@ class Business_Hours extends Widget_Base
 						'ma_el_bh_custom_day'  => __('Saturday', MELA_TD),
 					],
 				],
-				'fields'                => array_values($repeater->get_controls()),
+				'fields' 				=> $repeater->get_controls(),
 				//			    'title_field'           => '{{tab_title}}',
 				'title_field'           => '{{{ ma_el_bh_custom_day }}}',
 				'condition'         => [

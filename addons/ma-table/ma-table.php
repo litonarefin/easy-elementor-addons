@@ -292,8 +292,8 @@ class Dynamic_Table extends Widget_Base
                         'title'                                 => __('Twitter', MELA_TD),
                     ]
                 ],
-                'fields'          => array_values($repeater->get_controls()),
-                'title_field' => '{{{ title }}}'
+                'fields' 	    => $repeater->get_controls(),
+                'title_field'   => '{{{ title }}}'
             ]
         );
         $this->end_controls_section();
@@ -530,7 +530,7 @@ class Dynamic_Table extends Widget_Base
             'ma_el_table_body',
             [
                 'label'             => __('Table Body Cell', MELA_TD),
-                'type'         => Controls_Manager::REPEATER,
+                'type'              => Controls_Manager::REPEATER,
                 'seperator'         => 'before',
                 'default'     => [
                     [
@@ -587,8 +587,8 @@ class Dynamic_Table extends Widget_Base
                         'text'                                 => __('@jwthemeltd', MELA_TD),
                     ]
                 ],
-                'fields'         => array_values($repeater->get_controls()),
-                'title_field' => '{{{ text }}}'
+                'fields' 	    => $repeater->get_controls(),
+                'title_field'   => '{{{ text }}}'
             ]
         );
 

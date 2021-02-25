@@ -84,7 +84,7 @@ class Extension_Animated_Gradient_Backgrounds
 				[
 					'label' =>  __('Color', MELA_TD),
 					'type'  => Controls_Manager::REPEATER,
-					'fields'    =>  array_values($repeater->get_controls()),
+					'fields' 		=> $element->get_controls(),
 					'title_field'   =>  'Color {{{ma_el_animated_gradient_color}}}',
 					'show_label'        =>  true,
 

@@ -525,7 +525,7 @@ class Tabs extends Widget_Base
 					['ma_el_tab_title' => esc_html__('Tab Title Two', MELA_TD)],
 					['ma_el_tab_title' => esc_html__('Tab Title Three', MELA_TD)],
 				],
-				'fields'                => array_values($repeater->get_controls()),
+				'fields' 				=> $repeater->get_controls(),
 				'title_field'           => '{{ma_el_tab_title}}',
 			]
 		);

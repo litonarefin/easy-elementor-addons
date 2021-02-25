@@ -134,6 +134,8 @@ class Toggle_Content extends Widget_Base
         //     ]
         // );
 
+        $repeater = new Repeater();
+
         $repeater->add_control(
             'jltma_toggle_content_icon',
             [
@@ -264,8 +266,9 @@ class Toggle_Content extends Widget_Base
             'jltma_toggle_content_elements',
             [
                 'label'                 => esc_html__('Elements', MELA_TD),
-                'type'                     => Controls_Manager::REPEATER,
-                'default'                 => [
+                'type'                  => Controls_Manager::REPEATER,
+                'fields' 	            => $repeater->get_controls(),
+                'default'               => [
                     [
                         'jltma_toggle_content_text'     => '',
                         'jltma_toggle_content'          => esc_html__('I am the content ready to be toggled', MELA_TD),
@@ -275,7 +278,6 @@ class Toggle_Content extends Widget_Base
                         'jltma_toggle_content'          => esc_html__('I am the content of another element ready to be toggled', MELA_TD),
                     ],
                 ],
-                'fields'                 => array_values($repeater->get_controls()),
                 'title_field'             => '{{{ jltma_toggle_content_text }}}',
             ]
         );

@@ -423,7 +423,7 @@ class Pricing_Table extends Widget_Base
 			'ma_el_pricing_table_features_list',
 			[
 				'type'    => Controls_Manager::REPEATER,
-				'fields'  => array_values($repeater->get_controls()),
+				'fields'  => $repeater->get_controls(),
 				'default' => [
 					[
 						'ma_el_pricing_table_item_text' => __('Feature #1', MELA_TD),

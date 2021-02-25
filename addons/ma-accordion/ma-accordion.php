@@ -492,7 +492,7 @@ class Advanced_Accordion extends Widget_Base
 					['tab_title' => esc_html__('Accordion Tab Title 2', MELA_TD)],
 					['tab_title' => esc_html__('Accordion Tab Title 3', MELA_TD)],
 				],
-				'fields'                => array_values($repeater->get_controls()),
+				'fields' 				=> $repeater->get_controls(),
 				'title_field'           => '{{tab_title}}',
 			]
 		);

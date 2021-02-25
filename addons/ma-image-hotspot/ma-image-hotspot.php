@@ -450,7 +450,7 @@ class Image_Hotspot extends Widget_Base
 						'text' 	=> '2',
 					],
 				],
-				'fields' 		=> array_values($repeater->get_controls()),
+				'fields' 		=> $repeater->get_controls(),
 				'title_field' 	=> '{{{ ma_el_hotspot_text }}}',
 				'condition'		=> [
 					'ma_el_hotspot_image[url]!' => '',

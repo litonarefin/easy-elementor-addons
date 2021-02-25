@@ -150,7 +150,7 @@ class Changelogs extends Widget_Base
 					['ma_el_changelog_title' => esc_html__('Added', MELA_TD)],
 					['ma_el_changelog_title' => esc_html__('Fixed', MELA_TD)],
 				],
-				'fields'                => array_values($repeater->get_controls()),
+				'fields' 				=> $repeater->get_controls(),
 				'title_field'           => '{{ma_el_changelog_title}}',
 			]
 		);

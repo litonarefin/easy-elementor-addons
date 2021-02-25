@@ -692,7 +692,7 @@ class Image_Hover_Effects extends Widget_Base
 					['ma_el_main_image_desc_set2' => 'She loves the smell of the ocean'],
 					['ma_el_main_image_desc_set2' => 'And dives into the morning light']
 				],
-				'fields'                => array_values($repeater->get_controls()),
+				'fields' 				=> $repeater->get_controls(),
 				'title_field'           => '{{ma_el_main_image_desc_set2}}'
 			]
 		);
@@ -772,7 +772,7 @@ class Image_Hover_Effects extends Widget_Base
 					['ma_el_main_image_icon' => 'fab fa-twitter'],
 					['ma_el_main_image_icon' => 'fab fa-instagram'],
 				],
-				'fields'                => array_values($repeater->get_controls()),
+				'fields' 				=> $repeater->get_controls(),
 				'title_field'           => 'Social Icon'
 			]
 		);

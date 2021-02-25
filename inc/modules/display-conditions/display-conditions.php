@@ -503,12 +503,11 @@ class Display_Conditions extends JLTMA_Extension_Prototype
 				'condition'		=> [
 					'jltma_display_conditions_enable' => 'yes',
 				],
-				'fields' 		=> array_values($repeater->get_controls()),
+				'fields' 				=> $element->get_controls(),
 				'title_field' 	=> 'Condition',
 			]
 		);
 	}
-
 
 	// Get OS options for control
 	protected function get_os_options()

@@ -157,7 +157,7 @@ class Animated_Headlines extends Widget_Base
 					['ma_el_headlines_second_heading' => esc_html__('Unlimited Variations', MELA_TD)],
 					['ma_el_headlines_second_heading' => esc_html__('Unlimited Possibilities', MELA_TD)],
 				],
-				'fields'                => array_values($repeater->get_controls()),
+				'fields' 				=> $repeater->get_controls(),
 				'title_field'           => '{{ma_el_headlines_second_heading}}',
 			]
 		);
