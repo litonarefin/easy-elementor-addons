@@ -145,106 +145,27 @@ body {
     color: #fff;
 }
 
-.title-border .ma-accordion-item {
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
-    margin-bottom: 0;
-}
-.title-border .ma-accordion-item .ma-accordion-tab-title {
-    box-shadow: none;
-}
-.title-border .ma-accordion-item .ma-accordion-tab-content {
-    border-top: 1px solid #eeedf0;
-}
-.title-gradient-bg .ma-accordion-item .ma-accordion-tab-title.active,
-.title-gradient-bg .ma-accordion-item .ma-accordion-tab-title:focus,
-.title-gradient-bg .ma-accordion-item .ma-accordion-tab-title:hover {
-    background-image: -moz-linear-gradient(0deg, rgb(10, 57, 252) 0%, rgb(213, 0, 137) 100%);
-    background-image: -webkit-linear-gradient(0deg, rgb(10, 57, 252) 0%, rgb(213, 0, 137) 100%);
-    background-image: -ms-linear-gradient(0deg, rgb(10, 57, 252) 0%, rgb(213, 0, 137) 100%);
-    color: #fff;
-}
-.title-gradient-bg.ma-accordion-six .ma-accordion-item.six .ma-accordion-tab-title.active .ma-accordion-toggle-icon {
-    color: #fff;
-}
-
-.title-icon-bg.ma-accordion-seven .ma-accordion-item .ma-accordion-tab-title,
-.icon-round-bg.ma-accordion-nine .ma-accordion-item .ma-accordion-tab-title {
+.ma-accordion-icon-align-left .ma-accordion-item .ma-accordion-tab-title {
     padding-left: 75px;
     position: relative;
 }
-.ma-accordion-item .ma-accordion-tab-title .ma-accordion-tab-icon,
 .ma-accordion-item .ma-accordion-tab-title .ma-accordion-tab-icon {
-    background: #333;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
     color: #fff;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    left: 0;
-    top: 0;
     height: 100%;
-    width: 50px;
-    position: absolute;
 }
-.ma-accordion-item .ma-accordion-tab-title .ma-accordion-tab-icon i,
 .ma-accordion-item .ma-accordion-tab-title .ma-accordion-tab-icon i {
     margin-right: 0 !important;
 }
-.ma-accordion-item .ma-accordion-tab-title.active .ma-accordion-tab-icon,
 .ma-accordion-item .ma-accordion-tab-title.active .ma-accordion-tab-icon {
     background: #4b00e7;
 }
-.ma-accordion-item.seven .ma-accordion-tab-title.active .ma-accordion-toggle-icon,
-.ma-accordion-item.nine .ma-accordion-tab-title.active .ma-accordion-toggle-icon {
-    color: #4b00e7;
-}
 
-.active-bg.ma-accordion-eight .ma-accordion-item .ma-accordion-tab-title {
-    background: #fff;
-}
-.active-bg.ma-accordion-eight .ma-accordion-item .ma-accordion-tab-title.active,
-.image-bg.ma-accordion-ten .ma-accordion-item .ma-accordion-tab-title.active,
-.active-bg.ma-accordion-eight .ma-accordion-item .ma-accordion-tab-title:hover,
-.image-bg.ma-accordion-ten .ma-accordion-item .ma-accordion-tab-title:hover {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    background-image: -moz-linear-gradient(0deg, rgb(10, 57, 252) 0%, rgb(213, 0, 137) 100%);
-    background-image: -webkit-linear-gradient(0deg, rgb(10, 57, 252) 0%, rgb(213, 0, 137) 100%);
-    background-image: -ms-linear-gradient(0deg, rgb(10, 57, 252) 0%, rgb(213, 0, 137) 100%);
-    color: #fff;
-}
-.active-bg.ma-accordion-eight .ma-accordion-item.eight .ma-accordion-tab-title.active .ma-accordion-toggle-icon,
-.image-bg.ma-accordion-ten .ma-accordion-item.ten .ma-accordion-tab-title.active .ma-accordion-toggle-icon {
-    color: #fff;
-}
-.active-bg.ma-accordion-eight .ma-accordion-item .ma-accordion-tab-content {
-    background: #4b00e7;
-}
-.active-bg.ma-accordion-eight .ma-accordion-item .ma-accordion-tab-content p,
-.image-bg.ma-accordion-ten .ma-accordion-item .ma-accordion-tab-content p {
-    color: #fff;
-}
 
-/*.image-bg.ma-accordion-ten .ma-accordion-item.ten {
-    background: url(../../assets/images/bg-image.png) center center no-repeat;
-    background-size: cover;
-}*/
-.image-bg.ma-accordion-ten .ma-accordion-item.ten .ma-accordion-tab-content {
-    background: rgba(75, 0, 230, 0.7);
-}
-
-.icon-round-bg.ma-accordion-nine .ma-accordion-item .ma-accordion-tab-title {
-    border-radius: 3rem;
-    height: 50px;
-}
-.icon-round-bg.ma-accordion-nine .ma-accordion-item .ma-accordion-tab-title .ma-accordion-tab-icon {
-    border-radius: 50%;
-    height: 50px;
-}
-
-/* Tooltip Start */
+/* Tooltip rgb(94, 93, 96)/
 .ma-el-tooltip {
     transition: all 0.3s ease;
 }

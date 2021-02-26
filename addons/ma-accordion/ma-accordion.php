@@ -1031,9 +1031,23 @@ class Advanced_Accordion extends Widget_Base
 		);
 
 		$this->add_control(
+			'toggle_icon_bg',
+			[
+				'label'                 => esc_html__('Background Color', MELA_TD),
+				'type'                  => Controls_Manager::COLOR,
+				'condition'             => [
+					'toggle_icon_show' => 'yes'
+				],
+				'selectors'	=> [
+					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
 			'toggle_icon_color',
 			[
-				'label'                 => esc_html__('Color', MELA_TD),
+				'label'                 => esc_html__('Icon Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#444',
 				'selectors'	=> [
@@ -1048,7 +1062,7 @@ class Advanced_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'toggle_icon_size',
 			[
-				'label'                 => __('Size', MELA_TD),
+				'label'                 => __('Icon Size', MELA_TD),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
 					'size'	=> 16,
@@ -1072,6 +1086,18 @@ class Advanced_Accordion extends Widget_Base
 		);
 
 
+		$this->add_responsive_control(
+			'toggle_icon_padding',
+			[
+				'label'                 => esc_html__('Padding', MELA_TD),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => ['px', 'em', '%'],
+				'selectors'             => [
+					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
@@ -1081,10 +1107,21 @@ class Advanced_Accordion extends Widget_Base
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'      => 'toggle_icon_bg_color_hover',
+				'label'     => esc_html__('Background Color', MELA_TD),
+				'types'     => ['classic', 'gradient'],
+				'exclude'   => ['image'],
+				'selector'  => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-tab-title .ma-accordion-toggle-icon'
+			]
+		);
+
 		$this->add_control(
 			'toggle_icon_color_hover',
 			[
-				'label'                 => esc_html__('Color', MELA_TD),
+				'label'                 => esc_html__('Icon Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'	=> [
 					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'color: {{VALUE}};',
@@ -1098,7 +1135,7 @@ class Advanced_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'toggle_icon_size_hover',
 			[
-				'label'                 => __('Size', MELA_TD),
+				'label'                 => __('Icon Size', MELA_TD),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
 					'size'	=> 16,
@@ -1121,6 +1158,18 @@ class Advanced_Accordion extends Widget_Base
 			]
 		);
 
+		$this->add_responsive_control(
+			'toggle_icon_padding_hover',
+			[
+				'label'                 => esc_html__('Padding', MELA_TD),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => ['px', 'em', '%'],
+				'selectors'             => [
+					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
@@ -1130,10 +1179,21 @@ class Advanced_Accordion extends Widget_Base
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'      => 'toggle_icon_bg_color_active',
+				'label'     => esc_html__('Background Color', MELA_TD),
+				'types'     => ['classic', 'gradient'],
+				'exclude'   => ['image'],
+				'selector'  => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active .ma-accordion-toggle-icon'
+			]
+		);
+
 		$this->add_control(
 			'toggle_icon_color_active',
 			[
-				'label'                 => esc_html__('Color', MELA_TD),
+				'label'                 => esc_html__('Icon Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'	=> [
 					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active .ma-accordion-toggle-icon' => 'color: {{VALUE}};'
@@ -1147,7 +1207,7 @@ class Advanced_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'toggle_icon_size_active',
 			[
-				'label'                 => __('Size', MELA_TD),
+				'label'                 => __('Icon Size', MELA_TD),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
 					'size'	=> 16,
@@ -1167,6 +1227,18 @@ class Advanced_Accordion extends Widget_Base
 				'condition'             => [
 					'toggle_icon_show' => 'yes'
 				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'toggle_icon_padding_active',
+			[
+				'label'                 => esc_html__('Padding', MELA_TD),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => ['px', 'em', '%'],
+				'selectors'             => [
+					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active .ma-accordion-toggle-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -1291,14 +1363,19 @@ class Advanced_Accordion extends Widget_Base
 			'data-accordion-id'     => esc_attr($this->get_id())
 		]);
 
-		$this->add_render_attribute('ma_advance_accordion_wrap', [
-			'class'                 => 'ma-accordion-one',
-			'id'                    => 'ma-accordion-' . esc_attr($this->get_id())
+		$this->add_render_attribute([
+			'ma_advance_accordion_wrap' => [
+				'class'                 => [
+					'ma-accordion-wrap',
+					'ma-accordion-icon-align-' . $settings['toggle_icon_position'],
+					'id'                    => 'ma-accordion-' . esc_attr($this->get_id())
+				]
+			]
 		]);
 ?>
 
 		<div <?php echo $this->get_render_attribute_string('ma_advance_accordion'); ?> <?php echo 'data-accordion-id="' . esc_attr($this->get_id()) . '"'; ?> <?php echo !empty($settings['accordion_type']) ? 'data-accordion-type="' . esc_attr($settings['accordion_type']) . '"' : 'accordion'; ?> <?php echo !empty($settings['toggle_speed']) ? 'data-toogle-speed="' . esc_attr($settings['toggle_speed']) . '"' : '300'; ?>>
-			<div <?php echo $this->get_render_attribute_string('ma_advance_accordion'); ?>>
+			<div <?php echo $this->get_render_attribute_string('ma_advance_accordion_wrap'); ?>>
 
 				<?php
 				foreach ($settings['tabs'] as $index => $tab) {
