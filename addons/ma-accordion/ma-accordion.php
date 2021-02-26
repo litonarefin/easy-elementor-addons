@@ -82,13 +82,26 @@ class Advanced_Accordion extends Widget_Base
 		$repeater->add_control(
 			'accordion_tab_icon_show',
 			[
-				'label'                 => esc_html__('Enable Tab Icon', MELA_TD),
+				'label'                 => esc_html__('Enable Custom Icon', MELA_TD),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
 				'return_value'          => 'yes',
 			]
 		);
 
+
+		// Custom Icons Start
+		$repeater->start_controls_tabs('accordion_tab_icon_custom');
+
+		$repeater->start_controls_tab(
+			'accordion_tab_icon_custom_expand',
+			[
+				'label'                 => __('Expand Icon', MELA_TD),
+				'condition' => [
+					'accordion_tab_icon_show' => 'yes'
+				],
+			]
+		);
 
 		$repeater->add_control(
 			'accordion_tab_title_icon',
@@ -107,6 +120,43 @@ class Advanced_Accordion extends Widget_Base
 				],
 			]
 		);
+
+		$repeater->end_controls_tab();
+
+		$repeater->start_controls_tab(
+			'accordion_tab_icon_custom_collapse',
+			[
+				'label'                 => __('Collapse Icon', MELA_TD),
+				'condition' => [
+					'accordion_tab_icon_show' => 'yes'
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'accordion_tab_title_icon_collapse',
+			[
+				'label'         	=> esc_html__('Icon', MELA_TD),
+				'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
+				'type'          	=> Controls_Manager::ICONS,
+				'fa4compatibility' 	=> 'icon',
+				'default'       	=> [
+					'value'     => 'fas fa-minus',
+					'library'   => 'solid',
+				],
+				'render_type'      => 'template',
+				'condition' => [
+					'accordion_tab_icon_show' => 'yes'
+				],
+			]
+		);
+		$repeater->end_controls_tab();
+		$repeater->end_controls_tabs();
+
+		// Custom Icons End
+
+
+
 
 
 		// Premium Version Codes
@@ -362,48 +412,12 @@ class Advanced_Accordion extends Widget_Base
 			]
 		);
 
-		$this->end_controls_section();
-
-
-
-		/*-----------------------------------------------------------------------------------*/
-		/*	CONTENT TAB
-			/*-----------------------------------------------------------------------------------*/
-
-		$this->start_controls_section(
-			'section_accordion_settings',
-			[
-				'label'                 => esc_html__('Layout Settings', MELA_TD)
-			]
-		);
-
-		$this->add_control(
-			'ma_advanced_accordion_style',
-			[
-				'label'       	=> esc_html__('Styles', MELA_TD),
-				'type' 			=> Controls_Manager::SELECT,
-				'default' 		=> 'three',
-				'label_block' 	=> false,
-				'options' 		=> [
-					'one' => esc_html__('Style 1', MELA_TD),
-					'two' => esc_html__('Style 2', MELA_TD),
-					'three' => esc_html__('Style 3', MELA_TD),
-					'four' => esc_html__('Style 4', MELA_TD),
-					'five' => esc_html__('Style 5', MELA_TD),
-					'six' => esc_html__('Style 6', MELA_TD),
-					'seven' => esc_html__('Style 7', MELA_TD),
-					'eight' => esc_html__('Style 8', MELA_TD),
-					'nine' => esc_html__('Style 9', MELA_TD),
-					'ten' => esc_html__('Style 10', MELA_TD),
-				],
-			]
-		);
-
 		$this->add_control(
 			'accordion_type',
 			[
 				'label'                 => esc_html__('Accordion Type', MELA_TD),
 				'type'                  => Controls_Manager::SELECT,
+				'separator'             => 'before',
 				'default'               => 'accordion',
 				'label_block'           => false,
 				'options'               => [
@@ -411,16 +425,6 @@ class Advanced_Accordion extends Widget_Base
 					'toggle' 		=> esc_html__('Toggle', MELA_TD),
 				],
 				'frontend_available'    => true,
-			]
-		);
-
-		$this->add_control(
-			'title_html_tag',
-			[
-				'label'   => __('Title HTML Tag', MELA_TD),
-				'type'    => Controls_Manager::SELECT,
-				'options' => Master_Addons_Helper::ma_el_title_tags(),
-				'default' => 'div',
 			]
 		);
 
@@ -450,6 +454,20 @@ class Advanced_Accordion extends Widget_Base
 				]
 			]
 		);
+
+
+		$this->add_control(
+			'title_html_tag',
+			[
+				'label'   => __('Title HTML Tag', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'options' => Master_Addons_Helper::ma_el_title_tags(),
+				'default' => 'div',
+			]
+		);
+
+
+
 		$this->end_controls_section();
 
 
@@ -872,6 +890,37 @@ class Advanced_Accordion extends Widget_Base
 			]
 		);
 
+		$this->add_responsive_control(
+			'toggle_icon_position',
+			array(
+				'label'       => __('Alignment', MELA_TD),
+				'description' => __('Show Toggle Icon Position.', MELA_TD),
+				'type'        => Controls_Manager::CHOOSE,
+				'options'     => array(
+					'left' => array(
+						'title' => __('Left', MELA_TD),
+						'icon' => 'eicon-h-align-left',
+					),
+					'none' => array(
+						'title' => __('None', MELA_TD),
+						'icon' => 'eicon-ban',
+					),
+					'right' => array(
+						'title' => __('Right', MELA_TD),
+						'icon' => 'eicon-h-align-right',
+					)
+				),
+				'default'     => 'right',
+				'separator'   => 'after',
+				'toggle'      => true,
+				'selectors'   => array(
+					'{{WRAPPER}} .jltma-advanced-image' => 'float: {{VALUE}};',
+				)
+			)
+		);
+
+
+
 		$this->start_controls_tabs('toggle_icons_style');
 
 		$this->start_controls_tab(
@@ -1250,10 +1299,15 @@ class Advanced_Accordion extends Widget_Base
 			'id'                    => 'ma-advanced-accordion-' . esc_attr($this->get_id()),
 			'data-accordion-id'     => esc_attr($this->get_id())
 		]);
+
+		$this->add_render_attribute('ma_advance_accordion_wrap', [
+			'class'                 => 'ma-accordion-one',
+			'id'                    => 'ma-accordion-' . esc_attr($this->get_id())
+		]);
 ?>
 
 		<div <?php echo $this->get_render_attribute_string('ma_advance_accordion'); ?> <?php echo 'data-accordion-id="' . esc_attr($this->get_id()) . '"'; ?> <?php echo !empty($settings['accordion_type']) ? 'data-accordion-type="' . esc_attr($settings['accordion_type']) . '"' : 'accordion'; ?> <?php echo !empty($settings['toggle_speed']) ? 'data-toogle-speed="' . esc_attr($settings['toggle_speed']) . '"' : '300'; ?>>
-			<div class="ma-accordion-<?php echo esc_attr($settings['ma_advanced_accordion_style']); ?> <?php if ($settings['ma_advanced_accordion_style'] == 'three') echo "blue-color"; ?> <?php if ($settings['ma_advanced_accordion_style'] == 'four') echo "title-blue-bg"; ?><?php if ($settings['ma_advanced_accordion_style'] == 'five') echo "title-border"; ?><?php if ($settings['ma_advanced_accordion_style'] == 'six') echo "title-gradient-bg"; ?> <?php if ($settings['ma_advanced_accordion_style'] == 'seven') echo "title-icon-bg"; ?> <?php if ($settings['ma_advanced_accordion_style'] == 'eight') echo "active-bg"; ?> <?php if ($settings['ma_advanced_accordion_style'] == 'nine') echo "icon-round-bg"; ?> <?php if ($settings['ma_advanced_accordion_style'] == 'ten') echo "image-bg"; ?>">
+			<div <?php echo $this->get_render_attribute_string('ma_advance_accordion'); ?>>
 
 				<?php
 				foreach ($settings['tabs'] as $index => $tab) {
@@ -1290,13 +1344,13 @@ class Advanced_Accordion extends Widget_Base
 
 
 					if (ma_el_fs()->can_use_premium_code()) {
-
 						if ($tab['single_tab_title_bg_color_show'] == 'yes') {
 							$single_item_class = 'ma-multicolor-accordion';
 						}
-					} ?>
+					}
+				?>
 
-					<div class="ma-accordion-item <?php echo esc_attr($settings['ma_advanced_accordion_style']); ?> <?php echo isset($single_item_class) ? $single_item_class : ''; ?>">
+					<div class="ma-accordion-item <?php echo isset($single_item_class) ? $single_item_class : ''; ?>">
 						<<?php echo $settings['title_html_tag']; ?> <?php echo $this->get_render_attribute_string($tab_title_setting_key);
 
 																	// Premium Version Codes
@@ -1308,28 +1362,48 @@ class Advanced_Accordion extends Widget_Base
 																					} ?>>
 							<span class="ma-accordion-title-icon">
 
-								<?php if ($tab['accordion_tab_icon_show'] === 'yes') { ?>
-									<span class="ma-accordion-tab-icon">
-										<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-plus', 'icon', $tab['accordion_tab_title_icon'], 'accordion_tab_title_icon', 'fa-accordion-icon');
-										?>
-									</span>
-								<?php } ?>
+								<?php
+								if ($settings['toggle_icon_show'] === 'yes' && ($settings['toggle_icon_position'] == "left")) {
+									if ($tab['accordion_tab_icon_show'] === 'yes') { ?>
+										<span class="ma-accordion-toggle-icon">
+											<?php
+											Master_Addons_Helper::jltma_fa_icon_picker('fas fa-minus', 'icon', $tab['accordion_tab_title_icon_collapse'], 'accordion_tab_title_icon_collapse', 'ma-el-accordion-icon-closed');
+											Master_Addons_Helper::jltma_fa_icon_picker('fas fa-plus', 'icon', $tab['accordion_tab_title_icon'], 'accordion_tab_title_icon', 'ma-el-accordion-icon-opened');
+											?>
+										</span>
+									<?php } else { ?>
+										<span class="ma-accordion-toggle-icon">
+											<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-minus', 'icon', $settings['toggle_icon'], 'toggle_minus_icon', 'ma-el-accordion-icon-closed');
+											?>
+											<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-plus', 'icon', $settings['active_icon'], 'toggle_active_icon', 'ma-el-accordion-icon-opened');
+											?>
+										</span>
+								<?php }
+								} ?>
 
 								<span class="ma-accordion-title-text">
 									<?php echo $tab['tab_title']; ?>
 								</span>
 							</span>
-							<?php if ($settings['toggle_icon_show'] === 'yes') { ?>
-								<span class="ma-accordion-toggle-icon">
-									<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-minus', 'icon', $settings['toggle_icon'], 'toggle_minus_icon', 'ma-el-accordion-icon-closed');
-									?>
 
-									<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-plus', 'icon', $settings['active_icon'], 'toggle_active_icon', 'ma-el-accordion-icon-opened');
-									?>
-								</span>
+							<?php if ($settings['toggle_icon_show'] === 'yes' && ($settings['toggle_icon_position'] == "right")) {
+								if ($tab['accordion_tab_icon_show'] === 'yes') { ?>
+									<span class="ma-accordion-toggle-icon">
+										<?php
+										Master_Addons_Helper::jltma_fa_icon_picker('fas fa-minus', 'icon', $tab['accordion_tab_title_icon_collapse'], 'accordion_tab_title_icon_collapse', 'ma-el-accordion-icon-closed');
+										Master_Addons_Helper::jltma_fa_icon_picker('fas fa-plus', 'icon', $tab['accordion_tab_title_icon'], 'accordion_tab_title_icon', 'ma-el-accordion-icon-opened');
+										?>
+									</span>
+								<?php } else { ?>
+									<span class="ma-accordion-toggle-icon">
+										<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-minus', 'icon', $settings['toggle_icon'], 'toggle_minus_icon', 'ma-el-accordion-icon-closed');
+										?>
+										<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-plus', 'icon', $settings['active_icon'], 'toggle_active_icon', 'ma-el-accordion-icon-opened');
+										?>
+									</span>
+							<?php }
+							} ?>
 
-
-							<?php } ?>
 						</<?php echo $settings['title_html_tag']; ?>>
 
 						<div <?php echo $this->get_render_attribute_string($tab_content_setting_key);
