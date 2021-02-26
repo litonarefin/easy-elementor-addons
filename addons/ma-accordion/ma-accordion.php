@@ -208,7 +208,6 @@ class Advanced_Accordion extends Widget_Base
 					],
 					'selectors'             => [
 						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ma-multicolor-accordion .ma-accordion-tab-content p' => 'color: {{VALUE}}'
-						//                                '{{WRAPPER}} .ma-accordion-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 					]
 				]
 			);
@@ -223,9 +222,7 @@ class Advanced_Accordion extends Widget_Base
 						'single_tab_title_bg_color_show' => 'yes'
 					],
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ma-multicolor-accordion .ma-accordion-tab-content'
-						=> 'background: {{VALUE}};'
-						//                                '{{WRAPPER}} .ma-accordion-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ma-multicolor-accordion .ma-accordion-tab-content' => 'background: {{VALUE}};'
 					]
 				]
 			);
@@ -633,7 +630,6 @@ class Advanced_Accordion extends Widget_Base
 			[
 				'label'                 => esc_html__('Text Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#ffffff',
 				'selectors'             => [
 					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover,
 						{{WRAPPER}} .ma-accordion-item.ma-multicolor-accordion .ma-accordion-tab-title:hover' => 'color: {{VALUE}};',
@@ -646,7 +642,6 @@ class Advanced_Accordion extends Widget_Base
 			[
 				'label'                 => esc_html__('Border Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#ffffff',
 				'selectors'             => [
 					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'border-color: {{VALUE}};',
 				],
@@ -700,7 +695,6 @@ class Advanced_Accordion extends Widget_Base
 			[
 				'label'                 => esc_html__('Text Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#ffffff',
 				'selectors'             => [
 					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active' => 'color: {{VALUE}};',
 				],
@@ -712,7 +706,6 @@ class Advanced_Accordion extends Widget_Base
 			[
 				'label'                 => esc_html__('Border Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#ffffff',
 				'selectors'             => [
 					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active' => 'border-color: {{VALUE}};',
 				],
@@ -1093,7 +1086,6 @@ class Advanced_Accordion extends Widget_Base
 			[
 				'label'                 => esc_html__('Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#fff',
 				'selectors'	=> [
 					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'color: {{VALUE}};',
 				],
@@ -1143,7 +1135,6 @@ class Advanced_Accordion extends Widget_Base
 			[
 				'label'                 => esc_html__('Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#fff',
 				'selectors'	=> [
 					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active .ma-accordion-toggle-icon' => 'color: {{VALUE}};'
 				],
@@ -1365,7 +1356,7 @@ class Advanced_Accordion extends Widget_Base
 								<?php
 								if ($settings['toggle_icon_show'] === 'yes' && ($settings['toggle_icon_position'] == "left")) {
 									if ($tab['accordion_tab_icon_show'] === 'yes') { ?>
-										<span class="ma-accordion-toggle-icon">
+										<span class="ma-accordion-toggle-icon ma-accordion-tab-icon">
 											<?php
 											Master_Addons_Helper::jltma_fa_icon_picker('fas fa-minus', 'icon', $tab['accordion_tab_title_icon_collapse'], 'accordion_tab_title_icon_collapse', 'ma-el-accordion-icon-closed');
 											Master_Addons_Helper::jltma_fa_icon_picker('fas fa-plus', 'icon', $tab['accordion_tab_title_icon'], 'accordion_tab_title_icon', 'ma-el-accordion-icon-opened');
@@ -1388,7 +1379,7 @@ class Advanced_Accordion extends Widget_Base
 
 							<?php if ($settings['toggle_icon_show'] === 'yes' && ($settings['toggle_icon_position'] == "right")) {
 								if ($tab['accordion_tab_icon_show'] === 'yes') { ?>
-									<span class="ma-accordion-toggle-icon">
+									<span class="ma-accordion-toggle-icon ma-accordion-tab-icon">
 										<?php
 										Master_Addons_Helper::jltma_fa_icon_picker('fas fa-minus', 'icon', $tab['accordion_tab_title_icon_collapse'], 'accordion_tab_title_icon_collapse', 'ma-el-accordion-icon-closed');
 										Master_Addons_Helper::jltma_fa_icon_picker('fas fa-plus', 'icon', $tab['accordion_tab_title_icon'], 'accordion_tab_title_icon', 'ma-el-accordion-icon-opened');
