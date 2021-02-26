@@ -8,6 +8,7 @@ use \Elementor\Utils;
 use \Elementor\Controls_Manager;
 use \Elementor\Repeater;
 use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Box_Shadow;
 
@@ -62,7 +63,29 @@ class Advanced_Accordion extends Widget_Base
 		$this->start_controls_section(
 			'section_accordion_settings',
 			[
-				'label'                 => esc_html__('Settings', MELA_TD)
+				'label'                 => esc_html__('Layout Settings', MELA_TD)
+			]
+		);
+
+		$this->add_control(
+			'ma_advanced_accordion_style',
+			[
+				'label'       	=> esc_html__('Styles', MELA_TD),
+				'type' 			=> Controls_Manager::SELECT,
+				'default' 		=> 'three',
+				'label_block' 	=> false,
+				'options' 		=> [
+					'one' => esc_html__('Style 1', MELA_TD),
+					'two' => esc_html__('Style 2', MELA_TD),
+					'three' => esc_html__('Style 3', MELA_TD),
+					'four' => esc_html__('Style 4', MELA_TD),
+					'five' => esc_html__('Style 5', MELA_TD),
+					'six' => esc_html__('Style 6', MELA_TD),
+					'seven' => esc_html__('Style 7', MELA_TD),
+					'eight' => esc_html__('Style 8', MELA_TD),
+					'nine' => esc_html__('Style 9', MELA_TD),
+					'ten' => esc_html__('Style 10', MELA_TD),
+				],
 			]
 		);
 
@@ -309,7 +332,7 @@ class Advanced_Accordion extends Widget_Base
 					],
 					'selectors'             => [
 						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ma-multicolor-accordion .ma-accordion-tab-content'
-						=> 'background-color: {{VALUE}};'
+						=> 'background: {{VALUE}};'
 						//                                '{{WRAPPER}} .ma-accordion-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 					]
 				]
@@ -572,44 +595,6 @@ class Advanced_Accordion extends Widget_Base
 		}
 
 
-		/*
-			 * Style Presets
-			 */
-
-		$this->start_controls_section(
-			'ma_advanced_style_settings',
-			[
-				'label' => esc_html__('General Styles', MELA_TD),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
-
-		$this->add_control(
-			'ma_advanced_accordion_style',
-			[
-				'label'       	=> esc_html__('Style Preset', MELA_TD),
-				'type' 			=> Controls_Manager::SELECT,
-				'default' 		=> 'three',
-				'label_block' 	=> false,
-				'options' 		=> [
-					'one' => esc_html__('Style 1', MELA_TD),
-					'two' => esc_html__('Style 2', MELA_TD),
-					'three' => esc_html__('Style 3', MELA_TD),
-					'four' => esc_html__('Style 4', MELA_TD),
-					'five' => esc_html__('Style 5', MELA_TD),
-					'six' => esc_html__('Style 6', MELA_TD),
-					'seven' => esc_html__('Style 7', MELA_TD),
-					'eight' => esc_html__('Style 8', MELA_TD),
-					'nine' => esc_html__('Style 9', MELA_TD),
-					'ten' => esc_html__('Style 10', MELA_TD),
-				],
-			]
-		);
-
-		$this->end_controls_section();
-
-
-
 		/**
 		 * Style Tab: Items
 		 */
@@ -692,15 +677,15 @@ class Advanced_Accordion extends Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'tab_title_bg_color',
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
 			[
-				'label'                 => esc_html__('Background Color', MELA_TD),
-				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#fff',
-				'selectors'	=> [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'background-color: {{VALUE}};',
-				],
+				'name'      => 'tab_title_bg_color',
+				'label'     => esc_html__('Background Color', MELA_TD),
+				'types'     => ['classic', 'gradient'],
+				'exclude'   => ['image'],
+				'selector'  => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title'
 			]
 		);
 
@@ -742,17 +727,17 @@ class Advanced_Accordion extends Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'tab_title_bg_color_hover',
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
 			[
-				'label'                 => esc_html__('Background Color', MELA_TD),
-				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#414141',
-				'selectors'	=> [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'background-color: {{VALUE}}',
-				],
+				'name'      => 'tab_title_bg_color_hover',
+				'label'     => esc_html__('Background Color', MELA_TD),
+				'types'     => ['classic', 'gradient'],
+				'exclude'   => ['image'],
+				'selector'  => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover'
 			]
 		);
+
 
 		$this->add_control(
 			'tab_title_text_color_hover',
@@ -788,77 +773,14 @@ class Advanced_Accordion extends Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'tab_title_bg_color_active',
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
 			[
-				'label'                 => esc_html__('Background Color', MELA_TD),
-				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#414141',
-				'selectors'	=> [
-
-
-					//Design 3 & Design 7 & Design 9
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title.active,
-						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.seven .ma-accordion-tab-title.active,
-						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title.active,
-						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title:hover,
-						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.seven .ma-accordion-tab-title:hover,
-						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title:hover' =>
-					'background-color: #fff;',
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title.active .ma-accordion-title-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.seven .ma-accordion-tab-title.active .ma-accordion-title-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title.active .ma-accordion-title-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title:hover .ma-accordion-title-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.seven .ma-accordion-tab-title:hover .ma-accordion-title-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title:hover .ma-accordion-title-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title:hover .ma-accordion-toggle-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.nine .ma-accordion-tab-title.active .ma-accordion-toggle-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title.active .ma-accordion-toggle-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title:hover .ma-accordion-toggle-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.seven .ma-accordion-tab-title.active .ma-accordion-toggle-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.seven .ma-accordion-tab-title:hover .ma-accordion-toggle-icon' =>
-					'color: #4b00e7;',
-
-					//Design 4
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.four .ma-accordion-tab-title.active,
-						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.four .ma-accordion-tab-title:hover' =>
-					'background-color: #4b00e7;',
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.four .ma-accordion-tab-title.active .ma-accordion-title-icon,
-                         {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.four .ma-accordion-tab-title.active .ma-accordion-toggle-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.four .ma-accordion-tab-title:hover .ma-accordion-toggle-icon' =>
-					'color: #fff;',
-
-					//Design 5
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.five .ma-accordion-tab-title.active,
-						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.five .ma-accordion-tab-title:hover' =>
-					'background-image: -webkit-gradient( linear, left bottom, left top, from(rgb(10,57,252)), to(rgb(213,0,137)));
-                            background-image: -o-linear-gradient( bottom, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
-                            background-image: linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
-                            background-image: -webkit-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);',
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.five .ma-accordion-tab-title.active .ma-accordion-title-icon' =>
-					'color: #fff;',
-
-					//Design 8
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.eight .ma-accordion-tab-title.active,
-						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ten .ma-accordion-tab-title.active,
-						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.eight .ma-accordion-tab-title:hover,
-						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ten .ma-accordion-tab-title:hover' =>
-					'background-image: -webkit-gradient( linear, left bottom, left top, from(rgb(10,57,252)), to(rgb(213,0,137)));
-                            background-image: -o-linear-gradient( bottom, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
-                            background-image: linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);
-                            background-image: -webkit-linear-gradient( 0deg, rgb(10,57,252) 0%, rgb(213,0,137) 100%);',
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.eight .ma-accordion-tab-title.active .ma-accordion-title-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ten .ma-accordion-tab-title.active
-                                      .ma-accordion-title-icon,
-                        {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.eight .ma-accordion-tab-content,
-			                         {{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ten .ma-accordion-tab-content' =>
-					'color: #fff;',
-
-
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active' =>
-					'background-color: {{VALUE}};',
-
-				],
+				'name'      => 'tab_title_bg_color_active',
+				'label'     => esc_html__('Background Color', MELA_TD),
+				'types'     => ['classic', 'gradient'],
+				'exclude'   => ['image'],
+				'selector'  => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-title.active'
 			]
 		);
 
@@ -983,7 +905,7 @@ class Advanced_Accordion extends Widget_Base
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content' => 'background: {{VALUE}};',
 				],
 			]
 		);
