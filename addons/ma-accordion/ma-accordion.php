@@ -445,6 +445,9 @@ class Advanced_Accordion extends Widget_Base
 				'label_block'           => false,
 				'default'               => 300,
 				'frontend_available'    => true,
+				'condition'				=> [
+					'toggle_icon_show' => 'yes'
+				]
 			]
 		);
 		$this->end_controls_section();
@@ -966,6 +969,25 @@ class Advanced_Accordion extends Widget_Base
 		$this->end_controls_tabs();
 
 
+
+
+		$this->add_control(
+			'toggle_icons_color_heading',
+			[
+				'label'                 => __('Icon Settings', MELA_TD),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+			]
+		);
+		$this->start_controls_tabs('toggle_icons_color_tabs');
+
+		$this->start_controls_tab(
+			'toggle_icons_color_normal',
+			[
+				'label'                 => __('Normal', MELA_TD),
+			]
+		);
+
 		$this->add_control(
 			'toggle_icon_color',
 			[
@@ -976,23 +998,6 @@ class Advanced_Accordion extends Widget_Base
 					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'color: {{VALUE}};',
 				],
 				'condition'	=> [
-					'toggle_icon_show' => 'yes'
-				]
-			]
-		);
-
-		$this->add_control(
-			'toggle_icon_active_color',
-			[
-				'label'                 => esc_html__('Active Color', MELA_TD),
-				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#fff',
-				'selectors'	=> [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active .ma-accordion-toggle-icon' =>
-					'color: {{VALUE}};',
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'color: {{VALUE}};',
-				],
-				'condition'             => [
 					'toggle_icon_show' => 'yes'
 				]
 			]
@@ -1023,6 +1028,113 @@ class Advanced_Accordion extends Widget_Base
 				]
 			]
 		);
+
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'toggle_icons_color_hover',
+			[
+				'label'                 => __('Hover', MELA_TD),
+			]
+		);
+
+		$this->add_control(
+			'toggle_icon_color_hover',
+			[
+				'label'                 => esc_html__('Color', MELA_TD),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '#fff',
+				'selectors'	=> [
+					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'color: {{VALUE}};',
+				],
+				'condition'             => [
+					'toggle_icon_show' => 'yes'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'toggle_icon_size_hover',
+			[
+				'label'                 => __('Size', MELA_TD),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
+					'size'	=> 16,
+					'unit'	=> 'px',
+				],
+				'size_units'            => ['px'],
+				'range'	=> [
+					'px'	=> [
+						'min'	=> 0,
+						'max'	=> 100,
+						'step'	=> 1,
+					]
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+				'condition'             => [
+					'toggle_icon_show' => 'yes'
+				]
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'toggle_icons_color_active',
+			[
+				'label'                 => __('Active', MELA_TD),
+			]
+		);
+
+		$this->add_control(
+			'toggle_icon_color_active',
+			[
+				'label'                 => esc_html__('Color', MELA_TD),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '#fff',
+				'selectors'	=> [
+					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active .ma-accordion-toggle-icon' => 'color: {{VALUE}};'
+				],
+				'condition'             => [
+					'toggle_icon_show' => 'yes'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'toggle_icon_size_active',
+			[
+				'label'                 => __('Size', MELA_TD),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
+					'size'	=> 16,
+					'unit'	=> 'px',
+				],
+				'size_units'            => ['px'],
+				'range'	=> [
+					'px'	=> [
+						'min'	=> 0,
+						'max'	=> 100,
+						'step'	=> 1,
+					]
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active .ma-accordion-toggle-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+				'condition'             => [
+					'toggle_icon_show' => 'yes'
+				]
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+
 
 		$this->end_controls_section();
 
