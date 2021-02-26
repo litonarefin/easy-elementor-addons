@@ -11,6 +11,7 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Group_Control_Text_Shadow;
 
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
@@ -56,172 +57,13 @@ class Advanced_Accordion extends Widget_Base
 	protected function _register_controls()
 	{
 
-		/*-----------------------------------------------------------------------------------*/
-		/*	CONTENT TAB
-			/*-----------------------------------------------------------------------------------*/
-
-		$this->start_controls_section(
-			'section_accordion_settings',
-			[
-				'label'                 => esc_html__('Layout Settings', MELA_TD)
-			]
-		);
-
-		$this->add_control(
-			'ma_advanced_accordion_style',
-			[
-				'label'       	=> esc_html__('Styles', MELA_TD),
-				'type' 			=> Controls_Manager::SELECT,
-				'default' 		=> 'three',
-				'label_block' 	=> false,
-				'options' 		=> [
-					'one' => esc_html__('Style 1', MELA_TD),
-					'two' => esc_html__('Style 2', MELA_TD),
-					'three' => esc_html__('Style 3', MELA_TD),
-					'four' => esc_html__('Style 4', MELA_TD),
-					'five' => esc_html__('Style 5', MELA_TD),
-					'six' => esc_html__('Style 6', MELA_TD),
-					'seven' => esc_html__('Style 7', MELA_TD),
-					'eight' => esc_html__('Style 8', MELA_TD),
-					'nine' => esc_html__('Style 9', MELA_TD),
-					'ten' => esc_html__('Style 10', MELA_TD),
-				],
-			]
-		);
-
-		$this->add_control(
-			'accordion_type',
-			[
-				'label'                 => esc_html__('Accordion Type', MELA_TD),
-				'type'                  => Controls_Manager::SELECT,
-				'default'               => 'accordion',
-				'label_block'           => false,
-				'options'               => [
-					'accordion' 	=> esc_html__('Accordion', MELA_TD),
-					'toggle' 		=> esc_html__('Toggle', MELA_TD),
-				],
-				'frontend_available'    => true,
-			]
-		);
-
-		$this->add_control(
-			'title_html_tag',
-			[
-				'label'   => __('Title HTML Tag', MELA_TD),
-				'type'    => Controls_Manager::SELECT,
-				'options' => Master_Addons_Helper::ma_el_title_tags(),
-				'default' => 'div',
-			]
-		);
-
-		$this->add_control(
-			'toggle_icon_show',
-			[
-				'label'                 => esc_html__('Toggle Icon', MELA_TD),
-				'type'                  => Controls_Manager::SWITCHER,
-				'default'               => 'yes',
-				'label_on'              => __('Show', MELA_TD),
-				'label_off'             => __('Hide', MELA_TD),
-				'return_value'          => 'yes',
-			]
-		);
-
-
-		$this->add_control(
-			'toggle_icon',
-			[
-				'label'         	=> esc_html__('Collapse Icon', MELA_TD),
-				'type'          	=> Controls_Manager::ICONS,
-				'fa4compatibility' 	=> 'icon',
-				'render_type'      	=> 'template',
-				'default'       	=> [
-					'value'     => 'fas fa-minus',
-					'library'   => 'solid',
-				],
-				'include'               => [
-					'fa fa-minus',
-					'fa fa-minus-circle',
-					'fa fa-minus-square-o',
-					'fa fa-minus-square',
-					'fa fa-search-minus',
-					'fa fa-plus',
-					'fa fa-plus-circle',
-					'fa fa-plus-square-o',
-					'fa fa-plus-square',
-					'fa fa-search-plus',
-					'fa fa-angle-right',
-					'fa fa-angle-double-right',
-					'fa fa-chevron-right',
-					'fa fa-chevron-circle-right',
-					'fa fa-arrow-right',
-					'fa fa-long-arrow-right',
-				],
-				'condition'             => [
-					'toggle_icon_show' => 'yes'
-				]
-
-			]
-		);
-
-
-		$this->add_control(
-			'active_icon',
-			[
-				'label'         	=> esc_html__('Open Icon', MELA_TD),
-				'type'          	=> Controls_Manager::ICONS,
-				'fa4compatibility' 	=> 'icon',
-				'render_type'      	=> 'template',
-				'default'       	=> [
-					'value'     => 'fas fa-plus',
-					'library'   => 'solid',
-				],
-				'include'               => [
-					'fa fa-minus',
-					'fa fa-minus-circle',
-					'fa fa-minus-square-o',
-					'fa fa-minus-square',
-					'fa fa-search-minus',
-					'fa fa-plus',
-					'fa fa-plus-circle',
-					'fa fa-plus-square-o',
-					'fa fa-plus-square',
-					'fa fa-search-plus',
-					'fa fa-angle-right',
-					'fa fa-angle-double-right',
-					'fa fa-chevron-right',
-					'fa fa-chevron-circle-right',
-					'fa fa-arrow-right',
-					'fa fa-long-arrow-right',
-				],
-				'condition'             => [
-					'toggle_icon_show' => 'yes'
-				]
-
-			]
-		);
-
-
-		$this->add_control(
-			'toggle_speed',
-			[
-				'label'                 => esc_html__('Toggle Speed (ms)', MELA_TD),
-				'type'                  => Controls_Manager::NUMBER,
-				'label_block'           => false,
-				'default'               => 300,
-				'frontend_available'    => true,
-			]
-		);
-		$this->end_controls_section();
-
-
-
 		/**
-		 * Content Tab: Tabs
+		 * Content Tab: Accordions
 		 */
 		$this->start_controls_section(
 			'section_accordion_tabs',
 			[
-				'label'                 => esc_html__('Accordions', MELA_TD)
+				'label'                 => esc_html__('Content', MELA_TD)
 			]
 		);
 
@@ -524,75 +366,89 @@ class Advanced_Accordion extends Widget_Base
 
 
 
+		/*-----------------------------------------------------------------------------------*/
+		/*	CONTENT TAB
+			/*-----------------------------------------------------------------------------------*/
 
-		/**
-		 * Content Tab: Docs Links
-		 */
 		$this->start_controls_section(
-			'jltma_section_help_docs',
+			'section_accordion_settings',
 			[
-				'label' => esc_html__('Help Docs', MELA_TD),
+				'label'                 => esc_html__('Layout Settings', MELA_TD)
+			]
+		);
+
+		$this->add_control(
+			'ma_advanced_accordion_style',
+			[
+				'label'       	=> esc_html__('Styles', MELA_TD),
+				'type' 			=> Controls_Manager::SELECT,
+				'default' 		=> 'three',
+				'label_block' 	=> false,
+				'options' 		=> [
+					'one' => esc_html__('Style 1', MELA_TD),
+					'two' => esc_html__('Style 2', MELA_TD),
+					'three' => esc_html__('Style 3', MELA_TD),
+					'four' => esc_html__('Style 4', MELA_TD),
+					'five' => esc_html__('Style 5', MELA_TD),
+					'six' => esc_html__('Style 6', MELA_TD),
+					'seven' => esc_html__('Style 7', MELA_TD),
+					'eight' => esc_html__('Style 8', MELA_TD),
+					'nine' => esc_html__('Style 9', MELA_TD),
+					'ten' => esc_html__('Style 10', MELA_TD),
+				],
+			]
+		);
+
+		$this->add_control(
+			'accordion_type',
+			[
+				'label'                 => esc_html__('Accordion Type', MELA_TD),
+				'type'                  => Controls_Manager::SELECT,
+				'default'               => 'accordion',
+				'label_block'           => false,
+				'options'               => [
+					'accordion' 	=> esc_html__('Accordion', MELA_TD),
+					'toggle' 		=> esc_html__('Toggle', MELA_TD),
+				],
+				'frontend_available'    => true,
+			]
+		);
+
+		$this->add_control(
+			'title_html_tag',
+			[
+				'label'   => __('Title HTML Tag', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'options' => Master_Addons_Helper::ma_el_title_tags(),
+				'default' => 'div',
+			]
+		);
+
+		$this->add_control(
+			'toggle_icon_show',
+			[
+				'label'                 => esc_html__('Toggle Icon', MELA_TD),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => 'yes',
+				'label_on'              => __('Show', MELA_TD),
+				'label_off'             => __('Hide', MELA_TD),
+				'return_value'          => 'yes',
 			]
 		);
 
 
 		$this->add_control(
-			'help_doc_1',
+			'toggle_speed',
 			[
-				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => sprintf(esc_html__('%1$s Live Demo %2$s', MELA_TD), '<a href="https://master-addons.com/demos/advanced-accordion/" target="_blank" rel="noopener">', '</a>'),
-				'content_classes' => 'jltma-editor-doc-links',
-			]
-		);
-
-		$this->add_control(
-			'help_doc_2',
-			[
-				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => sprintf(esc_html__('%1$s Documentation %2$s', MELA_TD), '<a href="https://master-addons.com/docs/addons/elementor-accordion-widget/?utm_source=widget&utm_medium=panel&utm_campaign=dashboard" target="_blank" rel="noopener">', '</a>'),
-				'content_classes' => 'jltma-editor-doc-links',
-			]
-		);
-
-		$this->add_control(
-			'help_doc_3',
-			[
-				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => sprintf(esc_html__('%1$s Watch Video Tutorial %2$s', MELA_TD), '<a href="https://www.youtube.com/watch?v=rdrqWa-tf6Q" target="_blank" rel="noopener">', '</a>'),
-				'content_classes' => 'jltma-editor-doc-links',
+				'label'                 => esc_html__('Toggle Speed (ms)', MELA_TD),
+				'type'                  => Controls_Manager::NUMBER,
+				'label_block'           => false,
+				'default'               => 300,
+				'frontend_available'    => true,
 			]
 		);
 		$this->end_controls_section();
 
-
-
-		if (ma_el_fs()->is_not_paying()) {
-
-			$this->start_controls_section(
-				'maad_el_section_pro',
-				[
-					'label' => esc_html__('Upgrade to Pro Version for More Features', MELA_TD)
-				]
-			);
-
-			$this->add_control(
-				'maad_el_control_get_pro',
-				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
-					'options' => [
-						'1' => [
-							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
-						],
-					],
-					'default' => '1',
-					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
-				]
-			);
-
-			$this->end_controls_section();
-		}
 
 
 		/**
@@ -692,7 +548,7 @@ class Advanced_Accordion extends Widget_Base
 		$this->add_control(
 			'tab_title_text_color',
 			[
-				'label'                 => esc_html__('Color', MELA_TD),
+				'label'                 => esc_html__('Text Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#333333',
 				'selectors'             => [
@@ -754,7 +610,7 @@ class Advanced_Accordion extends Widget_Base
 		$this->add_control(
 			'tab_title_text_color_hover',
 			[
-				'label'                 => esc_html__('Color', MELA_TD),
+				'label'                 => esc_html__('Text Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#ffffff',
 				'selectors'             => [
@@ -821,7 +677,7 @@ class Advanced_Accordion extends Widget_Base
 		$this->add_control(
 			'tab_title_text_color_active',
 			[
-				'label'                 => esc_html__('Color', MELA_TD),
+				'label'                 => esc_html__('Text Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#ffffff',
 				'selectors'             => [
@@ -988,6 +844,15 @@ class Advanced_Accordion extends Widget_Base
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			array(
+				'name' => 'tab_content_padding_text_shadow',
+				'label' => __('Text Shadow', MELA_TD),
+				'selector' => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content',
+			)
+		);
+
 		$this->end_controls_section();
 
 		/**
@@ -998,8 +863,108 @@ class Advanced_Accordion extends Widget_Base
 			[
 				'label'                 => esc_html__('Toggle icon', MELA_TD),
 				'tab'                   => Controls_Manager::TAB_STYLE,
+				'condition'				=> [
+					'toggle_icon_show' => 'yes'
+				]
 			]
 		);
+
+		$this->start_controls_tabs('toggle_icons_style');
+
+		$this->start_controls_tab(
+			'toggle_icons_tab_expand',
+			[
+				'label'                 => __('Expand Icon', MELA_TD),
+			]
+		);
+
+		$this->add_control(
+			'active_icon',
+			[
+				'label'         	=> esc_html__('Expand Icon', MELA_TD),
+				'show_label'  		=> false,
+				'type'          	=> Controls_Manager::ICONS,
+				'fa4compatibility' 	=> 'icon',
+				'render_type'      	=> 'template',
+				'default'       	=> [
+					'value'     => 'fas fa-plus',
+					'library'   => 'solid',
+				],
+				'include'               => [
+					'fa fa-minus',
+					'fa fa-minus-circle',
+					'fa fa-minus-square-o',
+					'fa fa-minus-square',
+					'fa fa-search-minus',
+					'fa fa-plus',
+					'fa fa-plus-circle',
+					'fa fa-plus-square-o',
+					'fa fa-plus-square',
+					'fa fa-search-plus',
+					'fa fa-angle-right',
+					'fa fa-angle-double-right',
+					'fa fa-chevron-right',
+					'fa fa-chevron-circle-right',
+					'fa fa-arrow-right',
+					'fa fa-long-arrow-right',
+				],
+				'condition'             => [
+					'toggle_icon_show' => 'yes'
+				]
+
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'toggle_icons_tab_collapse',
+			[
+				'label'                 => __('Collapse Icon', MELA_TD),
+			]
+		);
+
+		$this->add_control(
+			'toggle_icon',
+			[
+				'label'         	=> esc_html__('Collapse Icon', MELA_TD),
+				'type'          	=> Controls_Manager::ICONS,
+				'show_label'  		=> false,
+				'fa4compatibility' 	=> 'icon',
+				'render_type'      	=> 'template',
+				'default'       	=> [
+					'value'     => 'fas fa-minus',
+					'library'   => 'solid',
+				],
+				'include'               => [
+					'fa fa-minus',
+					'fa fa-minus-circle',
+					'fa fa-minus-square-o',
+					'fa fa-minus-square',
+					'fa fa-search-minus',
+					'fa fa-plus',
+					'fa fa-plus-circle',
+					'fa fa-plus-square-o',
+					'fa fa-plus-square',
+					'fa fa-search-plus',
+					'fa fa-angle-right',
+					'fa fa-angle-double-right',
+					'fa fa-chevron-right',
+					'fa fa-chevron-circle-right',
+					'fa fa-arrow-right',
+					'fa fa-long-arrow-right',
+				],
+				'condition'             => [
+					'toggle_icon_show' => 'yes'
+				]
+
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
 
 		$this->add_control(
 			'toggle_icon_color',
@@ -1061,6 +1026,78 @@ class Advanced_Accordion extends Widget_Base
 
 		$this->end_controls_section();
 
+
+
+
+		/**
+		 * Content Tab: Docs Links
+		 */
+		$this->start_controls_section(
+			'jltma_section_help_docs',
+			[
+				'label' => esc_html__('Help Docs', MELA_TD),
+			]
+		);
+
+
+		$this->add_control(
+			'help_doc_1',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => sprintf(esc_html__('%1$s Live Demo %2$s', MELA_TD), '<a href="https://master-addons.com/demos/advanced-accordion/" target="_blank" rel="noopener">', '</a>'),
+				'content_classes' => 'jltma-editor-doc-links',
+			]
+		);
+
+		$this->add_control(
+			'help_doc_2',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => sprintf(esc_html__('%1$s Documentation %2$s', MELA_TD), '<a href="https://master-addons.com/docs/addons/elementor-accordion-widget/?utm_source=widget&utm_medium=panel&utm_campaign=dashboard" target="_blank" rel="noopener">', '</a>'),
+				'content_classes' => 'jltma-editor-doc-links',
+			]
+		);
+
+		$this->add_control(
+			'help_doc_3',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => sprintf(esc_html__('%1$s Watch Video Tutorial %2$s', MELA_TD), '<a href="https://www.youtube.com/watch?v=rdrqWa-tf6Q" target="_blank" rel="noopener">', '</a>'),
+				'content_classes' => 'jltma-editor-doc-links',
+			]
+		);
+		$this->end_controls_section();
+
+
+
+
+		if (ma_el_fs()->is_not_paying()) {
+
+			$this->start_controls_section(
+				'maad_el_section_pro',
+				[
+					'label' => esc_html__('Upgrade to Pro Version for More Features', MELA_TD)
+				]
+			);
+
+			$this->add_control(
+				'maad_el_control_get_pro',
+				[
+					'label' => esc_html__('Unlock more possibilities', MELA_TD),
+					'type' => Controls_Manager::CHOOSE,
+					'options' => [
+						'1' => [
+							'title' => esc_html__('', MELA_TD),
+							'icon' => 'fa fa-unlock-alt',
+						],
+					],
+					'default' => '1',
+					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
+				]
+			);
+
+			$this->end_controls_section();
+		}
 
 
 		if (ma_el_fs()->is_not_paying()) {
