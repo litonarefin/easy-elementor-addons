@@ -41,11 +41,14 @@ body {
 .ma-accordion-item {
     margin-bottom: 10px;
 }
+.ma-advanced-accordion .ma-accordion-tab-title{
+    padding: 0 1.25em;
+}
+
 .ma-advanced-accordion .ma-accordion-tab-title {
     border-radius: 5px;
     box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
     position: relative;
-    padding: 0.875em 1.25em;
     font-size: 1rem;
     font-weight: 600;
     line-height: 1;
@@ -149,6 +152,12 @@ body {
     padding-left: 75px;
     position: relative;
 }
+/* .ma-accordion-icon-align-right .ma-accordion-tab-icon{
+    right:0;
+}
+.ma-accordion-icon-align-right .ma-accordion-tab-icon{
+    left:0;
+} */
 .ma-accordion-item .ma-accordion-tab-title .ma-accordion-tab-icon {
     display: flex;
     flex-wrap: wrap;

@@ -1040,9 +1040,7 @@ class Advanced_Accordion extends Widget_Base
 				'condition'             => [
 					'toggle_icon_show' => 'yes'
 				],
-				'selectors'	=> [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'background-color: {{VALUE}};',
-				],
+				'selector'	=> '.ma-advanced-accordion .ma-accordion-tab-title .ma-accordion-toggle-icon'
 			]
 		);
 
@@ -1451,9 +1449,9 @@ class Advanced_Accordion extends Widget_Base
 								<?php }
 								} ?>
 
-								<span class="ma-accordion-title-text">
+								<div class="ma-accordion-title-text">
 									<?php echo $tab['tab_title']; ?>
-								</span>
+								</div>
 							</span>
 
 							<?php if ($settings['toggle_icon_show'] === 'yes' && ($settings['toggle_icon_position'] == "right")) {
