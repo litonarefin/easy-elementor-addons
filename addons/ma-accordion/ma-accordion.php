@@ -718,6 +718,18 @@ class Advanced_Accordion extends Widget_Base
 			]
 		);
 
+		$this->add_responsive_control(
+			'jltma_accordion_border_radius',
+			array(
+				'label'      => esc_html__('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array('px', '%'),
+				'selectors'  => array(
+					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
@@ -764,6 +776,28 @@ class Advanced_Accordion extends Widget_Base
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'                  => 'tab_title_border_hover',
+				'label'                 => esc_html__('Border', MELA_TD),
+				'selector'              => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover',
+			]
+		);
+
+		$this->add_responsive_control(
+			'jltma_accordion_border_radius_hover',
+			array(
+				'label'      => esc_html__('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array('px', '%'),
+				'selectors'  => array(
+					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
@@ -807,6 +841,29 @@ class Advanced_Accordion extends Widget_Base
 				],
 			]
 		);
+
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'                  => 'tab_title_border_active',
+				'label'                 => esc_html__('Border', MELA_TD),
+				'selector'              => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active',
+			]
+		);
+
+		$this->add_responsive_control(
+			'jltma_accordion_border_radius_active',
+			array(
+				'label'      => esc_html__('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array('px', '%'),
+				'selectors'  => array(
+					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
 
 		$this->end_controls_tab();
 
@@ -864,18 +921,6 @@ class Advanced_Accordion extends Widget_Base
 					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title .fa' => 'margin-right: {{SIZE}}{{UNIT}};',
 				]
 			]
-		);
-
-		$this->add_responsive_control(
-			'jltma_accordion_border_radius',
-			array(
-				'label'      => esc_html__('Border Radius', MELA_TD),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array('px', '%'),
-				'selectors'  => array(
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
 		);
 
 		$this->add_group_control(
