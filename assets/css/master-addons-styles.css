@@ -135,11 +135,11 @@ body {
     color: #4b00e7;
 }
 
-.ma-accordion-item.one .ma-accordion-tab-title.active,
+/* .ma-accordion-item.one .ma-accordion-tab-title.active,
 .ma-accordion-item.one .ma-accordion-tab-title:hover {
     background-color: #4b00e7;
     color: #fff;
-}
+} */
 .title-blue-bg .ma-accordion-item.four .ma-accordion-tab-title.active {
     background-color: #4b00e7;
     color: #fff;
@@ -150,7 +150,6 @@ body {
     position: relative;
 }
 .ma-accordion-item .ma-accordion-tab-title .ma-accordion-tab-icon {
-    color: #fff;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

@@ -1030,11 +1030,13 @@ class Advanced_Accordion extends Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'toggle_icon_bg',
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
 			[
-				'label'                 => esc_html__('Background Color', MELA_TD),
-				'type'                  => Controls_Manager::COLOR,
+				'name'      => 'toggle_icon_bg',
+				'label'     => esc_html__('Background Color', MELA_TD),
+				'types'     => ['classic', 'gradient'],
+				'exclude'   => ['image'],
 				'condition'             => [
 					'toggle_icon_show' => 'yes'
 				],
