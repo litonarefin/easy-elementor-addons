@@ -391,18 +391,20 @@ Paste on your Local Computer
 * Updated: Gallery Slider updated with Swiper Slider support
 * Updated: Timeline Element fully revamped with new UI and fixed bugs
 * Removed: "MA" word removed from all Elements
-* Added: Blog Posts Element - Added "All" text change option on Category Tabs filter
+* Added: Blog Posts Element - Added "All" text change option on Category Tabs filter. Thanks to @link1921u. Feature Request URL: https://wordpress.org/support/topic/string-all-in-ma-blog/
+* Added: Blog - 2 new options added for thumbnail position - a)Top Thumb, Bottom Title and b)Bottom Thumb, Title Top. Thanks @link1921u. Feature Request URL: https://wordpress.org/support/topic/image-under-title-author-date-ma-blogs/
 * Fixed: Filterable Gallery - Tooltip not working issue fixed
 * Fixed: Filterable Gallery - Filterable Navigation Show/Hide issue fixed
 * Added: Filterable Gallery - Tilt Effect with option settings added
 * Added: Filterable Gallery - Editor not working and "global" undefined console error issue fixed.
+* Added: Filterable Gallery - Lightbox image overlaps like one after another issue fixed. Thanks to @pedropamn. Support Link: https://wordpress.org/support/topic/bug-when-image-is-clicked/
 * Added: Vertical Timeline - Editor not working and "global" undefined console error issue fixed.
 * Updated: Team Slider - Carousel Settings updated with latest Swiper compatibility
 * Updated: Image Carousel - Carousel updated with Swiper Compatibility
 * Updated: Logo Slider - Carousel updated with Swiper Compatibility
 * Updated: Twitter Slider - Carousel updated with Swiper Compatibility
 * Removed: "Instagram Feed" removed due to recent update of Instagram API changes
-* Updated: Repeater Fields not working on Editor and having a gray color background issue fixed for - Advanced Accordion, Animated Headlines, Business Hours, Changelogs, Image Filterable Gallery, Image Carousel, Image Hotspot, Image Hover Effects, Logo Slider, Pricing Table, Slider Element, Dynamic Table, Avanced Tabs, Timeline, Toggle Content etc
+* Updated: Repeater Fields not working on Editor and having a gray color background issue fixed for - Advanced Accordion, Animated Headlines, Business Hours, Changelogs, Image Filterable Gallery, Image Carousel, Image Hotspot, Image Hover Effects, Logo Slider, Pricing Table, Slider Element, Dynamic Table, Advanced Tabs, Timeline, Toggle Content etc
 * Updated: Dual Heading - First Heading and Description Alignment not working issue fixed. Conditions applied for First Heading and Description alignment
 * Updated: Completely revamped "Advanced Accordion" with better UX. Removed all unnecessary elements and styles. Can do any type of design now like gradient title, gradient color content etc. Toggle content alignment issue fixed and updated.
 * Fixed: MA Tabs editor preview not working issue fixed

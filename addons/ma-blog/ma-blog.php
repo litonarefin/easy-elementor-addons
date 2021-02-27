@@ -1144,8 +1144,10 @@ class Blog extends Widget_Base
 				'type'          => Controls_Manager::SELECT,
 				'description'   => __('Thumbnail Image Position', MELA_TD),
 				'options'       => [
-					'default'   => __('Default', MELA_TD),
-					'left'      => __('Left', MELA_TD)
+					'default'   		=> __('Default', MELA_TD),
+					'left'      		=> __('Left', MELA_TD),
+					'thumb_top'     	=> __('Top Thumb, Bottom Title', MELA_TD),
+					'thumb_bottom'     	=> __('Bottom Thumb, Title Top', MELA_TD),
 				],
 				'default'       => 'default',
 				'label_block'   => true,
@@ -3609,28 +3611,9 @@ class Blog extends Widget_Base
 										<div class="jltma-col-md-5">
 										<?php } ?>
 
-										<?php if ($settings['ma_el_post_grid_thumbnail'] == 'yes') { ?>
-											<div <?php echo $this->get_render_attribute_string('hover_animations'); ?>>
-												<div class="ma-el-post-thumbnail ma-el-img-<?php echo $image_effect; ?> ma-el-img-shape-<?php echo $settings['ma_el_blog_image_shapes']; ?>">
-													<a href="<?php the_permalink(); ?>" target="<?php echo esc_attr($target); ?>">
-														<?php the_post_thumbnail($settings['thumbnail_size']); ?>
-													</a>
-													<?php if ($settings['ma_el_blog_cards_skin'] === "absolute_content_two") { ?>
-														<div class="ma-el-post-entry-meta">
-															<span class="ma-el-post-date">
-																<time datetime="<?php echo get_the_modified_date('c'); ?>">
-																	<?php echo get_the_time('d'); ?>
-																	<span>
-																		<?php echo get_the_time('M'); ?>
-																	</span>
-																</time>
-															</span>
-														</div>
-													<?php } ?>
-												</div>
-											</div>
-										<?php } ?>
-
+										<?php if ($settings['ma_el_blog_thumbnail_position'] !== "thumb_bottom") {
+											$this->jltma_render_thumbnails();
+										}  ?>
 
 										<div class="ma-el-blog-effect-container <?php echo 'ma-el-blog-' . $post_effect .
 																					'-effect'; ?>">
@@ -3733,6 +3716,11 @@ class Blog extends Widget_Base
 														</div>
 													</div>
 
+
+													<?php if ($settings['ma_el_blog_thumbnail_position'] === "thumb_bottom") {
+														$this->jltma_render_thumbnails();
+													}  ?>
+
 													<?php
 
 													$this->ma_el_get_post_content();
@@ -3819,6 +3807,34 @@ class Blog extends Widget_Base
 					<?php
 				}
 
+				protected function jltma_render_thumbnails()
+				{
+					$settings = $this->get_settings_for_display();
+					?>
+
+						<?php if ($settings['ma_el_post_grid_thumbnail'] == 'yes') { ?>
+							<div <?php echo $this->get_render_attribute_string('hover_animations'); ?>>
+								<div class="ma-el-post-thumbnail ma-el-img-<?php echo $image_effect; ?> ma-el-img-shape-<?php echo $settings['ma_el_blog_image_shapes']; ?>">
+									<a href="<?php the_permalink(); ?>" target="<?php echo esc_attr($target); ?>">
+										<?php the_post_thumbnail($settings['thumbnail_size']); ?>
+									</a>
+									<?php if ($settings['ma_el_blog_cards_skin'] === "absolute_content_two") { ?>
+										<div class="ma-el-post-entry-meta">
+											<span class="ma-el-post-date">
+												<time datetime="<?php echo get_the_modified_date('c'); ?>">
+													<?php echo get_the_time('d'); ?>
+													<span>
+														<?php echo get_the_time('M'); ?>
+													</span>
+												</time>
+											</span>
+										</div>
+									<?php } ?>
+								</div>
+							</div>
+						<?php } ?>
+
+					<?php }
 
 				public function render_swiper_pagination()
 				{
@@ -4008,9 +4024,13 @@ class Blog extends Widget_Base
 										global $post;
 										foreach ($posts as $post) {
 											setup_postdata($post);
-											echo '<div ' . $this->get_render_attribute_string('swiper-item') . '>';
+											if ($carousel) {
+												echo '<div ' . $this->get_render_attribute_string('swiper-item') . '>';
+											}
 											$this->ma_el_blog_layout();
-											echo '</div>';
+											if ($carousel) {
+												echo '</div>';
+											}
 										}
 										if ($carousel) { ?>
 									</div>
@@ -4018,6 +4038,7 @@ class Blog extends Widget_Base
 									<?php
 											$this->render_swiper_navigation();
 											$this->render_swiper_pagination();
+
 									?>
 
 							</div>

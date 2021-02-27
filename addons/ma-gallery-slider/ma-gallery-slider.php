@@ -1105,34 +1105,6 @@ class Gallery_Slider extends Widget_Base
 			]
 		);
 
-		$this->add_responsive_control(
-			'layout_vertical_align',
-			[
-				'label' 	=> __('Vertical Align', MELA_TD),
-				'type' 		=> Controls_Manager::CHOOSE,
-				'options' 	=> [
-					'flex-start' 	=> [
-						'title' 	=> __('Left', MELA_TD),
-						'icon' 		=> 'eicon-v-align-top',
-					],
-					'center' 		=> [
-						'title' 	=> __('Center', MELA_TD),
-						'icon' 		=> 'eicon-v-align-middle',
-					],
-					'flex-end' 		=> [
-						'title' 	=> __('Right', MELA_TD),
-						'icon' 		=> 'eicon-v-align-bottom',
-					],
-				],
-				'default' 		=> 'flex-start',
-				'selectors' 	=> [
-					'{{WRAPPER}}:not(.jltma-gallery-slider--top) .jltma-gallery-slider,{{WRAPPER}}:not(.jltma-gallery-slider--bottom) .jltma-gallery-slider' => 'align-items: {{VALUE}}',
-				],
-				'condition' 	=> [
-					'jltma_gallery_slider_preview_position!' => ['top', 'bottom']
-				],
-			]
-		);
 
 		$this->add_control(
 			'jltma_gallery_slider_preview_stack',
@@ -2026,57 +1998,38 @@ class Gallery_Slider extends Widget_Base
 					],
 				],
 				'prefix_class'		=> 'jltma-grid-halign--',
-			]
-		);
-
-		$this->add_control(
-			'jltma_gallery_slider_image_vertical_align',
-			[
-				'label' 		=> esc_html__('Vertical Alignment', MELA_TD),
-				'type' 			=> Controls_Manager::CHOOSE,
-				'default' 		=> '',
-				'options' 		=> [
-					'top'    		=> [
-						'title' 	=> esc_html__('Top', MELA_TD),
-						'icon' 		=> 'eicon-v-align-top',
-					],
-					'middle' 		=> [
-						'title' 	=> esc_html__('Middle', MELA_TD),
-						'icon' 		=> 'eicon-v-align-middle',
-					],
-					'bottom' 		=> [
-						'title' 	=> esc_html__('Bottom', MELA_TD),
-						'icon' 		=> 'eicon-v-align-bottom',
-					],
-					'stretch' 		=> [
-						'title' 	=> esc_html__('Stretch', MELA_TD),
-						'icon' 		=> 'eicon-v-align-stretch',
-					],
+				'condition' 	=> [
+					'jltma_gallery_slider_preview_position!' => ['left', 'right']
 				],
-				'prefix_class'		=> 'jltma-grid-align--',
 			]
 		);
 
 		$this->add_responsive_control(
-			'jltma_gallery_slider_image_stretch_ratio',
+			'jltma_gallery_slider_image_vertical_align',
 			[
-				'label' 	=> esc_html__('Image Size Ratio', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default'	=> [
-					'size'	=> '100'
-				],
-				'range' 	=> [
-					'px' 	=> [
-						'min'	=> 10,
-						'max' 	=> 200,
+				'label' 	=> __('Vertical Align', MELA_TD),
+				'type' 		=> Controls_Manager::CHOOSE,
+				'options' 	=> [
+					'flex-start' 	=> [
+						'title' 	=> __('Left', MELA_TD),
+						'icon' 		=> 'eicon-v-align-top',
 					],
+					'center' 		=> [
+						'title' 	=> __('Center', MELA_TD),
+						'icon' 		=> 'eicon-v-align-middle',
+					],
+					'flex-end' 		=> [
+						'title' 	=> __('Right', MELA_TD),
+						'icon' 		=> 'eicon-v-align-bottom',
+					]
 				],
-				'condition' => [
-					'jltma_gallery_slider_image_vertical_align' 	=> 'stretch',
-					'carousel_orientation!' 						=> 'vertical',
+				'default' 		=> 'flex-start',
+				'selectors' 	=> [
+					'{{WRAPPER}}:not(.jltma-gallery-slider--top) .jltma-gallery-slider,
+					{{WRAPPER}}:not(.jltma-gallery-slider--bottom) .jltma-gallery-slider' => 'align-items: {{VALUE}}',
 				],
-				'selectors' => [
-					'{{WRAPPER}} .jltma-gallery__media:before' => 'padding-bottom: {{SIZE}}%;',
+				'condition' 	=> [
+					'jltma_gallery_slider_preview_position!' => ['top', 'bottom']
 				],
 			]
 		);
@@ -3582,7 +3535,7 @@ class Gallery_Slider extends Widget_Base
 		$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
 
 		$this->add_render_attribute([
-			'wrapper' => [
+			'thumbs-wrapper' => [
 				'class' => [
 					'jltma-gallery-slider',
 					'elementor-jltma-element-' . $unique_id
@@ -3606,7 +3559,7 @@ class Gallery_Slider extends Widget_Base
 			'gallery-wrapper' => [
 				'class' => [
 					'jltma-gallery-slider__gallery',
-					'jltma-swiper',
+					// 'jltma-swiper',
 				],
 			],
 			'swiper-wrapper' => [
@@ -3683,7 +3636,7 @@ class Gallery_Slider extends Widget_Base
 		}
 ?>
 
-		<div <?php echo $this->get_render_attribute_string('wrapper'); ?>>
+		<div <?php echo $this->get_render_attribute_string('thumbs-wrapper'); ?>>
 
 			<!--Preview Slider -->
 			<div <?php echo $this->get_render_attribute_string('preview'); ?> dir="<?php echo $settings['jltma_gallery_slider_direction']; ?>">

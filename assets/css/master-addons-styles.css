@@ -15367,6 +15367,19 @@ ul.jltma-toggle-content-controls {
     width: 50%;
     padding-left: 24px;
 }
+.jltma-gallery-slider__gallery .swiper-wrapper {
+    flex-wrap: wrap;
+}
+.jltma-grid-halign--left .jltma-gallery-slider__gallery .swiper-wrapper {
+    justify-content: flex-start;
+}
+.jltma-grid-halign--center .jltma-gallery-slider__gallery .swiper-wrapper {
+    justify-content: center;
+}
+.jltma-grid-halign--right .jltma-gallery-slider__gallery .swiper-wrapper {
+    justify-content: flex-end;
+}
+
 .jltma-gallery-slider__gallery .jltma-gallery__item {
     cursor: pointer;
 }
