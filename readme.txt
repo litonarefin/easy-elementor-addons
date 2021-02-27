@@ -407,6 +407,9 @@ Paste on your Local Computer
 * Updated: Completely revamped "Advanced Accordion" with better UX. Removed all unnecessary elements and styles. Can do any type of design now like gradient title, gradient color content etc. Toggle content alignment issue fixed and updated.
 * Fixed: MA Tabs editor preview not working issue fixed
 * Fixed: MA Progressbars editor preview not working issue fixed
+* Updated: Team Members fixed issues - Content alignment not working fixed, Social Icons repeater not working on editor fixed, Social icons style updated, added placeholder image if no image selected.
+* Updated: Image Hover Effects - removed "No Image Selected" notice and added placeholder image for better user experience.
+
 
 
 = 1.5.6.2 (24-01-2021) =

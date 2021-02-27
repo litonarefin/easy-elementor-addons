@@ -663,6 +663,15 @@ Customization Options.</span>'
 	{
 		$settings = $this->get_settings_for_display();
 
+		$ma_el_team_member_image = $settings['ma_el_team_member_image'];
+		$ma_el_team_member_image_url = Group_Control_Image_Size::get_attachment_image_src($ma_el_team_member_image['id'], 'thumbnail', $settings);
+		if (empty($ma_el_team_member_image_url)) {
+			$ma_el_team_member_image_url = $ma_el_team_member_image['url'];
+		} else {
+			$ma_el_team_member_image_url = $ma_el_team_member_image_url;
+		}
+
+
 		if ($settings['ma_el_team_members_preset'] == '-style6') { ?>
 
 			<div id="ma-el-team-member-slider" class="ma-el-team-member-slider owl-carousel owl-theme">
@@ -672,6 +681,8 @@ Customization Options.</span>'
 						<?php
 						if (isset($settings['ma_el_team_member_image']['id']) && $settings['ma_el_team_member_image']['id'] != "") {
 							echo $this->render_image($settings['ma_el_team_member_image']['id'], $settings);
+						} else {
+							echo '<img src="' . esc_url($ma_el_team_member_image_url) . '" >';
 						} ?>
 
 						<div class="ma-el-member-details">
@@ -727,6 +738,8 @@ Customization Options.</span>'
 						<?php
 						if (isset($settings['ma_el_team_member_image']['id']) && $settings['ma_el_team_member_image']['id'] != "") {
 							echo $this->render_image($settings['ma_el_team_member_image']['id'], $settings);
+						} else {
+							echo '<img src="' . esc_url($ma_el_team_member_image_url) . '" >';
 						} ?>
 
 					</div>

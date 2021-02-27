@@ -1422,10 +1422,19 @@ class Image_Hover_Effects extends Widget_Base
 			}
 		}
 
-		if ($settings['ma_el_main_image']['id'] == "") {
-			// echo esc_html__('No Image Selected, Please Upload/Select an Image', MELA_TD);
-			echo Master_Addons_Helper::jltma_custom_message('No Image Selected', 'Please Upload/Select an Image');
-		} ?>
+		// if ($settings['ma_el_main_image']['id'] == "") {
+		// 	// echo esc_html__('No Image Selected, Please Upload/Select an Image', MELA_TD);
+		// 	echo Master_Addons_Helper::jltma_custom_message('No Image Selected', 'Please Upload/Select an Image');
+		// }
+
+		$hover_effects_main_image = $settings['ma_el_main_image'];
+		$hover_effects_main_image_url = Group_Control_Image_Size::get_attachment_image_src($hover_effects_main_image['id'], 'thumbnail', $settings);
+		if (empty($hover_effects_main_image_url)) {
+			$hover_effects_main_image_url = $hover_effects_main_image['url'];
+		} else {
+			$hover_effects_main_image_url = $hover_effects_main_image_url;
+		}
+?>
 
 		<div <?php echo $this->get_render_attribute_string('ma_el_image_hover_effect_wrapper'); ?>>
 
@@ -1433,6 +1442,8 @@ class Image_Hover_Effects extends Widget_Base
 
 				<?php if (isset($settings['ma_el_main_image']['id']) && $settings['ma_el_main_image']['id'] != "") {
 					echo $this->render_image($settings['ma_el_main_image']['id'], $settings);
+				} else {
+					echo '<img src="' . esc_url($hover_effects_main_image_url) . '" >';
 				} ?>
 
 				<figcaption>
