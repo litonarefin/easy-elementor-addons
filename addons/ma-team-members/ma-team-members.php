@@ -227,6 +227,33 @@ class Team_Member extends Widget_Base
 			]
 		);
 
+		$social_repeater = new Repeater();
+		$social_repeater->add_control(
+			'social',
+			[
+				'label'         	=> esc_html__('Icon', MELA_TD),
+				'type'          	=> Controls_Manager::ICONS,
+				'fa4compatibility' 	=> 'icon',
+				'default'       	=> [
+					'value'     => 'fab fa-wordpress',
+					'library'   => 'brand',
+				]
+			]
+		);
+
+		$social_repeater->add_control(
+			'link',
+			[
+				'label' => esc_html__('Link', MELA_TD),
+				'type' => Controls_Manager::URL,
+				'label_block' => true,
+				'default' => [
+					'url' => '',
+					'is_external' => 'true',
+				],
+				'placeholder' => esc_html__('Place URL here', MELA_TD),
+			]
+		);
 
 		$this->add_control(
 			'ma_el_team_member_social_profile_links',
@@ -238,40 +265,22 @@ class Team_Member extends Widget_Base
 				'default' => [
 					[
 						'social' => 'fa fa-facebook',
+						'link' 	 => '',
 					],
 					[
 						'social' => 'fa fa-twitter',
+						'link' 	 => '',
 					],
 					[
 						'social' => 'fa fa-google-plus',
+						'link' 	 => '',
 					],
 					[
 						'social' => 'fa fa-linkedin',
+						'link' 	 => '',
 					],
 				],
-				'fields' => [
-					[
-						'name' 				=> 'social',
-						'label'         	=> esc_html__('Icon', MELA_TD),
-						'type'          	=> Controls_Manager::ICONS,
-						'fa4compatibility' 	=> 'icon',
-						'default'       	=> [
-							'value'     => 'fab fa-wordpress',
-							'library'   => 'brand',
-						]
-					],
-					[
-						'name' => 'link',
-						'label' => esc_html__('Link', MELA_TD),
-						'type' => Controls_Manager::URL,
-						'label_block' => true,
-						'default' => [
-							'url' => '',
-							'is_external' => 'true',
-						],
-						'placeholder' => esc_html__('Place URL here', MELA_TD),
-					],
-				],
+				'fields' => $social_repeater->get_controls(),
 				// 'title_field' => '<i class="{{ social }}"></i> {{{ social.replace( \'fab fa-\', \'\' ).replace( \'-\', \' \' ).replace( /\b\w/g, function( letter ){ return letter.toUpperCase() } ) }}}',
 				'title_field' => 'Social Icon',
 			]
