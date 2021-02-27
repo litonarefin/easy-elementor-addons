@@ -378,6 +378,7 @@ Paste on your Local Computer
 = 1.5.7 (7-02-2021) =
 * Updated: 'jquery-slick' updated with 'Swiper Slider' library. Updated Widgets - MA Blog, MA Slider, MA Gallery Slider, MA Twitter Slider, MA Timeline etc
 * Added: New Element added "Advanced Image".
+* Added: "MA Duplicator" added on Extensions
 * Updated: Fully revamped plugins file structure with namespace and file locations.
 * Updated: Domain Checker - Added Search Button Link for Affiliates and anyone can integrate WHMCS for searching Domains.
 * Removed: Slick Slider removed from Gallery Slider
