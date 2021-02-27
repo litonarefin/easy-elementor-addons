@@ -1619,7 +1619,7 @@ class Advanced_Accordion extends Widget_Base
 				<?php } ?>
 			</div>
 		</div>
-<?php
+	<?php
 	}
 
 	public function get_page_template_options($type = '')
@@ -1639,4 +1639,26 @@ class Advanced_Accordion extends Widget_Base
 
 		return $options;
 	}
+
+
+	protected function _content_template()
+	{ ?>
+
+		<# view.addRenderAttribute( 'ma_advance_accordion_wrap' , 'class' , 'ma-accordion-wrap' ); view.addRenderAttribute( 'ma_advance_accordion_wrap' , 'class' , 'ma-accordion-icon-align-' + settings.toggle_icon_position ); #>
+			<div class="ma-advanced-accordion">
+				<div {{{ view.getRenderAttributeString( 'ma_advance_accordion_wrap' ) }}}>
+
+					<# for ( var i in settings.tabs ) { var item=settings.tabs[i] #>
+
+						<div class="ma-accordion-item">
+							<<# settings.title_html_tag #>
+								<# if(item.single_tab_title_bg_color_show==="yes" ){ style="background-color:{{item.single_tab_title_bg_color}};color:{{item.single_title_text_color}}" } #>>
+							</<# settings.title_html_tag #>>
+
+							if ($tab['single_tab_title_bg_color_show'] == 'yes') {
+						</div>
+						<# } #>
+				</div>
+
+		<?php }
 }
