@@ -1428,7 +1428,7 @@ class Advanced_Accordion extends Widget_Base
                                     color:<?php echo $tab['single_title_text_color']; ?>" <?php } // Premium Version Codes
 
 																					} ?>>
-							<span class="ma-accordion-title-icon">
+							<div class="ma-accordion-title-icon">
 
 								<?php
 								if ($settings['toggle_icon_show'] === 'yes' && ($settings['toggle_icon_position'] == "left")) {
@@ -1452,7 +1452,7 @@ class Advanced_Accordion extends Widget_Base
 								<div class="ma-accordion-title-text">
 									<?php echo $tab['tab_title']; ?>
 								</div>
-							</span>
+							</div>
 
 							<?php if ($settings['toggle_icon_show'] === 'yes' && ($settings['toggle_icon_position'] == "right")) {
 								if ($tab['accordion_tab_icon_show'] === 'yes') { ?>

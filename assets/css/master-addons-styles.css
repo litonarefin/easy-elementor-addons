@@ -41,8 +41,14 @@ body {
 .ma-accordion-item {
     margin-bottom: 10px;
 }
-.ma-advanced-accordion .ma-accordion-tab-title{
-    padding: 0 1.25em;
+.ma-accordion-title-icon{
+    display:flex;
+}
+.ma-accordion-icon-align-right .ma-accordion-tab-icon {
+    padding: 0 0 0 1.25em;
+}
+.ma-accordion-icon-align-left .ma-accordion-tab-title{
+    padding: 0 1.25em 0 0;
 }
 
 .ma-advanced-accordion .ma-accordion-tab-title {
@@ -107,7 +113,6 @@ body {
     display: none;
     padding: 1.5rem;
     opacity: 0;
-
     transform: translateY(-100%);
 }
 .ma-advanced-accordion .ma-accordion-tab-title.show.active + .ma-accordion-tab-content {
@@ -118,46 +123,16 @@ body {
 }
 .ma-accordion-tab-content p {
     color: #78909c;
-    /*font-size: 14px;*/
-    /*line-height: 23px;*/
     opacity: 0;
     transition: all 0.4s ease;
 }
 .ma-accordion-tab-title.show.active + .ma-accordion-tab-content p {
     opacity: 1;
 }
-.ma-accordion-two .ma-accordion-tab-title {
-    border-radius: 3rem;
-}
-/*.blue-color .ma-advanced-accordion .ma-accordion-item.three .ma-accordion-tab-title.active .ma-accordion-title-icon {*/
-/*background-color: #4b00e7;*/
-/*color:#fff !important;*/
-/*}*/
 
-.blue-color .ma-accordion-tab-title.active .ma-accordion-title-icon {
-    color: #4b00e7;
+.ma-accordion-icon-align-left .ma-accordion-tab-title .ma-accordion-toggle-icon{
+    margin-right: 20px;
 }
-
-/* .ma-accordion-item.one .ma-accordion-tab-title.active,
-.ma-accordion-item.one .ma-accordion-tab-title:hover {
-    background-color: #4b00e7;
-    color: #fff;
-} */
-.title-blue-bg .ma-accordion-item.four .ma-accordion-tab-title.active {
-    background-color: #4b00e7;
-    color: #fff;
-}
-
-.ma-accordion-icon-align-left .ma-accordion-item .ma-accordion-tab-title {
-    padding-left: 75px;
-    position: relative;
-}
-/* .ma-accordion-icon-align-right .ma-accordion-tab-icon{
-    right:0;
-}
-.ma-accordion-icon-align-right .ma-accordion-tab-icon{
-    left:0;
-} */
 .ma-accordion-item .ma-accordion-tab-title .ma-accordion-tab-icon {
     display: flex;
     flex-wrap: wrap;
