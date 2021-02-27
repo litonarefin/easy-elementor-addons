@@ -229,6 +229,112 @@ class Advanced_Accordion extends Widget_Base
 
 
 			/* End of Single Accordion Tab Styles */
+		} else {
+
+			/* Start of Single Accordion Tab Styles */
+			$repeater->add_control(
+				'single_tab_title_bg_color_show_pro',
+				[
+					'label'             => esc_html__('Enable Background Color', MELA_TD),
+					'type' 				=> Controls_Manager::CHOOSE,
+					'options' 			=> [
+						'1' => [
+							'title' => esc_html__('', MELA_TD),
+							'icon' => 'fa fa-unlock-alt',
+						],
+					],
+					'default' => '1',
+					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
+				]
+			);
+
+			$repeater->add_control(
+				'single_title_text_color_pro',
+				[
+					'label'             => esc_html__('Title Color', MELA_TD),
+					'type' 				=> Controls_Manager::CHOOSE,
+					'options' 			=> [
+						'1' => [
+							'title' => esc_html__('', MELA_TD),
+							'icon' => 'fa fa-unlock-alt',
+						],
+					],
+					'default' => '1',
+					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
+				]
+			);
+
+			$repeater->add_control(
+				'single_tab_title_bg_color_pro',
+				[
+					'label'             => esc_html__('Title Background Color', MELA_TD),
+					'type' 				=> Controls_Manager::CHOOSE,
+					'options' 			=> [
+						'1' => [
+							'title' => esc_html__('', MELA_TD),
+							'icon' => 'fa fa-unlock-alt',
+						],
+					],
+					'default' => '1',
+					'condition'             => [
+						'single_tab_title_bg_color_show' => 'yes'
+					],
+					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
+				]
+			);
+
+			$repeater->add_control(
+				'single_title_content_color_pro',
+				[
+					'label'             => esc_html__('Title Background Color', MELA_TD),
+					'type' 				=> Controls_Manager::CHOOSE,
+					'options' 			=> [
+						'1' => [
+							'title' => esc_html__('', MELA_TD),
+							'icon' => 'fa fa-unlock-alt',
+						],
+					],
+					'default' => '1',
+					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
+				]
+			);
+
+			$repeater->add_control(
+				'single_title_content_color_pro',
+				[
+					'label'                 => esc_html__('Content Color', MELA_TD),
+					'type' 				=> Controls_Manager::CHOOSE,
+					'options' 			=> [
+						'1' => [
+							'title' => esc_html__('', MELA_TD),
+							'icon' => 'fa fa-unlock-alt',
+						],
+					],
+					'default' => '1',
+					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
+				]
+			);
+
+			$repeater->add_control(
+				'single_tab_content_bg_color_pro',
+				[
+					'label'                 => esc_html__('Content Background Color', MELA_TD),
+					'type'                  => Controls_Manager::COLOR,
+					'options' 			=> [
+						'1' => [
+							'title' => esc_html__('', MELA_TD),
+							'icon' => 'fa fa-unlock-alt',
+						],
+					],
+					'default' => '1',
+					'condition'             => [
+						'single_tab_title_bg_color_show' => 'yes'
+					],
+					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
+				]
+			);
+
+			/* End of Single Accordion Tab Styles */
 		}
 
 
