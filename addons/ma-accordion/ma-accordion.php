@@ -845,60 +845,6 @@ class Advanced_Accordion extends Widget_Base
 
 		$this->end_controls_tabs();
 
-		$this->add_control(
-			'tab_icon_heading',
-			[
-				'label'                 => __('Icon', MELA_TD),
-				'type'                  => Controls_Manager::HEADING,
-				'separator'             => 'before',
-			]
-		);
-
-		$this->add_responsive_control(
-			'tab_icon_size',
-			[
-				'label'                 => __('Icon Size', MELA_TD),
-				'type'                  => Controls_Manager::SLIDER,
-				'default'               => [
-					'size'	=> 16,
-					'unit'	=> 'px',
-				],
-				'size_units'            => ['px'],
-				'range'                 => [
-					'px'		=> [
-						'min'	=> 0,
-						'max'	=> 100,
-						'step'	=> 1,
-					]
-				],
-				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title .fa' => 'font-size: {{SIZE}}{{UNIT}};',
-				]
-			]
-		);
-		$this->add_responsive_control(
-			'tab_icon_spacing',
-			[
-				'label'                 => __('Icon Spacing', MELA_TD),
-				'type'                  => Controls_Manager::SLIDER,
-				'default'               => [
-					'size'	=> 10,
-					'unit'	=> 'px',
-				],
-				'size_units'            => ['px'],
-				'range'                 => [
-					'px'	=> [
-						'min'	=> 0,
-						'max'	=> 100,
-						'step'	=> 1,
-					]
-				],
-				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title .fa' => 'margin-right: {{SIZE}}{{UNIT}};',
-				]
-			]
-		);
-
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			array(
@@ -1187,6 +1133,26 @@ class Advanced_Accordion extends Widget_Base
 				],
 				'condition'             => [
 					'toggle_icon_show' => 'yes'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'tab_icon_spacing',
+			[
+				'label'                 => __('Icon Spacing', MELA_TD),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => ['px'],
+				'range'                 => [
+					'px'	=> [
+						'min'	=> 0,
+						'max'	=> 100,
+						'step'	=> 1,
+					]
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .ma-accordion-icon-align-left .ma-accordion-tab-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .ma-accordion-icon-align-right .ma-accordion-tab-icon' => 'margin-left: {{SIZE}}{{UNIT}};',
 				]
 			]
 		);
