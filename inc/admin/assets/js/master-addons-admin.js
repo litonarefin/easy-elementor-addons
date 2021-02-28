@@ -288,6 +288,7 @@
 
 
                 // Master Addons White Label Ajax Call
+                console.log('array', $( '#jltma-white-label-settings' ).serializeArray());
                 $.ajax( {
                     url: js_maad_el_settings.ajaxurl,
                     type: 'post',

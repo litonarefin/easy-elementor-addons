@@ -64,8 +64,8 @@ class Master_Addons_Admin_Settings
 		add_action('wp_ajax_nopriv_jltma_save_api_settings', [$this, 'jltma_save_api_settings']);
 
 		// Master Addons API Settings
-		// add_action('wp_ajax_jltma_save_white_label_settings', [$this, 'jltma_save_white_label_settings']);
-		// add_action('wp_ajax_nopriv_jltma_save_white_label_settings', [$this, 'jltma_save_white_label_settings']);
+		add_action('wp_ajax_jltma_save_white_label_settings', [$this, 'jltma_save_white_label_settings']);
+		add_action('wp_ajax_nopriv_jltma_save_white_label_settings', [$this, 'jltma_save_white_label_settings']);
 
 		add_filter('all_plugins', array($this, 'jltma_save_white_label_settings_update'));
 
@@ -158,7 +158,9 @@ class Master_Addons_Admin_Settings
 
 	public function master_addons_el_page_content()
 	{
-
+		$settings = self::get_settings();
+		print_r($settings);
+		echo JLTMA_BASE;
 		// Master Addons Elements Settings
 		$this->jltma_default_element_settings = array_fill_keys(self::jltma_addons_array(), true);
 		$this->jltma_get_element_settings 	= get_option('maad_el_save_settings', $this->jltma_default_element_settings);
@@ -166,7 +168,6 @@ class Master_Addons_Admin_Settings
 		// Master Addons Extensions Settings
 		$this->jltma_default_extension_settings = array_fill_keys(self::jltma_addons_extensions_array(), true);
 		$this->jltma_get_extension_settings = get_option('ma_el_extensions_save_settings', $this->jltma_default_extension_settings);
-
 
 		// Master Addons Third Party Plugins Settings
 		$this->jltma_default_third_party_plugins_settings = array_fill_keys(self::jltma_addons_third_party_plugins_array(), true);
@@ -316,32 +317,80 @@ class Master_Addons_Admin_Settings
 		return true;
 		die();
 	}
+	public static function get_option($key, $network_override = true)
+	{
+		if (is_network_admin()) {
+			$value = get_site_option($key);
+		} elseif (!$network_override && is_multisite()) {
+			$value = get_site_option($key);
+		} elseif ($network_override && is_multisite()) {
+			$value = get_option($key);
+			$value = (false === $value || (is_array($value) && in_array('disabled', $value))) ? get_site_option($key) : $value;
+		} else {
+			$value = get_option($key);
+		}
+
+		return $value;
+	}
+	public static function get_settings()
+	{
+		$default_settings = array(
+			'jltma_wl_plugin_name'               => '',
+			// 'plugin_pro_name'           => '',
+			'jltma_wl_plugin_desc'               => '',
+			'jltma_wl_plugin_author_name'        => '',
+			'jltma_wl_plugin_url'                => '',
+			'jltma_wl_plugin_menu_label'         => 'Master Addons',
+			// 'edit_with_elementor'       => 'Edit with Elementor',
+			'jltma_wl_plugin_row_links'      => '',
+			// 'hide_license_page'         => '',
+			// 'hide_elementor_plugin'     => '',
+			// 'hide_elementor_pro_plugin' => '',
+			// 'hide_plugin'               => '',
+			// 'hide_ewl_setting_page'     => '',
+		);
+
+		$settings = self::get_option('jltma_white_label_settings', true);
+
+		if (!is_array($settings) || empty($settings)) {
+			return $default_settings;
+		}
+
+		if (is_array($settings) && !empty($settings)) {
+			return array_merge($default_settings, $settings);
+		}
+	}
 
 	protected function jltma_save_white_label_settings_update($all_plugins)
 	{
-		$plugin_name 	= jltma_get_options('jltma_white_label_settings');
-		print_r($plugin_name);
-		// $tp_plugin_desc = jltma_get_options('tp_plugin_desc');
-		// $tp_author_name = jltma_get_options('tp_author_name');
-		// $tp_author_uri 	= jltma_get_options('tp_author_uri');
-		// if (!empty($all_plugins[THEPLUS_PBNAME]) && is_array($all_plugins[THEPLUS_PBNAME])) {
-		// 	$all_plugins[THEPLUS_PBNAME]['Name']           = !empty($plugin_name)     ? $plugin_name      : $all_plugins[THEPLUS_PBNAME]['Name'];
-		// 	$all_plugins[THEPLUS_PBNAME]['PluginURI']      = !empty($tp_author_uri)      ? $tp_author_uri       : $all_plugins[THEPLUS_PBNAME]['PluginURI'];
-		// 	$all_plugins[THEPLUS_PBNAME]['Description']    = !empty($tp_plugin_desc)     ? $tp_plugin_desc      : $all_plugins[THEPLUS_PBNAME]['Description'];
-		// 	$all_plugins[THEPLUS_PBNAME]['Author']         = !empty($tp_author_name)   ? $tp_author_name    : $all_plugins[THEPLUS_PBNAME]['Author'];
-		// 	$all_plugins[THEPLUS_PBNAME]['AuthorURI']      = !empty($tp_author_uri)      ? $tp_author_uri       : $all_plugins[THEPLUS_PBNAME]['AuthorURI'];
-		// 	$all_plugins[THEPLUS_PBNAME]['Title']          = !empty($plugin_name)     ? $plugin_name      : $all_plugins[THEPLUS_PBNAME]['Title'];
-		// 	$all_plugins[THEPLUS_PBNAME]['AuthorName']     = !empty($tp_author_name)   ? $tp_author_name    : $all_plugins[THEPLUS_PBNAME]['AuthorName'];
+		$settings = self::get_settings();
+		// $jltma_white_label_options = jltma_get_options('jltma_white_label_settings');
+		// $jltma_plugin_name 	= $jltma_white_label_options['jltma_wl_plugin_name'];
+		// $jltma_plugin_desc = $jltma_white_label_options['jltma_wl_plugin_desc'];
+		// $jltma_wl_plugin_author_name = $jltma_white_label_options['jltma_wl_plugin_author_name'];
+		// $jltma_wl_plugin_menu_label = $jltma_white_label_options['jltma_wl_plugin_menu_label'];
+		// $jltma_wl_plugin_url 	= $jltma_white_label_options['jltma_wl_plugin_url'];
+		// $jltma_wl_plugin_logo 	= $jltma_white_label_options['jltma_wl_plugin_logo'];
+		// $jltma_wl_plugin_row_links 	= $jltma_white_label_options['jltma_wl_plugin_row_links'];
 
-		// 	return $all_plugins;
-		// }
+		if (!empty($all_plugins[MELA_BASE]) && is_array($all_plugins[MELA_BASE])) {
+			$all_plugins[MELA_BASE]['Name']           = !empty($settings['jltma_wl_plugin_name']) ? $settings['jltma_wl_plugin_name'] : $all_plugins[MELA_BASE]['Name'];
+			// $all_plugins[MELA_BASE]['PluginURI']      = !empty($jltma_wl_plugin_url) ? $jltma_wl_plugin_url : $all_plugins[MELA_BASE]['PluginURI'];
+			// $all_plugins[MELA_BASE]['Description']    = !empty($tp_plugin_desc) ? $tp_plugin_desc : $all_plugins[MELA_BASE]['Description'];
+			// $all_plugins[MELA_BASE]['Author']         = !empty($tp_author_name) ? $tp_author_name : $all_plugins[MELA_BASE]['Author'];
+			// $all_plugins[MELA_BASE]['AuthorURI']      = !empty($jltma_wl_plugin_url) ? $jltma_wl_plugin_url : $all_plugins[MELA_BASE]['AuthorURI'];
+			// $all_plugins[MELA_BASE]['Title']          = !empty($plugin_name) ? $plugin_name : $all_plugins[MELA_BASE]['Title'];
+			// $all_plugins[MELA_BASE]['AuthorName']     = !empty($tp_author_name) ? $tp_author_name : $all_plugins[MELA_BASE]['AuthorName'];
+
+			return $all_plugins;
+		}
 	}
 
 	// White Label Settings Ajax Call
 	public function jltma_save_white_label_settings()
 	{
 
-		check_ajax_referer('jltma_white_label_settings_nonce_action', 'security');
+		// check_ajax_referer('jltma_white_label_settings_nonce_action', 'security');
 
 		$jltma_white_label_options = [];
 

@@ -11,7 +11,8 @@
     <?php $jltma_white_label_options = get_option('jltma_white_label_settings'); ?>
 
     <form action="" method="POST" id="jltma-white-label-settings" class="jltma-white-label-settings" name="jltma-white-label-settings">
-        <?php wp_nonce_field('jltma_white_label_settings_nonce_action'); ?>
+        <?php //wp_nonce_field('jltma_white_label_settings_nonce_action');
+        ?>
 
         <div class="master_addons_feature jltma-center-align">
 
@@ -40,6 +41,13 @@
                                 <?php echo esc_html__('Developer/Agency Name', MELA_TD); ?>
                             </label>
                             <input name="jltma_wl_plugin_author_name" type="text" class="form-control jltma_wl_plugin_author_name" value="<?php echo isset($jltma_white_label_options['jltma_wl_plugin_author_name']) ? $jltma_white_label_options['jltma_wl_plugin_author_name'] : ""; ?>">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jltma_wl_plugin_menu_label">
+                                <?php echo esc_html__('Menu Label', MELA_TD); ?>
+                            </label>
+                            <input name="jltma_wl_plugin_menu_label" type="text" class="form-control jltma_wl_plugin_menu_label" value="<?php echo isset($jltma_white_label_options['jltma_wl_plugin_menu_label']) ? $jltma_white_label_options['jltma_wl_plugin_menu_label'] : ""; ?>">
                         </div>
 
                         <div class="form-group">
