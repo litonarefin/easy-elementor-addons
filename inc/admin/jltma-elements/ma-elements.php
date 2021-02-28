@@ -282,9 +282,9 @@ if (!class_exists('JLTMA_Addon_Elements')) {
                         [
                             'key'               => 'ma-advanced-image',
                             'title'             => esc_html__('Advanced Image', MELA_TD),
-                            'demo_url'          => '',
-                            'docs_url'          => '',
-                            'tuts_url'          => ''
+                            'demo_url'          => 'https://master-addons.com/demos/advanced-image/',
+                            'docs_url'          => 'https://master-addons.com/docs/addons/advanced-image-element/',
+                            'tuts_url'          => 'https://www.youtube.com/watch?v=fhdwiiy7JiE'
                         ],
                         // [
                         //     'key'                => 'ma-image-cascading',
@@ -293,34 +293,34 @@ if (!class_exists('JLTMA_Addon_Elements')) {
                         //     'docs_url'           => '',
                         //     'tuts_url'           => ''
                         // ],
-                        [
-                            'key'                => 'ma-image-carousel',
-                            'title'              => esc_html__('Image Carousel', MELA_TD),
-                            'demo_url'           => '',
-                            'docs_url'           => '',
-                            'tuts_url'           => ''
-                        ],
-                        [
-                            'key'                => 'ma-logo-slider',
-                            'title'              => esc_html__('Logo Slider', MELA_TD),
-                            'demo_url'           => '',
-                            'docs_url'           => '',
-                            'tuts_url'           => ''
-                        ],
-                        [
-                            'key'                => 'ma-twitter-slider',
-                            'title'              => esc_html__('Twitter Slider', MELA_TD),
-                            'demo_url'           => '',
-                            'docs_url'           => '',
-                            'tuts_url'           => ''
-                        ],
-                        [
-                            'key'                => 'ma-morphing-blob',
-                            'title'              => esc_html__('Morphing Blob', MELA_TD),
-                            'demo_url'           => '',
-                            'docs_url'           => '',
-                            'tuts_url'           => ''
-                        ],
+                        // [
+                        //     'key'                => 'ma-image-carousel',
+                        //     'title'              => esc_html__('Image Carousel', MELA_TD),
+                        //     'demo_url'           => '',
+                        //     'docs_url'           => '',
+                        //     'tuts_url'           => ''
+                        // ],
+                        // [
+                        //     'key'                => 'ma-logo-slider',
+                        //     'title'              => esc_html__('Logo Slider', MELA_TD),
+                        //     'demo_url'           => '',
+                        //     'docs_url'           => '',
+                        //     'tuts_url'           => ''
+                        // ],
+                        // [
+                        //     'key'                => 'ma-twitter-slider',
+                        //     'title'              => esc_html__('Twitter Slider', MELA_TD),
+                        //     'demo_url'           => '',
+                        //     'docs_url'           => '',
+                        //     'tuts_url'           => ''
+                        // ],
+                        // [
+                        //     'key'                => 'ma-morphing-blob',
+                        //     'title'              => esc_html__('Morphing Blob', MELA_TD),
+                        //     'demo_url'           => '',
+                        //     'docs_url'           => '',
+                        //     'tuts_url'           => ''
+                        // ],
 
 
                     ]

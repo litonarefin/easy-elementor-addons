@@ -154,13 +154,13 @@ if (!class_exists('JLTMA_Addon_Extensions')) {
                             'docs_url'      => '',
                             'tuts_url'      => ''
                         ],
-                        [
-                            'key'           => 'content-protection',
-                            'title'         => esc_html__('Content Protection', MELA_TD),
-                            'demo_url'      => '',
-                            'docs_url'      => '',
-                            'tuts_url'      => ''
-                        ],
+                        // [
+                        //     'key'           => 'content-protection',
+                        //     'title'         => esc_html__('Content Protection', MELA_TD),
+                        //     'demo_url'      => '',
+                        //     'docs_url'      => '',
+                        //     'tuts_url'      => ''
+                        // ],
                         // [
                         //     'key'           => 'morphing-effects',
                         //     'title'         => esc_html__( 'Morphing Effects', MELA_TD),
