@@ -64,8 +64,10 @@ class Master_Addons_Admin_Settings
 		add_action('wp_ajax_nopriv_jltma_save_api_settings', [$this, 'jltma_save_api_settings']);
 
 		// Master Addons API Settings
-		add_action('wp_ajax_jltma_save_white_label_settings', [$this, 'jltma_save_white_label_settings']);
-		add_action('wp_ajax_nopriv_jltma_save_white_label_settings', [$this, 'jltma_save_white_label_settings']);
+		// add_action('wp_ajax_jltma_save_white_label_settings', [$this, 'jltma_save_white_label_settings']);
+		// add_action('wp_ajax_nopriv_jltma_save_white_label_settings', [$this, 'jltma_save_white_label_settings']);
+
+		add_filter('all_plugins', array($this, 'jltma_save_white_label_settings_update'));
 
 		$this->ma_el_include_files();
 	}
@@ -313,6 +315,26 @@ class Master_Addons_Admin_Settings
 
 		return true;
 		die();
+	}
+
+	protected function jltma_save_white_label_settings_update($all_plugins)
+	{
+		$plugin_name 	= jltma_get_options('jltma_white_label_settings');
+		print_r($plugin_name);
+		// $tp_plugin_desc = jltma_get_options('tp_plugin_desc');
+		// $tp_author_name = jltma_get_options('tp_author_name');
+		// $tp_author_uri 	= jltma_get_options('tp_author_uri');
+		// if (!empty($all_plugins[THEPLUS_PBNAME]) && is_array($all_plugins[THEPLUS_PBNAME])) {
+		// 	$all_plugins[THEPLUS_PBNAME]['Name']           = !empty($plugin_name)     ? $plugin_name      : $all_plugins[THEPLUS_PBNAME]['Name'];
+		// 	$all_plugins[THEPLUS_PBNAME]['PluginURI']      = !empty($tp_author_uri)      ? $tp_author_uri       : $all_plugins[THEPLUS_PBNAME]['PluginURI'];
+		// 	$all_plugins[THEPLUS_PBNAME]['Description']    = !empty($tp_plugin_desc)     ? $tp_plugin_desc      : $all_plugins[THEPLUS_PBNAME]['Description'];
+		// 	$all_plugins[THEPLUS_PBNAME]['Author']         = !empty($tp_author_name)   ? $tp_author_name    : $all_plugins[THEPLUS_PBNAME]['Author'];
+		// 	$all_plugins[THEPLUS_PBNAME]['AuthorURI']      = !empty($tp_author_uri)      ? $tp_author_uri       : $all_plugins[THEPLUS_PBNAME]['AuthorURI'];
+		// 	$all_plugins[THEPLUS_PBNAME]['Title']          = !empty($plugin_name)     ? $plugin_name      : $all_plugins[THEPLUS_PBNAME]['Title'];
+		// 	$all_plugins[THEPLUS_PBNAME]['AuthorName']     = !empty($tp_author_name)   ? $tp_author_name    : $all_plugins[THEPLUS_PBNAME]['AuthorName'];
+
+		// 	return $all_plugins;
+		// }
 	}
 
 	// White Label Settings Ajax Call
