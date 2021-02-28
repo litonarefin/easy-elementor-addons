@@ -11,14 +11,6 @@ class Extension_Background_Slider
 {
 	private static $_instance = null;
 
-	public static function instance()
-	{
-		if (is_null(self::$_instance)) {
-			self::$_instance = new self();
-		}
-		return self::$_instance;
-	}
-
 	private function __construct()
 	{
 		add_action('elementor/element/after_section_end', [$this, '_add_controls'], 10, 3);
@@ -28,8 +20,8 @@ class Extension_Background_Slider
 		add_action('elementor/frontend/section/before_render', [$this, '_before_render'], 10, 1);
 
 		add_action('elementor/element/print_template', [$this, '_print_template'], 10, 2);
-		add_action('elementor/section/print_template', [$this, '_print_template'], 10, 2);
-		add_action('elementor/column/print_template', [$this, '_print_template'], 10, 2);
+		// add_action('elementor/widget/print_template', [$this, '_print_template'], 10, 2);
+		// add_action('elementor/section/print_template', [$this, '_print_template'], 10, 2);
 	}
 
 
@@ -354,6 +346,15 @@ class Extension_Background_Slider
 
 		return $template;
 	}
+
+
+	public static function get_instance()
+	{
+		if (is_null(self::$_instance)) {
+			self::$_instance = new self();
+		}
+		return self::$_instance;
+	}
 }
 
-Extension_Background_Slider::instance();
+Extension_Background_Slider::get_instance();
