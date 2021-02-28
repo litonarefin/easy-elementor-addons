@@ -27,7 +27,7 @@
 
 
 	<li>
-		<a href="#white-label">
+		<a href="#jltma_white_label">
 			<?php _e('White Label', MELA_TD);
 			?>
 		</a>

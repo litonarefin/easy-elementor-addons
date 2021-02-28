@@ -266,6 +266,13 @@
     align-items: flex-start;
     margin: 0;
 }
+/* .master_addons_feature.jltma-center-align {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+} */
 .master-addons-dashboard-tab .master_addons_feature h3 {
     color: #393c3f;
     display: inline-block;
@@ -828,6 +835,9 @@
     margin: 0;
     padding: 10px 20px;
 }
+.api-settings-element .api-forms input[type="checkbox"] {
+    flex:inherit;
+}
 .api-settings-element .form-control:focus,
 .api-settings-element .form-control:active,
 .api-settings-element .form-control:visited {
@@ -1249,7 +1259,7 @@
     border-radius: 3px;
     font-size: 10px;
     line-height: 1;
-    font-weight: 700;    
+    font-weight: 700;
     text-decoration: none;
 }
 .thrd-party-plgin-dnld i.dashicons{

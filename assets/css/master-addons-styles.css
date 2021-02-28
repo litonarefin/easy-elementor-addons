@@ -15482,6 +15482,25 @@ ul.jltma-toggle-content-controls {
     top: auto;
     bottom: 5% !important;
 }
+.jltma-swiper__navigation--left,
+.jltma-swiper__navigation--center,
+.jltma-swiper__navigation--right {
+    display: flex;
+    flex-wrap: wrap;
+}
+.jltma-swiper__navigation--left {
+    align-items: flex-start;
+}
+.jltma-swiper__navigation--center {
+    align-items: center;
+}
+.jltma-swiper__navigation--right {
+    align-items: flex-end;
+}
+.jltma-swiper__navigation--left .jltma-swiper__button {
+    position: static;
+    transform: none;
+}
 .jltma-gallery-slider__gallery .swiper-container-vertical .jltma-gallery__item {
     overflow: hidden;
 }
