@@ -21,6 +21,7 @@ $jltma_plugin_version = $jltma_plugin_data['Version'];
 define('JLTMA_NAME', $jltma_plugin_name);
 define('JLTMA_PLUGIN_VERSION', $jltma_plugin_version);
 define('JLTMA_STABLE_VER', "1.5.6.2");
+define('JLTMA_BASE', plugin_basename(__FILE__));
 
 if (function_exists('ma_el_fs')) {
     ma_el_fs()->set_basename(true, __FILE__);

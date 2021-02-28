@@ -33,7 +33,7 @@
 			require MELA_PLUGIN_PATH . '/inc/admin/welcome/api-keys.php';
 			require MELA_PLUGIN_PATH . '/inc/admin/welcome/version-control.php';
 			require MELA_PLUGIN_PATH . '/inc/admin/welcome/changelogs.php';
-			require MELA_PLUGIN_PATH . '/inc/admin/welcome/white-label.php';
+			// require MELA_PLUGIN_PATH . '/inc/admin/welcome/white-label.php';
 			?>
 		</div>
 

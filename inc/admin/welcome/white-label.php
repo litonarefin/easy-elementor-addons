@@ -52,18 +52,20 @@
 
                         <div class="form-group">
                             <label for="jltma_wl_plugin_url">
-                                <?php echo esc_html__('Developer/Agency Name', MELA_TD); ?>
+                                <?php echo esc_html__('Plugin URL', MELA_TD); ?>
                             </label>
                             <input name="jltma_wl_plugin_url" type="text" class="form-control jltma_wl_plugin_url" value="<?php echo isset($jltma_white_label_options['jltma_wl_plugin_url']) ? $jltma_white_label_options['jltma_wl_plugin_url'] : ""; ?>">
                         </div>
-
+                        <!--
                         <div class="form-group">
                             <label for="jltma_wl_plugin_logo">
-                                <?php echo esc_html__('Master Addons Icon/Logo', MELA_TD); ?>
+                                <?php //echo esc_html__('Master Addons Icon/Logo', MELA_TD);
+                                ?>
                             </label>
-                            <input name="jltma_wl_plugin_logo" type="text" class="form-control jltma_wl_plugin_logo" value="<?php echo isset($jltma_white_label_options['jltma_wl_plugin_logo']) ? $jltma_white_label_options['jltma_wl_plugin_logo'] : ""; ?>">
+                            <input name="jltma_wl_plugin_logo" type="text" class="form-control jltma_wl_plugin_logo" value="<?php //echo isset($jltma_white_label_options['jltma_wl_plugin_logo']) ? $jltma_white_label_options['jltma_wl_plugin_logo'] : "";
+                                                                                                                            ?>">
                         </div>
-
+ -->
 
                         <div class="form-group">
                             <label for="jltma_wl_plugin_row_links">
@@ -88,7 +90,7 @@
                             <label for="jltma_wl_plugin_tab_welcome">
                                 <?php echo esc_html__('Hide Welcome Tab', MELA_TD); ?>
                             </label>
-                            <input name="jltma_wl_plugin_tab_welcome" type="checkbox" class="form-control jltma_wl_plugin_tab_welcome" value="<?php echo isset($jltma_white_label_options['jltma_wl_plugin_tab_welcome']) ? $jltma_white_label_options['jltma_wl_plugin_name'] : ""; ?>">
+                            <input name="jltma_wl_plugin_tab_welcome" type="checkbox" class="form-control jltma_wl_plugin_tab_welcome" value="1" <?php echo ($jltma_white_label_options['jltma_wl_plugin_tab_welcome']) ? 'checked="checked"' : '' ?>>
                         </div>
 
                         <div class="form-group">
