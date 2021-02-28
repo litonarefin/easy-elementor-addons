@@ -288,40 +288,39 @@
 
 
                 // Master Addons White Label Ajax Call
-                console.log('array', $( '#jltma-white-label-settings' ).serializeArray());
-                $.ajax( {
-                    url: js_maad_el_settings.ajaxurl,
-                    type: 'post',
-                    data: {
-                        action: 'jltma_save_white_label_settings',
-                        security: js_maad_el_settings.ajax_api_nonce,
-                        fields: $( '#jltma-white-label-settings' ).serializeArray(),
-                    },
-                    success: function( response ) {
-                        swal({
-                            title: "Saved",
-                            text: "Your Changes has been Saved",
-                            type: "success",
-                            showLoaderOnConfirm: true,
-                            showCancelButton: false,
-                            confirmButtonColor: '#3085d6',
-                            confirmButtonClass: 'btn-success',
-                            confirmButtonText: 'Okay'
-                        });
+                // $.ajax( {
+                //     url: js_maad_el_settings.ajaxurl,
+                //     type: 'post',
+                //     data: {
+                //         action: 'jltma_save_white_label_settings',
+                //         security: js_maad_el_settings.ajax_api_nonce,
+                //         fields: $( '#jltma-white-label-settings' ).serializeArray(),
+                //     },
+                //     success: function( response ) {
+                //         swal({
+                //             title: "Saved",
+                //             text: "Your Changes has been Saved",
+                //             type: "success",
+                //             showLoaderOnConfirm: true,
+                //             showCancelButton: false,
+                //             confirmButtonColor: '#3085d6',
+                //             confirmButtonClass: 'btn-success',
+                //             confirmButtonText: 'Okay'
+                //         });
 
-                        $this.html('Save Settings');
-                        $('.master-addons-el-dashboard-header-right').prepend('<span' +
-                            ' class="master-addons-el-settings-saved"></span>').fadeIn('slow');
+                //         $this.html('Save Settings');
+                //         $('.master-addons-el-dashboard-header-right').prepend('<span' +
+                //             ' class="master-addons-el-settings-saved"></span>').fadeIn('slow');
 
-                        saveHeaderAction.removeClass( 'master-addons-el-save-now' );
+                //         saveHeaderAction.removeClass( 'master-addons-el-save-now' );
 
-                        setTimeout(function(){
-                            $('.master-addons-el-settings-saved').fadeOut('slow');
-                            swal.close();
-                        }, 1200);
-                    },
-                    error: function() {}
-                } );
+                //         setTimeout(function(){
+                //             $('.master-addons-el-settings-saved').fadeOut('slow');
+                //             swal.close();
+                //         }, 1200);
+                //     },
+                //     error: function() {}
+                // } );
 
 
 
