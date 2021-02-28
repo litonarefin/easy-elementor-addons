@@ -1880,7 +1880,7 @@ class Gallery_Slider extends Widget_Base
 				'type' 		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
-					'{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media:hover .jltma-carousel__media__caption' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-gallery-slider__preview .jltma-carousel__media:hover .jltma-carousel__content__caption' => 'color: {{VALUE}};',
 				],
 				'condition'	=> [
 					'jltma_gallery_slider_caption_type!' => '',

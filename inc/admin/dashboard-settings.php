@@ -63,6 +63,10 @@ class Master_Addons_Admin_Settings
 		add_action('wp_ajax_jltma_save_api_settings', [$this, 'jltma_save_api_settings']);
 		add_action('wp_ajax_nopriv_jltma_save_api_settings', [$this, 'jltma_save_api_settings']);
 
+		// Master Addons API Settings
+		add_action('wp_ajax_jltma_save_white_label_settings', [$this, 'jltma_save_white_label_settings']);
+		add_action('wp_ajax_nopriv_jltma_save_white_label_settings', [$this, 'jltma_save_white_label_settings']);
+
 		$this->ma_el_include_files();
 	}
 
@@ -293,17 +297,11 @@ class Master_Addons_Admin_Settings
 		die();
 	}
 
-
+	// API Settings Ajax Call
 	public function jltma_save_api_settings()
 	{
 
 		check_ajax_referer('jltma_api_settings_nonce_action', 'security');
-
-		// if( isset( $_POST['fields'] ) ) {
-		// 	parse_str( $_POST['fields'] );
-		// } else {
-		// 	return;
-		// }
 
 		$jltma_api_settings = [];
 
@@ -312,6 +310,24 @@ class Master_Addons_Admin_Settings
 		}
 
 		update_option('jltma_api_save_settings', $jltma_api_settings);
+
+		return true;
+		die();
+	}
+
+	// White Label Settings Ajax Call
+	public function jltma_save_white_label_settings()
+	{
+
+		check_ajax_referer('jltma_white_label_settings_nonce_action', 'security');
+
+		$jltma_white_label_options = [];
+
+		foreach ($_POST['fields'] as $key => $value) {
+			$jltma_white_label_options[$value['name']] = $value['value'];
+		}
+
+		update_option('jltma_white_label_settings', $jltma_white_label_options);
 
 		return true;
 		die();

@@ -60,7 +60,7 @@ class Image_Carousel extends Widget_Base
 
 	public function get_style_depends()
 	{
-		return ['fancybox','master-addons-main-style'];
+		return ['fancybox', 'master-addons-main-style'];
 	}
 
 	public function get_keywords()
@@ -724,6 +724,7 @@ class Image_Carousel extends Widget_Base
 				],
 				'condition'		=> [
 					'carousel_arrows' 	=> 'yes',
+					'arrows_placement!' 	=> 'inside',
 				]
 			]
 		);
@@ -1567,19 +1568,19 @@ class Image_Carousel extends Widget_Base
 				}
 
 
-                if (count($slider_items) > 1) {
-                    $demo_images = [];
+				if (count($slider_items) > 1) {
+					$demo_images = [];
 
-                    if (empty($slider_items[0]['jltma_image_carousel_img']) && empty($slider_items[1]['jltma_image_carousel_img']) && empty($slider_items[0]['jltma_image_carousel_img'])) {
-                        $demo_images[] = Master_Addons_Helper::jltma_placeholder_images();
-                    }
+					if (empty($slider_items[0]['jltma_image_carousel_img']) && empty($slider_items[1]['jltma_image_carousel_img']) && empty($slider_items[0]['jltma_image_carousel_img'])) {
+						$demo_images[] = Master_Addons_Helper::jltma_placeholder_images();
+					}
 
 					foreach ($slider_items as $index => $item) {
 
-                        $images = $item['jltma_image_carousel_img'];
-                        if (empty($images)) {
-                            $images = $demo_images;
-                        }
+						$images = $item['jltma_image_carousel_img'];
+						if (empty($images)) {
+							$images = $demo_images;
+						}
 
 						// $repeater_key = 'carousel_item' . $index;
 						$tag = 'div';
@@ -1616,11 +1617,11 @@ class Image_Carousel extends Widget_Base
 						// Lightbox Conditions
 						if ($settings['jltma_image_carousel_enable_lightbox'] == "yes") {
 
-							if ($settings['jltma_image_carousel_lightbox_library'] === 'fancybox'){
+							if ($settings['jltma_image_carousel_lightbox_library'] === 'fancybox') {
 
 								$anchor_type = (empty($item['link']['url']) ? 'jltma-click-anywhere' : 'jltma-click-icon');
 
-								$thumbnail_src = wp_get_attachment_image_src($item['jltma_image_carousel_img']['id'],'full');
+								$thumbnail_src = wp_get_attachment_image_src($item['jltma_image_carousel_img']['id'], 'full');
 
 								if ($thumbnail_src)
 									$thumbnail_src = $thumbnail_src[0];
@@ -1636,81 +1637,80 @@ class Image_Carousel extends Widget_Base
 										'data-elementor-open-lightbox' => "yes",
 										'data-elementor-lightbox-slideshow' => esc_attr($this->get_id()),
 										'title' => esc_html($item['title']),
-										'data-description'=> wp_kses_post($item['subtitle'])
+										'data-description' => wp_kses_post($item['subtitle'])
 									]
 								]);
-
-							} elseif ($settings['jltma_image_carousel_lightbox_library'] === 'elementor'){
+							} elseif ($settings['jltma_image_carousel_lightbox_library'] === 'elementor') {
 
 								$this->add_render_attribute([
 									$repeater_key => [
 										'class' => [
 											'jltma-lightbox-item' . $anchor_type
 										],
-										'data-thumb'=> $thumbnail_src,
-										'href'=> $item['jltma_image_carousel_img']['url'],
-										'data-elementor-open-lightbox'=>"no",
+										'data-thumb' => $thumbnail_src,
+										'href' => $item['jltma_image_carousel_img']['url'],
+										'data-elementor-open-lightbox' => "no",
 										'title' =>  esc_html($item['title']),
-										'data-description'=> wp_kses_post($item['subtitle'])
+										'data-description' => wp_kses_post($item['subtitle'])
 									]
 								]);
 							}
 						}
-					?>
+				?>
 						<<?php echo $tag; ?> <?php echo $this->get_render_attribute_string($repeater_key); ?>>
 							<figure class="jltma-image-carousel-figure">
 
 								<?php
-									if ($settings['jltma_image_carousel_enable_lightbox'] == "yes") {
-										echo '<i class="eicon eicon-slider-full-screen"></i>';
-									}
+								if ($settings['jltma_image_carousel_enable_lightbox'] == "yes") {
+									echo '<i class="eicon eicon-slider-full-screen"></i>';
+								}
 
 
-									if (isset($item['jltma_image_carousel_img']['id']) && $item['jltma_image_carousel_img']['id']) {
-										echo wp_get_attachment_image(
-											$item['jltma_image_carousel_img']['id'],
-											$item['jltma_image_carousel_image_size'],
-											false,
-											[
-												'class' => 'jltma-carousel-img elementor-animation-',
-												'alt' => esc_attr($image_alt),
-											]
-										);
-									} else {
-										echo "<img src=" . $images['url'] . ">";
-									}
+								if (isset($item['jltma_image_carousel_img']['id']) && $item['jltma_image_carousel_img']['id']) {
+									echo wp_get_attachment_image(
+										$item['jltma_image_carousel_img']['id'],
+										$item['jltma_image_carousel_image_size'],
+										false,
+										[
+											'class' => 'jltma-carousel-img elementor-animation-',
+											'alt' => esc_attr($image_alt),
+										]
+									);
+								} else {
+									echo "<img src=" . $images['url'] . ">";
+								}
 
-									$this->jltma_image_carousel_title_subtitle();
+								$this->jltma_image_carousel_title_subtitle();
 								?>
 							</figure>
 
 						</<?php echo $tag; ?>>
 
-					<?php
+				<?php
 
 					}  // end of foreach
 
 				}
-
 			}
 
-		protected function jltma_image_carousel_title_subtitle(){
-			$settings = $this->get_settings_for_display();
-			?>
-				<?php if(isset($item['title']) && $item['title']){?>
+			protected function jltma_image_carousel_title_subtitle()
+			{
+				$settings = $this->get_settings_for_display();
+				?>
+				<?php if (isset($item['title']) && $item['title']) { ?>
 					<<?php echo $settings['title_html_tag']; ?> class="jltma-image-carousel-title">
 						<?php echo $item['title']; ?>
 					</<?php echo $settings['title_html_tag']; ?>>
 				<?php } ?>
 
-				<?php if(isset($item['subtitle']) && $item['subtitle']){?>
+				<?php if (isset($item['subtitle']) && $item['subtitle']) { ?>
 					<span class="jltma-image-carousel-subtitle">
 						<?php echo $item['subtitle']; ?>
 					</span>
 				<?php } ?>
 
 			<?php
-		}
+			}
 
 			// Render Header
 			private function jltma_render_image_carousel_footer($settings)
@@ -1720,98 +1720,99 @@ class Image_Carousel extends Widget_Base
 
 			</div> <!-- swiper-wrapper -->
 
-				<?php
-				$this->render_swiper_navigation();
-				$this->render_swiper_pagination();
-				?>
-
 		</div>
 		<!--/.jltma-logo-slider-->
 
-<?php
+
+		<?php
+				$this->render_swiper_navigation();
+				$this->render_swiper_pagination();
+		?>
+
+	<?php
 			}
 
 
-	protected function render_swiper_navigation()
-	{
-		$settings = $this->get_settings_for_display();
-		$this->add_render_attribute([
-			'navigation' => [
-				'class' => [
-					'jltma-arrows',
-					'jltma-swiper__navigation',
-					'jltma-swiper__navigation--' . $settings['arrows_placement'],
-					'jltma-swiper__navigation--' . $settings['arrows_position'],
-					'jltma-swiper__navigation--' . $settings['arrows_position_vertical']
-				],
-			],
-		]);
+			protected function render_swiper_navigation()
+			{
+				$settings = $this->get_settings_for_display();
+				$this->add_render_attribute([
+					'navigation' => [
+						'class' => [
+							'jltma-arrows',
+							'jltma-swiper__navigation',
+							'jltma-swiper__navigation--' . $settings['arrows_placement'],
+							'jltma-swiper__navigation--' . $settings['arrows_position'],
+							'jltma-swiper__navigation--' . $settings['arrows_position_vertical']
+						],
+					],
+				]);
 	?>
 		<div <?php echo $this->get_render_attribute_string('navigation'); ?>>
 			<?php
-			$this->render_swiper_arrows();
+				$this->render_swiper_arrows();
 			?>
 		</div>
 	<?php
-	}
+			}
 
 
 
-	public function render_swiper_pagination()
-	{
-		$settings = $this->get_settings_for_display();
-		if ('yes' !== $settings['carousel_pagination'])
-			return;
+			public function render_swiper_pagination()
+			{
+				$settings = $this->get_settings_for_display();
+				if ('yes' !== $settings['carousel_pagination'])
+					return;
 
-		$this->add_render_attribute('pagination', 'class', [
-			'jltma-swiper__pagination',
-			'jltma-swiper__pagination--' . $settings['carousel_direction'],
-			'jltma-swiper__pagination--' . $settings['pagination_position'],
-			'jltma-swiper__pagination-' . $this->get_id(),
-			'swiper-pagination',
-		]);
+				$this->add_render_attribute('pagination', 'class', [
+					'jltma-swiper__pagination',
+					'jltma-swiper__pagination--' . $settings['carousel_direction'],
+					'jltma-swiper__pagination--' . $settings['pagination_position'],
+					'jltma-swiper__pagination-' . $this->get_id(),
+					'swiper-pagination',
+				]);
 
 	?>
 		<div <?php echo $this->get_render_attribute_string('pagination'); ?>>
 		</div>
 	<?php
-	}
+			}
 
-	protected function render_swiper_arrows()
-	{
-		$settings = $this->get_settings_for_display();
-		if ('yes' !== $settings['carousel_arrows'])
-			return;
+			protected function render_swiper_arrows()
+			{
+				$settings = $this->get_settings_for_display();
+				if ('yes' !== $settings['carousel_arrows'])
+					return;
 
-		$prev = is_rtl() ? 'right' : 'left';
-		$next = is_rtl() ? 'left' : 'right';
+				$prev = is_rtl() ? 'right' : 'left';
+				$next = is_rtl() ? 'left' : 'right';
 
-		$this->add_render_attribute([
-			'button-prev' => [
-				'class' => [
-					'jltma-swiper__button',
-					'jltma-swiper__button--prev',
-					'jltma-arrow',
-					'jltma-arrow--prev',
-					'jltma-swiper__button--prev-' . $this->get_id(),
-				],
-			],
-			'button-prev-icon' => [
-				'class' => 'eicon-chevron-' . $prev,
-			],
-			'button-next' => [
-				'class' => [
-					'jltma-swiper__button',
-					'jltma-swiper__button--next',
-					'jltma-arrow',
-					'jltma-arrow--next',
-					'jltma-swiper__button--next-' . $this->get_id(),
-				],
-			],
-			'button-next-icon' => [
-				'class' => 'eicon-chevron-' . $next,
-			],
-		]);
+				$this->add_render_attribute([
+					'button-prev' => [
+						'class' => [
+							'jltma-swiper__button',
+							'jltma-swiper__button--prev',
+							'jltma-arrow',
+							'jltma-arrow--prev',
+							'jltma-swiper__button--prev-' . $this->get_id(),
+						],
+					],
+					'button-prev-icon' => [
+						'class' => 'eicon-chevron-' . $prev,
+					],
+					'button-next' => [
+						'class' => [
+							'jltma-swiper__button',
+							'jltma-swiper__button--next',
+							'jltma-arrow',
+							'jltma-arrow--next',
+							'jltma-swiper__button--next-' . $this->get_id(),
+						],
+					],
+					'button-next-icon' => [
+						'class' => 'eicon-chevron-' . $next,
+					],
+				]);
 
 	?><div <?php echo $this->get_render_attribute_string('button-prev'); ?>>
 			<i <?php echo $this->get_render_attribute_string('button-prev-icon'); ?>></i>
@@ -1819,26 +1820,26 @@ class Image_Carousel extends Widget_Base
 		<div <?php echo $this->get_render_attribute_string('button-next'); ?>>
 			<i <?php echo $this->get_render_attribute_string('button-next-icon'); ?>></i>
 		</div><?php
-}
+			}
 
 
 
 
-	private function render_image($image_id, $settings)
-	{
-		$jltma_image_carousel_image = $settings['jltma_image_carousel_image_size'];
-		if ('custom' === $jltma_image_carousel_image) {
-			$image_src = Group_Control_Image_Size::get_attachment_image_src($image_id, 'jltma_image_carousel_image', $settings);
-		} else {
-			$image_src = wp_get_attachment_image_src($image_id, $jltma_image_carousel_image);
-			$image_src = $image_src[0];
+			private function render_image($image_id, $settings)
+			{
+				$jltma_image_carousel_image = $settings['jltma_image_carousel_image_size'];
+				if ('custom' === $jltma_image_carousel_image) {
+					$image_src = Group_Control_Image_Size::get_attachment_image_src($image_id, 'jltma_image_carousel_image', $settings);
+				} else {
+					$image_src = wp_get_attachment_image_src($image_id, $jltma_image_carousel_image);
+					$image_src = $image_src[0];
+				}
+
+				return sprintf('<img src="%s" alt="%s" />', esc_url($image_src), esc_html(get_post_meta($image_id, '_wp_attachment_image_alt', true)));
+			}
+
+
+			protected function _content_template()
+			{
+			}
 		}
-
-		return sprintf('<img src="%s" alt="%s" />', esc_url($image_src), esc_html(get_post_meta($image_id, '_wp_attachment_image_alt', true)));
-	}
-
-
-	protected function _content_template()
-	{
-	}
-}

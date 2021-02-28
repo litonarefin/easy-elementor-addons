@@ -41,13 +41,13 @@ body {
 .ma-accordion-item {
     margin-bottom: 10px;
 }
-.ma-accordion-title-icon{
-    display:flex;
+.ma-accordion-title-icon {
+    display: flex;
 }
 .ma-accordion-icon-align-right .ma-accordion-tab-icon {
     padding: 0 0 0 1.25em;
 }
-.ma-accordion-icon-align-left .ma-accordion-tab-title{
+.ma-accordion-icon-align-left .ma-accordion-tab-title {
     padding: 15px;
 }
 
@@ -130,7 +130,7 @@ body {
     opacity: 1;
 }
 
-.ma-accordion-icon-align-left .ma-accordion-tab-title .ma-accordion-toggle-icon{
+.ma-accordion-icon-align-left .ma-accordion-tab-title .ma-accordion-toggle-icon {
     margin-right: 20px;
 }
 .ma-accordion-item .ma-accordion-tab-title .ma-accordion-tab-icon {
@@ -146,7 +146,6 @@ body {
 .ma-accordion-item .ma-accordion-tab-title.active .ma-accordion-tab-icon {
     background: #4b00e7;
 }
-
 
 /* Tooltip rgb(94, 93, 96)/
 .ma-el-tooltip {
@@ -15444,6 +15443,9 @@ ul.jltma-toggle-content-controls {
 .jltma-swiper__container.swiper-container-vertical {
     height: 500px;
 }
+.elementor-widget-ma-image-carousel .elementor-widget-container {
+    position: relative;
+}
 .jltma-arrow {
     z-index: 1;
     display: -ms-inline-flexbox;
@@ -15487,19 +15489,130 @@ ul.jltma-toggle-content-controls {
 .jltma-swiper__navigation--right {
     display: flex;
     flex-wrap: wrap;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}
+.jltma-swiper__navigation--top.jltma-swiper__navigation--left,
+.jltma-swiper__navigation--top.jltma-swiper__navigation--center,
+.jltma-swiper__navigation--top.jltma-swiper__navigation--right {
+    top: 0;
+}
+.jltma-swiper__navigation--bottom.jltma-swiper__navigation--left,
+.jltma-swiper__navigation--bottom.jltma-swiper__navigation--center,
+.jltma-swiper__navigation--bottom.jltma-swiper__navigation--right {
+    bottom: 0;
 }
 .jltma-swiper__navigation--left {
-    align-items: flex-start;
+    justify-content: flex-start;
 }
 .jltma-swiper__navigation--center {
-    align-items: center;
+    justify-content: center;
 }
 .jltma-swiper__navigation--right {
-    align-items: flex-end;
+    justify-content: flex-end;
 }
-.jltma-swiper__navigation--left .jltma-swiper__button {
-    position: static;
+.jltma-swiper__navigation--inside.jltma-swiper__navigation--left .jltma-swiper__button,
+.jltma-swiper__navigation--inside.jltma-swiper__navigation--center .jltma-swiper__button,
+.jltma-swiper__navigation--inside.jltma-swiper__navigation--right .jltma-swiper__button {
+    position: initial;
     transform: none;
+}
+.jltma-swiper__navigation--middle {
+    height: 100%;
+    top: 0;
+}
+.jltma-swiper__navigation--middle.jltma-swiper__navigation--center {
+    align-items: center;
+    justify-content: center;
+}
+.jltma-swiper__navigation--middle.jltma-swiper__navigation--left {
+    align-items: center;
+    justify-content: flex-start;
+}
+.jltma-swiper__navigation--middle.jltma-swiper__navigation--right {
+    align-items: center;
+    justify-content: flex-end;
+}
+.jltma-swiper__navigation--middle.jltma-swiper__navigation--center .jltma-swiper__button {
+    top: inherit;
+    transform: none;
+}
+.jltma-swiper__navigation--bottom.jltma-swiper__navigation--right {
+    top: inherit;
+    bottom: 0;
+}
+.jltma-swiper__navigation--middle .jltma-swiper__button {
+    transform: none;
+}
+.jltma-swiper__navigation--outside .jltma-arrow--prev {
+    left: -120px;
+}
+.jltma-swiper__navigation--outside .jltma-arrow--next {
+    right: -120px;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--top {
+    top: -130px;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--top.jltma-swiper__navigation--left .jltma-arrow--prev {
+    left: 0;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--top.jltma-swiper__navigation--left .jltma-arrow--next {
+    left: 120px;
+    right: inherit;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--top.jltma-swiper__navigation--center,
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--bottom.jltma-swiper__navigation--center {
+    align-items: center;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--top.jltma-swiper__navigation--center .jltma-arrow,
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--bottom.jltma-swiper__navigation--center .jltma-arrow {
+    position: initial;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--top.jltma-swiper__navigation--right .jltma-arrow--prev {
+    right: 120px;
+    left: inherit;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--top.jltma-swiper__navigation--right .jltma-arrow--next {
+    right: 0;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--middle.jltma-swiper__navigation--right .jltma-arrow--prev {
+    right: 90px;
+    left: inherit;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--middle.jltma-swiper__navigation--right .jltma-arrow--next {
+    right: 0px;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--middle.jltma-swiper__navigation--left .jltma-arrow--prev {
+    left: 0;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--middle.jltma-swiper__navigation--left .jltma-arrow--next {
+    left: 130px;
+    right: inherit;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--bottom {
+    bottom: -130px;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--bottom.jltma-swiper__navigation--left .jltma-arrow--prev {
+    left: 0;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--bottom.jltma-swiper__navigation--left .jltma-arrow--next {
+    left: 90px;
+    right: inherit;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--bottom.jltma-swiper__navigation--right .jltma-arrow--prev {
+    right: 90px;
+    left: inherit;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--bottom.jltma-swiper__navigation--right .jltma-arrow--next {
+    right: 0;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--middle.jltma-swiper__navigation--center {
+    align-items: center;
+    justify-content: center;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--middle.jltma-swiper__navigation--center .jltma-arrow {
+    position: initial;
 }
 .jltma-gallery-slider__gallery .swiper-container-vertical .jltma-gallery__item {
     overflow: hidden;
@@ -16593,8 +16706,6 @@ ul.jltma-toggle-content-controls {
     max-height: none;
     max-width: none;
 }
-
-
 
 .jltma-image-carousel-figure {
     position: relative;
