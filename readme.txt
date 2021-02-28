@@ -384,7 +384,7 @@ Paste on your Local Computer
 
 
 == Changelog ==
-= 1.5.7 (7-02-2021) =
+= 1.5.7 (28-02-2021) =
 * Updated: 'jquery-slick' updated with 'Swiper Slider' library. Updated Widgets - MA Blog, MA Slider, MA Gallery Slider, MA Twitter Slider, MA Timeline etc
 * Added: New Element added "Advanced Image".
 * Added: "MA Duplicator" added on Extensions
@@ -420,6 +420,7 @@ Paste on your Local Computer
 * Fixed: MA Progressbars editor preview not working issue fixed
 * Updated: Team Members fixed issues - Content alignment not working fixed, Social Icons repeater not working on editor fixed, Social icons style updated, added placeholder image if no image selected.
 * Updated: Image Hover Effects - removed "No Image Selected" notice and added placeholder image for better user experience.
+* Updated: Background Slider Extension - fixed Editor not loading issue
 
 
 
