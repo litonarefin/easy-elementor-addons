@@ -52,8 +52,6 @@ Quick Overview:
 [youtube https://www.youtube.com/watch?v=t8Qa4pq7WLs]
 
 
-
-
 ***Currently we have 45+ elements that can help you build a prettier website.***
 
 == Free Elements ==
@@ -285,7 +283,7 @@ MA Flip Box comes with a 3D effect and in a variety of options. The Variations a
 And many more that are listed at the top list.
 
 
-[Upgrade to Master Addons Pro]( http://bit.ly/32n5dXS )
+[Upgrade to Master Addons Pro]( https://master-addons.com/go/pricing/ )
 
 == Common Problems with Solutions: ==
 Elementor not loading problem
