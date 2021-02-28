@@ -36,13 +36,13 @@ if (!class_exists('JLTMA_Addon_Extensions')) {
                             'docs_url'          => '',
                             'tuts_url'          => ''
                         ],
-                        // [
-                        //     'key'               => 'bg-slider',
-                        //     'title'             => esc_html__('Background Slider', MELA_TD),
-                        //     'demo_url'          => 'https://master-addons.com/demos/background-slider/',
-                        //     'docs_url'          => 'https://master-addons.com/docs/addons/background-slider-extension/',
-                        //     'tuts_url'          => 'https://www.youtube.com/watch?v=Z6ujz7Hunjg'
-                        // ],
+                        [
+                            'key'               => 'bg-slider',
+                            'title'             => esc_html__('Background Slider', MELA_TD),
+                            'demo_url'          => 'https://master-addons.com/demos/background-slider/',
+                            'docs_url'          => 'https://master-addons.com/docs/addons/background-slider-extension/',
+                            'tuts_url'          => 'https://www.youtube.com/watch?v=Z6ujz7Hunjg'
+                        ],
                         [
                             'key'               => 'custom-css',
                             'title'             => esc_html__('Custom CSS', MELA_TD),
