@@ -52,7 +52,9 @@ Quick Overview:
 [youtube https://www.youtube.com/watch?v=t8Qa4pq7WLs]
 
 
-***Currently we have 30+ elements that can help you build a prettier website.***
+
+
+***Currently we have 45+ elements that can help you build a prettier website.***
 
 == Free Elements ==
 1. [Animated Headlines](https://master-addons.com/demos/animated-headline/)
@@ -87,26 +89,26 @@ Quick Overview:
 33. [Countdown Timer](https://master-addons.com/demos/countdown-timer/)
 34. [Mailchimp](https://master-addons.com/demos/mailchimp/)
 35. [Gradient Headlines](https://master-addons.com/demos/gradient-headline/)
+36. [Advanced Image](https://master-addons.com/demos/advanced-image/)
 
 == PRO Elements ==
 1. [News Ticker](https://master-addons.com/demos/news-ticker/)
 2. [Image Hotspot](https://master-addons.com/demos/image-hotspot/)
 3. [Restrict Content](https://master-addons.com/demos/restrict-content-for-elementor/)
 4. [Domain Search](https://master-addons.com/demos/domain-search/)
-5. [Instagram Feed](https://master-addons.com/demos/instagram-feed/) - Working On API Issue
-6. [Toggle Content](https://master-addons.com/demos/toggle-content/)
-7. [Animated Headlines](https://master-addons.com/demos/animated-headline/) - Unlock 6 More Animation
-8. [Advanced Nested Accordion](https://master-addons.com/demos/advanced-accordion/) - Able to set saved Section, content, Page template in Accordion
-9. [Nested & Tabular Tabs](https://master-addons.com/demos/tabs/) - Unlock Saved Section, Content, Page template as content & Tabular content Style Preset
-10. [Creative Buttons](https://master-addons.com/demos/creative-button/) - Get 15 More Button effect
-11. [Creative Links](https://master-addons.com/demos/creative-link/) - 12 More Creative Link Style Effect
-12. [Team Members](https://master-addons.com/demos/team-carousel/) - Unlock Content Drawer, Animation Background & more possibilities.
-13. [Flipbox](https://master-addons.com/demos/flipbox/) - Unlock 16 Animation Style & 2 Design Variation
-14. [Image Hover Effects](https://master-addons.com/demos/image-hover-effects/) Unlock 22 hover effects, Border Radius and more.
-15. [Image Hotspots](https://master-addons.com/demos/image-hotspot/)
-16. [Domain Checker](https://master-addons.com/demos/domain-search/)
-17. [Toggle Content](https://master-addons.com/demos/toggle-content/)
-18. [Gallery Slider](https://master-addons.com/demos/gallery-slider/)
+5. [Toggle Content](https://master-addons.com/demos/toggle-content/)
+6. [Animated Headlines](https://master-addons.com/demos/animated-headline/) - Unlock 6 More Animation
+7. [Advanced Nested Accordion](https://master-addons.com/demos/advanced-accordion/) - Able to set saved Section, content, Page template in Accordion
+8. [Nested & Tabular Tabs](https://master-addons.com/demos/tabs/) - Unlock Saved Section, Content, Page template as content & Tabular content Style Preset
+9. [Creative Buttons](https://master-addons.com/demos/creative-button/) - Get 15 More Button effect
+10. [Creative Links](https://master-addons.com/demos/creative-link/) - 12 More Creative Link Style Effect
+11. [Team Members](https://master-addons.com/demos/team-carousel/) - Unlock Content Drawer, Animation Background & more possibilities.
+12. [Flipbox](https://master-addons.com/demos/flipbox/) - Unlock 16 Animation Style & 2 Design Variation
+13. [Image Hover Effects](https://master-addons.com/demos/image-hover-effects/) Unlock 22 hover effects, Border Radius, Popup and more.
+14. [Image Hotspots](https://master-addons.com/demos/image-hotspot/)
+15. [Domain Checker](https://master-addons.com/demos/domain-search/)
+16. [Toggle Content](https://master-addons.com/demos/toggle-content/)
+17. [Gallery Slider](https://master-addons.com/demos/gallery-slider/)
 
 == Form Elements ==
 1. [Contact Forms 7](https://master-addons.com/demos/contact-form-7/)
@@ -115,6 +117,8 @@ Quick Overview:
 4. [Caldera Forms](https://master-addons.com/demos/caldera-forms/)
 5. [weForms](https://master-addons.com/demos/we-forms/)
 6. Gravity Forms (Pro Element)
+
+We've 20 Extensions, 12 are free and rest others are for pro user only.
 
 == Free Extensions ==
 1. [Particles Background](https://master-addons.com/ma-particles-background/)
@@ -128,6 +132,7 @@ Quick Overview:
 9. Container Extras
 10. [Dynamic Tags](https://master-addons.com/demos/dynamic-tags/)
 11. [Wrapper Link](https://master-addons.com/docs/addons/wrapper-link/)
+12. Post/Page Duplicator
 
 
 == PRO Extensions ==
@@ -137,6 +142,8 @@ Quick Overview:
 4. [Rellax](https://master-addons.com/demos/rellax/)
 5. [Transforms](https://master-addons.com/demos/transforms-extension/)
 6. [Entrance Animation](https://master-addons.com/demos/entrance-animation/)
+7. [Floating Effects](https://master-addons.com/demos/floating-effect/)
+8. [Display Conditions](https://master-addons.com/demos/display-conditions/)
 
 ## Master Addons All Widgets ##
 This plugin gives you access to the following widgets or elements
@@ -270,6 +277,10 @@ MA Flip Box comes with a 3D effect and in a variety of options. The Variations a
 41. [Header, Footer, & Comment Builder](https://master-addons.com/demos/header-footer-comment-builder/): We have developed a dynamic header footer and comment builder system. Just create a template from Master Addons option and assign it as a header, or footer, or comment. Then customize it with Elementor page builder.
 
 42. [Entrance Animation](https://master-addons.com/demos/entrance-animation/): If you want to create an eye-catching animation for your sections then you need Entrance Animation. There is a lot of pre-built animation available, you need to set duration and delay properly.
+
+43. [Advanced Image](https://master-addons.com/demos/advanced-image/): Add different image on hover, tilt effect, ribbon in your image. Advanced image element will help you to express more about your media file.
+
+44. Post/Page Duplicator: It's annoying to create the same structure again and again for a post or page. You can just duplicate your designed page or post and replace your content properly, without designing the page from beginning.
 
 And many more that are listed at the top list.
 
