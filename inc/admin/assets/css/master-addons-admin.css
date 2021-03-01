@@ -275,7 +275,8 @@
     top: 200px;
     left: 200;
     width: 530px;
-    background-image: url("../../../../assets/images/popup-pattern.jpg");
+    background-image: -webkit-gradient(linear, right top, left top, from(#e4f1f9), to(#e1f9f1));
+    background-image: linear-gradient(to left, #e4f1f9 0%, #e1f9f1 100%);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     background-size: cover;

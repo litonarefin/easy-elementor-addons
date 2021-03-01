@@ -14,7 +14,6 @@
 
 
     <?php if (ma_el_fs()->is_plan__premium_only('developer')) { ?>
-        <!-- <div class="jltma-pro-badge"> -->
         <div class="jltma-white-label-notice">
             <div class="jltma-white-label-notice-content">
                 <div class="jltma-white-label-notice-logo">
@@ -25,7 +24,6 @@
                 <a class="jltma-btn jltma-get-pro" href="<?php echo esc_url('https://master-addons.com/pricing/'); ?>" target="_blank"><?php _e('Get PRO', MELA_TD); ?></a>
             </div>
         </div>
-        <!-- </div> -->
     <?php } ?>
 
     <form action="" method="POST" id="jltma-white-label-settings" class="jltma-white-label-settings <?php if (ma_el_fs()->is_plan__premium_only('developer')) { ?> jltma-disabled <?php } ?>" name="jltma-white-label-settings">
