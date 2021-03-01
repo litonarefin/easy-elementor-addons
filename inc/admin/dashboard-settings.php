@@ -91,15 +91,28 @@ class Master_Addons_Admin_Settings
 	// Main Menu
 	public function master_addons_admin_menu()
 	{
-		add_menu_page(
-			esc_html__('Master Addons for Elementor', MELA_TD), // Page Title
-			esc_html__('Master Addons', MELA_TD),    // Menu Title
-			'manage_options',
-			'master-addons-settings',
-			[$this, 'master_addons_el_page_content'],
-			MELA_IMAGE_DIR . 'icon.png',
-			57
-		);
+		$jltma_white_label_setting = jltma_get_options('jltma_white_label_settings');
+		if (!empty($jltma_white_label_setting['jltma_wl_plugin_menu_label'])) {
+			add_menu_page(
+				$jltma_white_label_setting['jltma_wl_plugin_menu_label'], // Page Title
+				$jltma_white_label_setting['jltma_wl_plugin_menu_label'],    // Menu Title
+				'manage_options',
+				'master-addons-settings',
+				[$this, 'master_addons_el_page_content'],
+				MELA_IMAGE_DIR . 'icon.png',
+				57
+			);
+		} else {
+			add_menu_page(
+				esc_html__('Master Addons for Elementor', MELA_TD), // Page Title
+				esc_html__('Master Addons', MELA_TD),    // Menu Title
+				'manage_options',
+				'master-addons-settings',
+				[$this, 'master_addons_el_page_content'],
+				MELA_IMAGE_DIR . 'icon.png',
+				57
+			);
+		}
 	}
 
 
@@ -117,6 +130,9 @@ class Master_Addons_Admin_Settings
 			wp_enqueue_style('master-addons-el-switch', MELA_ADMIN_ASSETS . 'css/switch.css');
 
 			//JS
+			if (!did_action('wp_enqueue_media')) {
+				wp_enqueue_media();
+			}
 			wp_enqueue_script('master-addons-el-welcome-tabs', MELA_ADMIN_ASSETS . 'js/welcome-tabs.js', ['jquery'], MELA_VERSION, true);
 			wp_enqueue_script('sweetalert', MELA_ADMIN_ASSETS . 'js/sweetalert2.min.js', ['jquery', 'master-addons-el-admin'], MELA_VERSION, true);
 			wp_enqueue_script('master-addons-el-admin', MELA_ADMIN_ASSETS . 'js/master-addons-admin.js', ['jquery'], MELA_VERSION, true);

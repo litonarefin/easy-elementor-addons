@@ -424,6 +424,14 @@ function jltma_get_options($key, $network_override = true)
 	return $value;
 }
 
+function jltma_check_options($option_name)
+{
+	if (isset($option_name)) {
+		$option_name = $option_name;
+	}
+
+	return isset($option_name) ? $option_name : false;
+}
 
 // Wordpress function 'update_site_option' and 'update_option'
 function jltma_update_options($option_name, $option_value)

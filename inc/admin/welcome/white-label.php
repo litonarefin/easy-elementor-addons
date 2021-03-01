@@ -25,6 +25,30 @@
                     <div class="api-forms">
 
                         <div class="form-group">
+                            <label for="jltma_wl_plugin_logo">
+                                <?php echo esc_html__('Logo Image', MELA_TD); ?>
+                            </label>
+                            <div class="jltma-logo-handler">
+                                <?php
+                                $jltma_white_label_setting = jltma_get_options('jltma_white_label_settings');
+                                $image_id = jltma_check_options($jltma_white_label_setting['jltma_wl_plugin_logo']);
+
+                                if ($image = wp_get_attachment_image_src($image_id)) {
+                                    echo '<a href="#" class="form-control jltma-wl-plugin-logo"><img src="' . $image[0] . '" /></a>
+                                            <a href="#" class="jltma-remove-button"><i class="dashicons dashicons-no-alt"></i></a>
+                                            <input type="hidden" name="jltma_wl_plugin_logo" value="' . $image_id . '">';
+                                } else {
+                                    $selected_image = isset($jltma_white_label_options['jltma_wl_plugin_logo']) ? $jltma_white_label_options['jltma_wl_plugin_logo'] : "";
+                                    echo '<a href="#" class="form-control jltma-wl-plugin-logo"><i class="dashicons dashicons-cloud-upload"></i> <span>Upload image</span></a>
+                                            <a href="#" class="jltma-remove-button" style="display:none"><i class="dashicons dashicons-no-alt"></i></a>
+                                            <input type="hidden" class="jltma-whl-selected-image" name="jltma_wl_plugin_logo" value="">';
+                                }
+                                ?>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
                             <label for="jltma_wl_plugin_name">
                                 <?php echo esc_html__('Plugin Name', MELA_TD); ?>
                             </label>
@@ -58,17 +82,6 @@
                             </label>
                             <input name="jltma_wl_plugin_url" type="text" class="form-control jltma_wl_plugin_url" value="<?php echo isset($jltma_white_label_options['jltma_wl_plugin_url']) ? $jltma_white_label_options['jltma_wl_plugin_url'] : ""; ?>">
                         </div>
-                        <!--
-                        <div class="form-group">
-                            <label for="jltma_wl_plugin_logo">
-                                <?php //echo esc_html__('Master Addons Icon/Logo', MELA_TD);
-                                ?>
-                            </label>
-                            <input name="jltma_wl_plugin_logo" type="text" class="form-control jltma_wl_plugin_logo" value="<?php //echo isset($jltma_white_label_options['jltma_wl_plugin_logo']) ? $jltma_white_label_options['jltma_wl_plugin_logo'] : "";
-                                                                                                                            ?>">
-                        </div>
- -->
-
                         <div class="form-group">
                             <label for="jltma_wl_plugin_row_links">
                                 <?php echo esc_html__('Hide Plugin Row Meta Links', MELA_TD); ?>
@@ -105,7 +118,7 @@
 
                         <div class="form-group">
                             <label for="jltma_wl_plugin_tab_extensions">
-                                <?php echo esc_html__('Hide Welcome Tab', MELA_TD); ?>
+                                <?php echo esc_html__('Hide Extensions Tab', MELA_TD); ?>
                             </label>
                             <input name="jltma_wl_plugin_tab_extensions" type="checkbox" class="form-control jltma_wl_plugin_tab_extensions" <?php checked(1, $jltma_white_label_options['jltma_wl_plugin_tab_extensions'], true) ?>>
                         </div>

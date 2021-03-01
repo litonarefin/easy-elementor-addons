@@ -25,7 +25,7 @@
         } );
 
         // Enable All Elements
-        $('#master-addons-elements .addons-enable-all').on("click",function (e) {
+        $('#master-addons-elements .addons-enable-all, a.jltma-wl-plugin-logo, a.jltma-remove-button').on("click",function (e) {
             e.preventDefault();
 
             $("#master-addons-elements .master_addons_feature_switchbox input:enabled").each(function (i) {
@@ -130,6 +130,35 @@
                 .catch(swal.noop);
         });
 
+        // White Label Logo/Icon Upload on button click
+        $('body').on( 'click', '.jltma-wl-plugin-logo', function(e){
+            e.preventDefault();
+            var button = $(this),
+            custom_uploader = wp.media({
+                title: 'Insert image',
+                library : {
+                    // uploadedTo : wp.media.view.settings.post.id, // attach to the current post?
+                    type : 'image'
+                },
+                button: {
+                    text: 'Use this image' // button label text
+                },
+                multiple: false
+            }).on('select', function() { // it also has "open" and "close" events
+                var attachment = custom_uploader.state().get('selection').first().toJSON();
+                button.html('<img src="' + attachment.url + '">').next().show();
+                $('.jltma-whl-selected-image').val(attachment.id);
+            }).open();
+
+        });
+
+        // on remove button click
+        $('body').on('click', '.jltma-remove-button', function(e){
+            e.preventDefault();
+            var button = $(this);
+            button.next().val(''); // emptying the hidden field
+            button.hide().prev().html('<i class="dashicons dashicons-cloud-upload"></i> <span>Upload image</span>');
+        });
 
         //Tracking purchases with Google Analytics and Facebook for Freemius Checkout
         var purchaseCompleted = function( response ) {

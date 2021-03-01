@@ -12,9 +12,6 @@
 
 	<form action="" method="POST" id="jltma-api-forms-settings" class="jltma-api-forms-settings" name="jltma-api-forms-settings">
 
-		<?php //wp_nonce_field('jltma_api_settings_nonce_action'); 
-		?>
-
 		<div class="master_addons_feature">
 
 			<!-- Start of reCaptcha Settings -->

@@ -3,8 +3,14 @@
 	 * Master Addons : Welcome Screen by Jewel Theme
 	 */
 $jltma_white_label_setting = jltma_get_options('jltma_white_label_settings');
+$jltma_hide_welcome = jltma_check_options($jltma_white_label_setting['jltma_wl_plugin_tab_welcome']);
+$jltma_hide_addons = jltma_check_options($jltma_white_label_setting['jltma_wl_plugin_tab_addons']);
+$jltma_hide_extensions = jltma_check_options($jltma_white_label_setting['jltma_wl_plugin_tab_extensions']);
+$jltma_hide_api = jltma_check_options($jltma_white_label_setting['jltma_wl_plugin_tab_api']);
+$jltma_hide_white_label = jltma_check_options($jltma_white_label_setting['jltma_wl_plugin_tab_white_label']);
+$jltma_hide_version = jltma_check_options($jltma_white_label_setting['jltma_wl_plugin_tab_version']);
+$jltma_hide_changelogs = jltma_check_options($jltma_white_label_setting['jltma_wl_plugin_tab_changelogs']);
 ?>
-
 <div class="master_addons">
 	<div class="wrappper about-wrap">
 
@@ -34,12 +40,16 @@ $jltma_white_label_setting = jltma_get_options('jltma_white_label_settings');
 		<div class="master_addons_contents">
 			<?php
 			require MELA_PLUGIN_PATH . '/inc/admin/welcome/supports.php';
-			require MELA_PLUGIN_PATH . '/inc/admin/welcome/addons.php';
+
+			if (!$jltma_hide_welcome) {
+				require MELA_PLUGIN_PATH . '/inc/admin/welcome/addons.php';
+			}
 			require MELA_PLUGIN_PATH . '/inc/admin/welcome/extensions.php';
 			require MELA_PLUGIN_PATH . '/inc/admin/welcome/api-keys.php';
 			require MELA_PLUGIN_PATH . '/inc/admin/welcome/version-control.php';
 			require MELA_PLUGIN_PATH . '/inc/admin/welcome/changelogs.php';
 			require MELA_PLUGIN_PATH . '/inc/admin/welcome/white-label.php';
+			require MELA_PLUGIN_PATH . '/inc/admin/welcome/system-info.php';
 			?>
 		</div>
 

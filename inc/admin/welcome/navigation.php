@@ -1,50 +1,72 @@
 <!-- Start tabs -->
 <ul class="wp-tab-bar master_addons_navbar">
 
-	<li class="wp-tab-active">
-		<a href="#welcome">
-			<?php _e('Welcome', MELA_TD); ?>
-		</a>
-	</li>
+	<?php if (!$jltma_hide_welcome) { ?>
+		<li class="wp-tab-active">
+			<a href="#welcome">
+				<?php _e('Welcome', MELA_TD); ?>
+			</a>
+		</li>
+	<?php } ?>
 
+	<?php if (!$jltma_hide_addons) { ?>
+		<li>
+			<a href="#ma-addons">
+				<?php _e('Addons', MELA_TD); ?>
+			</a>
+		</li>
+	<?php } ?>
+
+	<?php if (!$jltma_hide_extensions) { ?>
+		<li>
+			<a href="#extensions">
+				<?php _e('Extensions', MELA_TD); ?>
+			</a>
+		</li>
+	<?php } ?>
+
+	<?php if (!$jltma_hide_api) { ?>
+		<li>
+			<a href="#ma_api_keys">
+				<?php _e('API', MELA_TD); ?>
+			</a>
+		</li>
+	<?php } ?>
+
+	<?php if (!$jltma_hide_white_label) { ?>
+		<li>
+			<a href="#jltma_white_label">
+				<?php _e('White Label', MELA_TD);
+				?>
+			</a>
+		</li>
+	<?php } ?>
+
+	<?php if (!$jltma_hide_version) { ?>
+		<li>
+			<a href="#version">
+				<?php _e('Version', MELA_TD); ?>
+			</a>
+		</li>
+	<?php } ?>
+
+	<?php if (!$jltma_hide_changelogs) { ?>
+		<li>
+			<a href="#changelogs">
+				<?php _e('Changelogs', MELA_TD); ?>
+			</a>
+		</li>
+	<?php } ?>
+
+	<?php //if (!$jltma_hide_changelogs) {
+	?>
 	<li>
-		<a href="#ma-addons">
-			<?php _e('Addons', MELA_TD); ?>
+		<a href="#jltma_system_info">
+			<?php _e('System Info', MELA_TD); ?>
 		</a>
 	</li>
-
-	<li>
-		<a href="#extensions">
-			<?php _e('Extensions', MELA_TD); ?>
-		</a>
-	</li>
-
-	<li>
-		<a href="#ma_api_keys">
-			<?php _e('API', MELA_TD); ?>
-		</a>
-	</li>
-
-
-	<li>
-		<a href="#jltma_white_label">
-			<?php _e('White Label', MELA_TD);
-			?>
-		</a>
-	</li>
-
-
-	<li>
-		<a href="#version">
-			<?php _e('Version', MELA_TD); ?>
-		</a>
-	</li>
-
-	<li>
-		<a href="#changelogs">
-			<?php _e('Changelogs', MELA_TD); ?>
-		</a>
-	</li>
+	<?php //}
+	?>
 
 	<?php if (ma_el_fs()->is_not_paying()) { ?>
 		<a class="nav-upgrade-pro" href="https://master-addons.com/pricing" target="_blank">
