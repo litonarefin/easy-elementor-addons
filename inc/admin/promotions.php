@@ -345,7 +345,7 @@ if (!class_exists('Master_Addons_Promotions')) {
             <div data-dismissible="<?php echo esc_attr($notice_key); ?>" id="<?php echo esc_attr($notice_key); ?>" class="jltma-admin-notice updated notice notice-success is-dismissible">
                 <div id="master-addons-bfcm-upgrade-notice" class="master-addons-review-notice">
                     <div class="master-addons-review-thumbnail">
-                        <img src="<?php echo  esc_attr(MELA_IMAGE_DIR) . 'logo.png' ?>" alt="Master Addons">
+                        <img src="<?php echo  esc_url(MELA_IMAGE_DIR) . 'logo.png' ?>" alt="Master Addons">
                     </div>
                     <div class="master-addons-review-text">
                         <h3><?php _e('<strong>Black Friday & Cyber Monday</strong> Deals - <strong>50% Off</strong> !', MELA_TD) ?></h3>

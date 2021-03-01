@@ -233,6 +233,123 @@
     color: #fff;
 }
 
+/* White Label */
+.jltma-disabled {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.jltma-pro-badge {
+    position: absolute;
+    z-index: 333;
+    text-align: center;
+    padding-left: 36%;
+    font-size: 100px !important;
+    padding-top: 3%;
+}
+
+#jltma_white_label .jltma-white-label-notice {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(200, 200, 200, 0.8);
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    -js-display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.jltma-white-label-notice-content {
+    position: absolute;
+    top: 200px;
+    left: 200;
+    width: 530px;
+    background-image: url("../../../../assets/images/popup-pattern.jpg");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    padding: 32px;
+    padding-bottom: 50px;
+    -webkit-border-radius: 50px 0px;
+    border-radius: 50px 0px;
+    text-align: center;
+    z-index: 2;
+}
+
+.jltma-white-label-notice-logo img {
+    height: 130px;
+    width: 100px;
+    padding: 10px;
+    padding-top: 40px;
+}
+
+.jltma-white-label-notice-content h2,
+.jltma-swal-head {
+    display: inline-block;
+    font-size: 23px;
+    color: #252c59;
+    font-weight: 900;
+    font-family: "Red Hat Display";
+    text-align: center;
+    max-width: 350px;
+    line-height: 1;
+    margin: 0;
+    margin-bottom: 18px;
+}
+
+.jltma-white-label-notice-content h2 span {
+    color: #fd9926;
+    text-transform: uppercase;
+}
+
+.jltma-white-label-notice-content p {
+    font-size: 13px;
+    color: #474747;
+    font-family: "Poppins";
+    text-align: center;
+    margin: 0;
+    margin-bottom: 18px;
+}
+
+.jltma-white-label-notice-content a.jltma-get-pro {
+    display: inline-block;
+    width: 117px;
+    padding: 12px 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: "Red Hat Display";
+    -webkit-filter: drop-shadow(0px 20px 17.5px rgba(254, 99, 0, 0.2));
+    filter: drop-shadow(0px 20px 17.5px rgba(254, 99, 0, 0.2));
+    text-decoration: none;
+    outline: none;
+    border: none;
+    background-image: -webkit-linear-gradient(120deg, #fe6300 0%, #fe9f00 100%);
+    background-image: linear-gradient(-30deg, #fe6300 0%, #fe9f00 100%);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.jltma-white-label-notice-content a.jltma-get-pro:hover {
+    background-image: -webkit-linear-gradient(60deg, #fe6300 0%, #fe9f00 100%);
+    background-image: linear-gradient(30deg, #fe6300 0%, #fe9f00 100%);
+}
+
+
+
 /* Tabs and Contents */
 
 .master_addons .wp-tab-panel{
