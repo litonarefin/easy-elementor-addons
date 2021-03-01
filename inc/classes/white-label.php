@@ -76,21 +76,20 @@ class Master_Addons_White_Label
         }
 
         $jltma_white_label_options = array(
-            'jltma_wl_plugin_name'          => sanitize_text_field($settings['jltma_wl_plugin_name']),
-            'jltma_wl_plugin_desc'          => sanitize_text_field($settings['jltma_wl_plugin_desc']),
-            'jltma_wl_plugin_author_name'   => sanitize_text_field($settings['jltma_wl_plugin_author_name']),
-            'jltma_wl_plugin_menu_label'    => sanitize_text_field($settings['jltma_wl_plugin_menu_label']),
-            'jltma_wl_plugin_url'           => sanitize_text_field($settings['jltma_wl_plugin_url']),
-            'jltma_wl_plugin_row_links'     => intval($settings['jltma_wl_plugin_row_links'] ? 1 : 0),
-            'jltma_wl_plugin_tab_welcome'   => intval($settings['jltma_wl_plugin_tab_welcome'] ? 1 : 0),
-            'jltma_wl_plugin_tab_addons'    => intval($settings['jltma_wl_plugin_tab_addons'] ? 1 : 0),
-            'jltma_wl_plugin_tab_extensions' => intval($settings['jltma_wl_plugin_tab_extensions'] ? 1 : 0),
-            'jltma_wl_plugin_tab_api'        => intval($settings['jltma_wl_plugin_tab_api'] ? 1 : 0),
-            'jltma_wl_plugin_tab_white_label' => intval($settings['jltma_wl_plugin_tab_white_label'] ? 1 : 0),
-            'jltma_wl_plugin_tab_version'    => intval($settings['jltma_wl_plugin_tab_version'] ? 1 : 0),
-            'jltma_wl_plugin_tab_changelogs' => intval($settings['jltma_wl_plugin_tab_changelogs'] ? 1 : 0)
+            'jltma_wl_plugin_name'              => sanitize_text_field($settings['jltma_wl_plugin_name']),
+            'jltma_wl_plugin_desc'              => sanitize_text_field($settings['jltma_wl_plugin_desc']),
+            'jltma_wl_plugin_author_name'       => sanitize_text_field($settings['jltma_wl_plugin_author_name']),
+            'jltma_wl_plugin_menu_label'        => sanitize_text_field($settings['jltma_wl_plugin_menu_label']),
+            'jltma_wl_plugin_url'               => sanitize_text_field($settings['jltma_wl_plugin_url']),
+            'jltma_wl_plugin_row_links'         => intval($settings['jltma_wl_plugin_row_links'] ? 1 : 0),
+            'jltma_wl_plugin_tab_welcome'       => intval($settings['jltma_wl_plugin_tab_welcome'] ? 1 : 0),
+            'jltma_wl_plugin_tab_addons'        => intval($settings['jltma_wl_plugin_tab_addons'] ? 1 : 0),
+            'jltma_wl_plugin_tab_extensions'    => intval($settings['jltma_wl_plugin_tab_extensions'] ? 1 : 0),
+            'jltma_wl_plugin_tab_api'           => intval($settings['jltma_wl_plugin_tab_api'] ? 1 : 0),
+            'jltma_wl_plugin_tab_white_label'   => intval($settings['jltma_wl_plugin_tab_white_label'] ? 1 : 0),
+            'jltma_wl_plugin_tab_version'       => intval($settings['jltma_wl_plugin_tab_version'] ? 1 : 0),
+            'jltma_wl_plugin_tab_changelogs'    => intval($settings['jltma_wl_plugin_tab_changelogs'] ? 1 : 0)
         );
-
 
         update_option('jltma_white_label_settings', $jltma_white_label_options);
 

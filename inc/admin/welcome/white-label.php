@@ -1,12 +1,14 @@
 <div class="wp-tab-panel" id="jltma_white_label" style="display: none;">
 
-    <div class="master-addons-el-dashboard-header-wrapper">
-        <div class="master-addons-el-dashboard-header-right">
-            <button type="submit" class="master-addons-el-btn master-addons-el-js-element-save-setting">
-                <?php _e('Save Settings', MELA_TD); ?>
-            </button>
+    <?php if (ma_el_fs()->is_plan__premium_only('developer')) { ?>
+        <div class="master-addons-el-dashboard-header-wrapper">
+            <div class="master-addons-el-dashboard-header-right">
+                <button type="submit" class="master-addons-el-btn master-addons-el-js-element-save-setting" <?php if (ma_el_fs()->is_plan__premium_only('developer')) { ?> data-lic="valid" <?php } ?>>
+                    <?php _e('Save Settings', MELA_TD); ?>
+                </button>
+            </div>
         </div>
-    </div>
+    <?php } ?>
 
     <?php $jltma_white_label_options = get_option('jltma_white_label_settings'); ?>
 
