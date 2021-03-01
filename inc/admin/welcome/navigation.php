@@ -26,12 +26,12 @@
 	</li>
 
 
-	<!-- <li>
+	<li>
 		<a href="#jltma_white_label">
-			<?php //_e('White Label', MELA_TD);
+			<?php _e('White Label', MELA_TD);
 			?>
 		</a>
-	</li> -->
+	</li>
 
 
 	<li>

@@ -71,7 +71,8 @@
                             <label for="jltma_wl_plugin_row_links">
                                 <?php echo esc_html__('Hide Plugin Row Meta Links', MELA_TD); ?>
                             </label>
-                            <input name="jltma_wl_plugin_row_links" type="text" class="form-control jltma_wl_plugin_row_links" value="<?php echo isset($jltma_white_label_options['jltma_wl_plugin_row_links']) ? $jltma_white_label_options['jltma_wl_plugin_row_links'] : ""; ?>">
+                            <input name="jltma_wl_plugin_row_links" type="checkbox" class="form-control jltma_wl_plugin_row_links" <?php checked(1, $jltma_white_label_options['jltma_wl_plugin_row_links'], true) ?>>
+                            <p class="pl-3"><?php echo __('This will hide Support, Docs & FAQs and Video Tutorials links on Plugins page.', MELA_TD); ?></p>
                         </div>
 
                     </div>
@@ -90,49 +91,49 @@
                             <label for="jltma_wl_plugin_tab_welcome">
                                 <?php echo esc_html__('Hide Welcome Tab', MELA_TD); ?>
                             </label>
-                            <input name="jltma_wl_plugin_tab_welcome" type="checkbox" class="form-control jltma_wl_plugin_tab_welcome" value="1" <?php echo ($jltma_white_label_options['jltma_wl_plugin_tab_welcome']) ? 'checked="checked"' : '' ?>>
+                            <input name="jltma_wl_plugin_tab_welcome" type="checkbox" class="form-control jltma_wl_plugin_tab_welcome" <?php checked(1, $jltma_white_label_options['jltma_wl_plugin_tab_welcome'], true) ?>>
                         </div>
 
                         <div class="form-group">
                             <label for="jltma_wl_plugin_tab_addons">
                                 <?php echo esc_html__('Hide Addons Tab', MELA_TD); ?>
                             </label>
-                            <input name="jltma_wl_plugin_tab_addons" type="checkbox" class="form-control jltma_wl_plugin_tab_addons" value="<?php echo isset($jltma_white_label_options['jltma_wl_plugin_tab_addons']) ? $jltma_white_label_options['jltma_wl_plugin_name'] : ""; ?>">
+                            <input name="jltma_wl_plugin_tab_addons" type="checkbox" class="form-control jltma_wl_plugin_tab_addons" <?php checked(1, $jltma_white_label_options['jltma_wl_plugin_tab_addons'], true) ?>>
                         </div>
 
                         <div class="form-group">
                             <label for="jltma_wl_plugin_tab_extensions">
                                 <?php echo esc_html__('Hide Welcome Tab', MELA_TD); ?>
                             </label>
-                            <input name="jltma_wl_plugin_tab_extensions" type="checkbox" class="form-control jltma_wl_plugin_tab_extensions" value="<?php echo isset($jltma_white_label_options['jltma_wl_plugin_tab_extensions']) ? $jltma_white_label_options['jltma_wl_plugin_name'] : ""; ?>">
+                            <input name="jltma_wl_plugin_tab_extensions" type="checkbox" class="form-control jltma_wl_plugin_tab_extensions" <?php checked(1, $jltma_white_label_options['jltma_wl_plugin_tab_extensions'], true) ?>>
                         </div>
 
                         <div class="form-group">
                             <label for="jltma_wl_plugin_tab_api">
                                 <?php echo esc_html__('Hide Welcome Tab', MELA_TD); ?>
                             </label>
-                            <input name="jltma_wl_plugin_tab_api" type="checkbox" class="form-control jltma_wl_plugin_tab_api" value="<?php echo isset($jltma_white_label_options['jltma_wl_plugin_tab_api']) ? $jltma_white_label_options['jltma_wl_plugin_name'] : ""; ?>">
+                            <input name="jltma_wl_plugin_tab_api" type="checkbox" class="form-control jltma_wl_plugin_tab_api" <?php checked(1, $jltma_white_label_options['jltma_wl_plugin_tab_api'], true) ?>>
                         </div>
 
                         <div class="form-group">
                             <label for="jltma_wl_plugin_tab_white_label">
                                 <?php echo esc_html__('Hide White Label Tab', MELA_TD); ?>
                             </label>
-                            <input name="jltma_wl_plugin_tab_white_label" type="checkbox" class="form-control jltma_wl_plugin_tab_white_label" value="<?php echo isset($jltma_white_label_options['jltma_wl_plugin_tab_white_label']) ? $jltma_white_label_options['jltma_wl_plugin_name'] : ""; ?>">
+                            <input name="jltma_wl_plugin_tab_white_label" type="checkbox" class="form-control jltma_wl_plugin_tab_white_label" <?php checked(1, $jltma_white_label_options['jltma_wl_plugin_tab_white_label'], true) ?>>
                         </div>
 
                         <div class="form-group">
                             <label for="jltma_wl_plugin_tab_version">
                                 <?php echo esc_html__('Hide Version Tab', MELA_TD); ?>
                             </label>
-                            <input name="jltma_wl_plugin_tab_version" type="checkbox" class="form-control jltma_wl_plugin_tab_version" value="<?php echo isset($jltma_white_label_options['jltma_wl_plugin_tab_version']) ? $jltma_white_label_options['jltma_wl_plugin_name'] : ""; ?>">
+                            <input name="jltma_wl_plugin_tab_version" type="checkbox" class="form-control jltma_wl_plugin_tab_version" <?php checked(1, $jltma_white_label_options['jltma_wl_plugin_tab_version'], true) ?>>
                         </div>
 
                         <div class="form-group">
                             <label for="jltma_wl_plugin_tab_changelogs">
                                 <?php echo esc_html__('Hide Changelogs Tab', MELA_TD); ?>
                             </label>
-                            <input name="jltma_wl_plugin_tab_changelogs" type="checkbox" class="form-control jltma_wl_plugin_tab_changelogs" value="<?php echo isset($jltma_white_label_options['jltma_wl_plugin_tab_changelogs']) ? $jltma_white_label_options['jltma_wl_plugin_name'] : ""; ?>">
+                            <input name="jltma_wl_plugin_tab_changelogs" type="checkbox" class="form-control jltma_wl_plugin_tab_changelogs" <?php checked(1, $jltma_white_label_options['jltma_wl_plugin_tab_changelogs'], true) ?>>
                         </div>
 
                         <p class="border border-danger p-2">

@@ -691,7 +691,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 			include_once MELA_PLUGIN_PATH . '/inc/classes/rollback.php';
 
 			//White Label
-			// include_once MELA_PLUGIN_PATH . '/inc/classes/white-label.php';
+			include_once MELA_PLUGIN_PATH . '/inc/classes/white-label.php';
 
 			// Templates
 			require_once MELA_PLUGIN_PATH . '/inc/templates/templates.php';

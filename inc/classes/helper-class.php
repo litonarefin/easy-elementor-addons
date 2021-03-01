@@ -1152,17 +1152,18 @@ class Master_Addons_Helper
 	 * @since  2.1.0
 	 * @return \Elementor\Plugin|$instace
 	 */
-	public static function jltma_pro_locked_html() {
+	public static function jltma_pro_locked_html()
+	{
 		return '<div class="elementor-nerd-box">
 			<i class="elementor-nerd-box-icon eicon-hypster"></i>
 			<div class="elementor-nerd-box-title">' .
-				__( 'Oups, hang on!', MELA_TD ) .
+			__('Oups, hang on!', MELA_TD) .
 			'</div>
 			<div class="elementor-nerd-box-message">' .
-				__( 'This feature is only available if you have Master Addons Pro.', MELA_TD ) .
+			__('This feature is only available if you have Master Addons Pro.', MELA_TD) .
 			'</div>
 			<a class="elementor-nerd-box-link elementor-button elementor-button-default elementor-go-pro" href="https://master-addons.com/pricing" target="_blank">' .
-			__( 'Go Pro', MELA_TD ) .
+			__('Go Pro', MELA_TD) .
 			'</a>
 		</div>';
 	}
@@ -1178,7 +1179,4 @@ class Master_Addons_Helper
 			];
 		return $demo_images;
 	}
-
-
-
 }

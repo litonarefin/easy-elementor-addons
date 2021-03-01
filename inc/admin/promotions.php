@@ -66,13 +66,13 @@ if (!class_exists('Master_Addons_Promotions')) {
             }
 
             $blog_update_message = sprintf(
-                __('%1$s added new Element <strong>Gradient Headlines</strong> %2$s %3$s %4$s %5$s %6$s <br> <strong>Check Changelogs for </strong> <a href="%7$s" target="__blank">%8$s</a>', MELA_TD),
+                __('%1$s got <strong>Huge Updates</strong> %2$s %3$s %4$s %5$s %6$s <br> <strong>Check Changelogs for </strong> <a href="%7$s" target="__blank">%8$s</a>', MELA_TD),
 
                 '<strong>' . esc_html__('Master Addons for Elementor v', MELA_TD) . MELA_VERSION . '</strong>',
-                '<br><br>' . __('✅ Date Format added on Timeline', MELA_TD) . '<br>',
-                __('✅ <b>Gradient Headlines</b> updated ', MELA_TD) . '<br>',
-                __('✅ Fully Multisite supported', MELA_TD) . '<br>',
-                __('✅ Box Shadow & Border Radius added on Accordion', MELA_TD) . '<br>',
+                '<br><br>' . __('✅ Fully re-coded with optimized codes', MELA_TD) . '<br>',
+                __('✅ <b>Gallery Slider</b> updated ', MELA_TD) . '<br>',
+                __('✅ All Slick Slider Library updated with Swiper Slider', MELA_TD) . '<br>',
+                __('✅ Blog and Filterable Gallery Updated', MELA_TD) . '<br>',
                 // __( '✅ <b>Updated:</b> Animated Headlines, Creative Buttons, Team Members, Infobox, Progressbar etc', MELA_TD ) . '<br>',
                 __('✅ Latest WordPress v5.6 Elementor Compatibility & better UX', MELA_TD) . '<br>',
                 esc_url_raw('https://master-addons.com/changelogs/'),

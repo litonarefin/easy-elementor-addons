@@ -395,17 +395,35 @@ if (is_plugin_active_for_network('master-addons/master-addons.php') || is_plugin
 	define("JLTMA_NETWORK_ACTIVATED", false);
 }
 
+
 // Wordpress function 'get_site_option' and 'get_option'
-function jltma_get_options($option_name, $default = "")
+// function jltma_get_options($option_name, $default = "")
+// {
+// 	if (JLTMA_NETWORK_ACTIVATED == true) {
+// 		// Get network site option
+// 		return get_site_option($option_name, $default);
+// 	} else {
+// 		// Get blog option
+// 		return get_option($option_name, $default);
+// 	}
+// }
+
+function jltma_get_options($key, $network_override = true)
 {
-	if (JLTMA_NETWORK_ACTIVATED == true) {
-		// Get network site option
-		return get_site_option($option_name, $default);
+	if (is_network_admin()) {
+		$value = get_site_option($key);
+	} elseif (!$network_override && is_multisite()) {
+		$value = get_site_option($key);
+	} elseif ($network_override && is_multisite()) {
+		$value = get_option($key);
+		$value = (false === $value || (is_array($value) && in_array('disabled', $value))) ? get_site_option($key) : $value;
 	} else {
-		// Get blog option
-		return get_option($option_name, $default);
+		$value = get_option($key);
 	}
+
+	return $value;
 }
+
 
 // Wordpress function 'update_site_option' and 'update_option'
 function jltma_update_options($option_name, $option_value)
@@ -419,15 +437,16 @@ function jltma_update_options($option_name, $option_value)
 	}
 }
 
-function jltma_pretty_number( $x = 0 ) {
+function jltma_pretty_number($x = 0)
+{
 	$x = (int) $x;
 
-	if ( $x > 1000000 ) {
-		return floor( $x / 1000000 ) . 'M';
+	if ($x > 1000000) {
+		return floor($x / 1000000) . 'M';
 	}
 
-	if ( $x > 10000 ) {
-		return floor( $x / 1000 ) . 'k';
+	if ($x > 10000) {
+		return floor($x / 1000) . 'k';
 	}
 	return $x;
 }

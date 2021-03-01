@@ -2,6 +2,7 @@
 /*
 	 * Master Addons : Welcome Screen by Jewel Theme
 	 */
+$jltma_white_label_setting = jltma_get_options('jltma_white_label_settings');
 ?>
 
 <div class="master_addons">
@@ -15,7 +16,12 @@
 				</a>
 
 				<h1 class="ma_title">
-					<?php printf(__('%s <small>v %s</small>'), MELA, JLTMA_PLUGIN_VERSION); ?>
+					<?php if (!empty($jltma_white_label_setting['jltma_wl_plugin_menu_label'])) {
+						printf(__('%s <small>v %s</small>'), $jltma_white_label_setting['jltma_wl_plugin_menu_label'], JLTMA_PLUGIN_VERSION);
+					} else {
+						printf(__('%s <small>v %s</small>'), MELA, JLTMA_PLUGIN_VERSION);
+					}
+					?>
 				</h1>
 
 				<div class="about-text"></div>
@@ -33,7 +39,7 @@
 			require MELA_PLUGIN_PATH . '/inc/admin/welcome/api-keys.php';
 			require MELA_PLUGIN_PATH . '/inc/admin/welcome/version-control.php';
 			require MELA_PLUGIN_PATH . '/inc/admin/welcome/changelogs.php';
-			// require MELA_PLUGIN_PATH . '/inc/admin/welcome/white-label.php';
+			require MELA_PLUGIN_PATH . '/inc/admin/welcome/white-label.php';
 			?>
 		</div>
 
