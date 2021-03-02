@@ -13,20 +13,20 @@
     <?php } ?>
 
 
-    <?php if (ma_el_fs()->is_plan__premium_only('developer')) { ?>
-        <div class="jltma-white-label-notice">
-            <div class="jltma-white-label-notice-content">
-                <div class="jltma-white-label-notice-logo">
-                    <img src="<?php echo  esc_url(MELA_IMAGE_DIR) . 'logo.png' ?>" alt="Master Addons">
-                </div>
-                <h2><?php _e('Get Master Addons <span>Pro</span> to Enable White Labeling Options', MELA_TD); ?></h2>
-                <p><?php _e('Master Addons can be completely re-branded with your own brand name and author details. Your clients will never know what tools you are using to build their website and will think that this is your own tool set. White-labeling works as long as your license is active.', MELA_TD); ?></p>
-                <a class="jltma-btn jltma-get-pro" href="<?php echo esc_url('https://master-addons.com/pricing/'); ?>" target="_blank"><?php _e('Get PRO', MELA_TD); ?></a>
-            </div>
-        </div>
-    <?php } ?>
-
     <form action="" method="POST" id="jltma-white-label-settings" class="jltma-white-label-settings <?php if (ma_el_fs()->is_plan__premium_only('developer')) { ?> jltma-disabled <?php } ?>" name="jltma-white-label-settings">
+
+        <?php if (ma_el_fs()->is_plan__premium_only('developer')) { ?>
+            <div class="jltma-white-label-notice">
+                <div class="jltma-white-label-notice-content">
+                    <div class="jltma-white-label-notice-logo">
+                        <img src="<?php echo  esc_url(MELA_IMAGE_DIR) . 'logo.png' ?>" alt="Master Addons">
+                    </div>
+                    <h2><?php _e('Get Master Addons <span>Pro</span> to Enable White Labeling Options', MELA_TD); ?></h2>
+                    <p><?php _e('Master Addons can be completely re-branded with your own brand name and author details. Your clients will never know what tools you are using to build their website and will think that this is your own tool set. White-labeling works as long as your license is active.', MELA_TD); ?></p>
+                    <a class="jltma-btn jltma-get-pro" href="<?php echo esc_url('https://master-addons.com/pricing/'); ?>" target="_blank"><?php _e('Get PRO', MELA_TD); ?></a>
+                </div>
+            </div>
+        <?php } ?>
 
         <div class="master_addons_feature jltma-center-align">
 
