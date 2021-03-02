@@ -253,7 +253,7 @@
 
 #jltma_white_label .jltma-white-label-notice {
     position: absolute;
-    top: 0;
+    /* top: 0; */
     left: 0;
     width: 100%;
     height: 100%;
@@ -285,8 +285,8 @@
     background-size: cover;
     padding: 32px;
     padding-bottom: 50px;
-    -webkit-border-radius: 50px 0px;
-    border-radius: 50px 0px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
     text-align: center;
     z-index: 2;
 }
@@ -320,36 +320,24 @@
 .jltma-white-label-notice-content p {
     font-size: 13px;
     color: #474747;
-    font-family: "Poppins";
     text-align: center;
     margin: 0;
     margin-bottom: 18px;
 }
-
-.jltma-white-label-notice-content a.jltma-get-pro {
+.jltma-white-label-notice-content em{
+    font-size:12px;
+    color: #4836f2;
+}
+.jltma-white-label-notice-content button.jltma-get-pro {
     display: inline-block;
-    width: 117px;
-    padding: 12px 10px;
-    -webkit-border-radius: 10px;
+    width: 120px;
+    padding: 5px 15px;
     border-radius: 10px;
     color: #ffffff;
     font-size: 15px;
-    font-weight: 900;
-    font-family: "Red Hat Display";
-    -webkit-filter: drop-shadow(0px 20px 17.5px rgba(254, 99, 0, 0.2));
-    filter: drop-shadow(0px 20px 17.5px rgba(254, 99, 0, 0.2));
-    text-decoration: none;
-    outline: none;
-    border: none;
-    background-image: -webkit-linear-gradient(120deg, #fe6300 0%, #fe9f00 100%);
-    background-image: linear-gradient(-30deg, #fe6300 0%, #fe9f00 100%);
+    font-weight: 800;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-}
-
-.jltma-white-label-notice-content a.jltma-get-pro:hover {
-    background-image: -webkit-linear-gradient(60deg, #fe6300 0%, #fe9f00 100%);
-    background-image: linear-gradient(30deg, #fe6300 0%, #fe9f00 100%);
 }
 
 
@@ -926,9 +914,16 @@
     padding: 0 15px;
     text-transform: uppercase;
 }
+.master_addons_feature button.jltma-get-pro:hover{
+    background-image: -moz-linear-gradient(0deg, rgb(106, 20, 209) 0%, rgb(223, 29, 198) 100%);
+    background-image: -webkit-linear-gradient(0deg, rgb(106, 20, 209) 0%, rgb(223, 29, 198) 100%);
+    background-image: -ms-linear-gradient(0deg, rgb(106, 20, 209) 0%, rgb(223, 29, 198) 100%);
+}
+.master_addons_feature button:hover,
 .master_addons_feature button:focus,
 .master_addons_feature button:active,
 .master_addons_feature button:visited,
+.master-addons-supports-list a:hover,
 .master-addons-supports-list a:focus,
 .master-addons-supports-list a:active,
 .master-addons-supports-list a:visited {
