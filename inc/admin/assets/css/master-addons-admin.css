@@ -253,13 +253,11 @@
 
 #jltma_white_label .jltma-white-label-notice {
     position: absolute;
-    /* top: 0; */
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(200, 200, 200, 0.8);
-    -webkit-border-radius: 15px;
-    border-radius: 15px;
+    background: rgba(200, 200, 200, 0.65);
     -js-display: flex;
     display: -webkit-box;
     display: -webkit-flex;
@@ -271,18 +269,16 @@
     -moz-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    z-index: 1;
 }
 
 .jltma-white-label-notice-content {
+    background-color: #fff;
+    box-shadow: 0px 0px 50px rgba(0,0,0,0.13);
     position: absolute;
-    top: 200px;
-    left: 200;
+    top: 150px;
+    left: 300px;
     width: 530px;
-    background-image: -webkit-gradient(linear, right top, left top, from(#e4f1f9), to(#e1f9f1));
-    background-image: linear-gradient(to left, #e4f1f9 0%, #e1f9f1 100%);
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    background-size: cover;
     padding: 32px;
     padding-bottom: 50px;
     -webkit-border-radius: 20px;
@@ -292,10 +288,10 @@
 }
 
 .jltma-white-label-notice-logo img {
-    height: 130px;
+    height: 100px;
     width: 100px;
     padding: 10px;
-    padding-top: 40px;
+    padding-top: 10px;
 }
 
 .jltma-white-label-notice-content h2,
@@ -313,7 +309,7 @@
 }
 
 .jltma-white-label-notice-content h2 span {
-    color: #fd9926;
+    color: #6814cd;
     text-transform: uppercase;
 }
 
@@ -325,8 +321,8 @@
     margin-bottom: 18px;
 }
 .jltma-white-label-notice-content em{
-    font-size:12px;
-    color: #4836f2;
+    font-size:13px;
+    color: red;
 }
 .jltma-white-label-notice-content button.jltma-get-pro {
     display: inline-block;
@@ -404,6 +400,7 @@
     flex-wrap: wrap;
     align-items: flex-start;
     margin: 0;
+    position: relative;
 }
 /* .master_addons_feature.jltma-center-align {
     height: 100%;

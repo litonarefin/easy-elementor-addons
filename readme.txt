@@ -384,6 +384,10 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.5.8 (28-02-2021) =
+* Added: White Label Options added for Developer Plans only.
+* Added: System Information tab added on Settings panel.
+
 = 1.5.7 (28-02-2021) =
 * Updated: 'jquery-slick' updated with 'Swiper Slider' library. Updated Widgets - MA Blog, MA Slider, MA Gallery Slider, MA Twitter Slider, MA Timeline etc
 * Added: New Element added "Advanced Image".

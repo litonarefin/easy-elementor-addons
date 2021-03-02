@@ -58,15 +58,13 @@
 		</li>
 	<?php } ?>
 
-	<?php //if (!$jltma_hide_changelogs) {
-	?>
-	<li>
-		<a href="#jltma_system_info">
-			<?php _e('System Info', MELA_TD); ?>
-		</a>
-	</li>
-	<?php //}
-	?>
+	<?php if (!$jltma_hide_system_info) { ?>
+		<li>
+			<a href="#jltma_system_info">
+				<?php _e('System Info', MELA_TD); ?>
+			</a>
+		</li>
+	<?php } ?>
 
 	<?php if (ma_el_fs()->is_not_paying()) { ?>
 		<a class="nav-upgrade-pro" href="https://master-addons.com/pricing" target="_blank">

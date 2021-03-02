@@ -67,7 +67,8 @@ class Master_Addons_White_Label
             'jltma_wl_plugin_tab_api'           => intval($settings['jltma_wl_plugin_tab_api'] ? 1 : 0),
             'jltma_wl_plugin_tab_white_label'   => intval($settings['jltma_wl_plugin_tab_white_label'] ? 1 : 0),
             'jltma_wl_plugin_tab_version'       => intval($settings['jltma_wl_plugin_tab_version'] ? 1 : 0),
-            'jltma_wl_plugin_tab_changelogs'    => intval($settings['jltma_wl_plugin_tab_changelogs'] ? 1 : 0)
+            'jltma_wl_plugin_tab_changelogs'    => intval($settings['jltma_wl_plugin_tab_changelogs'] ? 1 : 0),
+            'jltma_wl_plugin_tab_system_info'   => intval($settings['jltma_wl_plugin_tab_system_info'] ? 1 : 0)
         );
 
         update_option('jltma_white_label_settings', $jltma_white_label_options);
@@ -94,11 +95,7 @@ class Master_Addons_White_Label
             'jltma_wl_plugin_tab_white_label'    => '',
             'jltma_wl_plugin_tab_version'        => '',
             'jltma_wl_plugin_tab_changelogs'     => '',
-            // 'hide_license_page'         => '',
-            // 'hide_elementor_plugin'     => '',
-            // 'hide_elementor_pro_plugin' => '',
-            // 'hide_plugin'               => '',
-            // 'hide_ewl_setting_page'     => '',
+            'jltma_wl_plugin_tab_system_info'     => ''
         );
 
         $settings = jltma_get_options('jltma_white_label_settings', true);
