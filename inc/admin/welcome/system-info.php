@@ -48,22 +48,14 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
                             <tr>
                                 <td><?php _e('WP Memory Limit', MELA_TD); ?>:</td>
                                 <td><?php
-                                    $memory_limit       = ini_get('memory_limit');
-                                    if (intval($memory_limit) < '256') {
+                                    $jltma_memory_limit       = ini_get('memory_limit');
+                                    if (intval($jltma_memory_limit) < '256') {
                                         echo $jltma_invalid;
-                                        echo '<span>' . size_format(wp_convert_hr_to_bytes(WP_MEMORY_LIMIT)) . ' (Min: 256M Recommended)</span>';
+                                        echo sprintf(__('<span>%s - (Min: 256M Recommended).</span> <a href="%2$s" target="_blank">Increasing WP Memory Limit</a>', MELA_TD), $jltma_time_limit, 'https://master-addons.com/elementor-editor-not-loading-issue/');
                                     } else {
                                         echo $jltma_valid;
-                                        // echo '<span>' . size_format(wp_convert_hr_to_bytes(WP_MEMORY_LIMIT)) . '</span>';
-                                        echo '<span>' . $memory_limit . '</span>';
+                                        echo '<span>' . $jltma_memory_limit . '</span>';
                                     }
-                                    // $jltma_memory_limit = wp_convert_hr_to_bytes(WP_MEMORY_LIMIT);
-                                    // // $jltma_memory_limit = ini_get('memory_limit');
-                                    // if ($jltma_memory_limit < 67108864) {
-                                    //     echo '<span>' . sprintf(__('%s - (Min: 256M Recommended).</span> <a href="%2$s" target="_blank">Increasing WP Memory Limit</a>', MELA_TD), $jltma_time_limit, 'https://master-addons.com/elementor-editor-not-loading-issue/');
-                                    // } else {
-                                    //     echo size_format($jltma_memory_limit);
-                                    // }
                                     ?></td>
                             </tr>
                             <tr>
