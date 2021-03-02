@@ -224,6 +224,9 @@
     vertical-align: middle;
     border-radius: 2px;
 }
+.jltma-system-info .api-forms tr td span i{
+    line-height: 25px;
+}
 .jltma-system-info .api-forms .jltma-valid{
     background: #9bc865;
     color: #fff;

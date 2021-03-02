@@ -48,13 +48,22 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
                             <tr>
                                 <td><?php _e('WP Memory Limit', MELA_TD); ?>:</td>
                                 <td><?php
-                                    $jltma_memory_limit = wp_convert_hr_to_bytes(WP_MEMORY_LIMIT);
-                                    // $jltma_memory_limit = ini_get('memory_limit');
-                                    if ($jltma_memory_limit < 67108864) {
-                                        echo '<span>' . sprintf(__('%s - (Min: 256M Recommended).</span> <a href="%2$s" target="_blank">Increasing WP Memory Limit</a>', MELA_TD), $jltma_time_limit, 'https://master-addons.com/elementor-editor-not-loading-issue/');
+                                    $memory_limit       = ini_get('memory_limit');
+                                    if (intval($memory_limit) < '256') {
+                                        echo $jltma_invalid;
+                                        echo '<span>' . size_format(wp_convert_hr_to_bytes(WP_MEMORY_LIMIT)) . ' (Min: 256M Recommended)</span>';
                                     } else {
-                                        echo size_format($jltma_memory_limit);
+                                        echo $jltma_valid;
+                                        // echo '<span>' . size_format(wp_convert_hr_to_bytes(WP_MEMORY_LIMIT)) . '</span>';
+                                        echo '<span>' . $memory_limit . '</span>';
                                     }
+                                    // $jltma_memory_limit = wp_convert_hr_to_bytes(WP_MEMORY_LIMIT);
+                                    // // $jltma_memory_limit = ini_get('memory_limit');
+                                    // if ($jltma_memory_limit < 67108864) {
+                                    //     echo '<span>' . sprintf(__('%s - (Min: 256M Recommended).</span> <a href="%2$s" target="_blank">Increasing WP Memory Limit</a>', MELA_TD), $jltma_time_limit, 'https://master-addons.com/elementor-editor-not-loading-issue/');
+                                    // } else {
+                                    //     echo size_format($jltma_memory_limit);
+                                    // }
                                     ?></td>
                             </tr>
                             <tr>
@@ -162,9 +171,10 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
                                         $jltma_time_limit = ini_get('max_execution_time');
                                         if (intval($jltma_time_limit) < 120 && $jltma_time_limit != 0) {
                                             echo $jltma_invalid;
-                                            echo '<span>' . sprintf(__(' %s - (Min: Recommended at least 300).</span> <a href="%2$s" target="_blank">Increasing WP Time Limit</a>', MELA_TD), $jltma_time_limit, 'https://master-addons.com/elementor-editor-not-loading-issue/');
+                                            echo sprintf(__('<span> %s - (Min: Recommended 300).</span><a href="%2$s" target="_blank">Increasing WP Time Limit</a>', MELA_TD), $jltma_time_limit, 'https://master-addons.com/elementor-editor-not-loading-issue/');
                                         } else {
-                                            echo $jltma_valid . ' ' . $jltma_time_limit;
+                                            echo $jltma_valid;
+                                            echo '<span>' . esc_html($jltma_time_limit) . '</span>';
                                         }
                                         ?></td>
                                 </tr>
@@ -236,7 +246,7 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
                                 <td><?php
                                     if (!function_exists('curl_init')) {
                                         echo $jltma_invalid;
-                                        echo '<span>' . _e('Not Supported', MELA_TD);
+                                        echo '<span>' . _e('Not Installed', MELA_TD);
                                     } else {
                                         echo $jltma_valid;
                                         echo '<span>' . _e('Supported', MELA_TD);
@@ -248,7 +258,7 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
                                 <td><?php
                                     if (!function_exists('fsockopen')) {
                                         echo $jltma_invalid;
-                                        echo '<span>' . _e('Not Supported', MELA_TD);
+                                        echo '<span>' . _e('Not Installed', MELA_TD);
                                     } else {
                                         echo $jltma_valid;
                                         echo '<span>' . _e('Supported', MELA_TD);
@@ -263,7 +273,7 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
                                         echo '<span>' . _e('Not Installed', MELA_TD);
                                     } else {
                                         echo $jltma_valid;
-                                        echo '<span>' . _e('Installed', MELA_TD);
+                                        echo '<span>' . _e('Supported', MELA_TD);
                                     }
                                     ?></td>
                             </tr>
@@ -275,7 +285,7 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
                                         echo '<span>' . _e('Not Installed', MELA_TD);
                                     } else {
                                         echo $jltma_valid;
-                                        echo '<span>' . _e('Installed', MELA_TD);
+                                        echo '<span>' . _e('Supported', MELA_TD);
                                     }
                                     ?></td>
                             </tr>
