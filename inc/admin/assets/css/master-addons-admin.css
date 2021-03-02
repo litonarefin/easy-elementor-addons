@@ -324,10 +324,10 @@
     font-size:13px;
     color: red;
 }
-.jltma-white-label-notice-content button.jltma-get-pro {
+.jltma-white-label-notice-content a.jltma-get-pro {
     display: inline-block;
     width: 120px;
-    padding: 5px 15px;
+    padding: 5px 15px !important;
     border-radius: 10px;
     color: #ffffff;
     font-size: 15px;
@@ -896,7 +896,8 @@
     line-height: 23px;
     margin: 0 0 25px;
 }
-.master_addons_feature button {
+.master_addons_feature button,
+.master_addons_feature a.jltma-get-pro {
     background-image: -moz-linear-gradient( 0deg, rgb(223,29,198) 0%, rgb(106,20,209) 100%);
     background-image: -webkit-linear-gradient( 0deg, rgb(223,29,198) 0%, rgb(106,20,209) 100%);
     background-image: -ms-linear-gradient( 0deg, rgb(223,29,198) 0%, rgb(106,20,209) 100%);
@@ -910,8 +911,9 @@
     line-height: 35px;
     padding: 0 15px;
     text-transform: uppercase;
+    text-decoration: none;
 }
-.master_addons_feature button.jltma-get-pro:hover{
+.master_addons_feature a.jltma-get-pro:hover{
     background-image: -moz-linear-gradient(0deg, rgb(106, 20, 209) 0%, rgb(223, 29, 198) 100%);
     background-image: -webkit-linear-gradient(0deg, rgb(106, 20, 209) 0%, rgb(223, 29, 198) 100%);
     background-image: -ms-linear-gradient(0deg, rgb(106, 20, 209) 0%, rgb(223, 29, 198) 100%);

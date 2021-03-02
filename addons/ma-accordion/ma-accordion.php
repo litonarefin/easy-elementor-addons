@@ -852,6 +852,20 @@ class Advanced_Accordion extends Widget_Base
 				'selector' => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title',
 			)
 		);
+
+
+		$this->add_responsive_control(
+			'jltma_accordion_box_padding',
+			[
+				'label'                 => esc_html__('Padding', MELA_TD),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => ['px', 'em', '%'],
+				'selectors'             => [
+					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 
 		/**

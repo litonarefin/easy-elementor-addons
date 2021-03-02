@@ -28,7 +28,7 @@
                             <?php _e('Master Addons can be completely re-branded with your own brand Logo, Name and Author Details. Your clients will never know what tools you are using to build their website and will think that this is your own tool set. White-labeling works as long as your license is active.', MELA_TD); ?><br>
                             <em><?php _e('Note: Developer Plans Only', MELA_TD); ?></em>
                         </p>
-                        <button class="jltma-btn master-addons-widget-btn jltma-get-pro" href="<?php echo esc_url('https://master-addons.com/pricing/'); ?>" target="_blank"><?php _e('Get PRO', MELA_TD); ?></button>
+                        <a class="jltma-btn master-addons-widget-btn jltma-get-pro" href="<?php echo esc_url('https://master-addons.com/pricing/'); ?>" target="_blank"><?php _e('Get PRO', MELA_TD); ?></a>
                     </div>
                 </div>
             <?php } ?>
