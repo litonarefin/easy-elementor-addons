@@ -445,7 +445,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 					foreach (JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements'] as $key =>  $widget) {
 						if (isset($activated_widgets[$widget['key']]) && $activated_widgets[$widget['key']] == true) {
 
-							$widget_file = MAAD_EL_ADDONS . $widget['key'] . '/' . $widget['key'] . '.php';
+							$widget_file = MAAD_EL_ADDONS . $activated_widgets[$widget['key']] . '/' . $activated_widgets[$widget['key']] . '.php';
 
 							if (!ma_el_fs()->can_use_premium_code() && (isset($widget['is_pro']) && $widget['is_pro'])) {
 								continue;
