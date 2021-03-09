@@ -1617,14 +1617,15 @@ class Image_Carousel extends Widget_Base
 						// Lightbox Conditions
 						if ($settings['jltma_image_carousel_enable_lightbox'] == "yes") {
 
+
+							$anchor_type = (empty($item['link']['url']) ? 'jltma-click-anywhere' : 'jltma-click-icon');
+
+							$thumbnail_src = wp_get_attachment_image_src($item['jltma_image_carousel_img']['id'], 'full');
+
+							if ($thumbnail_src)
+								$thumbnail_src = $thumbnail_src[0];
+
 							if ($settings['jltma_image_carousel_lightbox_library'] === 'fancybox') {
-
-								$anchor_type = (empty($item['link']['url']) ? 'jltma-click-anywhere' : 'jltma-click-icon');
-
-								$thumbnail_src = wp_get_attachment_image_src($item['jltma_image_carousel_img']['id'], 'full');
-
-								if ($thumbnail_src)
-									$thumbnail_src = $thumbnail_src[0];
 
 								$this->add_render_attribute([
 									$repeater_key => [
@@ -1645,7 +1646,7 @@ class Image_Carousel extends Widget_Base
 								$this->add_render_attribute([
 									$repeater_key => [
 										'class' => [
-											'jltma-lightbox-item' . $anchor_type
+											'jltma-lightbox-item-' . isset($anchor_type) ? $anchor_type : ""
 										],
 										'data-thumb' => $thumbnail_src,
 										'href' => $item['jltma_image_carousel_img']['url'],

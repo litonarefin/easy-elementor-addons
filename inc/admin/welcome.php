@@ -43,25 +43,32 @@ $jltma_hide_system_info 	= jltma_check_options($jltma_white_label_setting['jltma
 			<?php
 			require MELA_PLUGIN_PATH . '/inc/admin/welcome/supports.php';
 
-			if (!$jltma_hide_welcome) {
+			// if (isset($jltma_hide_welcome) && $jltma_hide_welcome) {
+			if (isset($jltma_hide_welcome) && $jltma_hide_welcome) {
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/addons.php';
 			}
-			if (!$jltma_hide_extensions) {
+
+			if (isset($jltma_hide_extensions) && $jltma_hide_extensions) {
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/extensions.php';
 			}
-			if (!$jltma_hide_api) {
+
+			if (isset($jltma_hide_api) && $jltma_hide_api) {
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/api-keys.php';
 			}
-			if (!$jltma_hide_version) {
+
+			if (isset($jltma_hide_version) && $jltma_hide_version) {
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/version-control.php';
 			}
-			if (!$jltma_hide_changelogs) {
+
+			if (isset($jltma_hide_changelogs) && $jltma_hide_changelogs) {
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/changelogs.php';
 			}
-			if (!$jltma_hide_white_label) {
+
+			if (isset($jltma_hide_white_label) && $jltma_hide_white_label) {
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/white-label.php';
 			}
-			if (!$jltma_hide_system_info) {
+
+			if (isset($jltma_hide_system_info) && $jltma_hide_system_info) {
 				require MELA_PLUGIN_PATH . '/inc/admin/welcome/system-info.php';
 			}
 			?>
