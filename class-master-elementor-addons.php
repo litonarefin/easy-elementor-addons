@@ -6,6 +6,7 @@ use MasterAddons\Admin\Dashboard\Master_Addons_Admin_Settings;
 use MasterAddons\Admin\Dashboard\Addons\Extensions\JLTMA_Addon_Extensions;
 use MasterAddons\Admin\Dashboard\Addons\Elements\JLTMA_Addon_Elements;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
+use MasterAddons\Inc\Classes\Master_Addons_White_Label;
 
 if (!defined('ABSPATH')) {
 	exit;
@@ -121,6 +122,8 @@ if (!class_exists('Master_Elementor_Addons')) {
 		// Activation Hook
 		public static function jltma_plugin_activation_hook()
 		{
+			$jltma_white_label_default_options = Master_Addons_White_Label::jltma_white_label_default_options();
+			update_option('jltma_white_label_settings', $jltma_white_label_default_options);
 
 			if (get_option('jltma_activation_time') === false)
 				update_option('jltma_activation_time', strtotime("now"));
@@ -167,7 +170,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 				return;
 			}
 
-			self::jltma_plugin_activation_hook();
+			// self::jltma_plugin_activation_hook();
 		}
 
 

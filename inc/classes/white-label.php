@@ -2,6 +2,8 @@
 
 namespace MasterAddons\Inc\Classes;
 
+use MasterAddons\Master_Elementor_Addons;
+
 class Master_Addons_White_Label
 {
     private static $instance = null;
@@ -15,6 +17,21 @@ class Master_Addons_White_Label
         add_action('all_plugins', [$this, 'jltma_save_white_label_settings_update']);
 
         add_filter('plugin_row_meta', [$this, 'jltma_plugin_row_meta'], 900, 2);
+        // register_activation_hook(__FILE__, [__CLASS__, 'jltma_white_label_activation_hook']);
+    }
+
+    public function jltma_white_label_activation_hook()
+    {
+        $settings = self::get_settings();
+        update_option($settings['jltma_wl_plugin_tab_welcome'], 0);
+        update_option($settings['jltma_wl_plugin_tab_addons'], 0);
+        update_option($settings['jltma_wl_plugin_tab_extensions'], 0);
+        update_option($settings['jltma_wl_plugin_tab_api'], 0);
+        update_option($settings['jltma_wl_plugin_tab_white_label'], 0);
+        update_option($settings['jltma_wl_plugin_tab_version'], 0);
+        update_option($settings['jltma_wl_plugin_tab_version'], 0);
+        update_option($settings['jltma_wl_plugin_tab_changelogs'], 0);
+        update_option($settings['jltma_wl_plugin_tab_system_info'], 0);
     }
 
     public function jltma_plugin_row_meta($plugin_meta, $plugin_file)
@@ -77,6 +94,27 @@ class Master_Addons_White_Label
         die();
     }
 
+    public static function jltma_white_label_default_options()
+    {
+        $jltma_white_label_defaul_options = array(
+            'jltma_wl_plugin_logo'              => '',
+            'jltma_wl_plugin_name'              => JLTMA_NAME,
+            'jltma_wl_plugin_desc'              => JLTMA_PLUGIN_DESC,
+            'jltma_wl_plugin_author_name'       => JLTMA_PLUGIN_AUTHOR,
+            'jltma_wl_plugin_menu_label'        => Master_Elementor_Addons::$plugin_name,
+            'jltma_wl_plugin_url'               => JLTMA_PLUGIN_URI,
+            'jltma_wl_plugin_row_links'         => 0,
+            'jltma_wl_plugin_tab_welcome'       => 0,
+            'jltma_wl_plugin_tab_addons'        => 0,
+            'jltma_wl_plugin_tab_extensions'    => 0,
+            'jltma_wl_plugin_tab_api'           => 0,
+            'jltma_wl_plugin_tab_white_label'   => 0,
+            'jltma_wl_plugin_tab_version'       => 0,
+            'jltma_wl_plugin_tab_changelogs'    => 0,
+            'jltma_wl_plugin_tab_system_info'   => 0
+        );
+        return $jltma_white_label_defaul_options;
+    }
 
     public static function get_settings()
     {

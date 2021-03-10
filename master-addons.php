@@ -14,14 +14,23 @@
 // No, Direct access Sir !!!
 if (!defined('ABSPATH')) exit;
 
-$jltma_plugin_data = get_file_data(__FILE__,  array('Version' => 'Version', 'Plugin Name' => 'Plugin Name'), false);
-$jltma_plugin_name = $jltma_plugin_data['Plugin Name'];
-$jltma_plugin_version = $jltma_plugin_data['Version'];
+$jltma_plugin_data = get_file_data(__FILE__,  array(
+    'Version'     => 'Version',
+    'Plugin Name' => 'Plugin Name',
+    'Author'      => 'Author',
+    'Description' => 'Description',
+    'Plugin URI'  => 'Plugin URI',
+), false);
 
-define('JLTMA_NAME', $jltma_plugin_name);
-define('JLTMA_PLUGIN_VERSION', $jltma_plugin_version);
+
+define('JLTMA_NAME', $jltma_plugin_data['Plugin Name']);
+define('JLTMA_PLUGIN_DESC', $jltma_plugin_data['Description']);
+define('JLTMA_PLUGIN_AUTHOR', $jltma_plugin_data['Author']);
+define('JLTMA_PLUGIN_URI', $jltma_plugin_data['Plugin URI']);
+define('JLTMA_VERSION', $jltma_plugin_data['Version']);
 define('JLTMA_STABLE_VER', "1.5.7");
 define('JLTMA_BASE', plugin_basename(__FILE__));
+
 
 if (function_exists('ma_el_fs')) {
     ma_el_fs()->set_basename(true, __FILE__);
