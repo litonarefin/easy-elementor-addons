@@ -440,12 +440,12 @@ if (!class_exists('Master_Elementor_Addons')) {
 					switch_to_blog($blog_id->blog_id);
 
 					$widget_manager = Master_Addons_Helper::jltma_elementor()->widgets_manager;
-
-					ksort(JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements']);
-					foreach (JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements'] as $key =>  $widget) {
+					$jltma_all_addons = Master_Addons_Admin_Settings::jltma_merged_addons_array();
+					ksort($jltma_all_addons);
+					foreach ($jltma_all_addons as $key =>  $widget) {
 						if (isset($activated_widgets[$widget['key']]) && $activated_widgets[$widget['key']] == true) {
 
-							$widget_file = MAAD_EL_ADDONS . $activated_widgets[$widget['key']] . '/' . $activated_widgets[$widget['key']] . '.php';
+							$widget_file = MAAD_EL_ADDONS . $widget['key'] . '/' . $widget['key'] . '.php';
 
 							if (!ma_el_fs()->can_use_premium_code() && (isset($widget['is_pro']) && $widget['is_pro'])) {
 								continue;
@@ -467,9 +467,9 @@ if (!class_exists('Master_Elementor_Addons')) {
 			} else {
 
 				$widget_manager = Master_Addons_Helper::jltma_elementor()->widgets_manager;
-
-				ksort(JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements']);
-				foreach (JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements'] as $key =>  $widget) {
+				$jltma_all_addons = Master_Addons_Admin_Settings::jltma_merged_addons_array();
+				ksort($jltma_all_addons);
+				foreach ($jltma_all_addons as $key =>  $widget) {
 					if (isset($activated_widgets[$widget['key']]) && $activated_widgets[$widget['key']] == true) {
 
 						$widget_file = MAAD_EL_ADDONS . $widget['key'] . '/' . $widget['key'] . '.php';

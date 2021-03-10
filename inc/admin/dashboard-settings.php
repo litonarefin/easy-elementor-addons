@@ -235,6 +235,19 @@ class Master_Addons_Admin_Settings
 		return $jltma_new_widgets;
 	}
 
+	public static function jltma_merged_addons_array()
+	{
+		// Separated All Addons on new Format
+		$jltma_new_merged_widgets = [];
+		$jltma_new_merged_widgets1 = JLTMA_Addon_Elements::$jltma_elements['jltma-addons']['elements'];
+		$jltma_new_merged_widgets2 = JLTMA_Addon_Forms::$jltma_forms['jltma-forms']['elements'];
+		$jltma_new_merged_widgets3 = JLTMA_Addon_Marketing::$jltma_marketing['jltma-marketing']['elements'];
+
+		$jltma_merged_addons = array_merge($jltma_new_merged_widgets1, $jltma_new_merged_widgets2, $jltma_new_merged_widgets3);
+
+		return $jltma_merged_addons;
+	}
+
 	// Extensions Array
 	public static function jltma_addons_extensions_array()
 	{
