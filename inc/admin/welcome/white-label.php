@@ -74,7 +74,7 @@
                             <label for="jltma_wl_plugin_desc">
                                 <?php echo esc_html__('Plugin Description', MELA_TD); ?>
                             </label>
-                            <input name="jltma_wl_plugin_desc" type="text" class="form-control jltma_wl_plugin_desc" value="<?php echo isset($jltma_white_label_options['jltma_wl_plugin_desc']) ? $jltma_white_label_options['jltma_wl_plugin_desc'] : ""; ?>">
+                            <textarea name="jltma_wl_plugin_desc" type="text" class="form-control jltma_wl_plugin_desc" cols="50"><?php echo isset($jltma_white_label_options['jltma_wl_plugin_desc']) ? $jltma_white_label_options['jltma_wl_plugin_desc'] : ""; ?></textarea>
                         </div>
 
                         <div class="form-group">

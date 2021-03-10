@@ -27,7 +27,7 @@ define('JLTMA_NAME', $jltma_plugin_data['Plugin Name']);
 define('JLTMA_PLUGIN_DESC', $jltma_plugin_data['Description']);
 define('JLTMA_PLUGIN_AUTHOR', $jltma_plugin_data['Author']);
 define('JLTMA_PLUGIN_URI', $jltma_plugin_data['Plugin URI']);
-define('JLTMA_VERSION', $jltma_plugin_data['Version']);
+define('JLTMA_PLUGIN_VERSION', $jltma_plugin_data['Version']);
 define('JLTMA_STABLE_VER', "1.5.7");
 define('JLTMA_BASE', plugin_basename(__FILE__));
 
