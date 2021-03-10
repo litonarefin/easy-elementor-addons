@@ -2,7 +2,7 @@
 Contributors: jwthemeltd, litonice13, masteraddons
 Tags: elementor, elementor addon, elementor widget, clickable column, essential widget, custom css elements, after before image comparison, image hover effects, header & footer builder, template import, elementor addons, elementor extensions,  elementor modules, elementor templates, comment form builder, mega menu, header footer builder, elements, page builder addons,addons, jewletheme, masteraddons
 Requires at least: 4.0
-Tested up to: 5.6
+Tested up to: 5.7
 Requires PHP: 5.3
 Stable tag: trunk
 License: GPLv2
@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Must have and Essential Elementor Addons for speed up your Design Creativity. Custom Breakpoints, Header Footer & Comment Form Builder,Custom CSS, Custom JS, dynamic conditions etc.
 
 == Description ==
-[Master Addons](https://master-addons.com/) is a collection of Stunning and cutting edged designed Elementor Addons Pack. Have you been looking for the perfect addons for Elementor that can help you make a creative looking website? Well, you don’t have to look too far. With master-addons for elementor, you get a wide range of elements that make your ordinary-looking website into something interactable, visually appealing and a lot more reader-friendly.
+[Master Addons](https://master-addons.com/) is a collection of Stunning and cutting edged designed Elementor Addons Pack. Have you been looking for the perfect addons for Elementor that can help you make a creative looking website? Well, you don’t have to look too far. With Master Addons for Elementor, you get a wide range of elements that make your ordinary-looking website into something interactive, visually appealing and a lot more reader-friendly.
 
 
 >[All Addons](https://master-addons.com/all-widgets/) | [Support](https://master-addons.com/contact-us/) | [Docs](https://master-addons.com/docs/) | [Tutorials](https://www.youtube.com/watch?v=rdrqWa-tf6Q&list=PLqpMw0NsHXV9V6UwRniXTUkabCJtOhyIf) | [Upgrade Pro](https://master-addons.com/go/upgrade-pro/)

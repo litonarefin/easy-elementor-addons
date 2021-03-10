@@ -1,8 +1,6 @@
 <?php
 
-namespace Elementor;
-
-//	namespace MasterAddons\Widget\Addons;
+namespace MasterAddons\Addons;
 
 use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
@@ -18,7 +16,7 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
 
-class Master_Addons_Mailchimp extends Widget_Base
+class Mailchimp extends Widget_Base
 {
 
 	public function get_name()
@@ -227,5 +225,3 @@ class Master_Addons_Mailchimp extends Widget_Base
 		return mc4wp_show_form($settings['ma_el_mailchimp_form_id']);
 	}
 }
-
-Plugin::instance()->widgets_manager->register_widget_type(new Master_Addons_Mailchimp());
