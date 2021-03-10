@@ -397,6 +397,47 @@
             } ).show();
         } );
 
+        // Copy to Clipboard Section
+        (function(n) {
+            n.fn.copiq = function(e) {
+                var t = n.extend({
+                    parent: "body",
+                    content: "",
+                    onSuccess: function() {},
+                    onError: function() {}
+                }, e);
+                return this.each(function() {
+                    var e = n(this);
+                    e.on("click", function() {
+                        var n = e.parents(t.parent).find(t.content);
+                        var o = document.createRange();
+                        var c = window.getSelection();
+                        o.selectNodeContents(n[0]);
+                        c.removeAllRanges();
+                        c.addRange(o);
+                        try {
+                            var r = document.execCommand("copy");
+                            var a = r ? "onSuccess" : "onError";
+                            t[a](e, n, c.toString())
+                        } catch (i) {}
+                        c.removeAllRanges()
+                    })
+                })
+            }
+        })(jQuery);
+
+        $('.jltma-copy-btn').copiq({
+            parent: '.copy-section',
+            content: '.api-element-inner',
+            onSuccess: function($element, source, selection) {
+                $('span', $element).text($element.attr("data-text-copied"));
+                setTimeout(function() {
+                    $('span', $element).text($element.attr("data-text"));
+                }, 2000);
+            }
+        });
+
+
 });
 
 })(jQuery);

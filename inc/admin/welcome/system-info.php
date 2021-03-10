@@ -68,7 +68,7 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
                                 <td><?php
                                     $jltma_uploads            = wp_upload_dir();
                                     $jltma_upload_path        = $jltma_uploads['basedir'];
-                                    if (!is_writable($upload_path)) {
+                                    if (is_writable($jltma_upload_path)) {
                                         echo $jltma_valid . 'Writable';
                                     } else {
                                         echo $jltma_invalid . 'Not Writable';
@@ -289,10 +289,15 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
         </div><!-- /.api-settings-element -->
         <!-- End of PHP Extensions -->
 
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+            <symbol id="icon-copy" viewBox="0 0 32 32">
+                <path d="M20 8v-8h-14l-6 6v18h12v8h20v-24h-12zM6 2.828v3.172h-3.172l3.172-3.172zM2 22v-14h6v-6h10v6l-6 6v8h-10zM18 10.828v3.172h-3.172l3.172-3.172zM30 30h-16v-14h6v-6h10v20z"></path>
+            </symbol>
+        </svg>
 
 
         <!-- Start of Active Plugins -->
-        <div class="api-settings-element">
+        <div class="api-settings-element copy-section">
             <h3><?php echo esc_html__('Active Plugins', MELA_TD); ?> (<?php echo count((array) get_option('active_plugins')); ?>)</h3>
             <div class="api-element-inner">
                 <div class="api-forms">
@@ -320,17 +325,17 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
                                     // link the plugin name to the plugin url if available
                                     $plugin_name = esc_html($plugin_data['Name']);
 
-                                    if ('Premium Addons for Elementor' === $plugin_name) {
-                                        $plugin_name = Helper_Functions::name();
-                                        $author = Helper_Functions::author();
-                                        if ('Leap13' !== $author) {
-                                            $plugin_data['Author'] = Helper_Functions::author();
+                                    if ('Master Addons for Elementor' === $plugin_name) {
+                                        $plugin_name = JLTMA_NAME;
+                                        $author = JLTMA_PLUGIN_AUTHOR;
+                                        if ('Jewel Theme' !== $author) {
+                                            $plugin_data['Author'] = JLTMA_PLUGIN_AUTHOR;
                                         }
-                                    } elseif ('Premium Addons PRO' === $plugin_name) {
-                                        $plugin_name = Helper::name_pro();
-                                        $author = Helper::author_pro();
-                                        if ('Leap13' !== $author) {
-                                            $plugin_data['Author'] = Helper::author_pro();
+                                    } elseif ('Master Addons for Elementor Pro' === $plugin_name) {
+                                        $plugin_name = JLTMA_NAME;
+                                        $author = JLTMA_PLUGIN_AUTHOR;
+                                        if ('Jewel Theme' !== $author) {
+                                            $plugin_data['Author'] = JLTMA_PLUGIN_AUTHOR;
                                         }
                                     }
 
@@ -340,7 +345,7 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
                             ?>
                                     <tr>
                                         <td><?php echo $plugin_name; ?></td>
-                                        <td><?php echo sprintf(_x('by %s', 'by author', MELA_TD), $plugin_data['Author']) . ' &ndash; ' . esc_html($plugin_data['Version']) . $version_string . $network_string; ?></td>
+                                        <td><?php echo sprintf(_x('by %s', 'by author', MELA_TD), $plugin_data['Author']) . ' &ndash; v' . esc_html($plugin_data['Version']) . $version_string . $network_string; ?></td>
                                     </tr>
                             <?php
                                 }
@@ -351,9 +356,43 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
 
                 </div>
             </div><!-- /.api-element-inner -->
+
+            <button class="jltma-copy-btn" data-text="COPY" data-text-copied="COPIED">
+                <svg class="icon icon-copy">
+                    <use xlink:href="#icon-copy"></use>
+                </svg>
+                <span>COPY</span>
+            </button>
+
         </div><!-- /.api-settings-element -->
         <!-- End of Active Plugins -->
+        <style>
+            .api-settings-element.copy-section {
+                position: relative;
+            }
 
+            .jltma-copy-btn {
+                min-width: 100px;
+                padding: 0px 5px 0px 25px !important;
+                display: inline-block;
+                position: absolute;
+                right: 30px;
+                top: 15px;
+                background: #25241b;
+                border-radius: 4px;
+                outline: 0;
+                cursor: pointer
+            }
+
+            .jltma-copy-btn svg {
+                width: 16px;
+                height: 16px;
+                position: absolute;
+                left: 15px;
+                top: 10px;
+                fill: #fff;
+            }
+        </style>
 
 
 

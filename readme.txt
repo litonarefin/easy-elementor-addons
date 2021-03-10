@@ -384,9 +384,12 @@ Paste on your Local Computer
 
 
 == Changelog ==
-= 1.5.8 (28-02-2021) =
-* Added: White Label Options added for Developer Plans only.
-* Added: System Information tab added on Settings panel.
+= 1.5.8 (10-03-2021) =
+* Fixed: Form Addons and Marketing addons not found on Elementor Panel issue fixed.
+* Added: White Label Options added for Developer Plans only feature.
+* Added: System Information tab added on Settings panel. It has all necessary informations about current website. Copy to clipboard added for faster support of list of Active plugins.
+* Fixed: Advanced Accordion default padding issue fixed.
+* Fixed: MA Image Carousel - Column not working issue fixed
 
 = 1.5.7 (28-02-2021) =
 * Updated: 'jquery-slick' updated with 'Swiper Slider' library. Updated Widgets - MA Blog, MA Slider, MA Gallery Slider, MA Twitter Slider, MA Timeline etc
