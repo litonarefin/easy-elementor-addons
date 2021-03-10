@@ -235,6 +235,7 @@ class Master_Addons_Admin_Settings
 		return $jltma_new_widgets;
 	}
 
+	// Merged All Addon Elements
 	public static function jltma_merged_addons_array()
 	{
 		// Separated All Addons on new Format
