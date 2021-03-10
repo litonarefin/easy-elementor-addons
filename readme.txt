@@ -390,7 +390,7 @@ Paste on your Local Computer
 * Added: System Information tab added on Settings panel. It has all necessary informations about current website. Copy to clipboard added for faster support of list of Active plugins.
 * Fixed: Advanced Accordion default padding issue fixed.
 * Fixed: MA Image Carousel - Column not working issue fixed
-* Compatibility: Latest WordPress v5.7 and Elementor v3.1.3
+* Compatibility: Latest WordPress v5.7 and Elementor v3.1.4
 
 = 1.5.7 (28-02-2021) =
 * Updated: 'jquery-slick' updated with 'Swiper Slider' library. Updated Widgets - MA Blog, MA Slider, MA Gallery Slider, MA Twitter Slider, MA Timeline etc
