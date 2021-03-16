@@ -170,7 +170,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 				return;
 			}
 
-			// self::jltma_plugin_activation_hook();
+			self::jltma_plugin_activation_hook();
 		}
 
 

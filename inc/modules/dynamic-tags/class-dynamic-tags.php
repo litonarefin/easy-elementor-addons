@@ -2,24 +2,15 @@
 
 namespace MasterAddons\Modules\DynamicTags;
 
-use \Elementor\Plugin;
+use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 class Extension_Dynamic_Tags
 {
-	private $docs_types = [];
 	private static $_instance = null;
 
 	public function __construct()
 	{
-
-		// Check if Elementor installed and activated
-		if (!did_action('elementor/loaded')) {
-			return;
-		}
-
-		if (!defined('ELEMENTOR_PRO_VERSION')) {
-			add_action('elementor/dynamic_tags/register_tags', [$this, 'jltma_register_dynamic_tags']);
-		}
+		add_action('elementor/dynamic_tags/register_tags', [$this, 'jltma_register_dynamic_tags']);
 	}
 
 	/**
@@ -239,7 +230,7 @@ class Extension_Dynamic_Tags
 			if (!empty($tags_info['file']) && !empty($tags_info['class'])) {
 				// In our Dynamic Tag we use a group named request-variables so we need
 				// To register that group as well before the tag
-				\Elementor\Plugin::$instance->dynamic_tags->register_group($tags_info['group'], [
+				Master_Addons_Helper::jltma_elementor()->dynamic_tags->register_group($tags_info['group'], [
 					'title' => $tags_info['title']
 				]);
 
