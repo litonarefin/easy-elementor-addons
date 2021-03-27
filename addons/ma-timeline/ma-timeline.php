@@ -23,8 +23,8 @@ use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
 
 /**
  * Author Name: Liton Arefin
- * Author URL: https://jeweltheme.com
- * Date: 10/18/19
+ * Author URL : https: //jeweltheme.com
+ * Date       : 10/18/19
  */
 
 
@@ -103,12 +103,12 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'ma_el_timeline_type',
 				[
-					'label'    => __('Timeline Type', MELA_TD),
-					'type'     => Controls_Manager::SELECT,
-					'default'  => 'post',
-					'options'  => [
-						'post'          => __('Post Timeline', MELA_TD),
-						'custom'        => __('Custom Timeline', MELA_TD),
+					'label'   => __('Timeline Type', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'default' => 'post',
+					'options' => [
+						'post'   => __('Post Timeline', MELA_TD),
+						'custom' => __('Custom Timeline', MELA_TD),
 					],
 				]
 			);
@@ -116,10 +116,10 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'ma_el_timeline_type',
 				[
-					'label'    => __('Timeline Type', MELA_TD),
-					'type'     => Controls_Manager::SELECT,
-					'default'  => 'custom',
-					'options'  => [
+					'label'   => __('Timeline Type', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'default' => 'custom',
+					'options' => [
 						'timeline-post' => __('Post Timeline (Pro)', MELA_TD),
 						'custom'        => __('Custom Timeline', MELA_TD),
 					],
@@ -131,17 +131,17 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_design_type',
 			[
-				'label'    => __('Timeline Style', MELA_TD),
-				'type'     => Controls_Manager::SELECT,
-				'options'  => [
-					'vertical'              => __('Vertical Timeline', MELA_TD),
-					'horizontal'            => __('Horizontal Timeline', MELA_TD)
+				'label'   => __('Timeline Style', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'options' => [
+					'vertical'   => __('Vertical Timeline', MELA_TD),
+					'horizontal' => __('Horizontal Timeline', MELA_TD)
 				],
-				'default'  => 'vertical',
+				'default'   => 'vertical',
 				'condition' => [
 					'ma_el_timeline_type' => ['post', 'custom']
 				],
-				'frontend_available' 	=> true,
+				'frontend_available' => true,
 			]
 		);
 
@@ -164,13 +164,13 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'ma_el_timeline_post_card_links',
 				[
-					'label' 		=> __('Enable Links', MELA_TD),
-					'type' 			=> Controls_Manager::SWITCHER,
-					'label_on' 		=> __('Yes', MELA_TD),
-					'label_off' 	=> __('No', MELA_TD),
-					'return_value' 	=> 'yes',
-					'description'   => __('Enable links at card level. If you have links inside the content of a card, make sure you have this disabled. Links within links are not allowed.', MELA_TD),
-					'condition'	=> [
+					'label'        => __('Enable Links', MELA_TD),
+					'type'         => Controls_Manager::SWITCHER,
+					'label_on'     => __('Yes', MELA_TD),
+					'label_off'    => __('No', MELA_TD),
+					'return_value' => 'yes',
+					'description'  => __('Enable links at card level. If you have links inside the content of a card, make sure you have this disabled. Links within links are not allowed.', MELA_TD),
+					'condition'    => [
 						'ma_el_timeline_type' => 'post',
 					]
 				]
@@ -179,10 +179,10 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'ma_el_timeline_post_title_heading',
 				[
-					'label' => __('Title', MELA_TD),
-					'type' 	=> Controls_Manager::HEADING,
+					'label'     => __('Title', MELA_TD),
+					'type'      => Controls_Manager::HEADING,
 					'separator' => 'before',
-					'condition'		=> [
+					'condition' => [
 						'ma_el_timeline_type' => 'post',
 					]
 				]
@@ -206,27 +206,27 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'ma_el_timeline_post_title_link',
 				[
-					'label' 		=> __('Title Link', MELA_TD),
-					'type' 			=> Controls_Manager::SWITCHER,
-					'label_on' 		=> __('Yes', MELA_TD),
-					'label_off' 	=> __('No', MELA_TD),
-					'return_value' 	=> 'yes',
-					'condition'	=> [
-						'ma_el_timeline_type' 			=> 'post',
-						'ma_el_timeline_post_title!' 	=> ''
+					'label'        => __('Title Link', MELA_TD),
+					'type'         => Controls_Manager::SWITCHER,
+					'label_on'     => __('Yes', MELA_TD),
+					'label_off'    => __('No', MELA_TD),
+					'return_value' => 'yes',
+					'condition'    => [
+						'ma_el_timeline_type'        => 'post',
+						'ma_el_timeline_post_title!' => ''
 					]
 				]
 			);
 			$this->add_control(
 				'title_html_tag',
 				[
-					'label'   => __('Heading Tag', MELA_TD),
-					'type'    => Controls_Manager::SELECT,
-					'options' => Master_Addons_Helper::ma_el_title_tags(),
-					'default' => 'h2',
-					'condition'		=> [
-						'ma_el_timeline_type' 			=> 'post',
-						'ma_el_timeline_post_title!' 	=> '',
+					'label'     => __('Heading Tag', MELA_TD),
+					'type'      => Controls_Manager::SELECT,
+					'options'   => Master_Addons_Helper::ma_el_title_tags(),
+					'default'   => 'h2',
+					'condition' => [
+						'ma_el_timeline_type'        => 'post',
+						'ma_el_timeline_post_title!' => '',
 					],
 				]
 			);
@@ -234,10 +234,10 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'ma_el_timeline_post_thumb_heading',
 				[
-					'label' => __('Thumbnail', MELA_TD),
-					'type' 	=> Controls_Manager::HEADING,
+					'label'     => __('Thumbnail', MELA_TD),
+					'type'      => Controls_Manager::HEADING,
 					'separator' => 'before',
-					'condition'		=> [
+					'condition' => [
 						'ma_el_timeline_type' => 'post',
 					]
 				]
@@ -247,14 +247,14 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'ma_el_timeline_post_thumbnail',
 				[
-					'label' 		=> __('Show Image', MELA_TD),
-					'type' 			=> Controls_Manager::SWITCHER,
-					'default'		=> 'yes',
-					'label_on' 		=> __('Yes', MELA_TD),
-					'label_off' 	=> __('No', MELA_TD),
-					'return_value' 	=> 'yes',
-					'condition'		=> [
-						'ma_el_timeline_type'			=> 'post'
+					'label'        => __('Show Image', MELA_TD),
+					'type'         => Controls_Manager::SWITCHER,
+					'default'      => 'yes',
+					'label_on'     => __('Yes', MELA_TD),
+					'label_off'    => __('No', MELA_TD),
+					'return_value' => 'yes',
+					'condition'    => [
+						'ma_el_timeline_type' => 'post'
 					]
 				]
 			);
@@ -262,13 +262,13 @@ class Timeline extends Widget_Base
 			$this->add_group_control(
 				Group_Control_Image_Size::get_type(),
 				[
-					'name' 			=> 'ma_el_timeline_post_thumbnail_size',
-					'label' 		=> __('Image Size', MELA_TD),
-					'default' 		=> 'medium',
-					'prefix_class' 	=> 'elementor-portfolio--thumbnail-size-',
-					'condition'		=> [
-						'ma_el_timeline_type'			=> 'post',
-						'ma_el_timeline_post_thumbnail'	=> 'yes'
+					'name'         => 'ma_el_timeline_post_thumbnail_size',
+					'label'        => __('Image Size', MELA_TD),
+					'default'      => 'medium',
+					'prefix_class' => 'elementor-portfolio--thumbnail-size-',
+					'condition'    => [
+						'ma_el_timeline_type'           => 'post',
+						'ma_el_timeline_post_thumbnail' => 'yes'
 					]
 				]
 			);
@@ -286,12 +286,41 @@ class Timeline extends Widget_Base
 				]
 			);
 
+
+			$this->add_control(
+				'ma_el_timeline_date_heading',
+				[
+					'label'     => __('Date', MELA_TD),
+					'type'      => Controls_Manager::HEADING,
+					'condition' => [
+						'ma_el_timeline_type' => 'post',
+					]
+				]
+			);
+
+			$this->add_control(
+				'ma_el_timeline_date_source',
+				[
+					'label'   => __('Date Source', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'options' => [
+						''       => __('Post Date', MELA_TD),
+						'custom' => __('Custom', MELA_TD),
+					],
+					'condition'		=> [
+						'ma_el_timeline_type' => 'post',
+					],
+					'default' => '',
+				]
+			);
+
+
 			$this->add_control(
 				'ma_el_timeline_date_format',
 				[
-					'label'     => __('Date Format', MELA_TD),
-					'type'      => Controls_Manager::SELECT,
-					'options'   => [
+					'label'   => __('Date Format', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'options' => [
 						'default' => __('Default', MELA_TD),
 						'F j, Y'  => date('F j, Y'),
 						'Y-m-d'   => date('Y-m-d'),
@@ -301,7 +330,24 @@ class Timeline extends Widget_Base
 					],
 					'default'   => 'F j, Y',
 					'condition' => [
-						'ma_el_timeline_type' => ['post', 'custom']
+						'ma_el_timeline_type' => 'post',
+					],
+				]
+			);
+
+			$this->add_control(
+				'ma_el_timeline_date_custom',
+				[
+					'label'       => __('Date', MELA_TD),
+					'type'        => Controls_Manager::TEXT,
+					'label_block' => false,
+					'dynamic'     => [
+						'active' => true,
+						'loop'   => true,
+					],
+					'condition'		=> [
+						'ma_el_timeline_type'        => 'post',
+						'ma_el_timeline_date_source' => 'custom',
 					],
 				]
 			);
@@ -309,9 +355,9 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'ma_el_timeline_time_format',
 				[
-					'label'     => __('Time Format', MELA_TD),
-					'type'      => Controls_Manager::SELECT,
-					'options'   => [
+					'label'   => __('Time Format', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'options' => [
 						'default' => __('Default', MELA_TD),
 						''        => __('None', MELA_TD),
 						'g:i a'   => date('g:i a'),
@@ -320,8 +366,7 @@ class Timeline extends Widget_Base
 					],
 					'default'   => 'default',
 					'condition' => [
-						'ma_el_timeline_type'         => 'post',
-						'ma_el_timeline_date_format'  => 'custom'
+						'ma_el_timeline_type' => 'post',
 					],
 				]
 			);
@@ -362,8 +407,8 @@ class Timeline extends Widget_Base
 						'asc'  => __('Ascending', MELA_TD),
 						'desc' => __('Descending', MELA_TD)
 					],
-					'default'     => 'desc',
-					'condition'   => [
+					'default'   => 'desc',
+					'condition' => [
 						'ma_el_timeline_type' => 'post',
 					]
 				]
@@ -386,8 +431,8 @@ class Timeline extends Widget_Base
 						'rand'          => __('Random', MELA_TD),
 						'comment_count' => __('Number of Comments', MELA_TD),
 					],
-					'default'     => 'date',
-					'condition'   => [
+					'default'   => 'date',
+					'condition' => [
 						'ma_el_timeline_type' => 'post',
 					]
 				]
@@ -475,9 +520,9 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'ma_el_timeline_excerpt_type',
 				[
-					'label'       => __('Excerpt Type', MELA_TD),
-					'type'        => Controls_Manager::SELECT,
-					'options'     => [
+					'label'   => __('Excerpt Type', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'options' => [
 						'three_dots'     => __('Three Dots', MELA_TD),
 						'read_more_link' => __('Read More Link', MELA_TD),
 					],
@@ -521,13 +566,13 @@ class Timeline extends Widget_Base
 		$repeater->add_control(
 			'ma_el_custom_timeline_date',
 			[
-				'label' 		=> __('Date', MELA_TD),
-				'type' 			=> Controls_Manager::DATE_TIME,
-				'dynamic'		=> ['active' => true],
-				'default'       => __('23 March 2020', MELA_TD),
-				'placeholder' 	=> __('23 March 2020', MELA_TD),
-				'label_block'  		=> true,
-				'picker_options'	=> array(
+				'label'          => __('Date', MELA_TD),
+				'type'           => Controls_Manager::DATE_TIME,
+				'dynamic'        => ['active' => true],
+				'default'        => __('23 March 2020', MELA_TD),
+				'placeholder'    => __('23 March 2020', MELA_TD),
+				'label_block'    => true,
+				'picker_options' => array(
 					'enableTime' => false,
 				),
 			]
@@ -537,28 +582,28 @@ class Timeline extends Widget_Base
 		$repeater->add_control(
 			'ma_el_custom_timeline_link',
 			[
-				'label' 		=> __('Link', MELA_TD),
-				'description'   => __('Enable linking the whole card. If you have links inside the content of this card, make sure you have this disabled. Links within links are not allowed.', MELA_TD),
-				'type' 			=> Controls_Manager::URL,
-				'dynamic'		=> ['active' => true],
-				'placeholder' 	=> esc_url(home_url('/')),
-				'default' 		=> [
-					'url' 		=> '',
+				'label'       => __('Link', MELA_TD),
+				'description' => __('Enable linking the whole card. If you have links inside the content of this card, make sure you have this disabled. Links within links are not allowed.', MELA_TD),
+				'type'        => Controls_Manager::URL,
+				'dynamic'     => ['active' => true],
+				'placeholder' => esc_url(home_url('/')),
+				'default'     => [
+					'url' => '',
 				],
 			]
 		);
 
-		$default_title = '<h2>' . __('Nam commodo suscipit', MELA_TD) . '</h2>';
+		$default_title     = '<h2>' . __('Nam commodo suscipit', MELA_TD) . '</h2>';
 		$default_paragraph = '<p>' . _x('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', MELA_TD) . '</p>';
 
 
 		$repeater->add_control(
 			'ma_el_custom_timeline_content',
 			[
-				'label' 		=> '',
-				'type' 			=> Controls_Manager::WYSIWYG,
-				'dynamic'		=> ['active' => true],
-				'default' 		=> $default_title . $default_paragraph,
+				'label'   => '',
+				'type'    => Controls_Manager::WYSIWYG,
+				'dynamic' => ['active' => true],
+				'default' => $default_title . $default_paragraph,
 			]
 		);
 
@@ -571,19 +616,19 @@ class Timeline extends Widget_Base
 		$repeater->add_control(
 			'ma_el_custom_timeline_image',
 			[
-				'label' 	=> esc_html__('Choose Image', MELA_TD),
-				'dynamic'	=> ['active' => true],
-				'type' 		=> Controls_Manager::MEDIA,
+				'label'   => esc_html__('Choose Image', MELA_TD),
+				'dynamic' => ['active' => true],
+				'type'    => Controls_Manager::MEDIA,
 			]
 		);
 
 		$repeater->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
-				'name' 		=> 'ma_el_custom_timeline_image_size', // Actually its `image_size`
-				'label' 	=> esc_html__('Image Size', MELA_TD),
-				'default' 	=> 'large',
-				'exclude'    => array('custom'),
+				'name'    => 'ma_el_custom_timeline_image_size',   // Actually its `image_size`
+				'label'   => esc_html__('Image Size', MELA_TD),
+				'default' => 'large',
+				'exclude' => array('custom'),
 			]
 		);
 
@@ -609,10 +654,10 @@ class Timeline extends Widget_Base
 			$repeater->add_control(
 				'ma_el_custom_timeline_point_content_type',
 				[
-					'label'      => __('Type', MELA_TD),
-					'type'       => Controls_Manager::SELECT,
-					'default'    => '',
-					'options'    => [
+					'label'   => __('Type', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'default' => '',
+					'options' => [
 						''        => __('Global', MELA_TD),
 						'icons'   => __('Icon', MELA_TD),
 						'image'   => __('Image', MELA_TD),
@@ -646,7 +691,7 @@ class Timeline extends Widget_Base
 			$repeater->add_group_control(
 				Group_Control_Image_Size::get_type(),
 				[
-					'name'      => 'ma_el_custom_timeline_pointer_image_size', // Actually its `image_size`
+					'name'      => 'ma_el_custom_timeline_pointer_image_size',   // Actually its `image_size`
 					'label'     => __('Image Size', MELA_TD),
 					'default'   => 'large',
 					'condition' => [
@@ -659,13 +704,13 @@ class Timeline extends Widget_Base
 			$repeater->add_control(
 				'ma_el_custom_timeline_selected_icon',
 				[
-					'label'             => __('Point Icon', MELA_TD),
-					'type' 				=> Controls_Manager::ICONS,
+					'label'            => __('Point Icon', MELA_TD),
+					'type'             => Controls_Manager::ICONS,
 					'fa4compatibility' => 'global_icon',
 					'label_block'      => true,
 					'default'          => [
-						'value'     => 'fab fa-wordpress',
-						'library'   => 'brand',
+						'value'   => 'fab fa-wordpress',
+						'library' => 'brand',
 					],
 					'conditions'       => [
 						'terms' => [
@@ -732,10 +777,10 @@ class Timeline extends Widget_Base
 			$repeater->add_control(
 				'ma_el_custom_timeline_icon_color',
 				[
-					'label'      => __('Point Color', MELA_TD),
-					'type'       => Controls_Manager::COLOR,
-					'default'    => '',
-					'selectors'  => [
+					'label'     => __('Point Color', MELA_TD),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
+					'selectors' => [
 						'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-timeline-post-type-icon' => 'color: {{VALUE}};',
 					],
 					'conditions' => [
@@ -753,10 +798,10 @@ class Timeline extends Widget_Base
 			$repeater->add_control(
 				'ma_el_custom_timeline_point_background',
 				[
-					'label'      => __('Point Background', MELA_TD),
-					'type'       => Controls_Manager::COLOR,
-					'default'    => '',
-					'selectors'  => [
+					'label'     => __('Point Background', MELA_TD),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
+					'selectors' => [
 						'{{WRAPPER}} .ma-el-timeline {{CURRENT_ITEM}} .ma-el-timeline-post-type-icon' => 'background-color: {{VALUE}};',
 					],
 					'conditions' => [
@@ -774,10 +819,10 @@ class Timeline extends Widget_Base
 			$repeater->add_control(
 				'ma_el_custom_timeline_card_background',
 				[
-					'label'      => __('Card Background', MELA_TD),
-					'type'       => Controls_Manager::COLOR,
-					'default'    => '',
-					'selectors'  => [
+					'label'     => __('Card Background', MELA_TD),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
+					'selectors' => [
 						'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-timeline-post-inner article' => 'background-color: {{VALUE}};'
 					],
 					'conditions' => [
@@ -795,10 +840,10 @@ class Timeline extends Widget_Base
 			$repeater->add_control(
 				'ma_el_custom_timeline_date_color',
 				[
-					'label'      => __('Date Color', MELA_TD),
-					'type'       => Controls_Manager::COLOR,
-					'default'    => '',
-					'selectors'  => [
+					'label'     => __('Date Color', MELA_TD),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
+					'selectors' => [
 						'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-timeline-post-date' => 'color: {{VALUE}};',
 					],
 					'conditions' => [
@@ -816,9 +861,9 @@ class Timeline extends Widget_Base
 			$repeater->add_control(
 				'ma_el_custom_timeline_point_size',
 				[
-					'label'      => __('Scale', MELA_TD),
-					'type'       => Controls_Manager::SLIDER,
-					'default'    => [
+					'label'   => __('Scale', MELA_TD),
+					'type'    => Controls_Manager::SLIDER,
+					'default' => [
 						'size' => '',
 					],
 					'range'      => [
@@ -864,10 +909,10 @@ class Timeline extends Widget_Base
 			$repeater->add_control(
 				'ma_el_custom_timeline_icon_color_hover',
 				[
-					'label'      => __('Hovered Point Color', MELA_TD),
-					'type'       => Controls_Manager::COLOR,
-					'default'    => '',
-					'selectors'  => [
+					'label'     => __('Hovered Point Color', MELA_TD),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
+					'selectors' => [
 						'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-timeline-post-type-icon:hover,
                             {{WRAPPER}} {{CURRENT_ITEM}} .ma-el-timeline-post-type-icon:hover i' => 'color: {{VALUE}};'
 					],
@@ -886,10 +931,10 @@ class Timeline extends Widget_Base
 			$repeater->add_control(
 				'ma_el_custom_timeline_point_background_hover',
 				[
-					'label'      => __('Hovered Point Background', MELA_TD),
-					'type'       => Controls_Manager::COLOR,
-					'default'    => '',
-					'selectors'  => [
+					'label'     => __('Hovered Point Background', MELA_TD),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
+					'selectors' => [
 						'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-timeline-post-type-icon:hover,
                             {{WRAPPER}} {{CURRENT_ITEM}} .ma-el-timeline-post-type-icon i:hover' => 'background-color: {{VALUE}};'
 					],
@@ -909,10 +954,10 @@ class Timeline extends Widget_Base
 			$repeater->add_control(
 				'ma_el_custom_timeline_card_background_hover',
 				[
-					'label'      => __('Hovered Card Background', MELA_TD),
-					'type'       => Controls_Manager::COLOR,
-					'default'    => '',
-					'selectors'  => [
+					'label'     => __('Hovered Card Background', MELA_TD),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
+					'selectors' => [
 						'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-timeline-post-inner article:hover' => 'background-color: {{VALUE}};'
 					],
 					'conditions' => [
@@ -930,10 +975,10 @@ class Timeline extends Widget_Base
 			$repeater->add_control(
 				'ma_el_custom_timeline_date_color_hover',
 				[
-					'label'      => __('Hovered Date Color', MELA_TD),
-					'type'       => Controls_Manager::COLOR,
-					'default'    => '',
-					'selectors'  => [
+					'label'     => __('Hovered Date Color', MELA_TD),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
+					'selectors' => [
 						'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-timeline-post-date:hover' => 'color: {{VALUE}};',
 					],
 					'conditions' => [
@@ -957,9 +1002,9 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_custom_timeline_items',
 			[
-				'label' 	=> __('Items', MELA_TD),
-				'type' 		=> Controls_Manager::REPEATER,
-				'default' 	=> [
+				'label'   => __('Items', MELA_TD),
+				'type'    => Controls_Manager::REPEATER,
+				'default' => [
 					[
 						'ma_el_custom_timeline_date' => __('February 2, 2014', MELA_TD)
 					],
@@ -970,10 +1015,10 @@ class Timeline extends Widget_Base
 						'ma_el_custom_timeline_date' => __('June 21, 2016', MELA_TD)
 					],
 				],
-				'fields' 	    => $repeater->get_controls(),
-				'title_field' 	=> '{{{ ma_el_custom_timeline_date }}}',
-				'condition'		=> [
-					'ma_el_timeline_type'	=> 'custom'
+				'fields'      => $repeater->get_controls(),
+				'title_field' => '{{{ ma_el_custom_timeline_date }}}',
+				'condition'   => [
+					'ma_el_timeline_type' => 'custom'
 				]
 			]
 		);
@@ -990,9 +1035,9 @@ class Timeline extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_timeline_carousel_horizontal_section',
 			[
-				'label' 		=> __('Slides', MELA_TD),
-				'condition'		=> [
-					'ma_el_timeline_design_type'	=> 'horizontal'
+				'label'     => __('Slides', MELA_TD),
+				'condition' => [
+					'ma_el_timeline_design_type' => 'horizontal'
 				]
 
 			]
@@ -1002,12 +1047,12 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_carousel_effect',
 			[
-				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Effect', MELA_TD),
-				'default' 		=> 'slide',
-				'options' 		=> [
-					'slide' 	=> __('Slide', MELA_TD),
-					'fade' 		=> __('Fade', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'label'   => __('Effect', MELA_TD),
+				'default' => 'slide',
+				'options' => [
+					'slide' => __('Slide', MELA_TD),
+					'fade'  => __('Fade', MELA_TD),
 				],
 				'frontend_available' => true,
 			]
@@ -1017,18 +1062,18 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_carousel_speed',
 			[
-				'label' 	=> __('Duration (ms)', MELA_TD),
+				'label'       => __('Duration (ms)', MELA_TD),
 				'description' => __('Duration of the effect transition.', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 300,
-					'unit' 	=> 'px',
+				'type'        => Controls_Manager::SLIDER,
+				'default'     => [
+					'size' => 300,
+					'unit' => 'px',
 				],
 				'range' 	=> [
 					'px' 	=> [
-						'min' 	=> 0,
-						'max' 	=> 2000,
-						'step'	=> 100,
+						'min'  => 0,
+						'max'  => 2000,
+						'step' => 100,
 					],
 				],
 				'frontend_available' => true,
@@ -1038,18 +1083,18 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_carousel_resistance_ratio',
 			[
-				'label' 		=> __('Resistance', MELA_TD),
-				'description'	=> __('Set the value for resistant bounds.', MELA_TD),
-				'type' 			=> Controls_Manager::SLIDER,
-				'default' 		=> [
-					'size' 		=> 0.25,
-					'unit' 		=> 'px',
+				'label'       => __('Resistance', MELA_TD),
+				'description' => __('Set the value for resistant bounds.', MELA_TD),
+				'type'        => Controls_Manager::SLIDER,
+				'default'     => [
+					'size' => 0.25,
+					'unit' => 'px',
 				],
 				'range' 		=> [
 					'px' 		=> [
-						'min' 	=> 0,
-						'max' 	=> 1,
-						'step'	=> 0.05,
+						'min'  => 0,
+						'max'  => 1,
+						'step' => 0.05,
 					],
 				],
 				'frontend_available' => true,
@@ -1059,16 +1104,16 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_timeline_carousel_direction',
 			[
-				'type' 				=> Controls_Manager::SELECT,
-				'label' 			=> __('Orientation', MELA_TD),
-				'default'			=> 'horizontal',
-				'tablet_default'	=> 'horizontal',
-				'mobile_default'	=> 'horizontal',
-				'options' 			=> [
-					'horizontal' 	=> __('Horizontal', MELA_TD),
-					'vertical' 		=> __('Vertical', MELA_TD),
+				'type'           => Controls_Manager::SELECT,
+				'label'          => __('Orientation', MELA_TD),
+				'default'        => 'horizontal',
+				'tablet_default' => 'horizontal',
+				'mobile_default' => 'horizontal',
+				'options'        => [
+					'horizontal' => __('Horizontal', MELA_TD),
+					'vertical'   => __('Vertical', MELA_TD),
 				],
-				'frontend_available' 	=> true,
+				'frontend_available' => true,
 			]
 		);
 
@@ -1078,13 +1123,13 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'slides_per_view',
 			[
-				'label' 			=> __('Slides Per View', MELA_TD),
-				'type' 				=> Controls_Manager::SELECT,
-				'default' 			=> '',
-				'tablet_default' 	=> '',
-				'mobile_default' 	=> '',
-				'options' => [
-					''	=> __('Default', MELA_TD),
+				'label'          => __('Slides Per View', MELA_TD),
+				'type'           => Controls_Manager::SELECT,
+				'default'        => '',
+				'tablet_default' => '',
+				'mobile_default' => '',
+				'options'        => [
+					''  => __('Default', MELA_TD),
 					'1' => '1',
 					'2' => '2',
 					'3' => '3',
@@ -1099,32 +1144,32 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'slides_per_column',
 			[
-				'type' 					=> Controls_Manager::SELECT,
-				'label' 				=> __('Slides Per Column', MELA_TD),
-				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_column,
-				'condition'				=> [
+				'type'      => Controls_Manager::SELECT,
+				'label'     => __('Slides Per Column', MELA_TD),
+				'options'   => ['' => __('Default', MELA_TD)] + $slides_per_column,
+				'condition' => [
 					'ma_el_timeline_carousel_direction' => 'horizontal',
 				],
-				'frontend_available' 	=> true,
+				'frontend_available' => true,
 			]
 		);
 
 		$this->add_responsive_control(
 			'slides_to_scroll',
 			[
-				'type' 					=> Controls_Manager::SELECT,
-				'label' 				=> __('Slides to Scroll', MELA_TD),
-				'options' 				=> ['' => __('Default', MELA_TD)] + $slides_per_column,
-				'frontend_available' 	=> true,
+				'type'               => Controls_Manager::SELECT,
+				'label'              => __('Slides to Scroll', MELA_TD),
+				'options'            => ['' => __('Default', MELA_TD)] + $slides_per_column,
+				'frontend_available' => true,
 			]
 		);
 
 		$this->add_responsive_control(
 			'ma_el_timeline_carousel_grid_columns_spacing',
 			[
-				'label' 			=> __('Columns Spacing', MELA_TD),
-				'type' 				=> Controls_Manager::SLIDER,
-				'default'			=> [
+				'label'   => __('Columns Spacing', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
 					'size' => 24,
 					'unit' => 'px',
 				],
@@ -1136,8 +1181,8 @@ class Timeline extends Widget_Base
 					'size' => 0,
 					'unit' => 'px',
 				],
-				'size_units' 		=> ['px'],
-				'range' 			=> [
+				'size_units' => ['px'],
+				'range'      => [
 					'px' => [
 						'min' => 0,
 						'max' => 100,
@@ -1154,25 +1199,25 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_carousel_loop',
 			[
-				'type' 			=> Controls_Manager::SWITCHER,
-				'label' 		=> __('Loop', MELA_TD),
-				'default' 		=> '',
-				'condition'		=> [
-					'ma_el_timeline_design_type'	=> 'horizontal'
+				'type'      => Controls_Manager::SWITCHER,
+				'label'     => __('Loop', MELA_TD),
+				'default'   => '',
+				'condition' => [
+					'ma_el_timeline_design_type' => 'horizontal'
 				],
-				'frontend_available' 	=> true,
+				'frontend_available' => true,
 			]
 		);
 
 		$this->add_control(
 			'ma_el_timeline_carousel_autoheight',
 			[
-				'type' 			=> Controls_Manager::SWITCHER,
-				'label' 		=> __('Auto Height', MELA_TD),
-				'default' 		=> '',
-				'frontend_available' 	=> true,
-				'condition'		=> [
-					'ma_el_timeline_design_type'	=> 'horizontal'
+				'type'               => Controls_Manager::SWITCHER,
+				'label'              => __('Auto Height', MELA_TD),
+				'default'            => '',
+				'frontend_available' => true,
+				'condition'          => [
+					'ma_el_timeline_design_type' => 'horizontal'
 				],
 				// 'conditions' => [
 				// 	'relation' 	=> 'or',
@@ -1195,12 +1240,12 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_carousel_auto_play',
 			[
-				'label'         => __('Auto Play', MELA_TD),
-				'type'          => Controls_Manager::POPOVER_TOGGLE,
-				'condition'     => [
-					'ma_el_timeline_design_type'	=> 'horizontal'
+				'label'     => __('Auto Play', MELA_TD),
+				'type'      => Controls_Manager::POPOVER_TOGGLE,
+				'condition' => [
+					'ma_el_timeline_design_type' => 'horizontal'
 				],
-				'frontend_available' 	=> true,
+				'frontend_available' => true,
 			]
 		);
 
@@ -1209,12 +1254,12 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_carousel_autoplay_speed',
 			[
-				'label'			=> __('Autoplay Speed', MELA_TD),
-				'description'	=> __('Autoplay Speed means at which time the next slide should come. Set a value in milliseconds (ms)', MELA_TD),
-				'type'			=> Controls_Manager::NUMBER,
-				'default'		=> 5000,
-				'condition'		=> [
-					'ma_el_timeline_design_type'	=> 'horizontal',
+				'label'       => __('Autoplay Speed', MELA_TD),
+				'description' => __('Autoplay Speed means at which time the next slide should come. Set a value in milliseconds (ms)', MELA_TD),
+				'type'        => Controls_Manager::NUMBER,
+				'default'     => 5000,
+				'condition'   => [
+					'ma_el_timeline_design_type'        => 'horizontal',
 					'ma_el_timeline_carousel_auto_play' => 'yes',
 				],
 				'frontend_available' => true,
@@ -1224,12 +1269,12 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'pause_on_interaction',
 			[
-				'label' 		=> __('Disable on Interaction', MELA_TD),
-				'description' 	=> __('Removes autoplay completely on the first interaction with the carousel.', MELA_TD),
-				'type' 			=> Controls_Manager::SWITCHER,
-				'default' 		=> '',
-				'condition' 	=> [
-					'ma_el_timeline_design_type'	=> 'horizontal',
+				'label'       => __('Disable on Interaction', MELA_TD),
+				'description' => __('Removes autoplay completely on the first interaction with the carousel.', MELA_TD),
+				'type'        => Controls_Manager::SWITCHER,
+				'default'     => '',
+				'condition'   => [
+					'ma_el_timeline_design_type'        => 'horizontal',
 					'ma_el_timeline_carousel_auto_play' => 'yes',
 				],
 				'frontend_available' => true,
@@ -1239,11 +1284,11 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'stop_on_hover',
 			[
-				'label' 	=> __('Pause on Hover', MELA_TD),
-				'type' 		=> Controls_Manager::SWITCHER,
-				'default' 	=> '',
-				'condition'	=> [
-					'ma_el_timeline_design_type'	=> 'horizontal',
+				'label'     => __('Pause on Hover', MELA_TD),
+				'type'      => Controls_Manager::SWITCHER,
+				'default'   => '',
+				'condition' => [
+					'ma_el_timeline_design_type'        => 'horizontal',
 					'ma_el_timeline_carousel_auto_play' => 'yes'
 				],
 				'frontend_available' => true,
@@ -1255,12 +1300,12 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_carousel_arrows',
 			[
-				'label'         => __('Arrows', MELA_TD),
-				'type'          => Controls_Manager::POPOVER_TOGGLE,
-				'default'       => 'yes',
-				'return_value' 	=> 'yes',
-				'condition'     => [
-					'ma_el_timeline_design_type'	=> 'horizontal',
+				'label'        => __('Arrows', MELA_TD),
+				'type'         => Controls_Manager::POPOVER_TOGGLE,
+				'default'      => 'yes',
+				'return_value' => 'yes',
+				'condition'    => [
+					'ma_el_timeline_design_type' => 'horizontal',
 				],
 				'frontend_available' => true
 			]
@@ -1271,12 +1316,12 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_carousel_arrows_placement',
 			[
-				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Placement', MELA_TD),
-				'default'		=> 'inside',
-				'options' 		=> [
-					'inside' 	=> __('Inside', MELA_TD),
-					'outside' 	=> __('Outside', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'label'   => __('Placement', MELA_TD),
+				'default' => 'inside',
+				'options' => [
+					'inside'  => __('Inside', MELA_TD),
+					'outside' => __('Outside', MELA_TD),
 				],
 				'condition'		=> [
 					'ma_el_timeline_carousel_arrows' => 'yes',
@@ -1293,12 +1338,12 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_carousel_pagination',
 			[
-				'label' 		=> __('Pagination', MELA_TD),
-				'type' 			=> Controls_Manager::POPOVER_TOGGLE,
-				'default' 		=> 'on',
-				'label_on' 		=> __('On', MELA_TD),
-				'label_off' 	=> __('Off', MELA_TD),
-				'return_value' 	=> 'on',
+				'label'              => __('Pagination', MELA_TD),
+				'type'               => Controls_Manager::POPOVER_TOGGLE,
+				'default'            => 'on',
+				'label_on'           => __('On', MELA_TD),
+				'label_off'          => __('Off', MELA_TD),
+				'return_value'       => 'on',
 				'frontend_available' => true,
 			]
 		);
@@ -1307,16 +1352,16 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_carousel_pagination_position',
 			[
-				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Position', MELA_TD),
-				'default'		=> 'inside',
-				'options' 		=> [
-					'inside' 		=> __('Inside', MELA_TD),
-					'outside' 		=> __('Outside', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'label'   => __('Position', MELA_TD),
+				'default' => 'inside',
+				'options' => [
+					'inside'  => __('Inside', MELA_TD),
+					'outside' => __('Outside', MELA_TD),
 				],
-				'frontend_available' 	=> true,
-				'condition'		=> [
-					'ma_el_timeline_carousel_pagination!'         => '',
+				'frontend_available' => true,
+				'condition'          => [
+					'ma_el_timeline_carousel_pagination!' => '',
 				]
 			]
 		);
@@ -1324,15 +1369,15 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_carousel_pagination_type',
 			[
-				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Type', MELA_TD),
-				'default'		=> 'bullets',
-				'options' 		=> [
-					'bullets' 		=> __('Bullets', MELA_TD),
-					'fraction' 		=> __('Fraction', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'label'   => __('Type', MELA_TD),
+				'default' => 'bullets',
+				'options' => [
+					'bullets'  => __('Bullets', MELA_TD),
+					'fraction' => __('Fraction', MELA_TD),
 				],
 				'condition'		=> [
-					'ma_el_timeline_carousel_pagination!'         => '',
+					'ma_el_timeline_carousel_pagination!' => '',
 				],
 				'frontend_available' => true,
 			]
@@ -1341,15 +1386,15 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_carousel_pagination_clickable',
 			[
-				'type' 			=> Controls_Manager::SWITCHER,
-				'label' 		=> __('Clickable', MELA_TD),
-				'default' 		=> 'yes',
-				'return_value' 	=> 'yes',
-				'condition' => [
-					'ma_el_timeline_carousel_pagination!'         	=> '',
-					'ma_el_timeline_carousel_pagination_type'       => 'bullets'
+				'type'         => Controls_Manager::SWITCHER,
+				'label'        => __('Clickable', MELA_TD),
+				'default'      => 'yes',
+				'return_value' => 'yes',
+				'condition'    => [
+					'ma_el_timeline_carousel_pagination!'     => '',
+					'ma_el_timeline_carousel_pagination_type' => 'bullets'
 				],
-				'frontend_available' 	=> true,
+				'frontend_available' => true,
 			]
 		);
 		$this->end_popover();
@@ -1367,8 +1412,8 @@ class Timeline extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_timeline_section_layout',
 			[
-				'label' 	=> __('Layout', MELA_TD),
-				'tab' 		=> Controls_Manager::TAB_STYLE,
+				'label' => __('Layout', MELA_TD),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
@@ -1376,31 +1421,31 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_timeline_align',
 			[
-				'label' 		=> __('Horizontal Align', MELA_TD),
-				'type' 			=> Controls_Manager::SELECT,
-				'label_block'	=> true,
-				'default'		=> 'center',
+				'label'          => __('Horizontal Align', MELA_TD),
+				'type'           => Controls_Manager::SELECT,
+				'label_block'    => true,
+				'default'        => 'center',
 				'tablet_default' => 'left',
 				'mobile_default' => 'left',
-				'options' 		=> [
-					'left' 		=> __('Left', MELA_TD),
-					'center' 	=> __('Center', MELA_TD),
-					'overlay' 	=> __('Overlay', MELA_TD),
-					'right' 	=> __('Right', MELA_TD),
+				'options'        => [
+					'left'    => __('Left', MELA_TD),
+					'center'  => __('Center', MELA_TD),
+					'overlay' => __('Overlay', MELA_TD),
+					'right'   => __('Right', MELA_TD),
 				],
-				'prefix_class' 	=> 'ma-el-timeline-align%s--',
+				'prefix_class' => 'ma-el-timeline-align%s--',
 			]
 		);
 
 		$this->add_control(
 			'ma_el_timeline_reverse',
 			[
-				'label' 		=> __('Reverse Cards Positions', MELA_TD),
-				'type' 			=> Controls_Manager::SWITCHER,
-				'label_on' 		=> __('Yes', MELA_TD),
-				'label_off' 	=> __('No', MELA_TD),
-				'return_value' 	=> 'yes',
-				'condition' 	=> [
+				'label'        => __('Reverse Cards Positions', MELA_TD),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __('Yes', MELA_TD),
+				'label_off'    => __('No', MELA_TD),
+				'return_value' => 'yes',
+				'condition'    => [
 					'ma_el_timeline_align' => ['center'],
 				],
 			]
@@ -1410,29 +1455,29 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_cards_align',
 			[
-				'label' 		=> __('Vertical Align', MELA_TD),
-				'type' 			=> Controls_Manager::CHOOSE,
-				'default'		=> 'top',
+				'label'          => __('Vertical Align', MELA_TD),
+				'type'           => Controls_Manager::CHOOSE,
+				'default'        => 'top',
 				'tablet_default' => 'top',
 				'mobile_default' => 'top',
-				'options' 		=> [
+				'options'        => [
 					'top' 		=> [
 						'title' => __('Left', MELA_TD),
-						'icon' 	=> 'eicon-v-align-top',
+						'icon'  => 'eicon-v-align-top',
 					],
 					'middle' 	=> [
 						'title' => __('Center', MELA_TD),
-						'icon' 	=> 'eicon-v-align-middle',
+						'icon'  => 'eicon-v-align-middle',
 					],
 					'bottom' 	=> [
 						'title' => __('Right', MELA_TD),
-						'icon' 	=> 'eicon-v-align-bottom',
+						'icon'  => 'eicon-v-align-bottom',
 					],
 				],
 				'condition' 	=> [
 					'ma_el_timeline_align!' => 'overlay'
 				],
-				'prefix_class' 	=> 'ma-el-timeline-cards-align--',
+				'prefix_class' => 'ma-el-timeline-cards-align--',
 			]
 		);
 
@@ -1440,19 +1485,19 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_timeline_horizontal_spacing',
 			[
-				'label' 	=> __('Horizontal Spacing', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> '',
+				'label'   => __('Horizontal Spacing', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => '',
 				],
 				'range' 		=> [
 					'px' 		=> [
-						'min' 	=> 0,
-						'max' 	=> 100,
+						'min' => 0,
+						'max' => 100,
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-timeline .timeline-item .timeline-item__point' 	=> 'margin-left: {{SIZE}}px; margin-right: {{SIZE}}px;',
+					'{{WRAPPER}} .ma-el-timeline .timeline-item .timeline-item__point' => 'margin-left: {{SIZE}}px; margin-right: {{SIZE}}px;',
 				],
 			]
 		);
@@ -1460,15 +1505,15 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_timeline_vertical_spacing',
 			[
-				'label' 	=> __('Vertical Spacing', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> '',
+				'label'   => __('Vertical Spacing', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => '',
 				],
 				'range' 		=> [
 					'px' 		=> [
-						'min' 	=> 0,
-						'max' 	=> 100,
+						'min' => 0,
+						'max' => 100,
 					],
 				],
 				'selectors' => [
@@ -1489,33 +1534,33 @@ class Timeline extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_timeline_section_images',
 			[
-				'label' 		=> __('Images', MELA_TD),
-				'tab' 			=> Controls_Manager::TAB_STYLE,
+				'label' => __('Images', MELA_TD),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_control(
 			'ma_el_timeline_images_align',
 			[
-				'label' 		=> __('Alignment', MELA_TD),
-				'type' 			=> Controls_Manager::CHOOSE,
-				'default'		=> 'left',
-				'options' 		=> [
+				'label'   => __('Alignment', MELA_TD),
+				'type'    => Controls_Manager::CHOOSE,
+				'default' => 'left',
+				'options' => [
 					'left' 		=> [
 						'title' => __('Left', MELA_TD),
-						'icon' 	=> 'eicon-h-align-left',
+						'icon'  => 'eicon-h-align-left',
 					],
 					'center' 	=> [
 						'title' => __('Center', MELA_TD),
-						'icon' 	=> 'eicon-h-align-center',
+						'icon'  => 'eicon-h-align-center',
 					],
 					'right' 	=> [
 						'title' => __('Right', MELA_TD),
-						'icon' 	=> 'eicon-h-align-right',
+						'icon'  => 'eicon-h-align-right',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-timeline .timeline-item .timeline-item__img' 	=> 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-timeline .timeline-item .timeline-item__img' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -1524,19 +1569,19 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_images_spacing',
 			[
-				'label' 	=> __('Spacing', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> '',
+				'label'   => __('Spacing', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => '',
 				],
 				'range' 		=> [
 					'px' 		=> [
-						'min' 	=> 0,
-						'max' 	=> 100,
+						'min' => 0,
+						'max' => 100,
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-timeline-entry-thimbnail' 	=> 'margin-bottom: {{SIZE}}px;',
+					'{{WRAPPER}} .ma-el-timeline-entry-thimbnail' => 'margin-bottom: {{SIZE}}px;',
 				],
 			]
 		);
@@ -1545,10 +1590,10 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_images_border_radius',
 			[
-				'label' 		=> __('Border Radius', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px', '%'],
-				'selectors' 	=> [
+				'label'      => __('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-timeline-entry-thimbnail img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1565,10 +1610,10 @@ class Timeline extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_timeline_section_posts_style',
 			[
-				'label' 		=> __('Posts', MELA_TD),
-				'tab' 			=> Controls_Manager::TAB_STYLE,
-				'condition'		=> [
-					'ma_el_timeline_type'	=> 'post',
+				'label'     => __('Posts', MELA_TD),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'ma_el_timeline_type' => 'post',
 				]
 			]
 		);
@@ -1576,11 +1621,11 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_title_heading',
 			[
-				'label' => __('Title', MELA_TD),
-				'type' 	=> Controls_Manager::HEADING,
-				'condition'			=> [
-					'ma_el_timeline_type'	        => 'post',
-					'ma_el_timeline_post_title!' 	=> '',
+				'label'     => __('Title', MELA_TD),
+				'type'      => Controls_Manager::HEADING,
+				'condition' => [
+					'ma_el_timeline_type'        => 'post',
+					'ma_el_timeline_post_title!' => '',
 				]
 			]
 		);
@@ -1589,15 +1634,15 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_title_color',
 			[
-				'label' 	=> __('Title Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
-				'default'	=> '',
+				'label'     => __('Title Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-timeline .timeline-item__title a' => 'color: {{VALUE}};',
 				],
 				'condition'			=> [
-					'ma_el_timeline_type'	        => 'post',
-					'ma_el_timeline_post_title!' 	=> '',
+					'ma_el_timeline_type'        => 'post',
+					'ma_el_timeline_post_title!' => '',
 				],
 			]
 		);
@@ -1606,14 +1651,14 @@ class Timeline extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' 		=> 'ma_el_timeline_titles_typography',
-				'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__title',
-				'global' => [
+				'name'     => 'ma_el_timeline_titles_typography',
+				'selector' => '{{WRAPPER}} .ma-el-timeline .timeline-item__title',
+				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				],
 				'condition'			=> [
-					'ma_el_timeline_type'	        => 'post',
-					'ma_el_timeline_post_title!' 	=> '',
+					'ma_el_timeline_type'        => 'post',
+					'ma_el_timeline_post_title!' => '',
 				],
 			]
 		);
@@ -1622,23 +1667,23 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_titles_spacing',
 			[
-				'label' 	=> __('Spacing', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> '',
+				'label'   => __('Spacing', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => '',
 				],
 				'range' 		=> [
 					'px' 		=> [
-						'min' 	=> 0,
-						'max' 	=> 100,
+						'min' => 0,
+						'max' => 100,
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-timeline .timeline-item__title' 	=> 'margin-bottom: {{SIZE}}px;',
+					'{{WRAPPER}} .ma-el-timeline .timeline-item__title' => 'margin-bottom: {{SIZE}}px;',
 				],
 				'condition'			=> [
-					'ma_el_timeline_type'	        => 'post',
-					'ma_el_timeline_post_title!' 	=> '',
+					'ma_el_timeline_type'        => 'post',
+					'ma_el_timeline_post_title!' => '',
 				],
 			]
 		);
@@ -1646,11 +1691,11 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_excerpt_heading',
 			[
-				'label' => __('Excerpt', MELA_TD),
-				'type' 	=> Controls_Manager::HEADING,
-				'condition'			=> [
-					'ma_el_timeline_type'	        => 'post',
-					'ma_el_timeline_post_title!' 	=> '',
+				'label'     => __('Excerpt', MELA_TD),
+				'type'      => Controls_Manager::HEADING,
+				'condition' => [
+					'ma_el_timeline_type'        => 'post',
+					'ma_el_timeline_post_title!' => '',
 				]
 			]
 		);
@@ -1658,15 +1703,15 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_excerpt_color',
 			[
-				'label' 	=> __('Excerpt Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
-				'default'	=> '',
+				'label'     => __('Excerpt Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-timeline .timeline-item__excerpt' => 'color: {{VALUE}};',
 				],
 				'condition'			=> [
-					'ma_el_timeline_type'	        => 'post',
-					'ma_el_timeline_post_title!' 	=> '',
+					'ma_el_timeline_type'        => 'post',
+					'ma_el_timeline_post_title!' => '',
 				],
 			]
 		);
@@ -1674,14 +1719,14 @@ class Timeline extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' 		=> 'ma_el_timeline_excerpt_typography',
-				'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__excerpt',
-				'global' => [
+				'name'     => 'ma_el_timeline_excerpt_typography',
+				'selector' => '{{WRAPPER}} .ma-el-timeline .timeline-item__excerpt',
+				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				],
 				'condition'			=> [
-					'ma_el_timeline_type'	        => 'post',
-					'ma_el_timeline_post_title!' 	=> '',
+					'ma_el_timeline_type'        => 'post',
+					'ma_el_timeline_post_title!' => '',
 				]
 			]
 		);
@@ -1690,15 +1735,15 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_timeline_excerpt_padding',
 			[
-				'label' 		=> __('Padding', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px'],
-				'selectors' 	=> [
+				'label'      => __('Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-timeline .timeline-item__excerpt' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition'			=> [
-					'ma_el_timeline_type'	        => 'post',
-					'ma_el_timeline_post_title!' 	=> '',
+					'ma_el_timeline_type'        => 'post',
+					'ma_el_timeline_post_title!' => '',
 				],
 			]
 		);
@@ -1711,16 +1756,16 @@ class Timeline extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_timeline_section_date',
 			[
-				'label' 	=> __('Date', MELA_TD),
-				'tab' 		=> Controls_Manager::TAB_STYLE,
+				'label' => __('Date', MELA_TD),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_control(
 			'ma_el_timeline_date_color',
 			[
-				'label' 	=> __('Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-timeline-post-date' => 'color: {{VALUE}};',
 				],
@@ -1729,10 +1774,10 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_date_bg_color',
 			[
-				'label' 	=> __('Background Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-timeline-post-date' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-timeline-post-date'                                                  => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-blog-timeline-post:nth-child(2n+2) .ma-el-timeline-post-date:before' => 'border-right: 20px solid {{VALUE}};',
 					'{{WRAPPER}} .ma-el-blog-timeline-post:nth-child(2n+1) .ma-el-timeline-post-date:before' => 'border-left: 20px solid {{VALUE}};',
 				],
@@ -1750,17 +1795,17 @@ class Timeline extends Widget_Base
 			'section_cards',
 			[
 				'label' => __('Cards', MELA_TD),
-				'tab' 		=> Controls_Manager::TAB_STYLE,
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_responsive_control(
 			'cards_padding',
 			[
-				'label' 		=> __('Card Padding', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px'],
-				'selectors' 	=> [
+				'label'      => __('Card Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1769,10 +1814,10 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'cards_margin',
 			[
-				'label' 		=> __('Card Margin', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px'],
-				'selectors' 	=> [
+				'label'      => __('Card Margin', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-timeline .timeline-item__card' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1781,10 +1826,10 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'cards_content_padding',
 			[
-				'label' 		=> __('Content Padding', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px'],
-				'selectors' 	=> [
+				'label'      => __('Content Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-timeline .timeline-item__content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1793,10 +1838,10 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'cards_border_radius',
 			[
-				'label' 		=> __('Border Radius', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px', '%'],
-				'selectors' 	=> [
+				'label'      => __('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1805,27 +1850,27 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'animate_in',
 			[
-				'label' 		=> __('Animate Cards', MELA_TD),
-				'type' 			=> Controls_Manager::SWITCHER,
-				'default'		=> 'animate',
-				'label_on' 		=> __('Yes', MELA_TD),
-				'label_off' 	=> __('No', MELA_TD),
-				'return_value' 	=> 'animate',
-				'prefix_class'	=> 'ma-el-timeline%s-'
+				'label'        => __('Animate Cards', MELA_TD),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'animate',
+				'label_on'     => __('Yes', MELA_TD),
+				'label_off'    => __('No', MELA_TD),
+				'return_value' => 'animate',
+				'prefix_class' => 'ma-el-timeline%s-'
 			]
 		);
 
 		$this->add_group_control(
 			MA_Group_Control_Transition::get_type(),
 			[
-				'name' 		=> 'cards',
-				'selector' 	=> '{{WRAPPER}} .timeline-item__content-wrapper,
+				'name'     => 'cards',
+				'selector' => '{{WRAPPER}} .timeline-item__content-wrapper,
 							 		{{WRAPPER}} .timeline-item__content__wysiwyg *,
 							 		{{WRAPPER}} .timeline-item__title,
 							 		{{WRAPPER}} .timeline-item__meta,
 							 		{{WRAPPER}} .timeline-item__excerpt,
 									{{WRAPPER}} .timeline-item__card__arrow::after',
-				'separator'	=> '',
+				'separator' => '',
 			]
 		);
 
@@ -1836,8 +1881,8 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'cards_color',
 			[
-				'label' 	=> __('Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .timeline-item__content-wrapper,
 							 {{WRAPPER}} .timeline-item__content-wrapper *' => 'color: {{VALUE}};',
@@ -1848,11 +1893,11 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'cards_background_color',
 			[
-				'label' 	=> __('Background Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .timeline-item__content-wrapper' 										=> 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .timeline-item__card .timeline-item__card__arrow::after' 	=> 'border-left-color: {{VALUE}}; border-right-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-item__content-wrapper'                         => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-item__card .timeline-item__card__arrow::after' => 'border-left-color: {{VALUE}}; border-right-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1860,8 +1905,8 @@ class Timeline extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' 		=> 'cards_box_shadow',
-				'selector' 	=> '{{WRAPPER}} .timeline-item__content-wrapper',
+				'name'     => 'cards_box_shadow',
+				'selector' => '{{WRAPPER}} .timeline-item__content-wrapper',
 			]
 		);
 
@@ -1872,8 +1917,8 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'cards_color_hover',
 			[
-				'label' 	=> __('Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .timeline-item:hover .timeline-item__content-wrapper,
 							 {{WRAPPER}} .timeline-item:hover .timeline-item__content-wrapper *' => 'color: {{VALUE}};',
@@ -1884,11 +1929,11 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'cards_background_color_hover',
 			[
-				'label' 	=> __('Background Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .timeline-item:not(.is--focused):hover .timeline-item__content-wrapper' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .timeline-item:not(.is--focused):hover .timeline-item__card .timeline-item__card__arrow::after' 	=> 'border-left-color: {{VALUE}}; border-right-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-item:not(.is--focused):hover .timeline-item__content-wrapper'                         => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-item:not(.is--focused):hover .timeline-item__card .timeline-item__card__arrow::after' => 'border-left-color: {{VALUE}}; border-right-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1896,8 +1941,8 @@ class Timeline extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' 		=> 'cards_box_shadow_hover',
-				'selector' 	=> '{{WRAPPER}} .timeline-item:hover .timeline-item__content-wrapper',
+				'name'     => 'cards_box_shadow_hover',
+				'selector' => '{{WRAPPER}} .timeline-item:hover .timeline-item__content-wrapper',
 			]
 		);
 
@@ -1908,8 +1953,8 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'cards_color_focused',
 			[
-				'label' 	=> __('Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper,
 							 {{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper *' => 'color: {{VALUE}};',
@@ -1920,10 +1965,10 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'cards_background_color_focused',
 			[
-				'label' 	=> __('Background Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper' 				=> 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper'    => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__card__arrow::after' => 'border-left-color: {{VALUE}}; border-right-color: {{VALUE}};',
 				],
 			]
@@ -1932,8 +1977,8 @@ class Timeline extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' 		=> 'cards_box_shadow_focused',
-				'selector' 	=> '{{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper',
+				'name'     => 'cards_box_shadow_focused',
+				'selector' => '{{WRAPPER}} .timeline-item.is--focused .timeline-item__content-wrapper',
 			]
 		);
 
@@ -1944,17 +1989,17 @@ class Timeline extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
-				'name' 		=> 'cards_text_shadow',
-				'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper',
+				'name'     => 'cards_text_shadow',
+				'selector' => '{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper',
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' 		=> 'cards_typography',
-				'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper',
-				'global' => [
+				'name'     => 'cards_typography',
+				'selector' => '{{WRAPPER}} .ma-el-timeline .timeline-item__content-wrapper',
+				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				],
 				'condition'		=> [
@@ -1971,18 +2016,18 @@ class Timeline extends Widget_Base
 		$this->start_controls_section(
 			'section_dates',
 			[
-				'label' 	=> __('Dates', MELA_TD),
-				'tab' 		=> Controls_Manager::TAB_STYLE,
+				'label' => __('Dates', MELA_TD),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_responsive_control(
 			'dates_padding',
 			[
-				'label' 		=> __('Padding', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px'],
-				'selectors' 	=> [
+				'label'      => __('Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-timeline .timeline-item__meta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1991,10 +2036,10 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'dates_margin',
 			[
-				'label' 		=> __('Margin', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px'],
-				'selectors' 	=> [
+				'label'      => __('Margin', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-timeline .timeline-item__meta' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -2003,17 +2048,17 @@ class Timeline extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
-				'name' 		=> 'dates_text_shadow',
-				'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__meta',
+				'name'     => 'dates_text_shadow',
+				'selector' => '{{WRAPPER}} .ma-el-timeline .timeline-item__meta',
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' 		=> 'dates_typography',
-				'selector' 	=> '{{WRAPPER}} .ma-el-timeline .timeline-item__meta',
-				'global' => [
+				'name'     => 'dates_typography',
+				'selector' => '{{WRAPPER}} .ma-el-timeline .timeline-item__meta',
+				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
 			]
@@ -2026,8 +2071,8 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'dates_color',
 			[
-				'label' 	=> __('Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-timeline .timeline-item__meta' => 'color: {{VALUE}};',
 				],
@@ -2041,8 +2086,8 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'dates_color_hover',
 			[
-				'label' 	=> __('Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-timeline .ma-el-timeline__item:hover .timeline-item__meta' => 'color: {{VALUE}};',
 				],
@@ -2056,8 +2101,8 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'dates_color_focused',
 			[
-				'label' 	=> __('Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-timeline .ma-el-timeline__item.is--focused .timeline-item__meta' => 'color: {{VALUE}};',
 				],
@@ -2078,16 +2123,16 @@ class Timeline extends Widget_Base
 		$this->start_controls_section(
 			'section_line',
 			[
-				'label' 	=> __('Line', MELA_TD),
-				'tab' 		=> Controls_Manager::TAB_STYLE,
+				'label' => __('Line', MELA_TD),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_control(
 			'line_background',
 			[
-				'label' 	=> __('Background Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'  => __('Background Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
 				],
@@ -2100,8 +2145,8 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'progress_background',
 			[
-				'label' 	=> __('Progress Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'  => __('Progress Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
@@ -2114,15 +2159,15 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'line_thickness',
 			[
-				'label' 	=> __('Thickness', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 4,
+				'label'   => __('Thickness', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 4,
 				],
 				'range' 		=> [
 					'px' 		=> [
-						'min' 	=> 1,
-						'max' 	=> 8,
+						'min' => 1,
+						'max' => 8,
 					],
 				],
 				'selectors' => [
@@ -2134,15 +2179,15 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'line_location',
 			[
-				'label' 	=> __('Location', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 50,
+				'label'   => __('Location', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 50,
 				],
 				'range' 		=> [
 					'px' 		=> [
-						'min' 	=> 0,
-						'max' 	=> 100,
+						'min' => 0,
+						'max' => 100,
 					],
 				],
 				'frontend_available' => true,
@@ -2152,19 +2197,19 @@ class Timeline extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' 		=> 'line_border',
-				'label' 	=> __('Image Border', MELA_TD),
-				'selector' 	=> '{{WRAPPER}} .ma-el-timeline__line',
+				'name'     => 'line_border',
+				'label'    => __('Image Border', MELA_TD),
+				'selector' => '{{WRAPPER}} .ma-el-timeline__line',
 			]
 		);
 
 		$this->add_control(
 			'line_border_radius',
 			[
-				'label' 		=> __('Border Radius', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px', '%'],
-				'selectors' 	=> [
+				'label'      => __('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-timeline__line' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -2180,23 +2225,23 @@ class Timeline extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_timeline_section_points',
 			[
-				'label' 	=> __('Points', MELA_TD),
-				'tab' 		=> Controls_Manager::TAB_STYLE,
+				'label' => __('Points', MELA_TD),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_control(
 			'ma_el_timeline_points_content',
 			[
-				'label' 		=> __('Type', MELA_TD),
-				'type' 			=> Controls_Manager::SELECT,
-				'default' 		=> 'icons',
-				'options' 		=> [
-					'default' 	=> __('Default', MELA_TD),
-					'icons' 	=> __('Icons', MELA_TD),
-					'image' 	=> __('Image', MELA_TD),
-					'numbers' 	=> __('Numbers', MELA_TD),
-					'letters' 	=> __('Letters', MELA_TD),
+				'label'   => __('Type', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'icons',
+				'options' => [
+					'default' => __('Default', MELA_TD),
+					'icons'   => __('Icons', MELA_TD),
+					'image'   => __('Image', MELA_TD),
+					'numbers' => __('Numbers', MELA_TD),
+					'letters' => __('Letters', MELA_TD),
 				]
 			]
 		);
@@ -2204,9 +2249,9 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_points_image',
 			[
-				'label' 	=> __('Pointer Image', MELA_TD),
-				'dynamic'	=> ['active' => true],
-				'type' 		=> Controls_Manager::MEDIA,
+				'label'     => __('Pointer Image', MELA_TD),
+				'dynamic'   => ['active' => true],
+				'type'      => Controls_Manager::MEDIA,
 				'condition' => [
 					'ma_el_timeline_points_content' => "image"
 				],
@@ -2217,13 +2262,13 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_selected_global_icon',
 			[
-				'label' 			=> __('Icon', MELA_TD),
-				'type' 				=> Controls_Manager::ICONS,
-				'label_block' 		=> true,
-				'fa4compatibility' 	=> 'global_icon',
-				'default'			=> [
-					'value' 		=> 'fa fa-calendar-alt',
-					'library' 		=> 'fa-solid',
+				'label'            => __('Icon', MELA_TD),
+				'type'             => Controls_Manager::ICONS,
+				'label_block'      => true,
+				'fa4compatibility' => 'global_icon',
+				'default'          => [
+					'value'   => 'fa fa-calendar-alt',
+					'library' => 'fa-solid',
 				],
 				'condition'			=> [
 					'ma_el_timeline_points_content' => 'icons',
@@ -2234,11 +2279,11 @@ class Timeline extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' 		=> 'ma_el_timeline_points_typography',
-				'selector' 	=> '{{WRAPPER}} .ma-el-timeline .ma-el-timeline-post-type-icon',
-				'scheme' 	=> Scheme_Typography::TYPOGRAPHY_3,
-				'exclude'	=> ['font_size'],
-				'condition' 	=> [
+				'name'      => 'ma_el_timeline_points_typography',
+				'selector'  => '{{WRAPPER}} .ma-el-timeline .ma-el-timeline-post-type-icon',
+				'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
+				'exclude'   => ['font_size'],
+				'condition' => [
 					'ma_el_timeline_points_content!' => 'icons',
 				],
 			]
@@ -2260,21 +2305,21 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_timeline_points_size',
 			[
-				'label' 	=> __('Size', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 40,
+				'label'   => __('Size', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 40,
 				],
 				'range' 		=> [
 					'px' 		=> [
-						'min' 	=> 10,
-						'max' 	=> 80,
+						'min' => 10,
+						'max' => 80,
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-timeline-post-type-icon' => 'width: {{SIZE}}px; height: {{SIZE}}px',
-					'{{WRAPPER}} .ma-el-timeline-align--left .ma-el-timeline__line' => 'margin-left: calc( {{SIZE}}px / 2 );',
-					'{{WRAPPER}} .ma-el-timeline-align--right .ma-el-timeline__line' => 'margin-right: calc( {{SIZE}}px / 2 );',
+					'{{WRAPPER}} .ma-el-timeline-post-type-icon'                              => 'width: {{SIZE}}px; height: {{SIZE}}px',
+					'{{WRAPPER}} .ma-el-timeline-align--left .ma-el-timeline__line'           => 'margin-left: calc( {{SIZE}}px / 2 );',
+					'{{WRAPPER}} .ma-el-timeline-align--right .ma-el-timeline__line'          => 'margin-right: calc( {{SIZE}}px / 2 );',
 					'(tablet){{WRAPPER}} .ma-el-timeline-align--center .ma-el-timeline__line' => 'margin-left: calc( {{points_size_tablet.SIZE}}px / 2 );',
 					'(mobile){{WRAPPER}} .ma-el-timeline-align--center .ma-el-timeline__line' => 'margin-left: calc( {{points_size_mobile.SIZE}}px / 2 );',
 				],
@@ -2284,16 +2329,16 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_timeline_icons_size',
 			[
-				'label' 	=> __('Icon Size', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 1,
+				'label'   => __('Icon Size', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1,
 				],
 				'range' 		=> [
 					'px' 		=> [
-						'step'	=> 0.1,
-						'min' 	=> 1,
-						'max' 	=> 4,
+						'step' => 0.1,
+						'min'  => 1,
+						'max'  => 4,
 					],
 				],
 				'selectors' => [
@@ -2308,15 +2353,15 @@ class Timeline extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_timeline_content_size',
 			[
-				'label' 	=> __('Content Size', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 1,
+				'label'   => __('Content Size', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1,
 				],
 				'range' 		=> [
 					'px' 		=> [
-						'min' 	=> 1,
-						'max' 	=> 4,
+						'min' => 1,
+						'max' => 4,
 					],
 				],
 				'selectors' => [
@@ -2331,13 +2376,13 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_points_background',
 			[
-				'label' 	=> __('Background Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'  => __('Background Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-timeline-post-type-icon' 	=> 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-timeline-post-type-icon' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2345,11 +2390,11 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_icons_color',
 			[
-				'label' 	=> __('Points Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
-				'default'	=> '',
+				'label'     => __('Points Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-timeline-post-type-icon' 	=> 'color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-timeline-post-type-icon' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -2357,8 +2402,8 @@ class Timeline extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
-				'name' 		=> 'ma_el_timeline_points_text_shadow',
-				'selector' 	=> '{{WRAPPER}} .ma-el-timeline-post-type-icon',
+				'name'     => 'ma_el_timeline_points_text_shadow',
+				'selector' => '{{WRAPPER}} .ma-el-timeline-post-type-icon',
 			]
 		);
 
@@ -2369,16 +2414,16 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_points_size_hover',
 			[
-				'label' 	=> __('Scale', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 1,
+				'label'   => __('Scale', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1,
 				],
 				'range' 		=> [
 					'px' 		=> [
-						'min' 	=> 0.5,
-						'max' 	=> 2,
-						'step'	=> 0.01
+						'min'  => 0.5,
+						'max'  => 2,
+						'step' => 0.01
 					],
 				],
 				'selectors' => [
@@ -2390,11 +2435,11 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_points_background_hover',
 			[
-				'label' 	=> __('Background Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
-				'default'	=> '',
+				'label'     => __('Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-blog-timeline-post:hover .ma-el-timeline-post-type-icon' 			=> 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-blog-timeline-post:hover .ma-el-timeline-post-type-icon' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2402,9 +2447,9 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_icons_color_hover',
 			[
-				'label' 	=> __('Points Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
-				'default'	=> '',
+				'label'     => __('Points Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-timeline-post-type-icon:hover,
 						{{WRAPPER}} .ma-el-blog-timeline-post:hover .ma-el-timeline-post-type-icon' => 'color: {{VALUE}};'
@@ -2415,8 +2460,8 @@ class Timeline extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
-				'name' 		=> 'ma_el_timeline_points_text_shadow_hover',
-				'selector' 	=> '{{WRAPPER}} .ma-el-blog-timeline-post:hover .ma-el-timeline-post-type-icon'
+				'name'     => 'ma_el_timeline_points_text_shadow_hover',
+				'selector' => '{{WRAPPER}} .ma-el-blog-timeline-post:hover .ma-el-timeline-post-type-icon'
 			]
 		);
 
@@ -2427,20 +2472,20 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_points_size_focused',
 			[
-				'label' 	=> __('Scale', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 1,
+				'label'   => __('Scale', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1,
 				],
 				'range' 		=> [
 					'px' 		=> [
-						'min' 	=> 0.5,
-						'max' 	=> 2,
-						'step'	=> 0.01
+						'min'  => 0.5,
+						'max'  => 2,
+						'step' => 0.01
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' 		=> 'transform: scale({{SIZE}})',
+					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' => 'transform: scale({{SIZE}})',
 				],
 			]
 		);
@@ -2448,13 +2493,13 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_points_background_focused',
 			[
-				'label' 	=> __('Background Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'  => __('Background Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' 			=> 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2462,11 +2507,11 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_icons_color_focused',
 			[
-				'label' 	=> __('Points Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
-				'default'	=> '',
+				'label'     => __('Points Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' 		=> 'color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-item.is--focused .timeline-item__point' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -2474,8 +2519,8 @@ class Timeline extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
-				'name' 		=> 'ma_el_timeline_points_text_shadow_focused',
-				'selector' 	=> '{{WRAPPER}} .timeline-item.is--focused .timeline-item__point',
+				'name'     => 'ma_el_timeline_points_text_shadow_focused',
+				'selector' => '{{WRAPPER}} .timeline-item.is--focused .timeline-item__point',
 			]
 		);
 
@@ -2541,15 +2586,15 @@ class Timeline extends Widget_Base
 			$this->add_control(
 				'maad_el_control_get_pro',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 				]
 			);
@@ -2562,7 +2607,7 @@ class Timeline extends Widget_Base
 	{
 		$settings = $this->get_settings_for_display();
 
-		$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
+		$unique_id = implode('-', [$this->get_id(), get_the_ID()]);
 
 		$solid_bg_class = ($settings['ma_el_timeline_design_type'] === "horizontal") ? "solid-bg-color" : "";
 
@@ -2653,7 +2698,7 @@ class Timeline extends Widget_Base
 				}
 
 
-				$ma_el_timeline_type = $settings['ma_el_timeline_type'];
+				$ma_el_timeline_type  = $settings['ma_el_timeline_type'];
 				$timeline_layout_type = $settings['ma_el_timeline_design_type'];
 
 				if (ma_el_fs()->can_use_premium_code()) {
@@ -2746,12 +2791,12 @@ class Timeline extends Widget_Base
 							$j++;
 							$active_class = ($j == 1) ? "active" : "";
 
-							$card_tag 		= 'div';
-							$item_key 		= $this->get_repeater_setting_key('item', 'ma_el_custom_timeline_items', $index);
-							$card_key 		= $this->get_repeater_setting_key('card', 'ma_el_custom_timeline_items', $index);
-							$point_content 	= '';
-							$wysiwyg_key 	= $this->get_repeater_setting_key('content', 'ma_el_custom_timeline_items', $index);
-							$meta_key 		= $this->get_repeater_setting_key('date', 'ma_el_custom_timeline_items', $index);
+							$card_tag      = 'div';
+							$item_key      = $this->get_repeater_setting_key('item', 'ma_el_custom_timeline_items', $index);
+							$card_key      = $this->get_repeater_setting_key('card', 'ma_el_custom_timeline_items', $index);
+							$point_content = '';
+							$wysiwyg_key   = $this->get_repeater_setting_key('content', 'ma_el_custom_timeline_items', $index);
+							$meta_key      = $this->get_repeater_setting_key('date', 'ma_el_custom_timeline_items', $index);
 
 
 							$this->add_render_attribute([
@@ -2883,9 +2928,9 @@ class Timeline extends Widget_Base
 
 					protected function render_custom_card_meta($index, $item)
 					{
-						$settings = $this->get_settings_for_display();
+						// $settings = $this->get_settings_for_display();
 
-						$meta_key = $this->get_repeater_setting_key('date', 'items', $index);
+						$meta_key = $this->get_repeater_setting_key('date', 'ma_el_custom_timeline_items', $index);
 
 						$this->add_inline_editing_attributes($meta_key, 'basic');
 
@@ -2901,8 +2946,9 @@ class Timeline extends Widget_Base
 ?>
 	<div <?php echo $this->get_render_attribute_string($meta_key); ?>>
 		<?php
-						$item_date = $this->parse_text_editor($item['ma_el_custom_timeline_date']);
-						echo date($settings['ma_el_timeline_date_format'], strtotime($item_date));
+						// $item_date = $this->parse_text_editor($item['ma_el_custom_timeline_date']);
+						// echo date($settings['ma_el_timeline_date_format'], strtotime($item_date));
+						echo $this->parse_text_editor($item['ma_el_custom_timeline_date']);
 		?>
 	</div><!-- meta -->
 <?php
@@ -2911,8 +2957,8 @@ class Timeline extends Widget_Base
 
 					protected function jltma_horizontal_timeline()
 					{
-						$settings = $this->get_settings_for_display();
-						$unique_id 	= implode('-', [$this->get_id(), get_the_ID()]);
+						$settings  = $this->get_settings_for_display();
+						$unique_id = implode('-', [$this->get_id(), get_the_ID()]);
 
 						if ($settings['ma_el_timeline_design_type'] === 'horizontal') {
 							$this->add_render_attribute([
@@ -2949,12 +2995,12 @@ class Timeline extends Widget_Base
 							$j++;
 							$active_class = ($j == 1) ? "active" : "";
 
-							$card_tag 		= 'div';
-							$item_key 		= $this->get_repeater_setting_key('item', 'ma_el_custom_timeline_items', $index);
-							$card_key 		= $this->get_repeater_setting_key('card', 'ma_el_custom_timeline_items', $index);
-							$point_content 	= '';
-							$wysiwyg_key 	= $this->get_repeater_setting_key('content', 'ma_el_custom_timeline_items', $index);
-							$meta_key 		= $this->get_repeater_setting_key('date', 'ma_el_custom_timeline_items', $index);
+							$card_tag      = 'div';
+							$item_key      = $this->get_repeater_setting_key('item', 'ma_el_custom_timeline_items', $index);
+							$card_key      = $this->get_repeater_setting_key('card', 'ma_el_custom_timeline_items', $index);
+							$point_content = '';
+							$wysiwyg_key   = $this->get_repeater_setting_key('content', 'ma_el_custom_timeline_items', $index);
+							$meta_key      = $this->get_repeater_setting_key('date', 'ma_el_custom_timeline_items', $index);
 
 
 							$this->add_render_attribute([
@@ -3083,12 +3129,12 @@ class Timeline extends Widget_Base
 					protected function ma_timeline_points_text($type, $index = false, $item = false)
 					{
 
-						$settings 	= $this->get_settings();
-						$letters 	= range('A', 'Z');
-						$point_key 	= ($item) ? $this->get_repeater_setting_key('icon', 'items', $index) : 'point-text';
-						$text 		= 0;
+						$settings  = $this->get_settings();
+						$letters   = range('A', 'Z');
+						$point_key = ($item) ? $this->get_repeater_setting_key('icon', 'items', $index) : 'point-text';
+						$text      = 0;
 
-						$text 		= ($type === 'numbers') ? $index + 1 : $letters[$index];
+						$text = ($type === 'numbers') ? $index + 1 : $letters[$index];
 
 						if ($item) {
 							if ($item['ma_el_custom_timeline_custom_style'] === 'yes' && '' !== $item['ma_el_custom_timeline_point_content']) {
@@ -3108,15 +3154,13 @@ class Timeline extends Widget_Base
 
 					protected function ma_timeline_points_image($item = false)
 					{
-						$settings 	= $this->get_settings();
+						$settings = $this->get_settings();
 
 						$output = '<div class="ma-el-timeline-post-mini-thumb">';
 
 						if (isset($item['ma_el_custom_timeline_pointer_image']) && $item['ma_el_custom_timeline_pointer_image'] != "") {
-
 							$output .= Group_Control_Image_Size::get_attachment_image_html($item, 'ma_el_custom_timeline_pointer_image');
 						} elseif ($settings['ma_el_timeline_points_image'] != "") {
-
 							$output .= Group_Control_Image_Size::get_attachment_image_html($settings, 'ma_el_timeline_points_image');
 						}
 
@@ -3129,7 +3173,7 @@ class Timeline extends Widget_Base
 
 					protected function ma_timeline_points_global_points()
 					{
-						$settings 	= $this->get_settings();
+						$settings = $this->get_settings();
 
 						$global_point_content_type = $settings['ma_el_timeline_points_content'];
 
@@ -3162,14 +3206,14 @@ class Timeline extends Widget_Base
 						$settings = $this->get_settings();
 
 
-						$global_icon_migrated 	= isset($item['__fa4_migrated']['ma_el_timeline_selected_global_icon']);
-						$global_icon_is_new 	= empty($item['global_icon']) && Icons_Manager::is_migration_allowed();
-						$has_global_icon 		= !empty($settings['global_icon']) || !empty($settings['ma_el_timeline_selected_global_icon']['value']);
+						$global_icon_migrated = isset($item['__fa4_migrated']['ma_el_timeline_selected_global_icon']);
+						$global_icon_is_new   = empty($item['global_icon']) && Icons_Manager::is_migration_allowed();
+						$has_global_icon      = !empty($settings['global_icon']) || !empty($settings['ma_el_timeline_selected_global_icon']['value']);
 
 						if ($item) {
-							$has_item_icon = !empty($item['selected_point_icon']) || !empty($item['ma_el_custom_timeline_selected_icon']['value']);
+							$has_item_icon      = !empty($item['selected_point_icon']) || !empty($item['ma_el_custom_timeline_selected_icon']['value']);
 							$item_icon_migrated = isset($item['__fa4_migrated']['ma_el_custom_timeline_selected_icon']);
-							$item_icon_is_new = empty($item['selected_point_icon']) && Icons_Manager::is_migration_allowed();
+							$item_icon_is_new   = empty($item['selected_point_icon']) && Icons_Manager::is_migration_allowed();
 						}
 
 						$output = '<div ' . $this->get_render_attribute_string('icon-wrapper') . '>';
@@ -3207,10 +3251,10 @@ class Timeline extends Widget_Base
 
 					protected function jltma_post_query_timeline()
 					{
-						$settings = $this->get_settings();
+						$settings       = $this->get_settings();
 						$title_html_tag = $settings['title_html_tag'];
-						$card_tag 		= 'div';
-						$point_content 	= '';
+						$card_tag       = 'div';
+						$point_content  = '';
 
 						if (ma_el_fs()->can_use_premium_code()) {
 
@@ -3246,12 +3290,13 @@ class Timeline extends Widget_Base
 			<div <?php echo $this->get_render_attribute_string('point'); ?>><?php echo $point_content; ?></div>
 			<div <?php echo $this->get_render_attribute_string('card-wrapper'); ?>>
 				<div class="ma-el-timeline-post-inner">
-					<<?php echo $card_tag; ?> <?php
-												if ('yes' === $settings['ma_el_timeline_post_card_links']) {
-													echo 'class="timeline-item__card ' . implode(' ', get_post_class()) . '" ';
-													echo "href=" . get_permalink(get_the_ID());
-												}
-												?>>
+					<<?php echo $card_tag;
+
+						if ('yes' === $settings['ma_el_timeline_post_card_links']) {
+							echo 'class="timeline-item__card ' . implode(' ', get_post_class()) . '" ';
+							echo "href=" . get_permalink(get_the_ID());
+						}
+						?>>
 						<div class="timeline-item__content-wrapper">
 
 							<?php if (has_post_thumbnail() || (isset($settings['ma_el_timeline_post_thumbnail']) && $settings['ma_el_timeline_post_thumbnail'])) { ?>
@@ -3301,107 +3346,118 @@ class Timeline extends Widget_Base
 							'id' => get_post_thumbnail_id(),
 						];
 
-	?><div <?php echo $this->get_render_attribute_string('image'); ?>><?php
-
-																		if ('' === $settings['ma_el_timeline_post_card_links']) {
-																		?><a href="<?php echo the_permalink(); ?>"><?php
-																												}
-
-																												echo Group_Control_Image_Size::get_attachment_image_html($settings, 'ma_el_timeline_post_thumbnail_size');
-
-																												if ('' === $settings['ma_el_timeline_post_card_links']) {
-																													?></a><?php
-																														}
-
-																															?></div><?php
-																																}
-
-																																protected function ma_el_timeline_content()
-																																{
-
-																																	$settings = $this->get_settings();
-
-																																	$excerpt_type = $settings['ma_el_timeline_excerpt_type'];
-																																	$excerpt_text = $settings['ma_el_timeline_excerpt_text'];
-																																	//			$excerpt_src  = $settings['ma_el_post_grid_excerpt_content'];
-																																	$excerpt_length = $settings['ma_el_timeline_excerpt_length'] ? $settings['ma_el_timeline_excerpt_length'] : 25;
-																																	echo Master_Addons_Helper::ma_el_get_excerpt_by_id(
-																																		get_the_ID(),
-																																		$excerpt_length,
-																																		$excerpt_type,
-																																		$this->parse_text_editor($excerpt_text),
-																																		true,
-																																		'',
-																																		'',
-																																		''
-																																	);
-																																}
+	?><div <?php echo $this->get_render_attribute_string('image'); ?>>
 
 
-																																public function get_date_formatted($custom = false, $custom_format, $date_format, $time_format, $post_id = null)
-																																{
-																																	if ($custom) {
-																																		$format = $custom_format;
-																																	} else {
-																																		$date_format = $date_format;
-																																		$time_format = $time_format;
-																																		$format = '';
+			<?php
 
-																																		if ('default' === $date_format) {
-																																			$date_format = get_option('date_format');
-																																		}
+						if ('' === $settings['ma_el_timeline_post_card_links']) {
+			?><a href="<?php echo the_permalink(); ?>">
 
-																																		if ('default' === $time_format) {
-																																			$time_format = get_option('time_format');
-																																		}
+				<?php
+						}
+						echo Group_Control_Image_Size::get_attachment_image_html($settings, 'ma_el_timeline_post_thumbnail_size');
 
-																																		if ($date_format) {
-																																			$format = $date_format;
-																																			$has_date = true;
-																																		} else {
-																																			$has_date = false;
-																																		}
+						if ('' === $settings['ma_el_timeline_post_card_links']) {
+				?></a>
 
-																																		if ($time_format) {
-																																			if ($has_date) {
-																																				$format .= ' ';
-																																			}
-																																			$format .= $time_format;
-																																		}
-																																	}
+			<?php
+						}
 
-																																	$value = get_the_date($format, $post_id);
+			?>
+		</div>
 
-																																	return wp_kses_post($value);
-																																}
+<?php
+					}
 
-																																protected function get_settings_for_loop_display($post_id = false)
-																																{
-																																	$loop_post_id = [];
-																																	if ($post_id) {
-																																		if (array_key_exists($post_id, $loop_post_id)) {
-																																			return $loop_post_id[$post_id];
-																																		}
-																																	}
-																																	return $loop_post_id;
-																																}
+					protected function ma_el_timeline_content()
+					{
 
-																																protected function render_date($echo = true, $post_id = null)
-																																{
+						$settings = $this->get_settings();
 
-																																	$settings 		= $this->get_settings_for_display();
-																																	$loop_settings 	= $this->get_settings_for_loop_display(get_the_ID());
+						$excerpt_type = $settings['ma_el_timeline_excerpt_type'];
+						$excerpt_text = $settings['ma_el_timeline_excerpt_text'];
+						//			$excerpt_src  = $settings['ma_el_post_grid_excerpt_content'];
+						$excerpt_length = $settings['ma_el_timeline_excerpt_length'] ? $settings['ma_el_timeline_excerpt_length'] : 25;
+						echo Master_Addons_Helper::ma_el_get_excerpt_by_id(
+							get_the_ID(),
+							$excerpt_length,
+							$excerpt_type,
+							$this->parse_text_editor($excerpt_text),
+							true,
+							'',
+							'',
+							''
+						);
+					}
 
-																																	if ('custom' === $settings['ma_el_timeline_date_format']) {
-																																		$date = $loop_settings['ma_el_timeline_date_custom_format'];
-																																	} else {
-																																		$date = $this->get_date_formatted(false, $settings['ma_el_timeline_date_custom_format'], $settings['ma_el_timeline_date_format'], $settings['ma_el_timeline_time_format'], $post_id);
-																																	}
-																																	echo $date;
-																																	if (!$echo) {
-																																		return $date;
-																																	}
 
-																																	return $date;
-																																}
-																															}
+					public function get_date_formatted($custom = false, $custom_format, $date_format, $time_format, $post_id = null)
+					{
+						if ($custom) {
+							$format = $custom_format;
+						} else {
+							$date_format = $date_format;
+							$time_format = $time_format;
+							$format      = '';
+
+							if ('default' === $date_format) {
+								$date_format = get_option('date_format');
+							}
+
+							if ('default' === $time_format) {
+								$time_format = get_option('time_format');
+							}
+
+							if ($date_format) {
+								$format   = $date_format;
+								$has_date = true;
+							} else {
+								$has_date = false;
+							}
+
+							if ($time_format) {
+								if ($has_date) {
+									$format .= ' ';
+								}
+								$format .= $time_format;
+							}
+						}
+
+						$value = get_the_date($format, $post_id);
+
+						return wp_kses_post($value);
+					}
+
+					protected function get_settings_for_loop_display($post_id = false)
+					{
+						$loop_post_id = [];
+						if ($post_id) {
+							if (array_key_exists($post_id, $loop_post_id)) {
+								return $loop_post_id[$post_id];
+							}
+						}
+						return $loop_post_id;
+					}
+
+					protected function render_date($echo = true, $post_id = null)
+					{
+
+						$settings      = $this->get_settings_for_display();
+						$loop_settings = $this->get_settings_for_loop_display($post_id);
+
+						if ('custom' === $settings['ma_el_timeline_date_source']) {
+							$date = isset($loop_settings['ma_el_timeline_date_custom']) ? $loop_settings['ma_el_timeline_date_custom'] : '';
+						} else {
+							$custom = 'custom' === $settings['ma_el_timeline_date_format'];
+							$date = $this->get_date_formatted($custom, $settings['ma_el_timeline_date_custom_format'], $settings['ma_el_timeline_date_format'], $settings['ma_el_timeline_time_format'], $post_id);
+						}
+						echo $date;
+
+						if (!$echo) {
+							return $date;
+						}
+
+						return $date;
+					}
+				}

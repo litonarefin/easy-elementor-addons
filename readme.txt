@@ -384,6 +384,15 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.6.0 (27-03-2021) =
+* Fixed: Dynamic Tags not working issue fixed
+* Fixed: Tooltip styles broken issue fixed
+* Fixed: Dashboard Text upper menu issue fixed
+* Fixed: Timeline - Custom Timline Date not showing issue fixed
+
+= 1.5.9 (11-03-2021) =
+* Fixed: Menu Title not showing issue fixed
+
 = 1.5.8 (10-03-2021) =
 * Fixed: Form Addons and Marketing addons not found on Elementor Panel issue fixed.
 * Added: White Label Options added for Developer Plans only feature.
