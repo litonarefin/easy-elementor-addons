@@ -3311,11 +3311,11 @@ class Timeline extends Widget_Base
 
 							<div class="ma-el-timeline-entry-content">
 								<?php if ($settings['ma_el_timeline_post_title'] == "yes") { ?>
-									<<?php echo $title_html_tag; ?> class="ma-el-timeline-entry-title">
+									<<?php echo tag_escape($title_html_tag); ?> class="ma-el-timeline-entry-title">
 										<?php if ($settings['ma_el_timeline_post_title_link'] == "yes") { ?><a href="<?php the_permalink(); ?>"><?php } ?>
 											<?php the_title(); ?>
 											<?php if ($settings['ma_el_timeline_post_title_link'] == "yes") { ?></a><?php } ?>
-									</<?php echo $title_html_tag; ?>>
+									</<?php echo tag_escape($title_html_tag); ?>>
 								<?php } ?>
 								<?php $this->ma_el_timeline_content(); ?>
 							</div>

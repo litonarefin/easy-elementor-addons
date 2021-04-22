@@ -384,6 +384,12 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.6.1 (27-03-2021) =
+* Fixed: Timeline: Icon not working issue fixed
+* Fixed: Mega Menu data not saving issue fixed. Thanks @, Support URL:
+* Fixed: MA Comments 500 error issue fixed. Thanks @, Support URL:
+
+
 = 1.6.0 (27-03-2021) =
 * Fixed: Dynamic Tags not working issue fixed
 * Fixed: Tooltip styles broken issue fixed

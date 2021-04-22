@@ -2218,9 +2218,9 @@ Customization Options.</span>'
 							<img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled" alt="<?php echo $member['ma_el_team_carousel_name']; ?>">
 							<div class="ma-team-drawer-hover-content">
 
-								<<?php echo $settings['title_html_tag']; ?> class="ma-el-team-member-name">
-									<?php echo $member['ma_el_team_carousel_name']; ?>
-								</<?php echo $settings['title_html_tag']; ?>>
+								<<?php echo tag_escape($settings['title_html_tag']); ?> class="ma-el-team-member-name">
+									<?php echo esc_html($member['ma_el_team_carousel_name']); ?>
+								</<?php echo tag_escape($settings['title_html_tag']); ?>>
 
 								<span class="ma-el-team-member-designation">
 									<?php echo $member['ma_el_team_carousel_designation']; ?>

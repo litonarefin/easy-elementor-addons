@@ -677,18 +677,18 @@ class Animated_Headlines extends Widget_Base
 ?>
 		<div <?php echo $this->get_render_attribute_string('jltma_animated_headlines'); ?>>
 			<div class="ma-el-animated-heading-wrapper">
-				<<?php echo $settings['title_html_tag'] . ' ' . $this->get_render_attribute_string('jltma_animated_header_wrapper'); ?>>
+				<<?php echo tag_escape($settings['title_html_tag']) . ' ' . $this->get_render_attribute_string('jltma_animated_header_wrapper'); ?>>
 					<span class="first-heading">
 						<?php echo esc_html($settings['ma_el_headlines_first_heading']); ?>
 					</span>
 					<span class="ma-el-words-wrapper">
 						<?php foreach ($settings['tabs'] as $index => $tab) { ?>
 							<b class="second-heading <?php echo ($index == 0) ? "is-visible" : ""; ?>">
-								<?php echo $tab['ma_el_headlines_second_heading']; ?>
+								<?php echo esc_html($tab['ma_el_headlines_second_heading']); ?>
 							</b>
 						<?php } ?>
 					</span>
-				</<?php echo $settings['title_html_tag']; ?>>
+				</<?php echo tag_escape($settings['title_html_tag']); ?>>
 			</div>
 		</div>
 

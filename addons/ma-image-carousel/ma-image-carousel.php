@@ -232,7 +232,6 @@ class Image_Carousel extends Widget_Base
 			]
 		);
 
-
 		$this->add_control(
 			'title_html_tag',
 			[
@@ -1598,7 +1597,6 @@ class Image_Carousel extends Widget_Base
 							]
 						]);
 
-
 						$tag = 'div';
 						$image_alt = esc_html($item['title']) . esc_html($item['subtitle']);
 						$title_html_tag = ($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
@@ -1699,9 +1697,9 @@ class Image_Carousel extends Widget_Base
 				$settings = $this->get_settings_for_display();
 				?>
 				<?php if (isset($item['title']) && $item['title']) { ?>
-					<<?php echo $settings['title_html_tag']; ?> class="jltma-image-carousel-title">
-						<?php echo $item['title']; ?>
-					</<?php echo $settings['title_html_tag']; ?>>
+					<<?php echo tag_escape($settings['title_html_tag']); ?> class="jltma-image-carousel-title">
+						<?php echo esc_html($item['title']); ?>
+					</<?php echo tag_escape($settings['title_html_tag']); ?>>
 				<?php } ?>
 
 				<?php if (isset($item['subtitle']) && $item['subtitle']) { ?>

@@ -1330,9 +1330,9 @@ Customization Options.</span>'
 							<?php } ?>
 
 							<?php if (!empty($settings['front_title'])) { ?>
-								<<?php echo $settings['front_title_html_tag']; ?> <?php echo $this->get_render_attribute_string('front-icon-title'); ?>>
-									<?php echo $settings['front_title']; ?>
-								</<?php echo $settings['front_title_html_tag']; ?>>
+								<<?php echo tag_escape($settings['front_title_html_tag']); ?> <?php echo $this->get_render_attribute_string('front-icon-title'); ?>>
+									<?php echo esc_html($settings['front_title']); ?>
+								</<?php echo tag_escape($settings['front_title_html_tag']); ?>>
 							<?php } ?>
 
 							<?php //if(!empty($settings['front_text'])){
@@ -1375,9 +1375,9 @@ Customization Options.</span>'
 						<?php } ?>
 
 						<?php if (!empty($settings['back_title'])) { ?>
-							<<?php echo $settings['back_title_html_tag']; ?> <?php echo $this->get_render_attribute_string('back-icon-title'); ?>>
-								<?php echo $settings['back_title']; ?>
-							</<?php echo $settings['back_title_html_tag']; ?>>
+							<<?php echo tag_escape($settings['back_title_html_tag']); ?> <?php echo $this->get_render_attribute_string('back-icon-title'); ?>>
+								<?php echo esc_html($settings['back_title']); ?>
+							</<?php echo tag_escape($settings['back_title_html_tag']); ?>>
 						<?php } ?>
 
 						<?php if (!empty($settings['back_text'])) { ?>

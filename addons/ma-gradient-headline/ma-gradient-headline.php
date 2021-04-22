@@ -403,14 +403,14 @@ class Gradient_Headline extends Widget_Base
 		if (!empty($settings['jltma_gradient_heading_link']['url'])) {
 			$this->add_link_attributes('link', $settings['jltma_gradient_heading_link']);
 
-			$title = sprintf('<a %1$s>%2$s</a>', $this->get_render_attribute_string('link'), $title);
+			$title = sprintf('<a %1$s>%2$s</a>', $this->get_render_attribute_string('link'), esc_html($title));
 		}
 
 		printf(
 			'<%1$s %2$s>%3$s</%1$s>',
 			tag_escape($settings['title_html_tag']),
 			$this->get_render_attribute_string('jltma_gradient_heading_title'),
-			$title
+			esc_html($title)
 		);
 	}
 

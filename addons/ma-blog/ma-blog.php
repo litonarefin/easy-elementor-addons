@@ -3294,9 +3294,9 @@ class Blog extends Widget_Base
 
 		if ($settings['ma_el_post_grid_post_title'] == 'yes') { ?>
 
-			<<?php echo $settings['title_html_tag'] . ' ' . $this->get_render_attribute_string('title'); ?>>
+			<<?php echo tag_escape($settings['title_html_tag']) . ' ' . $this->get_render_attribute_string('title'); ?>>
 				<a href="<?php the_permalink(); ?>" target="<?php echo esc_attr($link_target); ?>"><?php the_title(); ?></a>
-			</<?php echo $settings['title_html_tag']; ?>>
+			</<?php echo tag_escape($settings['title_html_tag']); ?>>
 
 		<?php }
 	}

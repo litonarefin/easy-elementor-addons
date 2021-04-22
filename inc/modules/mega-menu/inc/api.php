@@ -2,6 +2,8 @@
 
 namespace MasterAddons\Modules\MegaMenu;
 
+use MasterAddons\Modules\MegaMenu\JLTMA_Megamenu_Options;
+
 defined('ABSPATH') || exit;
 
 class JLTMA_Megamenu_Api
@@ -22,7 +24,7 @@ class JLTMA_Megamenu_Api
         $menu_item_id = $this->request['settings']['menu_id'];
         $menu_item_settings = json_encode($this->request['settings']);
 
-        update_post_meta($menu_item_id, \JLTMA_Megamenu_Options::$jltma_menuitem_settings_key, $menu_item_settings);
+        update_post_meta($menu_item_id, JLTMA_Megamenu_Options::$jltma_menuitem_settings_key, $menu_item_settings);
 
         return [
             'saved' => 1,
@@ -33,7 +35,7 @@ class JLTMA_Megamenu_Api
     public function get_get_menuitem_settings()
     {
         $menu_item_id = $this->request['menu_id'];
-        $data = get_post_meta($menu_item_id, \JLTMA_Megamenu_Options::$jltma_menuitem_settings_key, true);
+        $data = get_post_meta($menu_item_id, JLTMA_Megamenu_Options::$jltma_menuitem_settings_key, true);
 
         return (array) json_decode($data);
     }

@@ -1448,16 +1448,16 @@ class Image_Hover_Effects extends Widget_Base
 
 				<figcaption>
 					<div class="ma-image-hover-content">
-						<<?php echo $settings['title_html_tag']; ?> <?php echo $this->get_render_attribute_string('ma_el_image_hover_effect_heading'); ?>>
+						<<?php echo tag_escape($settings['title_html_tag']); ?> <?php echo $this->get_render_attribute_string('ma_el_image_hover_effect_heading'); ?>>
 
 							<?php echo $this->parse_text_editor($settings['ma_el_main_image_title']); ?>
 
 							<?php $ma_el_main_image_sub_title = array("honey");
 							if (in_array($ma_el_main_image_effect, $ma_el_main_image_sub_title)) { ?>
-								<i><?php echo $settings['ma_el_main_image_sub_title']; ?></i>
+								<i><?php echo esc_html($settings['ma_el_main_image_sub_title']); ?></i>
 							<?php } ?>
 
-						</<?php echo $settings['title_html_tag']; ?>>
+						</<?php echo tag_escape($settings['title_html_tag']); ?>>
 
 
 						<?php

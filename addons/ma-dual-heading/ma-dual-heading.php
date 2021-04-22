@@ -475,7 +475,7 @@ class Dual_Heading extends Widget_Base
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-section-description' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-dual-heading-description' => 'text-align: {{VALUE}};',
 				],
 				'condition' 	=> [
 					'ma_el_dual_heading_styles_preset' => '-style2',
@@ -647,14 +647,14 @@ class Dual_Heading extends Widget_Base
 
 			<div class="ma-el-sec-head-container">
 				<div class="ma-el-sec-head-style">
-					<<?php echo $settings['title_html_tag']; ?> class="ma-el-section-title">
+					<<?php echo tag_escape($settings['title_html_tag']); ?> class="ma-el-section-title">
 						<span>
 							<?php echo esc_html($settings['ma_el_dual_first_heading']); ?>
 						</span><br>
 
 						<?php echo esc_html($settings['ma_el_dual_second_heading']); ?>
 
-					</<?php echo $settings['title_html_tag']; ?>><!-- /.section-title -->
+					</<?php echo tag_escape($settings['title_html_tag']); ?>><!-- /.section-title -->
 
 					<div class="ma-el-section-description">
 						<?php echo esc_html($settings['ma_el_dual_heading_description']); ?>
