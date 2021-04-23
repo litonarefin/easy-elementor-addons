@@ -1428,7 +1428,7 @@ class Image_Hover_Effects extends Widget_Base
 		// }
 
 		$hover_effects_main_image = $settings['ma_el_main_image'];
-		$hover_effects_main_image_url = Group_Control_Image_Size::get_attachment_image_src($hover_effects_main_image['id'], 'thumbnail', $settings);
+		$hover_effects_main_image_url = Group_Control_Image_Size::get_attachment_image_src($hover_effects_main_image['id'], 'image_thumbnail_size', $settings);
 		if (empty($hover_effects_main_image_url)) {
 			$hover_effects_main_image_url = $hover_effects_main_image['url'];
 		} else {

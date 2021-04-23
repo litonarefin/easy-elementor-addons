@@ -17,18 +17,18 @@ class JLTMA_Megamenu_Nav_Walker extends \Walker_Nav_Menu
         $data = (array) json_decode($data);
 
         $format = [
-            "menu_id" => null,
-            "menu_has_child" => '',
-            "menu_enable" => 0,
-            "menu_trigger_effect" => 'hover',
-            "menu_icon" => '',
+            "menu_id"                  => null,
+            "menu_has_child"           => '',
+            "menu_enable"              => 0,
+            "menu_trigger_effect"      => 'hover',
+            "menu_icon"                => '',
             "menu_disable_description" => 0,
-            "menu_label_enable" => 0,
-            "menu_icon_color" => '',
+            "menu_label_enable"        => 0,
+            "menu_icon_color"          => '',
             // "menu_transition" => 'fade',
-            "menu_badge_text" => '',
-            "menu_badge_color" => '',
-            "menu_badge_background" => '',
+            "menu_badge_text"                  => '',
+            "menu_badge_color"                 => '',
+            "menu_badge_background"            => '',
             "menu_mobile_submenu_content_type" => 'builder_content'
         ];
 

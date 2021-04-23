@@ -144,7 +144,7 @@ class Master_Addons_Assets
 
 
         // Enqueue Styles
-        wp_enqueue_style('jltma-bootstrap');
+        // wp_enqueue_style('jltma-bootstrap');
         wp_enqueue_style('master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css');
 
 

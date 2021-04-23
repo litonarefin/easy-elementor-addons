@@ -51,12 +51,20 @@ class News_Ticker extends Widget_Base
 
 	public function get_keywords()
 	{
-		return ['blog', 'lastest', 'news', 'scroll', 'scrolling', 'ticker', 'report', 'message', 'information',];
+		return ['blog', 'latest news', 'latest blog', 'latest', 'news', 'scroll', 'scrolling', 'ticker', 'report', 'message', 'information',];
 	}
 
 	public function get_help_url()
 	{
 		return 'https://master-addons.com/demos/news-ticker/';
+	}
+
+	public function get_script_depends()
+	{
+		return [
+			'ma-news-ticker',
+			'master-addons-scripts'
+		];
 	}
 
 

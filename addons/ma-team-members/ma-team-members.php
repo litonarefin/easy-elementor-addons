@@ -49,7 +49,8 @@ class Team_Member extends Widget_Base
 	{
 		return [
 			'gridder',
-			'jltma-owl-carousel',
+			'swiper',
+			// 'jltma-owl-carousel',
 			'master-addons-scripts'
 		];
 	}
@@ -664,7 +665,7 @@ Customization Options.</span>'
 		$settings = $this->get_settings_for_display();
 
 		$ma_el_team_member_image = $settings['ma_el_team_member_image'];
-		$ma_el_team_member_image_url = Group_Control_Image_Size::get_attachment_image_src($ma_el_team_member_image['id'], 'thumbnail', $settings);
+		$ma_el_team_member_image_url = Group_Control_Image_Size::get_attachment_image_src($ma_el_team_member_image['id'], 'ma_el_team_member_image_size', $settings);
 		if (empty($ma_el_team_member_image_url)) {
 			$ma_el_team_member_image_url = $ma_el_team_member_image['url'];
 		} else {
