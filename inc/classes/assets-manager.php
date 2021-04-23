@@ -144,12 +144,12 @@ class Master_Addons_Assets
 
 
         // Enqueue Styles
-        // wp_enqueue_style('jltma-bootstrap');
+        wp_enqueue_style('jltma-bootstrap');
         wp_enqueue_style('master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css');
 
 
         // Enqueue Scripts
-        // wp_enqueue_script( 'jltma-bootstrap' );
+        // wp_enqueue_script('jltma-bootstrap');
         wp_enqueue_script('master-addons-plugins', MELA_PLUGIN_URL . '/assets/js/plugins.js', ['jquery'], MELA_VERSION, true);
         wp_enqueue_script('master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', ['jquery'], MELA_VERSION, true);
 

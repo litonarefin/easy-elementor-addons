@@ -14,6 +14,7 @@ use \Elementor\Group_Control_Box_Shadow;
 
 use MasterAddons\Inc\Controls\MA_Control_Visual_Select;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
+use MasterAddons\Modules\MegaMenu\JLTMA_Megamenu_Nav_Walker;
 
 /**
  * Author Name: Liton Arefin
@@ -65,7 +66,7 @@ class Nav_Menu extends Widget_Base
 
     public function get_style_depends()
     {
-        return ['jltma-bootstrap'];
+        return ['jltma-bootstrap', 'master-addons-main-style'];
     }
 
 
@@ -2011,7 +2012,7 @@ class Nav_Menu extends Widget_Base
                 'echo'            => true,
                 'fallback_cb'     => 'wp_page_menu',
 
-                'walker'          => (class_exists('\JLTMA_Megamenu_Nav_Walker') ? new \JLTMA_Megamenu_Nav_Walker() : '')
+                'walker'          => (!class_exists('JLTMA_Megamenu_Nav_Walker') ? new JLTMA_Megamenu_Nav_Walker() : '')
             ];
 
             wp_nav_menu($args);

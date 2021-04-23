@@ -2,6 +2,9 @@
 
 namespace MasterAddons\Modules\MegaMenu;
 
+use MasterAddons\Modules\MegaMenu\JLTMA_Megamenu_Options;
+// use \Walker_Nav_Menu;
+
 class JLTMA_Megamenu_Nav_Walker extends \Walker_Nav_Menu
 {
 
@@ -12,7 +15,7 @@ class JLTMA_Megamenu_Nav_Walker extends \Walker_Nav_Menu
     // Get Item Custom Method
     public function get_item_meta($menu_item_id)
     {
-        $meta_key = jltma_megamenu_options::$jltma_menuitem_settings_key;
+        $meta_key = JLTMA_Megamenu_Options::$jltma_menuitem_settings_key;
         $data = get_post_meta($menu_item_id, $meta_key, true);
         $data = (array) json_decode($data);
 
@@ -47,7 +50,7 @@ class JLTMA_Megamenu_Nav_Walker extends \Walker_Nav_Menu
         }
 
         $return = 0;
-        $settings = \JLTMA_Megamenu_Options::get_instance()->get_option(\JLTMA_Megamenu_Options::$jltma_menu_settings_key, []);
+        $settings = JLTMA_Megamenu_Options::get_instance()->get_option(JLTMA_Megamenu_Options::$jltma_menu_settings_key, []);
         $term = get_term_by('slug', $menu_slug, 'nav_menu');
 
         if (

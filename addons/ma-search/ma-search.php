@@ -105,12 +105,11 @@ class Search extends Widget_Base
             array(
                 'label'       => __('Submit Button Type', MELA_TD),
                 'type'        => Controls_Manager::SELECT,
-                'default'     => 'none',
                 'options'     => array(
-                    'none'   => __('None', MELA_TD),
                     'icon'   => __('Icon', MELA_TD),
                     'button' => __('Button', MELA_TD),
                 ),
+                'default'     => 'icon',
                 'condition' => array(
                     'jltma_search_type' => 'form'
                 )
@@ -242,9 +241,33 @@ class Search extends Widget_Base
             array(
                 'label'       => __('Icon color', MELA_TD),
                 'type'        => Controls_Manager::COLOR,
-                'default'     => '#303030',
+                'default'     => '#4b00e7',
                 'selectors' => array(
-                    '{{WRAPPER}} .jltma-search-icon:before, {{WRAPPER}} .jltma-submit-icon-container:before' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .btn--search i, {{WRAPPER}} .jltma-search-form .jltma-search-submit' => 'color: {{VALUE}}',
+                )
+            )
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name'                  => 'jltma_search_border',
+                'label'                 => __('Border', MELA_TD),
+                'placeholder'           => '1px',
+                'default'               => '1px',
+                'selector'              => '{{WRAPPER}} .jltma-search-form .jltma-search-submit,{{WRAPPER}} .btn--search',
+                'separator'             => 'before',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'jltma_search_icon_padding',
+            array(
+                'label'      => __('Icon Padding', MELA_TD),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => array('px', '%'),
+                'selectors'  => array(
+                    '{{WRAPPER}} .btn--search i, {{WRAPPER}} .jltma-search-form .jltma-search-submit' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 )
             )
         );
@@ -256,7 +279,7 @@ class Search extends Widget_Base
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array('px', '%'),
                 'selectors'  => array(
-                    '{{WRAPPER}} .jltma-search-icon, {{WRAPPER}} .jltma-submit-icon-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .btn--search i, {{WRAPPER}} .jltma-search-form .jltma-search-submit' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 )
             )
         );
@@ -296,6 +319,17 @@ class Search extends Widget_Base
             )
         );
 
+        $this->add_control(
+            'jltma_search_form_color',
+            array(
+                'label'       => __('Icon color', MELA_TD),
+                'type'        => Controls_Manager::COLOR,
+                'default'     => '#fff',
+                'selectors' => array(
+                    '{{WRAPPER}} .jltma-search-form .jltma-search-field' => 'color: {{VALUE}}',
+                )
+            )
+        );
 
         $this->add_responsive_control(
             'jltma_search_form_width',

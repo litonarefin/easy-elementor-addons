@@ -82,7 +82,7 @@ class Master_Menu
 if (!function_exists('jltma_megamenu')) {
     function jltma_megamenu()
     {
-        return  Master_Menu::get_instance();
+        return Master_Menu::get_instance();
     }
 }
 

@@ -90,11 +90,11 @@ JLTMA_Megamenu_Assets::get_instance();
 
 
 // // Mega Menu
-// if (!function_exists('jltma_megamenu_assets')) {
-//     function jltma_megamenu_assets()
-//     {
-//         return JLTMA_Megamenu_Assets::get_instance();
-//     }
-// }
+if (!function_exists('jltma_megamenu_assets')) {
+    function jltma_megamenu_assets()
+    {
+        return JLTMA_Megamenu_Assets::get_instance();
+    }
+}
 
-// jltma_megamenu_assets();
+jltma_megamenu_assets();
