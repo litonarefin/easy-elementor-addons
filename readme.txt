@@ -384,10 +384,18 @@ Paste on your Local Computer
 
 
 == Changelog ==
-= 1.6.1 (27-03-2021) =
+= 1.6.1 (24-04-2021) =
+* Fixed: Mega Menu REST API data not saving issue fixed. Thanks @toki666, Support URL:https://wordpress.org/support/topic/mega-menu-not-save
+* Fixed: Mega Menu not working issue fixed
+* Fixed: Dual Heading: Description alignment not working
+* Fixed: Cross-Site Scripting(XSS) for widget issue fixed - Dual Heading, Accordion, Animated Headlines, Gradient Headline, Blog, Flipbox, Image Carousel, Image Hover Effects, Team Members Slider,
 * Fixed: Timeline: Icon not working issue fixed
-* Fixed: Mega Menu data not saving issue fixed. Thanks @, Support URL:
-* Fixed: MA Comments 500 error issue fixed. Thanks @, Support URL:
+* Updated: MA Search color not working issue fixed. Border, Padding added for Search Icon
+* Fixed: Debug warnings 'thumbnail_size' for Image Hover Effect, Team Member issue fixed
+* Fixed: "News Ticker" content not showing as slide. When hover there is a URL but no text issue fixed
+* Fixed: "Dual Heading" Description alignment not working issue fixed
+* Fixed: "Team Slider" - overlapping content on Fade Effect for Team Carousel issue fixed
+* Fixed: "Team Slider" - Style>Position not working issue fixed
 
 
 = 1.6.0 (27-03-2021) =

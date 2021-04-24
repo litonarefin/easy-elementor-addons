@@ -293,13 +293,13 @@ if (!class_exists('JLTMA_Addon_Elements')) {
                         //     'docs_url'           => '',
                         //     'tuts_url'           => ''
                         // ],
-                        [
-                            'key'                => 'ma-image-carousel',
-                            'title'              => esc_html__('Image Carousel', MELA_TD),
-                            'demo_url'           => '',
-                            'docs_url'           => '',
-                            'tuts_url'           => ''
-                        ],
+                        // [
+                        //     'key'                => 'ma-image-carousel',
+                        //     'title'              => esc_html__('Image Carousel', MELA_TD),
+                        //     'demo_url'           => '',
+                        //     'docs_url'           => '',
+                        //     'tuts_url'           => ''
+                        // ],
                         // [
                         //     'key'                => 'ma-logo-slider',
                         //     'title'              => esc_html__('Logo Slider', MELA_TD),

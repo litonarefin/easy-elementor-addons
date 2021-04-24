@@ -1379,8 +1379,8 @@
         /**** MA Image Carousel ****/
         MA_Image_Carousel: function ($scope, $) {
 
-            try {
-                (function ($) {
+            // try {
+            //     (function ($) {
 
                 var elementSettings     = getElementSettings( $scope ),
                     uniqueId 		    = getUniqueLoopScopeId( $scope ),
@@ -1505,11 +1505,11 @@
                 Master_Addons.MA_Image_Carousel.init();
 
 
-                })(jQuery);
-            } catch (e) {
-                //We can also throw from try block and catch it here
-                // No Error Show
-            }
+            //     })(jQuery);
+            // } catch (e) {
+            //     //We can also throw from try block and catch it here
+            //     // No Error Show
+            // }
         },
 
 
