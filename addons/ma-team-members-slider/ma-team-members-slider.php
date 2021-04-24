@@ -644,6 +644,7 @@ class Team_Slider extends Widget_Base
 						{{WRAPPER}} .ma-el-team-member-circle,
 						{{WRAPPER}} .ma-el-team-member-social-left,
 						{{WRAPPER}} .ma-el-team-members-slider-section,
+						{{WRAPPER}} .swiper-container-fade .swiper-slide,
 						{{WRAPPER}} .ma-el-team-member-rounded' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .gridder .gridder-show' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} #animation_svg_04 circle' => 'fill: {{VALUE}}'
@@ -708,41 +709,41 @@ class Team_Slider extends Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'ma_el_team_carousel_arrows_position',
-			[
-				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Position', MELA_TD),
-				'default'		=> 'middle',
-				'options' 		=> [
-					'top' 		=> __('Top', MELA_TD),
-					'middle' 	=> __('Middle', MELA_TD),
-					'bottom' 	=> __('Bottom', MELA_TD),
-				],
-				'condition'		=> [
-					'carousel_arrows'         => 'yes',
-					'carousel_direction' => 'horizontal',
-				]
-			]
-		);
+		// $this->add_control(
+		// 	'ma_el_team_carousel_arrows_position',
+		// 	[
+		// 		'type' 			=> Controls_Manager::SELECT,
+		// 		'label' 		=> __('Position', MELA_TD),
+		// 		'default'		=> 'middle',
+		// 		'options' 		=> [
+		// 			'top' 		=> __('Top', MELA_TD),
+		// 			'middle' 	=> __('Middle', MELA_TD),
+		// 			'bottom' 	=> __('Bottom', MELA_TD),
+		// 		],
+		// 		'condition'		=> [
+		// 			'carousel_arrows'         => 'yes',
+		// 			'carousel_direction' => 'horizontal',
+		// 		]
+		// 	]
+		// );
 
-		$this->add_control(
-			'ma_el_team_carousel_arrows_position_vertical',
-			[
-				'type' 			=> Controls_Manager::SELECT,
-				'label' 		=> __('Position', MELA_TD),
-				'default'		=> 'center',
-				'options' 		=> [
-					'left' 		=> __('Left', MELA_TD),
-					'center' 	=> __('Center', MELA_TD),
-					'right' 	=> __('Right', MELA_TD),
-				],
-				'condition'		=> [
-					'carousel_arrows'         => 'yes',
-					'carousel_direction' => 'vertical'
-				]
-			]
-		);
+		// $this->add_control(
+		// 	'ma_el_team_carousel_arrows_position_vertical',
+		// 	[
+		// 		'type' 			=> Controls_Manager::SELECT,
+		// 		'label' 		=> __('Position', MELA_TD),
+		// 		'default'		=> 'center',
+		// 		'options' 		=> [
+		// 			'left' 		=> __('Left', MELA_TD),
+		// 			'center' 	=> __('Center', MELA_TD),
+		// 			'right' 	=> __('Right', MELA_TD),
+		// 		],
+		// 		'condition'		=> [
+		// 			'carousel_arrows'    => 'yes',
+		// 			'carousel_direction' => 'vertical'
+		// 		]
+		// 	]
+		// );
 
 
 		$this->add_responsive_control(

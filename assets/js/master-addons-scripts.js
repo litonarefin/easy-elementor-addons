@@ -1420,7 +1420,7 @@
                 }
 
 
-                var swiper = null,
+                var image_carousel = null,
                     settings = {
                         scope : $scope,
                         id : uniqueId,
@@ -1491,7 +1491,7 @@
                     };
 
                 Master_Addons.MA_Image_Carousel.init = function() {
-                    swiper = Master_Addons.MA_Carousel( $swiper, settings );
+                    image_carousel = Master_Addons.MA_Carousel( $swiper, settings );
                 };
 
                 Master_Addons.onElementRemove( $scope, function() {
