@@ -2233,10 +2233,11 @@ class Timeline extends Widget_Base
 		$this->add_control(
 			'ma_el_timeline_points_content',
 			[
-				'label'   => __('Type', MELA_TD),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'icons',
-				'options' => [
+				'label'     => __('Type', MELA_TD),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'icons',
+				'separator' => 'after',
+				'options'   => [
 					'default' => __('Default', MELA_TD),
 					'icons'   => __('Icons', MELA_TD),
 					'image'   => __('Image', MELA_TD),
@@ -2865,6 +2866,8 @@ class Timeline extends Widget_Base
 									default:
 										$point_content = $this->ma_timeline_points_global_points();
 								}
+							} else {
+								$point_content = $this->ma_timeline_points_global_points();
 							}
 	?>
 		<div <?php echo $this->get_render_attribute_string($item_key); ?>>
