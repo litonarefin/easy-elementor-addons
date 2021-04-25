@@ -2,7 +2,7 @@
 Contributors: jwthemeltd, litonice13, masteraddons
 Tags: elementor, elementor addon, elementor widget, clickable column, essential widget, custom css elements, after before image comparison, image hover effects, header & footer builder, template import, elementor addons, elementor extensions,  elementor modules, elementor templates, comment form builder, mega menu, header footer builder, elements, page builder addons,addons, jewletheme, masteraddons
 Requires at least: 4.0
-Tested up to: 5.7
+Tested up to: 5.7.1
 Requires PHP: 5.3
 Stable tag: trunk
 License: GPLv2
@@ -384,6 +384,10 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.6.2 (25-04-2021) =
+* Fixed: Admin area text "Master Addons for ElementorMaster Addons" for network levels issue fixed. Thanks @sneoo4 Support URL: https://wordpress.org/support/topic/text-master-addons-for-elementormaster-addons-appear-in-admin-area/
+
+
 = 1.6.1 (24-04-2021) =
 * Fixed: Mega Menu REST API data not saving issue fixed. Thanks @toki666, Support URL:https://wordpress.org/support/topic/mega-menu-not-save
 * Fixed: Mega Menu not working issue fixed

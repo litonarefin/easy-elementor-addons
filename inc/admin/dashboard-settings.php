@@ -101,8 +101,8 @@ class Master_Addons_Admin_Settings
 		} else {
 			$jltma_logo_image = MELA_IMAGE_DIR . 'icon.png';
 		}
-		$page_title = (isset($jltma_white_label_setting['jltma_wl_plugin_menu_label']) && $jltma_white_label_setting['jltma_wl_plugin_menu_label']) ? $jltma_white_label_setting['jltma_wl_plugin_menu_label'] : _e('Master Addons for Elementor', MELA_TD);
-		$menut_label = (isset($jltma_white_label_setting['jltma_wl_plugin_menu_label']) && $jltma_white_label_setting['jltma_wl_plugin_menu_label']) ? $jltma_white_label_setting['jltma_wl_plugin_menu_label'] : _e('Master Addons', MELA_TD);
+		$page_title = (isset($jltma_white_label_setting['jltma_wl_plugin_menu_label']) && $jltma_white_label_setting['jltma_wl_plugin_menu_label']) ? $jltma_white_label_setting['jltma_wl_plugin_menu_label'] : __('Master Addons for Elementor', MELA_TD);
+		$menut_label = (isset($jltma_white_label_setting['jltma_wl_plugin_menu_label']) && $jltma_white_label_setting['jltma_wl_plugin_menu_label']) ? $jltma_white_label_setting['jltma_wl_plugin_menu_label'] : __('Master Addons', MELA_TD);
 		add_menu_page(
 			$page_title, // Page Title
 			$menut_label,    // Menu Title
