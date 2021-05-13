@@ -1718,13 +1718,15 @@ class Image_Carousel extends Widget_Base
 			</div> <!-- swiper-wrapper -->
 
 
-			<?php
-				$this->render_swiper_navigation();
-				$this->render_swiper_pagination();
-			?>
+
 
 		</div>
 		<!--/.ma-image-carousel-->
+
+		<?php
+				$this->render_swiper_navigation();
+				$this->render_swiper_pagination();
+		?>
 
 	<?php
 			}

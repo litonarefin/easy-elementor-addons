@@ -384,6 +384,10 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.6.3 (13-05-2021) =
+* Updated: Team Slider, Image Carousel Arrows & Pagination re-structured. Outside arrows not working issue fixed
+* Fixed: Oceanwp theme conflicts with bootstrap.min.css file issue fixed
+
 = 1.6.2 (25-04-2021) =
 * Fixed: Admin area text "Master Addons for ElementorMaster Addons" for network levels issue fixed. Thanks @sneoo4 Support URL: https://wordpress.org/support/topic/text-master-addons-for-elementormaster-addons-appear-in-admin-area/
 

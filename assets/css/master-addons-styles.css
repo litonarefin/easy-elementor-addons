@@ -9,7 +9,6 @@ body {
     background-image: -webkit-gradient(linear, right top, left top, from(#e4f1f9), to(#e1f9f1));
     background-image: linear-gradient(to left, #e4f1f9 0%, #e1f9f1 100%);
 }
-
 .jltma-btn {
     background: #620acc;
     border: none;
@@ -8393,6 +8392,17 @@ ul.slick-dots li.slick-active {
 .jltma-swiper__pagination--horizontal .swiper-pagination-bullet:first-child {
     margin-left: 0px !important;
 }
+.jltma-swiper__pagination.jltma-swiper__pagination--outside {
+    position: initial;
+    margin-top: 15px;
+}
+.jltma-swiper__pagination.jltma-swiper__pagination--inside {
+    bottom: 10px;
+    width: 100%;
+}
+.swiper-pagination-bullet {
+    margin: 0 3px;
+}
 @media (min-width: 768px) {
     .ma-el-blog-list-default .ma-el-post-content {
         margin-top: 0;
@@ -15535,7 +15545,8 @@ ul.jltma-toggle-content-controls {
     align-items: center;
     justify-content: flex-end;
 }
-.jltma-swiper__navigation--middle.jltma-swiper__navigation--center .jltma-swiper__button {
+.jltma-swiper__navigation--inside.jltma-swiper__navigation--middle.jltma-swiper__navigation--center
+    .jltma-swiper__button {
     top: inherit;
     transform: none;
 }
@@ -15552,9 +15563,6 @@ ul.jltma-toggle-content-controls {
 .jltma-swiper__navigation--outside .jltma-arrow--next {
     right: -120px;
 }
-.jltma-swiper__navigation--outside.jltma-swiper__navigation--top {
-    top: -130px;
-}
 .jltma-swiper__navigation--outside.jltma-swiper__navigation--top.jltma-swiper__navigation--left .jltma-arrow--prev {
     left: 0;
 }
@@ -15565,10 +15573,6 @@ ul.jltma-toggle-content-controls {
 .jltma-swiper__navigation--outside.jltma-swiper__navigation--top.jltma-swiper__navigation--center,
 .jltma-swiper__navigation--outside.jltma-swiper__navigation--bottom.jltma-swiper__navigation--center {
     align-items: center;
-}
-.jltma-swiper__navigation--outside.jltma-swiper__navigation--top.jltma-swiper__navigation--center .jltma-arrow,
-.jltma-swiper__navigation--outside.jltma-swiper__navigation--bottom.jltma-swiper__navigation--center .jltma-arrow {
-    position: initial;
 }
 .jltma-swiper__navigation--outside.jltma-swiper__navigation--top.jltma-swiper__navigation--right .jltma-arrow--prev {
     right: 120px;
@@ -15591,9 +15595,6 @@ ul.jltma-toggle-content-controls {
     left: 130px;
     right: inherit;
 }
-.jltma-swiper__navigation--outside.jltma-swiper__navigation--bottom {
-    bottom: -130px;
-}
 .jltma-swiper__navigation--outside.jltma-swiper__navigation--bottom.jltma-swiper__navigation--left .jltma-arrow--prev {
     left: 0;
 }
@@ -15612,8 +15613,13 @@ ul.jltma-toggle-content-controls {
     align-items: center;
     justify-content: center;
 }
-.jltma-swiper__navigation--outside.jltma-swiper__navigation--middle.jltma-swiper__navigation--center .jltma-arrow {
-    position: initial;
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--middle.jltma-swiper__navigation--center
+    .jltma-swiper__button--prev {
+    left: -140px;
+}
+.jltma-swiper__navigation--outside.jltma-swiper__navigation--middle.jltma-swiper__navigation--center
+    .jltma-swiper__button--next {
+    right: -140px;
 }
 .jltma-gallery-slider__gallery .swiper-container-vertical .jltma-gallery__item {
     overflow: hidden;

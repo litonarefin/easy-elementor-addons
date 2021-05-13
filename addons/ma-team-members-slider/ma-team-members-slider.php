@@ -1864,6 +1864,7 @@ class Team_Slider extends Widget_Base
 				],
 				'condition'		=> [
 					'carousel_arrows' 	=> 'yes',
+					'arrows_placement' 	=> 'inside',
 				]
 			]
 		);
@@ -2398,12 +2399,12 @@ Customization Options.</span>'
 					?>
 				</div> <!-- swiper-wrapper -->
 
-				<?php
-				$this->render_swiper_navigation();
-				$this->render_swiper_pagination();
-				?>
-
 			</div>
+
+			<?php
+			$this->render_swiper_navigation();
+			$this->render_swiper_pagination();
+			?>
 
 		<?php } // carousel layout
 		?>
