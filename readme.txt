@@ -2,7 +2,7 @@
 Contributors: jwthemeltd, litonice13, masteraddons
 Tags: elementor, elementor addon, elementor widget, clickable column, essential widget, custom css elements, after before image comparison, image hover effects, header & footer builder, template import, elementor addons, elementor extensions,  elementor modules, elementor templates, comment form builder, mega menu, header footer builder, elements, page builder addons,addons, jewletheme, masteraddons
 Requires at least: 4.0
-Tested up to: 5.7.1
+Tested up to: 5.7.2
 Requires PHP: 5.3
 Stable tag: trunk
 License: GPLv2
@@ -384,6 +384,10 @@ Paste on your Local Computer
 
 
 == Changelog ==
+= 1.6.4 (30-05-2021) =
+* Fixed: Many "MA Icons" icons showing issue fixed.Thanks to @slipperyman, Support URL: https://wordpress.org/support/topic/many-ma-icons/
+* Added: Floating Effect was removed, it's added again to work smoothly.
+
 = 1.6.3 (30-05-2021) =
 * Updated: Team Slider, Image Carousel Arrows & Pagination re-structured. Outside arrows not working issue fixed
 * Fixed: Oceanwp theme conflicts with bootstrap.min.css file issue fixed
