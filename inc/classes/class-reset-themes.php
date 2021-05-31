@@ -28,6 +28,12 @@ class Jltma_Reset_Themes_Conflicts
 
         // wp_dequeue_script( 'scriptname' );
 
+        //Stratus
+        if ('Stratus' == $theme->name || 'Stratus' == $theme->parent_theme) {
+            wp_dequeue_style('jltma-bootstrap');
+            // wp_dequeue_script('jltma-bootstrap');
+        }
+
         //OceanWP
         if ('OceanWP' == $theme->name || 'OceanWP' == $theme->parent_theme) {
             wp_dequeue_style('jltma-bootstrap');

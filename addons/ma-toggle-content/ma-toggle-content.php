@@ -134,7 +134,7 @@ class Toggle_Content extends Widget_Base
         //     ]
         // );
 
-        $repeater = new Repeater();
+        // $repeater = new Repeater();
 
         $repeater->add_control(
             'jltma_toggle_content_icon',
@@ -265,20 +265,20 @@ class Toggle_Content extends Widget_Base
         $this->add_control(
             'jltma_toggle_content_elements',
             [
-                'label'                 => esc_html__('Elements', MELA_TD),
-                'type'                  => Controls_Manager::REPEATER,
-                'fields' 	            => $repeater->get_controls(),
-                'default'               => [
+                'label'   => esc_html__('Elements', MELA_TD),
+                'type'    => Controls_Manager::REPEATER,
+                'fields'  => $repeater->get_controls(),
+                'default' => [
                     [
-                        'jltma_toggle_content_text'     => '',
-                        'jltma_toggle_content'          => esc_html__('I am the content ready to be toggled', MELA_TD),
+                        'jltma_toggle_content_text' => '',
+                        'jltma_toggle_content'      => esc_html__('I am the content ready to be toggled', MELA_TD),
                     ],
                     [
-                        'jltma_toggle_content_text'     => '',
-                        'jltma_toggle_content'          => esc_html__('I am the content of another element ready to be toggled', MELA_TD),
+                        'jltma_toggle_content_text' => '',
+                        'jltma_toggle_content'      => esc_html__('I am the content of another element ready to be toggled', MELA_TD),
                     ],
                 ],
-                'title_field'             => '{{{ jltma_toggle_content_text }}}',
+                'title_field' => '{{{ jltma_toggle_content_text }}}',
             ]
         );
 
@@ -956,7 +956,9 @@ class Toggle_Content extends Widget_Base
 ?>
         <div <?php echo $this->get_render_attribute_string('wrapper'); ?>>
             <div <?php echo $this->get_render_attribute_string('toggle'); ?>>
+
                 <?php if ('before' === $settings['jltma_toggle_content_position']) $this->render_toggle(); ?>
+
                 <div <?php echo $this->get_render_attribute_string('jltma_toggle_content_elements'); ?>>
                     <?php foreach ($settings['jltma_toggle_content_elements'] as $index => $item) {
                         $element_key = $this->get_repeater_setting_key('element', 'jltma_toggle_content_elements', $index);
@@ -968,22 +970,22 @@ class Toggle_Content extends Widget_Base
                             ]
                         ]);
 
-                    ?><div <?php echo $this->get_render_attribute_string($element_key); ?>><?php
-
-                                                                                            switch ($item['jltma_toggle_content_type']) {
-                                                                                                case 'content':
-                                                                                                    $this->render_text($index, $item);
-                                                                                                    break;
-                                                                                                case 'template':
-                                                                                                    $template_key = 'content_' . $item['content_template_type'] . '_template_id';
-                                                                                                    if (array_key_exists($template_key, $item))
-                                                                                                        TemplateControls::render_template_content($item[$template_key]);
-                                                                                                    break;
-                                                                                                default:
-                                                                                                    break;
-                                                                                            }
-                                                                                            ?></div><?php
-                                                                                                } ?>
+                    ?><div <?php echo $this->get_render_attribute_string($element_key); ?>>
+                            <?php
+                            switch ($item['jltma_toggle_content_type']) {
+                                case 'content':
+                                    $this->render_text($index, $item);
+                                    break;
+                                case 'template':
+                                    $template_key = 'content_' . $item['content_template_type'] . '_template_id';
+                                    if (array_key_exists($template_key, $item))
+                                        TemplateControls::render_template_content($item[$template_key]);
+                                    break;
+                                default:
+                                    break;
+                            }
+                            ?></div>
+                    <?php } ?>
                 </div>
                 <?php if ('after' === $settings['jltma_toggle_content_position']) $this->render_toggle(); ?>
             </div>
@@ -996,104 +998,110 @@ class Toggle_Content extends Widget_Base
     public function render_toggle()
     {
         $settings = $this->get_settings_for_display();
+    ?>
+        <div <?php echo $this->get_render_attribute_string('controls-wrapper'); ?>>
+            <div <?php echo $this->get_render_attribute_string('indicator'); ?>></div>
 
-    ?><div <?php echo $this->get_render_attribute_string('controls-wrapper'); ?>>
-            <div <?php echo $this->get_render_attribute_string('indicator'); ?>></div><?php
+            <?php if ($settings['jltma_toggle_content_elements']) { ?>
 
-                                                                                        if ($settings['jltma_toggle_content_elements']) {
+                <ul <?php echo $this->get_render_attribute_string('controls'); ?>>
+                    <?php
+                    foreach ($settings['jltma_toggle_content_elements'] as $index => $item) {
+                        $control_key = $this->get_repeater_setting_key('control', 'jltma_toggle_content_elements', $index);
+                        $control_text_key = $this->get_repeater_setting_key('control-text', 'jltma_toggle_content_elements', $index);
 
-                                                                                        ?><ul <?php echo $this->get_render_attribute_string('controls'); ?>><?php
-                                                                                                                                                            foreach ($settings['jltma_toggle_content_elements'] as $index => $item) {
-                                                                                                                                                                $control_key = $this->get_repeater_setting_key('control', 'jltma_toggle_content_elements', $index);
-                                                                                                                                                                $control_text_key = $this->get_repeater_setting_key('control-text', 'jltma_toggle_content_elements', $index);
+                        $has_icon = !empty($item['icon']) || !empty($item['jltma_toggle_content_icon']['value']);
 
-                                                                                                                                                                $has_icon = !empty($item['icon']) || !empty($item['jltma_toggle_content_icon']['value']);
+                        $this->add_render_attribute([
+                            $control_key => [
+                                'class' => [
+                                    'jltma-toggle-content-controls__item',
+                                    'elementor-repeater-item-' . $item['_id'],
+                                ]
+                            ],
+                            $control_text_key => [
+                                'class' => 'jltma-toggle-content-controls__text',
+                                'unselectable' => 'on',
+                            ],
+                        ]);
 
-                                                                                                                                                                $this->add_render_attribute([
-                                                                                                                                                                    $control_key => [
-                                                                                                                                                                        'class' => [
-                                                                                                                                                                            'jltma-toggle-content-controls__item',
-                                                                                                                                                                            'elementor-repeater-item-' . $item['_id'],
-                                                                                                                                                                        ]
-                                                                                                                                                                    ],
-                                                                                                                                                                    $control_text_key => [
-                                                                                                                                                                        'class' => 'jltma-toggle-content-controls__text',
-                                                                                                                                                                        'unselectable' => 'on',
-                                                                                                                                                                    ],
-                                                                                                                                                                ]);
+                        if ('' !== $item['jltma_toggle_content_active_color']) {
+                            $this->add_render_attribute($control_key, 'data-color', $item['jltma_toggle_content_active_color']);
+                        }
 
-                                                                                                                                                                if ('' !== $item['jltma_toggle_content_active_color']) {
-                                                                                                                                                                    $this->add_render_attribute($control_key, 'data-color', $item['jltma_toggle_content_active_color']);
-                                                                                                                                                                }
+                        if (!empty($item['jltma_toggle_content_text'])) {
+                            $this->add_render_attribute($control_key, 'class', 'jltma--is-empty');
+                        }
 
-                                                                                                                                                                if (!empty($item['jltma_toggle_content_text'])) {
-                                                                                                                                                                    $this->add_render_attribute($control_key, 'class', 'jltma--is-empty');
-                                                                                                                                                                }
+                    ?>
+                        <li <?php echo $this->get_render_attribute_string($control_key); ?>>
+                            <?php
 
-                                                                                                                                                            ?><li <?php echo $this->get_render_attribute_string($control_key); ?>><?php
+                            if ($has_icon) {
+                                $this->render_toggle_item_icon($index, $item);
+                            }
 
-                                                                                                                                                                                                                                    if ($has_icon) {
-                                                                                                                                                                                                                                        $this->render_toggle_item_icon($index, $item);
-                                                                                                                                                                                                                                    }
+                            if (!empty($item['jltma_toggle_content_text']) && !$has_icon) {
+                            ?>
+                                <span <?php echo $this->get_render_attribute_string($control_text_key); ?>>
+                                <?php }
 
-                                                                                                                                                                                                                                    if (!empty($item['jltma_toggle_content_text']) && !$has_icon) {
-                                                                                                                                                                                                                                    ?><span <?php echo $this->get_render_attribute_string($control_text_key); ?>><?php }
+                            if (!empty($item['jltma_toggle_content_text'])) {
+                                echo $item['jltma_toggle_content_text'];
+                            } else if (!$has_icon) {
+                                echo '&nbsp;';
+                            }
 
-                                                                                                                                                                                                                                                                                                                if (!empty($item['jltma_toggle_content_text'])) {
-                                                                                                                                                                                                                                                                                                                    echo $item['jltma_toggle_content_text'];
-                                                                                                                                                                                                                                                                                                                } else if (!$has_icon) {
-                                                                                                                                                                                                                                                                                                                    echo '&nbsp;';
-                                                                                                                                                                                                                                                                                                                }
-
-                                                                                                                                                                                                                                                                                                                if (!empty($item['jltma_toggle_content_text']) && !$has_icon) {
-                                                                                                                                                                                                                                                                                                                    ?></span><?php }
-
-                                                                                                                                                                                                                                                        ?></li><?php
-                                                                                                                                                                                            }
-                                                                                                                                                                                                ?></ul><?php
-                                                                                                                                    }
-                                                                                                                                        ?>
-        </div><?php
-            }
-
-
-            protected function render_toggle_item_icon($index, $item)
-            {
-
-                $icon_key     = $this->get_repeater_setting_key('icon', 'jltma_toggle_content_elements', $index);
-
-                $migrated     = isset($item['__fa4_migrated']['jltma_toggle_content_icon']);
-                $is_new     = empty($item['icon']) && Icons_Manager::is_migration_allowed();
-
-                // $icon_migrated = isset($settings['__fa4_migrated']['jltma_search_icon']);
-                // $icon_is_new = empty($settings['jltma_search_icon_new']);
+                            if (!empty($item['jltma_toggle_content_text']) && !$has_icon) {
+                                ?>
+                                </span>
+                            <?php } ?>
+                        </li>
+                    <?php
+                    }
+                    ?>
+                </ul>
+            <?php } ?>
+        </div>
+    <?php
+    }
 
 
-                $this->add_render_attribute($icon_key, 'class', [
-                    'jltma-toggle-content-controls__icon',
-                    'jltma-icon',
-                    'jltma-icon-support--svg'
-                ]);
+    public function render_toggle_item_icon($index, $item)
+    {
+        $icon_key     = $this->get_repeater_setting_key('icon', 'jltma_toggle_content_elements', $index);
 
-                if ('' === $item['jltma_toggle_content_text']) {
-                    $this->add_render_attribute($icon_key, 'class', [
-                        'jltma-icon--flush',
-                    ]);
-                }
+        $migrated     = isset($item['__fa4_migrated']['jltma_toggle_content_icon']);
+        $is_new     = empty($item['icon']) && Icons_Manager::is_migration_allowed();
 
-                ?>
+        // $icon_migrated = isset($settings['__fa4_migrated']['jltma_search_icon']);
+        // $icon_is_new = empty($settings['jltma_search_icon_new']);
+
+        $this->add_render_attribute($icon_key, 'class', [
+            'jltma-toggle-content-controls__icon',
+            'jltma-icon',
+            'jltma-icon-support--svg'
+        ]);
+
+        if ('' === $item['jltma_toggle_content_text']) {
+            $this->add_render_attribute($icon_key, 'class', [
+                'jltma-icon--flush',
+            ]);
+        }
+
+    ?>
         <span <?php echo $this->get_render_attribute_string($icon_key); ?>>
             <?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-search', 'icon', $item['jltma_toggle_content_icon'], 'jltma_toggle_content_icon'); ?>
         </span>
 <?php
-            }
+    }
 
-            protected function render_text($index, $item)
-            {
-                echo $this->parse_text_editor($item['jltma_toggle_content']);
-            }
+    protected function render_text($index, $item)
+    {
+        echo $this->parse_text_editor($item['jltma_toggle_content']);
+    }
 
-            public function _content_template()
-            {
-            }
-        }
+    public function _content_template()
+    {
+    }
+}
