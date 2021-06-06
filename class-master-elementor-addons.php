@@ -218,6 +218,10 @@ if (!class_exists('Master_Elementor_Addons')) {
 				define('MELA_IMAGE_DIR', self::mela_plugin_dir_url() . '/assets/images/');
 			}
 
+			if (!defined('JLTMA_ASSETS')) {
+				define('JLTMA_ASSETS', self::mela_plugin_url() . '/assets/');
+			}
+
 			if (!defined('MELA_ADMIN_ASSETS')) {
 				define('MELA_ADMIN_ASSETS', self::mela_plugin_dir_url() . '/inc/admin/assets/');
 			}

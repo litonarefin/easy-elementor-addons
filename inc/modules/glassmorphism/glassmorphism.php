@@ -38,7 +38,7 @@ class Extension_Glassmorphism
         $section->add_control(
             'jltma_section_style_container_glassmorphism',
             array(
-                'label'     => MA_EL_BADGE . __(' MA Glassmorphism', MELA_TD),
+                'label'     => __(' MA Glassmorphism', MELA_TD),
                 'type'      => Controls_Manager::HEADING,
                 'separator' => 'before'
             )
@@ -49,7 +49,7 @@ class Extension_Glassmorphism
             [
                 'type'            => Controls_Manager::RAW_HTML,
                 'raw'             => __('Not Supported Browers: Mozilla Firefox ', MELA_TD),
-                'content_classes' => 'jltma-panel-notice',
+                'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning',
             ]
         );
 
