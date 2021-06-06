@@ -33,18 +33,18 @@ class Extension_Icons_Manager_Extend
     {
         // Adds Icons Library options
         // ---------------------------------------------------------------------
-        // $tabs['elementor-icons'] = [
-        //     'name'          => 'elementor-icons',
-        //     'label'         => __('Elementor Icons', MELA_TD),
-        //     'url'           => JLTMA_ASSETS . 'fonts/elementor-icon/elementor-icon-style.min.css',
-        //     'enqueue'       => [JLTMA_ASSETS . 'fonts/elementor-icon/elementor-icon-style.min.css'],
-        //     'prefix'        => 'icon-',
-        //     'displayPrefix' => 'elementor',
-        //     'labelIcon'     => 'jltma jltma-logo elementor icon-elementor jltma-font-manager',
-        //     'ver'           => JLTMA_PLUGIN_VERSION,
-        //     'fetchJson'     => JLTMA_ASSETS . 'fonts/elementor-icon/elementor-icons.js?v=' . JLTMA_PLUGIN_VERSION,
-        //     'native'        => false,
-        // ];
+        $tabs['feather-icons'] = [
+            'name'          => 'feather-icons',
+            'label'         => __('Feather Icons', MELA_TD),
+            'url'           => JLTMA_ASSETS . 'fonts/feather-icon/feather-icon-style.min.css',
+            'enqueue'       => [JLTMA_ASSETS . 'fonts/feather-icon/feather-icon-style.min.css'],
+            'prefix'        => 'icon-',
+            'displayPrefix' => 'feather',
+            'labelIcon'     => 'jltma jltma-logo feather icon-feather jltma-font-manager',
+            'ver'           => JLTMA_PLUGIN_VERSION,
+            'fetchJson'     => JLTMA_ASSETS . 'fonts/feather-icon/exclusive-icons.js?v=' . JLTMA_PLUGIN_VERSION,
+            'native'        => false,
+        ];
 
         $tabs['remix-icons'] = [
             'name'          => 'remix-icons',
