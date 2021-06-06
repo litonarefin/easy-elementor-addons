@@ -162,7 +162,7 @@ if (!class_exists('JLTMA_Addon_Extensions')) {
                             'tuts_url'      => ''
                         ],
                         [
-                            'key'           => 'icons-manager',
+                            'key'           => 'icons-extended',
                             'title'         => esc_html__('Icons Manager', MELA_TD),
                             'demo_url'      => '',
                             'docs_url'      => '',
