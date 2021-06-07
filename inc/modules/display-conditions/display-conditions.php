@@ -115,13 +115,13 @@ class Display_Conditions extends JLTMA_Extension_Prototype
 		$element->add_control(
 			'jltma_display_conditions_enable',
 			[
-				'label'			=> esc_html__('Display Conditions', MELA_TD),
-				'type' 			=> Controls_Manager::SWITCHER,
-				'default' 		=> '',
-				'label_on' 		=> esc_html__('Yes', MELA_TD),
-				'label_off' 	=> esc_html__('No', MELA_TD),
-				'return_value' 	=> 'yes',
-				'frontend_available'	=> true,
+				'label'              => esc_html__('Display Conditions', MELA_TD),
+				'type'               => Controls_Manager::SWITCHER,
+				'default'            => '',
+				'label_on'           => esc_html__('Yes', MELA_TD),
+				'label_off'          => esc_html__('No', MELA_TD),
+				'return_value'       => 'yes',
+				'frontend_available' => true,
 			]
 		);
 
@@ -129,15 +129,16 @@ class Display_Conditions extends JLTMA_Extension_Prototype
 			$element->add_control(
 				'jltma_display_conditions_output',
 				[
-					'label'		=> esc_html__('Output HTML', MELA_TD),
-					'description' => sprintf(esc_html__('If enabled, the HTML code will exist on the page but the %s will be hidden using CSS.', MELA_TD), $element_type),
-					'default'	=> 'yes',
-					'type' 		=> Controls_Manager::SWITCHER,
-					'label_on' 		=> esc_html__('Yes', MELA_TD),
-					'label_off' 	=> esc_html__('No', MELA_TD),
-					'return_value' 	=> 'yes',
+					'label'              => esc_html__('Output HTML', MELA_TD),
+					'description'        => sprintf(esc_html__('If enabled, the HTML code will exist on the page but the %s will be hidden using CSS.', MELA_TD), $element_type),
+					'default'            => 'yes',
+					'type'               => Controls_Manager::SWITCHER,
+					'label_on'           => esc_html__('Yes', MELA_TD),
+					'label_off'          => esc_html__('No', MELA_TD),
+					'return_value'       => 'yes',
 					'frontend_available' => true,
-					'condition'	=> [
+					'content_classes'    => 'elementor-panel-alert elementor-panel-alert-warning',
+					'condition'          => [
 						'jltma_display_conditions_enable' => 'yes',
 					],
 				]
@@ -147,12 +148,12 @@ class Display_Conditions extends JLTMA_Extension_Prototype
 		$element->add_control(
 			'jltma_display_conditions_relation',
 			[
-				'label'		=> esc_html__('Display on', MELA_TD),
-				'type' 		=> Controls_Manager::SELECT,
-				'default' 	=> 'all',
-				'options' 	=> [
-					'all' 		=> esc_html__('All conditions met', MELA_TD),
-					'any' 		=> esc_html__('Any condition met', MELA_TD),
+				'label'   => esc_html__('Display on', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'all',
+				'options' => [
+					'all' => esc_html__('All conditions met', MELA_TD),
+					'any' => esc_html__('Any condition met', MELA_TD),
 				],
 				'condition'	=> [
 					'jltma_display_conditions_enable' => 'yes',
@@ -235,7 +236,7 @@ class Display_Conditions extends JLTMA_Extension_Prototype
 			'jltma_condition_time_value',
 			[
 				'label'		=> esc_html__('Before', MELA_TD),
-				'type' 		=> \Elementor\Controls_Manager::DATE_TIME,
+				'type' 		=> Controls_Manager::DATE_TIME,
 				'picker_options' => [
 					'dateFormat' 	=> "H:i",
 					'enableTime' 	=> true,
@@ -252,11 +253,11 @@ class Display_Conditions extends JLTMA_Extension_Prototype
 		$repeater->add_control(
 			'jltma_condition_day_value',
 			[
-				'label'			=> esc_html__('Before', MELA_TD),
-				'type' 			=> Controls_Manager::SELECT2,
-				'placeholder'	=> esc_html__('Any', MELA_TD),
-				'multiple'		=> true,
-				'options' => [
+				'label'       => esc_html__('Before', MELA_TD),
+				'type'        => Controls_Manager::SELECT2,
+				'placeholder' => esc_html__('Any', MELA_TD),
+				'multiple'    => true,
+				'options'     => [
 					'1' => esc_html__('Monday', MELA_TD),
 					'2' => esc_html__('Tuesday', MELA_TD),
 					'3' => esc_html__('Wednesday', MELA_TD),
@@ -265,9 +266,9 @@ class Display_Conditions extends JLTMA_Extension_Prototype
 					'6' => esc_html__('Saturday', MELA_TD),
 					'7' => esc_html__('Sunday', MELA_TD),
 				],
-				'label_block'	=> true,
-				'default' 		=> 'Monday',
-				'condition' 	=> [
+				'label_block' => true,
+				'default'     => 'Monday',
+				'condition'   => [
 					'jltma_condition_key' => 'day',
 				],
 			]
@@ -491,20 +492,20 @@ class Display_Conditions extends JLTMA_Extension_Prototype
 		$element->add_control(
 			'jltma_display_conditions',
 			[
-				'label' 	=> esc_html__('Conditions', MELA_TD),
-				'type' 		=> Controls_Manager::REPEATER,
-				'default' 	=> [
+				'label'   => esc_html__('Conditions', MELA_TD),
+				'type'    => Controls_Manager::REPEATER,
+				'fields'  => $repeater->get_controls(),
+				'default' => [
 					[
-						'jltma_condition_key' 					=> 'authentication',
-						'jltma_condition_operator' 			=> 'is',
+						'jltma_condition_key'                  => 'authentication',
+						'jltma_condition_operator'             => 'is',
 						'jltma_condition_authentication_value' => 'authenticated',
 					],
 				],
 				'condition'		=> [
 					'jltma_display_conditions_enable' => 'yes',
 				],
-				'fields' 				=> $element->get_controls(),
-				'title_field' 	=> 'Condition',
+				'title_field' => 'Condition',
 			]
 		);
 	}
