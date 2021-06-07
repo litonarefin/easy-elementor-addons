@@ -387,6 +387,7 @@ Paste on your Local Computer
 = 1.6.5 (30-05-2021) =
 * Update: MA Toggle Content - Label field cann't change issue fixed, fixed Icon picker issue also.
 * Dependency: Stratus Theme supports given
+* Fixed: Display Conditions not working issue fixed
 
 = 1.6.4 (30-05-2021) =
 * Fixed: Many "MA Icons" icons showing issue fixed.Thanks to @slipperyman, Support URL: https://wordpress.org/support/topic/many-ma-icons/
