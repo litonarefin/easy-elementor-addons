@@ -4,8 +4,8 @@
 ;(function($, window, document, undefined){
 
     $( window ).on( 'elementor:init', function() {
-        
-		
+
+
 		// Add "master-addons" specific css class to elementor body
         $('.elementor-editor-active').addClass('master-addons');
 
@@ -33,8 +33,8 @@
             });
         }
 
-        // End of Custom CSS	
-        
+        // End of Custom CSS
+
         var JltmaControlBaseDataView = elementor.modules.controls.BaseData;
 
 
@@ -52,7 +52,7 @@
         elementor.addControlView( 'jltma-visual-select', JltmaControlVisualSelectItemView );
 
 
-        
+
         // Enables the live preview for Animation Tranistions in Elementor Editor
         function jltmaOnGlobalOpenEditorForTranistions ( panel, model, view ) {
             view.listenTo( model.get( 'settings' ), 'change', function( changedModel ){
@@ -87,7 +87,7 @@
         elementor.hooks.addAction( 'panel/open_editor/column' , jltmaOnGlobalOpenEditorForTranistions );
         elementor.hooks.addAction( 'panel/open_editor/widget' , jltmaOnGlobalOpenEditorForTranistions );
 
-        
+
 
 
         // Query Control
@@ -186,6 +186,6 @@
         elementor.addControlView( 'jltma_query', JLTMA_ControlQuery );
 	} );
 
-    "use strict";!function(n){var e=function(){function n(){"elementor"in window&&"elementorFrontend"in window&&(this.document=elementor.documents.currentDocument,this.breakpoints=elementorFrontend.config.breakpoints,this.init())}var e=n.prototype;return e.init=function(){var n=this;this.document.container.children.forEach(function(e){n.updateBreakPointCSS(e)}),elementor.hooks.addAction("panel/open_editor/widget",function(e,t,o){n.delay(function(){n.addDevice(o)})}),elementor.hooks.addAction("panel/open_editor/section",function(e,t,o){n.delay(function(){n.runFromRootSection(o)})}),elementor.hooks.addAction("panel/open_editor/column",function(e,t,o){n.delay(function(){n.runFromRootSection(o)})})},e.delay=function(n,e,t){void 0===e&&(e=10),void 0===t&&(t=20);var o=setInterval(function(){n(),0>=t&&clearInterval(o)},e)},e.runFromRootSection=function(n){var e=this.getRootSection(n.container);e&&this.updateBreakPointCSS(e)},e.updateBreakPointCSS=function(n){var e=this;n.view&&this.addDevice(n.view),n.children.forEach(function(n){e.updateBreakPointCSS(n)})},e.getRootSection=function(n){return n.parent||console.log("Something went wrong"),n.parent&&"document"==n.parent.type&&"section"==n.type?n:this.getRootSection(n.parent)},e.addDevice=function(n){var e=n.controlsCSSParser.stylesheet;for(var t in this.breakpoints)if(!["xs","sm","md","lg","xxl"].includes(t)){var o=this.breakpoints[t].input1;void 0===o&&(o=this.breakpoints[t]),e.addDevice(t,o)}this.renderStyles(n)},e.renderStyles=function(n){n.renderStyles()},n}();n(window).load(function(){new e})}(jQuery);
+    !function(t){t(document).ready(function(){"jltma_custom_bp_data"in window&&t("#custom_breakpoints_page").length&&new Vue({el:"#custom_breakpoints_page",data:{show_pro_message:!1,disable_add_breakpoint:!1,default_devices:["desktop","tablet","mobile"],breakpoints:[]},computed:{total_custom_breakpoints(){return this.breakpoints.filter(function(t){return!this.in_array(t.key,this.default_devices)}.bind(this)).length},sorted_breakpoints(){var t;return t=(t=(t=this.breakpoints.map(function(t,e){return"max"in t&&(t.max=Number(t.max)),t})).sort(function(t,e){return"desktop"==e.key?-1:t.max<e.max?-1:1})).map(function(e,i){var a=t[i-1];return e.min=a?a.max+1:0,e.max>0&&e.max<=e.min&&(e.max=e.min+1),e})}},mounted(){this.isPro=!!jltma_custom_bp_data.is_pro,this.breakpoints=window.jltma_custom_bp_data.breakpoints.map(function(t,e){return t.isRecent=!1,t}),this.form_submits()},methods:{in_array:(t,e)=>e.indexOf(t)>-1,breakpoint_limit_checker(){return!this.isPro&&(this.total_custom_breakpoints>1?(this.show_pro_message=!0,this.disable_add_breakpoint=!0,!0):(this.show_pro_message=!1,this.disable_add_breakpoint=!1,!1))},input_focused(t){this.breakpoints.forEach(function(t){this.$set(t,"isRecent",!1)}.bind(this)),this.$set(t,"isRecent",!0)},add_breakpoint(){var t=this;if(!this.breakpoint_limit_checker()){this.breakpoints.forEach(function(e){t.$set(e,"isRecent",!1)});var e={key:Math.random().toString(36).substr(2,9),name:"Test",min:0,max:0,isDraft:!0,isRecent:!0};this.$set(this.breakpoints,this.breakpoints.length,e)}},remove_breakpoint(t){var e=this.breakpoints.findIndex(function(e){return e.key==t});this.breakpoints.splice(e,1),this.breakpoint_limit_checker()},breakpoint_update(t,e){e.max=Number(t.target.value)},get_form_data(){return this.breakpoints.filter(function(t){return!this.in_array(t.key,this.default_devices)}.bind(this)).map(function(t){return{label:t.name,default_value:t.max,direction:"max"}}.bind(this))},form_submits(){this.form_submit_import_breakpoints(),this.form_submit_reset_form(),this.form_submit_save_breakpoints()},form_submit_import_breakpoints(){jQuery("#elementor_settings_import_form").on("submit",function(t){t.preventDefault();var e=new FormData(jQuery(this)[0]);return jQuery.ajax({url:masteraddons.ajaxurl,type:"POST",data:e,dataType:"json",async:!0,cache:!1,contentType:!1,enctype:"multipart/form-data",processData:!1,success:function(t){"ok"==t&&(jQuery("#elementor_import_success").slideDown(),setTimeout(function(){window.location.reload()},1e3))}}),!1})},form_submit_reset_form(){jQuery("#elementor_settings_reset_form").on("submit",function(e){e.preventDefault();new FormData(jQuery(this)[0]);var i=t("#reset_form").val();return jQuery.ajax({url:masteraddons.ajaxurl,type:"POST",data:{security:i,action:"jltma_mcb_reset_settings"},dataType:"json",async:!0,cache:!1,success:function(t){"ok"==t&&(jQuery("#reset_success").slideDown(),setTimeout(function(){window.location.reload()},1e3))}}),!1})},form_submit_save_breakpoints(){var e=this;jQuery("#jlmta-cbp-form").on("submit",function(i){i.preventDefault();var a=t(this);a.addClass("loading"),t.ajax({url:masteraddons.ajaxurl,method:"POST",data:{form_fields:e.get_form_data(),security:t("#breakpoints_form").val(),action:"jltma_mcb_save_settings"},success:function(t){a.prepend('<div class="updated"><p>Saved Breakpoints</p></div>'),setTimeout(function(){a.removeClass("loading"),a.find(".updated").remove()},700)},error:function(t){console.log("failed",t)}})})}}})})}(jQuery);
 
 })(jQuery, window, document);

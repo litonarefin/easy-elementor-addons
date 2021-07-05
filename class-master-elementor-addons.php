@@ -89,6 +89,7 @@ if (!class_exists('Master_Elementor_Addons')) {
 
 			// Override Freemius Filters
 			ma_el_fs()->add_filter('support_forum_submenu', [$this, 'jltma_override_support_menu_text']);
+			ma_el_fs()->add_filter('support_forum_url', [$this, 'jltma_support_forum_url']);
 		}
 
 
@@ -105,6 +106,24 @@ if (!class_exists('Master_Elementor_Addons')) {
 		public function jltma_override_support_menu_text()
 		{
 			return __('Support', MELA_TD);
+		}
+
+
+		/**
+		 * Support Forum URL
+		 *
+		 * @param [type] $support_url and Pro Support
+		 *
+		 * @return void
+		 */
+		public function jltma_support_forum_url($support_url)
+		{
+			if (ma_el_fs()->is_premium()) {
+				$support_url = 'https://master-addons.com/contact-us/';
+			} else {
+				$support_url = 'https://wordpress.org/support/plugin/master-addons/';
+			}
+			return $support_url;
 		}
 
 

@@ -39,7 +39,14 @@
                             </li>
                             <li>
                                 <div class="addons-supports-list-content">
-                                    <a href="https://wordpress.org/support/plugin/master-addons/" target="_blank">
+                                    <?php 
+                                        if (ma_el_fs()->is_premium()) {
+                                            $support_url = 'https://master-addons.com/contact-us';
+                                        } else {
+                                            $support_url = 'https://wordpress.org/support/plugin/master-addons/';
+                                        }
+                                        ?>                                    
+                                    <a href="<?php echo esc_url($support_url);?>" target="_blank">
                                         <?php echo esc_html__('WordPress.org Support', MELA_TD); ?>
                                     </a>
 

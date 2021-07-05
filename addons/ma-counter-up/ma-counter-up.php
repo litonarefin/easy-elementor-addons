@@ -2,17 +2,17 @@
 
 namespace MasterAddons\Addons;
 
-use Elementor\Widget_Base;
-use Elementor\Controls_Manager;
-use Elementor\Utils;
-use Elementor\Repeater;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
+use \Elementor\Widget_Base;
+use \Elementor\Controls_Manager;
+use \Elementor\Utils;
+use \Elementor\Repeater;
+use \Elementor\Group_Control_Image_Size;
+use \Elementor\Group_Control_Background;
+use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Scheme_Typography;
+use \Elementor\Scheme_Color;
 
 
 /**
