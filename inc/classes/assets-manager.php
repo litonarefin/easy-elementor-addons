@@ -130,7 +130,6 @@ class Master_Addons_Assets
         $jltma_api_settings = get_option('jltma_api_save_settings');
 
         // Register Styles
-        wp_register_style('jltma-bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css');
 
         //Reveal
         wp_register_script('ma-el-reveal-lib', MELA_PLUGIN_URL . '/assets/vendor/reveal/revealFx.js', array('jquery'), MELA_VERSION, true);
@@ -140,16 +139,13 @@ class Master_Addons_Assets
         wp_register_script('ma-el-rellaxjs-lib', MELA_PLUGIN_URL . '/assets/vendor/rellax/rellax.min.js', array('jquery'), MELA_VERSION, true);
 
         // Register Scripts
-        wp_register_script('jltma-bootstrap', MELA_PLUGIN_URL . '/assets/js/bootstrap.min.js', array('jquery'), MELA_VERSION, true);
 
 
         // Enqueue Styles
-        wp_enqueue_style('jltma-bootstrap');
         wp_enqueue_style('master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css');
 
 
         // Enqueue Scripts
-        // wp_enqueue_script('jltma-bootstrap');
         wp_enqueue_script('master-addons-plugins', MELA_PLUGIN_URL . '/assets/js/plugins.js', ['jquery'], MELA_VERSION, true);
         wp_enqueue_script('master-addons-scripts', MELA_PLUGIN_URL . '/assets/js/master-addons-scripts.js', ['jquery'], MELA_VERSION, true);
 
@@ -171,131 +167,6 @@ class Master_Addons_Assets
             'nonce'           => 'master-addons-elementor',
         );
         wp_localize_script('master-addons-scripts', 'jltma_scripts', $localize_data);
-
-
-
-        // Addons specific Script/Styles Dependencies
-
-        // Need to Check Extensions
-        // if ( $is_activated_extensions['floating-effects'] ) {
-        // 	wp_enqueue_script( 'jltma-floating-effects' );
-        // }
-
-        //Mega Menu
-        // if ( $is_activated_extensions['mega-menu'] ) {
-        // 	wp_enqueue_style('jltma-bootstrap');
-        // 	wp_enqueue_script('jltma-bootstrap');
-        // }
-
-
-        //Progressbar
-        // if ( $is_activated_widget['ma-progressbar'] ) {
-        // 	wp_enqueue_script('master-addons-progressbar');
-        // 	wp_enqueue_script( 'master-addons-waypoints');
-        // }
-
-        //Team Members
-        // if ( $is_activated_widget['ma-team-members'] ) {
-        // 	wp_enqueue_style( 'gridder' );
-        // 	wp_enqueue_script( 'gridder' );
-        // 	wp_enqueue_script( 'jltma-owl-carousel' );
-        // }
-
-
-        //Restrict Content
-        // if ( $is_activated_widget['ma-restrict-content'] ) {
-        // 	wp_enqueue_style( 'fancybox' );
-        // 	wp_enqueue_script( 'fancybox' );
-        // }
-
-        //Creative Buttons
-        // if ( $is_activated_widget['ma-creative-buttons'] ) {
-        // 	// echo Master_Addons_Helper::jltma_elementor()->frontend->get_builder_content_for_display(
-        // 	// \Elementor\Plugin::$instance->editor->is_edit_mode()
-        // 	// \Elementor\Plugin::$instance->editor->is_edit_mode()
-        // 	// \Elementor\Plugin::$instance->preview->is_preview_mode()
-        // 	if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
-        // 		wp_enqueue_style( 'ma-creative-buttons' );
-        // 	}
-        // }
-
-        //Image Hover Effects
-        // if ( $is_activated_widget['ma-image-hover-effects'] ) {
-        // 	wp_enqueue_style( 'ma-image-hover-effects', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/image-hover-effects.css' );
-        // }
-
-        //Table of Contents
-        // if ( $is_activated_widget['ma-table-of-contents'] ) {
-        // 	wp_enqueue_script( 'tocbot' );
-        // }
-
-
-        //News Ticker
-        // if ( $is_activated_widget['ma-news-ticker'] ) {
-        // 	wp_enqueue_script( 'ma-news-ticker' );
-        // }
-
-
-        //Counter Up
-        // if ( $is_activated_widget['ma-counter-up'] ) {
-        // 	wp_enqueue_script( 'ma-counter-up' );
-        // }
-
-        //MA Blog
-        // if ( $is_activated_widget['ma-blog'] ) {
-        // 	wp_enqueue_script( 'isotope' );
-        // }
-
-        //MA Filterable Gallery
-        // if ( $is_activated_widget['ma-image-filter-gallery'] ) {
-        // 	wp_enqueue_script( 'isotope' );
-
-        // 	wp_enqueue_style( 'fancybox' );
-        // 	wp_enqueue_script( 'fancybox' );
-        // }
-
-        // //MA Instagram Feed
-        // if ( $is_activated_widget['ma-instagram-feed'] ) {
-
-        // 	wp_enqueue_style( 'fancybox' );
-
-        // 	wp_enqueue_script( 'isotope' );
-        // 	wp_enqueue_script( 'fancybox' );
-        // 	wp_enqueue_script( 'imagesloaded' );
-        // }
-
-        // //MA Image Comparison
-        // if ( $is_activated_widget['ma-image-comparison'] ) {
-        // 	wp_enqueue_style( 'twentytwenty' );
-        // 	wp_enqueue_script( 'jquery-event-move' );
-        // 	wp_enqueue_script( 'twentytwenty' );
-        // 	wp_enqueue_script( 'master-addons-scripts' );
-        // }
-
-        // //MA Toggle Content
-        // if ( $is_activated_widget['ma-toggle-content'] ) {
-        // 	wp_enqueue_script( 'jltma-toggle-content' );
-        // 	wp_enqueue_script( 'gsap-js' );
-        // }
-
-        // //MA Gallery Slider
-        // if ( $is_activated_widget['ma-gallery-slider'] ) {
-        // 	wp_enqueue_script( 'swiper' );
-        // 	wp_enqueue_script( 'master-addons-scripts' );
-        // }
-
-
-        //Google Maps
-        //		if ( $is_activated_widget['google-maps'] ) {
-        //			wp_enqueue_script( 'master-addons-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='
-        //.get_option
-        //('exad_google_map_api_option'), array('jquery'),'1.8', false );
-        //			// Gmap 3 Js
-        //			wp_enqueue_script( 'master-addons-gmap3', MELA_PLUGIN_URL . 'assets/js/vendor/gmap3.min.js', array(
-        // 'jquery' )
-        //, MELA_VERSION, true );
-        //		}
-
 
     }
 

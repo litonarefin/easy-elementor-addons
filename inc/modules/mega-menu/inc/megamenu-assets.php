@@ -50,11 +50,9 @@ class JLTMA_Megamenu_Assets
             // Stylesheets
             wp_enqueue_style('wp-color-picker');
 
-            wp_enqueue_style('jltma-bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css');
             wp_enqueue_style('mega-menu-style', MELA_PLUGIN_URL . '/assets/megamenu/css/megamenu.css');
 
             // Scripts
-            wp_enqueue_script('jltma-bootstrap', MELA_PLUGIN_URL . '/assets/js/bootstrap.min.js', array('jquery'), MELA_VERSION, true);
             wp_enqueue_script('icon-picker', MELA_PLUGIN_URL . '/assets/megamenu/js/icon-picker.js', array('jquery'), MELA_VERSION, true);
             wp_enqueue_script('mega-menu-admin', MELA_PLUGIN_URL . '/assets/megamenu/js/mega-script.js', array('jquery', 'wp-color-picker'), MELA_VERSION, true);
 

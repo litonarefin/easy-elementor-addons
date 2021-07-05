@@ -154,7 +154,6 @@ class Master_Addons_Admin_Settings
 		if ($screen->id == 'toplevel_page_master-addons-settings' || $screen->id == 'toplevel_page_master-addons-settings-network') {
 
 			//CSS
-			wp_enqueue_style('jltma-bootstrap', MELA_PLUGIN_URL . '/assets/css/bootstrap.min.css');
 			wp_enqueue_style('master-addons-el-admin', MELA_ADMIN_ASSETS . 'css/master-addons-admin.css');
 			wp_enqueue_style('sweetalert', MELA_ADMIN_ASSETS . 'css/sweetalert2.min.css');
 			wp_enqueue_style('master-addons-el-switch', MELA_ADMIN_ASSETS . 'css/switch.css');

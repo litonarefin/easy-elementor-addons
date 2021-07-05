@@ -18,8 +18,8 @@ class Jltma_Reset_Themes_Conflicts
     public function __construct()
     {
         add_action('wp_enqueue_scripts', [$this, 'jltma_reset_theme_conflicts']);
-        add_action('wp_enqueue_scripts', [$this, 'jltma_reset_theme_dequeue_script'], 100);
-        add_action('wp_print_scripts', [$this, 'jltma_reset_theme_dequeue_script'], 100);
+        // add_action('wp_enqueue_scripts', [$this, 'jltma_reset_theme_dequeue_script'], 100);
+        // add_action('wp_print_scripts', [$this, 'jltma_reset_theme_dequeue_script'], 100);
     }
 
     function jltma_reset_theme_dequeue_script()
@@ -31,7 +31,6 @@ class Jltma_Reset_Themes_Conflicts
         //Stratus
         if ('Stratus' == $theme->name || 'Stratus' == $theme->parent_theme) {
             wp_dequeue_style('jltma-bootstrap');
-            // wp_dequeue_script('jltma-bootstrap');
         }
 
         //OceanWP
