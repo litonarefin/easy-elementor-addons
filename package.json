@@ -1,0 +1,30 @@
+{
+  "name": "master-addons",
+  "version": "1.6.5",
+  "description": "Master Addons",
+  "scripts": {
+    "start": "mix watch",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "production": "mix --production",
+    "prod": "mix --production"
+  },
+  "browserslist": [
+    "defaults",
+    "last 20 versions",
+    "last 2 major versions",
+    "maintained node versions"
+  ],
+  "author": "Jewel Theme",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "laravel-mix": "^6.0.13",
+    "postcss": "^8.1",
+    "sass": "^1.32.6",
+    "sass-loader": "^8.0.2",
+    "wp-pot": "^1.7.0"
+  }
+}
