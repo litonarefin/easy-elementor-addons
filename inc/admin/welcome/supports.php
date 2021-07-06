@@ -127,7 +127,7 @@
         </div>
 
         <div class="jltma-right_column">
-
+                        
             <?php if (ma_el_fs()->is_not_paying()) { ?>
                 <div class="jltma-master-addons-banner">
                     <a href="https://master-addons.com/pricing" target="_blank">

@@ -334,6 +334,9 @@
             }
         }
     }
+    .jltma-master-addons-banner {
+        margin-top: 13px;
+    }
     .jltma-master-addons-right-column-widget {
         border: 1px solid $grayborder;
         border-radius: $radius5p;
@@ -467,7 +470,7 @@
                 flex: 0 0 65%;
                 max-width: 65%;
                 line-height: $lineheight + 3px;
-                margin: 0;
+                margin: 2px 0 0;
                 padding: 10px 15px;
             }
 
@@ -491,11 +494,15 @@
             a {
                 color: $primarycolor;
             }
-        }&.jltma-copy-section {
+        }
+        &.jltma-copy-section {
             position: relative;
         }
     }
-    #jltma-addons-white-label-settings {
+    #jltma-master-addons-white-label {
+        .jltma-tab-dashboard-wrapper {
+            position: relative;
+        }
         .jltma-form-control {
             font-weight: $weight600;
         }
@@ -507,6 +514,65 @@
             flex: 0 0 100% !important;
             max-width: 100% !important;
             margin-top: 10px;
+        }
+    }
+
+    .jltma-addons-white-label-notice {
+        align-items: center;
+        justify-content: center;
+        background: rgba(200, 200, 200, 0.65);
+        height: 100%;        
+        width: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .jltma-addons-white-label-notice-content {
+        background-color: $whitecolor;
+        border-radius: $radius5p * 4;
+        box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.13);
+        position: absolute;
+        top: 150px;
+        left: 300px;
+        width: 530px;
+        padding: 32px 32px 50px;
+        -webkit-border-radius: 20px;
+        text-align: center;
+        z-index: 2;
+
+        .jltma-addons-white-label-notice-logo img {
+            height: 100px;
+            width: 100px;
+            padding: 10px;
+        }
+        h2 {
+            font-size: 23px;
+            color: $titlecolor;
+            font-weight: 900;
+            font-family: "Red Hat Display";
+            line-height: 1;
+            margin: 0 0 18px;
+            span {
+                color: $primarycolor;
+                text-transform: uppercase;
+            }
+        }
+        p {
+            color: $titlecolor;
+            font-size: $font-size - 1px;
+            color: #474747;
+            text-align: center;
+            margin: 0 0 18px;
+            em {
+                color: red;
+            }
+        }
+        a.jltma-get-pro {
+            border-radius: $radius5p * 2;
+            font-size: $font-size + 1px;
+            font-weight: $weight800;
         }
     }
     .jltma-version-top-wrapper {

@@ -15,24 +15,24 @@
         <div class="jltma-tab-dashboard-wrapper">
             <form action="" method="POST" id="jltma-addons-white-label-settings" class="jltma-addons-tab-settings" name="jltma-addons-white-label-settings">
 
-                <div class="jltma-addons-dashboard-tabs-wrapper">
 
-                    <?php if (!ma_el_fs()->is_plan__premium_only('developer')) { ?>
-                        <div class="jltma-addons-white-label-notice mb-2">
-                            <div class="jltma-addons-white-label-notice-content">
-                                <div class="jltma-addons-white-label-notice-logo">
-                                    <img src="<?php echo  esc_url(MELA_IMAGE_DIR) . 'logo.png' ?>" alt="Master Addons">
-                                </div>
-                                <h3><?php _e('Upgrade <span>Pro</span> for White Labeling', MELA_TD); ?></h3>
-                                <p>
-                                    <?php _e('Master Addons can be completely re-branded with your own brand Logo, Name and Author Details. Your clients will never know what tools you are using to build their website and will think that this is your own tool set. White-labeling works as long as your license is active.', MELA_TD); ?><br>
-                                    <em><?php _e('Note: Developer Plans Only', MELA_TD); ?></em>
-                                </p>
-                                <a class="jltma-button jltma-get-pro" href="<?php echo esc_url('https://master-addons.com/pricing/'); ?>" target="_blank"><?php _e('Get PRO', MELA_TD); ?></a>
+
+                <?php if (!ma_el_fs()->is_plan__premium_only('developer')) { ?>
+                    <div class="jltma-addons-white-label-notice">
+                        <div class="jltma-addons-white-label-notice-content">
+                            <div class="jltma-addons-white-label-notice-logo">
+                                <img src="<?php echo  esc_url(MELA_IMAGE_DIR) . 'logo.png' ?>" alt="Master Addons">
                             </div>
+                            <h2><?php _e('Upgrade <span>Pro</span> for White Labeling', MELA_TD); ?></h2>
+                            <p>
+                                <?php _e('Master Addons can be completely re-branded with your own brand Logo, Name and Author Details. Your clients will never know what tools you are using to build their website and will think that this is your own tool set. White-labeling works as long as your license is active.', MELA_TD); ?><br>
+                                <em><?php _e('Note: Developer Plans Only', MELA_TD); ?></em>
+                            </p>
+                            <a class="jltma-button jltma-get-pro" href="<?php echo esc_url('https://master-addons.com/pricing/'); ?>" target="_blank"><?php _e('Get PRO', MELA_TD); ?></a>
                         </div>
-                    <?php } ?>
-
+                    </div>
+                <?php } ?>
+                <div class="jltma-addons-dashboard-tabs-wrapper">
                     <div class="jltma-master-addons-dashboard-filter is-flex">
                         <!-- Start of White Label Settings -->
                         <div class="jltma-api-settings-element jltma-half">
