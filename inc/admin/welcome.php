@@ -13,33 +13,29 @@ $jltma_hide_version 		= jltma_check_options($jltma_white_label_setting['jltma_wl
 $jltma_hide_changelogs 		= jltma_check_options($jltma_white_label_setting['jltma_wl_plugin_tab_changelogs']);
 $jltma_hide_system_info 	= jltma_check_options($jltma_white_label_setting['jltma_wl_plugin_tab_system_info']);
 ?>
-<div class="master_addons">
-	<div class="wrappper about-wrap">
+<div class="jltma-master-addons-admin">
+	<div class="jltma-master-addons-wrap">
 
-		<div class="intro_wrapper">
+		<header class="jltma-master-addons-header is-flex">
+			<a class="jltma-master-addons-panel-logo" href="https://wordpress.org/plugins/master-addons" target="_blank">
+				<img src="<?php echo MELA_PLUGIN_URL . '/inc/admin/assets/icons/white-logo.png'; ?>" />
+			</a>
 
-			<header class="header">
-				<a class="ma_el_logo" href="https://wordpress.org/plugins/master-addons" target="_blank">
-					<div class="wp-badge welcome__logo ma_logo"></div>
-				</a>
+			<h1 class="jltma-master-addons-title">
+				<?php if (!empty($jltma_white_label_setting['jltma_wl_plugin_menu_label'])) {
+					printf(__('%s <small>v %s</small>'), $jltma_white_label_setting['jltma_wl_plugin_menu_label'], JLTMA_PLUGIN_VERSION);
+				} else {
+					printf(__('%s <small>v %s</small>'), MELA, JLTMA_PLUGIN_VERSION);
+				}
+				?>
+			</h1>
 
-				<h1 class="ma_title">
-					<?php if (!empty($jltma_white_label_setting['jltma_wl_plugin_menu_label'])) {
-						printf(__('%s <small>v %s</small>'), $jltma_white_label_setting['jltma_wl_plugin_menu_label'], JLTMA_PLUGIN_VERSION);
-					} else {
-						printf(__('%s <small>v %s</small>'), MELA, JLTMA_PLUGIN_VERSION);
-					}
-					?>
-				</h1>
-
-				<div class="about-text"></div>
-			</header>
-
-		</div>
+			<div class="jltma-master-addons-header-text"></div>
+		</header>
 
 		<?php require_once MELA_PLUGIN_PATH . '/inc/admin/welcome/navigation.php'; ?>
 
-		<div class="master_addons_contents">
+		<div class="jltma-master-addons-tab-contents">
 			<?php
 			require MELA_PLUGIN_PATH . '/inc/admin/welcome/supports.php';
 

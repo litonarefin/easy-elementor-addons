@@ -13,82 +13,84 @@ use MasterAddons\Admin\Dashboard\Addons\Extensions\JLTMA_Third_Party_Extensions;
  */
 ?>
 
-<h3><?php echo esc_html__('Third Party Plugins', MELA_TD); ?></h3>
+<h4 class="mt-2"><?php echo esc_html__('Third Party Plugins', MELA_TD); ?></h4>
 
-<!-- Third Party Plugins -->
-<?php foreach (JLTMA_Third_Party_Extensions::$jltma_third_party_plugins['jltma-plugins']['plugin'] as $key => $jltma_plugins) {
+<div class="jltma-master-addons-features-container is-flex">
+	<!-- Third Party Plugins -->
+	<?php foreach (JLTMA_Third_Party_Extensions::$jltma_third_party_plugins['jltma-plugins']['plugin'] as $key => $jltma_plugins) {
 
-	$plugin_file = $jltma_plugins['plugin_file'];
-	$plugin_slug = $jltma_plugins['wp_slug'];
-?>
+		$plugin_file = $jltma_plugins['plugin_file'];
+		$plugin_slug = $jltma_plugins['wp_slug'];
+	?>
 
-	<div class="master-addons-dashboard-checkbox col">
-		<div class="master-addons-dashboard-checkbox-content">
+		<div class="jltma-master-addons-dashboard-checkbox">
+			<div class="jltma-master-addons-dashboard-checkbox-content">
 
-			<div class="master-addons-features-ribbon">
-				<?php if (!ma_el_fs()->can_use_premium_code() && isset($jltma_plugins['is_pro']) && $jltma_plugins['is_pro']) {
-					echo '<span class="pro-ribbon">Pro</span>';
-				} ?>
-			</div>
-
-			<div class="master-addons-el-title">
-				<div class="master-addons-el-title-content">
-					<?php echo $jltma_plugins['title']; ?>
-				</div> <!-- master-addons-el-title-content -->
-				<div class="ma-el-tooltip">
-					<?php
-					if ($plugin_slug and $plugin_file) {
-						if (Master_Addons_Helper::is_plugin_installed($plugin_slug, $plugin_file)) {
-							if (!current_user_can('install_plugins')) {
-								return;
-							}
-							if (!jltma_is_plugin_active($plugin_file)) {
-								$activation_url = wp_nonce_url('plugins.php?action=activate&amp;plugin=' . $plugin_file . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin_file);
-								$html = '<a class="thrd-party-plgin-dnld thrd-party-plgin-dnld-active" href="' . $activation_url . '" ><span class="thrd-party-plgin-dnld thrd-party-plgin-dnld-active pr-1">' . esc_html__('Activate', MELA_TD) . '</span><i class="dashicons dashicons-yes-alt"></i></a>';
-							} else {
-								$html = '';
-							}
-						} else {
-
-							$install_url = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=' . $plugin_slug), 'install-plugin_' . $plugin_slug);
-							$html = '<a class="thrd-party-plgin-dnld" href="' . $install_url . '"><span class="thrd-party-plgin-dnld pr-1">' . esc_html__('Download', MELA_TD) . '</span><i class="dashicons dashicons-download"></i></a>';
-
-							activate_plugin($plugin_file);
-						}
-						echo $html;
-					}
-					?>
+				<div class="jltma-master-addons-features-ribbon">
+					<?php if (!ma_el_fs()->can_use_premium_code() && isset($jltma_plugins['is_pro']) && $jltma_plugins['is_pro']) {
+						echo '<span class="jltma-pro-ribbon">Pro</span>';
+					} ?>
 				</div>
-			</div> <!-- .master-addons-el-title -->
+
+				<div class="jltma-master-addons-content-inner">
+					<div class="jltma-master-addons-features-title">
+						<?php echo $jltma_plugins['title']; ?>
+					</div> <!-- jltma-master-addons-features-title -->
+					<div class="jltma-addons-tooltip">
+						<?php
+						if ($plugin_slug and $plugin_file) {
+							if (Master_Addons_Helper::is_plugin_installed($plugin_slug, $plugin_file)) {
+								if (!current_user_can('install_plugins')) {
+									return;
+								}
+								if (!jltma_is_plugin_active($plugin_file)) {
+									$activation_url = wp_nonce_url('plugins.php?action=activate&amp;plugin=' . $plugin_file . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin_file);
+									$html = '<a class="jltma-external-plugin-download jltma-external-plugin-download-active" href="' . $activation_url . '" ><span class="jltma-external-plugin-download jltma-external-plugin-download-active pr-1">' . esc_html__('Activate', MELA_TD) . '</span><i class="dashicons dashicons-yes-alt"></i></a>';
+								} else {
+									$html = '';
+								}
+							} else {
+
+								$install_url = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=' . $plugin_slug), 'install-plugin_' . $plugin_slug);
+								$html = '<a class="jltma-external-plugin-download" href="' . $install_url . '"><span class="jltma-external-plugin-download-text">' . esc_html__('Download', MELA_TD) . '</span><i class="dashicons dashicons-download"></i></a>';
+
+								activate_plugin($plugin_file);
+							}
+							echo $html;
+						}
+						?>
+					</div>
+				</div> <!-- .master-addons-el-title -->
 
 
-			<div class="master_addons_feature_switchbox">
-				<label for="<?php echo esc_attr($jltma_plugins['key']); ?>" class="switch switch-text switch-primary switch-pill
-				<?php if (!ma_el_fs()->can_use_premium_code() && isset($jltma_plugins['is_pro']) && $jltma_plugins['is_pro']) {
-					echo "ma-el-pro";
-				} ?>">
+				<div class="jltma-master-addons_feature-switchbox">
+					<label for="<?php echo esc_attr($jltma_plugins['key']); ?>" class="switch switch-text switch-primary switch-pill
+					<?php if (!ma_el_fs()->can_use_premium_code() && isset($jltma_plugins['is_pro']) && $jltma_plugins['is_pro']) {
+						echo "ma-el-pro";
+					} ?>">
 
-					<?php if (ma_el_fs()->can_use_premium_code()) { ?>
+						<?php if (ma_el_fs()->can_use_premium_code()) { ?>
 
-						<input type="checkbox" id="<?php echo esc_attr($jltma_plugins['key']); ?>" class="switch-input" name="<?php echo esc_attr($jltma_plugins['key']); ?>" <?php checked(1, $this->jltma_get_third_party_plugins_settings[$jltma_plugins['key']], true); ?>>
+							<input type="checkbox" id="<?php echo esc_attr($jltma_plugins['key']); ?>" class="jltma-switch-input" name="<?php echo esc_attr($jltma_plugins['key']); ?>" <?php checked(1, $this->jltma_get_third_party_plugins_settings[$jltma_plugins['key']], true); ?>>
 
-					<?php } else { ?>
+						<?php } else { ?>
 
-						<input type="checkbox" id="<?php echo esc_attr($jltma_plugins['key']); ?>" class="switch-input " name="<?php echo esc_attr($jltma_plugins['key']); ?>" <?php
-																																												if (!ma_el_fs()->can_use_premium_code() && isset($jltma_plugins['is_pro']) && $jltma_plugins['is_pro']) {
-																																													checked(0, $this->jltma_get_third_party_plugins_settings[$jltma_plugins['key']], false);
-																																													echo "disabled";
-																																												} else {
-																																													checked(1, $this->jltma_get_third_party_plugins_settings[$jltma_plugins['key']], true);
-																																												}  ?> />
-					<?php  } ?>
+							<input type="checkbox" id="<?php echo esc_attr($jltma_plugins['key']); ?>" class="jltma-switch-input " name="<?php echo esc_attr($jltma_plugins['key']); ?>" <?php
+							if (!ma_el_fs()->can_use_premium_code() && isset($jltma_plugins['is_pro']) && $jltma_plugins['is_pro']) {
+								checked(0, $this->jltma_get_third_party_plugins_settings[$jltma_plugins['key']], false);
+								echo "disabled";
+							} else {
+								checked(1, $this->jltma_get_third_party_plugins_settings[$jltma_plugins['key']], true);
+							}  ?> />
+						<?php  } ?>
 
-					<span data-on="On" data-off="Off" class="switch-label"></span>
-					<span class="switch-handle"></span>
+						<span data-on="On" data-off="Off" class="jltma-switch-label"></span>
+						<span class="jltma-switch-handle"></span>
 
-				</label>
+					</label>
+				</div>
 			</div>
 		</div>
-	</div>
 
-<?php } ?>
+	<?php } ?>
+</div>

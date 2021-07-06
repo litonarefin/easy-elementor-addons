@@ -13,108 +13,109 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
  */
 ?>
 
-<div class="wp-tab-panel" id="extensions" style="display: none;">
+<div class="jltma-master-addons-tab-panel" id="jltma-master-addons-extensions" style="display: none;">
 
-	<div class="master-addons-el-dashboard-header-wrapper">
-		<div class="master-addons-el-dashboard-header-right">
-			<button type="submit" class="master-addons-el-btn master-addons-el-js-element-save-setting">
-				<?php _e('Save Settings', MELA_TD); ?>
-			</button>
+	<div class="jltma-master-addons-features">
+		<div class="jltma-tab-dashboard-header-wrapper">
+			<div class="jltma-tab-dashboard-header-right is-flex">
+				<button type="submit" class="jltma-button jltma-tab-element-save-setting">
+					<?php _e('Save Settings', MELA_TD); ?>
+				</button>
+			</div>
 		</div>
-	</div>
 
 
-	<div class="parent">
+		<div class="jltma-tab-dashboard-wrapper">
 
-		<div class="left_block">
-
-			<form action="" method="POST" id="master-addons-el-extensions-settings" class="master-addons-el-extensions-settings" name="master-addons-el-extensions-settings">
+			<form action="" method="POST" id="jltma-addons-extensions-settings" class="jltma-addons-tab-settings" name="jltma-addons-extensions-settings">
 
 				<?php wp_nonce_field('ma_el_extensions_settings_nonce_action'); ?>
 
+				<div class="jltma-addons-dashboard-tabs-wrapper">
 
-				<div class="master-addons-el-dashboard-tabs-wrapper">
+					<div id="jltma-addons-extensions" class="jltma-addons-dashboard-header-left">
 
-					<div id="master-addons-extensions" class="master-addons-el-dashboard-header-left master-addons-dashboard-tab master_addons_features ma_el_extensions">
+						<div class="jltma-master-addons-features-list">
 
-						<div class="master_addons_feature">
-
-							<div class="master-addons-dashboard-filter">
-								<div class="filter-left">
+							<div class="jltma-master-addons-dashboard-filter mb-2 is-flex">
+								<div class="jltma-filter-left">
 									<h3><?php echo esc_html__('Master Addons Extensions', MELA_TD); ?></h3>
 									<p>
 										<?php echo esc_html__('Enable/Disable all Extensions at once. Please make sure to click "Save Changes" button'); ?>
 									</p>
 								</div>
 
-								<div class="filter-right">
-									<button class="addons-enable-all">
+								<div class="jltma-filter-right">
+									<button class="jltma-addons-enable-all">
 										<?php echo esc_html__('Enable All', MELA_TD); ?>
 									</button>
-									<button class="addons-disable-all">
+									<button class="jltma-addons-disable-all">
 										<?php echo esc_html__('Disable All', MELA_TD); ?>
 									</button>
 								</div>
-							</div><!-- /.master-addons-dashboard-filter -->
+							</div><!-- /.jltma-master-addons-dashboard-filter -->
 
 							<!-- Master Addons Extensions -->
-							<?php foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $key => $extension) : ?>
 
-								<div class="master-addons-dashboard-checkbox col">
-									<div class="master-addons-dashboard-checkbox-content">
+							<div class="jltma-master-addons-features-container is-flex">
+								<?php foreach (JLTMA_Addon_Extensions::$jltma_extensions['jltma-extensions']['extension'] as $key => $extension) : ?>
 
-										<div class="master-addons-features-ribbon">
-											<?php if (!ma_el_fs()->can_use_premium_code() && isset($extension['is_pro']) && $extension['is_pro']) {
-												echo '<span class="pro-ribbon">Pro</span>';
-											} ?>
-										</div>
+									<div class="jltma-master-addons-dashboard-checkbox">
+										<div class="jltma-master-addons-dashboard-checkbox-content">
 
-										<div class="master-addons-el-title">
-											<div class="master-addons-el-title-content">
-												<?php echo $extension['title']; ?>
-											</div> <!-- master-addons-el-title-content -->
-											<div class="ma-el-tooltip">
-												<?php
-												Master_Addons_Helper::jltma_admin_tooltip_info('Demo', $extension['demo_url'], 'eicon-device-desktop');
-												Master_Addons_Helper::jltma_admin_tooltip_info('Documentation', $extension['docs_url'], 'eicon-info-circle-o');
-												Master_Addons_Helper::jltma_admin_tooltip_info('Video Tutorial', $extension['tuts_url'], 'eicon-video-camera');
-												?>
+											<div class="jltma-master-addons-features-ribbon">
+												<?php if (!ma_el_fs()->can_use_premium_code() && isset($extension['is_pro']) && $extension['is_pro']) {
+													echo '<span class="jltma-pro-ribbon">Pro</span>';
+												} ?>
 											</div>
-										</div> <!-- .master-addons-el-title -->
+
+											<div class="jltma-master-addons-content-inner">
+												<div class="jltma-master-addons-features-title">
+													<?php echo $extension['title']; ?>
+												</div> <!-- jltma-master-addons-features-title -->
+												<div class="jltma-addons-tooltip">
+													<?php
+													Master_Addons_Helper::jltma_admin_tooltip_info('Demo', $extension['demo_url'], 'eicon-device-desktop');
+													Master_Addons_Helper::jltma_admin_tooltip_info('Documentation', $extension['docs_url'], 'eicon-info-circle-o');
+													Master_Addons_Helper::jltma_admin_tooltip_info('Video Tutorial', $extension['tuts_url'], 'eicon-video-camera');
+													?>
+												</div>
+											</div> <!-- .jltma-master-addons-content-inner -->
 
 
-										<div class="master_addons_feature_switchbox">
-											<label for="<?php echo esc_attr($extension['key']); ?>" class="switch switch-text switch-primary switch-pill
-											<?php
-											if (!ma_el_fs()->can_use_premium_code() && isset($extension['is_pro']) && $extension['is_pro']) {
-												echo "ma-el-pro";
-											} ?>">
+											<div class="jltma-master-addons_feature-switchbox">
+												<label for="<?php echo esc_attr($extension['key']); ?>" class="switch switch-text switch-primary switch-pill
+													<?php
+													if (!ma_el_fs()->can_use_premium_code() && isset($extension['is_pro']) && $extension['is_pro']) {
+														echo "ma-el-pro";
+													} ?>">
 
-												<?php if (ma_el_fs()->can_use_premium_code()) { ?>
+													<?php if (ma_el_fs()->can_use_premium_code()) { ?>
 
-													<input type="checkbox" id="<?php echo esc_attr($extension['key']); ?>" class="switch-input" name="<?php echo esc_attr($extension['key']); ?>" <?php checked(1, $this->jltma_get_extension_settings[$extension['key']], true); ?>>
+														<input type="checkbox" id="<?php echo esc_attr($extension['key']); ?>" class="jltma-switch-input" name="<?php echo esc_attr($extension['key']); ?>" <?php checked(1, $this->jltma_get_extension_settings[$extension['key']], true); ?>>
 
-												<?php } else { ?>
+													<?php } else { ?>
 
-													<input type="checkbox" id="<?php echo esc_attr($extension['key']); ?>" class="switch-input " name="<?php echo esc_attr($extension['key']); ?>" <?php
-																																																	if (!ma_el_fs()->can_use_premium_code() && isset($extension['is_pro']) && $extension['is_pro']) {
-																																																		checked(0, $this->jltma_get_extension_settings[$extension['key']], false);
-																																																		echo "disabled";
-																																																	} else {
-																																																		checked(1, $this->jltma_get_extension_settings[$extension['key']], true);
-																																																	}  ?> />
-												<?php  } ?>
+														<input type="checkbox" id="<?php echo esc_attr($extension['key']); ?>" class="jltma-switch-input " name="<?php echo esc_attr($extension['key']); ?>" <?php
+														if (!ma_el_fs()->can_use_premium_code() && isset($extension['is_pro']) && $extension['is_pro']) {
+															checked(0, $this->jltma_get_extension_settings[$extension['key']], false);
+															echo "disabled";
+														} else {
+															checked(1, $this->jltma_get_extension_settings[$extension['key']], true);
+														}  ?> />
+													<?php  } ?>
 
-												<span data-on="On" data-off="Off" class="switch-label"></span>
-												<span class="switch-handle"></span>
+													<span data-on="On" data-off="Off" class="jltma-switch-label"></span>
+													<span class="jltma-switch-handle"></span>
 
-											</label>
+												</label>
+											</div>
 										</div>
+
 									</div>
 
-								</div>
-
-							<?php endforeach; ?>
+								<?php endforeach; ?>
+							</div>
 
 
 							<?php include_once MELA_PLUGIN_PATH . '/inc/admin/welcome/third-party-plugins.php'; ?>
@@ -124,9 +125,6 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 					</div>
 				</div> <!-- .master-addons-el-dashboard-tabs-wrapper-->
 			</form>
-
-
 		</div>
-
 	</div>
 </div>

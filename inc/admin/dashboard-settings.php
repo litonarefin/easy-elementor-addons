@@ -47,6 +47,7 @@ class Master_Addons_Admin_Settings
 		add_action('network_admin_menu', [$this, 'master_addons_admin_menu'],  '', 10);
 		add_action('admin_enqueue_scripts', [$this, 'master_addons_el_admin_scripts'], 99);
 		add_action('admin_head', [$this, 'jltma_admin_head_script']);
+		add_action('admin_body_class', [$this, 'jltma_admin_body_class']);
 
 
 		// Master Addons Elements
@@ -69,6 +70,16 @@ class Master_Addons_Admin_Settings
 		$this->ma_el_include_files();
 	}
 
+
+	/**
+	 * Admin Body Class
+	 */
+	public function jltma_admin_body_class($class){
+		$bodyclass= '';
+		$bodyclass .=' jltma-admin ';
+		return $class . $bodyclass;
+	}
+	
 	public function ma_el_include_files()
 	{
 		include_once MELA_PLUGIN_PATH . '/inc/admin/promotions.php';

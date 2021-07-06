@@ -25,8 +25,19 @@ if ( process.env.NODE_ENV.trim() === 'production' ) {
 
 }
 
+mix.webpackConfig({
+	target: 'web',
+	externals: {
+		jquery: "window.jQuery",
+		$: "window.jQuery",
+		wp: 'window.wp',
+		jltma-master-addons: 'window.jltma-master-addons'
+	}
+});
+
 // Main Stylesheet
 mix.sass( 'assets/scss/style.scss', 'assets/css/master-addons.css' );
+mix.sass( 'assets/scss/admin/master-addons-admin.scss', './././inc/admin/assets/css/master-addons-admin.css' );
 
 
 // Element Stylesheet

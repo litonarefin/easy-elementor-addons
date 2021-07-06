@@ -811,10 +811,10 @@ class Master_Addons_Helper
 	{
 
 		if (!empty($info_url)) { ?>
-			<div class="demos ma-el-tooltip-item tooltip-top">
+			<div class="jltma-tooltip-item tooltip-top">
 				<i class="<?php echo esc_attr($info_icon); ?>"></i>
-				<div class="ma-el-tooltip-text">
-					<a href="<?php echo esc_url($info_url); ?>" class="ma-el-tooltip-content" target="_blank">
+				<div class="jltma-tooltip-text">
+					<a href="<?php echo esc_url($info_url); ?>" class="jltma-tooltip-content" target="_blank">
 						<?php echo sprintf(esc_html__('%s', MELA_TD), $info_name); ?>
 					</a>
 				</div>

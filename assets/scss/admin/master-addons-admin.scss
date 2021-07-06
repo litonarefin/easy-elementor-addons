@@ -1,0 +1,838 @@
+/*
+* Master Addons for Elementor by Jewel Theme < Liton Arefin >
+* All Admin CSS
+* Admin Settings and Welcome Page CSS
+*/
+
+@import "../variables", "../mixins";
+
+.jltma-master-addons-admin {
+    color: $titlecolor;
+    * {
+        box-sizing: border-box;
+    }
+    p {
+        color: $textcolor;
+        font-size: $font-size;
+        line-height: $lineheight;
+    }
+    a,
+    button,
+    .button,
+    .button-link {
+        box-shadow: none;
+        text-decoration: none;
+        &:hover,
+        &:focus,
+        &:active,
+        &:visited {
+            border: 0;
+            outline: 0;
+            text-decoration: none;
+        }
+    }
+    img {
+        max-width: 100%;
+    }
+    button,
+    .button,
+    a.jltma-get-pro {
+        border: none;
+        border-radius: $radius5p;
+        box-shadow: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 35px;
+        padding: 0 15px;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+    button,
+    .button,
+    a.jltma-get-pro,
+    input:not([type="checkbox"], [type="radio"]),
+    textarea {
+        &:hover,
+        &:focus,
+        &:active,
+        &:visited {
+            border: none;
+            box-shadow: none;
+            outline: 0;
+        }
+    }
+
+    .jltma-button {
+        @include gradient-bg-1;
+        &:hover {
+            @include gradient-bg-2;
+        }
+    }
+    .jltma-addons-enable-all,
+    .jltma-addons-disable-all {
+        line-height: $lineheight * 2 + 5px;
+        margin-left: 5px;
+        padding: 0 1.25rem;
+    }
+    .jltma-addons-enable-all {
+        @include enable-bg;
+    }
+    .jltma-addons-disable-all {
+        @include disable-bg;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $titlecolor;
+    }
+    h1 {
+        font-size: $font-size * 3 - 6px;
+    }
+    h2 {
+        font-size: $font-size * 2 + 2px;
+    }
+    h3 {
+        font-size: $font-size * 2;
+    }
+    h4 {
+        font-size: $font-size * 2 - 4px;
+    }
+    h5 {
+        font-size: $font-size + 4px;
+    }
+    h6 {
+        font-size: $font-size;
+    }
+    .is-flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .m-0 {
+        margin: 0;
+    }
+    .mt-0 {
+        margin-top: 0;
+    }
+    .mb-0 {
+        margin-bottom: 0;
+    }
+    .mt-2 {
+        margin-top: 2rem;
+    }
+    .mb-2 {
+        margin-bottom: 2rem;
+    }
+    .p-0 {
+        padding: 0;
+    }
+    .p-3 {
+        padding: 1rem;
+    }
+    .jltma-half {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 7.5px;
+    }
+    .inline-block {
+        display: inline-block;
+    }
+    .text-center {
+        text-align: center;
+    }
+
+    .jltma-master-addons-header {
+        background-color: $primarycolor;
+        align-items: center;
+        padding: 1.5625rem 10rem 1.5625rem 1.875rem;
+        position: relative;
+        width: 100%;
+        .jltma-master-addons-panel-logo {
+            height: 70px;
+            width: 70px;
+            margin-right: 15px;
+        }
+        .jltma-master-addons-title {
+            color: $whitecolor;
+            line-height: $lineheight + 10px;
+            small {
+                font-size: $font-size - 2px;
+            }
+        }
+    }
+
+    .jltma-master-addons-tabs-navbar {
+        margin: 15px 0 0;
+        li {
+            border: none;
+            display: inline-block;
+            line-height: 1;
+            margin: 0 5px 0 0;
+            padding: 0;
+            a,
+            a.nav-upgrade-pro {
+                background-color: #f7f7fa;
+                border-top: 4px solid transparent;
+                color: $titlecolor;
+                display: inline-block;
+                font-size: 14px;
+                font-weight: 600;
+                padding: 0.875rem 1.75rem 1.2rem;
+            }
+            &.jltma-admin-tab-active a,
+            a:hover {
+                background-color: #fff;
+                border-top-color: #6814cd;
+                color: #6814cd;
+            }
+            a.nav-upgrade-pro {
+                background-color: #6814cd;
+                color: #fff;
+                text-transform: uppercase;
+            }
+        }
+    }
+    .jltma-master-addons-tab-panel {
+        background-color: $whitecolor;
+        border: none;
+        max-height: inherit;
+        padding: 1.5rem;
+    }
+    #jltma-master-addons-welcome,
+    #jltma-master-addons-changelogs {
+        .jltma-left_column {
+            flex: 0 0 70%;
+            max-width: 70%;
+            padding-right: 15px;
+        }
+        .jltma-right_column {
+            flex: 0 0 30%;
+            max-width: 30%;
+        }
+    }
+    #jltma-master-addons-welcome {
+        .jltma-master-addons-supports-list {
+            li {
+                flex: 0 0 50%;
+                max-width: 50%;
+                margin: 0;
+                padding: 0 0 15px;
+                &:nth-child(odd) {
+                    padding-right: 7.5px;
+                }
+                &:nth-child(even) {
+                    padding-left: 7.55px;
+                }
+                img {
+                    float: right;
+                    max-height: 44px;
+                    max-width: 100%;
+                    width: 35px;
+                }
+            }
+            .jltma-supports-list-content {
+                border: 1px solid $grayborder;
+                border-radius: $radius5p;
+                align-items: center;
+                justify-content: space-between;
+                padding: 7px 1.25rem;
+                a {
+                    color: $titlecolor;
+                    font-size: 14px;
+                    font-weight: 600;
+                    float: left;
+                    padding: 13px 0;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .jltma-master_addons-star-review {
+        border: 1px solid $grayborder;
+        border-radius: $radius5p;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        padding: 1.875rem 1.25rem;
+        .jltma-review-content-left {
+            max-width: 70px;
+            margin-right: 20px;
+            img {
+                margin: 0;
+                height: 70px;
+                vertical-align: middle;
+            }
+        }
+        .jltma-review-content-right {
+            flex: 1;
+            h4 {
+                font-size: $font-size + 4px;
+                margin: -2px 0 13px;
+            }
+        }
+        p {
+            line-height: $lineheight + 3px;
+            margin: 0 0 1.75rem;
+        }
+    }
+    .jltma-master-addons-support-faq {
+        border: 1px solid $grayborder;
+        border-radius: $radius5p;
+        margin-bottom: 15px;
+        padding: 0 1.25rem;
+        .jltma-master-addons-faq-content {
+            border-bottom: 1px solid $grayborder;
+            padding: 1.45rem 0;
+            h4 {
+                color: $primarycolor;
+                font-size: $font-size;
+                font-weight: $weight700;
+                margin: 0 0 10px;
+            }
+            p {
+                margin-bottom: 0;
+            }
+        }
+        .jltma-button {
+            margin: 1.875rem 0;
+            a {
+                color: $whitecolor;
+            }
+        }
+    }
+    .jltma-master-addons-right-column-widget {
+        border: 1px solid $grayborder;
+        border-radius: $radius5p;
+        margin-top: 15px;
+        padding: 1.25rem;
+
+        .jltma-icon-image {
+            max-width: 42px;
+        }
+        h4 {
+            font-size: $font-size;
+            font-weight: $weight600;
+            margin: 11px 0 8px;
+        }
+        p {
+            line-height: $lineheight + 3px;
+            margin: 0 0 25px;
+        }
+    }
+    .jltma-tab-dashboard-header-right {
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: 1.5rem;
+    }
+    .jltma-master-addons-dashboard-filter {
+        .jltma-filter-left {
+            flex: 0 0 70%;
+            max-width: 70%;
+            h3 {
+                margin: 0 0 1rem;
+            }
+            p {
+                font-size: $font-size + 1px;
+            }
+        }
+        .jltma-filter-right {
+            flex: 0 0 30%;
+            max-width: 30%;
+            text-align: right;
+        }
+    }
+
+    .jltma-master-addons-features-container {
+        margin: -7.5px;
+        .jltma-master-addons-dashboard-checkbox {
+            flex: 0 0 25%;
+            max-width: 25%;
+            padding: 7.5px;
+        }
+        .jltma-master-addons-dashboard-checkbox-content {
+            border: 1px solid $grayborder;
+            border-radius: $radius5p;
+            padding: 13px 15px;
+        }
+        .jltma-master-addons-content-inner {
+            display: inline-block;
+            width: calc(100% - 60px);
+            .jltma-master-addons-features-title {
+                color: $titlecolor;
+                display: block;
+                font-size: $font-size + 1px;
+                font-weight: $weight500;
+            }
+            .jltma-tooltip-item {
+                float: left;
+            }
+        }
+        .jltma-master-addons_feature-switchbox {
+            float: right;
+            text-align: right;
+            width: 60px;
+        }
+    }
+    #jltma-master-addons-api-keys {
+        .jltma-addons-dashboard-tabs-wrapper {
+            margin: -7.5px;
+        }
+    }
+    .jltma-api-settings-element {
+        .jltma-api-element-inner {
+            border: 1px solid $grayborder;
+            border-radius: $radius5p;
+            padding: 1.875rem 1.25rem;
+        }
+        .jltma-form-group {
+            align-items: center;
+            margin-bottom: 1.875rem;
+            label {
+                color: $titlecolor;
+                font-weight: $weight600;
+                flex: 0 0 35%;
+                max-width: 35%;
+                padding-right: 10px;
+            }
+            .jltma-form-control:not([type="checkbox"], [type="radio"]) {
+                background-color: $graybg;
+                border: 1px solid $grayborder;
+                border-radius: 3rem;
+                color: $titlecolor;
+                font-size: $font-size;
+                flex: 0 0 65%;
+                max-width: 65%;
+                line-height: $lineheight + 3px;
+                margin: 0;
+                padding: 10px 15px;
+            }
+
+            .jltma-form-control[type="checkbox"] {
+                border: 1px solid $grayborder;
+                border-radius: 3rem;
+                &:hover,
+                &:focus,
+                &:visited,
+                &:active,
+                &:checked {
+                    border: 1px solid $primarycolor;
+                    box-shadow: none;
+                }
+            }
+        }
+        p {
+            font-size: $font-size - 1px;
+            font-style: italic;
+            margin-bottom: 0;
+            a {
+                color: $primarycolor;
+            }
+        }
+    }
+    #jltma-addons-white-label-settings {
+        .jltma-form-control {
+            font-weight: $weight600;
+        }
+        .jltma-wl-plugin-logo {
+            border-radius: $radius5p !important;
+        }
+        textarea.jltma-form-control {
+            border-radius: $radius5p !important;
+            flex: 0 0 100% !important;
+            max-width: 100% !important;
+            margin-top: 10px;
+        }
+    }
+    .jltma-version-top-wrapper {
+        p {
+            font-size: $font-size + 1px;
+        }
+    }
+    .jltma-version-wrapper {
+        border: 1px solid $grayborder;
+        border-radius: $radius5p;
+        align-items: center;
+        .jltma-version-left {
+            flex: 0 0 40%;
+            max-width: 40%;
+        }
+        .jltma-version-right {
+            flex: 0 0 60%;
+            max-width: 60%;
+        }
+        .jltma-button {
+            background: inherit;
+            border: 1px solid #2271b1;
+            border-radius: $radius5p;
+            color: #2271b1;
+            font-size: $font-size;
+            line-height: $lineheight + 6px;
+            margin: 0;
+            padding: 5px 1rem;
+        }
+        p {
+            color: #dc3545;
+            font-weight: $weight600;
+        }
+    }
+    #jltma-master-addons-changelogs {
+        h4 {
+            margin: 0;
+        }
+        ul {
+            margin: 0;
+            white-space: break-spaces;
+            li {
+                color: $titlecolor;
+                font-size: $font-size + 1px;
+                line-height: $lineheight;
+                word-break: break-word;
+                h4 {
+                    margin-top: 1.5rem;
+                }
+            }
+        }
+        .jltma-right_column {
+            padding-left: 1.875rem;
+        }
+    }
+    .jltma-addons-banner-section {
+        .jltma-addons-banner-title {
+            align-items: center;
+            justify-content: center;
+            background-color: $primarycolor;
+            color: $whitecolor;
+            font-size: $font-size + 8px;
+            line-height: $lineheight + 4px;
+            padding: 1.8725rem;
+            i {
+                margin-right: 7px;
+            }
+        }
+        .jltma-addons-banner-inner-content {
+            background-color: #487eb0;
+            padding: 1.875rem;
+            .jltma-master-addons-theme-link {
+                display: inline-block;
+                margin-bottom: 1rem;
+                img {
+                    border-radius: $radius5p;
+                }
+            }
+            p {
+                color: $whitecolor;
+                text-align: left;
+            }
+            .jltma-button {
+                background: #e8156e;
+                border: 0;
+                font-weight: $weight700;
+                line-height: $lineheight + 6px;
+                margin-top: 1rem;
+                padding: 0.625rem 1rem;
+                text-transform: uppercase;
+                width: 100%;
+            }
+        }
+    }
+
+    #jltma-master-addons-system-info {
+        .jltma-api-element-inner {
+            padding: 0;
+            table {
+                table-layout: fixed;
+                width: 100%;
+                a {
+                    color: $primarycolor;
+                    font-weight: $weight500;
+                }
+            }
+            tr:last-child {
+                td {
+                    border-bottom: 0;
+                }
+            }
+            td {
+                border-bottom: 1px solid $grayborder;
+                font-size: $font-size;
+                padding: 15px;
+                .jltma-valid,
+                .jltma-invalid {
+                    display: inline-block;
+                    border-radius: $radius5p - 2px;
+                    color: $whitecolor;
+                    font-size: $font-size + 4px;
+                    line-height: $lineheight;
+                    margin-right: 7px;
+                }
+                .jltma-valid {
+                    background-color: #9bc865;
+                }
+                .jltma-invalid {
+                    background-color: red;
+                }
+            }
+        }
+    }
+}
+.jltma-addons-tooltip {
+    .jltma-tooltip-item {
+        position: relative;
+        i {
+            color: #90a4ae;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 13px;
+            padding: 3px 4px;
+            transition: all 0.3s ease;
+            &:hover {
+                color: $titlecolor;
+            }
+        }
+        .jltma-tooltip-text {
+            background-color: $titlecolor;
+            border-radius: $radius5p;
+            box-shadow: none;
+            font-size: $font-size - 1px;
+            font-weight: $weight500;
+            padding: 4.5px 12px;
+            position: absolute;
+            white-space: nowrap;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 99999;
+
+            transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-style: solid;
+            }
+            a {
+                color: #efeff5;
+                text-decoration: none;
+            }
+            &:hover {
+                box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.13);
+            }
+        }
+        &:hover {
+            ~ .jltma-tooltip-text {
+                -webkit-transform: translate3d(-50%, 0, 0);
+                transform: translate3d(-50%, 0, 0);
+                visibility: visible;
+                opacity: 1;
+            }
+            .jltma-tooltip-text {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        &.tooltip-top .jltma-tooltip-text {
+            bottom: 10px;
+            left: 50%;
+            -webkit-transform: translate3d(-50%, -15px, 0);
+            transform: translate3d(-50%, -15px, 0);
+            text-align: center;
+            &:after {
+                bottom: -0.5em;
+                left: 50%;
+                -webkit-transform: translate3d(-50%, 0, 0);
+                transform: translate3d(-50%, 0, 0);
+                border-width: 0.5em 0.5em 0 0.5em;
+                border-color: #393c3f transparent transparent transparent;
+            }
+        }
+    }
+    .jltma-external-plugin-download {
+        background-color: $primarycolor;
+        border-radius: $radius5p;
+        color: $whitecolor;
+        display: inline-block;
+        font-size: $font-size - 4px;
+        font-weight: $weight700;
+        line-height: $lineheight;
+        margin-top: 3px;
+        padding: 0 5px;
+        i {
+            font-size: $font-size;
+            height: auto;
+            width: auto;
+            line-height: $lineheight;
+            margin-left: 4px;
+        }
+    }
+}
+
+/* Addons Switch */
+
+.jltma-master-addons_feature-switchbox {
+    .switch-primary > .jltma-switch-input:checked ~ .jltma-switch-label {
+        @include gradient-bg-1;
+        border-color: transparent;
+    }
+    .jltma-switch-input:checked ~ .jltma-switch-handle {
+        background: $whitecolor;
+        left: 25px;
+    }
+    .jltma-switch-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+    .switch.switch-text .jltma-switch-label::before,
+    .switch.switch-text .jltma-switch-label::after {
+        display: none;
+    }
+    .switch.switch-text .jltma-switch-input:checked ~ .jltma-switch-handle {
+        left: 25px;
+    }
+    .jltma-switch-label {
+        background-color: #eceff4;
+        border: 2px solid #e8e8ec;
+        border-radius: 3rem;
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+    .jltma-switch-handle {
+        @include gradient-bg-1;
+        border: 1px solid $grayborder;
+        border-radius: 3rem;
+        width: 18px;
+        height: 18px;
+        top: 3px;
+        left: 3px;
+        position: absolute;
+
+        transition: left 0.15s ease-out;
+    }
+}
+/* Addons Ribbon */
+
+/* Ribbon colors */
+
+.ribbon {
+    color: #fff;
+    border-radius: 15px;
+    height: 50px;
+    width: 88px;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.new {
+    background: #f70505;
+}
+.hot {
+    background: #f2db05;
+    color: red;
+}
+.pro {
+    background: #007200;
+}
+.coming {
+    background: #b6bac9;
+    font-size: 10px;
+    padding: 5px 4px;
+}
+.trending {
+    background: #465cad;
+    font-size: 10px;
+    padding: 5px 4px;
+}
+.popular {
+    background: #05eff7;
+    font-size: 10px;
+    padding: 5px 4px;
+}
+.master-addons-features-ribbon {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.master-addons-features-ribbon .pro-ribbon {
+    background-image: -moz-linear-gradient(
+        0deg,
+        rgb(223, 29, 198) 0%,
+        rgb(106, 20, 209) 100%
+    );
+    background-image: -webkit-linear-gradient(
+        0deg,
+        rgb(223, 29, 198) 0%,
+        rgb(106, 20, 209) 100%
+    );
+    background-image: -ms-linear-gradient(
+        0deg,
+        rgb(223, 29, 198) 0%,
+        rgb(106, 20, 209) 100%
+    );
+    color: #fff;
+    font-size: 9px;
+    font-weight: 600;
+    position: absolute;
+    width: 50px;
+    top: -1px;
+    right: -18px;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 2;
+
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+// .toplevel_page_master-addons-settings {
+//     /* Support Sidebar */
+
+//     .master-addons-banner {
+//         border-radius: $radius5p;
+//         margin-bottom: 15px;
+//         overflow: hidden;
+//         position: relative;
+//     }
+//     .master-addons-banner-content {
+//         align-items: center;
+//         justify-content: center;
+//         left: 0;
+//         top: 0;
+//         padding: 1.875rem;
+//         position: absolute;
+//     }
+//     .master-addons-banner-content h3 {
+//         color: #fff;
+//         font-size: 1.5rem;
+//         line-height: 1.25;
+//         margin: 0 0 30px;
+//         text-align: center;
+//     }
+//     .master-addons-banner-content h3 span {
+//         display: block;
+//     }
+//     .master-addons-banner-content button {
+//         background-color: #fff;
+//         border: none;
+//         border-radius: $radius5p;
+//         box-shadow: none;
+//         color: #6814cd;
+//         font-size: 14px;
+//         font-weight: 700;
+//         line-height: 45px;
+//         padding: 0 1.875rem;
+//         text-transform: uppercase;
+//     }
+
+// }
