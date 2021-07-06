@@ -31,7 +31,7 @@ include_once MELA_PLUGIN_PATH . '/inc/admin/jltma-elements/ma-forms.php';
 						</div> <!-- master-addons-el-title-content -->
 
 
-						<div class="jltma-addons-tooltip">
+						<div class="jltma-addons-tooltip inline-block">
 
 							<?php
 							Master_Addons_Helper::jltma_admin_tooltip_info('Demo', $widget['demo_url'], 'eicon-device-desktop');

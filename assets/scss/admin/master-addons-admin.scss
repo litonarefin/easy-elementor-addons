@@ -6,7 +6,7 @@
 
 @import "../variables", "../mixins";
 
-.jltma-master-addons-admin {
+.jltma-admin {
     color: $titlecolor;
     * {
         box-sizing: border-box;
@@ -36,12 +36,14 @@
     }
     button,
     .button,
-    a.jltma-get-pro {
+    a.jltma-get-pro,
+    .jltma-copy-button {
         border: none;
         border-radius: $radius5p;
         box-shadow: none;
-        color: #fff;
+        color: $whitecolor;
         cursor: pointer;
+        display: inline-block;
         font-size: 14px;
         font-weight: 700;
         line-height: 35px;
@@ -144,7 +146,35 @@
     .text-center {
         text-align: center;
     }
+    .new {
+        background: #f70505;
+    }
+    .hot {
+        background: #f2db05;
+        color: red;
+    }
+    .pro {
+        background: #007200;
+    }
+    .coming {
+        background: #b6bac9;
+        font-size: 10px;
+        padding: 5px 4px;
+    }
+    .trending {
+        background: #465cad;
+        font-size: 10px;
+        padding: 5px 4px;
+    }
+    .popular {
+        background: #05eff7;
+        font-size: 10px;
+        padding: 5px 4px;
+    }
 
+    .jltma-master-addons-admin {
+        margin: 15px 15px 0 0;
+    }
     .jltma-master-addons-header {
         background-color: $primarycolor;
         align-items: center;
@@ -173,27 +203,28 @@
             line-height: 1;
             margin: 0 5px 0 0;
             padding: 0;
-            a,
-            a.nav-upgrade-pro {
-                background-color: #f7f7fa;
-                border-top: 4px solid transparent;
-                color: $titlecolor;
-                display: inline-block;
-                font-size: 14px;
-                font-weight: 600;
-                padding: 0.875rem 1.75rem 1.2rem;
-            }
+
             &.jltma-admin-tab-active a,
             a:hover {
-                background-color: #fff;
-                border-top-color: #6814cd;
-                color: #6814cd;
+                background-color: $whitecolor;
+                border-top-color: $primarycolor;
+                color: $primarycolor;
             }
-            a.nav-upgrade-pro {
-                background-color: #6814cd;
-                color: #fff;
-                text-transform: uppercase;
-            }
+        }
+        li a,
+        a.jltma-upgrade-pro {
+            background-color: #f7f7fa;
+            border-top: 4px solid transparent;
+            color: $titlecolor;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 0.875rem 1.75rem 1.2rem;
+        }
+        a.jltma-upgrade-pro {
+            background-color: $primarycolor;
+            color: $whitecolor;
+            text-transform: uppercase;
         }
     }
     .jltma-master-addons-tab-panel {
@@ -356,15 +387,44 @@
             border: 1px solid $grayborder;
             border-radius: $radius5p;
             padding: 13px 15px;
+            position: relative;
+            z-index: 0;
+            .jltma-master-addons-features-ribbon {
+                height: 100%;
+                width: 100%;
+                left: 0;
+                top: 0;
+                overflow: hidden;
+                position: absolute;
+                z-index: -1;
+                .jltma-pro-ribbon {
+                    @include gradient-bg-2;
+                    color: $whitecolor;
+                    font-size: $font-size - 5px;
+                    font-weight: $weight600;
+                    line-height: $lineheight - 4px;
+                    padding-top: 5px;
+                    position: absolute;
+                    width: 50px;
+                    top: -2px;
+                    right: -18px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    z-index: 2;
+
+                    transform: rotate(45deg);
+                }
+            }
         }
         .jltma-master-addons-content-inner {
             display: inline-block;
             width: calc(100% - 60px);
             .jltma-master-addons-features-title {
                 color: $titlecolor;
-                display: block;
+                float: left;
                 font-size: $font-size + 1px;
                 font-weight: $weight500;
+                margin-right: 8px;
             }
             .jltma-tooltip-item {
                 float: left;
@@ -382,6 +442,7 @@
         }
     }
     .jltma-api-settings-element {
+        clear: both;
         .jltma-api-element-inner {
             border: 1px solid $grayborder;
             border-radius: $radius5p;
@@ -430,6 +491,8 @@
             a {
                 color: $primarycolor;
             }
+        }&.jltma-copy-section {
+            position: relative;
         }
     }
     #jltma-addons-white-label-settings {
@@ -576,6 +639,20 @@
                 }
             }
         }
+        .jltma-copy-button {
+            @include gradient-bg-2;
+            float: right;
+            top: 2rem;
+            right: 7.5px;
+            position: absolute;
+            svg {
+                fill: $whitecolor;
+                float: left;
+                height: 16px;
+                width: 16px;
+                margin: 9px 7px 0 0;
+            }
+        }
     }
 }
 .jltma-addons-tooltip {
@@ -685,7 +762,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        opacity: 0;
+        opacity: 0 !important;
     }
     .switch.switch-text .jltma-switch-label::before,
     .switch.switch-text .jltma-switch-label::after {
@@ -715,124 +792,3 @@
         transition: left 0.15s ease-out;
     }
 }
-/* Addons Ribbon */
-
-/* Ribbon colors */
-
-.ribbon {
-    color: #fff;
-    border-radius: 15px;
-    height: 50px;
-    width: 88px;
-    padding: 5px;
-    font-size: 12px;
-    font-weight: 600;
-}
-.new {
-    background: #f70505;
-}
-.hot {
-    background: #f2db05;
-    color: red;
-}
-.pro {
-    background: #007200;
-}
-.coming {
-    background: #b6bac9;
-    font-size: 10px;
-    padding: 5px 4px;
-}
-.trending {
-    background: #465cad;
-    font-size: 10px;
-    padding: 5px 4px;
-}
-.popular {
-    background: #05eff7;
-    font-size: 10px;
-    padding: 5px 4px;
-}
-.master-addons-features-ribbon {
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-}
-.master-addons-features-ribbon .pro-ribbon {
-    background-image: -moz-linear-gradient(
-        0deg,
-        rgb(223, 29, 198) 0%,
-        rgb(106, 20, 209) 100%
-    );
-    background-image: -webkit-linear-gradient(
-        0deg,
-        rgb(223, 29, 198) 0%,
-        rgb(106, 20, 209) 100%
-    );
-    background-image: -ms-linear-gradient(
-        0deg,
-        rgb(223, 29, 198) 0%,
-        rgb(106, 20, 209) 100%
-    );
-    color: #fff;
-    font-size: 9px;
-    font-weight: 600;
-    position: absolute;
-    width: 50px;
-    top: -1px;
-    right: -18px;
-    text-align: center;
-    text-transform: uppercase;
-    z-index: 2;
-
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-}
-
-// .toplevel_page_master-addons-settings {
-//     /* Support Sidebar */
-
-//     .master-addons-banner {
-//         border-radius: $radius5p;
-//         margin-bottom: 15px;
-//         overflow: hidden;
-//         position: relative;
-//     }
-//     .master-addons-banner-content {
-//         align-items: center;
-//         justify-content: center;
-//         left: 0;
-//         top: 0;
-//         padding: 1.875rem;
-//         position: absolute;
-//     }
-//     .master-addons-banner-content h3 {
-//         color: #fff;
-//         font-size: 1.5rem;
-//         line-height: 1.25;
-//         margin: 0 0 30px;
-//         text-align: center;
-//     }
-//     .master-addons-banner-content h3 span {
-//         display: block;
-//     }
-//     .master-addons-banner-content button {
-//         background-color: #fff;
-//         border: none;
-//         border-radius: $radius5p;
-//         box-shadow: none;
-//         color: #6814cd;
-//         font-size: 14px;
-//         font-weight: 700;
-//         line-height: 45px;
-//         padding: 0 1.875rem;
-//         text-transform: uppercase;
-//     }
-
-// }

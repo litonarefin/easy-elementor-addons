@@ -31,7 +31,7 @@ mix.webpackConfig({
 		jquery: "window.jQuery",
 		$: "window.jQuery",
 		wp: 'window.wp',
-		jltma-master-addons: 'window.jltma-master-addons'
+		jltma_master_addons: 'window.jltma_master_addons'
 	}
 });
 

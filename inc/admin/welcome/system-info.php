@@ -290,7 +290,7 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
             </div><!-- /.api-settings-element -->
             <!-- End of PHP Extensions -->
 
-            <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                 <symbol id="icon-copy" viewBox="0 0 32 32">
                     <path d="M20 8v-8h-14l-6 6v18h12v8h20v-24h-12zM6 2.828v3.172h-3.172l3.172-3.172zM2 22v-14h6v-6h10v6l-6 6v8h-10zM18 10.828v3.172h-3.172l3.172-3.172zM30 30h-16v-14h6v-6h10v20z"></path>
                 </symbol>
@@ -298,8 +298,16 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
 
 
             <!-- Start of Active Plugins -->
-            <div class="jltma-api-settings-element jltma-half copy-section">
+            <div class="jltma-api-settings-element jltma-half jltma-copy-section">
                 <h4><?php echo esc_html__('Active Plugins', MELA_TD); ?> (<?php echo count((array) get_option('active_plugins')); ?>)</h4>
+
+                <button class="jltma-copy-button" data-text="COPY" data-text-copied="COPIED">
+                    <svg class="icon icon-copy">
+                        <use xlink:href="#icon-copy"></use>
+                    </svg>
+                    <span>COPY</span>
+                </button>
+
                 <div class="jltma-api-element-inner">
                     <div class="jltma-api-forms">
 
@@ -357,43 +365,8 @@ $jltma_invalid  = '<span class="jltma-invalid"><i class="dashicons-before dashic
 
                     </div>
                 </div><!-- /.api-element-inner -->
-
-                <button class="jltma-copy-btn" data-text="COPY" data-text-copied="COPIED">
-                    <svg class="icon icon-copy">
-                        <use xlink:href="#icon-copy"></use>
-                    </svg>
-                    <span>COPY</span>
-                </button>
-
             </div><!-- /.api-settings-element -->
             <!-- End of Active Plugins -->
-            <style>
-                .api-settings-element.copy-section {
-                    position: relative;
-                }
-
-                .jltma-copy-btn {
-                    min-width: 100px;
-                    padding: 0px 5px 0px 25px !important;
-                    display: inline-block;
-                    position: absolute;
-                    right: 30px;
-                    top: 15px;
-                    background: #25241b;
-                    border-radius: 4px;
-                    outline: 0;
-                    cursor: pointer
-                }
-
-                .jltma-copy-btn svg {
-                    width: 16px;
-                    height: 16px;
-                    position: absolute;
-                    left: 15px;
-                    top: 10px;
-                    fill: #fff;
-                }
-            </style>
 
     </div>
 

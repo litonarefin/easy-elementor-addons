@@ -35,8 +35,8 @@ use MasterAddons\Admin\Dashboard\Addons\Extensions\JLTMA_Third_Party_Extensions;
 				<div class="jltma-master-addons-content-inner">
 					<div class="jltma-master-addons-features-title">
 						<?php echo $jltma_plugins['title']; ?>
-					</div> <!-- jltma-master-addons-features-title -->
-					<div class="jltma-addons-tooltip">
+					</div> <!-- jltma_master_addons-features-title -->
+					<div class="jltma-addons-tooltip inline-block">
 						<?php
 						if ($plugin_slug and $plugin_file) {
 							if (Master_Addons_Helper::is_plugin_installed($plugin_slug, $plugin_file)) {

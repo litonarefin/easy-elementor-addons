@@ -30,7 +30,7 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
                             <?php echo $widget['title']; ?>
                         </div> <!-- master-addons-el-title-content -->
 
-                        <div class="jltma-addons-tooltip">
+                        <div class="jltma-addons-tooltip inline-block">
                             <?php
                             Master_Addons_Helper::jltma_admin_tooltip_info('Demo', $widget['demo_url'], 'eicon-device-desktop');
                             Master_Addons_Helper::jltma_admin_tooltip_info('Documentation', $widget['docs_url'], 'eicon-info-circle-o');

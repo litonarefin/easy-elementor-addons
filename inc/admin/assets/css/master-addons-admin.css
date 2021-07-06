@@ -3,49 +3,50 @@
 * All Admin CSS
 * Admin Settings and Welcome Page CSS
 */
-.jltma-master-addons-admin {
+.jltma-admin {
   color: #393c3f;
 }
-.jltma-master-addons-admin * {
+.jltma-admin * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.jltma-master-addons-admin p {
+.jltma-admin p {
   color: #546e7a;
   font-size: 14px;
   line-height: 20px;
 }
-.jltma-master-addons-admin a,
-.jltma-master-addons-admin button,
-.jltma-master-addons-admin .button,
-.jltma-master-addons-admin .button-link {
+.jltma-admin a,
+.jltma-admin button,
+.jltma-admin .button,
+.jltma-admin .button-link {
   -webkit-box-shadow: none;
           box-shadow: none;
   text-decoration: none;
 }
-.jltma-master-addons-admin a:hover, .jltma-master-addons-admin a:focus, .jltma-master-addons-admin a:active, .jltma-master-addons-admin a:visited,
-.jltma-master-addons-admin button:hover,
-.jltma-master-addons-admin button:focus,
-.jltma-master-addons-admin button:active,
-.jltma-master-addons-admin button:visited,
-.jltma-master-addons-admin .button:hover,
-.jltma-master-addons-admin .button:focus,
-.jltma-master-addons-admin .button:active,
-.jltma-master-addons-admin .button:visited,
-.jltma-master-addons-admin .button-link:hover,
-.jltma-master-addons-admin .button-link:focus,
-.jltma-master-addons-admin .button-link:active,
-.jltma-master-addons-admin .button-link:visited {
+.jltma-admin a:hover, .jltma-admin a:focus, .jltma-admin a:active, .jltma-admin a:visited,
+.jltma-admin button:hover,
+.jltma-admin button:focus,
+.jltma-admin button:active,
+.jltma-admin button:visited,
+.jltma-admin .button:hover,
+.jltma-admin .button:focus,
+.jltma-admin .button:active,
+.jltma-admin .button:visited,
+.jltma-admin .button-link:hover,
+.jltma-admin .button-link:focus,
+.jltma-admin .button-link:active,
+.jltma-admin .button-link:visited {
   border: 0;
   outline: 0;
   text-decoration: none;
 }
-.jltma-master-addons-admin img {
+.jltma-admin img {
   max-width: 100%;
 }
-.jltma-master-addons-admin button,
-.jltma-master-addons-admin .button,
-.jltma-master-addons-admin a.jltma-get-pro {
+.jltma-admin button,
+.jltma-admin .button,
+.jltma-admin a.jltma-get-pro,
+.jltma-admin .jltma-copy-button {
   border: none;
   -webkit-border-radius: 5px;
           border-radius: 5px;
@@ -53,6 +54,7 @@
           box-shadow: none;
   color: #fff;
   cursor: pointer;
+  display: inline-block;
   font-size: 14px;
   font-weight: 700;
   line-height: 35px;
@@ -60,79 +62,79 @@
   text-transform: uppercase;
   text-decoration: none;
 }
-.jltma-master-addons-admin button:hover, .jltma-master-addons-admin button:focus, .jltma-master-addons-admin button:active, .jltma-master-addons-admin button:visited,
-.jltma-master-addons-admin .button:hover,
-.jltma-master-addons-admin .button:focus,
-.jltma-master-addons-admin .button:active,
-.jltma-master-addons-admin .button:visited,
-.jltma-master-addons-admin a.jltma-get-pro:hover,
-.jltma-master-addons-admin a.jltma-get-pro:focus,
-.jltma-master-addons-admin a.jltma-get-pro:active,
-.jltma-master-addons-admin a.jltma-get-pro:visited,
-.jltma-master-addons-admin input:not([type=checkbox], [type=radio]):hover,
-.jltma-master-addons-admin input:not([type=checkbox], [type=radio]):focus,
-.jltma-master-addons-admin input:not([type=checkbox], [type=radio]):active,
-.jltma-master-addons-admin input:not([type=checkbox], [type=radio]):visited,
-.jltma-master-addons-admin textarea:hover,
-.jltma-master-addons-admin textarea:focus,
-.jltma-master-addons-admin textarea:active,
-.jltma-master-addons-admin textarea:visited {
+.jltma-admin button:hover, .jltma-admin button:focus, .jltma-admin button:active, .jltma-admin button:visited,
+.jltma-admin .button:hover,
+.jltma-admin .button:focus,
+.jltma-admin .button:active,
+.jltma-admin .button:visited,
+.jltma-admin a.jltma-get-pro:hover,
+.jltma-admin a.jltma-get-pro:focus,
+.jltma-admin a.jltma-get-pro:active,
+.jltma-admin a.jltma-get-pro:visited,
+.jltma-admin input:not([type=checkbox], [type=radio]):hover,
+.jltma-admin input:not([type=checkbox], [type=radio]):focus,
+.jltma-admin input:not([type=checkbox], [type=radio]):active,
+.jltma-admin input:not([type=checkbox], [type=radio]):visited,
+.jltma-admin textarea:hover,
+.jltma-admin textarea:focus,
+.jltma-admin textarea:active,
+.jltma-admin textarea:visited {
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
   outline: 0;
 }
-.jltma-master-addons-admin .jltma-button {
+.jltma-admin .jltma-button {
   background-image: -moz-linear-gradient(0deg, #9929ea 0%, #5808fb 100%);
   background-image: -webkit-linear-gradient(0deg, #9929ea 0%, #5808fb 100%);
 }
-.jltma-master-addons-admin .jltma-button:hover {
+.jltma-admin .jltma-button:hover {
   background-image: -ms-linear-gradient(0deg, #df1dc6 0%, #6a14d1 100%);
   background-image: -webkit-linear-gradient(0deg, #df1dc6 0%, #6a14d1 100%);
 }
-.jltma-master-addons-admin .jltma-addons-enable-all,
-.jltma-master-addons-admin .jltma-addons-disable-all {
+.jltma-admin .jltma-addons-enable-all,
+.jltma-admin .jltma-addons-disable-all {
   line-height: 45px;
   margin-left: 5px;
   padding: 0 1.25rem;
 }
-.jltma-master-addons-admin .jltma-addons-enable-all {
+.jltma-admin .jltma-addons-enable-all {
   background-image: -webkit-gradient(linear, left bottom, right top, from(#2b93c2), to(#0da6eb));
   background-image: -o-linear-gradient(bottom left, #2b93c2 0%, #0da6eb 100%);
   background-image: linear-gradient(to top right, #2b93c2 0%, #0da6eb 100%);
 }
-.jltma-master-addons-admin .jltma-addons-disable-all {
+.jltma-admin .jltma-addons-disable-all {
   background-image: -webkit-gradient(linear, left bottom, right top, from(#f83600), to(rgba(239, 102, 35, 0.99608)));
   background-image: -o-linear-gradient(bottom left, #f83600 0%, rgba(239, 102, 35, 0.99608) 100%);
   background-image: linear-gradient(to top right, #f83600 0%, rgba(239, 102, 35, 0.99608) 100%);
 }
-.jltma-master-addons-admin h1,
-.jltma-master-addons-admin h2,
-.jltma-master-addons-admin h3,
-.jltma-master-addons-admin h4,
-.jltma-master-addons-admin h5,
-.jltma-master-addons-admin h6 {
+.jltma-admin h1,
+.jltma-admin h2,
+.jltma-admin h3,
+.jltma-admin h4,
+.jltma-admin h5,
+.jltma-admin h6 {
   color: #393c3f;
 }
-.jltma-master-addons-admin h1 {
+.jltma-admin h1 {
   font-size: 36px;
 }
-.jltma-master-addons-admin h2 {
+.jltma-admin h2 {
   font-size: 30px;
 }
-.jltma-master-addons-admin h3 {
+.jltma-admin h3 {
   font-size: 28px;
 }
-.jltma-master-addons-admin h4 {
+.jltma-admin h4 {
   font-size: 24px;
 }
-.jltma-master-addons-admin h5 {
+.jltma-admin h5 {
   font-size: 18px;
 }
-.jltma-master-addons-admin h6 {
+.jltma-admin h6 {
   font-size: 14px;
 }
-.jltma-master-addons-admin .is-flex {
+.jltma-admin .is-flex {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -141,28 +143,28 @@
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
 }
-.jltma-master-addons-admin .m-0 {
+.jltma-admin .m-0 {
   margin: 0;
 }
-.jltma-master-addons-admin .mt-0 {
+.jltma-admin .mt-0 {
   margin-top: 0;
 }
-.jltma-master-addons-admin .mb-0 {
+.jltma-admin .mb-0 {
   margin-bottom: 0;
 }
-.jltma-master-addons-admin .mt-2 {
+.jltma-admin .mt-2 {
   margin-top: 2rem;
 }
-.jltma-master-addons-admin .mb-2 {
+.jltma-admin .mb-2 {
   margin-bottom: 2rem;
 }
-.jltma-master-addons-admin .p-0 {
+.jltma-admin .p-0 {
   padding: 0;
 }
-.jltma-master-addons-admin .p-3 {
+.jltma-admin .p-3 {
   padding: 1rem;
 }
-.jltma-master-addons-admin .jltma-half {
+.jltma-admin .jltma-half {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 50%;
       -ms-flex: 0 0 50%;
@@ -170,13 +172,41 @@
   max-width: 50%;
   padding: 7.5px;
 }
-.jltma-master-addons-admin .inline-block {
+.jltma-admin .inline-block {
   display: inline-block;
 }
-.jltma-master-addons-admin .text-center {
+.jltma-admin .text-center {
   text-align: center;
 }
-.jltma-master-addons-admin .jltma-master-addons-header {
+.jltma-admin .new {
+  background: #f70505;
+}
+.jltma-admin .hot {
+  background: #f2db05;
+  color: red;
+}
+.jltma-admin .pro {
+  background: #007200;
+}
+.jltma-admin .coming {
+  background: #b6bac9;
+  font-size: 10px;
+  padding: 5px 4px;
+}
+.jltma-admin .trending {
+  background: #465cad;
+  font-size: 10px;
+  padding: 5px 4px;
+}
+.jltma-admin .popular {
+  background: #05eff7;
+  font-size: 10px;
+  padding: 5px 4px;
+}
+.jltma-admin .jltma-master-addons-admin {
+  margin: 15px 15px 0 0;
+}
+.jltma-admin .jltma-master-addons-header {
   background-color: #6814cd;
   -webkit-box-align: center;
   -webkit-align-items: center;
@@ -186,30 +216,36 @@
   position: relative;
   width: 100%;
 }
-.jltma-master-addons-admin .jltma-master-addons-header .jltma-master-addons-panel-logo {
+.jltma-admin .jltma-master-addons-header .jltma-master-addons-panel-logo {
   height: 70px;
   width: 70px;
   margin-right: 15px;
 }
-.jltma-master-addons-admin .jltma-master-addons-header .jltma-master-addons-title {
+.jltma-admin .jltma-master-addons-header .jltma-master-addons-title {
   color: #fff;
   line-height: 30px;
 }
-.jltma-master-addons-admin .jltma-master-addons-header .jltma-master-addons-title small {
+.jltma-admin .jltma-master-addons-header .jltma-master-addons-title small {
   font-size: 12px;
 }
-.jltma-master-addons-admin .jltma-master-addons-tabs-navbar {
+.jltma-admin .jltma-master-addons-tabs-navbar {
   margin: 15px 0 0;
 }
-.jltma-master-addons-admin .jltma-master-addons-tabs-navbar li {
+.jltma-admin .jltma-master-addons-tabs-navbar li {
   border: none;
   display: inline-block;
   line-height: 1;
   margin: 0 5px 0 0;
   padding: 0;
 }
-.jltma-master-addons-admin .jltma-master-addons-tabs-navbar li a,
-.jltma-master-addons-admin .jltma-master-addons-tabs-navbar li a.nav-upgrade-pro {
+.jltma-admin .jltma-master-addons-tabs-navbar li.jltma-admin-tab-active a,
+.jltma-admin .jltma-master-addons-tabs-navbar li a:hover {
+  background-color: #fff;
+  border-top-color: #6814cd;
+  color: #6814cd;
+}
+.jltma-admin .jltma-master-addons-tabs-navbar li a,
+.jltma-admin .jltma-master-addons-tabs-navbar a.jltma-upgrade-pro {
   background-color: #f7f7fa;
   border-top: 4px solid transparent;
   color: #393c3f;
@@ -218,25 +254,19 @@
   font-weight: 600;
   padding: 0.875rem 1.75rem 1.2rem;
 }
-.jltma-master-addons-admin .jltma-master-addons-tabs-navbar li.jltma-admin-tab-active a,
-.jltma-master-addons-admin .jltma-master-addons-tabs-navbar li a:hover {
-  background-color: #fff;
-  border-top-color: #6814cd;
-  color: #6814cd;
-}
-.jltma-master-addons-admin .jltma-master-addons-tabs-navbar li a.nav-upgrade-pro {
+.jltma-admin .jltma-master-addons-tabs-navbar a.jltma-upgrade-pro {
   background-color: #6814cd;
   color: #fff;
   text-transform: uppercase;
 }
-.jltma-master-addons-admin .jltma-master-addons-tab-panel {
+.jltma-admin .jltma-master-addons-tab-panel {
   background-color: #fff;
   border: none;
   max-height: inherit;
   padding: 1.5rem;
 }
-.jltma-master-addons-admin #jltma-master-addons-welcome .jltma-left_column,
-.jltma-master-addons-admin #jltma-master-addons-changelogs .jltma-left_column {
+.jltma-admin #jltma-master-addons-welcome .jltma-left_column,
+.jltma-admin #jltma-master-addons-changelogs .jltma-left_column {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 70%;
       -ms-flex: 0 0 70%;
@@ -244,15 +274,15 @@
   max-width: 70%;
   padding-right: 15px;
 }
-.jltma-master-addons-admin #jltma-master-addons-welcome .jltma-right_column,
-.jltma-master-addons-admin #jltma-master-addons-changelogs .jltma-right_column {
+.jltma-admin #jltma-master-addons-welcome .jltma-right_column,
+.jltma-admin #jltma-master-addons-changelogs .jltma-right_column {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 30%;
       -ms-flex: 0 0 30%;
           flex: 0 0 30%;
   max-width: 30%;
 }
-.jltma-master-addons-admin #jltma-master-addons-welcome .jltma-master-addons-supports-list li {
+.jltma-admin #jltma-master-addons-welcome .jltma-master-addons-supports-list li {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 50%;
       -ms-flex: 0 0 50%;
@@ -261,19 +291,19 @@
   margin: 0;
   padding: 0 0 15px;
 }
-.jltma-master-addons-admin #jltma-master-addons-welcome .jltma-master-addons-supports-list li:nth-child(odd) {
+.jltma-admin #jltma-master-addons-welcome .jltma-master-addons-supports-list li:nth-child(odd) {
   padding-right: 7.5px;
 }
-.jltma-master-addons-admin #jltma-master-addons-welcome .jltma-master-addons-supports-list li:nth-child(even) {
+.jltma-admin #jltma-master-addons-welcome .jltma-master-addons-supports-list li:nth-child(even) {
   padding-left: 7.55px;
 }
-.jltma-master-addons-admin #jltma-master-addons-welcome .jltma-master-addons-supports-list li img {
+.jltma-admin #jltma-master-addons-welcome .jltma-master-addons-supports-list li img {
   float: right;
   max-height: 44px;
   max-width: 100%;
   width: 35px;
 }
-.jltma-master-addons-admin #jltma-master-addons-welcome .jltma-master-addons-supports-list .jltma-supports-list-content {
+.jltma-admin #jltma-master-addons-welcome .jltma-master-addons-supports-list .jltma-supports-list-content {
   border: 1px solid #efeff5;
   -webkit-border-radius: 5px;
           border-radius: 5px;
@@ -287,7 +317,7 @@
           justify-content: space-between;
   padding: 7px 1.25rem;
 }
-.jltma-master-addons-admin #jltma-master-addons-welcome .jltma-master-addons-supports-list .jltma-supports-list-content a {
+.jltma-admin #jltma-master-addons-welcome .jltma-master-addons-supports-list .jltma-supports-list-content a {
   color: #393c3f;
   font-size: 14px;
   font-weight: 600;
@@ -295,7 +325,7 @@
   padding: 13px 0;
   text-decoration: none;
 }
-.jltma-master-addons-admin .jltma-master_addons-star-review {
+.jltma-admin .jltma-master_addons-star-review {
   border: 1px solid #efeff5;
   -webkit-border-radius: 5px;
           border-radius: 5px;
@@ -306,75 +336,75 @@
   margin-bottom: 15px;
   padding: 1.875rem 1.25rem;
 }
-.jltma-master-addons-admin .jltma-master_addons-star-review .jltma-review-content-left {
+.jltma-admin .jltma-master_addons-star-review .jltma-review-content-left {
   max-width: 70px;
   margin-right: 20px;
 }
-.jltma-master-addons-admin .jltma-master_addons-star-review .jltma-review-content-left img {
+.jltma-admin .jltma-master_addons-star-review .jltma-review-content-left img {
   margin: 0;
   height: 70px;
   vertical-align: middle;
 }
-.jltma-master-addons-admin .jltma-master_addons-star-review .jltma-review-content-right {
+.jltma-admin .jltma-master_addons-star-review .jltma-review-content-right {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
-.jltma-master-addons-admin .jltma-master_addons-star-review .jltma-review-content-right h4 {
+.jltma-admin .jltma-master_addons-star-review .jltma-review-content-right h4 {
   font-size: 18px;
   margin: -2px 0 13px;
 }
-.jltma-master-addons-admin .jltma-master_addons-star-review p {
+.jltma-admin .jltma-master_addons-star-review p {
   line-height: 23px;
   margin: 0 0 1.75rem;
 }
-.jltma-master-addons-admin .jltma-master-addons-support-faq {
+.jltma-admin .jltma-master-addons-support-faq {
   border: 1px solid #efeff5;
   -webkit-border-radius: 5px;
           border-radius: 5px;
   margin-bottom: 15px;
   padding: 0 1.25rem;
 }
-.jltma-master-addons-admin .jltma-master-addons-support-faq .jltma-master-addons-faq-content {
+.jltma-admin .jltma-master-addons-support-faq .jltma-master-addons-faq-content {
   border-bottom: 1px solid #efeff5;
   padding: 1.45rem 0;
 }
-.jltma-master-addons-admin .jltma-master-addons-support-faq .jltma-master-addons-faq-content h4 {
+.jltma-admin .jltma-master-addons-support-faq .jltma-master-addons-faq-content h4 {
   color: #6814cd;
   font-size: 14px;
   font-weight: 700;
   margin: 0 0 10px;
 }
-.jltma-master-addons-admin .jltma-master-addons-support-faq .jltma-master-addons-faq-content p {
+.jltma-admin .jltma-master-addons-support-faq .jltma-master-addons-faq-content p {
   margin-bottom: 0;
 }
-.jltma-master-addons-admin .jltma-master-addons-support-faq .jltma-button {
+.jltma-admin .jltma-master-addons-support-faq .jltma-button {
   margin: 1.875rem 0;
 }
-.jltma-master-addons-admin .jltma-master-addons-support-faq .jltma-button a {
+.jltma-admin .jltma-master-addons-support-faq .jltma-button a {
   color: #fff;
 }
-.jltma-master-addons-admin .jltma-master-addons-right-column-widget {
+.jltma-admin .jltma-master-addons-right-column-widget {
   border: 1px solid #efeff5;
   -webkit-border-radius: 5px;
           border-radius: 5px;
   margin-top: 15px;
   padding: 1.25rem;
 }
-.jltma-master-addons-admin .jltma-master-addons-right-column-widget .jltma-icon-image {
+.jltma-admin .jltma-master-addons-right-column-widget .jltma-icon-image {
   max-width: 42px;
 }
-.jltma-master-addons-admin .jltma-master-addons-right-column-widget h4 {
+.jltma-admin .jltma-master-addons-right-column-widget h4 {
   font-size: 14px;
   font-weight: 600;
   margin: 11px 0 8px;
 }
-.jltma-master-addons-admin .jltma-master-addons-right-column-widget p {
+.jltma-admin .jltma-master-addons-right-column-widget p {
   line-height: 23px;
   margin: 0 0 25px;
 }
-.jltma-master-addons-admin .jltma-tab-dashboard-header-right {
+.jltma-admin .jltma-tab-dashboard-header-right {
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -385,20 +415,20 @@
           justify-content: flex-end;
   margin-bottom: 1.5rem;
 }
-.jltma-master-addons-admin .jltma-master-addons-dashboard-filter .jltma-filter-left {
+.jltma-admin .jltma-master-addons-dashboard-filter .jltma-filter-left {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 70%;
       -ms-flex: 0 0 70%;
           flex: 0 0 70%;
   max-width: 70%;
 }
-.jltma-master-addons-admin .jltma-master-addons-dashboard-filter .jltma-filter-left h3 {
+.jltma-admin .jltma-master-addons-dashboard-filter .jltma-filter-left h3 {
   margin: 0 0 1rem;
 }
-.jltma-master-addons-admin .jltma-master-addons-dashboard-filter .jltma-filter-left p {
+.jltma-admin .jltma-master-addons-dashboard-filter .jltma-filter-left p {
   font-size: 15px;
 }
-.jltma-master-addons-admin .jltma-master-addons-dashboard-filter .jltma-filter-right {
+.jltma-admin .jltma-master-addons-dashboard-filter .jltma-filter-right {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 30%;
       -ms-flex: 0 0 30%;
@@ -406,10 +436,10 @@
   max-width: 30%;
   text-align: right;
 }
-.jltma-master-addons-admin .jltma-master-addons-features-container {
+.jltma-admin .jltma-master-addons-features-container {
   margin: -7.5px;
 }
-.jltma-master-addons-admin .jltma-master-addons-features-container .jltma-master-addons-dashboard-checkbox {
+.jltma-admin .jltma-master-addons-features-container .jltma-master-addons-dashboard-checkbox {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 25%;
       -ms-flex: 0 0 25%;
@@ -417,48 +447,82 @@
   max-width: 25%;
   padding: 7.5px;
 }
-.jltma-master-addons-admin .jltma-master-addons-features-container .jltma-master-addons-dashboard-checkbox-content {
+.jltma-admin .jltma-master-addons-features-container .jltma-master-addons-dashboard-checkbox-content {
   border: 1px solid #efeff5;
   -webkit-border-radius: 5px;
           border-radius: 5px;
   padding: 13px 15px;
+  position: relative;
+  z-index: 0;
 }
-.jltma-master-addons-admin .jltma-master-addons-features-container .jltma-master-addons-content-inner {
+.jltma-admin .jltma-master-addons-features-container .jltma-master-addons-dashboard-checkbox-content .jltma-master-addons-features-ribbon {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.jltma-admin .jltma-master-addons-features-container .jltma-master-addons-dashboard-checkbox-content .jltma-master-addons-features-ribbon .jltma-pro-ribbon {
+  background-image: -ms-linear-gradient(0deg, #df1dc6 0%, #6a14d1 100%);
+  background-image: -webkit-linear-gradient(0deg, #df1dc6 0%, #6a14d1 100%);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 16px;
+  padding-top: 5px;
+  position: absolute;
+  width: 50px;
+  top: -2px;
+  right: -18px;
+  text-align: center;
+  text-transform: uppercase;
+  z-index: 2;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.jltma-admin .jltma-master-addons-features-container .jltma-master-addons-content-inner {
   display: inline-block;
   width: -webkit-calc(100% - 60px);
   width: calc(100% - 60px);
 }
-.jltma-master-addons-admin .jltma-master-addons-features-container .jltma-master-addons-content-inner .jltma-master-addons-features-title {
+.jltma-admin .jltma-master-addons-features-container .jltma-master-addons-content-inner .jltma-master-addons-features-title {
   color: #393c3f;
-  display: block;
+  float: left;
   font-size: 15px;
   font-weight: 500;
+  margin-right: 8px;
 }
-.jltma-master-addons-admin .jltma-master-addons-features-container .jltma-master-addons-content-inner .jltma-tooltip-item {
+.jltma-admin .jltma-master-addons-features-container .jltma-master-addons-content-inner .jltma-tooltip-item {
   float: left;
 }
-.jltma-master-addons-admin .jltma-master-addons-features-container .jltma-master-addons_feature-switchbox {
+.jltma-admin .jltma-master-addons-features-container .jltma-master-addons_feature-switchbox {
   float: right;
   text-align: right;
   width: 60px;
 }
-.jltma-master-addons-admin #jltma-master-addons-api-keys .jltma-addons-dashboard-tabs-wrapper {
+.jltma-admin #jltma-master-addons-api-keys .jltma-addons-dashboard-tabs-wrapper {
   margin: -7.5px;
 }
-.jltma-master-addons-admin .jltma-api-settings-element .jltma-api-element-inner {
+.jltma-admin .jltma-api-settings-element {
+  clear: both;
+}
+.jltma-admin .jltma-api-settings-element .jltma-api-element-inner {
   border: 1px solid #efeff5;
   -webkit-border-radius: 5px;
           border-radius: 5px;
   padding: 1.875rem 1.25rem;
 }
-.jltma-master-addons-admin .jltma-api-settings-element .jltma-form-group {
+.jltma-admin .jltma-api-settings-element .jltma-form-group {
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 1.875rem;
 }
-.jltma-master-addons-admin .jltma-api-settings-element .jltma-form-group label {
+.jltma-admin .jltma-api-settings-element .jltma-form-group label {
   color: #393c3f;
   font-weight: 600;
   -webkit-box-flex: 0;
@@ -468,7 +532,7 @@
   max-width: 35%;
   padding-right: 10px;
 }
-.jltma-master-addons-admin .jltma-api-settings-element .jltma-form-group .jltma-form-control:not([type=checkbox], [type=radio]) {
+.jltma-admin .jltma-api-settings-element .jltma-form-group .jltma-form-control:not([type=checkbox], [type=radio]) {
   background-color: #fcfcff;
   border: 1px solid #efeff5;
   -webkit-border-radius: 3rem;
@@ -484,32 +548,35 @@
   margin: 0;
   padding: 10px 15px;
 }
-.jltma-master-addons-admin .jltma-api-settings-element .jltma-form-group .jltma-form-control[type=checkbox] {
+.jltma-admin .jltma-api-settings-element .jltma-form-group .jltma-form-control[type=checkbox] {
   border: 1px solid #efeff5;
   -webkit-border-radius: 3rem;
           border-radius: 3rem;
 }
-.jltma-master-addons-admin .jltma-api-settings-element .jltma-form-group .jltma-form-control[type=checkbox]:hover, .jltma-master-addons-admin .jltma-api-settings-element .jltma-form-group .jltma-form-control[type=checkbox]:focus, .jltma-master-addons-admin .jltma-api-settings-element .jltma-form-group .jltma-form-control[type=checkbox]:visited, .jltma-master-addons-admin .jltma-api-settings-element .jltma-form-group .jltma-form-control[type=checkbox]:active, .jltma-master-addons-admin .jltma-api-settings-element .jltma-form-group .jltma-form-control[type=checkbox]:checked {
+.jltma-admin .jltma-api-settings-element .jltma-form-group .jltma-form-control[type=checkbox]:hover, .jltma-admin .jltma-api-settings-element .jltma-form-group .jltma-form-control[type=checkbox]:focus, .jltma-admin .jltma-api-settings-element .jltma-form-group .jltma-form-control[type=checkbox]:visited, .jltma-admin .jltma-api-settings-element .jltma-form-group .jltma-form-control[type=checkbox]:active, .jltma-admin .jltma-api-settings-element .jltma-form-group .jltma-form-control[type=checkbox]:checked {
   border: 1px solid #6814cd;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
-.jltma-master-addons-admin .jltma-api-settings-element p {
+.jltma-admin .jltma-api-settings-element p {
   font-size: 13px;
   font-style: italic;
   margin-bottom: 0;
 }
-.jltma-master-addons-admin .jltma-api-settings-element p a {
+.jltma-admin .jltma-api-settings-element p a {
   color: #6814cd;
 }
-.jltma-master-addons-admin #jltma-addons-white-label-settings .jltma-form-control {
+.jltma-admin .jltma-api-settings-element.jltma-copy-section {
+  position: relative;
+}
+.jltma-admin #jltma-addons-white-label-settings .jltma-form-control {
   font-weight: 600;
 }
-.jltma-master-addons-admin #jltma-addons-white-label-settings .jltma-wl-plugin-logo {
+.jltma-admin #jltma-addons-white-label-settings .jltma-wl-plugin-logo {
   -webkit-border-radius: 5px !important;
           border-radius: 5px !important;
 }
-.jltma-master-addons-admin #jltma-addons-white-label-settings textarea.jltma-form-control {
+.jltma-admin #jltma-addons-white-label-settings textarea.jltma-form-control {
   -webkit-border-radius: 5px !important;
           border-radius: 5px !important;
   -webkit-box-flex: 0 !important;
@@ -519,10 +586,10 @@
   max-width: 100% !important;
   margin-top: 10px;
 }
-.jltma-master-addons-admin .jltma-version-top-wrapper p {
+.jltma-admin .jltma-version-top-wrapper p {
   font-size: 15px;
 }
-.jltma-master-addons-admin .jltma-version-wrapper {
+.jltma-admin .jltma-version-wrapper {
   border: 1px solid #efeff5;
   -webkit-border-radius: 5px;
           border-radius: 5px;
@@ -531,21 +598,21 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.jltma-master-addons-admin .jltma-version-wrapper .jltma-version-left {
+.jltma-admin .jltma-version-wrapper .jltma-version-left {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 40%;
       -ms-flex: 0 0 40%;
           flex: 0 0 40%;
   max-width: 40%;
 }
-.jltma-master-addons-admin .jltma-version-wrapper .jltma-version-right {
+.jltma-admin .jltma-version-wrapper .jltma-version-right {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 60%;
       -ms-flex: 0 0 60%;
           flex: 0 0 60%;
   max-width: 60%;
 }
-.jltma-master-addons-admin .jltma-version-wrapper .jltma-button {
+.jltma-admin .jltma-version-wrapper .jltma-button {
   background: inherit;
   border: 1px solid #2271b1;
   -webkit-border-radius: 5px;
@@ -556,30 +623,30 @@
   margin: 0;
   padding: 5px 1rem;
 }
-.jltma-master-addons-admin .jltma-version-wrapper p {
+.jltma-admin .jltma-version-wrapper p {
   color: #dc3545;
   font-weight: 600;
 }
-.jltma-master-addons-admin #jltma-master-addons-changelogs h4 {
+.jltma-admin #jltma-master-addons-changelogs h4 {
   margin: 0;
 }
-.jltma-master-addons-admin #jltma-master-addons-changelogs ul {
+.jltma-admin #jltma-master-addons-changelogs ul {
   margin: 0;
   white-space: break-spaces;
 }
-.jltma-master-addons-admin #jltma-master-addons-changelogs ul li {
+.jltma-admin #jltma-master-addons-changelogs ul li {
   color: #393c3f;
   font-size: 15px;
   line-height: 20px;
   word-break: break-word;
 }
-.jltma-master-addons-admin #jltma-master-addons-changelogs ul li h4 {
+.jltma-admin #jltma-master-addons-changelogs ul li h4 {
   margin-top: 1.5rem;
 }
-.jltma-master-addons-admin #jltma-master-addons-changelogs .jltma-right_column {
+.jltma-admin #jltma-master-addons-changelogs .jltma-right_column {
   padding-left: 1.875rem;
 }
-.jltma-master-addons-admin .jltma-addons-banner-section .jltma-addons-banner-title {
+.jltma-admin .jltma-addons-banner-section .jltma-addons-banner-title {
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -594,26 +661,26 @@
   line-height: 24px;
   padding: 1.8725rem;
 }
-.jltma-master-addons-admin .jltma-addons-banner-section .jltma-addons-banner-title i {
+.jltma-admin .jltma-addons-banner-section .jltma-addons-banner-title i {
   margin-right: 7px;
 }
-.jltma-master-addons-admin .jltma-addons-banner-section .jltma-addons-banner-inner-content {
+.jltma-admin .jltma-addons-banner-section .jltma-addons-banner-inner-content {
   background-color: #487eb0;
   padding: 1.875rem;
 }
-.jltma-master-addons-admin .jltma-addons-banner-section .jltma-addons-banner-inner-content .jltma-master-addons-theme-link {
+.jltma-admin .jltma-addons-banner-section .jltma-addons-banner-inner-content .jltma-master-addons-theme-link {
   display: inline-block;
   margin-bottom: 1rem;
 }
-.jltma-master-addons-admin .jltma-addons-banner-section .jltma-addons-banner-inner-content .jltma-master-addons-theme-link img {
+.jltma-admin .jltma-addons-banner-section .jltma-addons-banner-inner-content .jltma-master-addons-theme-link img {
   -webkit-border-radius: 5px;
           border-radius: 5px;
 }
-.jltma-master-addons-admin .jltma-addons-banner-section .jltma-addons-banner-inner-content p {
+.jltma-admin .jltma-addons-banner-section .jltma-addons-banner-inner-content p {
   color: #fff;
   text-align: left;
 }
-.jltma-master-addons-admin .jltma-addons-banner-section .jltma-addons-banner-inner-content .jltma-button {
+.jltma-admin .jltma-addons-banner-section .jltma-addons-banner-inner-content .jltma-button {
   background: #e8156e;
   border: 0;
   font-weight: 700;
@@ -623,27 +690,27 @@
   text-transform: uppercase;
   width: 100%;
 }
-.jltma-master-addons-admin #jltma-master-addons-system-info .jltma-api-element-inner {
+.jltma-admin #jltma-master-addons-system-info .jltma-api-element-inner {
   padding: 0;
 }
-.jltma-master-addons-admin #jltma-master-addons-system-info .jltma-api-element-inner table {
+.jltma-admin #jltma-master-addons-system-info .jltma-api-element-inner table {
   table-layout: fixed;
   width: 100%;
 }
-.jltma-master-addons-admin #jltma-master-addons-system-info .jltma-api-element-inner table a {
+.jltma-admin #jltma-master-addons-system-info .jltma-api-element-inner table a {
   color: #6814cd;
   font-weight: 500;
 }
-.jltma-master-addons-admin #jltma-master-addons-system-info .jltma-api-element-inner tr:last-child td {
+.jltma-admin #jltma-master-addons-system-info .jltma-api-element-inner tr:last-child td {
   border-bottom: 0;
 }
-.jltma-master-addons-admin #jltma-master-addons-system-info .jltma-api-element-inner td {
+.jltma-admin #jltma-master-addons-system-info .jltma-api-element-inner td {
   border-bottom: 1px solid #efeff5;
   font-size: 14px;
   padding: 15px;
 }
-.jltma-master-addons-admin #jltma-master-addons-system-info .jltma-api-element-inner td .jltma-valid,
-.jltma-master-addons-admin #jltma-master-addons-system-info .jltma-api-element-inner td .jltma-invalid {
+.jltma-admin #jltma-master-addons-system-info .jltma-api-element-inner td .jltma-valid,
+.jltma-admin #jltma-master-addons-system-info .jltma-api-element-inner td .jltma-invalid {
   display: inline-block;
   -webkit-border-radius: 3px;
           border-radius: 3px;
@@ -652,11 +719,26 @@
   line-height: 20px;
   margin-right: 7px;
 }
-.jltma-master-addons-admin #jltma-master-addons-system-info .jltma-api-element-inner td .jltma-valid {
+.jltma-admin #jltma-master-addons-system-info .jltma-api-element-inner td .jltma-valid {
   background-color: #9bc865;
 }
-.jltma-master-addons-admin #jltma-master-addons-system-info .jltma-api-element-inner td .jltma-invalid {
+.jltma-admin #jltma-master-addons-system-info .jltma-api-element-inner td .jltma-invalid {
   background-color: red;
+}
+.jltma-admin #jltma-master-addons-system-info .jltma-copy-button {
+  background-image: -ms-linear-gradient(0deg, #df1dc6 0%, #6a14d1 100%);
+  background-image: -webkit-linear-gradient(0deg, #df1dc6 0%, #6a14d1 100%);
+  float: right;
+  top: 2rem;
+  right: 7.5px;
+  position: absolute;
+}
+.jltma-admin #jltma-master-addons-system-info .jltma-copy-button svg {
+  fill: #fff;
+  float: left;
+  height: 16px;
+  width: 16px;
+  margin: 9px 7px 0 0;
 }
 
 .jltma-addons-tooltip .jltma-tooltip-item {
@@ -768,7 +850,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0;
+  opacity: 0 !important;
 }
 .jltma-master-addons_feature-switchbox .switch.switch-text .jltma-switch-label::before,
 .jltma-master-addons_feature-switchbox .switch.switch-text .jltma-switch-label::after {
@@ -800,78 +882,4 @@
   -webkit-transition: left 0.15s ease-out;
   -o-transition: left 0.15s ease-out;
   transition: left 0.15s ease-out;
-}
-
-/* Addons Ribbon */
-/* Ribbon colors */
-.ribbon {
-  color: #fff;
-  -webkit-border-radius: 15px;
-          border-radius: 15px;
-  height: 50px;
-  width: 88px;
-  padding: 5px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.new {
-  background: #f70505;
-}
-
-.hot {
-  background: #f2db05;
-  color: red;
-}
-
-.pro {
-  background: #007200;
-}
-
-.coming {
-  background: #b6bac9;
-  font-size: 10px;
-  padding: 5px 4px;
-}
-
-.trending {
-  background: #465cad;
-  font-size: 10px;
-  padding: 5px 4px;
-}
-
-.popular {
-  background: #05eff7;
-  font-size: 10px;
-  padding: 5px 4px;
-}
-
-.master-addons-features-ribbon {
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-
-.master-addons-features-ribbon .pro-ribbon {
-  background-image: -moz-linear-gradient(0deg, #df1dc6 0%, #6a14d1 100%);
-  background-image: -webkit-linear-gradient(0deg, #df1dc6 0%, #6a14d1 100%);
-  background-image: -ms-linear-gradient(0deg, #df1dc6 0%, #6a14d1 100%);
-  color: #fff;
-  font-size: 9px;
-  font-weight: 600;
-  position: absolute;
-  width: 50px;
-  top: -1px;
-  right: -18px;
-  text-align: center;
-  text-transform: uppercase;
-  z-index: 2;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
 }

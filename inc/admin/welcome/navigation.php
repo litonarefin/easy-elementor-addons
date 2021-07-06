@@ -67,7 +67,7 @@
 	<?php } ?>
 
 	<?php if (ma_el_fs()->is_not_paying()) { ?>
-		<a class="nav-upgrade-pro" href="https://master-addons.com/pricing" target="_blank">
+		<a class="jltma-upgrade-pro" href="https://master-addons.com/pricing" target="_blank">
 			<?php _e('Upgrade Pro', MELA_TD); ?>
 		</a>
 	<?php } ?>

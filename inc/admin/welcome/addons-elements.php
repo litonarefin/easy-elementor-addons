@@ -45,9 +45,9 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 					<div class="jltma-master-addons-content-inner">
 						<div class="jltma-master-addons-features-title">
 							<?php echo $widget['title']; ?>
-						</div> <!-- jltma-master-addons-features-title -->
+						</div> <!-- jltma_master_addons-features-title -->
 
-						<div class="jltma-addons-tooltip">
+						<div class="jltma-addons-tooltip inline-block">
 							<?php
 							Master_Addons_Helper::jltma_admin_tooltip_info('Demo', $widget['demo_url'], 'eicon-device-desktop');
 							Master_Addons_Helper::jltma_admin_tooltip_info('Documentation', $widget['docs_url'], 'eicon-info-circle-o');
