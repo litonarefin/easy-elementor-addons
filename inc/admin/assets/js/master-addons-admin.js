@@ -82,7 +82,7 @@
         $('.master-addons-posts a.rsswidget').attr('target', '_blank');
 
         //Navigation Tabs
-        $('jltma-master-addons-tabs-navbar a').on('click',function(event){
+        $('jltma-master-addons-tabs-navbar a:not(.jltma-upgrade-pro)').on('click',function(event){
             
             event.preventDefault(); // Limit effect to the container element.
 

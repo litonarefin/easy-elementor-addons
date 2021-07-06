@@ -1,5 +1,5 @@
 jQuery(document).ready( function($) {
-	$('.jltma-master-addons-tabs-navbar a').click(function(event){
+	$('.jltma-master-addons-tabs-navbar a:not(.jltma-upgrade-pro)').click(function(event){
 		event.preventDefault();
 		
 		// Limit effect to the container element.

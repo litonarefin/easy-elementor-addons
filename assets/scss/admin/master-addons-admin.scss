@@ -846,7 +846,7 @@
         width: 100%;
     }
     .jltma-switch-handle {
-        @include gradient-bg-1;
+        background: $whitecolor;
         border: 1px solid $grayborder;
         border-radius: 3rem;
         width: 18px;

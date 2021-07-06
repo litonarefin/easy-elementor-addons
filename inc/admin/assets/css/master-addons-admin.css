@@ -939,8 +939,7 @@
   width: 100%;
 }
 .jltma-master-addons_feature-switchbox .jltma-switch-handle {
-  background-image: -moz-linear-gradient(0deg, #9929ea 0%, #5808fb 100%);
-  background-image: -webkit-linear-gradient(0deg, #9929ea 0%, #5808fb 100%);
+  background: #fff;
   border: 1px solid #efeff5;
   -webkit-border-radius: 3rem;
           border-radius: 3rem;
