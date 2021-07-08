@@ -896,8 +896,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('Total Comments Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '#000',
 				'selectors' => [
@@ -1010,8 +1010,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('Author Name Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '#46494c',
 				'selectors' => [
@@ -1142,8 +1142,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('Total Comments Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '#5a5e63',
 				'selectors' => [
@@ -1210,8 +1210,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('Datetime Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '',
 				'selectors' => [
@@ -1250,8 +1250,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('Like/Dislike Icon Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '#393c3f',
 				'selectors' => [
@@ -1270,8 +1270,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('Like/Dislike Number Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '',
 				'selectors' => [
@@ -1376,8 +1376,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('Replies Background', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '',
 				'selectors' => [
@@ -1478,8 +1478,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('Reply BG Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '',
 				'selectors' => [
@@ -1495,8 +1495,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('Reply Text Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '#78909c',
 				'selectors' => [
@@ -1562,8 +1562,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('Reply BG Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '',
 				'selectors' => [
@@ -1579,8 +1579,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('Reply Text Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '#fff',
 				'selectors' => [
@@ -2295,8 +2295,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('BG Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '',
 				'selectors' => [
@@ -2311,8 +2311,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('Text Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '',
 				'selectors' => [
@@ -2367,8 +2367,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('BG Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '',
 				'selectors' => [
@@ -2383,8 +2383,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('Text Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '',
 				'selectors' => [
@@ -2439,8 +2439,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('BG Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '',
 				'selectors' => [
@@ -2455,8 +2455,8 @@ class Master_Addons_Comments extends Widget_Base
 				'label'  => esc_html__('Text Color', JLTMA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default'   => '',
 				'selectors' => [

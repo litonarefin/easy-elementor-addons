@@ -385,7 +385,7 @@ class Search extends Widget_Base
         );
 
         $this->add_control(
-            'jltma_search_form_color',
+            'jltma_search_form_bg_color',
             array(
                 'label'     => __('Form Background Color', MELA_TD),
                 'type'      => Controls_Manager::COLOR,
