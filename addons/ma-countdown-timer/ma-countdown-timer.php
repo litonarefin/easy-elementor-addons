@@ -772,7 +772,7 @@ class Countdown_Timer extends Widget_Base
 		$datetime = explode(" ", $countdown_time);
 
 		$date = $datetime[0];
-		$time = $datetime[1];
+		$time = !empty($datetime[1]) ? $datetime[1] : '';
 
 		$date = explode("-", $date);
 		$time = explode(":", $time);
@@ -786,30 +786,30 @@ class Countdown_Timer extends Widget_Base
 				'title'   => __('Years', MELA_TD),
 			),
 			'month' => array(
-				'value' => $date[1] - 1,
+				'value' => !empty($date[1]) ? $date[1] - 1 : '',
 				// 'value'   => explode("-", $countdown_time)[1],
 				'display' => $show_month,
 				'title'   => __('Months', MELA_TD),
 			),
 			'day' => array(
-				'value' => $date[2],
+				'value' => !empty($date[2]) ? $date[2] : '',
 				// 'value'   => explode("-", $countdown_time)[2],
-				'display' => $show_day,
+				'display' => !empty($show_day) ? $show_day : '',
 				'title'   => __('Days', MELA_TD),
 			),
 			'hour' => array(
-				'value'   => $time[0],
-				'display' => $show_hour,
+				'value'   => !empty($time[0]) ? $time[0] : '',
+				'display' => !empty($show_hour) ? $show_hour : '',
 				'title'   => __('Hours', MELA_TD),
 			),
 			'min' => array(
-				'value'   => $time[1],
-				'display' => $show_min,
+				'value'   => !empty($time[1]) ? $time[1] : '',
+				'display' => !empty($show_min) ? $show_min : '',
 				'title'   => 'Mintues'
 			),
 			'sec' => array(
-				'value'   => $time[1],
-				'display' => $show_sec,
+				'value'   => !empty($time[1]) ? $time[1] : '',
+				'display' => !empty($show_sec) ? $show_sec : '',
 				'title'   => 'Seconds'
 			),
 		);

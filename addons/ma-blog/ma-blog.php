@@ -3502,8 +3502,6 @@ class Blog extends Widget_Base
 		}
 
 
-		$image_effect = $settings['ma_el_blog_hover_color_effect'];
-
 		$post_effect = $settings['ma_el_blog_hover_color_effect'];
 
 		if ($settings['ma_el_blog_new_tab'] == 'yes') {
@@ -3810,6 +3808,13 @@ class Blog extends Widget_Base
 				protected function jltma_render_thumbnails()
 				{
 					$settings = $this->get_settings_for_display();
+					$image_effect = $settings['ma_el_blog_hover_color_effect'];
+					if ($settings['ma_el_blog_new_tab'] == 'yes') {
+						$target = '_blank';
+					} else {
+						$target = '_self';
+					}
+
 					?>
 
 						<?php if ($settings['ma_el_post_grid_thumbnail'] == 'yes') { ?>

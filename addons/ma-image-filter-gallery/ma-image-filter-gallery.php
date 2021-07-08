@@ -2105,7 +2105,7 @@ class Filterable_Image_Gallery extends Widget_Base
 								'ma-el-fancybox',
 								'elementor-clickable'
 							],
-							'data-caption'  => $item['ma_el_image_gallery_title'],
+							'data-caption'  => $settings['ma_el_image_gallery_title'],
 							'data-fancybox' => "images"
 						]
 					]);
@@ -2128,6 +2128,7 @@ class Filterable_Image_Gallery extends Widget_Base
 					if (!empty($images)) {
 						foreach ($images as $image) {
 
+							$image_url = '';
 							if (isset($image['id']) && $image['id']) {
 								$image_url = wp_get_attachment_image_url($image['id'], 'full');
 							}
