@@ -8,7 +8,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Repeater;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Box_Shadow;
@@ -18,8 +18,8 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
  * Author Name: Liton Arefin
- * Author URL: https://jeweltheme.com
- * Date: 10/27/19
+ * Author URL : https:        //jeweltheme.com
+ * Date       : 10/27/19
  */
 
 // Exit if accessed directly.
@@ -123,9 +123,9 @@ class Pricing_Table extends Widget_Base
 		$this->add_control(
 			'ma_el_pricing_table_features_show',
 			[
-				'label' => __('Show Features?', MELA_TD),
-				'default'   => 'yes',
-				'type'  => Controls_Manager::SWITCHER,
+				'label'   => __('Show Features?', MELA_TD),
+				'default' => 'yes',
+				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
 
@@ -136,7 +136,7 @@ class Pricing_Table extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_pricing_table_section_content_image',
 			[
-				'label' => __('Image', MELA_TD),
+				'label'     => __('Image', MELA_TD),
 				'condition' => ['ma_el_pricing_table_layout' => 'four']
 			]
 		);
@@ -170,10 +170,10 @@ class Pricing_Table extends Widget_Base
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'gradient-1',
 				'options' => [
-					'gradient-1'    => __('Gradient One', MELA_TD),
-					'gradient-2'    => __('Gradient Two', MELA_TD),
-					'gradient-3'    => __('Gradient Three', MELA_TD),
-					'custom'        => __('Custom (Style Tab Settings)', MELA_TD)
+					'gradient-1' => __('Gradient One', MELA_TD),
+					'gradient-2' => __('Gradient Two', MELA_TD),
+					'gradient-3' => __('Gradient Three', MELA_TD),
+					'custom'     => __('Custom (Style Tab Settings)', MELA_TD)
 				],
 				'condition' => [
 					'ma_el_pricing_table_layout!' => ['three', 'four', 'five']
@@ -184,16 +184,16 @@ class Pricing_Table extends Widget_Base
 		$this->add_control(
 			'ma_el_pricing_table_icon',
 			[
-				'label'         	=> esc_html__('Icon', MELA_TD),
-				'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
-				'type'          	=> Controls_Manager::ICONS,
-				'fa4compatibility' 	=> 'icon',
-				'default'       	=> [
-					'value'     => 'far fa-lightbulb',
-					'library'   => 'regular',
+				'label'            => esc_html__('Icon', MELA_TD),
+				'description'      => esc_html__('Please choose an icon from the list.', MELA_TD),
+				'type'             => Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'default'          => [
+					'value'   => 'far fa-lightbulb',
+					'library' => 'regular',
 				],
-				'render_type'      => 'template',
-				'condition' => ['ma_el_pricing_table_layout' => 'four'],
+				'render_type' => 'template',
+				'condition'   => ['ma_el_pricing_table_layout' => 'four'],
 			]
 		);
 
@@ -220,9 +220,9 @@ class Pricing_Table extends Widget_Base
 		$this->add_control(
 			'ma_el_pricing_table_sub_heading',
 			[
-				'label'     => __('Subtitle', MELA_TD),
-				'type'      => Controls_Manager::TEXT,
-				'default'   => __('Suitable for single website', MELA_TD),
+				'label'   => __('Subtitle', MELA_TD),
+				'type'    => Controls_Manager::TEXT,
+				'default' => __('Suitable for single website', MELA_TD),
 			]
 		);
 
@@ -356,15 +356,15 @@ class Pricing_Table extends Widget_Base
 		$repeater->add_control(
 			'ma_el_pricing_table_item_icon',
 			[
-				'label'         	=> esc_html__('Icon', MELA_TD),
-				'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
-				'type'          	=> Controls_Manager::ICONS,
-				'fa4compatibility' 	=> 'icon',
-				'default'       	=> [
-					'value'     => 'fas fa-check',
-					'library'   => 'solid',
+				'label'            => esc_html__('Icon', MELA_TD),
+				'description'      => esc_html__('Please choose an icon from the list.', MELA_TD),
+				'type'             => Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'default'          => [
+					'value'   => 'fas fa-check',
+					'library' => 'solid',
 				],
-				'render_type'      => 'template'
+				'render_type' => 'template'
 			]
 		);
 
@@ -466,7 +466,7 @@ class Pricing_Table extends Widget_Base
 
 		if (class_exists('Easy_Digital_Downloads')) {
 			$edd_posts = get_posts(['numberposts' => 10, 'post_type'   => 'download']);
-			$options = ['0' => __('Select EDD', MELA_TD)];
+			$options   = ['0' => __('Select EDD', MELA_TD)];
 			foreach ($edd_posts as $edd_post) {
 				$options[$edd_post->ID] = $edd_post->post_title;
 			}
@@ -515,10 +515,10 @@ class Pricing_Table extends Widget_Base
 		$this->add_control(
 			'ma_el_pricing_table_footer_additional_info',
 			[
-				'label'     => __('Additional Info', MELA_TD),
-				'type'      => Controls_Manager::TEXTAREA,
-				'default'   => __('This is footer text', MELA_TD),
-				'rows'      => 2,
+				'label'   => __('Additional Info', MELA_TD),
+				'type'    => Controls_Manager::TEXTAREA,
+				'default' => __('This is footer text', MELA_TD),
+				'rows'    => 2,
 			]
 		);
 
@@ -553,8 +553,8 @@ class Pricing_Table extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'ma_el_pricing_table_header_bg_color',
-				'selector' => '{{WRAPPER}} .ma-el-price-table-head',
+				'name'      => 'ma_el_pricing_table_header_bg_color',
+				'selector'  => '{{WRAPPER}} .ma-el-price-table-head',
 				'condition' => [
 					'ma_el_pricing_table_head_color_scheme' => 'custom',
 					'ma_el_pricing_table_layout!'           => 'five'
@@ -577,10 +577,10 @@ class Pricing_Table extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'ma_el_pricing_table_heading_rounded_bg_color',
+				'name'      => 'ma_el_pricing_table_heading_rounded_bg_color',
 				'label'     => __('Rounded BG Color', MELA_TD),
-				'types' => ['gradient'],
-				'selector' => '{{WRAPPER}} .table-active-zoom .ma-el-table-price-area',
+				'types'     => ['gradient'],
+				'selector'  => '{{WRAPPER}} .table-active-zoom .ma-el-table-price-area',
 				'condition' => [
 					'ma_el_pricing_table_layout' => 'three'
 				]
@@ -603,10 +603,10 @@ class Pricing_Table extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'ma_el_pricing_table_heading_pattern_bg_color',
+				'name'      => 'ma_el_pricing_table_heading_pattern_bg_color',
 				'label'     => __('Pattern BG Color', MELA_TD),
-				'types' => ['classic', 'gradient'],
-				'selector' => '{{WRAPPER}} .table-bg-pattern .ma-el-price-table:before, {{WRAPPER}} .table-bg-pattern .ma-el-price-table:after',
+				'types'     => ['classic', 'gradient'],
+				'selector'  => '{{WRAPPER}} .table-bg-pattern .ma-el-price-table:before, {{WRAPPER}} .table-bg-pattern .ma-el-price-table:after',
 				'condition' => [
 					'ma_el_pricing_table_layout' => 'five'
 				]
@@ -616,8 +616,8 @@ class Pricing_Table extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_pricing_table_heading_pattern_bg_height',
 			[
-				'label' => __('Height', MELA_TD),
-				'type'  => Controls_Manager::SLIDER,
+				'label'   => __('Height', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 280,
 					'unit' => 'px',
@@ -637,8 +637,8 @@ class Pricing_Table extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_pricing_table_heading_after_pattern_bg_ver_pos',
 			[
-				'label' => __('Vertical Position(Pattern Bar)', MELA_TD),
-				'type'  => Controls_Manager::SLIDER,
+				'label'   => __('Vertical Position(Pattern Bar)', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 36,
 					'unit' => '%',
@@ -703,7 +703,7 @@ class Pricing_Table extends Widget_Base
 			[
 				'name'     => 'ma_el_pricing_table_heading_typography',
 				'selector' => '{{WRAPPER}} .ma-el-price-table-title',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme'   => Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -732,7 +732,7 @@ class Pricing_Table extends Widget_Base
 			[
 				'name'     => 'ma_el_pricing_table_sub_heading_typography',
 				'selector' => '{{WRAPPER}} .ma-el-price-table-subheading',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_2,
+				'scheme'   => Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -801,7 +801,7 @@ class Pricing_Table extends Widget_Base
 			[
 				'name'     => 'ma_el_pricing_table_price_typography',
 				'selector' => '{{WRAPPER}} .ma-el-table-price-area',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme'   => Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -961,7 +961,7 @@ class Pricing_Table extends Widget_Base
 			[
 				'name'      => 'ma_el_pricing_table_original_price_typography',
 				'selector'  => '{{WRAPPER}} .ma-el-price-table-original-price',
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme'    => Typography::TYPOGRAPHY_1,
 				'condition' => [
 					'ma_el_pricing_table_sale'            => 'yes',
 					'ma_el_pricing_table_original_price!' => '',
@@ -1049,7 +1049,7 @@ class Pricing_Table extends Widget_Base
 			[
 				'name'      => 'ma_el_pricing_table_period_typography',
 				'selector'  => '{{WRAPPER}} .ma-el-price-amount-duration',
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
+				'scheme'    => Typography::TYPOGRAPHY_1,
 				'condition' => [
 					'ma_el_pricing_table_period!' => '',
 				],
@@ -1081,8 +1081,8 @@ class Pricing_Table extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_pricing_table_section_style_features',
 			[
-				'label'     => __('Features', MELA_TD),
-				'tab'       => Controls_Manager::TAB_STYLE,
+				'label' => __('Features', MELA_TD),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
@@ -1136,7 +1136,7 @@ class Pricing_Table extends Widget_Base
 			[
 				'name'     => 'ma_el_pricing_table_features_list_typography',
 				'selector' => '{{WRAPPER}} .ma-el-price-table-details li .ma-el-tooltip-content, {{WRAPPER}} .edd_price_options li span',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
+				'scheme'   => Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -1379,12 +1379,12 @@ class Pricing_Table extends Widget_Base
 				'label'     => esc_html__('Arrow Color', MELA_TD),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-top .ma-el-tooltip-text:after'  => 'border-color: {{VALUE}} transparent transparent transparent',
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-right .ma-el-tooltip-text:after'  => 'border-color:
+					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-top .ma-el-tooltip-text:after'   => 'border-color: {{VALUE}} transparent transparent transparent',
+					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-right .ma-el-tooltip-text:after' => 'border-color:
 						transparent {{VALUE}} transparent transparent',
 					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-left .ma-el-tooltip-text:after'  => 'border-color:
 						transparent transparent transparent {{VALUE}}',
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom .ma-el-tooltip-text:after'  =>
+					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom .ma-el-tooltip-text:after' =>
 					'border-color: transparent transparent {{VALUE}} transparent',
 				],
 			]
@@ -1399,7 +1399,7 @@ class Pricing_Table extends Widget_Base
 				'selectors'  => [
 					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-				'render_type'  => 'template',
+				'render_type' => 'template',
 			]
 		);
 
@@ -1578,8 +1578,8 @@ class Pricing_Table extends Widget_Base
 				],
 				'selectors' => [
 					'(desktop){{WRAPPER}} .ma-el-price-table-ribbon-inner' => 'transform: translate({{ma_el_pricing_table_ribbon_horizontal_position.SIZE}}{{UNIT}}, {{ma_el_pricing_table_ribbon_vertical_position.SIZE}}{{UNIT}}) rotate({{SIZE}}deg);',
-					'(tablet){{WRAPPER}} .ma-el-price-table-ribbon-inner' => 'transform: translate({{ma_el_pricing_table_ribbon_horizontal_position_tablet.SIZE}}{{UNIT}}, {{ma_el_pricing_table_ribbon_vertical_position_tablet.SIZE}}{{UNIT}}) rotate({{SIZE}}deg);',
-					'(mobile){{WRAPPER}} .ma-el-price-table-ribbon-inner' => 'transform: translate({{ma_el_pricing_table_ribbon_horizontal_position_mobile.SIZE}}{{UNIT}}, {{ma_el_pricing_table_ribbon_vertical_position_mobile.SIZE}}{{UNIT}}) rotate({{SIZE}}deg);',
+					'(tablet){{WRAPPER}} .ma-el-price-table-ribbon-inner'  => 'transform: translate({{ma_el_pricing_table_ribbon_horizontal_position_tablet.SIZE}}{{UNIT}}, {{ma_el_pricing_table_ribbon_vertical_position_tablet.SIZE}}{{UNIT}}) rotate({{SIZE}}deg);',
+					'(mobile){{WRAPPER}} .ma-el-price-table-ribbon-inner'  => 'transform: translate({{ma_el_pricing_table_ribbon_horizontal_position_mobile.SIZE}}{{UNIT}}, {{ma_el_pricing_table_ribbon_vertical_position_mobile.SIZE}}{{UNIT}}) rotate({{SIZE}}deg);',
 				],
 				'condition' => [
 					'ma_el_pricing_table_show_ribbon' => 'yes',
@@ -1700,8 +1700,8 @@ class Pricing_Table extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'ma_el_pricing_table_button_background_color',
-				'selector' => '{{WRAPPER}} .ma-el-price-table-btn',
+				'name'      => 'ma_el_pricing_table_button_background_color',
+				'selector'  => '{{WRAPPER}} .ma-el-price-table-btn',
 				'condition' => [
 					'ma_el_pricing_table_button_text!' => '',
 				]
@@ -1774,7 +1774,7 @@ class Pricing_Table extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'ma_el_pricing_table_button_shadow',
+				'name'     => 'ma_el_pricing_table_button_shadow',
 				'selector' => '{{WRAPPER}} .ma-el-price-table-btn',
 			]
 		);
@@ -1784,7 +1784,7 @@ class Pricing_Table extends Widget_Base
 			[
 				'name'      => 'ma_el_pricing_table_button_typography',
 				'label'     => __('Typography', MELA_TD),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'    => Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .ma-el-price-table-btn',
 				'condition' => [
 					'ma_el_pricing_table_button_text!' => '',
@@ -1892,7 +1892,7 @@ class Pricing_Table extends Widget_Base
 			[
 				'name'      => 'ma_el_pricing_table_additional_info_typography',
 				'selector'  => '{{WRAPPER}} .ma-el-price-table-additional_info',
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
+				'scheme'    => Typography::TYPOGRAPHY_1,
 				'condition' => [
 					'ma_el_pricing_table_footer_additional_info!' => '',
 				],
@@ -1998,7 +1998,7 @@ class Pricing_Table extends Widget_Base
 			[
 				'name'     => 'ribbon_typography',
 				'selector' => '{{WRAPPER}} .ma-el-price-table-ribbon-inner',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'   => Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -2060,15 +2060,15 @@ class Pricing_Table extends Widget_Base
 			$this->add_control(
 				'jltma_control_get_pro_style_tab',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 				]
 			);
@@ -2151,10 +2151,10 @@ class Pricing_Table extends Widget_Base
 
 	public function jltma_pt_render_price_symbol()
 	{
-		$settings = $this->get_settings();
+		$settings     = $this->get_settings();
 		$price_symbol = '';
-		$price = explode('.', $settings['ma_el_pricing_table_price']);
-		$intpart = $price[0];
+		$price        = explode('.', $settings['ma_el_pricing_table_price']);
+		$intpart      = $price[0];
 
 
 		if (!empty($settings['ma_el_pricing_table_currency_symbol'])) {
@@ -2182,8 +2182,8 @@ class Pricing_Table extends Widget_Base
 	public function jltma_pt_render_price_amount()
 	{
 		$settings = $this->get_settings();
-		$price = explode('.', $settings['ma_el_pricing_table_price']);
-		$intpart = $price[0];
+		$price    = explode('.', $settings['ma_el_pricing_table_price']);
+		$intpart  = $price[0];
 
 		if (!empty($intpart) || 0 <= $intpart) { ?>
 			<span class="ma-el-table-price-amount">
@@ -2211,8 +2211,8 @@ class Pricing_Table extends Widget_Base
 	{
 		$settings = $this->get_settings();
 
-		$price = explode('.', $settings['ma_el_pricing_table_price']);
-		$intpart = $price[0];
+		$price         = explode('.', $settings['ma_el_pricing_table_price']);
+		$intpart       = $price[0];
 		$fraction_part = '';
 
 		if (2 === sizeof($price)) {
@@ -2400,9 +2400,9 @@ class Pricing_Table extends Widget_Base
 		if ($settings['ma_el_pricing_table_edd_as_button']) {
 			echo edd_get_purchase_link([
 				'download_id' => $settings['ma_el_pricing_table_edd_id'],
-				'price' => false,
-				'text' => esc_html($settings['ma_el_pricing_table_button_text']),
-				'class' => 'ma-el-price-table-button elementor-button ' . $button_size . $button_animation,
+				'price'       => false,
+				'text'        => esc_html($settings['ma_el_pricing_table_button_text']),
+				'class'       => 'ma-el-price-table-button elementor-button ' . $button_size . $button_animation,
 			]);
 		} else {
 			if (!empty($settings['ma_el_pricing_table_button_text'])) : ?>

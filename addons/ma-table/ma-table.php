@@ -9,7 +9,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Repeater;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Background;
 
 
@@ -17,8 +17,8 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
  * Author Name: Liton Arefin
- * Author URL: https://jeweltheme.com
- * Date: 19/02/2020
+ * Author URL : https: //jeweltheme.com
+ * Date       : 19/02/2020
  */
 
 // Exit if accessed directly.
@@ -88,11 +88,11 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'title',
             [
-                'type'          => Controls_Manager::TEXT,
-                'label_block'   => true,
-                'label'         => __('Column Name', MELA_TD),
-                'default'       => __('Table Header', MELA_TD),
-                'dynamic'       => [
+                'type'        => Controls_Manager::TEXT,
+                'label_block' => true,
+                'label'       => __('Column Name', MELA_TD),
+                'default'     => __('Table Header', MELA_TD),
+                'dynamic'     => [
                     'active' => true,
                 ]
             ]
@@ -101,21 +101,21 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'icon_type',
             [
-                'label'        => __('Type', MELA_TD),
-                'type'         => Controls_Manager::CHOOSE,
-                'default'     => 'none',
-                'options'               => [
+                'label'   => __('Type', MELA_TD),
+                'type'    => Controls_Manager::CHOOSE,
+                'default' => 'none',
+                'options' => [
                     'none'        => [
-                        'title'   => esc_html__('None', MELA_TD),
-                        'icon'    => 'fa fa-ban',
+                        'title' => esc_html__('None', MELA_TD),
+                        'icon'  => 'fa fa-ban',
                     ],
                     'icon'        => [
-                        'title'   => esc_html__('Icon', MELA_TD),
-                        'icon'    => 'fa fa-star',
+                        'title' => esc_html__('Icon', MELA_TD),
+                        'icon'  => 'fa fa-star',
                     ],
                     'image'       => [
-                        'title'   => esc_html__('Image', MELA_TD),
-                        'icon'    => 'fa fa-picture-o',
+                        'title' => esc_html__('Image', MELA_TD),
+                        'icon'  => 'fa fa-picture-o',
                     ],
                 ]
             ]
@@ -125,17 +125,17 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'header_icon',
             [
-                'label'             => esc_html__('Icon', MELA_TD),
-                'description'       => esc_html__('Please choose an icon from the list.', MELA_TD),
-                'type'              => Controls_Manager::ICONS,
-                'fa4compatibility'  => 'icon',
-                'default'           => [
-                    'value'     => 'fab fa-elementor',
-                    'library'   => 'brand',
+                'label'            => esc_html__('Icon', MELA_TD),
+                'description'      => esc_html__('Please choose an icon from the list.', MELA_TD),
+                'type'             => Controls_Manager::ICONS,
+                'fa4compatibility' => 'icon',
+                'default'          => [
+                    'value'   => 'fab fa-elementor',
+                    'library' => 'brand',
                 ],
-                'render_type'      => 'template',
-                'condition'      => [
-                    'icon_type'  => 'icon'
+                'render_type' => 'template',
+                'condition'   => [
+                    'icon_type' => 'icon'
                 ],
             ]
         );
@@ -143,13 +143,13 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'header_image',
             [
-                'label'         => __('Image', MELA_TD),
-                'type'             => Controls_Manager::MEDIA,
+                'label'   => __('Image', MELA_TD),
+                'type'    => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition'        => [
-                    'icon_type'    => 'image'
+                    'icon_type' => 'image'
                 ],
             ]
         );
@@ -157,12 +157,12 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'header_image_size',
             [
-                'label'         => __('Image Size(px)', MELA_TD),
-                'type' => Controls_Manager::NUMBER,
+                'label'       => __('Image Size(px)', MELA_TD),
+                'type'        => Controls_Manager::NUMBER,
                 'label_block' => false,
-                'default' => '30',
-                'condition'        => [
-                    'icon_type'    => 'image'
+                'default'     => '30',
+                'condition'   => [
+                    'icon_type' => 'image'
                 ],
             ]
         );
@@ -174,26 +174,26 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'colspannumber',
             [
-                'label'         => __('Column Span', MELA_TD),
-                'type'          => Controls_Manager::TEXT
+                'label' => __('Column Span', MELA_TD),
+                'type'  => Controls_Manager::TEXT
             ]
         );
 
         $repeater->add_control(
             'customwidth',
             [
-                'label'         => __('Custom Width', MELA_TD),
-                'type'          => Controls_Manager::SWITCHER,
-                'label_off'     => __('No', MELA_TD),
-                'label_on'      => __('Yes', MELA_TD),
+                'label'     => __('Custom Width', MELA_TD),
+                'type'      => Controls_Manager::SWITCHER,
+                'label_off' => __('No', MELA_TD),
+                'label_on'  => __('Yes', MELA_TD),
             ]
         );
 
         $repeater->add_control(
             'width',
             [
-                'label'         => __('Width', MELA_TD),
-                'type'          => Controls_Manager::SLIDER,
+                'label' => __('Width', MELA_TD),
+                'type'  => Controls_Manager::SLIDER,
                 'range' => [
                     '%' => [
                         'min' => 0,
@@ -208,9 +208,9 @@ class Dynamic_Table extends Widget_Base
                     'size' => 30,
                     'unit' => '%',
                 ],
-                'size_units'    => ['%', 'px'],
-                'condition' => [
-                    'customwidth'   => 'yes',
+                'size_units' => ['%', 'px'],
+                'condition'  => [
+                    'customwidth' => 'yes',
                 ],
                 'selectors'     => [
                     '{{WRAPPER}} .ma-el-table {{CURRENT_ITEM}}' => 'width: {{SIZE}}{{UNIT}};',
@@ -221,25 +221,25 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'align',
             [
-                'label'         => __('Alignment', MELA_TD),
-                'type'          => Controls_Manager::CHOOSE,
-                'default'       => '',
-                'options'       => [
+                'label'   => __('Alignment', MELA_TD),
+                'type'    => Controls_Manager::CHOOSE,
+                'default' => '',
+                'options' => [
                     'left'  => [
                         'title' => __('Left', MELA_TD),
-                        'icon' => 'fa fa-align-left',
+                        'icon'  => 'fa fa-align-left',
                     ],
                     'center' => [
                         'title' => __('Center', MELA_TD),
-                        'icon' => 'fa fa-align-center',
+                        'icon'  => 'fa fa-align-center',
                     ],
                     'right' => [
                         'title' => __('Right', MELA_TD),
-                        'icon' => 'fa fa-align-right',
+                        'icon'  => 'fa fa-align-right',
                     ],
                     'justify' => [
                         'title' => __('Justified', MELA_TD),
-                        'icon' => 'fa fa-align-justify',
+                        'icon'  => 'fa fa-align-justify',
                     ],
                 ],
                 'selectors' => [
@@ -251,16 +251,16 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'decoration',
             [
-                'label'         => __('Decoration', MELA_TD),
-                'type'          => Controls_Manager::SELECT,
-                'options'       => [
-                    ''                  => __('Default', MELA_TD),
-                    'underline'         => __('Underline', MELA_TD),
-                    'overline'          => __('Overline', MELA_TD),
-                    'line-through'      => __('Line Through', MELA_TD),
-                    'none'              => __('None', MELA_TD),
+                'label'   => __('Decoration', MELA_TD),
+                'type'    => Controls_Manager::SELECT,
+                'options' => [
+                    ''             => __('Default', MELA_TD),
+                    'underline'    => __('Underline', MELA_TD),
+                    'overline'     => __('Overline', MELA_TD),
+                    'line-through' => __('Line Through', MELA_TD),
+                    'none'         => __('None', MELA_TD),
                 ],
-                'default'               => '',
+                'default'   => '',
                 'selectors' => [
                     '{{WRAPPER}} .ma-el-table {{CURRENT_ITEM}}' => 'text-decoration: {{VALUE}};',
                 ],
@@ -275,25 +275,25 @@ class Dynamic_Table extends Widget_Base
         $this->add_control(
             'ma_el_table_header',
             [
-                'label'             => __('Table Header Cell', MELA_TD),
-                'type'              => Controls_Manager::REPEATER,
-                'seperator'         => 'before',
-                'default'     => [
+                'label'     => __('Table Header Cell', MELA_TD),
+                'type'      => Controls_Manager::REPEATER,
+                'seperator' => 'before',
+                'default'   => [
                     [
-                        'title'                                 => __('First Name', MELA_TD),
+                        'title' => __('First Name', MELA_TD),
                     ],
                     [
-                        'title'                                 => __('Last Name', MELA_TD),
+                        'title' => __('Last Name', MELA_TD),
                     ],
                     [
-                        'title'                                 => __('Job Title', MELA_TD),
+                        'title' => __('Job Title', MELA_TD),
                     ],
                     [
-                        'title'                                 => __('Twitter', MELA_TD),
+                        'title' => __('Twitter', MELA_TD),
                     ]
                 ],
-                'fields' 	    => $repeater->get_controls(),
-                'title_field'   => '{{{ title }}}'
+                'fields'      => $repeater->get_controls(),
+                'title_field' => '{{{ title }}}'
             ]
         );
         $this->end_controls_section();
@@ -307,7 +307,7 @@ class Dynamic_Table extends Widget_Base
             'ma_el_table_body_section',
             [
                 'label' => __('Table Body', MELA_TD),
-                'tab' => Controls_Manager::TAB_CONTENT,
+                'tab'   => Controls_Manager::TAB_CONTENT,
             ]
         );
 
@@ -315,10 +315,10 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'body_row',
             [
-                'label'         => __('New Row?', MELA_TD),
-                'type'          => Controls_Manager::SWITCHER,
-                'label_off'     => __('No', MELA_TD),
-                'label_on'      => __('Yes', MELA_TD),
+                'label'     => __('New Row?', MELA_TD),
+                'type'      => Controls_Manager::SWITCHER,
+                'label_off' => __('No', MELA_TD),
+                'label_on'  => __('Yes', MELA_TD),
             ]
         );
 
@@ -329,11 +329,11 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'text',
             [
-                'type'          => Controls_Manager::TEXTAREA,
-                'label_block'   => true,
-                'label'         => __('Body Text', MELA_TD),
-                'default'       => __('Table Body', MELA_TD),
-                'dynamic'       => [
+                'type'        => Controls_Manager::TEXTAREA,
+                'label_block' => true,
+                'label'       => __('Body Text', MELA_TD),
+                'default'     => __('Table Body', MELA_TD),
+                'dynamic'     => [
                     'active' => true,
                 ]
             ]
@@ -342,21 +342,21 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'icon_type',
             [
-                'label'        => __('Type', MELA_TD),
-                'type'         => Controls_Manager::CHOOSE,
-                'default'     => 'none',
-                'options'               => [
+                'label'   => __('Type', MELA_TD),
+                'type'    => Controls_Manager::CHOOSE,
+                'default' => 'none',
+                'options' => [
                     'none'        => [
-                        'title'   => esc_html__('None', MELA_TD),
-                        'icon'    => 'fa fa-ban',
+                        'title' => esc_html__('None', MELA_TD),
+                        'icon'  => 'fa fa-ban',
                     ],
                     'icon'        => [
-                        'title'   => esc_html__('Icon', MELA_TD),
-                        'icon'    => 'fa fa-star',
+                        'title' => esc_html__('Icon', MELA_TD),
+                        'icon'  => 'fa fa-star',
                     ],
                     'image'       => [
-                        'title'   => esc_html__('Image', MELA_TD),
-                        'icon'    => 'fa fa-picture-o',
+                        'title' => esc_html__('Image', MELA_TD),
+                        'icon'  => 'fa fa-picture-o',
                     ],
                 ],
             ]
@@ -366,17 +366,17 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'body_icon',
             [
-                'label'             => esc_html__('Icon', MELA_TD),
-                'description'       => esc_html__('Please choose an icon from the list.', MELA_TD),
-                'type'              => Controls_Manager::ICONS,
-                'fa4compatibility'  => 'icon',
-                'default'           => [
-                    'value'     => 'fab fa-elementor',
-                    'library'   => 'brand',
+                'label'            => esc_html__('Icon', MELA_TD),
+                'description'      => esc_html__('Please choose an icon from the list.', MELA_TD),
+                'type'             => Controls_Manager::ICONS,
+                'fa4compatibility' => 'icon',
+                'default'          => [
+                    'value'   => 'fab fa-elementor',
+                    'library' => 'brand',
                 ],
-                'render_type'      => 'template',
-                'condition'      => [
-                    'icon_type'  => 'icon'
+                'render_type' => 'template',
+                'condition'   => [
+                    'icon_type' => 'icon'
                 ],
             ]
         );
@@ -385,13 +385,13 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'body_image',
             [
-                'label'         => __('Image', MELA_TD),
-                'type'             => Controls_Manager::MEDIA,
+                'label'   => __('Image', MELA_TD),
+                'type'    => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition'        => [
-                    'icon_type'    => 'image'
+                    'icon_type' => 'image'
                 ],
             ]
         );
@@ -399,12 +399,12 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'body_image_size',
             [
-                'label'         => __('Image Size(px)', MELA_TD),
-                'type'          => Controls_Manager::NUMBER,
-                'label_block'   => false,
-                'default'       => '30',
-                'condition'        => [
-                    'icon_type'    => 'image'
+                'label'       => __('Image Size(px)', MELA_TD),
+                'type'        => Controls_Manager::NUMBER,
+                'label_block' => false,
+                'default'     => '30',
+                'condition'   => [
+                    'icon_type' => 'image'
                 ],
             ]
         );
@@ -417,35 +417,35 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'colspannumber',
             [
-                'label'         => __('Column Span', MELA_TD),
-                'type'          => Controls_Manager::TEXT
+                'label' => __('Column Span', MELA_TD),
+                'type'  => Controls_Manager::TEXT
             ]
         );
         $repeater->add_control(
             'rowspannumber',
             [
-                'label'         => __('Row Span', MELA_TD),
-                'type'          => Controls_Manager::TEXT,
-                'placeholder'   => __('', MELA_TD),
-                'default'       => __('', MELA_TD),
+                'label'       => __('Row Span', MELA_TD),
+                'type'        => Controls_Manager::TEXT,
+                'placeholder' => __('', MELA_TD),
+                'default'     => __('', MELA_TD),
             ]
         );
 
         $repeater->add_control(
             'customwidth',
             [
-                'label'         => __('Custom Width', MELA_TD),
-                'type'          => Controls_Manager::SWITCHER,
-                'label_off'     => __('No', MELA_TD),
-                'label_on'      => __('Yes', MELA_TD),
+                'label'     => __('Custom Width', MELA_TD),
+                'type'      => Controls_Manager::SWITCHER,
+                'label_off' => __('No', MELA_TD),
+                'label_on'  => __('Yes', MELA_TD),
             ]
         );
 
         $repeater->add_control(
             'width',
             [
-                'label'         => __('Width', MELA_TD),
-                'type'          => Controls_Manager::SLIDER,
+                'label' => __('Width', MELA_TD),
+                'type'  => Controls_Manager::SLIDER,
                 'range' => [
                     '%' => [
                         'min' => 0,
@@ -460,9 +460,9 @@ class Dynamic_Table extends Widget_Base
                     'size' => 30,
                     'unit' => '%',
                 ],
-                'size_units'    => ['%', 'px'],
-                'condition' => [
-                    'customwidth'   => 'yes',
+                'size_units' => ['%', 'px'],
+                'condition'  => [
+                    'customwidth' => 'yes',
                 ],
                 'selectors'     => [
                     '{{WRAPPER}} .ma-el-table {{CURRENT_ITEM}}' => 'width: {{SIZE}}{{UNIT}};',
@@ -473,10 +473,10 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'body_align',
             [
-                'label'         => __('Alignment', MELA_TD),
-                'type'          => Controls_Manager::CHOOSE,
-                'default'       => '',
-                'options'       => [
+                'label'   => __('Alignment', MELA_TD),
+                'type'    => Controls_Manager::CHOOSE,
+                'default' => '',
+                'options' => [
                     'left'  => [
                         'title' => __('Left', MELA_TD),
                         'icon'  => 'fa fa-align-left',
@@ -504,16 +504,16 @@ class Dynamic_Table extends Widget_Base
         $repeater->add_control(
             'decoration',
             [
-                'label'         => __('Decoration', MELA_TD),
-                'type'          => Controls_Manager::SELECT,
-                'options'       => [
-                    ''                  => __('Default', MELA_TD),
-                    'underline'         => __('Underline', MELA_TD),
-                    'overline'          => __('Overline', MELA_TD),
-                    'line-through'      => __('Line Through', MELA_TD),
-                    'none'              => __('None', MELA_TD),
+                'label'   => __('Decoration', MELA_TD),
+                'type'    => Controls_Manager::SELECT,
+                'options' => [
+                    ''             => __('Default', MELA_TD),
+                    'underline'    => __('Underline', MELA_TD),
+                    'overline'     => __('Overline', MELA_TD),
+                    'line-through' => __('Line Through', MELA_TD),
+                    'none'         => __('None', MELA_TD),
                 ],
-                'default'               => '',
+                'default'   => '',
                 'selectors' => [
                     '{{WRAPPER}} .ma-el-table {{CURRENT_ITEM}}' => 'text-decoration: {{VALUE}};'
                 ],
@@ -529,66 +529,66 @@ class Dynamic_Table extends Widget_Base
         $this->add_control(
             'ma_el_table_body',
             [
-                'label'             => __('Table Body Cell', MELA_TD),
-                'type'              => Controls_Manager::REPEATER,
-                'seperator'         => 'before',
-                'default'     => [
+                'label'     => __('Table Body Cell', MELA_TD),
+                'type'      => Controls_Manager::REPEATER,
+                'seperator' => 'before',
+                'default'   => [
                     [
-                        'text'                                 => __('Liton', MELA_TD),
+                        'text' => __('Liton', MELA_TD),
                     ],
                     [
-                        'text'                                 => __('Arefin', MELA_TD),
+                        'text' => __('Arefin', MELA_TD),
                     ],
                     [
-                        'text'                                 => __('Developer', MELA_TD),
+                        'text' => __('Developer', MELA_TD),
                     ],
                     [
-                        'text'                                 => __('Litonice11', MELA_TD),
+                        'text' => __('Litonice11', MELA_TD),
                     ],
                     [
-                        'body_row'                             => 'yes',
-                        'text'                                 => __('Roy', MELA_TD),
+                        'body_row' => 'yes',
+                        'text'     => __('Roy', MELA_TD),
                     ],
                     [
-                        'text'                                 => __('Jemee', MELA_TD),
+                        'text' => __('Jemee', MELA_TD),
                     ],
                     [
-                        'text'                                 => __('Content Writer', MELA_TD),
+                        'text' => __('Content Writer', MELA_TD),
                     ],
                     [
-                        'text'                                 => __('@Litonice11', MELA_TD),
-                    ],
-
-                    [
-                        'body_row'                             => 'yes',
-                        'text'                                 => __('Akbar', MELA_TD),
-                    ],
-                    [
-                        'text'                                 => __('Hossain', MELA_TD),
-                    ],
-                    [
-                        'text'                                 => __('Designer', MELA_TD),
-                    ],
-                    [
-                        'text'                                 => __('@AkbarHo33850947', MELA_TD),
+                        'text' => __('@Litonice11', MELA_TD),
                     ],
 
                     [
-                        'body_row'                             => 'yes',
-                        'text'                                 => __('Jewel', MELA_TD),
+                        'body_row' => 'yes',
+                        'text'     => __('Akbar', MELA_TD),
                     ],
                     [
-                        'text'                                 => __('Theme', MELA_TD),
+                        'text' => __('Hossain', MELA_TD),
                     ],
                     [
-                        'text'                                 => __('Website', MELA_TD),
+                        'text' => __('Designer', MELA_TD),
                     ],
                     [
-                        'text'                                 => __('@jwthemeltd', MELA_TD),
+                        'text' => __('@AkbarHo33850947', MELA_TD),
+                    ],
+
+                    [
+                        'body_row' => 'yes',
+                        'text'     => __('Jewel', MELA_TD),
+                    ],
+                    [
+                        'text' => __('Theme', MELA_TD),
+                    ],
+                    [
+                        'text' => __('Website', MELA_TD),
+                    ],
+                    [
+                        'text' => __('@jwthemeltd', MELA_TD),
                     ]
                 ],
-                'fields' 	    => $repeater->get_controls(),
-                'title_field'   => '{{{ text }}}'
+                'fields'      => $repeater->get_controls(),
+                'title_field' => '{{{ text }}}'
             ]
         );
 
@@ -654,15 +654,15 @@ class Dynamic_Table extends Widget_Base
             $this->add_control(
                 'jltma_control_get_pro_style_tab',
                 [
-                    'label' => esc_html__('Unlock more possibilities', MELA_TD),
-                    'type' => Controls_Manager::CHOOSE,
+                    'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+                    'type'    => Controls_Manager::CHOOSE,
                     'options' => [
                         '1' => [
                             'title' => esc_html__('', MELA_TD),
-                            'icon' => 'fa fa-unlock-alt',
+                            'icon'  => 'fa fa-unlock-alt',
                         ],
                     ],
-                    'default' => '1',
+                    'default'     => '1',
                     'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
                 ]
             );
@@ -680,7 +680,7 @@ class Dynamic_Table extends Widget_Base
             'ma_el_table_style_section',
             [
                 'label' => __('Global Style', MELA_TD),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
 
@@ -688,8 +688,8 @@ class Dynamic_Table extends Widget_Base
         $this->add_control(
             'ma_el_table_body_striped_bg',
             [
-                'label' => __('Striped Table?', MELA_TD),
-                'type' => Controls_Manager::SWITCHER,
+                'label'        => __('Striped Table?', MELA_TD),
+                'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
                 'return_value' => 'yes'
             ]
@@ -697,12 +697,12 @@ class Dynamic_Table extends Widget_Base
         $this->add_control(
             'ma_el_table_body_striped_bg_color',
             [
-                'label' => __('Striped Background Color', MELA_TD),
-                'type' => Controls_Manager::COLOR,
+                'label'     => __('Striped Background Color', MELA_TD),
+                'type'      => Controls_Manager::COLOR,
                 'condition' => [
                     'ma_el_table_body_striped_bg' => 'yes',
                 ],
-                'default'      => '#eee',
+                'default'   => '#eee',
                 'selectors' => [
                     '{{WRAPPER}} .ma-el-table tr:nth-of-type(odd)' => 'background: {{VALUE}};',
                 ]
@@ -712,19 +712,19 @@ class Dynamic_Table extends Widget_Base
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
-                'name'      => 'ma_el_table_background',
-                'types'     => ['classic', 'gradient'],
-                'selector'  => '{{WRAPPER}} .ma-el-table'
+                'name'     => 'ma_el_table_background',
+                'types'    => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .ma-el-table'
             ]
         );
 
         $this->add_control(
             'ma_el_table_padding',
             [
-                'label' => __('Inner Cell Padding', MELA_TD),
-                'type' => Controls_Manager::DIMENSIONS,
+                'label'      => __('Inner Cell Padding', MELA_TD),
+                'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
-                'selectors' => [
+                'selectors'  => [
                     '{{WRAPPER}} .ma-el-table td,{{WRAPPER}} .ma-el-table th' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -733,8 +733,8 @@ class Dynamic_Table extends Widget_Base
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name' => 'ma_el_table_border',
-                'label' => __('Border', MELA_TD),
+                'name'     => 'ma_el_table_border',
+                'label'    => __('Border', MELA_TD),
                 'selector' => '{{WRAPPER}} .ma-el-table td,{{WRAPPER}} .ma-el-table th',
             ]
         );
@@ -749,15 +749,15 @@ class Dynamic_Table extends Widget_Base
             'ma_el_table_header_style',
             [
                 'label' => __('Table Header Style', MELA_TD),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'ma_el_table_header_bg_color',
             [
-                'label' => __('Background Color', MELA_TD),
-                'type' => Controls_Manager::COLOR,
+                'label'     => __('Background Color', MELA_TD),
+                'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .ma-el-table .ma-el-table-header th' => 'background-color: {{VALUE}};',
                 ]
@@ -767,8 +767,8 @@ class Dynamic_Table extends Widget_Base
         $this->add_control(
             'ma_el_table_header_text_color',
             [
-                'label' => __('Text Color', MELA_TD),
-                'type' => Controls_Manager::COLOR,
+                'label'     => __('Text Color', MELA_TD),
+                'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .ma-el-table .ma-el-table-header th' => 'color: {{VALUE}};',
                 ]
@@ -778,24 +778,24 @@ class Dynamic_Table extends Widget_Base
         $this->add_responsive_control(
             'ma_el_table_header_align',
             [
-                'label' => __('Alignment', MELA_TD),
-                'type' => Controls_Manager::CHOOSE,
+                'label'   => __('Alignment', MELA_TD),
+                'type'    => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
                         'title' => __('Left', MELA_TD),
-                        'icon' => 'fa fa-align-left',
+                        'icon'  => 'fa fa-align-left',
                     ],
                     'center' => [
                         'title' => __('Center', MELA_TD),
-                        'icon' => 'fa fa-align-center',
+                        'icon'  => 'fa fa-align-center',
                     ],
                     'right' => [
                         'title' => __('Right', MELA_TD),
-                        'icon' => 'fa fa-align-right',
+                        'icon'  => 'fa fa-align-right',
                     ],
                     'justify' => [
                         'title' => __('Justified', MELA_TD),
-                        'icon' => 'fa fa-align-justify',
+                        'icon'  => 'fa fa-align-justify',
                     ],
                 ],
                 'selectors' => [
@@ -808,19 +808,19 @@ class Dynamic_Table extends Widget_Base
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'ma_el_table_header_typography',
+                'name'     => 'ma_el_table_header_typography',
                 'selector' => '{{WRAPPER}} .ma-el-table .ma-el-table-header th',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+                'scheme'   => Typography::TYPOGRAPHY_3,
             ]
         );
 
         $this->add_control(
             'ma_el_table_header_padding',
             [
-                'label' => __('Inner Cell Padding', MELA_TD),
-                'type' => Controls_Manager::DIMENSIONS,
+                'label'      => __('Inner Cell Padding', MELA_TD),
+                'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
-                'selectors' => [
+                'selectors'  => [
                     '{{WRAPPER}} .ma-el-table .ma-el-table-header td,{{WRAPPER}} .ma-el-table .ma-el-table-header th' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -833,15 +833,15 @@ class Dynamic_Table extends Widget_Base
             'ma_el_table_body_style',
             [
                 'label' => __('Table Body', MELA_TD),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'ma_el_table_body_bg_color',
             [
-                'label' => __('Background Color', MELA_TD),
-                'type' => Controls_Manager::COLOR,
+                'label'     => __('Background Color', MELA_TD),
+                'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .ma-el-table .ma-el-table-body' => 'background-color: {{VALUE}};',
                 ]
@@ -851,8 +851,8 @@ class Dynamic_Table extends Widget_Base
         $this->add_control(
             'ma_el_table_body_text_color',
             [
-                'label' => __('Text Color', MELA_TD),
-                'type' => Controls_Manager::COLOR,
+                'label'     => __('Text Color', MELA_TD),
+                'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .ma-el-table .ma-el-table-body' => 'color: {{VALUE}};',
                 ]
@@ -863,8 +863,8 @@ class Dynamic_Table extends Widget_Base
         $this->add_control(
             'ma_el_table_body_icon_color',
             [
-                'label' => __('Icon Color', MELA_TD),
-                'type' => Controls_Manager::COLOR,
+                'label'     => __('Icon Color', MELA_TD),
+                'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .ma-el-table .ma-el-table-body span i' => 'color: {{VALUE}};',
                 ]
@@ -874,10 +874,10 @@ class Dynamic_Table extends Widget_Base
         $this->add_control(
             'ma_el_table_body_icon_padding',
             [
-                'label' => __('Icon Padding', MELA_TD),
-                'type' => Controls_Manager::DIMENSIONS,
+                'label'      => __('Icon Padding', MELA_TD),
+                'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
-                'selectors' => [
+                'selectors'  => [
                     '{{WRAPPER}} .ma-el-table .ma-el-table-body span i' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -886,24 +886,24 @@ class Dynamic_Table extends Widget_Base
         $this->add_responsive_control(
             'ma_el_table_body_align',
             [
-                'label' => __('Alignment', MELA_TD),
-                'type' => Controls_Manager::CHOOSE,
+                'label'   => __('Alignment', MELA_TD),
+                'type'    => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
                         'title' => __('Left', MELA_TD),
-                        'icon' => 'fa fa-align-left',
+                        'icon'  => 'fa fa-align-left',
                     ],
                     'center' => [
                         'title' => __('Center', MELA_TD),
-                        'icon' => 'fa fa-align-center',
+                        'icon'  => 'fa fa-align-center',
                     ],
                     'right' => [
                         'title' => __('Right', MELA_TD),
-                        'icon' => 'fa fa-align-right',
+                        'icon'  => 'fa fa-align-right',
                     ],
                     'justify' => [
                         'title' => __('Justified', MELA_TD),
-                        'icon' => 'fa fa-align-justify',
+                        'icon'  => 'fa fa-align-justify',
                     ],
                 ],
                 'selectors' => [
@@ -915,19 +915,19 @@ class Dynamic_Table extends Widget_Base
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'ma_el_table_body_typography',
+                'name'     => 'ma_el_table_body_typography',
                 'selector' => '{{WRAPPER}} .ma-el-table .ma-el-table-body tr, {{WRAPPER}} .ma-el-table .ma-el-table-body td',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+                'scheme'   => Typography::TYPOGRAPHY_3,
             ]
         );
 
         $this->add_control(
             'ma_el_table_body_padding',
             [
-                'label' => __('Inner Cell Padding', MELA_TD),
-                'type' => Controls_Manager::DIMENSIONS,
+                'label'      => __('Inner Cell Padding', MELA_TD),
+                'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
-                'selectors' => [
+                'selectors'  => [
                     '{{WRAPPER}} .ma-el-table .ma-el-table-body tr,{{WRAPPER}} .ma-el-table .ma-el-table-body td' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -938,7 +938,7 @@ class Dynamic_Table extends Widget_Base
 
     protected function render()
     {
-        $settings       = $this->get_settings_for_display();
+        $settings = $this->get_settings_for_display();
 
         $this->add_render_attribute(
             'ma_el_table_wrap',
@@ -955,8 +955,8 @@ class Dynamic_Table extends Widget_Base
             <thead class="ma-el-table-header">
                 <tr>
                     <?php foreach ($settings['ma_el_table_header'] as $index => $thead) {
-                        $repeater_setting_key   = $this->get_repeater_setting_key('title', 'ma_el_table_header', $index);
-                        $icon_key                 = $this->get_repeater_setting_key('icon', 'ma_el_table_header', $index);
+                        $repeater_setting_key = $this->get_repeater_setting_key('title', 'ma_el_table_header', $index);
+                        $icon_key             = $this->get_repeater_setting_key('icon', 'ma_el_table_header', $index);
                         $this->add_inline_editing_attributes($repeater_setting_key);
 
                         $colspan = ($thead['colspannumber']) ? 'colSpan="' . $thead['colspannumber'] . '"' : '';
@@ -972,10 +972,10 @@ class Dynamic_Table extends Widget_Base
                             <?php } elseif ('image' === $thead['icon_type']) {
 
                                 $this->add_render_attribute('ma_el_thead_img' . $index, [
-                                    'src'    => esc_url($thead['header_image']['url']),
-                                    'class'    => 'ma-el-thead-img',
-                                    'style'    => "width:{$thead['header_image_size']}px;",
-                                    'alt'    => esc_attr(get_post_meta($thead['header_image']['id'], '_wp_attachment_image_alt', true))
+                                    'src'   => esc_url($thead['header_image']['url']),
+                                    'class' => 'ma-el-thead-img',
+                                    'style' => "width:{$thead['header_image_size']}px;",
+                                    'alt'   => esc_attr(get_post_meta($thead['header_image']['id'], '_wp_attachment_image_alt', true))
                                 ]);
                             ?>
                                 <img <?php echo $this->get_render_attribute_string('ma_el_thead_img' . $index); ?>>
@@ -993,10 +993,10 @@ class Dynamic_Table extends Widget_Base
                 <tr>
                     <?php
                     $th_values = $settings['ma_el_table_header'];
-                    $counter = 0;
+                    $counter   = 0;
                     foreach ($settings['ma_el_table_body'] as $index => $tbody) {
                         $table_body_key = $this->get_repeater_setting_key('text', 'ma_el_table_body', $index);
-                        $icon_key         = $this->get_repeater_setting_key('icon', 'ma_el_table_body', $index);
+                        $icon_key       = $this->get_repeater_setting_key('icon', 'ma_el_table_body', $index);
 
                         $this->add_render_attribute($table_body_key, 'class', 'elementor-repeater-item-' . $tbody['_id']);
                         $this->add_inline_editing_attributes($table_body_key);
@@ -1021,10 +1021,10 @@ class Dynamic_Table extends Widget_Base
                             <?php } elseif ('image' === $tbody['icon_type']) {
 
                                 $this->add_render_attribute('ma_el_tbody_img' . $index, [
-                                    'src'    => esc_url($tbody['body_image']['url']),
-                                    'class'    => 'ma-el-tbody-img',
-                                    'style'    => "width:{$tbody['body_image_size']}px;",
-                                    'alt'    => esc_attr(get_post_meta($tbody['body_image']['id'], '_wp_attachment_image_alt', true))
+                                    'src'   => esc_url($tbody['body_image']['url']),
+                                    'class' => 'ma-el-tbody-img',
+                                    'style' => "width:{$tbody['body_image_size']}px;",
+                                    'alt'   => esc_attr(get_post_meta($tbody['body_image']['id'], '_wp_attachment_image_alt', true))
                                 ]);
                             ?>
                                 <img <?php echo $this->get_render_attribute_string('ma_el_tbody_img' . $index); ?>>

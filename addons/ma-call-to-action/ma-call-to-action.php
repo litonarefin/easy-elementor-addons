@@ -7,7 +7,7 @@ use \Elementor\Icons_Manager;
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Background;
 
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
@@ -251,8 +251,8 @@ class Call_to_Action extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'ma_el_cta_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'name'     => 'ma_el_cta_title_typography',
+				'scheme'   => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .ma-el-action-title',
 			]
 		);
@@ -289,8 +289,8 @@ class Call_to_Action extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'ma_el_call_to_action_text_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'name'     => 'ma_el_call_to_action_text_typography',
+				'scheme'   => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .ma-el-action-description',
 			]
 		);
@@ -424,8 +424,8 @@ class Call_to_Action extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'ma_el_call_to_action_button_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'name'     => 'ma_el_call_to_action_button_typography',
+				'scheme'   => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .ma-el-action-btn',
 			]
 		);

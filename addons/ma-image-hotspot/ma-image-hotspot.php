@@ -10,7 +10,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Repeater;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Css_Filter;
@@ -22,8 +22,8 @@ use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
 
 /**
  * Author Name: Liton Arefin
- * Author URL: https://jeweltheme.com
- * Date: 10/12/19
+ * Author URL : https: //jeweltheme.com
+ * Date       : 10/12/19
  */
 // Exit if accessed directly.
 if (!defined('ABSPATH')) {
@@ -83,8 +83,8 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_image',
 			[
-				'label' => __('Choose Image', MELA_TD),
-				'type' => Controls_Manager::MEDIA,
+				'label'   => __('Choose Image', MELA_TD),
+				'type'    => Controls_Manager::MEDIA,
 				'dynamic' => ['active' => true],
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -95,8 +95,8 @@ class Image_Hotspot extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
-				'name' => 'image', // Actually its `image_size`
-				'label' => __('Image Size', MELA_TD),
+				'name'    => 'image',                     // Actually its `image_size`
+				'label'   => __('Image Size', MELA_TD),
 				'default' => 'large',
 			]
 		);
@@ -104,23 +104,23 @@ class Image_Hotspot extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_hotspot_align',
 			[
-				'label' => __('Alignment', MELA_TD),
-				'type' => Controls_Manager::CHOOSE,
+				'label'   => __('Alignment', MELA_TD),
+				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
 						'title' => __('Left', MELA_TD),
-						'icon' => 'eicon-h-align-left',
+						'icon'  => 'eicon-h-align-left',
 					],
 					'center' => [
 						'title' => __('Center', MELA_TD),
-						'icon' => 'eicon-h-align-center',
+						'icon'  => 'eicon-h-align-center',
 					],
 					'right' => [
 						'title' => __('Right', MELA_TD),
-						'icon' => 'eicon-h-align-right',
+						'icon'  => 'eicon-h-align-right',
 					],
 				],
-				'default' => 'center',
+				'default'   => 'center',
 				'selectors' => [
 					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
 				],
@@ -130,8 +130,8 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_view',
 			[
-				'label' => __('View', MELA_TD),
-				'type' => Controls_Manager::HIDDEN,
+				'label'   => __('View', MELA_TD),
+				'type'    => Controls_Manager::HIDDEN,
 				'default' => 'traditional',
 			]
 		);
@@ -145,8 +145,8 @@ class Image_Hotspot extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_hotspots_section',
 			[
-				'label' => __('Hotspots', MELA_TD),
-				'condition'		=> [
+				'label'     => __('Hotspots', MELA_TD),
+				'condition' => [
 					'ma_el_hotspot_image[url]!' => '',
 				]
 			]
@@ -161,12 +161,12 @@ class Image_Hotspot extends Widget_Base
 		$repeater->add_control(
 			'ma_el_hotspot_type',
 			[
-				'label'		=> __('Type', MELA_TD),
-				'type' 		=> Controls_Manager::SELECT,
-				'default' 	=> 'text',
-				'options' 	=> [
-					'text' 		=> __('Text', MELA_TD),
-					'icon' 		=> __('Icon', MELA_TD),
+				'label'   => __('Type', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'text',
+				'options' => [
+					'text' => __('Text', MELA_TD),
+					'icon' => __('Icon', MELA_TD),
 				],
 			]
 		);
@@ -174,15 +174,15 @@ class Image_Hotspot extends Widget_Base
 		$repeater->add_control(
 			'ma_el_hotspot_text',
 			[
-				'default'	=> __('X', MELA_TD),
-				'type'		=> Controls_Manager::TEXT,
-				'label' 	=> __('Text', MELA_TD),
+				'default'   => __('X', MELA_TD),
+				'type'      => Controls_Manager::TEXT,
+				'label'     => __('Text', MELA_TD),
 				'separator' => 'none',
-				'dynamic' => [
+				'dynamic'   => [
 					'active' => true,
 				],
 				'condition'		=> [
-					'ma_el_hotspot_type'	=> 'text'
+					'ma_el_hotspot_type' => 'text'
 				]
 			]
 		);
@@ -190,16 +190,16 @@ class Image_Hotspot extends Widget_Base
 		$repeater->add_control(
 			'ma_el_hotspot_selected_icon',
 			array(
-				'label'       => __('Icon', MELA_TD),
-				'description' => __('Please choose an icon from the list.', MELA_TD),
-				'type'    => Controls_Manager::ICONS,
+				'label'            => __('Icon', MELA_TD),
+				'description'      => __('Please choose an icon from the list.', MELA_TD),
+				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
-				'default' => [
-					'value' => 'fa fa-search',
+				'default'          => [
+					'value'   => 'fa fa-search',
 					'library' => 'fa-solid',
 				],
-				'render_type'      => 'template',
-				'condition' => array(
+				'render_type' => 'template',
+				'condition'   => array(
 					'ma_el_hotspot_type' => 'icon'
 				)
 			)
@@ -208,14 +208,14 @@ class Image_Hotspot extends Widget_Base
 		$repeater->add_control(
 			'ma_el_hotspot_link',
 			[
-				'label' 		=> __('Link', MELA_TD),
-				'description' 	=> __('Active only when tolltips\' Trigger is set to Hover or if tooltip is disabled responsively, below a certain breakpoint.', MELA_TD),
-				'type' 			=> Controls_Manager::URL,
-				'label_block' 	=> false,
-				'dynamic' => [
+				'label'       => __('Link', MELA_TD),
+				'description' => __('Active only when tolltips\' Trigger is set to Hover or if tooltip is disabled responsively, below a certain breakpoint.', MELA_TD),
+				'type'        => Controls_Manager::URL,
+				'label_block' => false,
+				'dynamic'     => [
 					'active' => true,
 				],
-				'placeholder' 	=> esc_url(home_url('/')),
+				'placeholder'        => esc_url(home_url('/')),
 				'frontend_available' => true,
 			]
 		);
@@ -223,12 +223,12 @@ class Image_Hotspot extends Widget_Base
 		$repeater->add_control(
 			'ma_el_hotspot_content',
 			[
-				'label' 	=> __('Tooltip Content', MELA_TD),
-				'type' 		=> Controls_Manager::WYSIWYG,
-				'dynamic' 	=> [
+				'label'   => __('Tooltip Content', MELA_TD),
+				'type'    => Controls_Manager::WYSIWYG,
+				'dynamic' => [
 					'active' => true,
 				],
-				'default' 	=> __('I am a tooltip for a hotspot', MELA_TD),
+				'default' => __('I am a tooltip for a hotspot', MELA_TD),
 			]
 		);
 
@@ -265,15 +265,15 @@ class Image_Hotspot extends Widget_Base
 			'ma_el_hotspot_default',
 			[
 				'label' => __('Default', MELA_TD),
-				'type' => Controls_Manager::HEADING,
+				'type'  => Controls_Manager::HEADING,
 			]
 		);
 
 		$repeater->add_control(
 			'ma_el_hotspot_color',
 			[
-				'label' 	=> __('Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-hotspots__wrapper' => 'color: {{VALUE}};',
 				],
@@ -284,11 +284,11 @@ class Image_Hotspot extends Widget_Base
 		$repeater->add_control(
 			'ma_el_hotspot_background_color',
 			[
-				'label' 	=> __('Background Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-hotspots__wrapper' 		=> 'background-color: {{VALUE}};',
-					'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-hotspots__wrapper:before' 	=> 'background-color: {{VALUE}};',
+					'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-hotspots__wrapper'        => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-hotspots__wrapper:before' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -296,17 +296,17 @@ class Image_Hotspot extends Widget_Base
 		$repeater->add_responsive_control(
 			'ma_el_hotspot_opacity',
 			[
-				'label' 	=> __('Opacity (%)', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'range' 	=> [
+				'label' => __('Opacity (%)', MELA_TD),
+				'type'  => Controls_Manager::SLIDER,
+				'range' => [
 					'px' 	=> [
-						'max' 	=> 1,
-						'min' 	=> 0,
-						'step' 	=> 0.1,
+						'max'  => 1,
+						'min'  => 0,
+						'step' => 0.1,
 					],
 				],
 				'separator' => 'after',
-				'selectors' 	=> [
+				'selectors' => [
 					'{{WRAPPER}} .ma-el-hotspots-container {{CURRENT_ITEM}} .ma-el-hotspots__wrapper' => 'opacity: {{SIZE}};',
 				],
 			]
@@ -316,15 +316,15 @@ class Image_Hotspot extends Widget_Base
 			'ma_el_hotspot_hover',
 			[
 				'label' => __('Hover', MELA_TD),
-				'type' => Controls_Manager::HEADING,
+				'type'  => Controls_Manager::HEADING,
 			]
 		);
 
 		$repeater->add_control(
 			'ma_el_hotspot_color_hover',
 			[
-				'label' 	=> __('Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-hotspots-container {{CURRENT_ITEM}} .ma-el-hotspots__wrapper:hover' => 'color: {{VALUE}};',
 				],
@@ -334,11 +334,11 @@ class Image_Hotspot extends Widget_Base
 		$repeater->add_control(
 			'ma_el_hotspot_background_color_hover',
 			[
-				'label' 	=> __('Background Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-hotspots__wrapper:hover' 			=> 'background-color: {{VALUE}};',
-					'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-hotspots__wrapper:hover:before' 	=> 'background-color: {{VALUE}};',
+					'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-hotspots__wrapper:hover'        => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} {{CURRENT_ITEM}} .ma-el-hotspots__wrapper:hover:before' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -346,13 +346,13 @@ class Image_Hotspot extends Widget_Base
 		$repeater->add_responsive_control(
 			'ma_el_hotspot_opacity_hover',
 			[
-				'label' 	=> __('Opacity (%)', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'range' 	=> [
+				'label' => __('Opacity (%)', MELA_TD),
+				'type'  => Controls_Manager::SLIDER,
+				'range' => [
 					'px' 	=> [
-						'max' 	=> 1,
-						'min' 	=> 0,
-						'step' 	=> 0.1,
+						'max'  => 1,
+						'min'  => 0,
+						'step' => 0.1,
 					],
 				],
 				'selectors' 	=> [
@@ -369,16 +369,16 @@ class Image_Hotspot extends Widget_Base
 		$repeater->add_control(
 			'ma_el_hotspot_position_horizontal',
 			[
-				'label' 	=> __('Horizontal position (%)', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default'	=> [
-					'size'	=> 50,
+				'label'   => __('Horizontal position (%)', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 50,
 				],
 				'range' 	=> [
 					'px' 	=> [
-						'min' 	=> 0,
-						'max' 	=> 100,
-						'step'	=> 0.1,
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 0.1,
 					],
 				],
 				'selectors' => [
@@ -390,16 +390,16 @@ class Image_Hotspot extends Widget_Base
 		$repeater->add_control(
 			'ma_el_hotspot_position_vertical',
 			[
-				'label' 	=> __('Vertical position (%)', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default'	=> [
-					'size'	=> 50,
+				'label'   => __('Vertical position (%)', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 50,
 				],
 				'range' 	=> [
 					'px' 	=> [
-						'min' 	=> 0,
-						'max' 	=> 100,
-						'step'	=> 0.1,
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 0.1,
 					],
 				],
 				'selectors' => [
@@ -412,22 +412,22 @@ class Image_Hotspot extends Widget_Base
 			'ma_el_hotspot_tooltips_heading',
 			[
 				'label' => __('Tooltips', MELA_TD),
-				'type' => Controls_Manager::HEADING,
+				'type'  => Controls_Manager::HEADING,
 			]
 		);
 
 		$repeater->add_control(
 			'ma_el_hotspot_tooltip_position',
 			[
-				'label'		=> __('Show to', MELA_TD),
-				'type' 		=> Controls_Manager::SELECT,
-				'default' 	=> '',
-				'options' 	=> [
-					'' 			=> __('Global', MELA_TD),
-					'bottom' 	=> __('Bottom', MELA_TD),
-					'left' 		=> __('Left', MELA_TD),
-					'top' 		=> __('Top', MELA_TD),
-					'right' 	=> __('Right', MELA_TD),
+				'label'   => __('Show to', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'default' => '',
+				'options' => [
+					''       => __('Global', MELA_TD),
+					'bottom' => __('Bottom', MELA_TD),
+					'left'   => __('Left', MELA_TD),
+					'top'    => __('Top', MELA_TD),
+					'right'  => __('Right', MELA_TD),
 				],
 			]
 		);
@@ -440,19 +440,19 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspots',
 			[
-				'label' 	=> __('Hotspots', MELA_TD),
-				'type' 		=> Controls_Manager::REPEATER,
-				'default' 	=> [
+				'label'   => __('Hotspots', MELA_TD),
+				'type'    => Controls_Manager::REPEATER,
+				'default' => [
 					[
-						'text' 	=> '1',
+						'text' => '1',
 					],
 					[
-						'text' 	=> '2',
+						'text' => '2',
 					],
 				],
-				'fields' 		=> $repeater->get_controls(),
-				'title_field' 	=> '{{{ ma_el_hotspot_text }}}',
-				'condition'		=> [
+				'fields'      => $repeater->get_controls(),
+				'title_field' => '{{{ ma_el_hotspot_text }}}',
+				'condition'   => [
 					'ma_el_hotspot_image[url]!' => '',
 				]
 			]
@@ -470,8 +470,8 @@ class Image_Hotspot extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_hotspot_section_tooltips',
 			[
-				'label' => __('Tooltips', MELA_TD),
-				'condition'		=> [
+				'label'     => __('Tooltips', MELA_TD),
+				'condition' => [
 					'ma_el_hotspot_image[url]!' => '',
 				]
 			]
@@ -480,14 +480,14 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_position',
 			[
-				'label'		=> __('Show Position', MELA_TD),
-				'type' 		=> Controls_Manager::SELECT,
-				'default' 	=> 'top',
-				'options' 	=> [
-					'bottom' 	=> __('Bottom', MELA_TD),
-					'left' 		=> __('Left', MELA_TD),
-					'top' 		=> __('Top', MELA_TD),
-					'right' 	=> __('Right', MELA_TD),
+				'label'   => __('Show Position', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'top',
+				'options' => [
+					'bottom' => __('Bottom', MELA_TD),
+					'left'   => __('Left', MELA_TD),
+					'top'    => __('Top', MELA_TD),
+					'right'  => __('Right', MELA_TD),
 				],
 				'condition'		=> [
 					'ma_el_hotspot_image[url]!' => '',
@@ -500,16 +500,16 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_disable',
 			[
-				'label'		=> esc_html__('Disable On', MELA_TD),
-				'type' 		=> Controls_Manager::SELECT,
-				'default' 	=> '',
-				'options' 	=> [
-					'' 			=> esc_html__('None', MELA_TD),
-					'tablet' 	=> esc_html__('Tablet & Mobile', MELA_TD),
-					'mobile' 	=> esc_html__('Mobile', MELA_TD),
+				'label'   => esc_html__('Disable On', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'default' => '',
+				'options' => [
+					''       => esc_html__('None', MELA_TD),
+					'tablet' => esc_html__('Tablet & Mobile', MELA_TD),
+					'mobile' => esc_html__('Mobile', MELA_TD),
 				],
 				'frontend_available' => true,
-				'selectors' => [
+				'selectors'          => [
 					'(tablet){{WRAPPER}} .ma-el-hotspot .ma-el-tooltip-text' => 'display: none;',
 					'(mobile){{WRAPPER}} .ma-el-hotspot .ma-el-tooltip-text' => 'display: none;',
 				],
@@ -521,13 +521,13 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_tooltip_visible_hover',
 			[
-				'label' 		=> esc_html__('Visible on Hover', MELA_TD),
-				'type' 			=> Controls_Manager::SWITCHER,
-				'label_on' 		=> esc_html__('Yes', MELA_TD),
-				'label_off' 	=> esc_html__('No', MELA_TD),
-				'return_value' 	=> 'yes',
-				'default' 		=> 'no',
-				'selectors' => [
+				'label'        => esc_html__('Visible on Hover', MELA_TD),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__('Yes', MELA_TD),
+				'label_off'    => esc_html__('No', MELA_TD),
+				'return_value' => 'yes',
+				'default'      => 'no',
+				'selectors'    => [
 					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item:hover .ma-el-tooltip-text' => 'visibility: visible;opacity: 1; display:block;',
 				]
 
@@ -537,12 +537,12 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_arrow',
 			[
-				'label'		=> __('Arrow', MELA_TD),
-				'type' 		=> Controls_Manager::SELECT,
-				'default' 	=> '""',
-				'options' 	=> [
-					'""' 	=> __('Show', MELA_TD),
-					'none' 	=> __('Hide', MELA_TD),
+				'label'   => __('Arrow', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'default' => '""',
+				'options' => [
+					'""'   => __('Show', MELA_TD),
+					'none' => __('Hide', MELA_TD),
 				],
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-text:after' => 'content: {{VALUE}};',
@@ -558,10 +558,10 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_margin',
 			[
-				'label' 		=> __('Margin', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px', '%', 'em'],
-				'selectors' 	=> [
+				'label'      => __('Margin', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-text' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -570,15 +570,15 @@ class Image_Hotspot extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_hotspot_width',
 			[
-				'label' 		=> __('Maximum Width', MELA_TD),
-				'type' 			=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 200,
+				'label'   => __('Maximum Width', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 200,
 				],
 				'range' 	=> [
 					'px' 	=> [
-						'min' 	=> 0,
-						'max' 	=> 500,
+						'min' => 0,
+						'max' => 500,
 					],
 				],
 				'condition'		=> [
@@ -593,13 +593,13 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_zindex',
 			[
-				'label'			=> __('zIndex', MELA_TD),
-				'description'   => __('Adjust the z-index of the tooltips. Defaults to 999', MELA_TD),
-				'type'			=> Controls_Manager::NUMBER,
-				'default'		=> '999',
-				'min'			=> -9999999,
-				'step'			=> 1,
-				'condition'		=> [
+				'label'       => __('zIndex', MELA_TD),
+				'description' => __('Adjust the z-index of the tooltips. Defaults to 999', MELA_TD),
+				'type'        => Controls_Manager::NUMBER,
+				'default'     => '999',
+				'min'         => -9999999,
+				'step'        => 1,
+				'condition'   => [
 					'ma_el_hotspot_image[url]!' => '',
 				],
 				'selectors'		=> [
@@ -628,16 +628,16 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_opacity',
 			[
-				'label' 	=> __('Opacity (%)', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 1,
+				'label'   => __('Opacity (%)', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1,
 				],
 				'range' 	=> [
 					'px' 	=> [
-						'max' 	=> 1,
-						'min' 	=> 0.10,
-						'step' 	=> 0.01,
+						'max'  => 1,
+						'min'  => 0.10,
+						'step' => 0.01,
 					],
 				],
 				'selectors' 	=> [
@@ -649,19 +649,19 @@ class Image_Hotspot extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' 		=> 'ma_el_hotspot_image_border',
-				'label' 	=> __('Image Border', MELA_TD),
-				'selector' 	=> '{{WRAPPER}} .ma-el-hotspots-wrapper img',
+				'name'     => 'ma_el_hotspot_image_border',
+				'label'    => __('Image Border', MELA_TD),
+				'selector' => '{{WRAPPER}} .ma-el-hotspots-wrapper img',
 			]
 		);
 
 		$this->add_control(
 			'ma_el_hotspot_image_border_radius',
 			[
-				'label' 		=> __('Border Radius', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px', '%'],
-				'selectors' 	=> [
+				'label'      => __('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-hotspots-wrapper img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -670,16 +670,16 @@ class Image_Hotspot extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' 		=> 'ma_el_hotspot_image_box_shadow',
-				'selector' 	=> '{{WRAPPER}} .ma-el-hotspots-wrapper img',
-				'separator'	=> '',
+				'name'      => 'ma_el_hotspot_image_box_shadow',
+				'selector'  => '{{WRAPPER}} .ma-el-hotspots-wrapper img',
+				'separator' => '',
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
 			[
-				'name' => 'ma_el_hotspot_image_css_filters',
+				'name'     => 'ma_el_hotspot_image_css_filters',
 				'selector' => '{{WRAPPER}} .ma-el-hotspots-wrapper img',
 			]
 		);
@@ -702,11 +702,11 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_pulse',
 			[
-				'label' 		=> __('Disable Pulse Effect', MELA_TD),
-				'type' 			=> Controls_Manager::SWITCHER,
-				'default' 		=> '""',
-				'return_value' 	=> 'none',
-				'selectors'		=> [
+				'label'        => __('Disable Pulse Effect', MELA_TD),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => '""',
+				'return_value' => 'none',
+				'selectors'    => [
 					'{{WRAPPER}} .ma-el-hotspots__wrapper:before' => 'content: {{VALUE}};'
 				]
 			]
@@ -715,10 +715,10 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspots_padding',
 			[
-				'label' 		=> __('Text Padding', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px', 'em', '%'],
-				'selectors' 	=> [
+				'label'      => __('Text Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
@@ -728,19 +728,19 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspots_border_radius',
 			[
-				'label' 	=> __('Border Radius', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 100,
+				'label'   => __('Border Radius', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 100,
 				],
 				'range' 	=> [
 					'px' 	=> [
-						'max' 	=> 100,
-						'min' 	=> 0,
+						'max' => 100,
+						'min' => 0,
 					],
 				],
 				'selectors' 	=> [
-					'{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper' => 'border-radius: {{SIZE}}px;',
+					'{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper'        => 'border-radius: {{SIZE}}px;',
 					'{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper:before' => 'border-radius: {{SIZE}}px;',
 				],
 			]
@@ -749,18 +749,18 @@ class Image_Hotspot extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' 		=> 'ma_el_hotspots_typography',
-				'selector' 	=> '{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper',
-				'scheme' 	=> Scheme_Typography::TYPOGRAPHY_3,
-				'separator'	=> 'before',
+				'name'      => 'ma_el_hotspots_typography',
+				'selector'  => '{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper',
+				'scheme'    => Typography::TYPOGRAPHY_3,
+				'separator' => 'before',
 			]
 		);
 
 		$this->add_group_control(
 			MA_Group_Control_Transition::get_type(),
 			[
-				'name' 			=> 'ma_el_hotspots',
-				'selector' 		=> '{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper,
+				'name'     => 'ma_el_hotspots',
+				'selector' => '{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper,
 									{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper:before',
 			]
 		);
@@ -777,16 +777,16 @@ class Image_Hotspot extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_hotspots_opacity',
 			[
-				'label' 	=> __('Opacity (%)', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 1,
+				'label'   => __('Opacity (%)', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1,
 				],
 				'range' 	=> [
 					'px' 	=> [
-						'max' 	=> 1,
-						'min' 	=> 0.10,
-						'step' 	=> 0.01,
+						'max'  => 1,
+						'min'  => 0.10,
+						'step' => 0.01,
 					],
 				],
 				'selectors' 	=> [
@@ -798,16 +798,16 @@ class Image_Hotspot extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_hotspots_size',
 			[
-				'label' 	=> __('Size', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 1,
+				'label'   => __('Size', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1,
 				],
 				'range' 	=> [
 					'px' 	=> [
-						'max' 	=> 2,
-						'min' 	=> 0.5,
-						'step'	=> 0.01,
+						'max'  => 2,
+						'min'  => 0.5,
+						'step' => 0.01,
 					],
 				],
 				'selectors' 	=> [
@@ -819,9 +819,9 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspots_color',
 			[
-				'label' 	=> __('Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
-				'default'	=> '',
+				'label'     => __('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspot__text' => 'color: {{VALUE}};',
 				],
@@ -831,18 +831,14 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspots_background_color',
 			[
-				'label' 	=> __('Background Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
-				'default'	=> '',
-				//					'scheme' 	=> [
-				//						'type' 	=> Scheme_Color::get_type(),
-				//						'value' => Scheme_Color::COLOR_1,
-				//					],
+				'label'   => __('Background Color', MELA_TD),
+				'type'    => Controls_Manager::COLOR,
+				'default' => '',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper'
-					=> 'background-color: {{VALUE}};',
+					=>  'background-color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper .ma-el-hotspots__wrapper:before'
-					=> 'background-color: {{VALUE}};',
+					=>  'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -850,18 +846,18 @@ class Image_Hotspot extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' 		=> 'ma_el_hotspots_border',
-				'label' 	=> __('Text Border', MELA_TD),
-				'selector' 	=> '{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper',
+				'name'     => 'ma_el_hotspots_border',
+				'label'    => __('Text Border', MELA_TD),
+				'selector' => '{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper',
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' 		=> 'ma_el_hotspots_box_shadow',
-				'selector' 	=> '{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper',
-				'separator'	=> ''
+				'name'      => 'ma_el_hotspots_box_shadow',
+				'selector'  => '{{WRAPPER}} .ma-el-hotspots-wrapper .ma-el-hotspots__wrapper',
+				'separator' => ''
 			]
 		);
 
@@ -877,16 +873,16 @@ class Image_Hotspot extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_hotspots_hover_opacity',
 			[
-				'label' 	=> __('Opacity (%)', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 1,
+				'label'   => __('Opacity (%)', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1,
 				],
 				'range' 	=> [
 					'px' 	=> [
-						'max' 	=> 1,
-						'min' 	=> 0.10,
-						'step' 	=> 0.01,
+						'max'  => 1,
+						'min'  => 0.10,
+						'step' => 0.01,
 					],
 				],
 				'selectors' 	=> [
@@ -898,16 +894,16 @@ class Image_Hotspot extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_hotspots_hover_size',
 			[
-				'label' 	=> __('Size', MELA_TD),
-				'type' 		=> Controls_Manager::SLIDER,
-				'default' 	=> [
-					'size' 	=> 1,
+				'label'   => __('Size', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1,
 				],
 				'range' 	=> [
 					'px' 	=> [
-						'max' 	=> 2,
-						'min' 	=> 0.5,
-						'step'	=> 0.01,
+						'max'  => 2,
+						'min'  => 0.5,
+						'step' => 0.01,
 					],
 				],
 				'selectors' 	=> [
@@ -920,9 +916,9 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspots_hover_color',
 			[
-				'label' 	=> __('Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
-				'default'	=> '',
+				'label'     => __('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-hotspots-wrapper:hover .ma-el-hotspot__text' => 'color: {{VALUE}};',
 				],
@@ -932,15 +928,11 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspots_hover_background_color',
 			[
-				'label' 	=> __('Background Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
-				'default'	=> '',
-				//					'scheme' 	=> [
-				//						'type' 	=> Scheme_Color::get_type(),
-				//						'value' => Scheme_Color::COLOR_4,
-				//					],
+				'label'   => __('Background Color', MELA_TD),
+				'type'    => Controls_Manager::COLOR,
+				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-hotspots-wrapper:hover .ma-el-hotspots__wrapper' 		=> 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-hotspots-wrapper:hover .ma-el-hotspots__wrapper'        => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-hotspots-wrapper:hover .ma-el-hotspots__wrapper:before' => 'background-color: {{VALUE}};',
 				],
 			]
@@ -949,18 +941,18 @@ class Image_Hotspot extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' 		=> 'ma_el_hotspots_hover_border',
-				'label' 	=> __('Text Border', MELA_TD),
-				'selector' 	=> '{{WRAPPER}} .ma-el-hotspots-wrapper:hover .ma-el-hotspots__wrapper',
+				'name'     => 'ma_el_hotspots_hover_border',
+				'label'    => __('Text Border', MELA_TD),
+				'selector' => '{{WRAPPER}} .ma-el-hotspots-wrapper:hover .ma-el-hotspots__wrapper',
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' 		=> 'ma_el_hotspots_hover_box_shadow',
-				'selector' 	=> '{{WRAPPER}} .ma-el-hotspots-wrapper:hover .ma-el-hotspots__wrapper',
-				'separator'	=> ''
+				'name'      => 'ma_el_hotspots_hover_box_shadow',
+				'selector'  => '{{WRAPPER}} .ma-el-hotspots-wrapper:hover .ma-el-hotspots__wrapper',
+				'separator' => ''
 			]
 		);
 
@@ -989,20 +981,20 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_tooltips_align',
 			[
-				'label' 	=> __('Alignment', MELA_TD),
-				'type' 		=> Controls_Manager::CHOOSE,
-				'options' 	=> [
+				'label'   => __('Alignment', MELA_TD),
+				'type'    => Controls_Manager::CHOOSE,
+				'options' => [
 					'left' 	=> [
-						'title' 	=> __('Left', MELA_TD),
-						'icon' 		=> 'fa fa-align-left',
+						'title' => __('Left', MELA_TD),
+						'icon'  => 'fa fa-align-left',
 					],
 					'center' 	=> [
 						'title' => __('Center', MELA_TD),
-						'icon' 	=> 'fa fa-align-center',
+						'icon'  => 'fa fa-align-center',
 					],
 					'right' 	=> [
 						'title' => __('Right', MELA_TD),
-						'icon'	=> 'fa fa-align-right',
+						'icon'  => 'fa fa-align-right',
 					],
 				],
 				'selectors' => [
@@ -1014,10 +1006,10 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_tooltips_padding',
 			[
-				'label' 		=> __('Padding', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px', 'em', '%'],
-				'selectors' 	=> [
+				'label'      => __('Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-hotspots-container .ma-el-tooltip-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1026,10 +1018,10 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_tooltips_border_radius',
 			[
-				'label' 		=> __('Border Radius', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px', '%'],
-				'selectors' 	=> [
+				'label'      => __('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-hotspots-container .ma-el-tooltip-text' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1038,8 +1030,8 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_tooltips_background_color',
 			[
-				'label' 	=> __('Background Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-hotspot .ma-el-tooltip-text' => 'background-color: {{VALUE}};',
 				]
@@ -1049,8 +1041,8 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_tooltips_color',
 			[
-				'label' 	=> __('Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-hotspots-container .ma-el-tooltip-text' => 'color: {{VALUE}};',
 				],
@@ -1060,9 +1052,9 @@ class Image_Hotspot extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' 		=> 'ma_el_hotspot_tooltips_border',
-				'label' 	=> __('Border', MELA_TD),
-				'selector' 	=> '{{WRAPPER}} .ma-el-hotspots-container .ma-el-tooltip-text',
+				'name'     => 'ma_el_hotspot_tooltips_border',
+				'label'    => __('Border', MELA_TD),
+				'selector' => '{{WRAPPER}} .ma-el-hotspots-container .ma-el-tooltip-text',
 			]
 		);
 
@@ -1070,13 +1062,13 @@ class Image_Hotspot extends Widget_Base
 		$this->add_control(
 			'ma_el_hotspot_tooltips_arrow_color',
 			[
-				'label' 	=> __('Arrow Color', MELA_TD),
-				'type' 		=> Controls_Manager::COLOR,
+				'label'     => __('Arrow Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-top .ma-el-tooltip-text:after' => 'border-top-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-right .ma-el-tooltip-text:after' => 'border-right-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-top .ma-el-tooltip-text:after'    => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-right .ma-el-tooltip-text:after'  => 'border-right-color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom .ma-el-tooltip-text:after' => 'border-bottom-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-left .ma-el-tooltip-text:after' => 'border-left-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-left .ma-el-tooltip-text:after'   => 'border-left-color: {{VALUE}};',
 				]
 			]
 		);
@@ -1084,8 +1076,8 @@ class Image_Hotspot extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' 		=> 'ma_el_hotspot_tooltips_typography',
-				'scheme' 	=> Scheme_Typography::TYPOGRAPHY_3,
+				'name'     => 'ma_el_hotspot_tooltips_typography',
+				'scheme'   => Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-text',
 			]
 		);
@@ -1093,8 +1085,8 @@ class Image_Hotspot extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' 		=> 'ma_el_hotspot_tooltips_box_shadow',
-				'selector'	=> '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-text',
+				'name'     => 'ma_el_hotspot_tooltips_box_shadow',
+				'selector' => '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-text',
 			]
 		);
 		$this->end_controls_section();
@@ -1157,15 +1149,15 @@ class Image_Hotspot extends Widget_Base
 			$this->add_control(
 				'jltma_control_get_pro_style_tab',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 				]
 			);
@@ -1200,16 +1192,16 @@ class Image_Hotspot extends Widget_Base
 					<?php foreach ($settings['ma_el_hotspots'] as $index => $item) {
 						//								print_r($item);
 
-						$has_icon 				= false;
-						$hotspot_tag 			= 'div';
-						$hotspot_key 			= $this->get_repeater_setting_key('hotspot', 'ma_el_hotspots', $index);
-						$wrapper_key 			= $this->get_repeater_setting_key('wrapper', 'ma_el_hotspots', $index);
-						$icon_key 				= $this->get_repeater_setting_key('icon', 'ma_el_hotspots', $index);
-						$icon_wrapper_key		= $this->get_repeater_setting_key('icon-wrapper', 'ma_el_hotspots', $index);
-						$text_key 				= $this->get_repeater_setting_key('text', 'ma_el_hotspots', $index);
-						$tooltip_key 			= $this->get_repeater_setting_key('content', 'ma_el_hotspots', $index);
+						$has_icon         = false;
+						$hotspot_tag      = 'div';
+						$hotspot_key      = $this->get_repeater_setting_key('hotspot', 'ma_el_hotspots', $index);
+						$wrapper_key      = $this->get_repeater_setting_key('wrapper', 'ma_el_hotspots', $index);
+						$icon_key         = $this->get_repeater_setting_key('icon', 'ma_el_hotspots', $index);
+						$icon_wrapper_key = $this->get_repeater_setting_key('icon-wrapper', 'ma_el_hotspots', $index);
+						$text_key         = $this->get_repeater_setting_key('text', 'ma_el_hotspots', $index);
+						$tooltip_key      = $this->get_repeater_setting_key('content', 'ma_el_hotspots', $index);
 
-						$content_id 			= $this->get_id() . '_' . $item['_id'];
+						$content_id = $this->get_id() . '_' . $item['_id'];
 
 
 						$this->add_render_attribute([
@@ -1221,15 +1213,15 @@ class Image_Hotspot extends Widget_Base
 							],
 							$tooltip_key => [
 								'class' => 'ma-el-tooltip-text',
-								'id'	=> 'ma-el-tooltip-text-' . $content_id,
+								'id'    => 'ma-el-tooltip-text-' . $content_id,
 							],
 							$hotspot_key => [
 								'class' => [
 									'elementor-repeater-item-' . $item['_id'],
 									'ma-el-hotspot',
 								],
-								'data-tooltips-content' 			=> '#tooltip-content-' . $content_id,
-								'data-tooltips-position' 			=> $item['ma_el_hotspot_tooltip_position'],
+								'data-tooltips-content'  => '#tooltip-content-' . $content_id,
+								'data-tooltips-position' => $item['ma_el_hotspot_tooltip_position'],
 								// 'data-tooltips-arrow-position-h' 	=> $item['ma_el_hotspot_item_id'],
 								// 'data-tooltips-arrow-position-v' 	=> $item['ma_el_hotspot_tooltip_arrow_position_v'],
 								'data-tooltips-class' 			=> [
@@ -1244,7 +1236,7 @@ class Image_Hotspot extends Widget_Base
 
 						if ('icon' === $item['ma_el_hotspot_type'] && (!empty($item['icon']) || !empty($item['ma_el_hotspot_selected_icon']['value']))) {
 							$migrated = isset($item['__fa4_migrated']['ma_el_hotspot_selected_icon']);
-							$is_new = empty($item['icon']) && Icons_Manager::is_migration_allowed();
+							$is_new   = empty($item['icon']) && Icons_Manager::is_migration_allowed();
 
 							$has_icon = true;
 
@@ -1256,7 +1248,7 @@ class Image_Hotspot extends Widget_Base
 
 							if (!empty($item['icon'])) {
 								$this->add_render_attribute($icon_key, [
-									'class' => esc_attr($item['icon']),
+									'class'       => esc_attr($item['icon']),
 									'aria-hidden' => 'true',
 								]);
 							}

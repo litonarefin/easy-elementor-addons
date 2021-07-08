@@ -10,7 +10,7 @@ use \Elementor\Repeater;
 use \Elementor\Scheme_Color;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Text_Shadow;
 use \Elementor\Group_Control_Box_Shadow;
@@ -23,7 +23,7 @@ use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
 
 /**
  * Author Name: Liton Arefin
- * Author URL : https: //jeweltheme.com
+ * Author URL : https:        //jeweltheme.com
  * Date       : 10/18/19
  */
 
@@ -2282,7 +2282,7 @@ class Timeline extends Widget_Base
 			[
 				'name'      => 'ma_el_timeline_points_typography',
 				'selector'  => '{{WRAPPER}} .ma-el-timeline .ma-el-timeline-post-type-icon',
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
+				'scheme'    => Typography::TYPOGRAPHY_3,
 				'exclude'   => ['font_size'],
 				'condition' => [
 					'ma_el_timeline_points_content!' => 'icons',
@@ -3159,7 +3159,8 @@ class Timeline extends Widget_Base
 					{
 						$settings = $this->get_settings();
 
-						$output = '<div class="ma-el-timeline-post-mini-thumb">';
+						$output = '';
+						$output .= '<div class="ma-el-timeline-post-mini-thumb">';
 
 						if (isset($item['ma_el_custom_timeline_pointer_image']) && $item['ma_el_custom_timeline_pointer_image'] != "") {
 							$output .= Group_Control_Image_Size::get_attachment_image_html($item, 'ma_el_custom_timeline_pointer_image');
@@ -3382,16 +3383,7 @@ class Timeline extends Widget_Base
 						$excerpt_text = $settings['ma_el_timeline_excerpt_text'];
 						//			$excerpt_src  = $settings['ma_el_post_grid_excerpt_content'];
 						$excerpt_length = $settings['ma_el_timeline_excerpt_length'] ? $settings['ma_el_timeline_excerpt_length'] : 25;
-						echo Master_Addons_Helper::ma_el_get_excerpt_by_id(
-							get_the_ID(),
-							$excerpt_length,
-							$excerpt_type,
-							$this->parse_text_editor($excerpt_text),
-							true,
-							'',
-							'',
-							''
-						);
+						echo Master_Addons_Helper::ma_el_get_excerpt_by_id(get_the_ID(), $excerpt_length, $excerpt_type, $this->parse_text_editor($excerpt_text), true, '', '', '');
 					}
 
 
@@ -3453,7 +3445,7 @@ class Timeline extends Widget_Base
 							$date = isset($loop_settings['ma_el_timeline_date_custom']) ? $loop_settings['ma_el_timeline_date_custom'] : '';
 						} else {
 							$custom = 'custom' === $settings['ma_el_timeline_date_format'];
-							$date = $this->get_date_formatted($custom, $settings['ma_el_timeline_date_custom_format'], $settings['ma_el_timeline_date_format'], $settings['ma_el_timeline_time_format'], $post_id);
+							$date   = $this->get_date_formatted($custom, $settings['ma_el_timeline_date_custom_format'], $settings['ma_el_timeline_date_format'], $settings['ma_el_timeline_time_format'], $post_id);
 						}
 						echo $date;
 

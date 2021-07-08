@@ -8,7 +8,7 @@ use \Elementor\Icons_Manager;
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 
 
 use MasterAddons\Inc\Controls\MA_Control_Visual_Select;
@@ -16,8 +16,8 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
  * Author Name: Liton Arefin
- * Author URL: https://jeweltheme.com
- * Date: 3/15/2020
+ * Author URL : https:        //jeweltheme.com
+ * Date       : 3/15/2020
  */
 
 // Exit if accessed directly.
@@ -66,10 +66,10 @@ class Search extends Widget_Base
         $args = array('public' => true);
 
         $post_types = get_post_types($args, 'objects');
-        $posts = array();
+        $posts      = array();
 
         foreach ($post_types as $post_type) {
-            $labels = get_post_type_labels($post_type);
+            $labels           = get_post_type_labels($post_type);
             $posts[$post_type->name] = $labels->name;
         }
 
@@ -83,19 +83,19 @@ class Search extends Widget_Base
         $this->start_controls_section(
             'jltma_search_general',
             array(
-                'label'      => __('Content', MELA_TD),
+                'label' => __('Content', MELA_TD),
             )
         );
 
         $this->add_control(
             'jltma_search_type',
             array(
-                'label'       => __('Type', MELA_TD),
-                'type'        => Controls_Manager::SELECT,
-                'default'     => 'icon',
-                'options'     => array(
-                    'form'    => __('Form', MELA_TD),
-                    'icon'    => __('Icon Popup', MELA_TD)
+                'label'   => __('Type', MELA_TD),
+                'type'    => Controls_Manager::SELECT,
+                'default' => 'icon',
+                'options' => array(
+                    'form' => __('Form', MELA_TD),
+                    'icon' => __('Icon Popup', MELA_TD)
                 )
             )
         );
@@ -103,13 +103,13 @@ class Search extends Widget_Base
         $this->add_control(
             'jltma_search_submit_type',
             array(
-                'label'       => __('Submit Button Type', MELA_TD),
-                'type'        => Controls_Manager::SELECT,
-                'options'     => array(
+                'label'   => __('Submit Button Type', MELA_TD),
+                'type'    => Controls_Manager::SELECT,
+                'options' => array(
                     'icon'   => __('Icon', MELA_TD),
                     'button' => __('Button', MELA_TD),
                 ),
-                'default'     => 'icon',
+                'default'   => 'icon',
                 'condition' => array(
                     'jltma_search_type' => 'form'
                 )
@@ -120,9 +120,9 @@ class Search extends Widget_Base
         $this->add_control(
             'jltma_search_submit_button',
             array(
-                'label'       => __('Button Text', MELA_TD),
-                'type'        => Controls_Manager::TEXT,
-                'default'     => 'Search',
+                'label'     => __('Button Text', MELA_TD),
+                'type'      => Controls_Manager::TEXT,
+                'default'   => 'Search',
                 'condition' => array(
                     'jltma_search_submit_type' => 'button'
                 )
@@ -133,12 +133,12 @@ class Search extends Widget_Base
         $this->add_control(
             'jltma_search_icon',
             array(
-                'label'       => __('Icon', MELA_TD),
-                'description' => __('Please choose an icon from the list.', MELA_TD),
-                'type'    => Controls_Manager::ICONS,
+                'label'            => __('Icon', MELA_TD),
+                'description'      => __('Please choose an icon from the list.', MELA_TD),
+                'type'             => Controls_Manager::ICONS,
                 'fa4compatibility' => 'icon',
-                'default' => [
-                    'value' => 'fa fa-search',
+                'default'          => [
+                    'value'   => 'fa fa-search',
                     'library' => 'fa-solid',
                 ],
                 'conditions'   => array(
@@ -195,9 +195,9 @@ class Search extends Widget_Base
         $this->start_controls_section(
             'jltma_search_icon_section',
             array(
-                'label'     => __('Icon', MELA_TD),
-                'tab'       => Controls_Manager::TAB_STYLE,
-                'conditions'   => array(
+                'label'      => __('Icon', MELA_TD),
+                'tab'        => Controls_Manager::TAB_STYLE,
+                'conditions' => array(
                     'relation' => 'or',
                     'terms'    => array(
                         array(
@@ -239,9 +239,9 @@ class Search extends Widget_Base
         $this->add_control(
             'jltma_search_icon_color',
             array(
-                'label'       => __('Icon color', MELA_TD),
-                'type'        => Controls_Manager::COLOR,
-                'default'     => '#4b00e7',
+                'label'     => __('Icon color', MELA_TD),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#4b00e7',
                 'selectors' => array(
                     '{{WRAPPER}} .btn--search i, {{WRAPPER}} .jltma-search-form .jltma-search-submit' => 'color: {{VALUE}}',
                 )
@@ -251,12 +251,12 @@ class Search extends Widget_Base
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name'                  => 'jltma_search_border',
-                'label'                 => __('Border', MELA_TD),
-                'placeholder'           => '1px',
-                'default'               => '1px',
-                'selector'              => '{{WRAPPER}} .jltma-search-form .jltma-search-submit,{{WRAPPER}} .btn--search',
-                'separator'             => 'before',
+                'name'        => 'jltma_search_border',
+                'label'       => __('Border', MELA_TD),
+                'placeholder' => '1px',
+                'default'     => '1px',
+                'selector'    => '{{WRAPPER}} .jltma-search-form .jltma-search-submit,{{WRAPPER}} .btn--search',
+                'separator'   => 'before',
             ]
         );
 
@@ -295,9 +295,9 @@ class Search extends Widget_Base
         $this->start_controls_section(
             'jltma_search_form_section',
             array(
-                'label'     => __('Form', MELA_TD),
-                'tab'       => Controls_Manager::TAB_STYLE,
-                'conditions'   => array(
+                'label'      => __('Form', MELA_TD),
+                'tab'        => Controls_Manager::TAB_STYLE,
+                'conditions' => array(
                     'relation' => 'or',
                     'terms'    => array(
                         array(
@@ -313,18 +313,18 @@ class Search extends Widget_Base
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             array(
-                'name'      => 'jltma_search_form_typgraphy',
-                'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
-                'selector'  => '{{WRAPPER}} .jltma-search-form .jltma-search-field'
+                'name'     => 'jltma_search_form_typgraphy',
+                'scheme'   => Typography::TYPOGRAPHY_1,
+                'selector' => '{{WRAPPER}} .jltma-search-form .jltma-search-field'
             )
         );
 
         $this->add_control(
             'jltma_search_form_color',
             array(
-                'label'       => __('Icon color', MELA_TD),
-                'type'        => Controls_Manager::COLOR,
-                'default'     => '#fff',
+                'label'     => __('Icon color', MELA_TD),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#fff',
                 'selectors' => array(
                     '{{WRAPPER}} .jltma-search-form .jltma-search-field' => 'color: {{VALUE}}',
                 )
@@ -387,10 +387,10 @@ class Search extends Widget_Base
         $this->add_control(
             'jltma_search_form_color',
             array(
-                'label'       => __('Form Background Color', MELA_TD),
-                'type'        => Controls_Manager::COLOR,
-                'default'     => '#FFF',
-                'selectors'  => array(
+                'label'     => __('Form Background Color', MELA_TD),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#FFF',
+                'selectors' => array(
                     '{{WRAPPER}} .jltma-search-form .jltma-search-field' => 'background-color: {{VALUE}}',
                 )
             )
@@ -415,7 +415,7 @@ class Search extends Widget_Base
                     '{{WRAPPER}} .jltma-search-form .jltma-search-field' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow:hidden;'
                 ),
                 'allowed_dimensions' => 'all',
-                'separator'  => 'after'
+                'separator'          => 'after'
             )
         );
 
@@ -428,9 +428,9 @@ class Search extends Widget_Base
         $this->start_controls_section(
             'jltma_search_button_section',
             array(
-                'label'     => __('Button', MELA_TD),
-                'tab'       => Controls_Manager::TAB_STYLE,
-                'conditions'   => array(
+                'label'      => __('Button', MELA_TD),
+                'tab'        => Controls_Manager::TAB_STYLE,
+                'conditions' => array(
                     'relation' => 'and',
                     'terms'    => array(
                         array(
@@ -451,10 +451,10 @@ class Search extends Widget_Base
         $this->add_control(
             'jltma_search_button_color',
             array(
-                'label'       => __('Background Color', MELA_TD),
-                'type'        => Controls_Manager::COLOR,
-                'default'     => '#303030',
-                'selectors'  => array(
+                'label'     => __('Background Color', MELA_TD),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#303030',
+                'selectors' => array(
                     '{{WRAPPER}} .jltma-search-form .jltma-search-submit' => 'background-color: {{VALUE}}',
                 )
             )
@@ -487,9 +487,9 @@ class Search extends Widget_Base
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             array(
-                'name'      => 'jltma_search_button_typgraphy',
-                'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
-                'selector'  => '{{WRAPPER}}  .jltma-search-form .jltma-search-submit'
+                'name'     => 'jltma_search_button_typgraphy',
+                'scheme'   => Typography::TYPOGRAPHY_1,
+                'selector' => '{{WRAPPER}}  .jltma-search-form .jltma-search-submit'
             )
         );
 
@@ -554,15 +554,15 @@ class Search extends Widget_Base
             $this->add_control(
                 'jltma_control_get_pro_style_tab',
                 [
-                    'label' => esc_html__('Unlock more possibilities', MELA_TD),
-                    'type' => Controls_Manager::CHOOSE,
+                    'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+                    'type'    => Controls_Manager::CHOOSE,
                     'options' => [
                         '1' => [
                             'title' => esc_html__('', MELA_TD),
-                            'icon' => 'fa fa-unlock-alt',
+                            'icon'  => 'fa fa-unlock-alt',
                         ],
                     ],
-                    'default' => '1',
+                    'default'     => '1',
                     'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
                 ]
             );
@@ -578,12 +578,12 @@ class Search extends Widget_Base
 
         $jltma_search_type = $settings['jltma_search_type'];
         // $settings['jltma_search_has_category']
-        $jltma_search_submit_type = $settings['jltma_search_submit_type'];
+        $jltma_search_submit_type   = $settings['jltma_search_submit_type'];
         $jltma_search_submit_button = $settings['jltma_search_submit_button'];
         // $jltma_search_icon = $settings['jltma_search_icon'];
 
         $icon_migrated = isset($settings['__fa4_migrated']['jltma_search_icon']);
-        $icon_is_new = empty($settings['jltma_search_icon_new']);
+        $icon_is_new   = empty($settings['jltma_search_icon_new']);
 
 
         $this->add_render_attribute('ma_el_search_wrap', [
@@ -592,7 +592,7 @@ class Search extends Widget_Base
                 'ma-el-search-wrapper-' . $jltma_search_type,
 
             ],
-            'id' => 'ma-el-search-wrapper-' . $this->get_id(),
+            'id'               => 'ma-el-search-wrapper-' . $this->get_id(),
             'data-search-type' => $jltma_search_type
         ]);
 ?>

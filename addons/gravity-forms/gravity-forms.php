@@ -6,7 +6,7 @@ use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Box_Shadow;
 
@@ -330,7 +330,7 @@ class Gravity_Forms extends Widget_Base
 				[
 					'name'                  => 'title_typography',
 					'label'                 => __('Typography', MELA_TD),
-					'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+					'scheme'    			=> Typography::TYPOGRAPHY_4,
 					'selector'              => '{{WRAPPER}} .ma-el-gravity-form .gform_wrapper .gform_title, {{WRAPPER}} .ma-el-gravity-form .ma-el-gravity-form-title',
 				]
 			);
@@ -361,7 +361,7 @@ class Gravity_Forms extends Widget_Base
 				[
 					'name'                  => 'description_typography',
 					'label'                 => __('Typography', MELA_TD),
-					'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+					'scheme'    			=> Typography::TYPOGRAPHY_4,
 					'selector'              => '{{WRAPPER}} .ma-el-gravity-form .gform_wrapper .gform_description, {{WRAPPER}} .ma-el-gravity-form .ma-el-gravity-form-description',
 				]
 			);
@@ -650,7 +650,7 @@ class Gravity_Forms extends Widget_Base
 				[
 					'name'                  => 'field_typography',
 					'label'                 => __('Typography', MELA_TD),
-					'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+					'scheme'    			=> Typography::TYPOGRAPHY_4,
 					'selector'              => '{{WRAPPER}} .ma-el-gravity-form .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .ma-el-gravity-form .gfield textarea, {{WRAPPER}} .ma-el-gravity-form .gfield select',
 					'separator'             => 'before',
 				]
@@ -794,7 +794,7 @@ class Gravity_Forms extends Widget_Base
 				[
 					'name'                  => 'section_field_typography',
 					'label'                 => __('Typography', MELA_TD),
-					'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+					'scheme'    			=> Typography::TYPOGRAPHY_4,
 					'selector'              => '{{WRAPPER}} .ma-el-gravity-form .gfield.gsection .gsection_title',
 					'separator'             => 'before',
 				]
@@ -1321,7 +1321,7 @@ class Gravity_Forms extends Widget_Base
 				[
 					'name'                  => 'button_typography',
 					'label'                 => __('Typography', MELA_TD),
-					'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+					'scheme'    			=> Typography::TYPOGRAPHY_4,
 					'selector'              => '{{WRAPPER}} .ma-el-gravity-form .gform_footer input[type="submit"], {{WRAPPER}} .ma-el-gravity-form .gform_page_footer input[type="submit"]',
 					'separator'             => 'before',
 				]
@@ -1532,7 +1532,7 @@ class Gravity_Forms extends Widget_Base
 				[
 					'name'                  => 'pagination_buttons_typography',
 					'label'                 => __('Typography', MELA_TD),
-					'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+					'scheme'    			=> Typography::TYPOGRAPHY_4,
 					'selector'              => '{{WRAPPER}} .ma-el-gravity-form .gform_page_footer input[type="button"]',
 					'separator'             => 'before',
 				]

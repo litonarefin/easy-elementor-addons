@@ -6,7 +6,7 @@ use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
 use \Elementor\Repeater;
 use \Elementor\Group_Control_Border;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 
@@ -72,8 +72,8 @@ class Dual_Heading extends Widget_Base
 		$this->add_control(
 			'ma_el_dual_heading_styles_preset',
 			[
-				'label' => esc_html__('Style Preset', MELA_TD),
-				'type' => Controls_Manager::SELECT,
+				'label'   => esc_html__('Style Preset', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
 				'default' => '-style2',
 				'options' => [
 					'-style1' => esc_html__('Style 1', MELA_TD),
@@ -85,24 +85,24 @@ class Dual_Heading extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_dual_heading_alignment',
 			[
-				'label' => esc_html__('Alignment', MELA_TD),
-				'type' => Controls_Manager::CHOOSE,
+				'label'       => esc_html__('Alignment', MELA_TD),
+				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
-				'options' => [
+				'options'     => [
 					'left' => [
 						'title' => esc_html__('Left', MELA_TD),
-						'icon' => 'fa fa-align-left',
+						'icon'  => 'fa fa-align-left',
 					],
 					'center' => [
 						'title' => esc_html__('Center', MELA_TD),
-						'icon' => 'fa fa-align-center',
+						'icon'  => 'fa fa-align-center',
 					],
 					'right' => [
 						'title' => esc_html__('Right', MELA_TD),
-						'icon' => 'fa fa-align-right',
+						'icon'  => 'fa fa-align-right',
 					],
 				],
-				'default' => 'center',
+				'default'   => 'center',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper,
 						{{WRAPPER}} .ma-el-sec-head-style' => 'text-align: {{VALUE}};',
@@ -115,20 +115,20 @@ class Dual_Heading extends Widget_Base
 		$this->add_control(
 			'ma_el_dual_first_heading',
 			[
-				'label' => esc_html__('First Heading', MELA_TD),
-				'type' => Controls_Manager::TEXT,
+				'label'       => esc_html__('First Heading', MELA_TD),
+				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default' => esc_html__('First', MELA_TD),
+				'default'     => esc_html__('First', MELA_TD),
 			]
 		);
 
 		$this->add_control(
 			'ma_el_dual_second_heading',
 			[
-				'label' 		=> esc_html__('Second Heading', MELA_TD),
-				'type' 			=> Controls_Manager::TEXT,
-				'label_block' 	=> true,
-				'default' 		=> esc_html__('Second', MELA_TD),
+				'label'       => esc_html__('Second Heading', MELA_TD),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => true,
+				'default'     => esc_html__('Second', MELA_TD),
 			]
 		);
 
@@ -138,11 +138,11 @@ class Dual_Heading extends Widget_Base
 		$this->add_control(
 			'ma_el_dual_heading_title_link',
 			[
-				'label' 		=> esc_html__('Heading URL', MELA_TD),
-				'type' 			=> Controls_Manager::URL,
-				'placeholder' 	=> esc_html__('https://master-addons.com', MELA_TD),
-				'label_block' 	=> true,
-				'condition' 	=> [
+				'label'       => esc_html__('Heading URL', MELA_TD),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => esc_html__('https://master-addons.com', MELA_TD),
+				'label_block' => true,
+				'condition'   => [
 					'ma_el_dual_heading_styles_preset' => '-style2',
 				],
 			]
@@ -162,11 +162,11 @@ class Dual_Heading extends Widget_Base
 		$this->add_control(
 			'ma_el_dual_heading_icon_show',
 			[
-				'label' => esc_html__('Enable Icon', MELA_TD),
-				'type' => Controls_Manager::SWITCHER,
-				'default' => 'no',
+				'label'        => esc_html__('Enable Icon', MELA_TD),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
 				'return_value' => 'yes',
-				'condition' => [
+				'condition'    => [
 					'ma_el_dual_heading_styles_preset' => '-style2',
 				],
 			]
@@ -175,17 +175,17 @@ class Dual_Heading extends Widget_Base
 		$this->add_control(
 			'ma_el_dual_heading_icon',
 			[
-				'label'         	=> esc_html__('Icon', MELA_TD),
-				'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
-				'type'          	=> Controls_Manager::ICONS,
-				'fa4compatibility' 	=> 'icon',
-				'default'       	=> [
-					'value'     => 'fab fa-elementor',
-					'library'   => 'brand',
+				'label'            => esc_html__('Icon', MELA_TD),
+				'description'      => esc_html__('Please choose an icon from the list.', MELA_TD),
+				'type'             => Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'default'          => [
+					'value'   => 'fab fa-elementor',
+					'library' => 'brand',
 				],
-				'render_type'      => 'template',
-				'condition' => [
-					'ma_el_dual_heading_icon_show' => 'yes',
+				'render_type' => 'template',
+				'condition'   => [
+					'ma_el_dual_heading_icon_show'     => 'yes',
 					'ma_el_dual_heading_styles_preset' => '-style2',
 				]
 			]
@@ -211,8 +211,8 @@ class Dual_Heading extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_dual_heading_styles_general',
 			[
-				'label' => esc_html__('Icon Style', MELA_TD),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'label'     => esc_html__('Icon Style', MELA_TD),
+				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'ma_el_dual_heading_icon_show' => 'yes'
 				],
@@ -243,10 +243,10 @@ class Dual_Heading extends Widget_Base
 		$this->add_control(
 			'ma_el_dual_heading_icon_color',
 			[
-				'label'		=> esc_html__('Icon Color', MELA_TD),
-				'type'		=> Controls_Manager::COLOR,
-				'default' => '#132C47',
-				'selectors'	=> [
+				'label'     => esc_html__('Icon Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#132C47',
+				'selectors' => [
 					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-icon' => 'color: {{VALUE}};',
 				],
 				'condition' => [
@@ -266,19 +266,19 @@ class Dual_Heading extends Widget_Base
 			'ma_el_dual_first_heading_styles',
 			[
 				'label' => esc_html__('First Heading', MELA_TD),
-				'tab' => Controls_Manager::TAB_STYLE
+				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
 
 		$this->add_control(
 			'ma_el_dual_heading_first_text_color',
 			[
-				'label'		=> esc_html__('Text Color', MELA_TD),
-				'type'		=> Controls_Manager::COLOR,
-				'default' => '#1fb5ac',
-				'selectors'	=> [
+				'label'     => esc_html__('Text Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#1fb5ac',
+				'selectors' => [
 					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .first-heading, {{WRAPPER}} .ma-el-section-title span'
-					=> 'color: {{VALUE}};',
+					=>  'color: {{VALUE}};',
 				],
 			]
 		);
@@ -286,12 +286,12 @@ class Dual_Heading extends Widget_Base
 		$this->add_control(
 			'ma_el_dual_heading_first_bg_color',
 			[
-				'label' => __('Background', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#704aff',
+				'label'     => __('Background', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#704aff',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .first-heading, {{WRAPPER}} .ma-el-sec-head-container .ma-el-sec-head-style:after'
-					=> 'background-color: {{VALUE}};',
+					=>  'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -300,24 +300,24 @@ class Dual_Heading extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_dual_first_heading_alignment',
 			[
-				'label' => esc_html__('Alignment', MELA_TD),
-				'type' => Controls_Manager::CHOOSE,
+				'label'       => esc_html__('Alignment', MELA_TD),
+				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
-				'options' => [
+				'options'     => [
 					'left' => [
 						'title' => esc_html__('Left', MELA_TD),
-						'icon' => 'fa fa-align-left',
+						'icon'  => 'fa fa-align-left',
 					],
 					'center' => [
 						'title' => esc_html__('Center', MELA_TD),
-						'icon' => 'fa fa-align-center',
+						'icon'  => 'fa fa-align-center',
 					],
 					'right' => [
 						'title' => esc_html__('Right', MELA_TD),
-						'icon' => 'fa fa-align-right',
+						'icon'  => 'fa fa-align-right',
 					],
 				],
-				'default' => 'center',
+				'default'   => 'center',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-dual-heading-title' => 'text-align: {{VALUE}};',
 				],
@@ -330,8 +330,8 @@ class Dual_Heading extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'ma_el_dual_first_heading_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'name'     => 'ma_el_dual_first_heading_typography',
+				'scheme'   => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title  .first-heading,{{WRAPPER}} .ma-el-section-title span',
 			]
 		);
@@ -339,10 +339,10 @@ class Dual_Heading extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_dual_first_heading_padding',
 			[
-				'label'         => __('Padding', MELA_TD),
-				'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => ['px', 'em', '%'],
-				'selectors'     => [
+				'label'      => __('Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title  .first-heading,{{WRAPPER}} .ma-el-section-title span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
@@ -351,10 +351,10 @@ class Dual_Heading extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_dual_first_heading_margin',
 			[
-				'label'         => __('Margin', MELA_TD),
-				'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => ['px', 'em', '%'],
-				'selectors'     => [
+				'label'      => __('Margin', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title  .first-heading,{{WRAPPER}} .ma-el-section-title span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
@@ -369,17 +369,17 @@ class Dual_Heading extends Widget_Base
 			'ma_el_dual_second_heading_styles',
 			[
 				'label' => esc_html__('Second Heading', MELA_TD),
-				'tab' => Controls_Manager::TAB_STYLE
+				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
 
 		$this->add_control(
 			'ma_el_dual_heading_second_text_color',
 			[
-				'label'		=> esc_html__('Text Color', MELA_TD),
-				'type'		=> Controls_Manager::COLOR,
-				'default' => '#132C47',
-				'selectors'	=> [
+				'label'     => esc_html__('Text Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#132C47',
+				'selectors' => [
 					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .second-heading,
 						{{WRAPPER}} .ma-el-section-title' =>
 					'color: {{VALUE}};',
@@ -391,8 +391,8 @@ class Dual_Heading extends Widget_Base
 		$this->add_control(
 			'ma_el_dual_heading_second_bg_color',
 			[
-				'label' => __('Background', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __('Background', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .second-heading' =>
 					'background-color: {{VALUE}};',
@@ -407,8 +407,8 @@ class Dual_Heading extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'ma_el_dual_second_heading_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'name'     => 'ma_el_dual_second_heading_typography',
+				'scheme'   => Typography::TYPOGRAPHY_1,
 				'selector' =>
 				'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .second-heading,                          {{WRAPPER}} .ma-el-section-title',
 			]
@@ -418,10 +418,10 @@ class Dual_Heading extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_dual_second_heading_padding',
 			[
-				'label'         => __('Padding', MELA_TD),
-				'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => ['px', 'em', '%'],
-				'selectors'     => [
+				'label'      => __('Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-description,
 						{{WRAPPER}} .ma-el-section-description' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
@@ -431,10 +431,10 @@ class Dual_Heading extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_dual_second_heading_margin',
 			[
-				'label'         => __('Margin', MELA_TD),
-				'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => ['px', 'em', '%'],
-				'selectors'     => [
+				'label'      => __('Margin', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-description,
 						{{WRAPPER}} .ma-el-section-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
@@ -449,31 +449,31 @@ class Dual_Heading extends Widget_Base
 			'ma_el_dual_heading_description_styles',
 			[
 				'label' => esc_html__('Description', MELA_TD),
-				'tab' => Controls_Manager::TAB_STYLE
+				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
 
 		$this->add_responsive_control(
 			'ma_el_dual_desc_heading_alignment',
 			[
-				'label' => esc_html__('Alignment', MELA_TD),
-				'type' => Controls_Manager::CHOOSE,
+				'label'       => esc_html__('Alignment', MELA_TD),
+				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
-				'options' => [
+				'options'     => [
 					'left' => [
 						'title' => esc_html__('Left', MELA_TD),
-						'icon' => 'fa fa-align-left',
+						'icon'  => 'fa fa-align-left',
 					],
 					'center' => [
 						'title' => esc_html__('Center', MELA_TD),
-						'icon' => 'fa fa-align-center',
+						'icon'  => 'fa fa-align-center',
 					],
 					'right' => [
 						'title' => esc_html__('Right', MELA_TD),
-						'icon' => 'fa fa-align-right',
+						'icon'  => 'fa fa-align-right',
 					],
 				],
-				'default' => 'center',
+				'default'   => 'center',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-dual-heading-description' => 'text-align: {{VALUE}};',
 				],
@@ -485,10 +485,10 @@ class Dual_Heading extends Widget_Base
 		$this->add_control(
 			'ma_el_dual_heading_description_text_color',
 			[
-				'label'		=> esc_html__('Text Color', MELA_TD),
-				'type'		=> Controls_Manager::COLOR,
-				'default' => '#989B9E',
-				'selectors'	=> [
+				'label'     => esc_html__('Text Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#989B9E',
+				'selectors' => [
 					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-description,
 						{{WRAPPER}} .ma-el-section-description' =>
 					'color: {{VALUE}};',
@@ -498,8 +498,8 @@ class Dual_Heading extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'ma_el_dual_heading_description_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'name'     => 'ma_el_dual_heading_description_typography',
+				'scheme'   => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-description,
 					{{WRAPPER}} .ma-el-section-description',
 			]
@@ -511,7 +511,7 @@ class Dual_Heading extends Widget_Base
 
 
 		/*
-			 *  Master Addons: Icon Styling
+			 * Master Addons: Icon Styling
 			 */
 		$this->start_controls_section(
 			'ma_el_dual_heading_icon_style',
@@ -532,7 +532,7 @@ class Dual_Heading extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#8c8c8c',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-dual-heading-icon i'                                      => 'color: {{VALUE}};'
+					'{{WRAPPER}} .ma-el-dual-heading-icon i' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -553,7 +553,7 @@ class Dual_Heading extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#8c8c8c',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-dual-heading-icon i:hover'                               => 'color: {{VALUE}};'
+					'{{WRAPPER}} .ma-el-dual-heading-icon i:hover' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -619,15 +619,15 @@ class Dual_Heading extends Widget_Base
 			$this->add_control(
 				'ma_el_control_get_pro',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 				]
 			);
