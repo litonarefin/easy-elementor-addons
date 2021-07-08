@@ -190,10 +190,10 @@ class Call_to_Action extends Widget_Base
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#4b00e7',
 				'selectors'	=> [
-					'{{WRAPPER}} .style-03 .ma-el-action-content .jltma-row' => 'border-left: 10px solid {{VALUE}};',
+					'{{WRAPPER}} .style-03 .jltma-call-action-content .jltma-row' => 'border-left: 10px solid {{VALUE}};',
 
-					'{{WRAPPER}} .style-04 .ma-el-action-content .jltma-row' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .style-04 .jltma-call-action-content .jltma-row' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-call-action-content .jltma-call-action-btn:hover' => 'color: {{VALUE}};',
 				],
 
 				'condition' => [
@@ -210,8 +210,8 @@ class Call_to_Action extends Widget_Base
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#4b00e7',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover,
-						{{WRAPPER}} .style-07 .media-left i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-call-action-content .jltma-call-action-btn:hover,
+						{{WRAPPER}} .style-07 .jltma-media-left i' => 'color: {{VALUE}};',
 				],
 
 				'condition' => [
@@ -240,8 +240,8 @@ class Call_to_Action extends Widget_Base
 				'default' => '#393c3f',
 				'selectors'	=> [
 
-					'{{WRAPPER}} .style-02 .ma-el-action-title' => 'color: #fff;',
-					'{{WRAPPER}} .ma-el-action-title' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .style-02 .jltma-call-action-title' => 'color: #fff;',
+					'{{WRAPPER}} .jltma-call-action-title' => 'color: {{VALUE}} !important;',
 				],
 
 			]
@@ -253,7 +253,7 @@ class Call_to_Action extends Widget_Base
 			[
 				'name' => 'ma_el_cta_title_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .ma-el-action-title',
+				'selector' => '{{WRAPPER}} .jltma-call-action-title',
 			]
 		);
 
@@ -278,7 +278,7 @@ class Call_to_Action extends Widget_Base
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#78909c',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-action-description' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-call-action-description' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -291,7 +291,7 @@ class Call_to_Action extends Widget_Base
 			[
 				'name' => 'ma_el_call_to_action_text_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .ma-el-action-description',
+				'selector' => '{{WRAPPER}} .jltma-call-action-description',
 			]
 		);
 
@@ -325,8 +325,7 @@ class Call_to_Action extends Widget_Base
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#4b00e7',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn'
-					=> 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-call-action-content .jltma-call-action-btn' => 'background-color: {{VALUE}};',
 				]
 			]
 		);
@@ -338,7 +337,7 @@ class Call_to_Action extends Widget_Base
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#fff',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-call-action-content .jltma-call-action-btn' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -347,7 +346,7 @@ class Call_to_Action extends Widget_Base
 			Group_Control_Border::get_type(),
 			[
 				'name'          => 'ma_el_call_to_action_button_border',
-				'selector'      => '{{WRAPPER}} .ma-el-action-content .ma-el-action-btn'
+				'selector'      => '{{WRAPPER}} .jltma-call-action-content .jltma-call-action-btn'
 			]
 		);
 
@@ -358,7 +357,7 @@ class Call_to_Action extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array('px', '%'),
 				'selectors'  => array(
-					'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-call-action-content .jltma-call-action-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -379,7 +378,7 @@ class Call_to_Action extends Widget_Base
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#4b00e7',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover'
+					'{{WRAPPER}} .jltma-call-action-content .jltma-call-action-btn:hover'
 					=> 'background-color: {{VALUE}};',
 				],
 			]
@@ -392,7 +391,7 @@ class Call_to_Action extends Widget_Base
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#fff',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover'
+					'{{WRAPPER}} .jltma-call-action-content .jltma-call-action-btn:hover'
 					=> 'color: {{VALUE}};',
 				],
 			]
@@ -402,7 +401,7 @@ class Call_to_Action extends Widget_Base
 			Group_Control_Border::get_type(),
 			[
 				'name'          => 'ma_el_call_to_action_border_hover',
-				'selector'      => '{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover'
+				'selector'      => '{{WRAPPER}} .jltma-call-action-content .jltma-call-action-btn:hover'
 			]
 		);
 
@@ -413,7 +412,7 @@ class Call_to_Action extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array('px', '%'),
 				'selectors'  => array(
-					'{{WRAPPER}} .ma-el-action-content .ma-el-action-btn:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-call-action-content .jltma-call-action-btn:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -426,7 +425,7 @@ class Call_to_Action extends Widget_Base
 			[
 				'name' => 'ma_el_call_to_action_button_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .ma-el-action-btn',
+				'selector' => '{{WRAPPER}} .jltma-call-action-btn',
 			]
 		);
 
@@ -538,14 +537,14 @@ class Call_to_Action extends Widget_Base
 
 		<section <?php echo $this->get_render_attribute_string('ma_el_call_to_action_wrapper'); ?>>
 			<div class="<?php echo esc_attr($settings['ma_el_call_to_action_style_preset']); ?>">
-				<div class="ma-el-action-content">
+				<div class="jltma-call-action-content">
 					<div class="jltma-row">
-						<div class="jltma-col-lg-9">
+						<div class="jltma-col-9">
 
 							<?php if ($settings['ma_el_call_to_action_style_preset'] == "style-07") { ?>
-								<div class="ma-cta-icon-section media">
+								<div class="jltma-cta-icon-section jltma-media">
 
-									<div class="ma-cta-icon media-left">
+									<div class="jltma-cta-icon jltma-media-left">
 										<?php
 										if ($is_new || $migrated) {
 											Icons_Manager::render_icon($settings['ma_el_call_to_action_icon'], ['aria-hidden' => 'true']);
@@ -555,28 +554,28 @@ class Call_to_Action extends Widget_Base
 										?>
 									</div>
 
-									<div class="media-body">
-										<h3 class="ma-el-action-title">
+									<div class="jltma-media-body">
+										<h3 class="jltma-call-action-title">
 											<?php echo esc_html($settings['ma_el_call_to_action_title']); ?>
 										</h3>
-										<p class="ma-el-action-description">
+										<p class="jltma-call-action-description">
 											<?php echo esc_html($settings['ma_el_call_to_action_content_desc']); ?>
 										</p>
 									</div>
 
 								</div>
 							<?php } else { ?>
-								<h3 class="ma-el-action-title">
+								<h3 class="jltma-call-action-title">
 									<?php echo esc_html($settings['ma_el_call_to_action_title']); ?>
 								</h3>
 
-								<p class="ma-el-action-description">
+								<p class="jltma-call-action-description">
 									<?php echo esc_html($settings['ma_el_call_to_action_content_desc']); ?>
 								</p>
 							<?php } ?>
 						</div>
-						<div class="jltma-col-lg-3 text-right">
-							<a href="<?php echo esc_url($settings['ma_el_call_to_action_button_link']['url']); ?>" class="ma-el-action-btn">
+						<div class="jltma-col-3 text-right">
+							<a href="<?php echo esc_url($settings['ma_el_call_to_action_button_link']['url']); ?>" class="jltma-call-action-btn">
 								<?php echo esc_html($settings['ma_el_call_to_action_button_text']); ?>
 							</a>
 						</div>

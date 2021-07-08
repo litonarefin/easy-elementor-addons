@@ -184,7 +184,7 @@ class Animated_Headlines extends Widget_Base
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-animated-headline' => 'justify-content: {{VALUE}};',
+					'{{WRAPPER}} .jltma-animated-headline' => 'justify-content: {{VALUE}};',
 				],
 			]
 		);
@@ -408,7 +408,7 @@ class Animated_Headlines extends Widget_Base
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading'
+					'{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .first-heading'
 					=> 'color: {{VALUE}};',
 				],
 			]
@@ -421,7 +421,7 @@ class Animated_Headlines extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#704aff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading'
+					'{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .first-heading'
 					=> 'background-color: {{VALUE}};',
 				],
 			]
@@ -432,7 +432,7 @@ class Animated_Headlines extends Widget_Base
 			[
 				'name' => 'ma_el_headlines_first_heading_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading',
+				'selector' => '{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .first-heading',
 			]
 		);
 
@@ -444,7 +444,7 @@ class Animated_Headlines extends Widget_Base
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> ['px', '%'],
 				'selectors' 	=> [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .first-heading' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -456,7 +456,7 @@ class Animated_Headlines extends Widget_Base
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> ['px', '%'],
 				'selectors' 	=> [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .first-heading' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -466,7 +466,7 @@ class Animated_Headlines extends Widget_Base
 			[
 				'name' 		=> 'ma_el_headlines_first_heading_border',
 				'label' 	=> esc_html__('Border', MELA_TD),
-				'selector' 	=> '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading',
+				'selector' 	=> '{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .first-heading',
 				'separator' => ''
 			]
 		);
@@ -478,7 +478,7 @@ class Animated_Headlines extends Widget_Base
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> ['px', '%'],
 				'selectors' 	=> [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .first-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -487,7 +487,7 @@ class Animated_Headlines extends Widget_Base
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' 		=> 'ma_el_headlines_first_heading_box_shadow',
-				'selector' 	=> '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading',
+				'selector' 	=> '{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .first-heading',
 				'separator'	=> ''
 			]
 		);
@@ -512,7 +512,7 @@ class Animated_Headlines extends Widget_Base
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#132C47',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' =>
+					'{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .second-heading' =>
 					'color: {{VALUE}}; font-style: normal; font-weight: normal;',
 				],
 			]
@@ -524,7 +524,7 @@ class Animated_Headlines extends Widget_Base
 				'label' => __('Background', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' =>
+					'{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .second-heading' =>
 					'background-color: {{VALUE}}; line-height:1.3;',
 				],
 			]
@@ -535,7 +535,7 @@ class Animated_Headlines extends Widget_Base
 			[
 				'name' => 'ma_el_headlines_second_heading_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading',
+				'selector' => '{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .second-heading',
 			]
 		);
 
@@ -546,7 +546,7 @@ class Animated_Headlines extends Widget_Base
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> ['px', '%'],
 				'selectors' 	=> [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .second-heading' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -558,7 +558,7 @@ class Animated_Headlines extends Widget_Base
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> ['px', '%'],
 				'selectors' 	=> [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .second-heading' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -568,7 +568,7 @@ class Animated_Headlines extends Widget_Base
 			[
 				'name' 		=> 'ma_el_headlines_second_heading_border',
 				'label' 	=> esc_html__('Border', MELA_TD),
-				'selector' 	=> '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading',
+				'selector' 	=> '{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .second-heading',
 				'separator' => ''
 			]
 		);
@@ -580,7 +580,7 @@ class Animated_Headlines extends Widget_Base
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> ['px', '%'],
 				'selectors' 	=> [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .second-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -589,7 +589,7 @@ class Animated_Headlines extends Widget_Base
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' 		=> 'ma_el_headlines_second_heading_box_shadow',
-				'selector' 	=> '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading',
+				'selector' 	=> '{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .second-heading',
 				'separator'	=> ''
 			]
 		);
@@ -652,36 +652,36 @@ class Animated_Headlines extends Widget_Base
 				$letters_class = "";
 		}
 
-		$jltma_animated_headlines_id       = 'ma-el-heading-' . $this->get_id();
+		$jltma_animated_headlines_id       = 'jltma-heading-' . $this->get_id();
 
 		$this->add_render_attribute([
 			'jltma_animated_headlines' => [
 				'id'    => esc_attr($jltma_animated_headlines_id),
-				'class' => 'ma-el-animated-heading'
+				'class' => 'jltma-animated-heading'
 			]
 		]);
 
 
 		$this->add_render_attribute('jltma_animated_header_wrapper', [
 			'class'	=> [
-				'ma-el-animated-heading-title',
-				'ma-el-animated-headline',
+				'jltma-animated-heading-title',
+				'jltma-animated-headline',
 				$letters_class,
 				$settings['ma_el_headlines_style_preset'],
 				'main-title'
 			],
-			'id' => 'ma-el-animated-heading-' . $this->get_id()
+			'id' => 'jltma-animated-heading-' . $this->get_id()
 		]);
 
 
 ?>
 		<div <?php echo $this->get_render_attribute_string('jltma_animated_headlines'); ?>>
-			<div class="ma-el-animated-heading-wrapper">
+			<div class="jltma-animated-heading-wrapper">
 				<<?php echo tag_escape($settings['title_html_tag']) . ' ' . $this->get_render_attribute_string('jltma_animated_header_wrapper'); ?>>
 					<span class="first-heading">
 						<?php echo esc_html($settings['ma_el_headlines_first_heading']); ?>
 					</span>
-					<span class="ma-el-words-wrapper">
+					<span class="jltma-words-wrapper">
 						<?php foreach ($settings['tabs'] as $index => $tab) { ?>
 							<b class="second-heading <?php echo ($index == 0) ? "is-visible" : ""; ?>">
 								<?php echo esc_html($tab['ma_el_headlines_second_heading']); ?>

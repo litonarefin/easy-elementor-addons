@@ -1,0 +1,106 @@
+.jltma-advanced-accordion {
+    width: auto;
+    height: auto;
+    transition: all 0.3s ease-in-out;
+
+    .jltma-accordion-item {
+        margin-bottom: 10px;
+    }
+    .jltma-accordion-title-icon {
+        display: flex;
+    }
+    .jltma-accordion-icon-align-right .jltma-accordion-tab-icon {
+        padding: 0 0 0 1.25em;
+    }
+    .jltma-accordion-icon-align-left .jltma-accordion-tab-title {
+        padding: 15px;
+    }
+
+    .jltma-accordion-tab-title {
+        border-radius: 5px;
+        box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+        position: relative;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1;
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 15px;
+        &:focus {
+            outline: 0;
+        }
+        .jltma-accordion-toggle-icon {
+            height: 20px;
+            width: 20px;
+            line-height: 20px;
+            position: relative;
+            text-align: center;
+            i {
+                line-height: 20px;
+                position: absolute;
+
+                transition: all 0.4s ease;
+                &.jltma-el-accordion-icon-opened {
+                    display: block;
+                }
+                &.jltma-el-accordion-icon-closed {
+                    display: none;
+                }
+            }
+        }
+        &.active {
+            .jltma-accordion-toggle-icon {
+                i {
+                    &.jltma-el-accordion-icon-opened {
+                        display: none;
+                    }
+                    &.jltma-el-accordion-icon-closed {
+                        display: block;
+                    }
+                }
+            }
+            .jltma-accordion-tab-icon {
+                background: #4b00e7;
+            }
+        }
+        &.show.active + .jltma-accordion-tab-content {
+            opacity: 1;
+            padding: 1.5rem;
+
+            transform: translateY(0);
+        }
+        &.show.active + .jltma-accordion-tab-content p {
+            opacity: 1;
+        }
+        .jltma-accordion-tab-icon {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+    }
+
+    .jltma-accordion-tab-content {
+        display: none;
+        padding: 1.5rem;
+        opacity: 0;
+        transform: translateY(-100%);
+        p {
+            color: #78909c;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+    }
+
+    .jltma-accordion-icon-align-left {
+        .jltma-accordion-tab-title {
+            .jltma-accordion-toggle-icon {
+                margin-right: 20px;
+            }
+        }
+    }
+}

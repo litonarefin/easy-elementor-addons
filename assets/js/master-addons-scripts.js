@@ -141,7 +141,7 @@
 
                     /*----------- Animated Headlines --------------*/
                     //set animation timing
-                    var $animatedHeaderContainer     = $scope.find('.ma-el-animated-headline').eq(0),
+                    var $animatedHeaderContainer     = $scope.find('.jltma-animated-headline').eq(0),
 
                         animationDelay = Master_Addons.MA_Animated_Headlines.elementSettings.anim_delay ? Master_Addons.MA_Animated_Headlines.elementSettings.anim_delay : 2500,
 
@@ -214,8 +214,8 @@
 
                         var nextWord = Master_Addons.MA_Animated_Headlines.takeNext($word);
 
-                        if($word.parents('.ma-el-animated-headline').hasClass('type')) {
-                            var parentSpan = $word.parent('.ma-el-words-wrapper');
+                        if($word.parents('.jltma-animated-headline').hasClass('type')) {
+                            var parentSpan = $word.parent('.jltma-words-wrapper');
                             parentSpan.addClass('selected').removeClass('waiting');
                             setTimeout(function(){
                                 parentSpan.removeClass('selected');
@@ -223,22 +223,22 @@
                             }, selectionDuration);
                             setTimeout(function(){ Master_Addons.MA_Animated_Headlines.showWord(nextWord, typeLettersDelay) }, typeAnimationDelay);
 
-                        } else if($word.parents('.ma-el-animated-headline').hasClass('letters')) {
+                        } else if($word.parents('.jltma-animated-headline').hasClass('letters')) {
                             var bool = ($word.children('i').length >= nextWord.children('i').length) ? true : false;
                             Master_Addons.MA_Animated_Headlines.hideLetter($word.find('i').eq(0), $word, bool, lettersDelay);
                             Master_Addons.MA_Animated_Headlines.showLetter(nextWord.find('i').eq(0), nextWord, bool, lettersDelay);
 
-                        }  else if($word.parents('.ma-el-animated-headline').hasClass('clip')) {
-                            $word.parents('.ma-el-words-wrapper').animate({ width : '2px' }, revealDuration, function(){
+                        }  else if($word.parents('.jltma-animated-headline').hasClass('clip')) {
+                            $word.parents('.jltma-words-wrapper').animate({ width : '2px' }, revealDuration, function(){
                                 Master_Addons.MA_Animated_Headlines.switchWord($word, nextWord);
                                 Master_Addons.MA_Animated_Headlines.showWord(nextWord);
                             });
 
-                        } else if ($word.parents('.ma-el-animated-headline').hasClass('loading-bar')){
-                            $word.parents('.ma-el-words-wrapper').removeClass('is-loading');
+                        } else if ($word.parents('.jltma-animated-headline').hasClass('loading-bar')){
+                            $word.parents('.jltma-words-wrapper').removeClass('is-loading');
                             Master_Addons.MA_Animated_Headlines.switchWord($word, nextWord);
                             setTimeout(function(){ Master_Addons.MA_Animated_Headlines.hideWord(nextWord) }, barAnimationDelay);
-                            setTimeout(function(){ $word.parents('.ma-el-words-wrapper').addClass('is-loading') }, barWaiting);
+                            setTimeout(function(){ $word.parents('.jltma-words-wrapper').addClass('is-loading') }, barWaiting);
 
                         } else {
                             Master_Addons.MA_Animated_Headlines.switchWord($word, nextWord);
@@ -247,12 +247,12 @@
                     }
 
                     Master_Addons.MA_Animated_Headlines.showWord = function($word, $duration) {
-                        if($word.parents('.ma-el-animated-headline').hasClass('type')) {
+                        if($word.parents('.jltma-animated-headline').hasClass('type')) {
                             Master_Addons.MA_Animated_Headlines.showLetter($word.find('i').eq(0), $word, false, $duration);
                             $word.addClass('is-visible').removeClass('is-hidden');
 
-                        }  else if($word.parents('.ma-el-animated-headline').hasClass('clip')) {
-                            $word.parents('.ma-el-words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){
+                        }  else if($word.parents('.jltma-animated-headline').hasClass('clip')) {
+                            $word.parents('.jltma-words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){
                                 setTimeout(function(){ Master_Addons.MA_Animated_Headlines.hideWord($word) }, revealAnimationDelay);
                             });
                         }
@@ -279,7 +279,7 @@
                         if(!$letter.is(':last-child')) {
                             setTimeout(function(){ Master_Addons.MA_Animated_Headlines.showLetter($letter.next(), $word, $bool, $duration); }, $duration);
                         } else {
-                            if($word.parents('.ma-el-animated-headline').hasClass('type')) { setTimeout(function(){ $word.parents('.ma-el-words-wrapper').addClass('waiting'); }, 200);}
+                            if($word.parents('.jltma-animated-headline').hasClass('type')) { setTimeout(function(){ $word.parents('.jltma-words-wrapper').addClass('waiting'); }, 200);}
                             if(!$bool) { setTimeout(function(){ Master_Addons.MA_Animated_Headlines.hideWord($word) }, animationDelay) }
                         }
                     }
@@ -299,9 +299,9 @@
 
                     Master_Addons.MA_Animated_Headlines.initHeadline = function() {
                         //insert <i> element for each letter of a changing word
-                        Master_Addons.MA_Animated_Headlines.singleLetters($('.ma-el-animated-headline.letters').find('b'));
+                        Master_Addons.MA_Animated_Headlines.singleLetters($('.jltma-animated-headline.letters').find('b'));
                         //initialise headline animation
-                        Master_Addons.MA_Animated_Headlines.animateHeadline($('.ma-el-animated-headline'));
+                        Master_Addons.MA_Animated_Headlines.animateHeadline($('.jltma-animated-headline'));
                     }
 
                     Master_Addons.MA_Animated_Headlines.initHeadline();
@@ -317,8 +317,8 @@
         // Master Addons: Accordion
         MA_Accordion: function ($scope, $) {
 
-            var $advanceAccordion = $scope.find(".ma-advanced-accordion"),
-                $accordionHeader = $scope.find(".ma-advanced-accordion-header"),
+            var $advanceAccordion = $scope.find(".jltma-accordion"),
+                $accordionHeader = $scope.find(".jltma-accordion-header"),
                 $accordionType = $advanceAccordion.data("accordion-type"),
                 $accordionSpeed = $advanceAccordion.data("toogle-speed");
 
@@ -326,9 +326,7 @@
             $accordionHeader.each(function () {
                 if ($(this).hasClass("active-default")) {
                     $(this).addClass("show active");
-                    $(this)
-                        .next()
-                        .slideDown($accordionSpeed);
+                    $(this).next().slideDown($accordionSpeed);
                 }
             });
 
@@ -345,16 +343,8 @@
                         $this.removeClass("show active");
                         $this.next().slideUp($accordionSpeed);
                     } else {
-                        $this
-                            .parent()
-                            .parent()
-                            .find(".ma-advanced-accordion-header")
-                            .removeClass("show active");
-                        $this
-                            .parent()
-                            .parent()
-                            .find(".ma-accordion-tab-content")
-                            .slideUp($accordionSpeed);
+                        $this.parent().parent().find(".jltma-accordion-header").removeClass("show active");
+                        $this.parent().parent().find(".jltma-accordion-tab-content").slideUp($accordionSpeed);
                         $this.toggleClass("show active");
                         $this.next().slideDown($accordionSpeed);
                     }
@@ -396,13 +386,13 @@
                                 isTabActive = true;
                             }
                         });
-                        tab.find('.ma-el-advance-tab-content').each(function () {
+                        tab.find('.jltma-advance-tab-content').each(function () {
                             if ($(this).hasClass('active')) {
                                 isContentActive = true;
                             }
                         });
                         if (!isContentActive) {
-                            tab.find('.ma-el-advance-tab-content').eq(0).addClass('active');
+                            tab.find('.jltma-advance-tab-content').eq(0).addClass('active');
                         }
                         if (!isTabActive) {
                             tab.find('[data-tab]').eq(0).addClass('active');
@@ -413,7 +403,7 @@
                                 var $data_tab_id = $(this).data('tab-id');
                                 $(this).siblings().removeClass('active');
                                 $(this).addClass('active');
-                                $(this).closest('[data-tabs]').find('.ma-el-advance-tab-content').removeClass('active');
+                                $(this).closest('[data-tabs]').find('.jltma-advance-tab-content').removeClass('active');
                                 $('#' + $data_tab_id).addClass('active');
                             });
                         } else{
@@ -421,7 +411,7 @@
                                 var $data_tab_id = $(this).data('tab-id');
                                 $(this).siblings().removeClass('active');
                                 $(this).addClass('active');
-                                $(this).closest('[data-tabs]').find('.ma-el-advance-tab-content').removeClass('active');
+                                $(this).closest('[data-tabs]').find('.jltma-advance-tab-content').removeClass('active');
                                 $('#' + $data_tab_id).addClass('active');
                             });
                         }

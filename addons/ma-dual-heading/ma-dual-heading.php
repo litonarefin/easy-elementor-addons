@@ -104,8 +104,8 @@ class Dual_Heading extends Widget_Base
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper,
-						{{WRAPPER}} .ma-el-sec-head-style' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper,
+						{{WRAPPER}} .jltma-sec-head-style' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -235,7 +235,7 @@ class Dual_Heading extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-icon' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-icon' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -247,7 +247,7 @@ class Dual_Heading extends Widget_Base
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#132C47',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-icon' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'ma_el_dual_heading_icon_show' => 'yes'
@@ -277,7 +277,7 @@ class Dual_Heading extends Widget_Base
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#1fb5ac',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .first-heading, {{WRAPPER}} .ma-el-section-title span'
+					'{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-title .first-heading, {{WRAPPER}} .jltma-section-title span'
 					=> 'color: {{VALUE}};',
 				],
 			]
@@ -290,7 +290,7 @@ class Dual_Heading extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#704aff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .first-heading, {{WRAPPER}} .ma-el-sec-head-container .ma-el-sec-head-style:after'
+					'{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-title .first-heading, {{WRAPPER}} .jltma-sec-head-container .jltma-sec-head-style:after'
 					=> 'background-color: {{VALUE}};',
 				],
 			]
@@ -319,7 +319,7 @@ class Dual_Heading extends Widget_Base
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-dual-heading-title' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-dual-heading-title' => 'text-align: {{VALUE}};',
 				],
 				'condition' 	=> [
 					'ma_el_dual_heading_styles_preset' => '-style2',
@@ -332,7 +332,7 @@ class Dual_Heading extends Widget_Base
 			[
 				'name' => 'ma_el_dual_first_heading_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title  .first-heading,{{WRAPPER}} .ma-el-section-title span',
+				'selector' => '{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-title  .first-heading,{{WRAPPER}} .jltma-section-title span',
 			]
 		);
 
@@ -343,7 +343,7 @@ class Dual_Heading extends Widget_Base
 				'type'          => Controls_Manager::DIMENSIONS,
 				'size_units'    => ['px', 'em', '%'],
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title  .first-heading,{{WRAPPER}} .ma-el-section-title span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-title  .first-heading,{{WRAPPER}} .jltma-section-title span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -355,7 +355,7 @@ class Dual_Heading extends Widget_Base
 				'type'          => Controls_Manager::DIMENSIONS,
 				'size_units'    => ['px', 'em', '%'],
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title  .first-heading,{{WRAPPER}} .ma-el-section-title span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-title  .first-heading,{{WRAPPER}} .jltma-section-title span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -380,8 +380,8 @@ class Dual_Heading extends Widget_Base
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#132C47',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .second-heading,
-						{{WRAPPER}} .ma-el-section-title' =>
+					'{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-title .second-heading,
+						{{WRAPPER}} .jltma-section-title' =>
 					'color: {{VALUE}};',
 				],
 
@@ -394,7 +394,7 @@ class Dual_Heading extends Widget_Base
 				'label' => __('Background', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .second-heading' =>
+					'{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-title .second-heading' =>
 					'background-color: {{VALUE}};',
 				],
 
@@ -410,7 +410,7 @@ class Dual_Heading extends Widget_Base
 				'name' => 'ma_el_dual_second_heading_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' =>
-				'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-title .second-heading,                          {{WRAPPER}} .ma-el-section-title',
+				'{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-title .second-heading,                          {{WRAPPER}} .jltma-section-title',
 			]
 		);
 
@@ -422,8 +422,8 @@ class Dual_Heading extends Widget_Base
 				'type'          => Controls_Manager::DIMENSIONS,
 				'size_units'    => ['px', 'em', '%'],
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-description,
-						{{WRAPPER}} .ma-el-section-description' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-description,
+						{{WRAPPER}} .jltma-section-description' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -435,8 +435,8 @@ class Dual_Heading extends Widget_Base
 				'type'          => Controls_Manager::DIMENSIONS,
 				'size_units'    => ['px', 'em', '%'],
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-description,
-						{{WRAPPER}} .ma-el-section-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-description,
+						{{WRAPPER}} .jltma-section-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -475,7 +475,7 @@ class Dual_Heading extends Widget_Base
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-dual-heading-description' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-dual-heading-description' => 'text-align: {{VALUE}};',
 				],
 				'condition' 	=> [
 					'ma_el_dual_heading_styles_preset' => '-style2',
@@ -489,8 +489,8 @@ class Dual_Heading extends Widget_Base
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#989B9E',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-description,
-						{{WRAPPER}} .ma-el-section-description' =>
+					'{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-description,
+						{{WRAPPER}} .jltma-section-description' =>
 					'color: {{VALUE}};',
 				],
 			]
@@ -500,8 +500,8 @@ class Dual_Heading extends Widget_Base
 			[
 				'name' => 'ma_el_dual_heading_description_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .ma-el-dual-heading .ma-el-dual-heading-wrapper .ma-el-dual-heading-description,
-					{{WRAPPER}} .ma-el-section-description',
+				'selector' => '{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-description,
+					{{WRAPPER}} .jltma-section-description',
 			]
 		);
 
@@ -532,7 +532,7 @@ class Dual_Heading extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#8c8c8c',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-dual-heading-icon i'                                      => 'color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-dual-heading-icon i'                                      => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -553,7 +553,7 @@ class Dual_Heading extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#8c8c8c',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-dual-heading-icon i:hover'                               => 'color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-dual-heading-icon i:hover'                               => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -645,9 +645,9 @@ class Dual_Heading extends Widget_Base
 
 		<?php if ($settings['ma_el_dual_heading_styles_preset'] == '-style1') { ?>
 
-			<div class="ma-el-sec-head-container">
-				<div class="ma-el-sec-head-style">
-					<<?php echo tag_escape($settings['title_html_tag']); ?> class="ma-el-section-title">
+			<div class="jltma-sec-head-container">
+				<div class="jltma-sec-head-style">
+					<<?php echo tag_escape($settings['title_html_tag']); ?> class="jltma-section-title">
 						<span>
 							<?php echo esc_html($settings['ma_el_dual_first_heading']); ?>
 						</span><br>
@@ -656,7 +656,7 @@ class Dual_Heading extends Widget_Base
 
 					</<?php echo tag_escape($settings['title_html_tag']); ?>><!-- /.section-title -->
 
-					<div class="ma-el-section-description">
+					<div class="jltma-section-description">
 						<?php echo esc_html($settings['ma_el_dual_heading_description']); ?>
 					</div><!-- /.section-description -->
 				</div><!-- /.sec-head-style -->
@@ -664,24 +664,24 @@ class Dual_Heading extends Widget_Base
 
 		<?php } elseif ($settings['ma_el_dual_heading_styles_preset'] == '-style2') { ?>
 
-			<div id="ma-el-heading-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-dual-heading">
-				<div class="ma-el-dual-heading-wrapper">
+			<div id="jltma-heading-<?php echo esc_attr($this->get_id()); ?>" class="jltma-dual-heading">
+				<div class="jltma-dual-heading-wrapper">
 					<?php if ($settings['ma_el_dual_heading_icon_show'] == 'yes') : ?>
-						<span class="ma-el-dual-heading-icon">
+						<span class="jltma-dual-heading-icon">
 							<?php Master_Addons_Helper::jltma_fa_icon_picker('fab fa-elementor', 'icon', $settings['ma_el_dual_heading_icon'], 'ma_el_dual_heading_icon'); ?>
 						</span>
 					<?php endif; ?>
-					<<?php echo $settings['title_html_tag']; ?> class="ma-el-dual-heading-title">
+					<<?php echo $settings['title_html_tag']; ?> class="jltma-dual-heading-title">
 
 						<?php if (isset($settings['ma_el_dual_heading_title_link']['url']) && $settings['ma_el_dual_heading_title_link']['url'] != "") { ?>
 							<a href="<?php echo esc_url($settings['ma_el_dual_heading_title_link']['url']); ?>">
 							<?php } ?>
 
-							<span class="first-heading">
+							<span class="jltma-first-heading">
 								<?php echo esc_html($settings['ma_el_dual_first_heading']); ?>
 							</span>
 
-							<span class="second-heading">
+							<span class="jltma-second-heading">
 								<?php echo esc_html($settings['ma_el_dual_second_heading']); ?>
 							</span>
 
@@ -691,7 +691,7 @@ class Dual_Heading extends Widget_Base
 
 					</<?php echo $settings['title_html_tag']; ?>>
 					<?php if ($settings['ma_el_dual_heading_description'] != "") : ?>
-						<p class="ma-el-dual-heading-description"><?php echo esc_html($settings['ma_el_dual_heading_description']); ?></p>
+						<p class="jltma-dual-heading-description"><?php echo esc_html($settings['ma_el_dual_heading_description']); ?></p>
 					<?php endif; ?>
 				</div>
 			</div>
@@ -707,13 +707,13 @@ class Dual_Heading extends Widget_Base
 
 		<# if ( '-style1'==settings.ma_el_dual_heading_styles_preset ) { #>
 
-			<div class="ma-el-sec-head-container">
-				<div class="ma-el-sec-head-style">
-					<h2 class="ma-el-section-title">
+			<div class="jltma-sec-head-container">
+				<div class="jltma-sec-head-style">
+					<h2 class="jltma-section-title">
 						<span>{{{ settings.ma_el_dual_first_heading }}}</span> {{{ settings.ma_el_dual_second_heading }}}
 					</h2><!-- /.section-title -->
 
-					<div class="ma-el-section-description">
+					<div class="jltma-section-description">
 						{{{ settings.ma_el_dual_heading_description }}}
 					</div><!-- /.section-description -->
 				</div><!-- /.sec-head-style -->
@@ -721,18 +721,18 @@ class Dual_Heading extends Widget_Base
 
 			<# } else{ #>
 
-				<div id="ma-el-heading" class="ma-el-dual-heading">
-					<div class="ma-el-dual-heading-wrapper">
+				<div id="jltma-heading" class="jltma-dual-heading">
+					<div class="jltma-dual-heading-wrapper">
 						<# if ( settings.ma_el_dual_heading_icon_show=='yes' ) { #>
-							<span class="ma-el-dual-heading-icon"><i class="{{ settings.ma_el_dual_heading_icon.value }}"></i></span>
+							<span class="jltma-dual-heading-icon"><i class="{{ settings.ma_el_dual_heading_icon.value }}"></i></span>
 							<# } #>
-								<h1 class="ma-el-dual-heading-title">
+								<h1 class="jltma-dual-heading-title">
 									<a href="{{{ settings.ma_el_dual_heading_title_link }}}">
-										<span class="first-heading">{{{ settings.ma_el_dual_first_heading }}}</span><span class="second-heading">{{{ settings.ma_el_dual_second_heading }}}</span>
+										<span class="jltma-first-heading">{{{ settings.ma_el_dual_first_heading }}}</span><span class="jltma-second-heading">{{{ settings.ma_el_dual_second_heading }}}</span>
 									</a>
 								</h1>
 								<# if ( settings.ma_el_dual_heading_description !="" ) { #>
-									<p class="ma-el-dual-heading-description">{{{ settings.ma_el_dual_heading_description }}}</p>
+									<p class="jltma-dual-heading-description">{{{ settings.ma_el_dual_heading_description }}}</p>
 									<# } #>
 					</div>
 				</div>

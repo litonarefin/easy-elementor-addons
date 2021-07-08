@@ -247,10 +247,10 @@ class Tooltip extends Widget_Base
 				'default'       => 'tooltip-right',
 				'label_block'   => false,
 				'options'       => [
-					'tooltip-left'      => esc_html__('Left', MELA_TD),
-					'tooltip-right'     => esc_html__('Right', MELA_TD),
-					'tooltip-top'       => esc_html__('Top', MELA_TD),
-					'tooltip-bottom'    => esc_html__('Bottom', MELA_TD),
+					'jltma-tooltip-left'      => esc_html__('Left', MELA_TD),
+					'jltma-tooltip-right'     => esc_html__('Right', MELA_TD),
+					'jltma-tooltip-top'       => esc_html__('Top', MELA_TD),
+					'jltma-tooltip-bottom'    => esc_html__('Bottom', MELA_TD),
 				],
 			]
 		);
@@ -266,7 +266,7 @@ class Tooltip extends Widget_Base
 				'return_value' 	=> 'yes',
 				'default' 		=> 'no',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item:hover .ma-el-tooltip-text' => 'visibility: visible;opacity: 1; display:block;',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item:hover .jltma-tooltip-text' => 'visibility: visible;opacity: 1; display:block;',
 				]
 
 			]
@@ -384,7 +384,7 @@ Customization Options.</span>'
 					'size' => 150,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-content' => 'width: {{SIZE}}{{UNIT}};',
 				]
 			]
 		);
@@ -402,7 +402,7 @@ Customization Options.</span>'
 					'isLinked' => true,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -418,7 +418,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#f9f9f9',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-content' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -429,7 +429,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#826EFF',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content, {{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content a'
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-content, {{WRAPPER}} .jltma-tooltip .jltma-tooltip-content a'
 					=> 'color: {{VALUE}};',
 				],
 			]
@@ -439,7 +439,7 @@ Customization Options.</span>'
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'ma_el_tooltip_content_shadow',
-				'selector' => '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content',
+				'selector' => '{{WRAPPER}} .jltma-tooltip .jltma-tooltip-content',
 			]
 		);
 
@@ -454,7 +454,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#f9f9f9',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-content:hover' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -465,8 +465,8 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#212121',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-content:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-content a:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -475,7 +475,7 @@ Customization Options.</span>'
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'ma_el_tooltip_hover_shadow',
-				'selector' => '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content:hover',
+				'selector' => '{{WRAPPER}} .jltma-tooltip .jltma-tooltip-content:hover',
 			]
 		);
 
@@ -495,7 +495,7 @@ Customization Options.</span>'
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ma_el_tooltip_content_typography',
-				'selector' => '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content',
+				'selector' => '{{WRAPPER}} .jltma-tooltip .jltma-tooltip-content',
 			]
 		);
 
@@ -504,7 +504,7 @@ Customization Options.</span>'
 			[
 				'name' => 'ma_el_tooltip_hover_border',
 				'label' => esc_html__('Border', MELA_TD),
-				'selector' => '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content',
+				'selector' => '{{WRAPPER}} .jltma-tooltip .jltma-tooltip-content',
 			]
 		);
 
@@ -523,7 +523,7 @@ Customization Options.</span>'
 					'isLinked' => true,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -562,7 +562,7 @@ Customization Options.</span>'
 					'size' => 200,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-text' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-text' => 'width: {{SIZE}}{{UNIT}};',
 				]
 			]
 		);
@@ -574,7 +574,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#826EFF',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-text' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item .jltma-tooltip-text' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -586,7 +586,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-text' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item .jltma-tooltip-text' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -597,7 +597,7 @@ Customization Options.</span>'
 				'name' => 'hover_tooltip_content_background',
 				'label' => __('Background', MELA_TD),
 				'types' => ['classic', 'gradient'],
-				'selector' => '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-text',
+				'selector' => '{{WRAPPER}} .jltma-tooltip .jltma-tooltip-text',
 			]
 		);
 
@@ -606,7 +606,7 @@ Customization Options.</span>'
 			[
 				'name' => 'hover_tooltip_content_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-text',
+				'selector' => '{{WRAPPER}} .jltma-tooltip .jltma-tooltip-text',
 			]
 		);
 
@@ -624,7 +624,7 @@ Customization Options.</span>'
 					'isLinked' => true,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -643,7 +643,7 @@ Customization Options.</span>'
 					'isLinked' => true,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-text' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px !important;',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-text' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px !important;',
 				],
 			]
 		);
@@ -656,10 +656,10 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#826EFF',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-top .ma-el-tooltip-text:after' => 'border-color: {{VALUE}} transparent transparent transparent;',
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-left .ma-el-tooltip-text:after' => 'border-color: transparent transparent transparent {{VALUE}};',
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom .ma-el-tooltip-text:after' => 'border-color: transparent transparent {{VALUE}} transparent;',
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-right .ma-el-tooltip-text:after' => 'border-color: transparent {{VALUE}} transparent transparent;',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item.tooltip-top .jltma-tooltip-text:after' => 'border-color: {{VALUE}} transparent transparent transparent;',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item.tooltip-left .jltma-tooltip-text:after' => 'border-color: transparent transparent transparent {{VALUE}};',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item.tooltip-bottom .jltma-tooltip-text:after' => 'border-color: transparent transparent {{VALUE}} transparent;',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item.tooltip-right .jltma-tooltip-text:after' => 'border-color: transparent {{VALUE}} transparent transparent;',
 				],
 			]
 		);
@@ -705,13 +705,13 @@ Customization Options.</span>'
 		$this->add_render_attribute(
 			'ma_el_tooltip_wrapper',
 			[
-				'class' => ['ma-el-tooltip'],
+				'class' => ['jltma-tooltip'],
 			]
 		); ?>
 
 		<div <?php echo $this->get_render_attribute_string('ma_el_tooltip_wrapper'); ?>>
-			<div class="ma-el-tooltip-item <?php echo esc_attr($settings['ma_el_tooltip_direction']); ?>">
-				<div class="ma-el-tooltip-content">
+			<div class="jltma-tooltip-item <?php echo esc_attr($settings['ma_el_tooltip_direction']); ?>">
+				<div class="jltma-tooltip-content">
 					<?php if ($settings['ma_el_tooltip_type'] === 'text') : ?>
 						<?php if ($settings['ma_el_tooltip_enable_link'] === 'yes') : ?>
 							<a href="<?php echo esc_url($settings['ma_el_tooltip_link']['url']); ?>">
@@ -738,7 +738,7 @@ Customization Options.</span>'
 						<?php endif; ?>
 					<?php endif; ?>
 				</div>
-				<div class="ma-el-tooltip-text"><?php echo esc_html($settings['ma_el_tooltip_text']); ?></div>
+				<div class="jltma-tooltip-text"><?php echo esc_html($settings['ma_el_tooltip_text']); ?></div>
 			</div>
 		</div>
 

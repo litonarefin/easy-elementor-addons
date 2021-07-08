@@ -207,7 +207,7 @@ class Advanced_Accordion extends Widget_Base
 						'single_tab_title_bg_color_show' => 'yes'
 					],
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ma-multicolor-accordion .ma-accordion-tab-content p' => 'color: {{VALUE}}'
+						'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-item.ma-multicolor-accordion .jltma-accordion-tab-content p' => 'color: {{VALUE}}'
 					]
 				]
 			);
@@ -222,7 +222,7 @@ class Advanced_Accordion extends Widget_Base
 						'single_tab_title_bg_color_show' => 'yes'
 					],
 					'selectors'             => [
-						'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item.ma-multicolor-accordion .ma-accordion-tab-content' => 'background: {{VALUE}};'
+						'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-item.ma-multicolor-accordion .jltma-accordion-tab-content' => 'background: {{VALUE}};'
 					]
 				]
 			);
@@ -601,7 +601,7 @@ class Advanced_Accordion extends Widget_Base
 					'size' 	=> '',
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .ma-accordion-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-accordion-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -611,7 +611,7 @@ class Advanced_Accordion extends Widget_Base
 			[
 				'name'                  => 'accordion_items_border',
 				'label'                 => esc_html__('Border', MELA_TD),
-				'selector'              => '{{WRAPPER}} .ma-accordion-item',
+				'selector'              => '{{WRAPPER}} .jltma-accordion-item',
 			]
 		);
 
@@ -622,7 +622,7 @@ class Advanced_Accordion extends Widget_Base
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => ['px', 'em', '%'],
 				'selectors'             => [
-					'{{WRAPPER}} .ma-accordion-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-accordion-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -631,7 +631,7 @@ class Advanced_Accordion extends Widget_Base
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'                  => 'accordion_items_box_shadow',
-				'selector'              => '{{WRAPPER}} .ma-accordion-item',
+				'selector'              => '{{WRAPPER}} .jltma-accordion-item',
 			]
 		);
 
@@ -665,7 +665,7 @@ class Advanced_Accordion extends Widget_Base
 				'label'     => esc_html__('Background Color', MELA_TD),
 				'types'     => ['classic', 'gradient'],
 				'exclude'   => ['image'],
-				'selector'  => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title'
+				'selector'  => '{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title'
 			]
 		);
 
@@ -676,7 +676,7 @@ class Advanced_Accordion extends Widget_Base
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#333333',
 				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -685,7 +685,7 @@ class Advanced_Accordion extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'tab_title_typography',
-				'selector'              => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title',
+				'selector'              => '{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title',
 			]
 		);
 
@@ -694,7 +694,7 @@ class Advanced_Accordion extends Widget_Base
 			[
 				'name'                  => 'tab_title_border',
 				'label'                 => esc_html__('Border', MELA_TD),
-				'selector'              => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title',
+				'selector'              => '{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title',
 			]
 		);
 
@@ -705,7 +705,7 @@ class Advanced_Accordion extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array('px', '%'),
 				'selectors'  => array(
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -726,7 +726,7 @@ class Advanced_Accordion extends Widget_Base
 				'label'     => esc_html__('Background Color', MELA_TD),
 				'types'     => ['classic', 'gradient'],
 				'exclude'   => ['image'],
-				'selector'  => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover'
+				'selector'  => '{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title:hover'
 			]
 		);
 
@@ -737,8 +737,8 @@ class Advanced_Accordion extends Widget_Base
 				'label'                 => esc_html__('Text Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover,
-						{{WRAPPER}} .ma-accordion-item.ma-multicolor-accordion .ma-accordion-tab-title:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title:hover,
+						{{WRAPPER}} .jltma-accordion-item.ma-multicolor-accordion .jltma-accordion-tab-title:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -749,7 +749,7 @@ class Advanced_Accordion extends Widget_Base
 				'label'                 => esc_html__('Border Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -759,7 +759,7 @@ class Advanced_Accordion extends Widget_Base
 			[
 				'name'                  => 'tab_title_border_hover',
 				'label'                 => esc_html__('Border', MELA_TD),
-				'selector'              => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover',
+				'selector'              => '{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title:hover',
 			]
 		);
 
@@ -770,7 +770,7 @@ class Advanced_Accordion extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array('px', '%'),
 				'selectors'  => array(
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -792,7 +792,7 @@ class Advanced_Accordion extends Widget_Base
 				'label'     => esc_html__('Background Color', MELA_TD),
 				'types'     => ['classic', 'gradient'],
 				'exclude'   => ['image'],
-				'selector'  => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-title.active'
+				'selector'  => '{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-item .jltma-accordion-tab-title.active'
 			]
 		);
 
@@ -802,7 +802,7 @@ class Advanced_Accordion extends Widget_Base
 				'label'                 => esc_html__('Text Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title.active' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -813,7 +813,7 @@ class Advanced_Accordion extends Widget_Base
 				'label'                 => esc_html__('Border Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title.active' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -824,7 +824,7 @@ class Advanced_Accordion extends Widget_Base
 			[
 				'name'                  => 'tab_title_border_active',
 				'label'                 => esc_html__('Border', MELA_TD),
-				'selector'              => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active',
+				'selector'              => '{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title.active',
 			]
 		);
 
@@ -835,7 +835,7 @@ class Advanced_Accordion extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array('px', '%'),
 				'selectors'  => array(
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title.active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -849,7 +849,7 @@ class Advanced_Accordion extends Widget_Base
 			Group_Control_Box_Shadow::get_type(),
 			array(
 				'name' => 'jltma_accordion_box_shadow',
-				'selector' => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title',
+				'selector' => '{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title',
 			)
 		);
 
@@ -861,7 +861,7 @@ class Advanced_Accordion extends Widget_Base
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => ['px', 'em', '%'],
 				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -886,7 +886,7 @@ class Advanced_Accordion extends Widget_Base
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-item .jltma-accordion-tab-content' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -898,8 +898,8 @@ class Advanced_Accordion extends Widget_Base
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#333',
 				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content,
-						{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content p' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-item .jltma-accordion-tab-content,
+						{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-item .jltma-accordion-tab-content p' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -908,7 +908,7 @@ class Advanced_Accordion extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'tab_content_typography',
-				'selector'              => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content',
+				'selector'              => '{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-item .jltma-accordion-tab-content',
 			]
 		);
 
@@ -919,7 +919,7 @@ class Advanced_Accordion extends Widget_Base
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => ['px', 'em', '%'],
 				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-item .jltma-accordion-tab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -929,7 +929,7 @@ class Advanced_Accordion extends Widget_Base
 			array(
 				'name' => 'tab_content_padding_text_shadow',
 				'label' => __('Text Shadow', MELA_TD),
-				'selector' => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item .ma-accordion-tab-content',
+				'selector' => '{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-item .jltma-accordion-tab-content',
 			)
 		);
 
@@ -1106,7 +1106,7 @@ class Advanced_Accordion extends Widget_Base
 				'condition'             => [
 					'toggle_icon_show' => 'yes'
 				],
-				'selector'	=> '.ma-advanced-accordion .ma-accordion-tab-title .ma-accordion-toggle-icon'
+				'selector'	=> '.jltma-advanced-accordion .jltma-accordion-tab-title .jltma-accordion-toggle-icon'
 			]
 		);
 
@@ -1117,7 +1117,7 @@ class Advanced_Accordion extends Widget_Base
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#444',
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title .jltma-accordion-toggle-icon' => 'color: {{VALUE}};',
 				],
 				'condition'	=> [
 					'toggle_icon_show' => 'yes'
@@ -1143,7 +1143,7 @@ class Advanced_Accordion extends Widget_Base
 					]
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title .jltma-accordion-toggle-icon' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 				'condition'             => [
 					'toggle_icon_show' => 'yes'
@@ -1179,7 +1179,7 @@ class Advanced_Accordion extends Widget_Base
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => ['px', 'em', '%'],
 				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title .jltma-accordion-toggle-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1200,7 +1200,7 @@ class Advanced_Accordion extends Widget_Base
 				'label'     => esc_html__('Background Color', MELA_TD),
 				'types'     => ['classic', 'gradient'],
 				'exclude'   => ['image'],
-				'selector'  => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-tab-title .ma-accordion-toggle-icon'
+				'selector'  => '{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-item:hover .jltma-accordion-tab-title .jltma-accordion-toggle-icon'
 			]
 		);
 
@@ -1210,7 +1210,7 @@ class Advanced_Accordion extends Widget_Base
 				'label'                 => esc_html__('Icon Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-item:hover .jltma-accordion-tab-title .jltma-accordion-toggle-icon' => 'color: {{VALUE}};',
 				],
 				'condition'             => [
 					'toggle_icon_show' => 'yes'
@@ -1236,7 +1236,7 @@ class Advanced_Accordion extends Widget_Base
 					]
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-item:hover .jltma-accordion-tab-title .jltma-accordion-toggle-icon' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 				'condition'             => [
 					'toggle_icon_show' => 'yes'
@@ -1251,7 +1251,7 @@ class Advanced_Accordion extends Widget_Base
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => ['px', 'em', '%'],
 				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-item:hover .ma-accordion-tab-title .ma-accordion-toggle-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-item:hover .jltma-accordion-tab-title .jltma-accordion-toggle-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1272,7 +1272,7 @@ class Advanced_Accordion extends Widget_Base
 				'label'     => esc_html__('Background Color', MELA_TD),
 				'types'     => ['classic', 'gradient'],
 				'exclude'   => ['image'],
-				'selector'  => '{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active .ma-accordion-toggle-icon'
+				'selector'  => '{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title.active .jltma-accordion-toggle-icon'
 			]
 		);
 
@@ -1282,7 +1282,7 @@ class Advanced_Accordion extends Widget_Base
 				'label'                 => esc_html__('Icon Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active .ma-accordion-toggle-icon' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title.active .jltma-accordion-toggle-icon' => 'color: {{VALUE}};'
 				],
 				'condition'             => [
 					'toggle_icon_show' => 'yes'
@@ -1308,7 +1308,7 @@ class Advanced_Accordion extends Widget_Base
 					]
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active .ma-accordion-toggle-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title.active .jltma-accordion-toggle-icon' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 				'condition'             => [
 					'toggle_icon_show' => 'yes'
@@ -1323,7 +1323,7 @@ class Advanced_Accordion extends Widget_Base
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => ['px', 'em', '%'],
 				'selectors'             => [
-					'{{WRAPPER}} .ma-advanced-accordion .ma-accordion-tab-title.active .ma-accordion-toggle-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advanced-accordion .jltma-accordion-tab-title.active .jltma-accordion-toggle-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1443,14 +1443,14 @@ class Advanced_Accordion extends Widget_Base
 		$settings	= $this->get_settings_for_display();
 		$id_int		= substr($this->get_id_int(), 0, 3);
 
-		$this->add_render_attribute('ma_advance_accordion', [
-			'class'                 => 'ma-advanced-accordion',
-			'id'                    => 'ma-advanced-accordion-' . esc_attr($this->get_id()),
+		$this->add_render_attribute('jltma-accordion', [
+			'class'                 => 'jltma-advanced-accordion',
+			'id'                    => 'jltma-advanced-accordion-' . esc_attr($this->get_id()),
 			'data-accordion-id'     => esc_attr($this->get_id())
 		]);
 
 		$this->add_render_attribute([
-			'ma_advance_accordion_wrap' => [
+			'jltma-accordion-wrap' => [
 				'class'                 => [
 					'ma-accordion-wrap',
 					'ma-accordion-icon-align-' . $settings['toggle_icon_position'],
@@ -1460,8 +1460,8 @@ class Advanced_Accordion extends Widget_Base
 		]);
 ?>
 
-		<div <?php echo $this->get_render_attribute_string('ma_advance_accordion'); ?> <?php echo 'data-accordion-id="' . esc_attr($this->get_id()) . '"'; ?> <?php echo !empty($settings['accordion_type']) ? 'data-accordion-type="' . esc_attr($settings['accordion_type']) . '"' : 'accordion'; ?> <?php echo !empty($settings['toggle_speed']) ? 'data-toogle-speed="' . esc_attr($settings['toggle_speed']) . '"' : '300'; ?>>
-			<div <?php echo $this->get_render_attribute_string('ma_advance_accordion_wrap'); ?>>
+		<div <?php echo $this->get_render_attribute_string('jltma-accordion'); ?> <?php echo 'data-accordion-id="' . esc_attr($this->get_id()) . '"'; ?> <?php echo !empty($settings['accordion_type']) ? 'data-accordion-type="' . esc_attr($settings['accordion_type']) . '"' : 'accordion'; ?> <?php echo !empty($settings['toggle_speed']) ? 'data-toogle-speed="' . esc_attr($settings['toggle_speed']) . '"' : '300'; ?>>
+			<div <?php echo $this->get_render_attribute_string('jltma-accordion-wrap'); ?>>
 
 				<?php
 				foreach ($settings['tabs'] as $index => $tab) {
@@ -1470,8 +1470,8 @@ class Advanced_Accordion extends Widget_Base
 					$tab_title_setting_key = $this->get_repeater_setting_key('tab_title', 'tabs', $index);
 					$tab_content_setting_key = $this->get_repeater_setting_key('accordion_content', 'tabs', $index);
 
-					$tab_title_class 	= ['ma-accordion-tab-title ma-advanced-accordion-header'];
-					$tab_content_class 	= ['ma-accordion-tab-content'];
+					$tab_title_class 	= ['jltma-accordion-tab-title jltma-accordion-header'];
+					$tab_content_class 	= ['jltma-accordion-tab-content'];
 
 
 					if ($tab['accordion_tab_default_active'] == 'yes') {
@@ -1480,53 +1480,53 @@ class Advanced_Accordion extends Widget_Base
 					}
 
 					$this->add_render_attribute($tab_title_setting_key, [
-						'id' 			=> 'ma-accordion-tab-title-' . $id_int . $tab_count,
+						'id' 			=> 'jltma-accordion-tab-title-' . $id_int . $tab_count,
 						'class' 		=> $tab_title_class,
 						'tabindex' 		=> $id_int . $tab_count,
 						'data-tab' 		=> $tab_count,
 						'role' 			=> 'tab',
-						'aria-controls' => 'ma-accordion-tab-content-' . $id_int . $tab_count,
+						'aria-controls' => 'jltma-accordion-tab-content-' . $id_int . $tab_count,
 					]);
 
 					$this->add_render_attribute($tab_content_setting_key, [
-						'id' 				=> 'ma-accordion-tab-content-' . $id_int . $tab_count,
+						'id' 				=> 'jltma-accordion-tab-content-' . $id_int . $tab_count,
 						'class' 			=> $tab_content_class,
 						'data-tab' 			=> $tab_count,
 						'role' 				=> 'tabpanel',
-						'aria-labelledby' 	=> 'ma-accordion-tab-title-' . $id_int . $tab_count,
+						'aria-labelledby' 	=> 'jltma-accordion-tab-title-' . $id_int . $tab_count,
 					]);
 
 
 					if (ma_el_fs()->can_use_premium_code()) {
 						if ($tab['single_tab_title_bg_color_show'] == 'yes') {
-							$single_item_class = 'ma-multicolor-accordion';
+							$single_item_class = 'jltma-multicolor-accordion';
 						}
 					}
 				?>
 
-					<div class="ma-accordion-item <?php echo isset($single_item_class) ? $single_item_class : ''; ?>">
+					<div class="jltma-accordion-item <?php echo isset($single_item_class) ? $single_item_class : ''; ?>">
 						<<?php echo tag_escape($settings['title_html_tag']); ?> <?php echo $this->get_render_attribute_string($tab_title_setting_key);
 
-																				// Premium Version Codes
-																				if (ma_el_fs()->can_use_premium_code()) {
+							// Premium Version Codes
+							if (ma_el_fs()->can_use_premium_code()) {
 
-																					if ($tab['single_tab_title_bg_color_show'] == 'yes') { ?> style="background-color:<?php echo esc_attr($tab['single_tab_title_bg_color']); ?>;
+								if ($tab['single_tab_title_bg_color_show'] == 'yes') { ?> style="background-color:<?php echo esc_attr($tab['single_tab_title_bg_color']); ?>;
                                     color:<?php echo esc_attr($tab['single_title_text_color']); ?>" <?php } // Premium Version Codes
 
-																							} ?>>
-							<div class="ma-accordion-title-icon">
+							} ?>>
+							<div class="jltma-accordion-title-icon">
 
 								<?php
 								if ($settings['toggle_icon_show'] === 'yes' && ($settings['toggle_icon_position'] == "left")) {
 									if ($tab['accordion_tab_icon_show'] === 'yes') { ?>
-										<span class="ma-accordion-toggle-icon ma-accordion-tab-icon">
+										<span class="jltma-accordion-toggle-icon jltma-accordion-tab-icon">
 											<?php
 											Master_Addons_Helper::jltma_fa_icon_picker('fas fa-minus', 'icon', $tab['accordion_tab_title_icon_collapse'], 'accordion_tab_title_icon_collapse', 'ma-el-accordion-icon-closed');
 											Master_Addons_Helper::jltma_fa_icon_picker('fas fa-plus', 'icon', $tab['accordion_tab_title_icon'], 'accordion_tab_title_icon', 'ma-el-accordion-icon-opened');
 											?>
 										</span>
 									<?php } else { ?>
-										<span class="ma-accordion-toggle-icon">
+										<span class="jltma-accordion-toggle-icon">
 											<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-minus', 'icon', $settings['toggle_icon'], 'toggle_minus_icon', 'ma-el-accordion-icon-closed');
 											?>
 											<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-plus', 'icon', $settings['active_icon'], 'toggle_active_icon', 'ma-el-accordion-icon-opened');
@@ -1535,21 +1535,21 @@ class Advanced_Accordion extends Widget_Base
 								<?php }
 								} ?>
 
-								<div class="ma-accordion-title-text">
+								<div class="jltma-accordion-title-text">
 									<?php echo esc_html($tab['tab_title']); ?>
 								</div>
 							</div>
 
 							<?php if ($settings['toggle_icon_show'] === 'yes' && ($settings['toggle_icon_position'] == "right")) {
 								if ($tab['accordion_tab_icon_show'] === 'yes') { ?>
-									<span class="ma-accordion-toggle-icon ma-accordion-tab-icon">
+									<span class="jltma-accordion-toggle-icon jltma-accordion-tab-icon">
 										<?php
 										Master_Addons_Helper::jltma_fa_icon_picker('fas fa-minus', 'icon', $tab['accordion_tab_title_icon_collapse'], 'accordion_tab_title_icon_collapse', 'ma-el-accordion-icon-closed');
 										Master_Addons_Helper::jltma_fa_icon_picker('fas fa-plus', 'icon', $tab['accordion_tab_title_icon'], 'accordion_tab_title_icon', 'ma-el-accordion-icon-opened');
 										?>
 									</span>
 								<?php } else { ?>
-									<span class="ma-accordion-toggle-icon">
+									<span class="jltma-accordion-toggle-icon">
 										<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-minus', 'icon', $settings['toggle_icon'], 'toggle_minus_icon', 'ma-el-accordion-icon-closed');
 										?>
 										<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-plus', 'icon', $settings['active_icon'], 'toggle_active_icon', 'ma-el-accordion-icon-opened');

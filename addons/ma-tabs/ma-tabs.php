@@ -200,7 +200,7 @@ class Tabs extends Widget_Base
 						],
 					],
 					'selectors'  => [
-						'{{WRAPPER}} .ma-el-advance-tab.five .ma-el-advance-tab-nav li i' => 'display:{{VALUE}};',
+						'{{WRAPPER}} .jltma-advance-tab.five .jltma-advance-tab-nav li i' => 'display:{{VALUE}};',
 					],
 					'condition' => [
 						'ma_el_tabs_icon_show' 		=> 'yes',
@@ -291,7 +291,7 @@ class Tabs extends Widget_Base
 						'ma_el_tabs_preset' => 'five',
 					],
 					'selectors'  => [
-						'{{WRAPPER}} .ma-el-advance-tab.five .ma-el-advance-tab-nav li' => 'display:{{VALUE}};',
+						'{{WRAPPER}} .jltma-advance-tab.five .jltma-advance-tab-nav li' => 'display:{{VALUE}};',
 					],
 					'style_transfer' => true,
 				]
@@ -565,7 +565,7 @@ class Tabs extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ma_el_tab_heading_typography',
-				'selector' => '{{WRAPPER}} .ma-el-advance-tab .ma-el-tab-title',
+				'selector' => '{{WRAPPER}} .jltma-advance-tab .ma-el-tab-title',
 			]
 		);
 
@@ -586,7 +586,7 @@ class Tabs extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#8a8d91',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li span, {{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li i' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li span, {{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li i' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -598,7 +598,7 @@ class Tabs extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#FFF',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li' => 'background: {{VALUE}};'
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li' => 'background: {{VALUE}};'
 				],
 			]
 		);
@@ -610,7 +610,7 @@ class Tabs extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#e5e5e5',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab.two .ma-el-advance-tab-nav li' => 'border-bottom: 1px solid {{VALUE}};'
+					'{{WRAPPER}} .jltma-advance-tab.two .jltma-advance-tab-nav li' => 'border-bottom: 1px solid {{VALUE}};'
 				],
 				'condition' => [
 					'ma_el_tabs_preset' => 'two'
@@ -626,7 +626,7 @@ class Tabs extends Widget_Base
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -637,7 +637,7 @@ class Tabs extends Widget_Base
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -647,7 +647,7 @@ class Tabs extends Widget_Base
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'          => 'ma_el_tabs_heading_box_shadow',
-				'selector'      => '{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li',
+				'selector'      => '{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li',
 			]
 		);
 
@@ -668,7 +668,7 @@ class Tabs extends Widget_Base
 					'size' => 18,
 				],
 				'selectors'  => array(
-					'.ma-el-advance-tab .ma-el-advance-tab-nav li i' => 'font-size:{{SIZE}}{{UNIT}} !important;',
+					'.jltma-advance-tab .jltma-advance-tab-nav li i' => 'font-size:{{SIZE}}{{UNIT}} !important;',
 				),
 				'style_transfer' => true
 			]
@@ -680,7 +680,7 @@ class Tabs extends Widget_Base
 			[
 				'name'          => 'ma_el_tabs_heading_box_border',
 				'separator'     => 'before',
-				'selector'      => '{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li',
+				'selector'      => '{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li',
 			]
 		);
 
@@ -691,7 +691,7 @@ class Tabs extends Widget_Base
 				'type'          => Controls_Manager::DIMENSIONS,
 				'size_units'    => ['px', '%', 'em'],
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -713,7 +713,7 @@ class Tabs extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#0a1724',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li.active span, {{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li.active i' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li.active span, {{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li.active i' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -725,8 +725,8 @@ class Tabs extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#f9f9f9',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li.active, {{WRAPPER}} .ma-el-advance-tab.four .ma-el-advance-tab-nav li::before' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-advance-tab.three .ma-el-advance-tab-nav li::before' => 'border-left-color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li.active, {{WRAPPER}} .jltma-advance-tab.four .jltma-advance-tab-nav li::before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-advance-tab.three .jltma-advance-tab-nav li::before' => 'border-left-color: {{VALUE}};'
 				],
 			]
 		);
@@ -738,8 +738,8 @@ class Tabs extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#704aff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab.two .ma-el-advance-tab-nav li.active' => 'border-bottom: 1px solid {{VALUE}};',
-					'{{WRAPPER}} .ma-el-advance-tab.four .ma-el-advance-tab-nav li::after' => 'background: {{VALUE}};'
+					'{{WRAPPER}} .jltma-advance-tab.two .jltma-advance-tab-nav li.active' => 'border-bottom: 1px solid {{VALUE}};',
+					'{{WRAPPER}} .jltma-advance-tab.four .jltma-advance-tab-nav li::after' => 'background: {{VALUE}};'
 				],
 				'condition' => [
 					'ma_el_tabs_preset' => 'two'
@@ -754,7 +754,7 @@ class Tabs extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#704aff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab.four .ma-el-advance-tab-nav li::after' => 'background: {{VALUE}};'
+					'{{WRAPPER}} .jltma-advance-tab.four .jltma-advance-tab-nav li::after' => 'background: {{VALUE}};'
 				],
 				'condition' => [
 					'ma_el_tabs_preset' => 'four'
@@ -770,7 +770,7 @@ class Tabs extends Widget_Base
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li.active' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li.active' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -781,7 +781,7 @@ class Tabs extends Widget_Base
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li.active' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li.active' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -791,7 +791,7 @@ class Tabs extends Widget_Base
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'          => 'ma_el_tabs_heading_active_box_shadow',
-				'selector'      => '{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li.active',
+				'selector'      => '{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li.active',
 			]
 		);
 
@@ -800,7 +800,7 @@ class Tabs extends Widget_Base
 			[
 				'name'          => 'ma_el_tabs_heading_active_box_border',
 				'separator'     => 'before',
-				'selector'      => '{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li.active',
+				'selector'      => '{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li.active',
 			]
 		);
 
@@ -811,7 +811,7 @@ class Tabs extends Widget_Base
 				'type'          => Controls_Manager::DIMENSIONS,
 				'size_units'    => ['px', '%', 'em'],
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-nav li.active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-nav li.active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 
 			]
@@ -844,7 +844,7 @@ class Tabs extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#0a1724',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content .ma-el-advance-tab-content-title' =>
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content .jltma-advance-tab-content-title' =>
 					'color: {{VALUE}};',
 				],
 			]
@@ -854,13 +854,13 @@ class Tabs extends Widget_Base
 			[
 				'name' => 'ma_el_tabs_content_title_typography',
 				'label' => esc_html__('Title Typography', MELA_TD),
-				'selector' => '{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content-title,
-					{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content h1,
-					{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content h2,
-					{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content h3,
-					{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content h4,
-					{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content h5,
-					{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content h6'
+				'selector' => '{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content-title,
+					{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content h1,
+					{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content h2,
+					{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content h3,
+					{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content h4,
+					{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content h5,
+					{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content h6'
 			]
 		);
 		$this->add_control(
@@ -870,7 +870,7 @@ class Tabs extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#f9f9f9',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content ' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content ' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -881,7 +881,7 @@ class Tabs extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#333',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content ' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content ' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -890,7 +890,7 @@ class Tabs extends Widget_Base
 			[
 				'name' => 'ma_el_tabs_content_typography',
 				'label' => esc_html__('Content Typography', MELA_TD),
-				'selector' => '{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content',
+				'selector' => '{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content',
 			]
 		);
 
@@ -901,7 +901,7 @@ class Tabs extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array('px', '%'),
 				'selectors'  => array(
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -913,7 +913,7 @@ class Tabs extends Widget_Base
 				'exclude' => array(
 					'box_shadow_position',
 				),
-				'selector' => '{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content',
+				'selector' => '{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content',
 			)
 		);
 
@@ -932,7 +932,7 @@ class Tabs extends Widget_Base
 					'isLinked' => true,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -944,7 +944,7 @@ class Tabs extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array('px', '%'),
 				'selectors'  => array(
-					'{{WRAPPER}} .ma-el-advance-tab .ma-el-advance-tab-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-advance-tab .jltma-advance-tab-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1032,9 +1032,9 @@ class Tabs extends Widget_Base
 		$this->add_render_attribute(
 			'ma_el_tab_wrapper',
 			[
-				'id'     => "ma-el-advance-tabs-{$this->get_id()}",
+				'id'     => "jltma-advance-tabs-{$this->get_id()}",
 				'class'	 => [
-					'ma-el-advance-tab',
+					'jltma-advance-tab',
 					$settings['ma_el_tabs_preset'],
 					$column_order
 				],
@@ -1052,17 +1052,17 @@ class Tabs extends Widget_Base
 		<div <?php echo $this->get_render_attribute_string('ma_el_tab_wrapper'); ?> data-tabs>
 
 			<?php if (isset($settings['ma_el_tabs_preset']) && $settings['ma_el_tabs_preset'] == "five") { ?>
-				<div class="jltma-col-md-<?php echo esc_attr($ma_el_tabs_left_cols[0]); ?> <?php
-																							if ($column_order == "float-left") {
-																								echo "order-1";
-																							} elseif ($settings['ma_el_tabs_left_cols'] == "12-12") {
-																								# code...
-																							} else {
-																								echo "order-2";
-																							} ?>">
+				<div class="jltma-col-<?php echo esc_attr($ma_el_tabs_left_cols[0]); ?> <?php
+					if ($column_order == "float-left") {
+						echo "order-1";
+					} elseif ($settings['ma_el_tabs_left_cols'] == "12-12") {
+						# code...
+					} else {
+						echo "order-2";
+					} ?>">
 				<?php } ?>
 
-				<ul class="ma-el-advance-tab-nav">
+				<ul class="jltma-advance-tab-nav">
 					<?php foreach ($settings['ma_el_tabs'] as $key => $tab) : ?>
 						<li class="<?php echo esc_attr($tab['ma_el_tab_show_as_default']); ?>" data-tab data-tab-id="jltma-tab-<?php echo $this->get_id() . $key; ?>">
 							<?php if ($settings['ma_el_tabs_icon_show'] === 'yes') :
@@ -1070,10 +1070,10 @@ class Tabs extends Widget_Base
 									<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-home', 'icon', $tab['ma_el_tab_title_icon'], 'ma_el_tab_title_icon'); ?>
 								<?php elseif ($tab['ma_el_tabs_icon_type'] === 'image') : ?>
 									<img src="<?php echo esc_attr($tab['ma_el_tab_title_image']['url']);
-												?>">
+								?>">
 								<?php endif; ?>
 							<?php endif; ?>
-							<span class="ma-el-tab-title"><?php echo $tab['ma_el_tab_title']; ?></span>
+							<span class="jltma-tab-title"><?php echo $tab['ma_el_tab_title']; ?></span>
 						</li>
 					<?php endforeach; ?>
 				</ul>
@@ -1081,18 +1081,16 @@ class Tabs extends Widget_Base
 				<?php if ($settings['ma_el_tabs_preset'] == "five") { ?>
 				</div>
 
-				<div class="jltma-col-md-<?php echo esc_attr($ma_el_tabs_left_cols[1]); ?> <?php if ($column_order == "float-left") {
-																								echo "order-2";
-																							} else {
-																								echo "order-1";
-																							} ?>">
+				<div class="jltma-col-<?php echo esc_attr($ma_el_tabs_left_cols[1]); ?> <?php if ($column_order == "float-left") {
+					echo "order-2";
+					} else {
+						echo "order-1";
+					} ?>">
 				<?php } ?>
 
-				<div class="tab-content">
+				<div class="jltma-tab-content">
 					<?php foreach ($settings['ma_el_tabs'] as $key => $tab) : $ma_el_find_default_tab[] = $tab['ma_el_tab_show_as_default']; ?>
-						<div id="jltma-tab-<?php echo $this->get_id() . $key; ?>" class="ma-el-advance-tab-content tab-pane <?php echo esc_attr(
-																																$tab['ma_el_tab_show_as_default']
-																															); ?>">
+						<div id="jltma-tab-<?php echo $this->get_id() . $key; ?>" class="jltma-advance-tab-content <?php echo esc_attr($tab['ma_el_tab_show_as_default']); ?>">
 							<?php
 							// Nested Accordion Available for Premium Version
 							if (ma_el_fs()->can_use_premium_code()) {
@@ -1116,7 +1114,7 @@ class Tabs extends Widget_Base
 
 								echo do_shortcode($tab['ma_el_tab_content']);
 							} ?>
-						</div><!-- ma-el-advance-tab-content -->
+						</div><!-- jltma-advance-tab-content -->
 					<?php endforeach; ?>
 				</div> <!-- tab-content -->
 
