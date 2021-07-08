@@ -607,9 +607,9 @@ class Domain_Search extends Widget_Base
 
         $ma_el_domain_affiliate = '';
         if ($settings['ma_el_domain_affiliate_show'] == "yes") {
-                                                            $ma_el_domain_affiliate = '<a ' . $this->get_render_attribute_string('domain_affiliate') . '>';
-                                    $ma_el_domain_affiliate .                       = $ma_el_domain_affiliate_text;
-                                    $ma_el_domain_affiliate .                       = '</a>';
+            $ma_el_domain_affiliate = '<a ' . $this->get_render_attribute_string('domain_affiliate') . '>';
+            $ma_el_domain_affiliate . = $ma_el_domain_affiliate_text;
+            $ma_el_domain_affiliate . = '</a>';
         }
 
 

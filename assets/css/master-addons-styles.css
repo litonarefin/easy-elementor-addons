@@ -1990,21 +1990,21 @@ fieldset:disabled a.jltma-btn {
     opacity: 1;
   }
 }
-.ma-el-tooltip {
+.jltma-tooltip {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item {
+.jltma-tooltip .jltma-tooltip-item {
   position: relative;
 }
 
-.ma-el-tooltip .ma-el-tooltip-content-text {
+.jltma-tooltip .jltma-tooltip-content-text {
   line-height: 0.5;
 }
 
-.ma-el-tooltip-align-left {
+.jltma-tooltip-align-left {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2016,7 +2016,7 @@ fieldset:disabled a.jltma-btn {
           justify-content: flex-start;
 }
 
-.ma-el-tooltip-align-center {
+.jltma-tooltip-align-center {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2028,7 +2028,7 @@ fieldset:disabled a.jltma-btn {
           justify-content: center;
 }
 
-.ma-el-tooltip-align-right {
+.jltma-tooltip-align-right {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2040,7 +2040,7 @@ fieldset:disabled a.jltma-btn {
           justify-content: flex-end;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-content {
+.jltma-tooltip .jltma-tooltip-item .jltma-tooltip-content {
   cursor: pointer;
   line-height: 0.6;
   font-size: 16px;
@@ -2050,11 +2050,11 @@ fieldset:disabled a.jltma-btn {
   transition: all 0.3s ease;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-content a img {
+.jltma-tooltip .jltma-tooltip-item .jltma-tooltip-content a img {
   margin: 0 auto;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-text {
+.jltma-tooltip .jltma-tooltip-item .jltma-tooltip-text {
   position: absolute;
   min-width: 150px;
   padding: 10px;
@@ -2072,7 +2072,7 @@ fieldset:disabled a.jltma-btn {
   z-index: 4;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-text:after {
+.jltma-tooltip .jltma-tooltip-item .jltma-tooltip-text:after {
   content: "";
   display: block;
   position: absolute;
@@ -2081,19 +2081,19 @@ fieldset:disabled a.jltma-btn {
   border-style: solid;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-content:hover {
+.jltma-tooltip .jltma-tooltip-item .jltma-tooltip-content:hover {
   -webkit-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.13);
           box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.13);
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-left .ma-el-tooltip-content:hover ~ .ma-el-tooltip-text {
+.jltma-tooltip .jltma-tooltip-item.tooltip-left .jltma-tooltip-content:hover ~ .jltma-tooltip-text {
   -webkit-transform: translate3d(0, -50%, 0);
   transform: translate3d(0, -50%, 0);
   visibility: visible;
   opacity: 1;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-left .ma-el-tooltip-text {
+.jltma-tooltip .jltma-tooltip-item.tooltip-left .jltma-tooltip-text {
   top: 50%;
   right: -webkit-calc(100% + 1em);
   right: calc(100% + 1em);
@@ -2101,7 +2101,7 @@ fieldset:disabled a.jltma-btn {
   transform: translate3d(-15px, -50%, 0);
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-left .ma-el-tooltip-text:after {
+.jltma-tooltip .jltma-tooltip-item.tooltip-left .jltma-tooltip-text:after {
   top: 50%;
   right: -0.5em;
   -webkit-transform: translate3d(0, -50%, 0);
@@ -2110,19 +2110,19 @@ fieldset:disabled a.jltma-btn {
   border-color: transparent transparent transparent #f9f9f9;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom:hover .ma-el-tooltip-text {
+.jltma-tooltip .jltma-tooltip-item.tooltip-bottom:hover .jltma-tooltip-text {
   -webkit-transform: translate3d(-50%, 0, 0);
   transform: translate3d(-50%, 0, 0);
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom .ma-el-tooltip-content:hover ~ .ma-el-tooltip-text {
+.jltma-tooltip .jltma-tooltip-item.tooltip-bottom .jltma-tooltip-content:hover ~ .jltma-tooltip-text {
   -webkit-transform: translate3d(-50%, 0, 0);
   transform: translate3d(-50%, 0, 0);
   visibility: visible;
   opacity: 1;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom .ma-el-tooltip-text {
+.jltma-tooltip .jltma-tooltip-item.tooltip-bottom .jltma-tooltip-text {
   top: -webkit-calc(100% + 1em);
   top: calc(100% + 1em);
   left: 50%;
@@ -2131,7 +2131,7 @@ fieldset:disabled a.jltma-btn {
   text-align: center;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom .ma-el-tooltip-text:after {
+.jltma-tooltip .jltma-tooltip-item.tooltip-bottom .jltma-tooltip-text:after {
   top: -0.5em;
   left: 50%;
   -webkit-transform: translate3d(-50%, 0, 0);
@@ -2140,19 +2140,19 @@ fieldset:disabled a.jltma-btn {
   border-color: transparent transparent #f9f9f9 transparent;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-top:hover .ma-el-tooltip-text {
+.jltma-tooltip .jltma-tooltip-item.tooltip-top:hover .jltma-tooltip-text {
   -webkit-transform: translate3d(-50%, 0, 0);
   transform: translate3d(-50%, 0, 0);
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-top .ma-el-tooltip-content:hover ~ .ma-el-tooltip-text {
+.jltma-tooltip .jltma-tooltip-item.tooltip-top .jltma-tooltip-content:hover ~ .jltma-tooltip-text {
   -webkit-transform: translate3d(-50%, 0, 0);
   transform: translate3d(-50%, 0, 0);
   visibility: visible;
   opacity: 1;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-top .ma-el-tooltip-text {
+.jltma-tooltip .jltma-tooltip-item.tooltip-top .jltma-tooltip-text {
   bottom: -webkit-calc(100% + 1em);
   bottom: calc(100% + 1em);
   left: 50%;
@@ -2161,7 +2161,7 @@ fieldset:disabled a.jltma-btn {
   text-align: center;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-top .ma-el-tooltip-text:after {
+.jltma-tooltip .jltma-tooltip-item.tooltip-top .jltma-tooltip-text:after {
   bottom: -0.5em;
   left: 50%;
   -webkit-transform: translate3d(-50%, 0, 0);
@@ -2170,19 +2170,19 @@ fieldset:disabled a.jltma-btn {
   border-color: #f9f9f9 transparent transparent transparent;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-right:hover .ma-el-tooltip-text {
+.jltma-tooltip .jltma-tooltip-item.tooltip-right:hover .jltma-tooltip-text {
   -webkit-transform: translate3d(0, -50%, 0);
   transform: translate3d(0, -50%, 0);
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-right .ma-el-tooltip-content:hover ~ .ma-el-tooltip-text {
+.jltma-tooltip .jltma-tooltip-item.tooltip-right .jltma-tooltip-content:hover ~ .jltma-tooltip-text {
   -webkit-transform: translate3d(0, -50%, 0);
   transform: translate3d(0, -50%, 0);
   visibility: visible;
   opacity: 1;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-right .ma-el-tooltip-text {
+.jltma-tooltip .jltma-tooltip-item.tooltip-right .jltma-tooltip-text {
   top: 50%;
   left: -webkit-calc(100% + 1em);
   left: calc(100% + 1em);
@@ -2191,7 +2191,7 @@ fieldset:disabled a.jltma-btn {
   text-align: center;
 }
 
-.ma-el-tooltip .ma-el-tooltip-item.tooltip-right .ma-el-tooltip-text:after {
+.jltma-tooltip .jltma-tooltip-item.tooltip-right .jltma-tooltip-text:after {
   top: 50%;
   left: -0.5em;
   -webkit-transform: translate3d(0, -50%, 0);
