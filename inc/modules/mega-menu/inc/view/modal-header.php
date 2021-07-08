@@ -5,8 +5,10 @@
     <div class="jltma-pop-save float-right">
         <input type="hidden" id="jltma-menu-modal-menu-id">
         <input type="hidden" id="jltma-menu-modal-menu-has-child">
-        <span class='spinner'></span>
-        <?php echo get_submit_button(esc_html__('Save', MELA_TD), 'jltma-menu-item-save save-btn','', false); ?>
+        <span class='spinner'></span>        
+        <span id="jltma-menu-modal-spinner" class='spinner'></span>
+        
+        <?php echo get_submit_button(esc_html__('Save', MELA_TD), 'jltma-menu-item-save jltma-save-btn','', false); ?>
     </div>
-    <span id="jltma-menu-modal-spinner" class='spinner'></span>
+    
 </div>  

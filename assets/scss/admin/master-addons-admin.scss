@@ -521,7 +521,7 @@
         align-items: center;
         justify-content: center;
         background: rgba(200, 200, 200, 0.65);
-        height: 100%;        
+        height: 100%;
         width: 100%;
         top: 0;
         left: 0;
@@ -720,141 +720,142 @@
             }
         }
     }
-}
-.jltma-addons-tooltip {
-    .jltma-tooltip-item {
-        position: relative;
-        i {
-            color: #90a4ae;
-            cursor: pointer;
-            display: inline-block;
-            font-size: 13px;
-            padding: 3px 4px;
-            transition: all 0.3s ease;
-            &:hover {
-                color: $titlecolor;
-            }
-        }
-        .jltma-tooltip-text {
-            background-color: $titlecolor;
-            border-radius: $radius5p;
-            box-shadow: none;
-            font-size: $font-size - 1px;
-            font-weight: $weight500;
-            padding: 4.5px 12px;
-            position: absolute;
-            white-space: nowrap;
-            visibility: hidden;
-            opacity: 0;
-            z-index: 99999;
 
-            transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
-            &:after {
-                content: "";
-                display: block;
-                position: absolute;
-                width: 0;
-                height: 0;
-                border-style: solid;
-            }
-            a {
-                color: #efeff5;
-                text-decoration: none;
-            }
-            &:hover {
-                box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.13);
-            }
-        }
-        &:hover {
-            ~ .jltma-tooltip-text {
-                -webkit-transform: translate3d(-50%, 0, 0);
-                transform: translate3d(-50%, 0, 0);
-                visibility: visible;
-                opacity: 1;
+    .jltma-addons-tooltip {
+        .jltma-tooltip-item {
+            position: relative;
+            i {
+                color: #90a4ae;
+                cursor: pointer;
+                display: inline-block;
+                font-size: 13px;
+                padding: 3px 4px;
+                transition: all 0.3s ease;
+                &:hover {
+                    color: $titlecolor;
+                }
             }
             .jltma-tooltip-text {
-                opacity: 1;
-                visibility: visible;
+                background-color: $titlecolor;
+                border-radius: $radius5p;
+                box-shadow: none;
+                font-size: $font-size - 1px;
+                font-weight: $weight500;
+                padding: 4.5px 12px;
+                position: absolute;
+                white-space: nowrap;
+                visibility: hidden;
+                opacity: 0;
+                z-index: 99999;
+
+                transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+                &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                }
+                a {
+                    color: #efeff5;
+                    text-decoration: none;
+                }
+                &:hover {
+                    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.13);
+                }
             }
-        }
-        &.tooltip-top .jltma-tooltip-text {
-            bottom: 10px;
-            left: 50%;
-            -webkit-transform: translate3d(-50%, -15px, 0);
-            transform: translate3d(-50%, -15px, 0);
-            text-align: center;
-            &:after {
-                bottom: -0.5em;
+            &:hover {
+                ~ .jltma-tooltip-text {
+                    -webkit-transform: translate3d(-50%, 0, 0);
+                    transform: translate3d(-50%, 0, 0);
+                    visibility: visible;
+                    opacity: 1;
+                }
+                .jltma-tooltip-text {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+            &.tooltip-top .jltma-tooltip-text {
+                bottom: 10px;
                 left: 50%;
-                -webkit-transform: translate3d(-50%, 0, 0);
-                transform: translate3d(-50%, 0, 0);
-                border-width: 0.5em 0.5em 0 0.5em;
-                border-color: #393c3f transparent transparent transparent;
+                -webkit-transform: translate3d(-50%, -15px, 0);
+                transform: translate3d(-50%, -15px, 0);
+                text-align: center;
+                &:after {
+                    bottom: -0.5em;
+                    left: 50%;
+                    -webkit-transform: translate3d(-50%, 0, 0);
+                    transform: translate3d(-50%, 0, 0);
+                    border-width: 0.5em 0.5em 0 0.5em;
+                    border-color: #393c3f transparent transparent transparent;
+                }
+            }
+        }
+        .jltma-external-plugin-download {
+            background-color: $primarycolor;
+            border-radius: $radius5p;
+            color: $whitecolor;
+            display: inline-block;
+            font-size: $font-size - 4px;
+            font-weight: $weight700;
+            line-height: $lineheight;
+            margin-top: 3px;
+            padding: 0 5px;
+            i {
+                font-size: $font-size;
+                height: auto;
+                width: auto;
+                line-height: $lineheight;
+                margin-left: 4px;
             }
         }
     }
-    .jltma-external-plugin-download {
-        background-color: $primarycolor;
-        border-radius: $radius5p;
-        color: $whitecolor;
-        display: inline-block;
-        font-size: $font-size - 4px;
-        font-weight: $weight700;
-        line-height: $lineheight;
-        margin-top: 3px;
-        padding: 0 5px;
-        i {
-            font-size: $font-size;
-            height: auto;
-            width: auto;
-            line-height: $lineheight;
-            margin-left: 4px;
+
+    /* Addons Switch */
+
+    .jltma-master-addons_feature-switchbox {
+        .switch-primary > .jltma-switch-input:checked ~ .jltma-switch-label {
+            @include gradient-bg-1;
+            border-color: transparent;
         }
-    }
-}
+        .jltma-switch-input:checked ~ .jltma-switch-handle {
+            background: $whitecolor;
+            left: 25px;
+        }
+        .jltma-switch-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0 !important;
+        }
+        .switch.switch-text .jltma-switch-label::before,
+        .switch.switch-text .jltma-switch-label::after {
+            display: none;
+        }
+        .switch.switch-text .jltma-switch-input:checked ~ .jltma-switch-handle {
+            left: 25px;
+        }
+        .jltma-switch-label {
+            background-color: #eceff4;
+            border: 2px solid #e8e8ec;
+            border-radius: 3rem;
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+        .jltma-switch-handle {
+            background: $whitecolor;
+            border: 1px solid $grayborder;
+            border-radius: 3rem;
+            width: 18px;
+            height: 18px;
+            top: 3px;
+            left: 3px;
+            position: absolute;
 
-/* Addons Switch */
-
-.jltma-master-addons_feature-switchbox {
-    .switch-primary > .jltma-switch-input:checked ~ .jltma-switch-label {
-        @include gradient-bg-1;
-        border-color: transparent;
-    }
-    .jltma-switch-input:checked ~ .jltma-switch-handle {
-        background: $whitecolor;
-        left: 25px;
-    }
-    .jltma-switch-input {
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0 !important;
-    }
-    .switch.switch-text .jltma-switch-label::before,
-    .switch.switch-text .jltma-switch-label::after {
-        display: none;
-    }
-    .switch.switch-text .jltma-switch-input:checked ~ .jltma-switch-handle {
-        left: 25px;
-    }
-    .jltma-switch-label {
-        background-color: #eceff4;
-        border: 2px solid #e8e8ec;
-        border-radius: 3rem;
-        display: block;
-        height: 100%;
-        width: 100%;
-    }
-    .jltma-switch-handle {
-        background: $whitecolor;
-        border: 1px solid $grayborder;
-        border-radius: 3rem;
-        width: 18px;
-        height: 18px;
-        top: 3px;
-        left: 3px;
-        position: absolute;
-
-        transition: left 0.15s ease-out;
+            transition: left 0.15s ease-out;
+        }
     }
 }

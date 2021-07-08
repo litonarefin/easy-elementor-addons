@@ -5,24 +5,24 @@
     "use strict";
 
     var Master_Header_Footer = {
-        
-        Url_Param_Replace: function(url, paramName, paramValue) {
+
+        Url_Param_Replace: function (url, paramName, paramValue) {
 
             if (paramValue == null) {
                 paramValue = '';
             }
-            var pattern = new RegExp('\\b('+paramName+'=).*?(&|#|$)');
-            if (url.search(pattern)>=0) {
-                return url.replace(pattern,'$1' + paramValue + '$2');
+            var pattern = new RegExp('\\b(' + paramName + '=).*?(&|#|$)');
+            if (url.search(pattern) >= 0) {
+                return url.replace(pattern, '$1' + paramValue + '$2');
             }
-            url = url.replace(/[?#]$/,'');
-            return url + (url.indexOf('?')>0 ? '&' : '?') + paramName + '=' + paramValue;
+            url = url.replace(/[?#]$/, '');
+            return url + (url.indexOf('?') > 0 ? '&' : '?') + paramName + '=' + paramValue;
 
         },
 
-        JLTMA_Template_Editor: function(data) {
-            try { 
-                (function($) {
+        JLTMA_Template_Editor: function (data) {
+            try {
+                (function ($) {
 
                     // set the form data
                     $('.jltma_hf_modal-title').val(data.title);
@@ -42,7 +42,7 @@
                         .trigger('change');
 
                     var el = $('.jltma_hf_modal-jltma_hfc_singular_id');
-                    
+
                     $.ajax({
                         url: window.masteraddons.resturl + 'select2/singular_list',
                         dataType: 'json',
@@ -67,13 +67,13 @@
                     });
 
                 })(jQuery);
-            } catch(e) {  //We can also throw from try block and catch it here
+            } catch (e) {  //We can also throw from try block and catch it here
                 //e.preventDefault();
-            } 
+            }
         },
 
 
-        Modal_Singular_List: function() {
+        Modal_Singular_List: function () {
             $('.jltma_hf_modal-jltma_hfc_singular_id').select2({
                 ajax: {
                     url: window.masteraddons.resturl + 'select2/singular_list',
@@ -91,16 +91,16 @@
             });
         },
 
-        Modal_Submit: function() {
-            try { 
-                (function($) {
+        Modal_Submit: function () {
+            try {
+                (function ($) {
 
                     $('#jltma_hf_modal_form').on('submit', function (e) {
                         e.preventDefault();
 
                         var modal = $('#jltma_hf_modal');
                         modal.addClass('loading');
-                    
+
                         var form_data = $(this).serialize(),
                             id = $(this).attr('data-jltma-hf-id'),
                             open_editor = $(this).attr('data-open-editor'),
@@ -116,44 +116,44 @@
                             },
                             dataType: 'json',
                             success: function (output) {
-                                
-                                setTimeout(function() {
+
+                                setTimeout(function () {
                                     modal.removeClass('loading');
-                                }, 1500 );
-                    
+                                }, 1500);
+
                                 var row = $('#post-' + output.data.id);
-                                
-                                if(row.length > 0){
+
+                                if (row.length > 0) {
                                     row.find('.column-type')
                                         .html(output.data.type_html);
-                    
+
                                     row.find('.column-condition')
                                         .html(output.data.cond_text);
-                    
+
                                     row.find('.row-title')
                                         .html(output.data.title)
                                         .attr('aria-label', output.data.title);
                                 }
-                    
+
                                 if (open_editor == '1') {
                                     window.location.href = admin_url + '?post=' + output.data.id + '&action=elementor';
-                                }else if(id == '0'){
+                                } else if (id == '0') {
                                     location.reload();
                                 }
                             }
                         });
-                    
+
                     });
-                    
+
                 })(jQuery);
-            } catch(e) {  //We can also throw from try block and catch it here
+            } catch (e) {  //We can also throw from try block and catch it here
                 //e.preventDefault();
-            } 
+            }
         },
 
-        Open_Editor: function() {
-            try { 
-                (function($) {
+        Open_Editor: function () {
+            try {
+                (function ($) {
 
                     $('.jltma-btn-editor').on('click', function () {
                         var form = $('#jltma_hf_modal_form');
@@ -162,14 +162,14 @@
                     });
 
                 })(jQuery);
-            } catch(e) {  //We can also throw from try block and catch it here
+            } catch (e) {  //We can also throw from try block and catch it here
                 //e.preventDefault();
-            } 
+            }
         },
 
-        Choose_Template_Singular_Condition: function() {
-            try { 
-                (function($) {
+        Choose_Template_Singular_Condition: function () {
+            try {
+                (function ($) {
 
                     $('.jltma_hf_modal-jltma_hfc_singular').on('change', function () {
                         var jltma_hfc_singular = $(this).val();
@@ -183,14 +183,14 @@
                     });
 
                 })(jQuery);
-            } catch(e) {  //We can also throw from try block and catch it here
+            } catch (e) {  //We can also throw from try block and catch it here
                 //e.preventDefault();
-            } 
+            }
         },
 
-        Choose_Template_Conditions: function() {
-            try { 
-                (function($) {
+        Choose_Template_Conditions: function () {
+            try {
+                (function ($) {
 
                     $('.jltma_hf_modal-jltma_hf_conditions').unbind().on('change', function () {
                         var jltma_hf_conditions = $(this).val(),
@@ -198,7 +198,7 @@
 
                         if (jltma_hf_conditions == 'singular') {
                             inputs.show();
-                        } else if( jltma_hf_conditions=='jltma-hfc-single-pro' || jltma_hf_conditions=='jltma-hfc-archive-pro'){
+                        } else if (jltma_hf_conditions == 'jltma-hfc-single-pro' || jltma_hf_conditions == 'jltma-hfc-archive-pro') {
                             $('.jltma-hfc-popup-upgade').remove();
                             $('.jltma_hf_modal-jltma_hf_conditions').after('<div class="jltma-hfc-popup-upgade"> ' + masteraddons.upgrade_pro + '</div>');
                         } else {
@@ -208,22 +208,22 @@
                     });
 
                 })(jQuery);
-            } catch(e) {  //We can also throw from try block and catch it here
+            } catch (e) {  //We can also throw from try block and catch it here
                 //e.preventDefault();
-            } 
+            }
         },
 
-        Choose_Template_Type: function() {
-            try { 
-                (function($) {
+        Choose_Template_Type: function () {
+            try {
+                (function ($) {
 
                     $('.jltma_hfc_type').on('change', function () {
-                        
-                        var type    = $(this).val(),
-                            label   = $('.jltma-hfc-hide-item-label'),
-                            inputs  = $('.jltma_hf_options_container');
 
-                        if ( type == 'section' || type == 'comment') {
+                        var type = $(this).val(),
+                            label = $('.jltma-hfc-hide-item-label'),
+                            inputs = $('.jltma_hf_options_container');
+
+                        if (type == 'section' || type == 'comment') {
                             inputs.hide();
                             label.hide();
                         } else {
@@ -233,59 +233,71 @@
                     });
 
                 })(jQuery);
-            } catch(e) {  //We can also throw from try block and catch it here
+            } catch (e) {  //We can also throw from try block and catch it here
                 //e.preventDefault();
-            } 
+            }
         },
 
-        Modal_Add_Edit: function() {
-            try { 
-                (function($) {
+        Modal_Add_Edit: function () {
+            try {
+                (function ($) {
 
-                    $('.row-actions .edit a, .page-title-action, .column-title .row-title').on('click', function (e) {
-                        e.preventDefault();
-                        var id = 0, 
-                            modal = $('#jltma_hf_modal'),
-                            parent = $(this).parents('.column-title');
+                    // $('.row-actions .edit a, .page-title-action, .column-title .row-title').on('click', function (e) {
+                    //     e.preventDefault();
+                    //     var id = 0, 
+                    //         modal = $('#jltma_hf_modal'),
+                    //         parent = $(this).parents('.column-title');
 
-                        modal.addClass('loading');
-                        modal.modal('show');
+                    //     modal.addClass('show').slow();
+                    //     // modal.modal('show');
 
-                        if (parent.length > 0) {
-                            id = parent.find('.hidden').attr('id').split('_')[1];
+                    //     if (parent.length > 0) {
+                    //         id = parent.find('.hidden').attr('id').split('_')[1];
 
-                            $.get(window.masteraddons.resturl + 'ma-template/get/' + id, function (data) {
-                                Master_Header_Footer.JLTMA_Template_Editor( data );
-                                modal.removeClass('loading');
-                            });
+                    //         $.get(window.masteraddons.resturl + 'ma-template/get/' + id, function (data) {
+                    //             Master_Header_Footer.JLTMA_Template_Editor( data );
+                    //             modal.removeClass('loading');
+                    //         });
 
-                        } else {
-                            var data = {
-                                title               : '',
-                                type                : 'header',
-                                jltma_hf_conditions : 'entire_site',
-                                jltma_hfc_singular  : 'all',
-                                activation          : '',
-                            };
+                    //     } else {
+                    //         var data = {
+                    //             title               : '',
+                    //             type                : 'header',
+                    //             jltma_hf_conditions : 'entire_site',
+                    //             jltma_hfc_singular  : 'all',
+                    //             activation          : '',
+                    //         };
 
-                            Master_Header_Footer.JLTMA_Template_Editor( data );
-                            modal.removeClass('loading');
-                        }
+                    //         Master_Header_Footer.JLTMA_Template_Editor( data );
+                    //         modal.removeClass('loading');
+                    //     }
 
-                        modal.find('form').attr('data-jltma-hf-id', id);
-                    });
+                    //     modal.find('form').attr('data-jltma-hf-id', id);
+                    // });
                 })(jQuery);
-            } catch(e) {  //We can also throw from try block and catch it here
+            } catch (e) {  //We can also throw from try block and catch it here
                 //e.preventDefault();
-            } 
+            }
         },
 
     };
 
 
 
-    jQuery(document).ready(function($) {
-        "use strict"; 
+    jQuery(document).ready(function ($) {
+        "use strict";
+
+        // Modals 
+
+        $('.page-title-action').on('click', function (e) {
+            $('.jltma-modal').toggleClass("show");
+            e.preventDefault();
+        });
+
+        $('.jltma-pop-close').on('click', function (e) {
+            $('.jltma-modal').toggleClass("show");
+            e.preventDefault();
+        });
 
         Master_Header_Footer.Modal_Add_Edit();
         Master_Header_Footer.Choose_Template_Type();
@@ -310,7 +322,7 @@
 
         s = (s == null) ? 'all' : s;
 
-        $.each( filter_types, function(k, v){
+        $.each(filter_types, function (k, v) {
             var url = Master_Header_Footer.Url_Param_Replace(window.location.href, 'master_template_type_filter', k);
             var jlma_class = (s == k) ? 'master_type_filter_active nav-tab-active' : ' ';
             tabs += `
@@ -318,7 +330,7 @@
             `;
             tabs += "\n";
         });
-        tab_container.after('<div class="master_type_filter_tab_container nav-tab-wrapper">'+ tabs +'</div><br/>');
+        tab_container.after('<div class="master_type_filter_tab_container nav-tab-wrapper">' + tabs + '</div><br/>');
 
     }); //document.ready
 

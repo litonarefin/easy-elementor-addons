@@ -5,6 +5,7 @@
 */
 .jltma-admin {
   color: #393c3f;
+  /* Addons Switch */
 }
 .jltma-admin * {
   -webkit-box-sizing: border-box;
@@ -810,11 +811,10 @@
   width: 16px;
   margin: 9px 7px 0 0;
 }
-
-.jltma-addons-tooltip .jltma-tooltip-item {
+.jltma-admin .jltma-addons-tooltip .jltma-tooltip-item {
   position: relative;
 }
-.jltma-addons-tooltip .jltma-tooltip-item i {
+.jltma-admin .jltma-addons-tooltip .jltma-tooltip-item i {
   color: #90a4ae;
   cursor: pointer;
   display: inline-block;
@@ -824,10 +824,10 @@
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-.jltma-addons-tooltip .jltma-tooltip-item i:hover {
+.jltma-admin .jltma-addons-tooltip .jltma-tooltip-item i:hover {
   color: #393c3f;
 }
-.jltma-addons-tooltip .jltma-tooltip-item .jltma-tooltip-text {
+.jltma-admin .jltma-addons-tooltip .jltma-tooltip-item .jltma-tooltip-text {
   background-color: #393c3f;
   -webkit-border-radius: 5px;
           border-radius: 5px;
@@ -845,7 +845,7 @@
   -o-transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
   transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
 }
-.jltma-addons-tooltip .jltma-tooltip-item .jltma-tooltip-text:after {
+.jltma-admin .jltma-addons-tooltip .jltma-tooltip-item .jltma-tooltip-text:after {
   content: "";
   display: block;
   position: absolute;
@@ -853,32 +853,32 @@
   height: 0;
   border-style: solid;
 }
-.jltma-addons-tooltip .jltma-tooltip-item .jltma-tooltip-text a {
+.jltma-admin .jltma-addons-tooltip .jltma-tooltip-item .jltma-tooltip-text a {
   color: #efeff5;
   text-decoration: none;
 }
-.jltma-addons-tooltip .jltma-tooltip-item .jltma-tooltip-text:hover {
+.jltma-admin .jltma-addons-tooltip .jltma-tooltip-item .jltma-tooltip-text:hover {
   -webkit-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.13);
           box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.13);
 }
-.jltma-addons-tooltip .jltma-tooltip-item:hover ~ .jltma-tooltip-text {
+.jltma-admin .jltma-addons-tooltip .jltma-tooltip-item:hover ~ .jltma-tooltip-text {
   -webkit-transform: translate3d(-50%, 0, 0);
   transform: translate3d(-50%, 0, 0);
   visibility: visible;
   opacity: 1;
 }
-.jltma-addons-tooltip .jltma-tooltip-item:hover .jltma-tooltip-text {
+.jltma-admin .jltma-addons-tooltip .jltma-tooltip-item:hover .jltma-tooltip-text {
   opacity: 1;
   visibility: visible;
 }
-.jltma-addons-tooltip .jltma-tooltip-item.tooltip-top .jltma-tooltip-text {
+.jltma-admin .jltma-addons-tooltip .jltma-tooltip-item.tooltip-top .jltma-tooltip-text {
   bottom: 10px;
   left: 50%;
   -webkit-transform: translate3d(-50%, -15px, 0);
   transform: translate3d(-50%, -15px, 0);
   text-align: center;
 }
-.jltma-addons-tooltip .jltma-tooltip-item.tooltip-top .jltma-tooltip-text:after {
+.jltma-admin .jltma-addons-tooltip .jltma-tooltip-item.tooltip-top .jltma-tooltip-text:after {
   bottom: -0.5em;
   left: 50%;
   -webkit-transform: translate3d(-50%, 0, 0);
@@ -886,7 +886,7 @@
   border-width: 0.5em 0.5em 0 0.5em;
   border-color: #393c3f transparent transparent transparent;
 }
-.jltma-addons-tooltip .jltma-external-plugin-download {
+.jltma-admin .jltma-addons-tooltip .jltma-external-plugin-download {
   background-color: #6814cd;
   -webkit-border-radius: 5px;
           border-radius: 5px;
@@ -898,38 +898,36 @@
   margin-top: 3px;
   padding: 0 5px;
 }
-.jltma-addons-tooltip .jltma-external-plugin-download i {
+.jltma-admin .jltma-addons-tooltip .jltma-external-plugin-download i {
   font-size: 14px;
   height: auto;
   width: auto;
   line-height: 20px;
   margin-left: 4px;
 }
-
-/* Addons Switch */
-.jltma-master-addons_feature-switchbox .switch-primary > .jltma-switch-input:checked ~ .jltma-switch-label {
+.jltma-admin .jltma-master-addons_feature-switchbox .switch-primary > .jltma-switch-input:checked ~ .jltma-switch-label {
   background-image: -moz-linear-gradient(0deg, #9929ea 0%, #5808fb 100%);
   background-image: -webkit-linear-gradient(0deg, #9929ea 0%, #5808fb 100%);
   border-color: transparent;
 }
-.jltma-master-addons_feature-switchbox .jltma-switch-input:checked ~ .jltma-switch-handle {
+.jltma-admin .jltma-master-addons_feature-switchbox .jltma-switch-input:checked ~ .jltma-switch-handle {
   background: #fff;
   left: 25px;
 }
-.jltma-master-addons_feature-switchbox .jltma-switch-input {
+.jltma-admin .jltma-master-addons_feature-switchbox .jltma-switch-input {
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0 !important;
 }
-.jltma-master-addons_feature-switchbox .switch.switch-text .jltma-switch-label::before,
-.jltma-master-addons_feature-switchbox .switch.switch-text .jltma-switch-label::after {
+.jltma-admin .jltma-master-addons_feature-switchbox .switch.switch-text .jltma-switch-label::before,
+.jltma-admin .jltma-master-addons_feature-switchbox .switch.switch-text .jltma-switch-label::after {
   display: none;
 }
-.jltma-master-addons_feature-switchbox .switch.switch-text .jltma-switch-input:checked ~ .jltma-switch-handle {
+.jltma-admin .jltma-master-addons_feature-switchbox .switch.switch-text .jltma-switch-input:checked ~ .jltma-switch-handle {
   left: 25px;
 }
-.jltma-master-addons_feature-switchbox .jltma-switch-label {
+.jltma-admin .jltma-master-addons_feature-switchbox .jltma-switch-label {
   background-color: #eceff4;
   border: 2px solid #e8e8ec;
   -webkit-border-radius: 3rem;
@@ -938,7 +936,7 @@
   height: 100%;
   width: 100%;
 }
-.jltma-master-addons_feature-switchbox .jltma-switch-handle {
+.jltma-admin .jltma-master-addons_feature-switchbox .jltma-switch-handle {
   background: #fff;
   border: 1px solid #efeff5;
   -webkit-border-radius: 3rem;

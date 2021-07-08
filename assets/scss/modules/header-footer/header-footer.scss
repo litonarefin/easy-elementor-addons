@@ -1,0 +1,230 @@
+@import "../../variables", "../../mixins";
+
+.jltma-admin {
+    #jltma_hf_modal {
+        * {
+            box-sizing: border-box;
+        }
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        opacity: 0;
+        z-index: -1;
+        backface-visibility: hidden;
+
+        transition: opacity 0.15s linear;
+        &.show {
+            opacity: 1;
+            z-index: 9999;
+            .jltma-modal-dialog {
+                transform: none;
+            }
+        }
+        .jltma-modal-dialog {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            max-width: 900px;
+            min-width: 768px;
+            margin: 0 auto;
+            transform: translate(0, -50px);
+            transition: all 0.3s;
+        }
+        .jltma-modal-content {
+            background-color: $whitecolor;
+            border-radius: $radius5p;
+        }
+        .jltma-pop-contents-head {
+            background: #6f10b5;
+            border-top-left-radius: $radius5p;
+            border-top-right-radius: $radius5p;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 2rem;
+            position: relative;
+            width: 100%;
+            h3 {
+                color: $whitecolor;
+                font-size: $font-size + 8px;
+                font-weight: $weight400;
+                line-height: $lineheight + 4px;
+                margin: 0;
+            }
+        }
+        .jltma-pop-close {
+            background-color: $whitecolor;
+            border-radius: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: $font-size + 10px;
+            height: 45px;
+            width: 45px;
+            line-height: $lineheight * 2 + 5px;
+            button {
+                background-color: transparent;
+                border: 0;
+                box-shadow: none;
+                cursor: pointer;
+            }
+        }
+        .jltma-pop-contents-padding {
+            padding: 1.5rem;
+        }
+        .jltma-tab-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .jltma-row {
+            display: flex;
+            flex-wrap: wrap;
+            .jltma-col-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding: 7.5px;
+            }
+        }
+        .jltma-tab-content {
+            input[type="text"],
+            select {
+                font-size: $font-size;
+                border: 1px solid #eaeaea;
+                border-radius: 5px;
+                height: 40px;
+                width: 100%;
+                &:focus {
+                    border: none;
+                    outline: none;
+                }
+            }
+            label {
+                margin-bottom: 0;
+                font-size: $font-size;
+            }
+        }
+
+        input:checked + .slider:after {
+            -webkit-transform: translateX(0px);
+            -ms-transform: translateX(0px);
+            transform: translateX(0px);
+            text-align: center;
+        }
+
+        input:checked + .slider:before {
+            background-color: #fff;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(50px);
+            -ms-transform: translateX(50px);
+            transform: translateX(50px);
+        }
+        .jltma-pop-contents-head .close-btn,
+        #jltma-mega-menu-builder-modal .jltma_close {
+            outline: none;
+        }
+        /* Switcher */
+        .jltma_hf_modal-jltma_hfc_singular-container,
+        .jtlma-mega-switcher input[type="checkbox"] {
+            display: none;
+        }
+
+        .jtlma-mega-switcher label {
+            cursor: pointer;
+            text-indent: -9999px;
+            width: 65px;
+            height: 30px;
+            background: #aaa;
+            display: inline-block;
+            border-radius: 60px;
+            position: relative;
+        }
+        .jtlma-mega-switcher label:after {
+            content: "On";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 25px;
+            height: 20px;
+            background: #fff;
+            border-radius: 90px;
+            transition: 0.3s;
+        }
+        .jtlma-mega-switcher input:checked + label {
+            background: #2eb85c;
+        }
+        .jtlma-mega-switcher input:checked + label:after {
+            left: calc(100% - 5px);
+            transform: translateX(-100%);
+        }
+        .jtlma-mega-switcher label:active:after {
+            content: "Off";
+            width: 65px;
+        }
+        .jltma-disabled {
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .jltma-modal-footer {
+            border-top: 1px solid $grayborder;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: 20px;
+            padding: 15px;
+            .jltma-save-btn {
+                border: none;
+                border-radius: 3rem;
+                background-size: 300% 100%;
+                color: $whitecolor;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: $font-size;
+                font-weight: $weight500;
+                line-height: $lineheight * 3 - 5px;
+                margin: 20px 0 0 20px;
+                padding: 0 1rem;
+                text-align: center;
+                text-transform: uppercase;
+                width: 240px;
+                transition: all 0.4s ease-in-out;
+                &:hover {
+                    background-position: 100% 0;
+                }
+                img {
+                    margin-right: 5px;
+                }
+                &.jltma-btn-editor {
+                    background-image: linear-gradient(
+                        to right,
+                        #667eea,
+                        #764ba2,
+                        /* #6b8dd6, */ #8e37d7
+                    );
+                    box-shadow: 0 4px 15px 0 rgb(116 79 168 / 75%);
+                    margin-left: 0;
+                }
+                &.jltma-hf-save {
+                    background-image: linear-gradient(
+                        to right,
+                        #eb3941,
+                        #f15e64,
+                        #e14e53,
+                        #e2373f
+                    );
+                    box-shadow: 0 5px 15px rgb(242 97 103 / 40%);
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
-<div class="modal fade" id="jltma_megamenu_modal" tabindex="-1" role="dialog" aria-hidden="true" >    
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
+<div class="jltma-modal fade" id="jltma_megamenu_modal">    
+    <div class="jltma-modal-dialog" role="document">
+        <div class="jltma-modal-content">
             <div class="jltma-popup-contents">
         
                 <?php include 'modal-header.php';?>
