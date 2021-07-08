@@ -531,8 +531,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Icon Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered .numbered_controller .fn_next span.a' => 'background-color: {{VALUE}};',
@@ -552,8 +552,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered .numbered_controller div' => 'background-color: {{VALUE}};',
@@ -570,8 +570,8 @@ class Slider extends Widget_Base
 				'label'  => __('Number Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered span.count' => 'color: {{VALUE}};',
@@ -588,8 +588,8 @@ class Slider extends Widget_Base
 				'label'  => __('Number Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered span.count' => 'background-color: {{VALUE}};',
@@ -606,8 +606,8 @@ class Slider extends Widget_Base
 				'label'  => __('Number Active Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered .swiper-slide-active span.count' => 'color: {{VALUE}};',
@@ -624,8 +624,8 @@ class Slider extends Widget_Base
 				'label'  => __('Number Active Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered .swiper-slide-active span.count' => 'background-color: {{VALUE}};',
@@ -643,8 +643,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Icon Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered2 .numbered_controller .fn_next span.a' => 'background-color: {{VALUE}};',
@@ -664,8 +664,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered2 .numbered_controller div' => 'background-color: {{VALUE}};',
@@ -682,8 +682,8 @@ class Slider extends Widget_Base
 				'label'  => __('Number Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered2 span.count' => 'color: {{VALUE}};',
@@ -700,8 +700,8 @@ class Slider extends Widget_Base
 				'label'  => __('Number Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered2 span.count' => 'background-color: {{VALUE}};',
@@ -718,8 +718,8 @@ class Slider extends Widget_Base
 				'label'  => __('Number Active Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+'type'  => Color::get_type(),
+'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered2 .swiper-slide-active span.count' => 'color: {{VALUE}};',
