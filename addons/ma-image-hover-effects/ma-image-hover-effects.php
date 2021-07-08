@@ -7,20 +7,20 @@ use \Elementor\Controls_Manager as Controls_Manager;
 use \Elementor\Group_Control_Border as Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography as Group_Control_Typography;
-use \Elementor\Scheme_Typography as Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use \Elementor\Utils;
 use \Elementor\Repeater;
 use \Elementor\Control_Media;
 use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Group_Control_Image_Size;
-use \Elementor\Scheme_Color;
+use \Elementor\Core\Schemes\Color;
 use \Elementor\Group_Control_Text_Shadow;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
  * Author Name: Liton Arefin
- * Author URL: https://jeweltheme.com
- * Date: 8/28/19
+ * Author URL : https:        //jeweltheme.com
+ * Date       : 8/28/19
  */
 
 if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
@@ -87,36 +87,36 @@ class Image_Hover_Effects extends Widget_Base
 
 		return self::$ma_el_image_hover_effects =
 			[
-				'lily' 	            => __('Lily', 	                            MELA_TD),
-				'sadie' 	        => __('Sadie', 	                        MELA_TD),
-				'roxy'              => __('Roxy', 	                            MELA_TD),
-				'bubba'             => __('Bubba', 	                        MELA_TD),
-				'romeo'             => __('Romeo', 	                        MELA_TD),
-				'layla'             => __('Layla', 	                        MELA_TD),
-				'honey'             => __('Honey', 	                        MELA_TD),
-				'oscar'             => __('Oscar', 	                        MELA_TD),
-				'marley'            => __('Marley', 	                        MELA_TD),
-				'ruby'              => __('Ruby', 	                            MELA_TD),
-				'milo'              => __('Milo', 	                            MELA_TD),
-				'dexter'            => __('Dexter', 	                        MELA_TD),
-				'sarah'             => __('Sarah', 	                        MELA_TD),
-				'zoe'               => __('Zoe', 	                            MELA_TD),
-				'chico'             => __('Chico', 	                        MELA_TD),
-				'julia'             => __('Julia', 	                        MELA_TD),
-				'goliath'           => __('Goliath', 	                        MELA_TD),
-				'hera'              => __('Hera', 	                            MELA_TD),
-				'winston'           => __('Winston', 	                        MELA_TD),
-				'selena'            => __('Selena', 	                        MELA_TD),
-				'terry'             => __('Terry', 	                        MELA_TD),
-				'phoebe'            => __('Phoebe', 	                        MELA_TD),
-				'apollo'            => __('Apollo', 	                        MELA_TD),
-				'kira'              => __('Kira', 	                            MELA_TD),
-				'steve'             => __('Steve', 	                        MELA_TD),
-				'moses'             => __('Moses', 	                        MELA_TD),
-				'jazz'              => __('Jazz', 	                            MELA_TD),
-				'ming'              => __('Ming', 	                            MELA_TD),
-				'lexi'              => __('Lexi', 	                            MELA_TD),
-				'duke'              => __('Duke', 	                            MELA_TD),
+				'lily'    => __('Lily', 	                            MELA_TD),
+				'sadie'   => __('Sadie', 	                        MELA_TD),
+				'roxy'    => __('Roxy', 	                            MELA_TD),
+				'bubba'   => __('Bubba', 	                        MELA_TD),
+				'romeo'   => __('Romeo', 	                        MELA_TD),
+				'layla'   => __('Layla', 	                        MELA_TD),
+				'honey'   => __('Honey', 	                        MELA_TD),
+				'oscar'   => __('Oscar', 	                        MELA_TD),
+				'marley'  => __('Marley', 	                        MELA_TD),
+				'ruby'    => __('Ruby', 	                            MELA_TD),
+				'milo'    => __('Milo', 	                            MELA_TD),
+				'dexter'  => __('Dexter', 	                        MELA_TD),
+				'sarah'   => __('Sarah', 	                        MELA_TD),
+				'zoe'     => __('Zoe', 	                            MELA_TD),
+				'chico'   => __('Chico', 	                        MELA_TD),
+				'julia'   => __('Julia', 	                        MELA_TD),
+				'goliath' => __('Goliath', 	                        MELA_TD),
+				'hera'    => __('Hera', 	                            MELA_TD),
+				'winston' => __('Winston', 	                        MELA_TD),
+				'selena'  => __('Selena', 	                        MELA_TD),
+				'terry'   => __('Terry', 	                        MELA_TD),
+				'phoebe'  => __('Phoebe', 	                        MELA_TD),
+				'apollo'  => __('Apollo', 	                        MELA_TD),
+				'kira'    => __('Kira', 	                            MELA_TD),
+				'steve'   => __('Steve', 	                        MELA_TD),
+				'moses'   => __('Moses', 	                        MELA_TD),
+				'jazz'    => __('Jazz', 	                            MELA_TD),
+				'ming'    => __('Ming', 	                            MELA_TD),
+				'lexi'    => __('Lexi', 	                            MELA_TD),
+				'duke'    => __('Duke', 	                            MELA_TD),
 			];
 	}
 
@@ -142,10 +142,10 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_control(
 				'ma_el_main_image_effect',
 				[
-					'label'       => esc_html__('Hover Effect', MELA_TD),
-					'type'        => Controls_Manager::SELECT,
-					'default'     => 'sadie',
-					'options'     => self::ma_el_image_hover_effects()
+					'label'   => esc_html__('Hover Effect', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'default' => 'sadie',
+					'options' => self::ma_el_image_hover_effects()
 				]
 			);
 
@@ -156,41 +156,41 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_control(
 				'ma_el_main_image_effect',
 				[
-					'label'       => esc_html__('Hover Effect', MELA_TD),
-					'type'        => Controls_Manager::SELECT,
-					'default'     => 'sadie',
-					'options'     => [
-						'lily' 	                    => __('Lily', MELA_TD),
-						'sadie' 	                => __('Sadie', MELA_TD),
-						'roxy'                      => __('Roxy', MELA_TD),
-						'bubba'                     => __('Bubba', MELA_TD),
-						'romeo'                     => __('Romeo', MELA_TD),
-						'layla'                     => __('Layla', MELA_TD),
-						'honey'                     => __('Honey', MELA_TD),
-						'oscar'                     => __('Oscar', MELA_TD),
+					'label'   => esc_html__('Hover Effect', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'default' => 'sadie',
+					'options' => [
+						'lily'  => __('Lily', MELA_TD),
+						'sadie' => __('Sadie', MELA_TD),
+						'roxy'  => __('Roxy', MELA_TD),
+						'bubba' => __('Bubba', MELA_TD),
+						'romeo' => __('Romeo', MELA_TD),
+						'layla' => __('Layla', MELA_TD),
+						'honey' => __('Honey', MELA_TD),
+						'oscar' => __('Oscar', MELA_TD),
 
-						'ma-el-img-hover1'          => __('Marley (Pro)', MELA_TD),
-						'ma-el-img-hover2'          => __('Ruby (Pro)', MELA_TD),
-						'ma-el-img-hover3'          => __('Milo (Pro)', MELA_TD),
-						'ma-el-img-hover4'          => __('Dexter (Pro)', MELA_TD),
-						'ma-el-img-hover5'          => __('Sarah (Pro)', MELA_TD),
-						'ma-el-img-hover6'          => __('Zoe (Pro)', MELA_TD),
-						'ma-el-img-hover7'          => __('Chico (Pro)', MELA_TD),
-						'ma-el-img-hover8'          => __('Julia (Pro)', MELA_TD),
-						'ma-el-img-hover9'          => __('Goliath (Pro)', MELA_TD),
-						'ma-el-img-hover10'         => __('Hera (Pro)', MELA_TD),
-						'ma-el-img-hover11'         => __('Winston (Pro)', MELA_TD),
-						'ma-el-img-hover12'         => __('Selena (Pro)', MELA_TD),
-						'ma-el-img-hover13'         => __('Terry (Pro)', MELA_TD),
-						'ma-el-img-hover14'         => __('Phoebe (Pro)', MELA_TD),
-						'ma-el-img-hover15'         => __('Apollo (Pro)', MELA_TD),
-						'ma-el-img-hover16'         => __('Kira (Pro)', MELA_TD),
-						'ma-el-img-hover17'         => __('Steve (Pro)', MELA_TD),
-						'ma-el-img-hover18'         => __('Moses (Pro)', MELA_TD),
-						'ma-el-img-hover19'         => __('Jazz (Pro)', MELA_TD),
-						'ma-el-img-hover20'         => __('Ming (Pro)', MELA_TD),
-						'ma-el-img-hover21'         => __('Lexi (Pro)', MELA_TD),
-						'ma-el-img-hover22'         => __('Duke (Pro)', MELA_TD),
+						'ma-el-img-hover1'  => __('Marley (Pro)', MELA_TD),
+						'ma-el-img-hover2'  => __('Ruby (Pro)', MELA_TD),
+						'ma-el-img-hover3'  => __('Milo (Pro)', MELA_TD),
+						'ma-el-img-hover4'  => __('Dexter (Pro)', MELA_TD),
+						'ma-el-img-hover5'  => __('Sarah (Pro)', MELA_TD),
+						'ma-el-img-hover6'  => __('Zoe (Pro)', MELA_TD),
+						'ma-el-img-hover7'  => __('Chico (Pro)', MELA_TD),
+						'ma-el-img-hover8'  => __('Julia (Pro)', MELA_TD),
+						'ma-el-img-hover9'  => __('Goliath (Pro)', MELA_TD),
+						'ma-el-img-hover10' => __('Hera (Pro)', MELA_TD),
+						'ma-el-img-hover11' => __('Winston (Pro)', MELA_TD),
+						'ma-el-img-hover12' => __('Selena (Pro)', MELA_TD),
+						'ma-el-img-hover13' => __('Terry (Pro)', MELA_TD),
+						'ma-el-img-hover14' => __('Phoebe (Pro)', MELA_TD),
+						'ma-el-img-hover15' => __('Apollo (Pro)', MELA_TD),
+						'ma-el-img-hover16' => __('Kira (Pro)', MELA_TD),
+						'ma-el-img-hover17' => __('Steve (Pro)', MELA_TD),
+						'ma-el-img-hover18' => __('Moses (Pro)', MELA_TD),
+						'ma-el-img-hover19' => __('Jazz (Pro)', MELA_TD),
+						'ma-el-img-hover20' => __('Ming (Pro)', MELA_TD),
+						'ma-el-img-hover21' => __('Lexi (Pro)', MELA_TD),
+						'ma-el-img-hover22' => __('Duke (Pro)', MELA_TD),
 					],
 					'description' => sprintf(
 						'20+ more effects on <a href="%s" target="_blank">%s</a>',
@@ -205,11 +205,11 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_main_image',
 			[
-				'label'			=> __('Upload Image', MELA_TD),
-				'description'	=> __('Select an Image', MELA_TD),
-				'type'			=> Controls_Manager::MEDIA,
-				'default'		=> [
-					'url'	=> Utils::get_placeholder_image_src()
+				'label'       => __('Upload Image', MELA_TD),
+				'description' => __('Select an Image', MELA_TD),
+				'type'        => Controls_Manager::MEDIA,
+				'default'     => [
+					'url' => Utils::get_placeholder_image_src()
 				],
 			]
 		);
@@ -217,13 +217,13 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_main_image_size',
 			[
-				'label' 	=> esc_html__('Image Size', MELA_TD),
-				'type' 		=> Controls_Manager::SELECT,
-				'options' 	=> [
-					'main' 				=> esc_html__('Default', MELA_TD),
-					'custom' 			=> esc_html__('Custom', MELA_TD),
+				'label'   => esc_html__('Image Size', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'options' => [
+					'main'   => esc_html__('Default', MELA_TD),
+					'custom' => esc_html__('Custom', MELA_TD),
 				],
-				'default' 	=> 'main'
+				'default' => 'main'
 			]
 		);
 
@@ -231,12 +231,12 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
-				'name' => 'image_thumbnail_size',
-				'default' => 'full',
+				'name'      => 'image_thumbnail_size',
+				'default'   => 'full',
 				'condition' => [
 					'ma_el_main_image[url]!' => '',
 				],
-				'exclude'	=> ['custom'],
+				'exclude'   => ['custom'],
 				'condition' => [
 					'ma_el_main_image_size' => 'main',
 				],
@@ -247,15 +247,15 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_main_image_width',
 			[
-				'label' => __('Width', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
+				'label'   => __('Width', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 200
 				],
 				'range' => [
 					'px' => [
-						'min' => 100,
-						'max' => 1000,
+						'min'  => 100,
+						'max'  => 1000,
 						'step' => 1
 					]
 				],
@@ -271,15 +271,15 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_main_image_height',
 			[
-				'label' => __('Height', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
+				'label'   => __('Height', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 200
 				],
 				'range' => [
 					'px' => [
-						'min' => 100,
-						'max' => 1000,
+						'min'  => 100,
+						'max'  => 1000,
 						'step' => 1
 					]
 				],
@@ -297,20 +297,20 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_image_hover_link_type',
 			[
-				'label'        => esc_html__('Links or Popup?', MELA_TD),
-				'type'         => Controls_Manager::CHOOSE,
+				'label'   => esc_html__('Links or Popup?', MELA_TD),
+				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'none' => [
 						'title' => esc_html__('None', MELA_TD),
-						'icon' => 'eicon-close-circle',
+						'icon'  => 'eicon-close-circle',
 					],
 					'popup' => [
 						'title' => esc_html__('Popup', MELA_TD),
-						'icon' => 'eicon-search',
+						'icon'  => 'eicon-search',
 					],
 					'links' => [
 						'title' => esc_html__('External Links', MELA_TD),
-						'icon' => 'eicon-editor-external-link',
+						'icon'  => 'eicon-editor-external-link',
 					],
 				],
 				'default' => 'none'
@@ -329,7 +329,7 @@ class Image_Hover_Effects extends Widget_Base
 					'is_external' => '',
 				],
 				'condition'		=> [
-					'ma_el_image_hover_link_type'    => 'links'
+					'ma_el_image_hover_link_type' => 'links'
 				],
 				'show_external' => true,
 			]
@@ -342,19 +342,19 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_control(
 				'ma_el_image_popup_type',
 				[
-					'label'                 => esc_html__('Content Type', MELA_TD),
-					'type'                  => Controls_Manager::SELECT,
-					'label_block'           => false,
-					'options'               => [
-						'image'   	=> esc_html__('Image', MELA_TD),
-						'content'   => esc_html__('Content', MELA_TD),
-						'section'   => esc_html__('Saved Section', MELA_TD),
-						'widget'    => esc_html__('Saved Widget', MELA_TD),
-						'template'  => esc_html__('Saved Page Template', MELA_TD),
+					'label'       => esc_html__('Content Type', MELA_TD),
+					'type'        => Controls_Manager::SELECT,
+					'label_block' => false,
+					'options'     => [
+						'image'    => esc_html__('Image', MELA_TD),
+						'content'  => esc_html__('Content', MELA_TD),
+						'section'  => esc_html__('Saved Section', MELA_TD),
+						'widget'   => esc_html__('Saved Widget', MELA_TD),
+						'template' => esc_html__('Saved Page Template', MELA_TD),
 					],
-					'default'               => 'content',
-					'condition'             => [
-						'ma_el_image_hover_link_type'	=> 'popup'
+					'default'   => 'content',
+					'condition' => [
+						'ma_el_image_hover_link_type' => 'popup'
 					]
 				]
 			);
@@ -363,20 +363,20 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_control(
 				'ma_el_image_popup_type',
 				[
-					'label'                 => esc_html__('Content Type', MELA_TD),
-					'type'                  => Controls_Manager::SELECT,
-					'label_block'           => false,
-					'options' => [
-						'image_pro'   	=> esc_html__('Image (Pro)', MELA_TD),
-						'content_pro'   => esc_html__('Content (Pro)', MELA_TD),
-						'section_pro'   => esc_html__('Saved Section (Pro)', MELA_TD),
-						'widget_pro'    => esc_html__('Saved Widget (Pro)', MELA_TD),
-						'template_pro'  => esc_html__('Saved Page Template (Pro)', MELA_TD),
+					'label'       => esc_html__('Content Type', MELA_TD),
+					'type'        => Controls_Manager::SELECT,
+					'label_block' => false,
+					'options'     => [
+						'image_pro'    => esc_html__('Image (Pro)', MELA_TD),
+						'content_pro'  => esc_html__('Content (Pro)', MELA_TD),
+						'section_pro'  => esc_html__('Saved Section (Pro)', MELA_TD),
+						'widget_pro'   => esc_html__('Saved Widget (Pro)', MELA_TD),
+						'template_pro' => esc_html__('Saved Page Template (Pro)', MELA_TD),
 					],
-					'default'               => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this feature.</span>',
-					'condition'             => [
-						'ma_el_image_hover_link_type'	=> 'popup'
+					'condition'   => [
+						'ma_el_image_hover_link_type' => 'popup'
 					]
 				]
 			);
@@ -386,24 +386,24 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'popup_image',
 			[
-				'label'                 => esc_html__('Image', MELA_TD),
-				'type'                  => Controls_Manager::MEDIA,
-				'dynamic'               => [
-					'active'   => true,
+				'label'   => esc_html__('Image', MELA_TD),
+				'type'    => Controls_Manager::MEDIA,
+				'dynamic' => [
+					'active' => true,
 				],
 				'default'               => [
 					'url' => Utils::get_placeholder_image_src(),
 				],
 				'condition'             => [
-					'ma_el_image_popup_type'		=> 'image',
-					'ma_el_image_hover_link_type'	=> 'popup'
+					'ma_el_image_popup_type'      => 'image',
+					'ma_el_image_hover_link_type' => 'popup'
 				],
 				'conditions'            => [
 					'terms' => [
 						[
-							'name'      => 'ma_el_image_popup_type',
-							'operator'  => '==',
-							'value'     => 'image',
+							'name'     => 'ma_el_image_popup_type',
+							'operator' => '==',
+							'value'    => 'image',
 						],
 					],
 				],
@@ -413,12 +413,12 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'popup_content',
 			[
-				'label'                 => esc_html__('Content', MELA_TD),
-				'type'                  => Controls_Manager::WYSIWYG,
-				'default'               => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', MELA_TD),
-				'condition'             => [
-					'ma_el_image_popup_type'	=> 'content',
-					'ma_el_image_hover_link_type'	=> 'popup'
+				'label'     => esc_html__('Content', MELA_TD),
+				'type'      => Controls_Manager::WYSIWYG,
+				'default'   => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', MELA_TD),
+				'condition' => [
+					'ma_el_image_popup_type'      => 'content',
+					'ma_el_image_hover_link_type' => 'popup'
 				],
 			]
 		);
@@ -426,20 +426,20 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'popup_saved_widget',
 			[
-				'label'                 => __('Choose Widget', MELA_TD),
-				'type'                  => Controls_Manager::SELECT,
-				'options'               => Master_Addons_Helper::get_page_template_options('widget'),
-				'default'               => '-1',
-				'condition'             => [
-					'ma_el_image_popup_type'    => 'widget',
-					'ma_el_image_hover_link_type'	=> 'popup'
+				'label'     => __('Choose Widget', MELA_TD),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => Master_Addons_Helper::get_page_template_options('widget'),
+				'default'   => '-1',
+				'condition' => [
+					'ma_el_image_popup_type'      => 'widget',
+					'ma_el_image_hover_link_type' => 'popup'
 				],
 				'conditions'        => [
 					'terms' => [
 						[
-							'name'      => 'ma_el_image_popup_type',
-							'operator'  => '==',
-							'value'     => 'widget',
+							'name'     => 'ma_el_image_popup_type',
+							'operator' => '==',
+							'value'    => 'widget',
 						],
 					],
 				],
@@ -449,20 +449,20 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'popup_saved_section',
 			[
-				'label'                 => __('Choose Section', MELA_TD),
-				'type'                  => Controls_Manager::SELECT,
-				'options'               => Master_Addons_Helper::get_page_template_options('section'),
-				'default'               => '-1',
-				'condition'             => [
-					'ma_el_image_popup_type'    => 'section',
-					'ma_el_image_hover_link_type'	=> 'popup'
+				'label'     => __('Choose Section', MELA_TD),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => Master_Addons_Helper::get_page_template_options('section'),
+				'default'   => '-1',
+				'condition' => [
+					'ma_el_image_popup_type'      => 'section',
+					'ma_el_image_hover_link_type' => 'popup'
 				],
 				'conditions'        => [
 					'terms' => [
 						[
-							'name'      => 'ma_el_image_popup_type',
-							'operator'  => '==',
-							'value'     => 'section',
+							'name'     => 'ma_el_image_popup_type',
+							'operator' => '==',
+							'value'    => 'section',
 						],
 					],
 				],
@@ -472,20 +472,20 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'popup_templates',
 			[
-				'label'                 => __('Choose Template', MELA_TD),
-				'type'                  => Controls_Manager::SELECT,
-				'options'               => Master_Addons_Helper::get_page_template_options('page'),
-				'default'               => '-1',
-				'condition'             => [
-					'ma_el_image_popup_type'    => 'template',
-					'ma_el_image_hover_link_type'	=> 'popup'
+				'label'     => __('Choose Template', MELA_TD),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => Master_Addons_Helper::get_page_template_options('page'),
+				'default'   => '-1',
+				'condition' => [
+					'ma_el_image_popup_type'      => 'template',
+					'ma_el_image_hover_link_type' => 'popup'
 				],
 				'conditions'        => [
 					'terms' => [
 						[
-							'name'      => 'ma_el_image_popup_type',
-							'operator'  => '==',
-							'value'     => 'template',
+							'name'     => 'ma_el_image_popup_type',
+							'operator' => '==',
+							'value'    => 'template',
 						],
 					],
 				],
@@ -497,19 +497,19 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_main_image_vertical_align',
 			[
-				'label'			=> __('Vertical Align', MELA_TD),
-				'type'			=> Controls_Manager::SELECT,
-				'condition'		=> [
+				'label'     => __('Vertical Align', MELA_TD),
+				'type'      => Controls_Manager::SELECT,
+				'condition' => [
 					'ma_el_main_image_height' => 'custom'
 				],
 				'options'		=> [
-					'flex-start'	=> __('Top', MELA_TD),
-					'center'		=> __('Middle', MELA_TD),
-					'flex-end'		=> __('Bottom', MELA_TD),
-					'inherit'		=> __('Full', MELA_TD)
+					'flex-start' => __('Top', MELA_TD),
+					'center'     => __('Middle', MELA_TD),
+					'flex-end'   => __('Bottom', MELA_TD),
+					'inherit'    => __('Full', MELA_TD)
 				],
-				'default'       => 'flex-start',
-				'selectors'		=> [
+				'default'   => 'flex-start',
+				'selectors' => [
 					'{{WRAPPER}} .ma-el-image-hover-effect figure' => 'align-items: {{VALUE}}; -webkit-align-items: {{VALUE}};'
 				]
 			]
@@ -523,7 +523,7 @@ class Image_Hover_Effects extends Widget_Base
 
 
 		/*
-			 *  Master Addons: Style Controls
+			 * Master Addons: Style Controls
 			 */
 		$this->start_controls_section(
 			'ma_el_main_image_content_heading_section',
@@ -535,12 +535,12 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_main_image_title',
 			[
-				'label'			=> __('Title', MELA_TD),
-				'placeholder'	=> __('Title for this Image', MELA_TD),
-				'type'			=> Controls_Manager::TEXTAREA,
-				'dynamic'       => ['active' => true],
-				'default'		=> __('Master <span>Addons</span>', MELA_TD),
-				'label_block'	=> false
+				'label'       => __('Title', MELA_TD),
+				'placeholder' => __('Title for this Image', MELA_TD),
+				'type'        => Controls_Manager::TEXTAREA,
+				'dynamic'     => ['active' => true],
+				'default'     => __('Master <span>Addons</span>', MELA_TD),
+				'label_block' => false
 			]
 		);
 
@@ -562,13 +562,13 @@ class Image_Hover_Effects extends Widget_Base
 
 
 		/*
-			 *  Master Addons: Sub Heading
+			 * Master Addons: Sub Heading
 			 */
 		$this->start_controls_section(
 			'ma_el_main_image_content_subheading_section',
 			[
-				'label' => __('Sub Heading', MELA_TD),
-				'condition'     => [
+				'label'     => __('Sub Heading', MELA_TD),
+				'condition' => [
 					"ma_el_main_image_effect"   => [
 						"honey",
 					]
@@ -579,11 +579,11 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_main_image_sub_title',
 			[
-				'label'			=> __('Sub Title', MELA_TD),
-				'placeholder'	=> __('Sub Title for this Image', MELA_TD),
-				'type'			=> Controls_Manager::TEXT,
-				'default'		=> __('Elementor', MELA_TD),
-				'label_block'	=> false
+				'label'       => __('Sub Title', MELA_TD),
+				'placeholder' => __('Sub Title for this Image', MELA_TD),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => __('Elementor', MELA_TD),
+				'label_block' => false
 			]
 		);
 
@@ -595,14 +595,14 @@ class Image_Hover_Effects extends Widget_Base
 
 
 		/*
-             *  Master Addons: Image Descriptions
+             * Master Addons: Image Descriptions
              */
 		$this->start_controls_section(
 			'ma_el_main_image_desc_section',
 			[
-				'label'			=> __('Description', MELA_TD),
-				'type'			=> Controls_Manager::HEADING,
-				'condition'     => [
+				'label'     => __('Description', MELA_TD),
+				'type'      => Controls_Manager::HEADING,
+				'condition' => [
 					"ma_el_main_image_effect"   => [
 						"lily",
 						"zoe",
@@ -637,14 +637,14 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_main_image_desc',
 			[
-				'label'			=> __('Description', MELA_TD),
-				'description'	=> __('Give the description to this banner', MELA_TD),
-				'type'			=> Controls_Manager::TEXTAREA,
-				'dynamic'       => ['active' => true],
-				'default'		=> __('Master Addons gives your website a vibrant and lively style, you would love.', MELA_TD),
-				'label_block'	=> true,
-				'condition'     => [
-					'ma_el_main_image_effect!'   => ['julia']
+				'label'       => __('Description', MELA_TD),
+				'description' => __('Give the description to this banner', MELA_TD),
+				'type'        => Controls_Manager::TEXTAREA,
+				'dynamic'     => ['active' => true],
+				'default'     => __('Master Addons gives your website a vibrant and lively style, you would love.', MELA_TD),
+				'label_block' => true,
+				'condition'   => [
+					'ma_el_main_image_effect!' => ['julia']
 				]
 
 			]
@@ -655,16 +655,16 @@ class Image_Hover_Effects extends Widget_Base
 
 
 		/*
-             *  Master Addons: Set 2 Image Descriptions
+             * Master Addons: Set 2 Image Descriptions
              */
 		$this->start_controls_section(
 			'ma_el_main_image_desc_set2_heading',
 			[
-				'label'			=> __('Description', MELA_TD),
-				'type'			=> Controls_Manager::HEADING,
-				'description'   => __('Write Description Each line', MELA_TD),
-				'condition'     => [
-					'ma_el_main_image_effect'   => ['julia']
+				'label'       => __('Description', MELA_TD),
+				'type'        => Controls_Manager::HEADING,
+				'description' => __('Write Description Each line', MELA_TD),
+				'condition'   => [
+					'ma_el_main_image_effect' => ['julia']
 				]
 			]
 		);
@@ -675,10 +675,10 @@ class Image_Hover_Effects extends Widget_Base
 		$repeater->add_control(
 			'ma_el_main_image_desc_set2',
 			[
-				'label'         => __('Read More Text', MELA_TD),
-				'type'          => Controls_Manager::TEXTAREA,
-				'dynamic'       => ['active' => true],
-				'default'       => 'Julia dances in the deep dark',
+				'label'   => __('Read More Text', MELA_TD),
+				'type'    => Controls_Manager::TEXTAREA,
+				'dynamic' => ['active' => true],
+				'default' => 'Julia dances in the deep dark',
 			]
 		);
 
@@ -686,14 +686,14 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_main_image_desc_set2_tabs',
 			[
-				'type'                  => Controls_Manager::REPEATER,
-				'default'               => [
+				'type'    => Controls_Manager::REPEATER,
+				'default' => [
 					['ma_el_main_image_desc_set2' => 'Julia dances in the deep dark'],
 					['ma_el_main_image_desc_set2' => 'She loves the smell of the ocean'],
 					['ma_el_main_image_desc_set2' => 'And dives into the morning light']
 				],
-				'fields' 				=> $repeater->get_controls(),
-				'title_field'           => '{{ma_el_main_image_desc_set2}}'
+				'fields'      => $repeater->get_controls(),
+				'title_field' => '{{ma_el_main_image_desc_set2}}'
 			]
 		);
 
@@ -707,13 +707,13 @@ class Image_Hover_Effects extends Widget_Base
 
 
 		/*
-			 *  Master Addons: Image Hover Social Links
+			 * Master Addons: Image Hover Social Links
 			 */
 		$this->start_controls_section(
 			'ma_el_main_image_social_link_section',
 			[
-				'label' => esc_html__('Social Links', MELA_TD),
-				'condition'     => [
+				'label'     => esc_html__('Social Links', MELA_TD),
+				'condition' => [
 					'ma_el_main_image_effect' => ['zoe', 'hera', 'winston', 'terry', 'phoebe', 'kira']
 				]
 			]
@@ -725,9 +725,9 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_main_image_icon_heading',
 			[
-				'label'			=> __('Social Icons', MELA_TD),
-				'type'			=> Controls_Manager::HEADING,
-				'description'   => __('Select Social Icons', MELA_TD)
+				'label'       => __('Social Icons', MELA_TD),
+				'type'        => Controls_Manager::HEADING,
+				'description' => __('Select Social Icons', MELA_TD)
 			]
 		);
 		$repeater = new Repeater();
@@ -735,15 +735,15 @@ class Image_Hover_Effects extends Widget_Base
 		$repeater->add_control(
 			'ma_el_main_image_icon',
 			[
-				'label'         	=> esc_html__('Icon', MELA_TD),
-				'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
-				'type'          	=> Controls_Manager::ICONS,
-				'fa4compatibility' 	=> 'icon',
-				'default'       	=> [
-					'value'     => 'fab fa-elementor',
-					'library'   => 'brand',
+				'label'            => esc_html__('Icon', MELA_TD),
+				'description'      => esc_html__('Please choose an icon from the list.', MELA_TD),
+				'type'             => Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'default'          => [
+					'value'   => 'fab fa-elementor',
+					'library' => 'brand',
 				],
-				'render_type'      => 'template'
+				'render_type' => 'template'
 			]
 		);
 
@@ -751,12 +751,12 @@ class Image_Hover_Effects extends Widget_Base
 		$repeater->add_control(
 			'ma_el_main_image_icon_link',
 			[
-				'label' => __('Icon Link', MELA_TD),
-				'type' => Controls_Manager::URL,
+				'label'       => __('Icon Link', MELA_TD),
+				'type'        => Controls_Manager::URL,
 				'placeholder' => __('https://master-addons.com', MELA_TD),
 				'label_block' => true,
-				'default' => [
-					'url' => '#',
+				'default'     => [
+					'url'         => '#',
 					'is_external' => true,
 				]
 			]
@@ -765,15 +765,15 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_main_image_icon_tabs',
 			[
-				'type'                  => Controls_Manager::REPEATER,
-				'default'               => [
+				'type'    => Controls_Manager::REPEATER,
+				'default' => [
 					['ma_el_main_image_icon' => 'fab fa-wordpress'],
 					['ma_el_main_image_icon' => 'fab fa-facebook'],
 					['ma_el_main_image_icon' => 'fab fa-twitter'],
 					['ma_el_main_image_icon' => 'fab fa-instagram'],
 				],
-				'fields' 				=> $repeater->get_controls(),
-				'title_field'           => 'Social Icon'
+				'fields'      => $repeater->get_controls(),
+				'title_field' => 'Social Icon'
 			]
 		);
 
@@ -788,18 +788,18 @@ class Image_Hover_Effects extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_main_image_hover_style_section',
 			[
-				'label' 		=> __('Image', MELA_TD),
-				'tab' 			=> Controls_Manager::TAB_STYLE
+				'label' => __('Image', MELA_TD),
+				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
 
 		$this->add_control(
 			'ma_el_main_image_bg_color',
 			[
-				'label' 		=> __('Background Color', MELA_TD),
-				'type' 			=> Controls_Manager::COLOR,
-				'default'       => '',
-				'selectors' 	=> [
+				'label'     => __('Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
 					'{{WRAPPER}} .ma-el-image-hover-effect figure' => 'background: {{VALUE}};'
 				]
 			]
@@ -809,15 +809,15 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_main_image_opacity',
 			[
-				'label' => __('Image Opacity', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
+				'label'   => __('Image Opacity', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => .8
 				],
 				'range' => [
 					'px' => [
-						'min' => 0,
-						'max' => 1,
+						'min'  => 0,
+						'max'  => 1,
 						'step' => .1
 					]
 				],
@@ -830,15 +830,15 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_main_image_hover_opacity',
 			[
-				'label' => __('Hover Opacity', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
+				'label'   => __('Hover Opacity', MELA_TD),
+				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1
 				],
 				'range' => [
 					'px' => [
-						'min' => 0,
-						'max' => 1,
+						'min'  => 0,
+						'max'  => 1,
 						'step' => .1
 					]
 				],
@@ -852,8 +852,8 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
 			[
-				'name' => 'image_filters',
-				'label'     => __('Image Filter', MELA_TD),
+				'name'     => 'image_filters',
+				'label'    => __('Image Filter', MELA_TD),
 				'selector' => '{{WRAPPER}} .ma-el-image-hover-effect figure img',
 			]
 		);
@@ -861,17 +861,17 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
 			[
-				'name'      => 'hover_image_filters',
-				'label'     => __('Hover Image Filter', MELA_TD),
-				'selector'  => '{{WRAPPER}} .ma-el-image-hover-effect figure:hover img'
+				'name'     => 'hover_image_filters',
+				'label'    => __('Hover Image Filter', MELA_TD),
+				'selector' => '{{WRAPPER}} .ma-el-image-hover-effect figure:hover img'
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'          => 'ma_el_main_image_border',
-				'selector'      => '{{WRAPPER}} .ma-el-image-hover-effect figure'
+				'name'     => 'ma_el_main_image_border',
+				'selector' => '{{WRAPPER}} .ma-el-image-hover-effect figure'
 			]
 		);
 
@@ -879,10 +879,10 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_responsive_control(
 				'ma_el_main_image_border_radius',
 				[
-					'label' => __('Border Radius', MELA_TD),
-					'type' => Controls_Manager::DIMENSIONS,
-					'size_units'    => ['px', '%', 'em'],
-					'selectors' => [
+					'label'      => __('Border Radius', MELA_TD),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => ['px', '%', 'em'],
+					'selectors'  => [
 						'{{WRAPPER}} .ma-el-image-hover-effect figure' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 					]
 				]
@@ -891,15 +891,15 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_responsive_control(
 				'ma_el_main_image_border_radius',
 				[
-					'label' => __('Border Radius', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => __('Border Radius', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
 				]
 			);
@@ -909,10 +909,10 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_responsive_control(
 				'ma_el_main_image_pading',
 				[
-					'label'         => __('Padding', MELA_TD),
-					'type'          => Controls_Manager::DIMENSIONS,
-					'size_units'    => ['px', 'em', '%'],
-					'selectors'     => [
+					'label'      => __('Padding', MELA_TD),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => ['px', 'em', '%'],
+					'selectors'  => [
 						'{{WRAPPER}} .ma-el-image-hover-effect figure' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 					]
 				]
@@ -921,15 +921,15 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_responsive_control(
 				'ma_el_main_image_pading',
 				[
-					'label'         => __('Padding', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => __('Padding', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
 				]
 			);
@@ -940,10 +940,10 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_responsive_control(
 				'ma_el_main_image_margin',
 				[
-					'label'         => __('Margin', MELA_TD),
-					'type'          => Controls_Manager::DIMENSIONS,
-					'size_units'    => ['px', 'em', '%'],
-					'selectors'     => [
+					'label'      => __('Margin', MELA_TD),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => ['px', 'em', '%'],
+					'selectors'  => [
 						'{{WRAPPER}} .ma-el-image-hover-effect figure' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 					]
 				]
@@ -952,15 +952,15 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_responsive_control(
 				'ma_el_main_image_margin',
 				[
-					'label'         => __('Margin', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => __('Margin', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
 				]
 			);
@@ -970,9 +970,9 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'label'             => __('Box Shadow', MELA_TD),
-				'name'              => 'ma_el_main_image_shadow',
-				'selector'          => '{{WRAPPER}} .ma-el-image-hover-effect figure'
+				'label'    => __('Box Shadow', MELA_TD),
+				'name'     => 'ma_el_main_image_shadow',
+				'selector' => '{{WRAPPER}} .ma-el-image-hover-effect figure'
 			]
 		);
 		$this->end_controls_section();
@@ -985,21 +985,21 @@ class Image_Hover_Effects extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_main_image_title_style',
 			[
-				'label' 		=> __('Title', MELA_TD),
-				'tab' 			=> Controls_Manager::TAB_STYLE
+				'label' => __('Title', MELA_TD),
+				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
 
 		$this->add_control(
 			'ma_el_main_image_title_color',
 			[
-				'label' => __('Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'  => __('Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1
 				],
-				'default' => "#fff",
+				'default'   => "#fff",
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-image-hover-effect .ma-el-image-hover-title' => 'color: {{VALUE}};'
 				]
@@ -1009,11 +1009,11 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'jltma_main_image_border_color',
 			[
-				'label'			=> __('Border Color', MELA_TD),
-				'type'			=> Controls_Manager::COLOR,
-				'selectors'     => [
-					'{{WRAPPER}} .ma-el-image-hover-effect figcaption::before'    => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-image-hover-effect figcaption::after'    => 'border-color: {{VALUE}};',
+				'label'     => __('Border Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .ma-el-image-hover-effect figcaption::before' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-image-hover-effect figcaption::after'  => 'border-color: {{VALUE}};',
 				]
 			]
 		);
@@ -1021,18 +1021,18 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'ma_el_main_image_title_typography',
+				'name'     => 'ma_el_main_image_title_typography',
 				'selector' => '{{WRAPPER}} .ma-el-image-hover-effect .ma-el-image-hover-title',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1
+				'scheme'   => Typography::TYPOGRAPHY_1,
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
-				'label'             => __('Box Shadow', MELA_TD),
-				'name'              => 'ma_el_main_image_title_shadow',
-				'selector'          => '{{WRAPPER}} .ma-el-image-hover-title'
+				'label'    => __('Box Shadow', MELA_TD),
+				'name'     => 'ma_el_main_image_title_shadow',
+				'selector' => '{{WRAPPER}} .ma-el-image-hover-title'
 			]
 		);
 
@@ -1042,10 +1042,10 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_responsive_control(
 				'ma_el_main_image_title_pading',
 				[
-					'label'         => __('Padding', MELA_TD),
-					'type'          => Controls_Manager::DIMENSIONS,
-					'size_units'    => ['px', 'em', '%'],
-					'selectors'     => [
+					'label'      => __('Padding', MELA_TD),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => ['px', 'em', '%'],
+					'selectors'  => [
 						'{{WRAPPER}} .ma-el-image-hover-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 					]
 				]
@@ -1054,15 +1054,15 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_responsive_control(
 				'ma_el_main_image_title_pading',
 				[
-					'label'         => __('Padding', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => __('Padding', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
 				]
 			);
@@ -1072,10 +1072,10 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_responsive_control(
 				'ma_el_main_image_title_margin',
 				[
-					'label'         => __('Margin', MELA_TD),
-					'type'          => Controls_Manager::DIMENSIONS,
-					'size_units'    => ['px', 'em', '%'],
-					'selectors'     => [
+					'label'      => __('Margin', MELA_TD),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => ['px', 'em', '%'],
+					'selectors'  => [
 						'{{WRAPPER}} .ma-el-image-hover-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 					]
 				]
@@ -1084,15 +1084,15 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_responsive_control(
 				'ma_el_main_image_title_margin',
 				[
-					'label'         => __('Margin', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => __('Margin', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
 				]
 			);
@@ -1109,19 +1109,19 @@ class Image_Hover_Effects extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_main_image_desc_style_section',
 			[
-				'label' 		=> __('Description', MELA_TD),
-				'tab' 			=> Controls_Manager::TAB_STYLE
+				'label' => __('Description', MELA_TD),
+				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
 
 		$this->add_control(
 			'ma_el_main_image_desc_color',
 			[
-				'label' => __('Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'  => __('Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_3
 				],
 				'default'   => '#fff',
 				'selectors' => [
@@ -1135,18 +1135,18 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'          => 'ma_el_main_image_desc_typography',
-				'selector'      => '{{WRAPPER}} .ma-el-image-hover-effect p',
-				'scheme'        => Scheme_Typography::TYPOGRAPHY_3,
+				'name'     => 'ma_el_main_image_desc_typography',
+				'selector' => '{{WRAPPER}} .ma-el-image-hover-effect p',
+				'scheme'   => Typography::TYPOGRAPHY_3,
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
-				'label'             => __('Text Shadow', MELA_TD),
-				'name'              => 'ma_el_main_image_desc_text_shadow',
-				'selector'          => '{{WRAPPER}} .ma-el-image-hover-effect p',
+				'label'    => __('Text Shadow', MELA_TD),
+				'name'     => 'ma_el_main_image_desc_text_shadow',
+				'selector' => '{{WRAPPER}} .ma-el-image-hover-effect p',
 			]
 		);
 
@@ -1154,10 +1154,10 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_responsive_control(
 				'ma_el_main_image_desc_pading',
 				[
-					'label'         => __('Padding', MELA_TD),
-					'type'          => Controls_Manager::DIMENSIONS,
-					'size_units'    => ['px', 'em', '%'],
-					'selectors'     => [
+					'label'      => __('Padding', MELA_TD),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => ['px', 'em', '%'],
+					'selectors'  => [
 						'{{WRAPPER}} .ma-el-image-hover-effect p' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 					]
 				]
@@ -1166,15 +1166,15 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_responsive_control(
 				'ma_el_main_image_desc_pading',
 				[
-					'label'         => __('Padding', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => __('Padding', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
 				]
 			);
@@ -1185,10 +1185,10 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_responsive_control(
 				'ma_el_main_image_desc_margin',
 				[
-					'label'         => __('Margin', MELA_TD),
-					'type'          => Controls_Manager::DIMENSIONS,
-					'size_units'    => ['px', 'em', '%'],
-					'selectors'     => [
+					'label'      => __('Margin', MELA_TD),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => ['px', 'em', '%'],
+					'selectors'  => [
 						'{{WRAPPER}} .ma-el-image-hover-effect p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 					]
 				]
@@ -1197,15 +1197,15 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_responsive_control(
 				'ma_el_main_image_desc_margin',
 				[
-					'label'         => __('Margin', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => __('Margin', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
 				]
 			);
@@ -1222,9 +1222,9 @@ class Image_Hover_Effects extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_main_image_icon_hover_style_section',
 			[
-				'label' 		=> __('Social Icons', MELA_TD),
-				'tab' 			=> Controls_Manager::TAB_STYLE,
-				'condition'     => [
+				'label'     => __('Social Icons', MELA_TD),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
 					'ma_el_main_image_effect' => ['zoe', 'hera']
 				]
 			]
@@ -1242,11 +1242,11 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_main_image_icon_color',
 			[
-				'label' => __('Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'  => __('Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2
 				],
 				//					'default'   => '#fff',
 				'selectors' => [
@@ -1267,11 +1267,11 @@ class Image_Hover_Effects extends Widget_Base
 		$this->add_control(
 			'ma_el_main_image_icon_hover_color',
 			[
-				'label' => __('Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'  => __('Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_3
 				],
 				//					'default'   => '#fff',
 				'selectors' => [
@@ -1338,15 +1338,15 @@ class Image_Hover_Effects extends Widget_Base
 			$this->add_control(
 				'ma_el_control_get_pro_style_tab',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 				]
 			);
@@ -1403,14 +1403,14 @@ class Image_Hover_Effects extends Widget_Base
 		$ma_el_main_image = $this->get_settings_for_display('ma_el_main_image');
 
 		$ma_el_main_image_effect = $settings['ma_el_main_image_effect'];
-		$ma_el_main_image_alt = Control_Media::get_image_alt($settings['ma_el_main_image']);
+		$ma_el_main_image_alt    = Control_Media::get_image_alt($settings['ma_el_main_image']);
 
 
 		// Image Link
 		if ($settings['ma_el_image_hover_link_type'] == "links") {
 			$this->add_render_attribute('ma_el_image_hover_link', [
-				'class'	=> ['ma-image-hover-read-more'],
-				'href'	=> esc_url($settings['ma_el_main_image_more_link_url']['url']),
+				'class' => ['ma-image-hover-read-more'],
+				'href'  => esc_url($settings['ma_el_main_image_more_link_url']['url']),
 			]);
 
 			if ($settings['ma_el_main_image_more_link_url']['is_external']) {
@@ -1427,7 +1427,7 @@ class Image_Hover_Effects extends Widget_Base
 		// 	echo Master_Addons_Helper::jltma_custom_message('No Image Selected', 'Please Upload/Select an Image');
 		// }
 
-		$hover_effects_main_image = $settings['ma_el_main_image'];
+		$hover_effects_main_image     = $settings['ma_el_main_image'];
 		$hover_effects_main_image_url = Group_Control_Image_Size::get_attachment_image_src($hover_effects_main_image['id'], 'image_thumbnail_size', $settings);
 		if (empty($hover_effects_main_image_url)) {
 			$hover_effects_main_image_url = $hover_effects_main_image['url'];

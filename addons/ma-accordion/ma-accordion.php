@@ -286,22 +286,6 @@ class Advanced_Accordion extends Widget_Base
 			$repeater->add_control(
 				'single_title_content_color_pro',
 				[
-					'label'             => esc_html__('Title Background Color', MELA_TD),
-					'type' 				=> Controls_Manager::CHOOSE,
-					'options' 			=> [
-						'1' => [
-							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
-						],
-					],
-					'default' => '1',
-					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
-				]
-			);
-
-			$repeater->add_control(
-				'single_title_content_color_pro',
-				[
 					'label'                 => esc_html__('Content Color', MELA_TD),
 					'type' 				=> Controls_Manager::CHOOSE,
 					'options' 			=> [

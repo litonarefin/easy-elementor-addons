@@ -5,7 +5,7 @@ namespace MasterAddons\Addons;
 // Elementor Classes
 use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
-use \Elementor\Scheme_Color;
+use \Elementor\Core\Schemes\Color;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Image_Size;
@@ -1608,8 +1608,8 @@ class Blog extends Widget_Base
 				'label'         => __('Border Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'scheme'        => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'condition'     => [
 					'ma_el_blog_image_shapes'  => 'bordered',
@@ -1649,8 +1649,8 @@ class Blog extends Widget_Base
 				'label'         => __('Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'scheme'        => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'selectors'     => [
 					'{{WRAPPER}} .ma-el-entry-title a'  => 'color: {{VALUE}};',
@@ -1672,8 +1672,8 @@ class Blog extends Widget_Base
 				'label'         => __('Hover Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'scheme'        => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors'     => [
 					'{{WRAPPER}} .ma-el-entry-title:hover a'  => 'color: {{VALUE}};',
@@ -1727,8 +1727,8 @@ class Blog extends Widget_Base
 				'label'         => __('Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'scheme'        => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'selectors'     => [
 					'{{WRAPPER}} .ma-el-post-entry-meta, {{WRAPPER}} .ma-el-post-entry-meta a, {{WRAPPER}} .ma-el-blog-post-tags-container, {{WRAPPER}} .ma-el-blog-post-tags-container a, {{WRAPPER}} .ma-el-blog-post-tags a'  => 'color: {{VALUE}};',
@@ -1750,8 +1750,8 @@ class Blog extends Widget_Base
 				'label'         => __('Hover Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'scheme'        => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors'     => [
 					'{{WRAPPER}} .ma-el-post-entry-meta a:hover, {{WRAPPER}} .ma-el-blog-post-tags-container a:hover'  => 'color: {{VALUE}};',
@@ -1778,8 +1778,8 @@ class Blog extends Widget_Base
 				'label'         => __('Text Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'scheme'        => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_3,
 				],
 				'selectors'     => [
 					'{{WRAPPER}} .ma-el-post-content, {{WRAPPER}} .ma-el-post-content p'  => 'color: {{VALUE}};',
@@ -1891,8 +1891,8 @@ class Blog extends Widget_Base
 				'label'         => __('Text Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'scheme'        => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_3,
 				],
 				'selectors'     => [
 					'{{WRAPPER}} .ma-el-blog-post-content-wrap .ma-el-post-btn'  => 'color: {{VALUE}};',
@@ -1906,8 +1906,8 @@ class Blog extends Widget_Base
 				'label'         => __('Hover Text Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'scheme'        => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_3,
 				],
 				'selectors'     => [
 					'{{WRAPPER}} .ma-el-blog-post-content-wrap .ma-el-post-btn:hover'  => 'color: {{VALUE}};',
@@ -2076,8 +2076,8 @@ class Blog extends Widget_Base
 				'label'         => __('Color', MELA_TD),
 				'type'          => Controls_Manager::COLOR,
 				'scheme'        => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'default' => '#4b00e7',
 				'selectors'     => [
@@ -3502,8 +3502,6 @@ class Blog extends Widget_Base
 		}
 
 
-		$image_effect = $settings['ma_el_blog_hover_color_effect'];
-
 		$post_effect = $settings['ma_el_blog_hover_color_effect'];
 
 		if ($settings['ma_el_blog_new_tab'] == 'yes') {
@@ -3810,6 +3808,13 @@ class Blog extends Widget_Base
 				protected function jltma_render_thumbnails()
 				{
 					$settings = $this->get_settings_for_display();
+					$image_effect = $settings['ma_el_blog_hover_color_effect'];
+					if ($settings['ma_el_blog_new_tab'] == 'yes') {
+						$target = '_blank';
+					} else {
+						$target = '_self';
+					}
+
 					?>
 
 						<?php if ($settings['ma_el_post_grid_thumbnail'] == 'yes') { ?>

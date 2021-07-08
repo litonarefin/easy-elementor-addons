@@ -7,13 +7,13 @@ use \Elementor\Controls_Manager as Controls_Manager;
 use \Elementor\Group_Control_Border as Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography as Group_Control_Typography;
-use \Elementor\Scheme_Typography as Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
  * Author Name: Liton Arefin
- * Author URL: https://jeweltheme.com
- * Date: 6/25/19
+ * Author URL : https: //jeweltheme.com
+ * Date       : 6/25/19
  */
 
 if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
@@ -75,16 +75,16 @@ class Creative_Button extends Widget_Base
 			$this->add_control(
 				'creative_button_effect',
 				[
-					'label'       => esc_html__('Button Effects', MELA_TD),
-					'type'        => Controls_Manager::SELECT,
-					'default'     => 'ma-el-creative-button--default',
-					'options'     => [
-						'ma-el-creative-button--default' 	=> esc_html__('Default', 	    MELA_TD),
-						'ma-el-creative-button--winona' 	=> esc_html__('Winona', 	    MELA_TD),
-						'ma-el-creative-button--ujarak' 	=> esc_html__('Ujarak', 	    MELA_TD),
-						'ma-el-creative-button--wayra' 		=> esc_html__('Wayra', 	    MELA_TD),
-						'ma-el-creative-button--tamaya' 	=> esc_html__('Tamaya', 	    MELA_TD),
-						'ma-el-creative-button--rayen' 		=> esc_html__('Rayen', 	    MELA_TD),
+					'label'   => esc_html__('Button Effects', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'default' => 'ma-el-creative-button--default',
+					'options' => [
+						'ma-el-creative-button--default' => esc_html__('Default', 	    MELA_TD),
+						'ma-el-creative-button--winona'  => esc_html__('Winona', 	    MELA_TD),
+						'ma-el-creative-button--ujarak'  => esc_html__('Ujarak', 	    MELA_TD),
+						'ma-el-creative-button--wayra'   => esc_html__('Wayra', 	    MELA_TD),
+						'ma-el-creative-button--tamaya'  => esc_html__('Tamaya', 	    MELA_TD),
+						'ma-el-creative-button--rayen'   => esc_html__('Rayen', 	    MELA_TD),
 						//							'ma-el-creative-button--puck' 		=> esc_html__( 'Puck', 	        MELA_TD ),
 						//							'ma-el-creative-button--titania' 	=> esc_html__( 'Titania', 	    MELA_TD ),
 						//							'ma-el-creative-button--bagot' 	    => esc_html__( 'Bagot', 	    MELA_TD ),
@@ -96,21 +96,21 @@ class Creative_Button extends Widget_Base
 						//							'ma-el-creative-button--invulner'   => esc_html__( 'Invulner', 	    MELA_TD ),
 						//							'ma-el-creative-button--tantalid'   => esc_html__( 'Tantalid', 	    MELA_TD ),
 						//							'ma-el-creative-button--wave' 		=> esc_html__( 'Wave', 	        MELA_TD ),
-						'ma-el-creative-button--pipaluk' 	=> esc_html__('Pipaluk',       MELA_TD),
-						'ma-el-creative-button--moema' 		=> esc_html__('Moema', 	    MELA_TD),
-						'ma-el-creative-button--isi' 		=> esc_html__('Isi', 	        MELA_TD),
-						'ma-el-creative-button--aylen' 		=> esc_html__('Aylen', 	    MELA_TD),
-						'ma-el-creative-button--saqui' 		=> esc_html__('Saqui', 	    MELA_TD),
-						'ma-el-creative-button--wapasha' 	=> esc_html__('Wapasha',       MELA_TD),
-						'ma-el-creative-button--nina' 		=> esc_html__('Nina', 	        MELA_TD),
-						'ma-el-creative-button--nanuk' 		=> esc_html__('Nanuk', 	    MELA_TD),
-						'ma-el-creative-button--nuka' 		=> esc_html__('Nuka', 	        MELA_TD),
-						'ma-el-creative-button--antiman' 	=> esc_html__('Antiman',       MELA_TD),
-						'ma-el-creative-button--itzel' 	    => esc_html__('Itzel',         MELA_TD),
-						'ma-el-creative-button--naira' 	    => esc_html__('Naira',         MELA_TD),
-						'ma-el-creative-button--quidel' 	=> esc_html__('Quidel', 	    MELA_TD),
-						'ma-el-creative-button--sacnite' 	=> esc_html__('Sacnite', 	    MELA_TD),
-						'ma-el-creative-button--shikoba' 	=> esc_html__('Shikoba',       MELA_TD),
+						'ma-el-creative-button--pipaluk' => esc_html__('Pipaluk',       MELA_TD),
+						'ma-el-creative-button--moema'   => esc_html__('Moema', 	    MELA_TD),
+						'ma-el-creative-button--isi'     => esc_html__('Isi', 	        MELA_TD),
+						'ma-el-creative-button--aylen'   => esc_html__('Aylen', 	    MELA_TD),
+						'ma-el-creative-button--saqui'   => esc_html__('Saqui', 	    MELA_TD),
+						'ma-el-creative-button--wapasha' => esc_html__('Wapasha',       MELA_TD),
+						'ma-el-creative-button--nina'    => esc_html__('Nina', 	        MELA_TD),
+						'ma-el-creative-button--nanuk'   => esc_html__('Nanuk', 	    MELA_TD),
+						'ma-el-creative-button--nuka'    => esc_html__('Nuka', 	        MELA_TD),
+						'ma-el-creative-button--antiman' => esc_html__('Antiman',       MELA_TD),
+						'ma-el-creative-button--itzel'   => esc_html__('Itzel',         MELA_TD),
+						'ma-el-creative-button--naira'   => esc_html__('Naira',         MELA_TD),
+						'ma-el-creative-button--quidel'  => esc_html__('Quidel', 	    MELA_TD),
+						'ma-el-creative-button--sacnite' => esc_html__('Sacnite', 	    MELA_TD),
+						'ma-el-creative-button--shikoba' => esc_html__('Shikoba',       MELA_TD),
 					],
 
 				]
@@ -124,16 +124,16 @@ class Creative_Button extends Widget_Base
 			$this->add_control(
 				'creative_button_effect',
 				[
-					'label'       => esc_html__('Set Button Effect', MELA_TD),
-					'type'        => Controls_Manager::SELECT,
-					'default'     => 'ma-el-creative-button--default',
-					'options'     => [
-						'ma-el-creative-button--default' 	=> esc_html__('Default', 	    MELA_TD),
-						'ma-el-creative-button--winona' 	=> esc_html__('Winona', 	    MELA_TD),
-						'ma-el-creative-button--ujarak' 	=> esc_html__('Ujarak', 	    MELA_TD),
-						'ma-el-creative-button--wayra' 		=> esc_html__('Wayra', 	    MELA_TD),
-						'ma-el-creative-button--tamaya' 	=> esc_html__('Tamaya', 	    MELA_TD),
-						'ma-el-creative-button--rayen' 		=> esc_html__('Rayen', 	    MELA_TD),
+					'label'   => esc_html__('Set Button Effect', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'default' => 'ma-el-creative-button--default',
+					'options' => [
+						'ma-el-creative-button--default' => esc_html__('Default', 	    MELA_TD),
+						'ma-el-creative-button--winona'  => esc_html__('Winona', 	    MELA_TD),
+						'ma-el-creative-button--ujarak'  => esc_html__('Ujarak', 	    MELA_TD),
+						'ma-el-creative-button--wayra'   => esc_html__('Wayra', 	    MELA_TD),
+						'ma-el-creative-button--tamaya'  => esc_html__('Tamaya', 	    MELA_TD),
+						'ma-el-creative-button--rayen'   => esc_html__('Rayen', 	    MELA_TD),
 						//							'ma-el-creative-button--puck' 		=> esc_html__( 'Puck ( Pro )', 	    MELA_TD ),
 						//							'ma-el-creative-button--titania' 	=> esc_html__( 'Titania ( Pro )', 	    MELA_TD ),
 						//							'ma-el-creative-button--bagot' 	    => esc_html__( 'Bagot ( Pro )', 	    MELA_TD ),
@@ -145,21 +145,21 @@ class Creative_Button extends Widget_Base
 						//							'ma-el-creative-button--invulner'   => esc_html__( 'Invulner ( Pro )', 	    MELA_TD ),
 						//							'ma-el-creative-button--tantalid'   => esc_html__( 'Tantalid ( Pro )', 	    MELA_TD ),
 						//						    'ma-el-creative-button--wave' 		=> esc_html__( 'Wave (Pro)', 	MELA_TD ),
-						'ma-el-creative-button--pro-1' 	    => esc_html__('Pipaluk (Pro)', MELA_TD),
-						'ma-el-creative-button--pro-2' 		=> esc_html__('Moema (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-3' 		=> esc_html__('Isi (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-4' 		=> esc_html__('Aylen (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-5' 		=> esc_html__('Saqui (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-6' 	    => esc_html__('Wapasha (Pro)', MELA_TD),
-						'ma-el-creative-button--pro-7' 		=> esc_html__('Nina (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-8' 		=> esc_html__('Nanuk (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-9' 		=> esc_html__('Nuka (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-10' 	=> esc_html__('Antiman (Pro)', MELA_TD),
-						'ma-el-creative-button--pro-11' 	=> esc_html__('Itzel (Pro)',   MELA_TD),
-						'ma-el-creative-button--pro-12' 	=> esc_html__('Naira (Pro)',   MELA_TD),
-						'ma-el-creative-button--pro-13' 	=> esc_html__('Quidel (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-14' 	=> esc_html__('Sacnite (Pro)', MELA_TD),
-						'ma-el-creative-button--pro-15' 	=> esc_html__('Shikoba (Pro)', MELA_TD),
+						'ma-el-creative-button--pro-1'  => esc_html__('Pipaluk (Pro)', MELA_TD),
+						'ma-el-creative-button--pro-2'  => esc_html__('Moema (Pro)', 	MELA_TD),
+						'ma-el-creative-button--pro-3'  => esc_html__('Isi (Pro)', 	MELA_TD),
+						'ma-el-creative-button--pro-4'  => esc_html__('Aylen (Pro)', 	MELA_TD),
+						'ma-el-creative-button--pro-5'  => esc_html__('Saqui (Pro)', 	MELA_TD),
+						'ma-el-creative-button--pro-6'  => esc_html__('Wapasha (Pro)', MELA_TD),
+						'ma-el-creative-button--pro-7'  => esc_html__('Nina (Pro)', 	MELA_TD),
+						'ma-el-creative-button--pro-8'  => esc_html__('Nanuk (Pro)', 	MELA_TD),
+						'ma-el-creative-button--pro-9'  => esc_html__('Nuka (Pro)', 	MELA_TD),
+						'ma-el-creative-button--pro-10' => esc_html__('Antiman (Pro)', MELA_TD),
+						'ma-el-creative-button--pro-11' => esc_html__('Itzel (Pro)',   MELA_TD),
+						'ma-el-creative-button--pro-12' => esc_html__('Naira (Pro)',   MELA_TD),
+						'ma-el-creative-button--pro-13' => esc_html__('Quidel (Pro)', 	MELA_TD),
+						'ma-el-creative-button--pro-14' => esc_html__('Sacnite (Pro)', MELA_TD),
+						'ma-el-creative-button--pro-15' => esc_html__('Shikoba (Pro)', MELA_TD),
 					],
 					'description' => sprintf(
 						'15+ more Variations on <a href="%s" target="_blank">%s</a>',
@@ -253,15 +253,15 @@ class Creative_Button extends Widget_Base
 		$this->add_control(
 			'ma_el_creative_button_icon',
 			[
-				'label'         	=> esc_html__('Icon', MELA_TD),
-				'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
-				'type'          	=> Controls_Manager::ICONS,
-				'fa4compatibility' 	=> 'icon',
-				'default'       	=> [
-					'value'     => 'fas fa-external-link-alt',
-					'library'   => 'solid',
+				'label'            => esc_html__('Icon', MELA_TD),
+				'description'      => esc_html__('Please choose an icon from the list.', MELA_TD),
+				'type'             => Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'default'          => [
+					'value'   => 'fas fa-external-link-alt',
+					'library' => 'solid',
 				],
-				'render_type'      => 'template'
+				'render_type' => 'template'
 			]
 		);
 
@@ -363,9 +363,9 @@ class Creative_Button extends Widget_Base
 			$this->add_control(
 				'maad_el_control_get_pro',
 				[
-					'label'       => esc_html__('Unlock more possibilities', MELA_TD),
-					'type'        => Controls_Manager::CHOOSE,
-					'options'     => [
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
+					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
 							'icon'  => 'fa fa-unlock-alt',
@@ -381,7 +381,7 @@ class Creative_Button extends Widget_Base
 
 
 		/*
-			 *  Master Addons: Style Controls
+			 * Master Addons: Style Controls
 			 */
 		$this->start_controls_section(
 			'ma_el_creative_button_settings',
@@ -420,7 +420,7 @@ class Creative_Button extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'ma_el_creative_button_typography',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme'   => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .ma-el-creative-button',
 			]
 		);
@@ -432,7 +432,7 @@ class Creative_Button extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors'  => [
-					'{{WRAPPER}} .ma-el-creative-button'                                      => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .ma-el-creative-button'                                       => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--winona::after'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--winona > span'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya::before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -455,7 +455,7 @@ class Creative_Button extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-button'                                      => 'color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-creative-button'                                       => 'color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya::before' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya::after'  => 'color: {{VALUE}};'
 				],
@@ -471,7 +471,7 @@ class Creative_Button extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#333333',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-button'                                      => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-creative-button'                                       => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--ujarak:hover'   => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--wayra:hover'    => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya::before' => 'background-color: {{VALUE}};',
@@ -522,7 +522,7 @@ class Creative_Button extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-button:hover'                               => 'color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-creative-button:hover'                                => 'color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--winona::after' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-creative-button--saqui:hover,
 						{{WRAPPER}} .ma-el-creative-button--saqui::after'  							=> 'color: {{VALUE}};',
@@ -537,12 +537,12 @@ class Creative_Button extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#f54',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-button:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--ujarak::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-creative-button:hover'                                      => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--ujarak::before'      => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--wayra:hover::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--rayen::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button--saqui:hover'		    				=> 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya:hover'        => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--rayen::before'       => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-creative-button--saqui:hover'                               => 'background-color: {{VALUE}};',
 				]
 			]
 		);
@@ -554,7 +554,7 @@ class Creative_Button extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-button:hover'                                 => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-creative-button:hover'                                  => 'border-color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--wapasha::before' => 'border-color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--antiman::before' => 'border-color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--pipaluk::before' => 'border-color: {{VALUE}};',
@@ -585,22 +585,22 @@ class Creative_Button extends Widget_Base
 				'ma_el_section_pro_style_section',
 				[
 					'label' => esc_html__('Upgrade to Pro Version for More Features', MELA_TD),
-					'tab' => Controls_Manager::TAB_STYLE
+					'tab'   => Controls_Manager::TAB_STYLE
 				]
 			);
 
 			$this->add_control(
 				'ma_el_control_get_pro_style_tab',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with
 Customization Options.</span>'
 				]
@@ -615,8 +615,8 @@ Customization Options.</span>'
 		$settings = $this->get_settings();
 
 		$this->add_render_attribute('ma_el_creative_button', [
-			'class'	=> ['button ma-el-creative-button', esc_attr($settings['creative_button_effect'])],
-			'href'	=> esc_url($settings['creative_button_link_url']['url']),
+			'class' => ['button ma-el-creative-button', esc_attr($settings['creative_button_effect'])],
+			'href'  => esc_url($settings['creative_button_link_url']['url']),
 		]);
 
 		if ($settings['creative_button_link_url']['is_external']) {

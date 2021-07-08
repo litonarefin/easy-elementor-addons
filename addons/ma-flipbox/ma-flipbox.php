@@ -4,8 +4,8 @@ namespace MasterAddons\Addons;
 
 /**
  * Author Name: Liton Arefin
- * Author URL: https://jeweltheme.com
- * Date: 6/26/19
+ * Author URL : https: //jeweltheme.com
+ * Date       : 6/26/19
  */
 
 use \Elementor\Widget_Base;
@@ -13,10 +13,10 @@ use \Elementor\Utils;
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Background;
-use \Elementor\Scheme_Color;
+use \Elementor\Core\Schemes\Color;
 use \Elementor\Modules\DynamicTags\Module as TagsModule;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
@@ -79,13 +79,13 @@ class Flipbox extends Widget_Base
 			$this->add_control(
 				'ma_flipbox_layout_style',
 				[
-					'label' => __('Design Variation', MELA_TD),
-					'type' => Controls_Manager::SELECT,
+					'label'   => __('Design Variation', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
 					'options' => [
-						'one'           => __('Default', MELA_TD),
-						'two'           => __('Front Image', MELA_TD),
-						'three'         => __('Diagnonal', MELA_TD),
-						'four'          => __('Front Icon', MELA_TD)
+						'one'   => __('Default', MELA_TD),
+						'two'   => __('Front Image', MELA_TD),
+						'three' => __('Diagnonal', MELA_TD),
+						'four'  => __('Front Icon', MELA_TD)
 					],
 					'default' => 'one',
 				]
@@ -96,16 +96,16 @@ class Flipbox extends Widget_Base
 			$this->add_control(
 				'ma_flipbox_layout_style',
 				[
-					'label' => __('Design Variation', MELA_TD),
-					'type' => Controls_Manager::SELECT,
+					'label'   => __('Design Variation', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
 					'options' => [
-						'one'                   => __('Default', MELA_TD),
-						'four'                  => __('Front Icon', MELA_TD),
-						'flipbox-pro-1'         => __('Front Image (Pro)', MELA_TD),
-						'flipbox-pro-2'         => __('Diagnonal (Pro)', MELA_TD),
+						'one'           => __('Default', MELA_TD),
+						'four'          => __('Front Icon', MELA_TD),
+						'flipbox-pro-1' => __('Front Image (Pro)', MELA_TD),
+						'flipbox-pro-2' => __('Diagnonal (Pro)', MELA_TD),
 
 					],
-					'default' => 'one',
+					'default'     => 'one',
 					'description' => sprintf(
 						'2+ more Variations on <a href="%s" target="_blank">%s</a>',
 						esc_url_raw(admin_url('admin.php?page=master-addons-settings-pricing')),
@@ -124,37 +124,37 @@ class Flipbox extends Widget_Base
 			$this->add_control(
 				'animation_style',
 				[
-					'label' => __('Animation Style', MELA_TD),
-					'type' => Controls_Manager::SELECT,
+					'label'   => __('Animation Style', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
 					'options' => [
-						'horizontal'                            => esc_html__('Flip Horizontal', MELA_TD),
-						'vertical'                              => esc_html__('Flip Vertical', MELA_TD),
-						'fade'                                  => esc_html__('Fade', MELA_TD),
-						'flipcard flipcard-rotate-top-down'     => esc_html__('Cube - Top Down', MELA_TD),
-						'flipcard flipcard-rotate-down-top'     => esc_html__('Cube - Down Top', MELA_TD),
-						'flipcard flipcard-rotate-left-right'   => esc_html__('Cube - Left Right', MELA_TD),
-						'flipcard flipcard-rotate-right-left'   => esc_html__('Cube - Right Left', MELA_TD),
-						'flip box'                              => esc_html__('Flip Box', MELA_TD),
-						'flip box fade'                         => esc_html__('Flip Box Fade', MELA_TD),
-						'flip box fade up'                      => esc_html__('Fade Up', MELA_TD),
-						'flip box fade hideback'                => esc_html__('Fade Hideback', MELA_TD),
-						'flip box fade up hideback'             => esc_html__('Fade Up Hideback', MELA_TD),
-						'nananana'                              => esc_html__('Nananana', MELA_TD),
-						'rollover'                              => esc_html__('Rollover', MELA_TD),
-						'flip3d'                                => esc_html__('3d Flip', MELA_TD),
+						'horizontal'                          => esc_html__('Flip Horizontal', MELA_TD),
+						'vertical'                            => esc_html__('Flip Vertical', MELA_TD),
+						'fade'                                => esc_html__('Fade', MELA_TD),
+						'flipcard flipcard-rotate-top-down'   => esc_html__('Cube - Top Down', MELA_TD),
+						'flipcard flipcard-rotate-down-top'   => esc_html__('Cube - Down Top', MELA_TD),
+						'flipcard flipcard-rotate-left-right' => esc_html__('Cube - Left Right', MELA_TD),
+						'flipcard flipcard-rotate-right-left' => esc_html__('Cube - Right Left', MELA_TD),
+						'flip box'                            => esc_html__('Flip Box', MELA_TD),
+						'flip box fade'                       => esc_html__('Flip Box Fade', MELA_TD),
+						'flip box fade up'                    => esc_html__('Fade Up', MELA_TD),
+						'flip box fade hideback'              => esc_html__('Fade Hideback', MELA_TD),
+						'flip box fade up hideback'           => esc_html__('Fade Up Hideback', MELA_TD),
+						'nananana'                            => esc_html__('Nananana', MELA_TD),
+						'rollover'                            => esc_html__('Rollover', MELA_TD),
+						'flip3d'                              => esc_html__('3d Flip', MELA_TD),
 
 						// New Styles
-						'left-to-right'                         => esc_html__('Left to Right', MELA_TD),
-						'right-to-left'                         => esc_html__('Right to Left', MELA_TD),
-						'top-to-bottom'                         => esc_html__('Top to Bottom', MELA_TD),
-						'bottom-to-top'                         => esc_html__('Bottom to Top', MELA_TD),
-						'top-to-bottom-angle'                   => esc_html__('Diagonal (Top to Bottom)', MELA_TD),
-						'bottom-to-top-angle'                   => esc_html__('Diagonal (Bottom to Top)', MELA_TD),
-						'fade-in-out'                           => esc_html__('Fade In Out', MELA_TD),
+						'left-to-right'       => esc_html__('Left to Right', MELA_TD),
+						'right-to-left'       => esc_html__('Right to Left', MELA_TD),
+						'top-to-bottom'       => esc_html__('Top to Bottom', MELA_TD),
+						'bottom-to-top'       => esc_html__('Bottom to Top', MELA_TD),
+						'top-to-bottom-angle' => esc_html__('Diagonal (Top to Bottom)', MELA_TD),
+						'bottom-to-top-angle' => esc_html__('Diagonal (Bottom to Top)', MELA_TD),
+						'fade-in-out'         => esc_html__('Fade In Out', MELA_TD),
 
 
 					],
-					'default' => 'vertical',
+					'default'      => 'vertical',
 					'prefix_class' => 'ma-el-fb-animate-'
 				]
 			);
@@ -167,34 +167,34 @@ class Flipbox extends Widget_Base
 			$this->add_control(
 				'animation_style',
 				[
-					'label' => __('Animation Style', MELA_TD),
-					'type' => Controls_Manager::SELECT,
+					'label'   => __('Animation Style', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
 					'options' => [
-						'horizontal'                            => esc_html__('Flip Horizontal', MELA_TD),
-						'vertical'                              => esc_html__('Flip Vertical', MELA_TD),
-						'fade'                                  => esc_html__('Fade', MELA_TD),
-						'flipbox-anim-1'                        => esc_html__('Cube - Top Down (Pro)', MELA_TD),
-						'flipbox-anim-2'                        => esc_html__('Cube - Down Top (Pro)', MELA_TD),
-						'flipbox-anim-3'                        => esc_html__('Cube - Left Right (Pro)', MELA_TD),
-						'flipbox-anim-4'                        => esc_html__('Cube - Right Left (Pro)', MELA_TD),
-						'flip box'                              => esc_html__('Flip Box', MELA_TD),
-						'flip box fade'                         => esc_html__('Flip Box Fade', MELA_TD),
-						'flip box fade up'                      => esc_html__('Fade Up', MELA_TD),
-						'flipbox-anim-5'                        => esc_html__('Fade Hideback (Pro)', MELA_TD),
-						'flipbox-anim-6'                        => esc_html__('Fade Up Hideback (Pro)', MELA_TD),
-						'flipbox-anim-14'                       => esc_html__('Nananana (Pro)', MELA_TD),
-						'flipbox-anim-15'                       => esc_html__('Rollover (Pro)', MELA_TD),
+						'horizontal'       => esc_html__('Flip Horizontal', MELA_TD),
+						'vertical'         => esc_html__('Flip Vertical', MELA_TD),
+						'fade'             => esc_html__('Fade', MELA_TD),
+						'flipbox-anim-1'   => esc_html__('Cube - Top Down (Pro)', MELA_TD),
+						'flipbox-anim-2'   => esc_html__('Cube - Down Top (Pro)', MELA_TD),
+						'flipbox-anim-3'   => esc_html__('Cube - Left Right (Pro)', MELA_TD),
+						'flipbox-anim-4'   => esc_html__('Cube - Right Left (Pro)', MELA_TD),
+						'flip box'         => esc_html__('Flip Box', MELA_TD),
+						'flip box fade'    => esc_html__('Flip Box Fade', MELA_TD),
+						'flip box fade up' => esc_html__('Fade Up', MELA_TD),
+						'flipbox-anim-5'   => esc_html__('Fade Hideback (Pro)', MELA_TD),
+						'flipbox-anim-6'   => esc_html__('Fade Up Hideback (Pro)', MELA_TD),
+						'flipbox-anim-14'  => esc_html__('Nananana (Pro)', MELA_TD),
+						'flipbox-anim-15'  => esc_html__('Rollover (Pro)', MELA_TD),
 						//not
 						// working
 
 
 						// New Styles
-						'flipbox-anim-16'                       => esc_html__('3d Flip (Pro)', MELA_TD),
-						'flipbox-anim-7'                        => esc_html__('Left to Right (Pro)', MELA_TD),
-						'flipbox-anim-8'                        => esc_html__('Right to Left (Pro)', MELA_TD),
-						'flipbox-anim-9'                        => esc_html__('Top to Bottom (Pro)', MELA_TD),
-						'flipbox-anim-10'                       => esc_html__('Bottom to Top (Pro)', MELA_TD),
-						'flipbox-anim-11'                       => esc_html__(
+						'flipbox-anim-16' => esc_html__('3d Flip (Pro)', MELA_TD),
+						'flipbox-anim-7'  => esc_html__('Left to Right (Pro)', MELA_TD),
+						'flipbox-anim-8'  => esc_html__('Right to Left (Pro)', MELA_TD),
+						'flipbox-anim-9'  => esc_html__('Top to Bottom (Pro)', MELA_TD),
+						'flipbox-anim-10' => esc_html__('Bottom to Top (Pro)', MELA_TD),
+						'flipbox-anim-11' => esc_html__(
 							'Diagonal (Top to Bottom) (Pro)',
 							MELA_TD
 						),
@@ -202,13 +202,13 @@ class Flipbox extends Widget_Base
 							'Diagonal (Bottom to Top) (Pro)',
 							MELA_TD
 						),
-						'flipbox-anim-13'                       => esc_html__('Fade In Out (Pro)', MELA_TD),
+						'flipbox-anim-13' => esc_html__('Fade In Out (Pro)', MELA_TD),
 
 
 					],
-					'default' => 'vertical',
+					'default'      => 'vertical',
 					'prefix_class' => 'ma-el-fb-animate-',
-					'description' => sprintf(
+					'description'  => sprintf(
 						'15+ more Flipbox Variations on <a href="%s" target="_blank">%s</a>',
 						esc_url_raw(admin_url('admin.php?page=master-addons-settings-pricing')),
 						__('Upgrade Now', MELA_TD)
@@ -235,12 +235,12 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'front_icon_view',
 			[
-				'label' => esc_html__('Icon Style', MELA_TD),
-				'type' => Controls_Manager::SELECT,
+				'label'   => esc_html__('Icon Style', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
 					'default' => esc_html__('Default', MELA_TD),
 					'stacked' => esc_html__('Stacked', MELA_TD),
-					'framed' => esc_html__('Framed', MELA_TD),
+					'framed'  => esc_html__('Framed', MELA_TD),
 				],
 				'default' => 'default',
 
@@ -250,13 +250,13 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'front_icon_shape',
 			[
-				'label' => __('Shape', MELA_TD),
-				'type' => Controls_Manager::SELECT,
+				'label'   => __('Shape', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
 					'circle' => __('Circle', MELA_TD),
 					'square' => __('Square', MELA_TD),
 				],
-				'default' => 'circle',
+				'default'   => 'circle',
 				'condition' => [
 					'front_icon_view!' => 'default',
 				],
@@ -267,15 +267,15 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'front_icon',
 			[
-				'label'         	=> esc_html__('Icon', MELA_TD),
-				'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
-				'type'          	=> Controls_Manager::ICONS,
-				'fa4compatibility' 	=> 'icon',
-				'default'       	=> [
-					'value'     => 'fab fa-elementor',
-					'library'   => 'brand',
+				'label'            => esc_html__('Icon', MELA_TD),
+				'description'      => esc_html__('Please choose an icon from the list.', MELA_TD),
+				'type'             => Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'default'          => [
+					'value'   => 'fab fa-elementor',
+					'library' => 'brand',
 				],
-				'render_type'      => 'template'
+				'render_type' => 'template'
 			]
 		);
 
@@ -283,13 +283,13 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'front_title',
 			[
-				'label' => esc_html__('Title', MELA_TD),
-				'type' => Controls_Manager::TEXTAREA,
+				'label'   => esc_html__('Title', MELA_TD),
+				'type'    => Controls_Manager::TEXTAREA,
 				'dynamic' => [
 					'active' => true,
 				],
 				'placeholder' => esc_html__('Enter text', MELA_TD),
-				'default' => esc_html__('Front Title Here', MELA_TD),
+				'default'     => esc_html__('Front Title Here', MELA_TD),
 			]
 		);
 
@@ -297,37 +297,37 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'front_text',
 			[
-				'label' => esc_html__('Description', MELA_TD),
-				'type' => Controls_Manager::TEXTAREA,
+				'label'   => esc_html__('Description', MELA_TD),
+				'type'    => Controls_Manager::TEXTAREA,
 				'dynamic' => [
 					'active' => true,
 				],
 				'placeholder' => esc_html__('Enter text', MELA_TD),
-				'default' => esc_html__('Add some nice text here.', MELA_TD),
+				'default'     => esc_html__('Add some nice text here.', MELA_TD),
 			]
 		);
 
 		$this->add_responsive_control(
 			'front_box_front_text_align',
 			[
-				'label' => esc_html__('Alignment', MELA_TD),
-				'type' => Controls_Manager::CHOOSE,
+				'label'       => esc_html__('Alignment', MELA_TD),
+				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
-				'options' => [
+				'options'     => [
 					'left' => [
 						'title' => esc_html__('Left', MELA_TD),
-						'icon' => 'fa fa-align-left',
+						'icon'  => 'fa fa-align-left',
 					],
 					'center' => [
 						'title' => esc_html__('Center', MELA_TD),
-						'icon' => 'fa fa-align-center',
+						'icon'  => 'fa fa-align-center',
 					],
 					'right' => [
 						'title' => esc_html__('Right', MELA_TD),
-						'icon' => 'fa fa-align-right',
+						'icon'  => 'fa fa-align-right',
 					],
 				],
-				'default' => 'left',
+				'default'   => 'left',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-flip-box-front' => 'text-align: {{VALUE}};',
 				],
@@ -337,8 +337,8 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'front_title_html_tag',
 			[
-				'label' => esc_html__('Title HTML Tag', MELA_TD),
-				'type' => Controls_Manager::SELECT,
+				'label'   => esc_html__('Title HTML Tag', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
 				'options' => Master_Addons_Helper::ma_el_title_tags(),
 				'default' => 'h3',
 			]
@@ -356,12 +356,12 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'back_icon_view',
 			[
-				'label' => __('View', MELA_TD),
-				'type' => Controls_Manager::SELECT,
+				'label'   => __('View', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
 					'default' => __('Default', MELA_TD),
 					'stacked' => __('Stacked', MELA_TD),
-					'framed' => __('Framed', MELA_TD),
+					'framed'  => __('Framed', MELA_TD),
 				],
 				'default' => 'default',
 
@@ -371,13 +371,13 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'back_icon_shape',
 			[
-				'label' => __('Shape', MELA_TD),
-				'type' => Controls_Manager::SELECT,
+				'label'   => __('Shape', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
 					'circle' => __('Circle', MELA_TD),
 					'square' => __('Square', MELA_TD),
 				],
-				'default' => 'circle',
+				'default'   => 'circle',
 				'condition' => [
 					'back_icon_view!' => 'default',
 				],
@@ -389,15 +389,15 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'back_icon',
 			[
-				'label'         	=> esc_html__('Icon', MELA_TD),
-				'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
-				'type'          	=> Controls_Manager::ICONS,
-				'fa4compatibility' 	=> 'icon',
-				'default'       	=> [
-					'value'     => 'fab fa-wordpress',
-					'library'   => 'brand',
+				'label'            => esc_html__('Icon', MELA_TD),
+				'description'      => esc_html__('Please choose an icon from the list.', MELA_TD),
+				'type'             => Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'default'          => [
+					'value'   => 'fab fa-wordpress',
+					'library' => 'brand',
 				],
-				'render_type'      => 'template'
+				'render_type' => 'template'
 			]
 		);
 
@@ -406,26 +406,26 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'back_title',
 			[
-				'label' => __('Title', MELA_TD),
-				'type' => Controls_Manager::TEXTAREA,
+				'label'   => __('Title', MELA_TD),
+				'type'    => Controls_Manager::TEXTAREA,
 				'dynamic' => [
 					'active' => true,
 				],
 				'placeholder' => __('Enter text', MELA_TD),
-				'default' => __('Text Title', MELA_TD),
+				'default'     => __('Text Title', MELA_TD),
 			]
 		);
 
 		$this->add_control(
 			'back_text',
 			[
-				'label' => __('Description', MELA_TD),
-				'type' => Controls_Manager::TEXTAREA,
+				'label'   => __('Description', MELA_TD),
+				'type'    => Controls_Manager::TEXTAREA,
 				'dynamic' => [
 					'active' => true,
 				],
 				'placeholder' => __('Enter text', MELA_TD),
-				'default' => __('Add some nice text here.', MELA_TD),
+				'default'     => __('Add some nice text here.', MELA_TD),
 			]
 		);
 
@@ -433,24 +433,24 @@ class Flipbox extends Widget_Base
 		$this->add_responsive_control(
 			'front_box_back_text_align',
 			[
-				'label' => esc_html__('Alignment', MELA_TD),
-				'type' => Controls_Manager::CHOOSE,
+				'label'       => esc_html__('Alignment', MELA_TD),
+				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
-				'options' => [
+				'options'     => [
 					'left' => [
 						'title' => esc_html__('Left', MELA_TD),
-						'icon' => 'fa fa-align-left',
+						'icon'  => 'fa fa-align-left',
 					],
 					'center' => [
 						'title' => esc_html__('Center', MELA_TD),
-						'icon' => 'fa fa-align-center',
+						'icon'  => 'fa fa-align-center',
 					],
 					'right' => [
 						'title' => esc_html__('Right', MELA_TD),
-						'icon' => 'fa fa-align-right',
+						'icon'  => 'fa fa-align-right',
 					],
 				],
-				'default' => 'left',
+				'default'   => 'left',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-flip-box-back' => 'text-align: {{VALUE}};',
 				],
@@ -461,8 +461,8 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'back_title_html_tag',
 			[
-				'label' => __('HTML Tag', MELA_TD),
-				'type' => Controls_Manager::SELECT,
+				'label'   => __('HTML Tag', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
 				'options' => Master_Addons_Helper::ma_el_title_tags(),
 				'default' => 'h3',
 			]
@@ -481,23 +481,23 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'action_text',
 			[
-				'label' => __('Button Text', MELA_TD),
-				'type' => Controls_Manager::TEXT,
+				'label'       => __('Button Text', MELA_TD),
+				'type'        => Controls_Manager::TEXT,
 				'placeholder' => __('Buy', MELA_TD),
-				'default' => __('Buy Now', MELA_TD),
+				'default'     => __('Buy Now', MELA_TD),
 			]
 		);
 
 		$this->add_control(
 			'link',
 			[
-				'label' => __('Link to', MELA_TD),
-				'type' => Controls_Manager::URL,
+				'label'   => __('Link to', MELA_TD),
+				'type'    => Controls_Manager::URL,
 				'dynamic' => [
 					'active' => true,
 				],
 				'placeholder' => __('http://your-link.com', MELA_TD),
-				'separator' => 'before',
+				'separator'   => 'before',
 			]
 		);
 
@@ -514,7 +514,7 @@ class Flipbox extends Widget_Base
 			'section-general-style',
 			[
 				'label' => __('General', MELA_TD),
-				'tab' => Controls_Manager::TAB_STYLE
+				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
 
@@ -522,17 +522,17 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'ma_el_flip_3d',
 			[
-				'label' => __('3d Flip Style', MELA_TD),
-				'type' => Controls_Manager::SELECT,
+				'label'   => __('3d Flip Style', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'flip_3d_left'       => __('Slide Right to Left', MELA_TD),
-					'flip_3d_right'      => __('Slide Left to Right', MELA_TD),
-					'flip_3d_top'        => __('Slide Top to Bottom', MELA_TD),
-					'flip_3d_bottom'     => __('Slide Bottom to Top', MELA_TD),
+					'flip_3d_left'   => __('Slide Right to Left', MELA_TD),
+					'flip_3d_right'  => __('Slide Left to Right', MELA_TD),
+					'flip_3d_top'    => __('Slide Top to Bottom', MELA_TD),
+					'flip_3d_bottom' => __('Slide Bottom to Top', MELA_TD),
 				],
-				'default' => '3d_left',
+				'default'   => '3d_left',
 				'condition' => [
-					'animation_style'   => 'flip3d'
+					'animation_style' => 'flip3d'
 				]
 			]
 		);
@@ -540,8 +540,8 @@ class Flipbox extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'flip_box_border',
-				'label' => __('Box Border', MELA_TD),
+				'name'     => 'flip_box_border',
+				'label'    => __('Box Border', MELA_TD),
 				'selector' => '{{WRAPPER}} .ma-el-flip-box-inner > div',
 			]
 		);
@@ -551,12 +551,12 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'box_border_radius',
 			[
-				'label' => __('Border Radius', MELA_TD),
-				'type' => Controls_Manager::DIMENSIONS,
+				'label'      => __('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-flip-box-front' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-flip-box-back' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .ma-el-flip-box-back'  => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -564,14 +564,14 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'box_height',
 			[
-				'type' => Controls_Manager::TEXT,
-				'label' => __('Flip Box Height', MELA_TD),
+				'type'        => Controls_Manager::TEXT,
+				'label'       => __('Flip Box Height', MELA_TD),
 				'placeholder' => __('250', MELA_TD),
-				'default' => __('250', MELA_TD),
-				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-inner' => 'height: {{VALUE}}px;',
+				'default'     => __('250', MELA_TD),
+				'selectors'   => [
+					'{{WRAPPER}} .ma-el-flip-box-inner'                           => 'height: {{VALUE}}px;',
 					'{{WRAPPER}}.ma-el-fb-animate-flipcard .ma-el-flip-box-front' => 'transform-origin: center center calc(-{{VALUE}}px/2);-webkit-transform-origin:center center calc(-{{VALUE}}px/2);',
-					'{{WRAPPER}}.ma-el-fb-animate-flipcard .ma-el-flip-box-back' => 'transform-origin: center center calc(-{{VALUE }}px/2);-webkit-transform-origin:center center calc(-{{VALUE}}px/2);'
+					'{{WRAPPER}}.ma-el-fb-animate-flipcard .ma-el-flip-box-back'  => 'transform-origin: center center calc(-{{VALUE }}px/2);-webkit-transform-origin:center center calc(-{{VALUE}}px/2);'
 				],
 			]
 		);
@@ -582,7 +582,7 @@ class Flipbox extends Widget_Base
 			'section-front-box-style',
 			[
 				'label' => __('Front Box', MELA_TD),
-				'tab' => Controls_Manager::TAB_STYLE
+				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
 
@@ -591,11 +591,11 @@ class Flipbox extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'front_box_bg_color',
-				'label' => __('Background', MELA_TD),
-				'types' => ['classic', 'gradient'],
-				'default' => '#fff',
-				'selector' => '{{WRAPPER}} .ma-el-flip-box-front',
+				'name'      => 'front_box_bg_color',
+				'label'     => __('Background', MELA_TD),
+				'types'     => ['classic', 'gradient'],
+				'default'   => '#fff',
+				'selector'  => '{{WRAPPER}} .ma-el-flip-box-front',
 				'condition' => [
 					'ma_flipbox_layout_style' => ['one', 'three', 'four']
 				]
@@ -606,8 +606,8 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'front_box_image',
 			[
-				'label' => __('Image', MELA_TD),
-				'type' => Controls_Manager::MEDIA,
+				'label'   => __('Image', MELA_TD),
+				'type'    => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
 				],
@@ -621,9 +621,9 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'front_box_background_color',
 			[
-				'label' => esc_html__('Background Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				'label'     => esc_html__('Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-flip-box-front' => 'background-color: {{VALUE}};',
 				],
@@ -634,13 +634,13 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'front_box_title_color',
 			[
-				'label' => __('Title', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'  => __('Title', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1
 				],
-				'default' => '#393c3f',
+				'default'   => '#393c3f',
 				'selectors' => [
 					'{{WRAPPER}} .front-icon-title' => 'color: {{VALUE}};',
 				],
@@ -653,9 +653,9 @@ class Flipbox extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'front_box_title_typography',
-				'label' => __('Title Typography', MELA_TD),
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+				'name'     => 'front_box_title_typography',
+				'label'    => __('Title Typography', MELA_TD),
+				'scheme'   => Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .front-icon-title',
 			]
 		);
@@ -663,13 +663,13 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'front_box_text_color',
 			[
-				'label' => __('Description Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'  => __('Description Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1
 				],
-				'default' => '#78909c',
+				'default'   => '#78909c',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-flip-box-front p' => 'color: {{VALUE}};',
 				],
@@ -680,9 +680,9 @@ class Flipbox extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'front_box_text_typography',
-				'label' => __('Description Typography', MELA_TD),
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+				'name'     => 'front_box_text_typography',
+				'label'    => __('Description Typography', MELA_TD),
+				'scheme'   => Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .ma-el-flip-box-front p',
 			]
 		);
@@ -694,13 +694,13 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'front_box_icon_color',
 			[
-				'label' => __('Icon Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'  => __('Icon Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1
 				],
-				'default' => '#4b00e7',
+				'default'   => '#4b00e7',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-flip-box-front .icon-wrapper i' => 'color: {{VALUE}};',
 				],
@@ -713,13 +713,13 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'front_box_icon_fill_color',
 			[
-				'label' => __('Icon Fill Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'  => __('Icon Fill Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1
 				],
-				'default' => '#41dcab',
+				'default'   => '#41dcab',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-fb-icon-view-stacked' => 'background-color: {{VALUE}};',
 				],
@@ -732,13 +732,13 @@ class Flipbox extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'front_box_icon_border',
-				'label' => __('Box Border', MELA_TD),
+				'name'        => 'front_box_icon_border',
+				'label'       => __('Box Border', MELA_TD),
 				'placeholder' => '1px',
-				'default' => '1px',
-				'selector' => '{{WRAPPER}} .ma-el-flip-box-front .ma-el-fb-icon-view-framed, {{WRAPPER}} .ma-el-flip-box-front .ma-el-fb-icon-view-stacked',
+				'default'     => '1px',
+				'selector'    => '{{WRAPPER}} .ma-el-flip-box-front .ma-el-fb-icon-view-framed, {{WRAPPER}} .ma-el-flip-box-front .ma-el-fb-icon-view-stacked',
 				'label_block' => true,
-				'condition' => [
+				'condition'   => [
 					'front_icon_view!' => 'default'
 				],
 			]
@@ -748,7 +748,7 @@ class Flipbox extends Widget_Base
 			'front_icon_size',
 			[
 				'label' => __('Icon Size', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
+				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
 						'min' => 6,
@@ -764,8 +764,8 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'front_icon_padding',
 			[
-				'label' => __('Icon Padding', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
+				'label'     => __('Icon Padding', MELA_TD),
+				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-flip-box-front .icon-wrapper' => 'padding: {{SIZE}}{{UNIT}};',
 				],
@@ -796,7 +796,7 @@ class Flipbox extends Widget_Base
 			'section-back-box-style',
 			[
 				'label' => esc_html__('Back Box', MELA_TD),
-				'tab' => Controls_Manager::TAB_STYLE
+				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
 
@@ -804,9 +804,9 @@ class Flipbox extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'back_box_background',
-				'label' => __('Back Box Background', MELA_TD),
-				'types' => ['classic', 'gradient'],
+				'name'     => 'back_box_background',
+				'label'    => __('Back Box Background', MELA_TD),
+				'types'    => ['classic', 'gradient'],
 				'selector' => '{{WRAPPER}} .ma-el-flip-box-back',
 			]
 		);
@@ -814,13 +814,13 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'back_box_title_color',
 			[
-				'label' => __('Title', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'  => __('Title', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1
 				],
-				'default' => '#FFF',
+				'default'   => '#FFF',
 				'selectors' => [
 					'{{WRAPPER}} .back-icon-title' => 'color: {{VALUE}};',
 				],
@@ -831,9 +831,9 @@ class Flipbox extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'back_box_title_typography',
-				'label' => __('Title Typography', MELA_TD),
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+				'name'     => 'back_box_title_typography',
+				'label'    => __('Title Typography', MELA_TD),
+				'scheme'   => Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .back-icon-title',
 			]
 		);
@@ -841,13 +841,13 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'back_box_text_color',
 			[
-				'label' => __('Description Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'  => __('Description Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1
 				],
-				'default' => '#FFF',
+				'default'   => '#FFF',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-flip-box-back p' => 'color: {{VALUE}};',
 				],
@@ -858,9 +858,9 @@ class Flipbox extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'back_box_text_typography',
-				'label' => __('Description Typography', MELA_TD),
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+				'name'     => 'back_box_text_typography',
+				'label'    => __('Description Typography', MELA_TD),
+				'scheme'   => Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .ma-el-flip-box-back p',
 			]
 		);
@@ -872,13 +872,13 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'back_box_icon_color',
 			[
-				'label' => __('Icon Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'  => __('Icon Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1
 				],
-				'default' => '#FFF',
+				'default'   => '#FFF',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-flip-box-back .icon-wrapper i' => 'color: {{VALUE}};',
 				],
@@ -891,13 +891,13 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'back_box_icon_fill_color',
 			[
-				'label' => __('Icon Fill Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'  => __('Icon Fill Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1
 				],
-				'default' => '#fff',
+				'default'   => '#fff',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-flip-box-back .ma-el-fb-icon-view-stacked' => 'background-color: {{VALUE}};',
 				],
@@ -910,13 +910,13 @@ class Flipbox extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'back_box_icon_border',
-				'label' => __('Box Border', MELA_TD),
+				'name'        => 'back_box_icon_border',
+				'label'       => __('Box Border', MELA_TD),
 				'placeholder' => '1px',
-				'default' => '1px',
-				'selector' => '{{WRAPPER}} .ma-el-flip-box-back .ma-el-fb-icon-view-framed, {{WRAPPER}} .ma-el-flip-box-back .ma-el-fb-icon-view-stacked',
+				'default'     => '1px',
+				'selector'    => '{{WRAPPER}} .ma-el-flip-box-back .ma-el-fb-icon-view-framed, {{WRAPPER}} .ma-el-flip-box-back .ma-el-fb-icon-view-stacked',
 				'label_block' => true,
-				'condition' => [
+				'condition'   => [
 					'back_icon_view!' => 'default'
 				],
 			]
@@ -926,7 +926,7 @@ class Flipbox extends Widget_Base
 			'back_icon_size',
 			[
 				'label' => __('Icon Size', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
+				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
 						'min' => 6,
@@ -942,8 +942,8 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'back_icon_padding',
 			[
-				'label' => __('Icon Padding', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
+				'label'     => __('Icon Padding', MELA_TD),
+				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-flip-box-back .icon-wrapper' => 'padding: {{SIZE}}{{UNIT}};',
 				],
@@ -970,7 +970,7 @@ class Flipbox extends Widget_Base
 			'section_action_button_style',
 			[
 				'label' => __('Action Button', MELA_TD),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
@@ -987,9 +987,9 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'button_text_color',
 			[
-				'label' => __('Text Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#fff',
+				'label'     => __('Text Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#fff',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'color: {{VALUE}};',
 				],
@@ -999,9 +999,9 @@ class Flipbox extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'typography',
-				'label' => __('Typography', MELA_TD),
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+				'name'     => 'typography',
+				'label'    => __('Typography', MELA_TD),
+				'scheme'    			=> Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button',
 			]
 		);
@@ -1009,13 +1009,13 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'background_color',
 			[
-				'label' => __('Background Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'  => __('Background Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1
 				],
-				'default' => '#4b00e7',
+				'default'   => '#4b00e7',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'background: {{VALUE}};',
 				],
@@ -1025,21 +1025,21 @@ class Flipbox extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'border',
-				'label' => __('Border', MELA_TD),
+				'name'        => 'border',
+				'label'       => __('Border', MELA_TD),
 				'placeholder' => '1px',
-				'default' => '1px',
-				'selector' => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button',
+				'default'     => '1px',
+				'selector'    => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button',
 			]
 		);
 
 		$this->add_control(
 			'border_radius',
 			[
-				'label' => __('Border Radius', MELA_TD),
-				'type' => Controls_Manager::DIMENSIONS,
+				'label'      => __('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1048,10 +1048,10 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'text_padding',
 			[
-				'label' => __('Padding', MELA_TD),
-				'type' => Controls_Manager::DIMENSIONS,
+				'label'      => __('Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1072,9 +1072,9 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'button_text_color_hover',
 			[
-				'label' => __('Text Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#fff',
+				'label'     => __('Text Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#fff',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover' => 'color: {{VALUE}};',
 				],
@@ -1086,7 +1086,7 @@ class Flipbox extends Widget_Base
 		// 	[
 		// 		'name' => 'typography',
 		// 		'label' => __( 'Typography', MELA_TD ),
-		// 		'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+		// 'scheme'    			=> Typography::TYPOGRAPHY_4,
 		// 		'selector' => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover',
 		// 	]
 		// );
@@ -1094,13 +1094,13 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'background_color_hover',
 			[
-				'label' => __('Background Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'  => __('Background Color', MELA_TD),
+				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_4
 				],
-				'default' => '#4b00e7',
+				'default'   => '#4b00e7',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover' => 'background: {{VALUE}};',
 				],
@@ -1110,21 +1110,21 @@ class Flipbox extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'border_hover',
-				'label' => __('Border', MELA_TD),
+				'name'        => 'border_hover',
+				'label'       => __('Border', MELA_TD),
 				'placeholder' => '1px',
-				'default' => '1px',
-				'selector' => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover',
+				'default'     => '1px',
+				'selector'    => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover',
 			]
 		);
 
 		$this->add_control(
 			'border_radius_hover',
 			[
-				'label' => __('Border Radius', MELA_TD),
-				'type' => Controls_Manager::DIMENSIONS,
+				'label'      => __('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1133,10 +1133,10 @@ class Flipbox extends Widget_Base
 		$this->add_control(
 			'text_padding_hover',
 			[
-				'label' => __('Padding', MELA_TD),
-				'type' => Controls_Manager::DIMENSIONS,
+				'label'      => __('Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1205,15 +1205,15 @@ class Flipbox extends Widget_Base
 			$this->add_control(
 				'jltma_control_get_pro_style_tab',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 				]
 			);
@@ -1227,22 +1227,22 @@ class Flipbox extends Widget_Base
 				'ma_el_section_pro_style_section',
 				[
 					'label' => esc_html__('Upgrade to Pro Version for More Features', MELA_TD),
-					'tab' => Controls_Manager::TAB_STYLE
+					'tab'   => Controls_Manager::TAB_STYLE
 				]
 			);
 
 			$this->add_control(
 				'ma_el_control_get_pro_style_tab',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with
 Customization Options.</span>'
 				]
