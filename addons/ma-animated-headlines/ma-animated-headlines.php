@@ -6,7 +6,7 @@ use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
 use \Elementor\Repeater;
 use \Elementor\Group_Control_Border;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 
@@ -69,21 +69,21 @@ class Animated_Headlines extends Widget_Base
 			$this->add_control(
 				'ma_el_headlines_style_preset',
 				[
-					'label'       	=> esc_html__('Style Preset', MELA_TD),
-					'type' 			=> Controls_Manager::SELECT,
-					'default' 		=> 'rotate-1',
-					'label_block' 	=> false,
-					'options' 		=> [
-						'rotate-1'          => esc_html__('Rotate 1', MELA_TD),
-						'rotate-2'          => esc_html__('Rotate 2', MELA_TD),
-						'rotate-3'          => esc_html__('Rotate 3', MELA_TD),
-						'type'              => esc_html__('Typing', MELA_TD),
-						'loading-bar'       => esc_html__('Loading Bar', MELA_TD),
-						'slide'             => esc_html__('Slide', MELA_TD),
-						'clip'              => esc_html__('Clip', MELA_TD),
-						'zoom'              => esc_html__('Zoom', MELA_TD),
-						'scale'             => esc_html__('Scale', MELA_TD),
-						'push'              => esc_html__('Push', MELA_TD)
+					'label'       => esc_html__('Style Preset', MELA_TD),
+					'type'        => Controls_Manager::SELECT,
+					'default'     => 'rotate-1',
+					'label_block' => false,
+					'options'     => [
+						'rotate-1'    => esc_html__('Rotate 1', MELA_TD),
+						'rotate-2'    => esc_html__('Rotate 2', MELA_TD),
+						'rotate-3'    => esc_html__('Rotate 3', MELA_TD),
+						'type'        => esc_html__('Typing', MELA_TD),
+						'loading-bar' => esc_html__('Loading Bar', MELA_TD),
+						'slide'       => esc_html__('Slide', MELA_TD),
+						'clip'        => esc_html__('Clip', MELA_TD),
+						'zoom'        => esc_html__('Zoom', MELA_TD),
+						'scale'       => esc_html__('Scale', MELA_TD),
+						'push'        => esc_html__('Push', MELA_TD)
 					],
 				]
 			);
@@ -93,21 +93,21 @@ class Animated_Headlines extends Widget_Base
 			$this->add_control(
 				'ma_el_headlines_style_preset',
 				[
-					'label'       	=> esc_html__('Style Preset', MELA_TD),
-					'type' 			=> Controls_Manager::SELECT,
-					'default' 		=> 'rotate-1',
-					'label_block' 	=> false,
-					'options' 		=> [
-						'rotate-1'          => esc_html__('Rotate 1', MELA_TD),
-						'rotate-2'          => esc_html__('Rotate 2', MELA_TD),
-						'rotate-3'          => esc_html__('Rotate 3', MELA_TD),
-						'loading-bar'       => esc_html__('Loading Bar', MELA_TD),
-						'ma-heading-pro-1'  => esc_html__('Typing (Pro)', MELA_TD),
-						'ma-heading-pro-2'  => esc_html__('Slide (Pro)', MELA_TD),
-						'ma-heading-pro-3'  => esc_html__('Clip (Pro)', MELA_TD),
-						'ma-heading-pro-4'  => esc_html__('Zoom (Pro)', MELA_TD),
-						'ma-heading-pro-5'  => esc_html__('Scale (Pro)', MELA_TD),
-						'ma-heading-pro-6'  => esc_html__('Push (Pro)', MELA_TD)
+					'label'       => esc_html__('Style Preset', MELA_TD),
+					'type'        => Controls_Manager::SELECT,
+					'default'     => 'rotate-1',
+					'label_block' => false,
+					'options'     => [
+						'rotate-1'         => esc_html__('Rotate 1', MELA_TD),
+						'rotate-2'         => esc_html__('Rotate 2', MELA_TD),
+						'rotate-3'         => esc_html__('Rotate 3', MELA_TD),
+						'loading-bar'      => esc_html__('Loading Bar', MELA_TD),
+						'ma-heading-pro-1' => esc_html__('Typing (Pro)', MELA_TD),
+						'ma-heading-pro-2' => esc_html__('Slide (Pro)', MELA_TD),
+						'ma-heading-pro-3' => esc_html__('Clip (Pro)', MELA_TD),
+						'ma-heading-pro-4' => esc_html__('Zoom (Pro)', MELA_TD),
+						'ma-heading-pro-5' => esc_html__('Scale (Pro)', MELA_TD),
+						'ma-heading-pro-6' => esc_html__('Push (Pro)', MELA_TD)
 					],
 					'description' => sprintf(
 						'7+ more effects on <a href="%s" target="_blank">%s</a>',
@@ -122,10 +122,10 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'ma_el_headlines_first_heading',
 			[
-				'label' => esc_html__('First Heading', MELA_TD),
-				'type' => Controls_Manager::TEXT,
+				'label'       => esc_html__('First Heading', MELA_TD),
+				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default' => esc_html__('Master Addons', MELA_TD),
+				'default'     => esc_html__('Master Addons', MELA_TD),
 			]
 		);
 
@@ -135,11 +135,11 @@ class Animated_Headlines extends Widget_Base
 		$repeater->add_control(
 			'ma_el_headlines_second_heading',
 			[
-				'label'                 => __('More Titles', MELA_TD),
-				'type'                  => Controls_Manager::TEXT,
-				'default'               => __('Minimal Template', MELA_TD),
-				'dynamic'               => [
-					'active'   => true,
+				'label'   => __('More Titles', MELA_TD),
+				'type'    => Controls_Manager::TEXT,
+				'default' => __('Minimal Template', MELA_TD),
+				'dynamic' => [
+					'active' => true,
 				],
 			]
 		);
@@ -149,16 +149,16 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'tabs',
 			[
-				'type'                  => Controls_Manager::REPEATER,
-				'default'               => [
+				'type'    => Controls_Manager::REPEATER,
+				'default' => [
 					['ma_el_headlines_second_heading' => esc_html__('Ultimate Addons', MELA_TD)],
 					['ma_el_headlines_second_heading' => esc_html__('Elementor Widgets', MELA_TD)],
 					['ma_el_headlines_second_heading' => esc_html__('Unique Design', MELA_TD)],
 					['ma_el_headlines_second_heading' => esc_html__('Unlimited Variations', MELA_TD)],
 					['ma_el_headlines_second_heading' => esc_html__('Unlimited Possibilities', MELA_TD)],
 				],
-				'fields' 				=> $repeater->get_controls(),
-				'title_field'           => '{{ma_el_headlines_second_heading}}',
+				'fields'      => $repeater->get_controls(),
+				'title_field' => '{{ma_el_headlines_second_heading}}',
 			]
 		);
 
@@ -166,23 +166,23 @@ class Animated_Headlines extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_headlines_alignment',
 			[
-				'label' => esc_html__('Alignment', MELA_TD),
-				'type' => Controls_Manager::CHOOSE,
+				'label'   => esc_html__('Alignment', MELA_TD),
+				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'flex-start' => [
 						'title' => esc_html__('Left', MELA_TD),
-						'icon' => 'fa fa-align-left',
+						'icon'  => 'fa fa-align-left',
 					],
 					'center' => [
 						'title' => esc_html__('Center', MELA_TD),
-						'icon' => 'fa fa-align-center',
+						'icon'  => 'fa fa-align-center',
 					],
 					'flex-end' => [
 						'title' => esc_html__('Right', MELA_TD),
-						'icon' => 'fa fa-align-right',
+						'icon'  => 'fa fa-align-right',
 					],
 				],
-				'default' => 'center',
+				'default'   => 'center',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-animated-headline' => 'justify-content: {{VALUE}};',
 				],
@@ -214,7 +214,7 @@ class Animated_Headlines extends Widget_Base
 			'jltma_section_animated_headlines_settings',
 			[
 				'label' => esc_html__('Animation Settings', MELA_TD),
-				'tab' => Controls_Manager::TAB_SETTINGS,
+				'tab'   => Controls_Manager::TAB_SETTINGS,
 			]
 		);
 
@@ -222,10 +222,10 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'anim_delay',
 			[
-				'label'                 => esc_html__('Animation Delay', MELA_TD),
-				'type'                  => Controls_Manager::NUMBER,
-				'default'               => 2500,
-				'frontend_available'    => true
+				'label'              => esc_html__('Animation Delay', MELA_TD),
+				'type'               => Controls_Manager::NUMBER,
+				'default'            => 2500,
+				'frontend_available' => true
 			]
 		);
 
@@ -233,11 +233,11 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'bar_anim_delay',
 			[
-				'label'                 => esc_html__('Animation Delay', MELA_TD),
-				'type'                  => Controls_Manager::NUMBER,
-				'default'               => 3800,
-				'frontend_available'    => true,
-				'condition'             => [
+				'label'              => esc_html__('Animation Delay', MELA_TD),
+				'type'               => Controls_Manager::NUMBER,
+				'default'            => 3800,
+				'frontend_available' => true,
+				'condition'          => [
 					'ma_el_headlines_style_preset' => ['loading-bar']
 				]
 			]
@@ -247,11 +247,11 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'letters_anim_delay',
 			[
-				'label'                 => esc_html__('Letters Delay', MELA_TD),
-				'type'                  => Controls_Manager::NUMBER,
-				'default'               => 50,
-				'frontend_available'    => true,
-				'condition'             => [
+				'label'              => esc_html__('Letters Delay', MELA_TD),
+				'type'               => Controls_Manager::NUMBER,
+				'default'            => 50,
+				'frontend_available' => true,
+				'condition'          => [
 					'ma_el_headlines_style_preset' => ['rotate-2']
 				]
 			]
@@ -261,11 +261,11 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'type_anim_delay',
 			[
-				'label'                 => esc_html__('Type Letters Delay', MELA_TD),
-				'type'                  => Controls_Manager::NUMBER,
-				'default'               => 150,
-				'frontend_available'    => true,
-				'condition'             => [
+				'label'              => esc_html__('Type Letters Delay', MELA_TD),
+				'type'               => Controls_Manager::NUMBER,
+				'default'            => 150,
+				'frontend_available' => true,
+				'condition'          => [
 					'ma_el_headlines_style_preset' => ['type']
 				]
 			]
@@ -274,11 +274,11 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'type_selection_delay',
 			[
-				'label'                 => esc_html__('Selection Duration', MELA_TD),
-				'type'                  => Controls_Manager::NUMBER,
-				'default'               => 500,
-				'frontend_available'    => true,
-				'condition'             => [
+				'label'              => esc_html__('Selection Duration', MELA_TD),
+				'type'               => Controls_Manager::NUMBER,
+				'default'            => 500,
+				'frontend_available' => true,
+				'condition'          => [
 					'ma_el_headlines_style_preset' => ['type']
 				]
 			]
@@ -289,11 +289,11 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'clip_reveal_delay',
 			[
-				'label'                 => esc_html__('Reveal Duration', MELA_TD),
-				'type'                  => Controls_Manager::NUMBER,
-				'default'               => 600,
-				'frontend_available'    => true,
-				'condition'             => [
+				'label'              => esc_html__('Reveal Duration', MELA_TD),
+				'type'               => Controls_Manager::NUMBER,
+				'default'            => 600,
+				'frontend_available' => true,
+				'condition'          => [
 					'ma_el_headlines_style_preset' => ['clip']
 				]
 			]
@@ -302,11 +302,11 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'clip_anim_duration',
 			[
-				'label'                 => esc_html__('Reveal Animation Delay', MELA_TD),
-				'type'                  => Controls_Manager::NUMBER,
-				'default'               => 1500,
-				'frontend_available'    => true,
-				'condition'             => [
+				'label'              => esc_html__('Reveal Animation Delay', MELA_TD),
+				'type'               => Controls_Manager::NUMBER,
+				'default'            => 1500,
+				'frontend_available' => true,
+				'condition'          => [
 					'ma_el_headlines_style_preset' => ['clip']
 				]
 			]
@@ -371,15 +371,15 @@ class Animated_Headlines extends Widget_Base
 			$this->add_control(
 				'ma_el_control_get_pro',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 				]
 			);
@@ -396,7 +396,7 @@ class Animated_Headlines extends Widget_Base
 			'ma_el_headlines_first_heading_styles',
 			[
 				'label' => esc_html__('First Heading', MELA_TD),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
@@ -404,12 +404,12 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'ma_el_headlines_first_text_color',
 			[
-				'label'		=> esc_html__('Text Color', MELA_TD),
-				'type'		=> Controls_Manager::COLOR,
-				'default' => '#ffffff',
-				'selectors'	=> [
+				'label'     => esc_html__('Text Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#ffffff',
+				'selectors' => [
 					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading'
-					=> 'color: {{VALUE}};',
+					=>  'color: {{VALUE}};',
 				],
 			]
 		);
@@ -417,12 +417,12 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'ma_el_headlines_first_bg_color',
 			[
-				'label' => __('Background', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#704aff',
+				'label'     => __('Background', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#704aff',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading'
-					=> 'background-color: {{VALUE}};',
+					=>  'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -430,8 +430,8 @@ class Animated_Headlines extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'ma_el_headlines_first_heading_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'name'     => 'ma_el_headlines_first_heading_typography',
+				'scheme'   => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading',
 			]
 		);
@@ -440,11 +440,11 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'ma_el_headlines_first_heading_padding',
 			[
-				'label' 		=> esc_html__('Padding', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px', '%'],
-				'selectors' 	=> [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'label'      => esc_html__('Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
+					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -452,11 +452,11 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'ma_el_headlines_first_heading_margin',
 			[
-				'label' 		=> esc_html__('Margin', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px', '%'],
-				'selectors' 	=> [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'label'      => esc_html__('Margin', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
+					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -464,9 +464,9 @@ class Animated_Headlines extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' 		=> 'ma_el_headlines_first_heading_border',
-				'label' 	=> esc_html__('Border', MELA_TD),
-				'selector' 	=> '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading',
+				'name'      => 'ma_el_headlines_first_heading_border',
+				'label'     => esc_html__('Border', MELA_TD),
+				'selector'  => '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading',
 				'separator' => ''
 			]
 		);
@@ -474,10 +474,10 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'ma_el_headlines_first_heading_radius',
 			[
-				'label' 		=> esc_html__('Border Radius', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px', '%'],
-				'selectors' 	=> [
+				'label'      => esc_html__('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
@@ -486,9 +486,9 @@ class Animated_Headlines extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' 		=> 'ma_el_headlines_first_heading_box_shadow',
-				'selector' 	=> '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading',
-				'separator'	=> ''
+				'name'      => 'ma_el_headlines_first_heading_box_shadow',
+				'selector'  => '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .first-heading',
+				'separator' => ''
 			]
 		);
 
@@ -501,17 +501,17 @@ class Animated_Headlines extends Widget_Base
 			'ma_el_headlines_second_heading_styles',
 			[
 				'label' => esc_html__('Second Heading', MELA_TD),
-				'tab' => Controls_Manager::TAB_STYLE
+				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
 
 		$this->add_control(
 			'ma_el_headlines_second_text_color',
 			[
-				'label'		=> esc_html__('Text Color', MELA_TD),
-				'type'		=> Controls_Manager::COLOR,
-				'default' => '#132C47',
-				'selectors'	=> [
+				'label'     => esc_html__('Text Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#132C47',
+				'selectors' => [
 					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' =>
 					'color: {{VALUE}}; font-style: normal; font-weight: normal;',
 				],
@@ -521,8 +521,8 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'ma_el_headlines_second_bg_color',
 			[
-				'label' => __('Background', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __('Background', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' =>
 					'background-color: {{VALUE}}; line-height:1.3;',
@@ -533,8 +533,8 @@ class Animated_Headlines extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'ma_el_headlines_second_heading_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'name'     => 'ma_el_headlines_second_heading_typography',
+				'scheme'   => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading',
 			]
 		);
@@ -542,11 +542,11 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'ma_el_headlines_second_heading_padding',
 			[
-				'label' 		=> esc_html__('Padding', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px', '%'],
-				'selectors' 	=> [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' 	=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'label'      => esc_html__('Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
+					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -554,11 +554,11 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'ma_el_headlines_second_heading_margin',
 			[
-				'label' 		=> esc_html__('Margin', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px', '%'],
-				'selectors' 	=> [
-					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' 	=> 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'label'      => esc_html__('Margin', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
+					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -566,9 +566,9 @@ class Animated_Headlines extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' 		=> 'ma_el_headlines_second_heading_border',
-				'label' 	=> esc_html__('Border', MELA_TD),
-				'selector' 	=> '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading',
+				'name'      => 'ma_el_headlines_second_heading_border',
+				'label'     => esc_html__('Border', MELA_TD),
+				'selector'  => '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading',
 				'separator' => ''
 			]
 		);
@@ -576,10 +576,10 @@ class Animated_Headlines extends Widget_Base
 		$this->add_control(
 			'ma_el_headlines_second_heading_radius',
 			[
-				'label' 		=> esc_html__('Border Radius', MELA_TD),
-				'type' 			=> Controls_Manager::DIMENSIONS,
-				'size_units' 	=> ['px', '%'],
-				'selectors' 	=> [
+				'label'      => esc_html__('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
@@ -588,9 +588,9 @@ class Animated_Headlines extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' 		=> 'ma_el_headlines_second_heading_box_shadow',
-				'selector' 	=> '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading',
-				'separator'	=> ''
+				'name'      => 'ma_el_headlines_second_heading_box_shadow',
+				'selector'  => '{{WRAPPER}} .ma-el-animated-heading .ma-el-animated-heading-wrapper .ma-el-animated-heading-title .second-heading',
+				'separator' => ''
 			]
 		);
 
@@ -605,22 +605,22 @@ class Animated_Headlines extends Widget_Base
 				'ma_el_section_pro_style_section',
 				[
 					'label' => esc_html__('Upgrade to Pro Version for More Features', MELA_TD),
-					'tab' => Controls_Manager::TAB_STYLE
+					'tab'   => Controls_Manager::TAB_STYLE
 				]
 			);
 
 			$this->add_control(
 				'ma_el_control_get_pro_style_tab',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with
 	Customization Options.</span>'
 				]
@@ -652,7 +652,7 @@ class Animated_Headlines extends Widget_Base
 				$letters_class = "";
 		}
 
-		$jltma_animated_headlines_id       = 'ma-el-heading-' . $this->get_id();
+		$jltma_animated_headlines_id = 'ma-el-heading-' . $this->get_id();
 
 		$this->add_render_attribute([
 			'jltma_animated_headlines' => [

@@ -14,7 +14,7 @@ use \Elementor\Frontend;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 use \MasterAddons\Inc\Classes\JLTMA_Extension_Prototype;
@@ -28,7 +28,7 @@ class Extension_Content_Protection extends JLTMA_Extension_Prototype
 {
 
 	private static $instance = null;
-	public $name = 'Content Protection';
+	public  $name            = 'Content Protection';
 	/**
 	 * Content_Protection constructor.
 	 */
@@ -78,8 +78,8 @@ class Extension_Content_Protection extends JLTMA_Extension_Prototype
 					'start-end-date'   => esc_html__('Start / End date', MELA_TD),
 					'days-of-the-week' => esc_html__('Days of the week', MELA_TD),
 				],
-				'default'     => 'role',
-				'condition'   => [
+				'default'   => 'role',
+				'condition' => [
 					'jltma_content_protection' => 'yes',
 				],
 			]
@@ -171,9 +171,9 @@ class Extension_Content_Protection extends JLTMA_Extension_Prototype
 		$element->add_control(
 			'jltma_content_protection_period_date',
 			[
-				'label'          => __('Period', MELA_TD),
-				'type'           => Controls_Manager::DATE_TIME,
-				'condition'      => [
+				'label'     => __('Period', MELA_TD),
+				'type'      => Controls_Manager::DATE_TIME,
+				'condition' => [
 					'jltma_content_protection'      => 'yes',
 					'jltma_content_protection_type' => 'start-end-date',
 				],
@@ -201,9 +201,9 @@ class Extension_Content_Protection extends JLTMA_Extension_Prototype
 		$element->add_control(
 			'jltma_content_protection_days_of_week_time_from',
 			[
-				'label'          => __('From', MELA_TD),
-				'type'           => Controls_Manager::DATE_TIME,
-				'condition'      => [
+				'label'     => __('From', MELA_TD),
+				'type'      => Controls_Manager::DATE_TIME,
+				'condition' => [
 					'jltma_content_protection'               => 'yes',
 					'jltma_content_protection_type'          => 'days-of-the-week',
 					'jltma_content_protection_days_of_week!' => '',
@@ -219,12 +219,12 @@ class Extension_Content_Protection extends JLTMA_Extension_Prototype
 		$element->add_control(
 			'jltma_content_protection_days_of_week_time_to',
 			[
-				'label'          => __('To', MELA_TD),
-				'type'           => Controls_Manager::DATE_TIME,
-				'condition'      => [
-					'jltma_content_protection'               => 'yes',
-					'jltma_content_protection_type'          => 'days-of-the-week',
-					'jltma_content_protection_days_of_week!' => '',
+				'label'     => __('To', MELA_TD),
+				'type'      => Controls_Manager::DATE_TIME,
+				'condition' => [
+					'jltma_content_protection'                         => 'yes',
+					'jltma_content_protection_type'                    => 'days-of-the-week',
+					'jltma_content_protection_days_of_week!'           => '',
 					'jltma_content_protection_days_of_week_time_from!' => '',
 				],
 				'picker_options' => [
@@ -263,17 +263,17 @@ class Extension_Content_Protection extends JLTMA_Extension_Prototype
 					'text'     => esc_html__('Message', MELA_TD),
 					'template' => esc_html__('Saved Templates', MELA_TD),
 				],
-				'default'     => 'text',
+				'default' => 'text',
 			]
 		);
 
 		$element->add_control(
 			'jltma_content_protection_message_text',
 			[
-				'label'     => esc_html__('Public Text', MELA_TD),
-				'type'      => Controls_Manager::WYSIWYG,
-				'default'   => esc_html__('You do not have permission to see this content.', MELA_TD),
-				'dynamic'   => [
+				'label'   => esc_html__('Public Text', MELA_TD),
+				'type'    => Controls_Manager::WYSIWYG,
+				'default' => esc_html__('You do not have permission to see this content.', MELA_TD),
+				'dynamic' => [
 					'active' => true,
 				],
 				'condition' => [
@@ -334,7 +334,7 @@ class Extension_Content_Protection extends JLTMA_Extension_Prototype
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'jltma_content_protection_message_text_typography',
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
+				'scheme'    => Typography::TYPOGRAPHY_2,
 				'selector'  => '{{WRAPPER}} .neb-protected-content-message, {{WRAPPER}} .protected-content-error-msg',
 				'condition' => [
 					'jltma_content_protection_message_type' => 'text',
@@ -362,8 +362,8 @@ class Extension_Content_Protection extends JLTMA_Extension_Prototype
 						'icon'  => 'fa fa-align-right',
 					],
 				],
-				'default'     => 'left',
-				'selectors'   => [
+				'default'   => 'left',
+				'selectors' => [
 					'{{WRAPPER}} .neb-protected-content-message, {{WRAPPER}} .protected-content-error-msg' => 'text-align: {{VALUE}};',
 				],
 				'condition'   => [
@@ -402,9 +402,9 @@ class Extension_Content_Protection extends JLTMA_Extension_Prototype
 		$element->add_control(
 			'jltma_content_protection_input_width',
 			[
-				'label'     => esc_html__('Input Width', MELA_TD),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
+				'label' => esc_html__('Input Width', MELA_TD),
+				'type'  => Controls_Manager::SLIDER,
+				'range' => [
 					'px' => [
 						'max' => 1000,
 					],
@@ -438,8 +438,8 @@ class Extension_Content_Protection extends JLTMA_Extension_Prototype
 						'icon'  => 'fa fa-align-right',
 					],
 				],
-				'default'     => 'left',
-				'selectors'   => [
+				'default'   => 'left',
+				'selectors' => [
 					'{{WRAPPER}} .neb-password-protected-content-fields > form' => 'justify-content: {{VALUE}};',
 				],
 				'condition'   => [
@@ -481,9 +481,9 @@ class Extension_Content_Protection extends JLTMA_Extension_Prototype
 		$element->add_control(
 			'jltma_content_protection_input_border_radius',
 			[
-				'label'     => esc_html__('Border Radius', MELA_TD),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
+				'label' => esc_html__('Border Radius', MELA_TD),
+				'type'  => Controls_Manager::SLIDER,
+				'range' => [
 					'px' => [
 						'max' => 100,
 					],
@@ -786,9 +786,9 @@ class Extension_Content_Protection extends JLTMA_Extension_Prototype
 	public function password_protected_form($settings)
 	{
 		$html = '<div class="neb-password-protected-content-fields">
-            <form method="post">
-                <input type="password" name="jltma_content_protection_password" class="neb-password" placeholder="' . $settings['jltma_content_protection_password_placeholder'] . '">
-                <input type="submit" value="' . $settings['jltma_content_protection_password_submit_btn_txt'] . '" class="neb-submit">
+            <form  method = "post">
+            <input type   = "password" name = "jltma_content_protection_password" class                                     = "neb-password" placeholder = "' . $settings['jltma_content_protection_password_placeholder'] . '">
+            <input type   = "submit" value  = "' . $settings['jltma_content_protection_password_submit_btn_txt'] . '" class = "neb-submit">
             </form>';
 
 		if (isset($_POST['jltma_content_protection_password'])) {

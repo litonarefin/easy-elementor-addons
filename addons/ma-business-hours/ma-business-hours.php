@@ -9,7 +9,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Repeater;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Box_Shadow;
@@ -1068,10 +1068,10 @@ class Business_Hours extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'              => 'title_typography',
-				'label'             => __('Typography', MELA_TD),
-				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
-				'selector'          => '{{WRAPPER}} .ma-el-business-hour .ma-el-business-day-name',
+				'name'     => 'title_typography',
+				'label'    => __('Typography', MELA_TD),
+				'scheme'   => Typography::TYPOGRAPHY_4,
+				'selector' => '{{WRAPPER}} .ma-el-business-hour .ma-el-business-day-name',
 			]
 		);
 
@@ -1101,7 +1101,7 @@ class Business_Hours extends Widget_Base
 			[
 				'name'              => 'hours_typography',
 				'label'             => __('Typography', MELA_TD),
-				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'    		=> Typography::TYPOGRAPHY_4,
 				'selector'          => '{{WRAPPER}} .ma-el-business-hour .ma-el-business-duration',
 			]
 		);

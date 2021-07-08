@@ -7,13 +7,13 @@ use \Elementor\Controls_Manager as Controls_Manager;
 use \Elementor\Group_Control_Border as Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography as Group_Control_Typography;
-use \Elementor\Scheme_Typography as Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
  * Author Name: Liton Arefin
- * Author URL: https://jeweltheme.com
- * Date: 6/27/19
+ * Author URL : https: //jeweltheme.com
+ * Date       : 6/27/19
  */
 
 
@@ -74,31 +74,31 @@ class Creative_Links extends Widget_Base
 			$this->add_control(
 				'creative_link_effect',
 				[
-					'label'       => esc_html__('Effects', MELA_TD),
-					'type'        => Controls_Manager::SELECT,
-					'default'     => 'cl-effect-1',
-					'options'     => [
-						'cl-effect-1' 	=> esc_html__('Brackets', 	                                MELA_TD),
-						'cl-effect-2' 	=> esc_html__('3D Effect', 	                            MELA_TD),
-						'cl-effect-3' 	=> esc_html__('Bottom Line Slide', 	                    MELA_TD),
-						'cl-effect-4' 	=> esc_html__('Bottom Border Enlarge', 	                MELA_TD),
-						'cl-effect-5' 	=> esc_html__('Slide In', 	                                MELA_TD),
-						'cl-effect-6' 	=> esc_html__('Border Slide Down', 	                    MELA_TD),
-						'cl-effect-7' 	=> esc_html__('2nd Border Slide Up', 	                    MELA_TD),
-						'cl-effect-8' 	=> esc_html__('Border Translate', 	                        MELA_TD),
-						'cl-effect-9' 	=> esc_html__('2nd Text and Border', 	                    MELA_TD),
-						'cl-effect-10' 	=> esc_html__('Reveal Push Out', 	                        MELA_TD),
-						'cl-effect-11' 	=> esc_html__('Text Fill', 	                            MELA_TD), //problem
-						'cl-effect-12' 	=> esc_html__('Circle ', 	                                MELA_TD),
-						'cl-effect-13' 	=> esc_html__('Three Dots', 	                            MELA_TD),
-						'cl-effect-14' 	=> esc_html__('Border Switch', 	                        MELA_TD),
-						'cl-effect-15' 	=> esc_html__('Scale Down', 	                            MELA_TD),
-						'cl-effect-16' 	=> esc_html__('Fall Down', 	                            MELA_TD),
-						'cl-effect-17' 	=> esc_html__('Move Up', 	                                MELA_TD),
-						'cl-effect-18' 	=> esc_html__('Cross', 	                                MELA_TD),
-						'cl-effect-19' 	=> esc_html__('3D Slide', 	                                MELA_TD),
-						'cl-effect-20' 	=> esc_html__('3D Slide Down', 	                        MELA_TD),
-						'cl-effect-21' 	=> esc_html__('Effect 21', 	                            MELA_TD),
+					'label'   => esc_html__('Effects', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'default' => 'cl-effect-1',
+					'options' => [
+						'cl-effect-1'  => esc_html__('Brackets', 	                                MELA_TD),
+						'cl-effect-2'  => esc_html__('3D Effect', 	                            MELA_TD),
+						'cl-effect-3'  => esc_html__('Bottom Line Slide', 	                    MELA_TD),
+						'cl-effect-4'  => esc_html__('Bottom Border Enlarge', 	                MELA_TD),
+						'cl-effect-5'  => esc_html__('Slide In', 	                                MELA_TD),
+						'cl-effect-6'  => esc_html__('Border Slide Down', 	                    MELA_TD),
+						'cl-effect-7'  => esc_html__('2nd Border Slide Up', 	                    MELA_TD),
+						'cl-effect-8'  => esc_html__('Border Translate', 	                        MELA_TD),
+						'cl-effect-9'  => esc_html__('2nd Text and Border', 	                    MELA_TD),
+						'cl-effect-10' => esc_html__('Reveal Push Out', 	                        MELA_TD),
+						'cl-effect-11' => esc_html__('Text Fill', 	                            MELA_TD),      //problem
+						'cl-effect-12' => esc_html__('Circle ', 	                                MELA_TD),
+						'cl-effect-13' => esc_html__('Three Dots', 	                            MELA_TD),
+						'cl-effect-14' => esc_html__('Border Switch', 	                        MELA_TD),
+						'cl-effect-15' => esc_html__('Scale Down', 	                            MELA_TD),
+						'cl-effect-16' => esc_html__('Fall Down', 	                            MELA_TD),
+						'cl-effect-17' => esc_html__('Move Up', 	                                MELA_TD),
+						'cl-effect-18' => esc_html__('Cross', 	                                MELA_TD),
+						'cl-effect-19' => esc_html__('3D Slide', 	                                MELA_TD),
+						'cl-effect-20' => esc_html__('3D Slide Down', 	                        MELA_TD),
+						'cl-effect-21' => esc_html__('Effect 21', 	                            MELA_TD),
 						// 'cl-effect-22' 	=> esc_html__( 'Effect 22', 	                            MELA_TD ),
 					],
 
@@ -112,29 +112,29 @@ class Creative_Links extends Widget_Base
 			$this->add_control(
 				'creative_link_effect',
 				[
-					'label'       => esc_html__('Effects', MELA_TD),
-					'type'        => Controls_Manager::SELECT,
-					'default'     => 'cl-effect-1',
-					'options'     => [
-						'cl-effect-1' 	=> esc_html__('Brackets', 	                    MELA_TD),
-						'cl-effect-3' 	=> esc_html__('Bottom Line Slide', 	        MELA_TD),
-						'cl-effect-4' 	=> esc_html__('Bottom Border Enlarge', 	    MELA_TD),
-						'cl-effect-13' 	=> esc_html__('Three Dots', 	                MELA_TD),
-						'cl-effect-11' 	=> esc_html__('Text Fill', 	                MELA_TD), //problem
-						'cl-effect-17' 	=> esc_html__('Move Up', 	                    MELA_TD),
-						'cl-effect-15' 	=> esc_html__('Scale Down', 	                MELA_TD),
-						'cl-effect-21' 	=> esc_html__('Basic Effect', 	                MELA_TD),
-						'cl-pro-link-1' => esc_html__('3D Effect (Pro)', 	            MELA_TD),
-						'cl-pro-link-2' => esc_html__('Slide In (Pro)', 	            MELA_TD),
-						'cl-pro-link-3' => esc_html__('Border Slide Down (Pro)', 	    MELA_TD),
-						'cl-effect-7' 	=> esc_html__('2nd Border Slide Up', 	        MELA_TD),
-						'cl-pro-link-4' => esc_html__('Border Translate (Pro)', 	    MELA_TD),
-						'cl-pro-link-5' => esc_html__('2nd Text and Border (Pro)', 	MELA_TD),
-						'cl-pro-link-6' => esc_html__('Reveal Push Out (Pro)', 	    MELA_TD),
-						'cl-pro-link-7' => esc_html__('Circle (Pro)', 	                MELA_TD),
-						'cl-pro-link' 	=> esc_html__('Border Switch (Pro)', 	        MELA_TD),
-						'cl-pro-link-8' => esc_html__('Fall Down (Pro)', 	            MELA_TD),
-						'cl-pro-link-9' => esc_html__('Cross (Pro)', 	                MELA_TD),
+					'label'   => esc_html__('Effects', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'default' => 'cl-effect-1',
+					'options' => [
+						'cl-effect-1'    => esc_html__('Brackets', 	                    MELA_TD),
+						'cl-effect-3'    => esc_html__('Bottom Line Slide', 	        MELA_TD),
+						'cl-effect-4'    => esc_html__('Bottom Border Enlarge', 	    MELA_TD),
+						'cl-effect-13'   => esc_html__('Three Dots', 	                MELA_TD),
+						'cl-effect-11'   => esc_html__('Text Fill', 	                MELA_TD),      //problem
+						'cl-effect-17'   => esc_html__('Move Up', 	                    MELA_TD),
+						'cl-effect-15'   => esc_html__('Scale Down', 	                MELA_TD),
+						'cl-effect-21'   => esc_html__('Basic Effect', 	                MELA_TD),
+						'cl-pro-link-1'  => esc_html__('3D Effect (Pro)', 	            MELA_TD),
+						'cl-pro-link-2'  => esc_html__('Slide In (Pro)', 	            MELA_TD),
+						'cl-pro-link-3'  => esc_html__('Border Slide Down (Pro)', 	    MELA_TD),
+						'cl-effect-7'    => esc_html__('2nd Border Slide Up', 	        MELA_TD),
+						'cl-pro-link-4'  => esc_html__('Border Translate (Pro)', 	    MELA_TD),
+						'cl-pro-link-5'  => esc_html__('2nd Text and Border (Pro)', 	MELA_TD),
+						'cl-pro-link-6'  => esc_html__('Reveal Push Out (Pro)', 	    MELA_TD),
+						'cl-pro-link-7'  => esc_html__('Circle (Pro)', 	                MELA_TD),
+						'cl-pro-link'    => esc_html__('Border Switch (Pro)', 	        MELA_TD),
+						'cl-pro-link-8'  => esc_html__('Fall Down (Pro)', 	            MELA_TD),
+						'cl-pro-link-9'  => esc_html__('Cross (Pro)', 	                MELA_TD),
 						'cl-pro-link-10' => esc_html__('3D Slide (Pro)', 	            MELA_TD),
 						'cl-pro-link-11' => esc_html__('3D Slide Down (Pro)', 	        MELA_TD),
 						// 'cl-effect-22' 	=> esc_html__( 'Effect 22', 	                MELA_TD ),
@@ -257,15 +257,15 @@ class Creative_Links extends Widget_Base
 		$this->add_control(
 			'ma_el_creative_link_icon',
 			[
-				'label'         	=> esc_html__('Icon', MELA_TD),
-				'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
-				'type'          	=> Controls_Manager::ICONS,
-				'fa4compatibility' 	=> 'icon',
-				'default'       	=> [
-					'value'     => 'fas fa-external-link-alt',
-					'library'   => 'solid',
+				'label'            => esc_html__('Icon', MELA_TD),
+				'description'      => esc_html__('Please choose an icon from the list.', MELA_TD),
+				'type'             => Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'default'          => [
+					'value'   => 'fas fa-external-link-alt',
+					'library' => 'solid',
 				],
-				'render_type'      => 'template'
+				'render_type' => 'template'
 			]
 		);
 
@@ -303,7 +303,7 @@ class Creative_Links extends Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-creative-link-icon-right' => 'margin-left: {{SIZE}}px;',
 					'{{WRAPPER}} .ma-el-creative-link-icon-left'  => 'margin-right: {{SIZE}}px;',
-					'{{WRAPPER}} .ma-el-creative-link i' => 'left: -{{SIZE}}px;',
+					'{{WRAPPER}} .ma-el-creative-link i'          => 'left: -{{SIZE}}px;',
 				],
 			]
 		);
@@ -366,9 +366,9 @@ class Creative_Links extends Widget_Base
 			$this->add_control(
 				'maad_el_control_get_pro',
 				[
-					'label'       => esc_html__('Unlock more possibilities', MELA_TD),
-					'type'        => Controls_Manager::CHOOSE,
-					'options'     => [
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
+					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
 							'icon'  => 'fa fa-unlock-alt',
@@ -385,7 +385,7 @@ class Creative_Links extends Widget_Base
 
 
 		/*
-			 *  Master Addons: Style Controls
+			 * Master Addons: Style Controls
 			 */
 		$this->start_controls_section(
 			'ma_el_creative_link_settings',
@@ -422,7 +422,7 @@ class Creative_Links extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'ma_el_creative_link_typography',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme'   => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .ma-el-creative-links .ma-el-creative-link .ma-el-creative-link-item',
 			]
 		);
@@ -434,7 +434,7 @@ class Creative_Links extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors'  => [
-					'{{WRAPPER}} .ma-el-creative-link'                                      => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .ma-el-creative-link'                                     => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--winona::after'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--winona > span'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--tamaya::before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -457,17 +457,17 @@ class Creative_Links extends Widget_Base
 				'default'   => '#333333',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-creative-links .ma-el-creative-link a'
-					=> 'color: {{VALUE}};',
+					=>  'color: {{VALUE}};',
 
 					// Bar Colors
 					'{{WRAPPER}} .ma-el-creative-links.cl-effect-4 a::after,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-3 a::after,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-6 a::before,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-6 a::after,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-7 a::before,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-7 a::after
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-3 a:: after,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-6 a:: before,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-6 a:: after,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-7 a:: before,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-7 a:: after
                         '
-					=>  'background: {{VALUE}};',
+					=>   'background: {{VALUE}};',
 
 
 					'{{WRAPPER}} .ma-el-creative-links.cl-effect-20 a span' => 'box-shadow: inset 0 3px {{VALUE}};',
@@ -556,8 +556,8 @@ class Creative_Links extends Widget_Base
 				'default'   => '#333333',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-creative-links .ma-el-creative-link a:hover,
-						{{WRAPPER}} .ma-el-creative-links.cl-effect-9 a span:last-child,
-						{{WRAPPER}} .ma-el-creative-links.cl-effect-20 a span::before' => 'color: {{VALUE}};',
+						{{WRAPPER}} .ma-el-creative-links.cl-effect-9 a span  : last-child,
+						{{WRAPPER}} .ma-el-creative-links.cl-effect-20 a span:: before' => 'color: {{VALUE}};',
 
 					'{{WRAPPER}} .ma-el-creative-links.cl-effect-8 .cl-effect-8 a::after' => 'border-color: {{VALUE}};',
 
@@ -567,10 +567,10 @@ class Creative_Links extends Widget_Base
 
 
 					'{{WRAPPER}} .ma-el-creative-links.cl-effect-14 a::before,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-14 a::after,
-						{{WRAPPER}} .ma-el-creative-links.cl-effect-17 a::after,
-						{{WRAPPER}} .ma-el-creative-links.cl-effect-18 a::before,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-18 a::after' => 'background: {{VALUE}};',
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-14 a:: after,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-17 a:: after,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-18 a:: before,
+                        {{WRAPPER}} .ma-el-creative-links.cl-effect-18 a:: after' => 'background: {{VALUE}};',
 
 
 				],
@@ -602,7 +602,7 @@ class Creative_Links extends Widget_Base
 
 					'{{WRAPPER}} .ma-el-creative-links.cl-effect-12 a::before,
                         {{WRAPPER}} .ma-el-creative-links.cl-effect-12 a::after'
-					=> 'border: 2px solid {{VALUE}};',
+					=>  'border: 2px solid {{VALUE}};',
 
 					//						'{{WRAPPER}} .ma-el-creative-link:hover'                                 => 'border-color: {{VALUE}};',
 					//						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--wapasha::before' => 'border-color: {{VALUE}};',
@@ -636,22 +636,22 @@ class Creative_Links extends Widget_Base
 				'ma_el_section_pro_style_section',
 				[
 					'label' => esc_html__('Upgrade to Pro Version for More Features', MELA_TD),
-					'tab' => Controls_Manager::TAB_STYLE
+					'tab'   => Controls_Manager::TAB_STYLE
 				]
 			);
 
 			$this->add_control(
 				'ma_el_control_get_pro',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with
 Customization Options.</span>'
 				]
@@ -664,7 +664,7 @@ Customization Options.</span>'
 	protected function render()
 	{
 		$settings = $this->get_settings();
-		$link_id		= $this->get_id();
+		$link_id  = $this->get_id();
 
 
 		$this->add_render_attribute('ma_el_creative_links_wrapper', [
@@ -676,8 +676,8 @@ Customization Options.</span>'
 		]);
 
 		$this->add_render_attribute('ma_el_creative_link', [
-			'class'	=>  'ma-el-creative-link-item',
-			'href'	=> esc_url_raw($settings['creative_link_url']['url']),
+			'class' => 'ma-el-creative-link-item',
+			'href'  => esc_url_raw($settings['creative_link_url']['url']),
 
 		]);
 
@@ -722,7 +722,8 @@ Customization Options.</span>'
 
 
 							<?php if (!empty($settings['ma_el_creative_link_icon']) && $settings['ma_el_creative_link_icon_alignment'] == 'left') : ?>
-								<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-external-link-alt', 'icon', $settings['ma_el_creative_link_icon'], 'ma_el_creative_link_icon', 'ma-el-creative-link-icon-left'); ?>
+								<?php
+								Master_Addons_Helper::jltma_fa_icon_picker('fas fa-external-link-alt', 'icon', $settings['ma_el_creative_link_icon'], 'ma_el_creative_link_icon', 'ma-el-creative-link-icon-left'); ?>
 							<?php endif; ?>
 
 

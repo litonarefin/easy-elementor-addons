@@ -7,15 +7,15 @@ use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 
 
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
  * Author Name: Liton Arefin
- * Author URL: https://jeweltheme.com
- * Date: 9/29/19
+ * Author URL : https: //jeweltheme.com
+ * Date       : 9/29/19
  */
 
 // Exit if accessed directly.
@@ -85,8 +85,8 @@ class News_Ticker extends Widget_Base
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'content',
 				'options' => [
-					'content'   => __('Content', MELA_TD),
-					'feed'      => __('RSS Feed', MELA_TD),
+					'content' => __('Content', MELA_TD),
+					'feed'    => __('RSS Feed', MELA_TD),
 				],
 			]
 		);
@@ -100,7 +100,7 @@ class News_Ticker extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_news_ticker_feed_section',
 			[
-				'label' => __('RSS Feed Options', MELA_TD),
+				'label'     => __('RSS Feed Options', MELA_TD),
 				'condition' => [
 					'ma_el_news_ticker_type' => 'feed'
 				]
@@ -110,8 +110,8 @@ class News_Ticker extends Widget_Base
 		$this->add_control(
 			'ma_el_news_ticker_feed_url',
 			[
-				'label'   => __('RSS Feed URL', MELA_TD),
-				'type'    => Controls_Manager::TEXTAREA,
+				'label'       => __('RSS Feed URL', MELA_TD),
+				'type'        => Controls_Manager::TEXTAREA,
 				'placeholder' => 'https://jeweltheme.com/feed/',
 
 
@@ -123,9 +123,9 @@ class News_Ticker extends Widget_Base
 			[
 				'label'   => __('Limit Posts', MELA_TD),
 				'type'    => Controls_Manager::NUMBER,
-				'min' => 1,
-				'max' => 30,
-				'step' => 1,
+				'min'     => 1,
+				'max'     => 30,
+				'step'    => 1,
 				'default' => 5,
 			]
 		);
@@ -137,11 +137,11 @@ class News_Ticker extends Widget_Base
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'slideFastSynced',
 				'options' => [
-					'slide'                     => __('Slide', MELA_TD),
-					'show'                      => __('Show', MELA_TD),
-					'slideFast'                 => __('Slide Fast', MELA_TD),
-					'slideSynced'               => __('Slide Synced', MELA_TD),
-					'slideFastSynced'           => __('Slide Fast Synced', MELA_TD),
+					'slide'           => __('Slide', MELA_TD),
+					'show'            => __('Show', MELA_TD),
+					'slideFast'       => __('Slide Fast', MELA_TD),
+					'slideSynced'     => __('Slide Synced', MELA_TD),
+					'slideFastSynced' => __('Slide Fast Synced', MELA_TD),
 				],
 			]
 		);
@@ -163,9 +163,9 @@ class News_Ticker extends Widget_Base
 		$this->add_control(
 			'ma_el_news_ticker_show_label',
 			[
-				'label'   => __('Show Label?', MELA_TD),
-				'type'    => Controls_Manager::SWITCHER,
-				'default' => 'yes',
+				'label'        => __('Show Label?', MELA_TD),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'yes',
 				'return_value' => 'yes'
 			]
 		);
@@ -178,7 +178,7 @@ class News_Ticker extends Widget_Base
 				'dynamic'     => ['active' => true],
 				'default'     => __('Breaking News', MELA_TD),
 				'placeholder' => __('Breaking News', MELA_TD),
-				'condition' => [
+				'condition'   => [
 					'ma_el_news_ticker_show_label' => 'yes'
 				]
 			]
@@ -200,9 +200,9 @@ class News_Ticker extends Widget_Base
 		$this->add_control(
 			'ma_el_news_ticker_thumbnail',
 			[
-				'label'     => __('Show Thumbnail', MELA_TD),
-				'type'      => Controls_Manager::SWITCHER,
-				'default'   => 'no',
+				'label'        => __('Show Thumbnail', MELA_TD),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
 				'return_value' => 'yes'
 			]
 		);
@@ -210,9 +210,9 @@ class News_Ticker extends Widget_Base
 		$this->add_control(
 			'ma_el_news_ticker_highlight_title',
 			[
-				'label'     => __('Highlight Words?', MELA_TD),
-				'type'      => Controls_Manager::SWITCHER,
-				'default'   => 'no',
+				'label'        => __('Highlight Words?', MELA_TD),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
 				'return_value' => 'yes'
 			]
 		);
@@ -220,12 +220,12 @@ class News_Ticker extends Widget_Base
 		$this->add_control(
 			'ma_el_news_ticker_highlight_content',
 			[
-				'label'   => __('Limit Posts', MELA_TD),
-				'type'    => Controls_Manager::NUMBER,
-				'min' => 1,
-				'max' => 10,
-				'step' => 1,
-				'default' => 2,
+				'label'     => __('Limit Posts', MELA_TD),
+				'type'      => Controls_Manager::NUMBER,
+				'min'       => 1,
+				'max'       => 10,
+				'step'      => 1,
+				'default'   => 2,
 				'condition' => [
 					'ma_el_news_ticker_highlight_title' => 'yes'
 				],
@@ -285,15 +285,15 @@ class News_Ticker extends Widget_Base
 		$this->add_control(
 			'ma_el_news_ticker_scroll',
 			[
-				'label'         => __('Scroll Type', MELA_TD),
-				'type'          => Controls_Manager::SELECT,
-				'options'       => [
-					'slide-h'             => __('Horizontal', MELA_TD),
-					'slide-v'             => __('Vertical', MELA_TD),
-					'scroll-h'            => __('Horiziontal Scroll', MELA_TD)
+				'label'   => __('Scroll Type', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'options' => [
+					'slide-h'  => __('Horizontal', MELA_TD),
+					'slide-v'  => __('Vertical', MELA_TD),
+					'scroll-h' => __('Horiziontal Scroll', MELA_TD)
 				],
-				'default'       => 'slide-h',
-				'label_block'   => true
+				'default'     => 'slide-h',
+				'label_block' => true
 			]
 		);
 
@@ -331,9 +331,9 @@ class News_Ticker extends Widget_Base
 		$this->add_control(
 			'ma_el_news_ticker_news_duration',
 			[
-				'label'              => __('Animation Speed', MELA_TD),
-				'type'               => Controls_Manager::NUMBER,
-				'default'            => 3000,
+				'label'   => __('Animation Speed', MELA_TD),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 3000,
 			]
 		);
 
@@ -364,10 +364,10 @@ class News_Ticker extends Widget_Base
 		$this->add_control(
 			'ma_el_news_ticker_navigation_size',
 			[
-				'label'   => __('Navigation Size', MELA_TD),
-				'size_units'    => ['px', 'em', '%'],
-				'type'    => Controls_Manager::SLIDER,
-				'default' => [
+				'label'      => __('Navigation Size', MELA_TD),
+				'size_units' => ['px', 'em', '%'],
+				'type'       => Controls_Manager::SLIDER,
+				'default'    => [
 					'size' => 14,
 				],
 				'range' => [
@@ -401,24 +401,24 @@ class News_Ticker extends Widget_Base
 		$this->add_control(
 			'ma_el_news_ticker_post_types',
 			[
-				'label'         => __('Post Type', MELA_TD),
-				'type'          => Controls_Manager::SELECT2,
-				'options'       => Master_Addons_Helper::ma_el_get_post_types(),
-				'default'       => 'post'
+				'label'   => __('Post Type', MELA_TD),
+				'type'    => Controls_Manager::SELECT2,
+				'options' => Master_Addons_Helper::ma_el_get_post_types(),
+				'default' => 'post'
 			]
 		);
 
 		$this->add_control(
 			'ma_el_news_ticker_categories',
 			[
-				'label'         => __('Categories', MELA_TD),
-				'type'          => Controls_Manager::SELECT2,
-				'description'   => __('Get posts for specific category(s)', MELA_TD),
-				'label_block'   => true,
-				'multiple'      => true,
-				'options'       => Master_Addons_Helper::ma_el_blog_post_type_categories(),
-				'condition'     => [
-					'ma_el_news_ticker_post_types'  => 'post'
+				'label'       => __('Categories', MELA_TD),
+				'type'        => Controls_Manager::SELECT2,
+				'description' => __('Get posts for specific category(s)', MELA_TD),
+				'label_block' => true,
+				'multiple'    => true,
+				'options'     => Master_Addons_Helper::ma_el_blog_post_type_categories(),
+				'condition'   => [
+					'ma_el_news_ticker_post_types' => 'post'
 				]
 			]
 		);
@@ -426,14 +426,14 @@ class News_Ticker extends Widget_Base
 		$this->add_control(
 			'ma_el_news_ticker_tags',
 			[
-				'label'         => __('Post Tags', MELA_TD),
-				'type'          => Controls_Manager::SELECT2,
-				'description'   => __('Get posts from specific tag(s)', MELA_TD),
-				'label_block'   => true,
-				'multiple'      => true,
-				'options'       => Master_Addons_Helper::ma_el_blog_post_type_tags(),
-				'condition'     => [
-					'ma_el_news_ticker_post_types'  => 'post'
+				'label'       => __('Post Tags', MELA_TD),
+				'type'        => Controls_Manager::SELECT2,
+				'description' => __('Get posts from specific tag(s)', MELA_TD),
+				'label_block' => true,
+				'multiple'    => true,
+				'options'     => Master_Addons_Helper::ma_el_blog_post_type_tags(),
+				'condition'   => [
+					'ma_el_news_ticker_post_types' => 'post'
 				]
 			]
 		);
@@ -459,21 +459,21 @@ class News_Ticker extends Widget_Base
 		$this->add_control(
 			'ma_el_news_ticker_posts_orderby',
 			[
-				'label'         => __('Order By', MELA_TD),
-				'type'          => Controls_Manager::SELECT,
-				'label_block'   => true,
-				'options'       => [
-					'none'  => __('None', MELA_TD),
-					'ID'    => __('ID', MELA_TD),
-					'author' => __('Author', MELA_TD),
-					'title' => __('Title', MELA_TD),
-					'name'  => __('Name', MELA_TD),
-					'date'  => __('Date', MELA_TD),
-					'modified' => __('Last Modified', MELA_TD),
-					'rand'  => __('Random', MELA_TD),
+				'label'       => __('Order By', MELA_TD),
+				'type'        => Controls_Manager::SELECT,
+				'label_block' => true,
+				'options'     => [
+					'none'          => __('None', MELA_TD),
+					'ID'            => __('ID', MELA_TD),
+					'author'        => __('Author', MELA_TD),
+					'title'         => __('Title', MELA_TD),
+					'name'          => __('Name', MELA_TD),
+					'date'          => __('Date', MELA_TD),
+					'modified'      => __('Last Modified', MELA_TD),
+					'rand'          => __('Random', MELA_TD),
 					'comment_count' => __('Number of Comments', MELA_TD),
 				],
-				'default'       => 'date'
+				'default' => 'date'
 			]
 		);
 
@@ -545,8 +545,8 @@ class News_Ticker extends Widget_Base
 				'label'       => __('Border', MELA_TD),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector' => '{{WRAPPER}} .ma-el-ticker-heading',
-				'condition' => [
+				'selector'    => '{{WRAPPER}} .ma-el-ticker-heading',
+				'condition'   => [
 					'ma_el_news_ticker_show_label' => 'yes'
 				]
 			]
@@ -571,10 +571,10 @@ class News_Ticker extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_news_ticker_label_border_radius',
 			[
-				'label'         => __('Border Radius', MELA_TD),
-				'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => ['px', '%', 'em'],
-				'selectors'     => [
+				'label'      => __('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-ticker-heading' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{BOTTOM}}{{UNIT}}; border-bottom-left-radius: {{RIGHT}}{{UNIT}}; border-bottom-right-radius: {{LEFT}}{{UNIT}};'
 				]
 			]
@@ -583,10 +583,10 @@ class News_Ticker extends Widget_Base
 		$this->add_responsive_control(
 			'ma_el_news_ticker_angle_margin',
 			[
-				'label'         => __('Angle Margin', MELA_TD),
-				'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => ['px', 'em', '%'],
-				'selectors'     => [
+				'label'      => __('Angle Margin', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .ma-el-ticker-content-details:before' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
@@ -613,7 +613,7 @@ class News_Ticker extends Widget_Base
 			[
 				'name'      => 'ma_el_news_ticker_label_typography',
 				'label'     => __('Typography', MELA_TD),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme'    => Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .ma-el-news-ticker .ma-el-ticker-heading',
 				'condition' => [
 					'ma_el_news_ticker_show_label' => 'yes'
@@ -633,8 +633,8 @@ class News_Ticker extends Widget_Base
 		$this->start_controls_section(
 			'ma_el_news_ticker_content_heading',
 			[
-				'label'     => __('Content', MELA_TD),
-				'tab'       => Controls_Manager::TAB_STYLE,
+				'label' => __('Content', MELA_TD),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
@@ -669,8 +669,8 @@ class News_Ticker extends Widget_Base
 				'label'     => __('Background', MELA_TD),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-ticker-content-details'     => 'background: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-ticker-nav'     => 'background: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-ticker-content-details' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-ticker-nav'             => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -683,7 +683,7 @@ class News_Ticker extends Widget_Base
 				'label'       => __('Border', MELA_TD),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector' => '{{WRAPPER}} .ma-el-ticker-content-details'
+				'selector'    => '{{WRAPPER}} .ma-el-ticker-content-details'
 			]
 		);
 
@@ -912,15 +912,15 @@ class News_Ticker extends Widget_Base
 			$this->add_control(
 				'jltma_control_get_pro_style_tab',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 				]
 			);
@@ -948,13 +948,13 @@ class News_Ticker extends Widget_Base
 		$ticker_id = 'ma-el-news-ticker-' . $this->get_id();
 
 		/* Animation Settings */
-		$ma_el_news_ticker_feed_url = ($settings['ma_el_news_ticker_feed_url']) ? $settings['ma_el_news_ticker_feed_url'] : "";
-		$ma_el_news_ticker_feed_posts = $settings['ma_el_news_ticker_feed_posts'];
+		$ma_el_news_ticker_feed_url              = ($settings['ma_el_news_ticker_feed_url']) ? $settings['ma_el_news_ticker_feed_url'] : "";
+		$ma_el_news_ticker_feed_posts            = $settings['ma_el_news_ticker_feed_posts'];
 		$ma_el_news_ticker_feed_animation_styles = $settings['ma_el_news_ticker_feed_animation_styles'];
-		$ma_el_news_ticker_type = $settings['ma_el_news_ticker_type'];
-		$ma_el_news_ticker_scroll = $settings['ma_el_news_ticker_scroll'];
-		$autoplay = 'yes' == $settings['ma_el_news_ticker_autoplay'] ? true : false;
-		$timer = $settings['ma_el_news_ticker_news_duration'];
+		$ma_el_news_ticker_type                  = $settings['ma_el_news_ticker_type'];
+		$ma_el_news_ticker_scroll                = $settings['ma_el_news_ticker_scroll'];
+		$autoplay                                = 'yes' == $settings['ma_el_news_ticker_autoplay'] ? true : false;
+		$timer                                   = $settings['ma_el_news_ticker_news_duration'];
 		//			$border = 'yes' == $settings['ma_el_news_ticker_show_border'] ? true : false;
 
 		$this->add_render_attribute('ma_el_news_ticker', 'data-limitposts', $ma_el_news_ticker_feed_posts);
@@ -990,9 +990,9 @@ class News_Ticker extends Widget_Base
 
 								<?php
 								global $post;
-								$args = array('posts_per_page' => $settings['ma_el_news_ticker_posts_limit']);
+								$args          = array('posts_per_page' => $settings['ma_el_news_ticker_posts_limit']);
 								$breaking_news = get_posts($args);
-								$i = 0;
+								$i             = 0;
 								foreach ($breaking_news as $post) {
 									setup_postdata($post);
 									$i++; ?>

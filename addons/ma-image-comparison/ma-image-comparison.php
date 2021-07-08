@@ -7,7 +7,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Control_Media;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Box_Shadow;
@@ -16,8 +16,8 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
  * Author Name: Liton Arefin
- * Author URL: https://jeweltheme.com
- * Date: 1/2/20
+ * Author URL : https: //jeweltheme.com
+ * Date       : 1/2/20
  */
 
 if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
@@ -106,12 +106,12 @@ class Image_Comparison extends Widget_Base
 		$this->add_control(
 			'jltma_image_comparison_before_label',
 			[
-				'label' => esc_html__('Label', MELA_TD),
-				'type' => Controls_Manager::TEXT,
-				'default' => esc_html__('Before', MELA_TD),
+				'label'       => esc_html__('Label', MELA_TD),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => esc_html__('Before', MELA_TD),
 				'placeholder' => esc_html__('Before Label', MELA_TD),
 				'description' => esc_html__('Show/Hide Labels on Overlay Settings', MELA_TD),
-				'dynamic' => [
+				'dynamic'     => [
 					'active' => true,
 				]
 			]
@@ -138,12 +138,12 @@ class Image_Comparison extends Widget_Base
 		$this->add_control(
 			'jltma_image_comparison_after_label',
 			[
-				'label' 		=> esc_html__('Label', MELA_TD),
-				'type' 			=> Controls_Manager::TEXT,
-				'default' 		=> esc_html__('After', MELA_TD),
-				'placeholder' 	=> esc_html__('After Label', MELA_TD),
-				'description' 	=> esc_html__('Show/Hide Labels on Overlay Settings', MELA_TD),
-				'dynamic' 		=> [
+				'label'       => esc_html__('Label', MELA_TD),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => esc_html__('After', MELA_TD),
+				'placeholder' => esc_html__('After Label', MELA_TD),
+				'description' => esc_html__('Show/Hide Labels on Overlay Settings', MELA_TD),
+				'dynamic'     => [
 					'active' => true,
 				]
 			]
@@ -155,10 +155,10 @@ class Image_Comparison extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
-				'name' => 'thumbnail',
-				'default' => 'full',
+				'name'      => 'thumbnail',
+				'default'   => 'full',
 				'separator' => 'before',
-				'exclude'    => array('custom'),
+				'exclude'   => array('custom'),
 			]
 		);
 
@@ -180,10 +180,10 @@ class Image_Comparison extends Widget_Base
 		$this->add_control(
 			'jltma_image_comparison_visible_ratio',
 			[
-				'label'   		=> esc_html__('Visible Ratio (%)', MELA_TD),
-				'type'          => Controls_Manager::SLIDER,
+				'label'      => esc_html__('Visible Ratio (%)', MELA_TD),
+				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['%'],
-				'range' => [
+				'range'      => [
 					'%' => [
 						'min' => 0,
 						'max' => 100,
@@ -200,20 +200,20 @@ class Image_Comparison extends Widget_Base
 		$this->add_control(
 			'jltma_image_comparison_orientation',
 			[
-				'label' 		=> esc_html__('Orientation', MELA_TD),
-				'type' 			=> Controls_Manager::CHOOSE,
-				'label_block' 	=> false,
-				'options' 		=> [
+				'label'       => esc_html__('Orientation', MELA_TD),
+				'type'        => Controls_Manager::CHOOSE,
+				'label_block' => false,
+				'options'     => [
 					'horizontal' 	=> [
-						'title' 	=> esc_html__('Horizontal', MELA_TD),
-						'icon' 		=> 'fa fa-arrows-h',
+						'title' => esc_html__('Horizontal', MELA_TD),
+						'icon'  => 'fa fa-arrows-h',
 					],
 					'vertical' 		=> [
-						'title' 		=> esc_html__('Vertical', MELA_TD),
-						'icon' 			=> 'fa fa-arrows-v',
+						'title' => esc_html__('Vertical', MELA_TD),
+						'icon'  => 'fa fa-arrows-v',
 					],
 				],
-				'default' 		 => 'horizontal',
+				'default'        => 'horizontal',
 				'style_transfer' => true,
 			]
 		);
@@ -221,14 +221,14 @@ class Image_Comparison extends Widget_Base
 		$this->add_control(
 			'jltma_image_comparison_overlay',
 			[
-				'label' 		    => esc_html__('Overlay', MELA_TD),
-				'type'              => Controls_Manager::SWITCHER,
-				'default'           => 'yes',
-				'label_on'          => esc_html__('Show', MELA_TD),
-				'label_off'         => esc_html__('Hide', MELA_TD),
-				'return_value'      => 'yes',
-				'description' 	    => esc_html__('Show/Hide overlay with before and after label', MELA_TD),
-				'style_transfer'    => true,
+				'label'          => esc_html__('Overlay', MELA_TD),
+				'type'           => Controls_Manager::SWITCHER,
+				'default'        => 'yes',
+				'label_on'       => esc_html__('Show', MELA_TD),
+				'label_off'      => esc_html__('Hide', MELA_TD),
+				'return_value'   => 'yes',
+				'description'    => esc_html__('Show/Hide overlay with before and after label', MELA_TD),
+				'style_transfer' => true,
 			]
 		);
 
@@ -237,13 +237,13 @@ class Image_Comparison extends Widget_Base
 			$this->add_control(
 				'jltma_image_comparison_move_handle',
 				[
-					'label' 		=> esc_html__('Move Handle', MELA_TD),
-					'type' 			=> Controls_Manager::SELECT,
-					'default' 		=> 'drag',
-					'options' 		=> [
-						'drag'          	=> esc_html__('Mouse Drag/Swipe', MELA_TD),
-						'mouse_move'    	=> esc_html__('Mouse Move', MELA_TD),
-						'mouse_click'   	=> esc_html__('Mouse Click', MELA_TD),
+					'label'   => esc_html__('Move Handle', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'default' => 'drag',
+					'options' => [
+						'drag'        => esc_html__('Mouse Drag/Swipe', MELA_TD),
+						'mouse_move'  => esc_html__('Mouse Move', MELA_TD),
+						'mouse_click' => esc_html__('Mouse Click', MELA_TD),
 					],
 					'style_transfer' => true,
 				]
@@ -253,13 +253,13 @@ class Image_Comparison extends Widget_Base
 			$this->add_control(
 				'jltma_image_comparison_move_handle',
 				[
-					'label' 		=> esc_html__('Move Handle', MELA_TD),
-					'type' 			=> Controls_Manager::SELECT,
-					'default' 		=> 'drag',
-					'options' 		=> [
-						'drag'          => esc_html__('Mouse Drag/Swipe', MELA_TD),
-						'mm_pro'    	=> esc_html__('Mouse Move (Pro)', MELA_TD),
-						'mc_pro'   		=> esc_html__('Mouse Click (Pro)', MELA_TD),
+					'label'   => esc_html__('Move Handle', MELA_TD),
+					'type'    => Controls_Manager::SELECT,
+					'default' => 'drag',
+					'options' => [
+						'drag'   => esc_html__('Mouse Drag/Swipe', MELA_TD),
+						'mm_pro' => esc_html__('Mouse Move (Pro)', MELA_TD),
+						'mc_pro' => esc_html__('Mouse Click (Pro)', MELA_TD),
 					],
 					'style_transfer' => true,
 				]
@@ -288,7 +288,7 @@ class Image_Comparison extends Widget_Base
 				'label'       => esc_html__('Border', MELA_TD),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'  => '{{WRAPPER}} .jltma-image-comparison',
+				'selector'    => '{{WRAPPER}} .jltma-image-comparison',
 			)
 		);
 
@@ -309,7 +309,7 @@ class Image_Comparison extends Widget_Base
 			$this->add_group_control(
 				Group_Control_Box_Shadow::get_type(),
 				array(
-					'name' => 'jltma_image_comparison_container_box_shadow',
+					'name'    => 'jltma_image_comparison_container_box_shadow',
 					'exclude' => array(
 						'box_shadow_position',
 					),
@@ -320,15 +320,15 @@ class Image_Comparison extends Widget_Base
 			$this->add_responsive_control(
 				'jltma_image_comparison_container_border_radius',
 				[
-					'label' => __('Border Radius', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => __('Border Radius', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
 				]
 			);
@@ -337,15 +337,15 @@ class Image_Comparison extends Widget_Base
 			$this->add_responsive_control(
 				'jltma_image_comparison_container_box_shadow',
 				[
-					'label' => __('Box Shadow', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => __('Box Shadow', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> unlock this Option.</span>'
 				]
 			);
@@ -388,10 +388,10 @@ class Image_Comparison extends Widget_Base
 		$this->start_controls_section(
 			'jltma_image_comparison_section_overlay_style',
 			[
-				'label'             => esc_html__('Overlay', MELA_TD),
-				'tab'               => Controls_Manager::TAB_STYLE,
-				'condition'         => [
-					'jltma_image_comparison_overlay'  => 'yes',
+				'label'     => esc_html__('Overlay', MELA_TD),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'jltma_image_comparison_overlay' => 'yes',
 				],
 			]
 		);
@@ -401,18 +401,18 @@ class Image_Comparison extends Widget_Base
 		$this->start_controls_tab(
 			'jltma_image_comparison_tab_overlay_normal',
 			[
-				'label'             => esc_html__('Normal', MELA_TD),
+				'label' => esc_html__('Normal', MELA_TD),
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'              => 'jltma_image_comparison_overlay_background',
-				'types'             => ['classic', 'gradient'],
-				'selector'          => '{{WRAPPER}} .twentytwenty-overlay',
-				'condition'         => [
-					'jltma_image_comparison_overlay'  => 'yes',
+				'name'      => 'jltma_image_comparison_overlay_background',
+				'types'     => ['classic', 'gradient'],
+				'selector'  => '{{WRAPPER}} .twentytwenty-overlay',
+				'condition' => [
+					'jltma_image_comparison_overlay' => 'yes',
 				],
 			]
 		);
@@ -422,18 +422,18 @@ class Image_Comparison extends Widget_Base
 		$this->start_controls_tab(
 			'jltma_image_comparison_tab_overlay_hover',
 			[
-				'label'             => esc_html__('Hover', MELA_TD),
+				'label' => esc_html__('Hover', MELA_TD),
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'              => 'jltma_image_comparison_overlay_background_hover',
-				'types'             => ['classic', 'gradient'],
-				'selector'          => '{{WRAPPER}} .twentytwenty-overlay:hover',
-				'condition'         => [
-					'jltma_image_comparison_overlay'  => 'yes',
+				'name'      => 'jltma_image_comparison_overlay_background_hover',
+				'types'     => ['classic', 'gradient'],
+				'selector'  => '{{WRAPPER}} .twentytwenty-overlay:hover',
+				'condition' => [
+					'jltma_image_comparison_overlay' => 'yes',
 				],
 			]
 		);
@@ -454,8 +454,8 @@ class Image_Comparison extends Widget_Base
 		$this->start_controls_section(
 			'jltma_image_comparison_section_handle_style',
 			[
-				'label'             => esc_html__('Handle', MELA_TD),
-				'tab'               => Controls_Manager::TAB_STYLE,
+				'label' => esc_html__('Handle', MELA_TD),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
@@ -463,8 +463,8 @@ class Image_Comparison extends Widget_Base
 		$this->add_control(
 			'jltma_image_comparison_heading_bar',
 			[
-				'label' => esc_html__('Handle Bar', MELA_TD),
-				'type' => Controls_Manager::HEADING,
+				'label'     => esc_html__('Handle Bar', MELA_TD),
+				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
 		);
@@ -472,14 +472,14 @@ class Image_Comparison extends Widget_Base
 		$this->add_control(
 			'jltma_image_comparison_handle_color',
 			[
-				'label' => esc_html__('Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .twentytwenty-handle:before, {{WRAPPER}} .twentytwenty-handle:after' => 'background-color: {{VALUE}}',
-					'{{WRAPPER}} .twentytwenty-handle' => 'border-color: {{VALUE}}',
-					'{{WRAPPER}} .twentytwenty-left-arrow' => 'border-right-color: {{VALUE}}',
-					'{{WRAPPER}} .twentytwenty-right-arrow' => 'border-left-color: {{VALUE}}',
-					'{{WRAPPER}} .twentytwenty-handle:before' =>
+					'{{WRAPPER}} .twentytwenty-handle'                                                => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .twentytwenty-left-arrow'                                            => 'border-right-color: {{VALUE}}',
+					'{{WRAPPER}} .twentytwenty-right-arrow'                                           => 'border-left-color: {{VALUE}}',
+					'{{WRAPPER}} .twentytwenty-handle:before'                                         =>
 					'-webkit-box-shadow: 0 3px 0 {{VALUE}}, 0px 0px 12px rgba(51, 51, 51, 0.5);'
 						. '-moz-box-shadow: 0 3px 0 {{VALUE}}, 0px 0px 12px rgba(51, 51, 51, 0.5);'
 						. 'box-shadow: 0 3px 0 {{VALUE}}, 0px 0px 12px rgba(51, 51, 51, 0.5);',
@@ -494,10 +494,10 @@ class Image_Comparison extends Widget_Base
 		$this->add_responsive_control(
 			'jltma_image_comparison_handle_bar_size',
 			[
-				'label' => esc_html__('Size', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
+				'label'      => esc_html__('Size', MELA_TD),
+				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
-				'range' => [
+				'range'      => [
 					'px' => [
 						'min' => 0,
 						'max' => 50,
@@ -505,7 +505,7 @@ class Image_Comparison extends Widget_Base
 				],
 				'selectors' => [
 					'{{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:before, {{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:after' => 'width: {{SIZE}}{{UNIT}}; margin-left: calc(-0px - {{SIZE}}{{UNIT}} / 2);',
-					'{{WRAPPER}} .twentytwenty-vertical .twentytwenty-handle:before, {{WRAPPER}} .twentytwenty-vertical .twentytwenty-handle:after' => 'height: {{SIZE}}{{UNIT}}; margin-top: calc(-0px - {{SIZE}}{{UNIT}} / 2);',
+					'{{WRAPPER}} .twentytwenty-vertical .twentytwenty-handle:before, {{WRAPPER}} .twentytwenty-vertical .twentytwenty-handle:after'     => 'height: {{SIZE}}{{UNIT}}; margin-top: calc(-0px - {{SIZE}}{{UNIT}} / 2);',
 				],
 			]
 		);
@@ -516,8 +516,8 @@ class Image_Comparison extends Widget_Base
 		$this->add_control(
 			'jltma_image_comparison_heading_bar_indicator',
 			[
-				'label' => esc_html__('Handle Style', MELA_TD),
-				'type' => Controls_Manager::HEADING,
+				'label'     => esc_html__('Handle Style', MELA_TD),
+				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
 		);
@@ -525,38 +525,38 @@ class Image_Comparison extends Widget_Base
 		$this->add_responsive_control(
 			'jltma_image_comparison_arrow_box_width',
 			[
-				'label' => esc_html__('Box Width', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
+				'label'      => esc_html__('Box Width', MELA_TD),
+				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
-				'range' => [
+				'range'      => [
 					'px' => [
 						'min' => 20,
 						'max' => 250,
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .twentytwenty-handle' => 'width: {{SIZE}}{{UNIT}}; margin-left: calc(-1 * ({{SIZE}}{{UNIT}} / 2));',
+					'{{WRAPPER}} .twentytwenty-handle'                               => 'width: {{SIZE}}{{UNIT}}; margin-left: calc(-1 * ({{SIZE}}{{UNIT}} / 2));',
 					'{{WRAPPER}} .twentytwenty-vertical .twentytwenty-handle:before' => 'margin-left: calc(({{SIZE}}{{UNIT}} / 2) - 1px);',
-					'{{WRAPPER}} .twentytwenty-vertical .twentytwenty-handle:after' => 'margin-right: calc(({{SIZE}}{{UNIT}} / 2) - 1px);',
+					'{{WRAPPER}} .twentytwenty-vertical .twentytwenty-handle:after'  => 'margin-right: calc(({{SIZE}}{{UNIT}} / 2) - 1px);',
 				],
 			]
 		);
 		$this->add_responsive_control(
 			'jltma_image_comparison_arrow_box_height',
 			[
-				'label' => esc_html__('Box Height', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
+				'label'      => esc_html__('Box Height', MELA_TD),
+				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
-				'range' => [
+				'range'      => [
 					'px' => [
 						'min' => 20,
 						'max' => 250,
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .twentytwenty-handle' => 'height: {{SIZE}}{{UNIT}}; margin-top: calc(-1 * ({{SIZE}}{{UNIT}} / 2));',
+					'{{WRAPPER}} .twentytwenty-handle'                                 => 'height: {{SIZE}}{{UNIT}}; margin-top: calc(-1 * ({{SIZE}}{{UNIT}} / 2));',
 					'{{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:before' => 'margin-bottom: calc(({{SIZE}}{{UNIT}} / 2) + 2px);',
-					'{{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:after' => 'margin-top: calc(({{SIZE}}{{UNIT}} / 2) + 2px);',
+					'{{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:after'  => 'margin-top: calc(({{SIZE}}{{UNIT}} / 2) + 2px);',
 				],
 			]
 		);
@@ -568,21 +568,21 @@ class Image_Comparison extends Widget_Base
 		$this->start_controls_tab(
 			'jltma_image_comparison_tab_handle_normal',
 			[
-				'label'             => esc_html__('Normal', MELA_TD),
+				'label' => esc_html__('Normal', MELA_TD),
 			]
 		);
 
 		$this->add_control(
 			'jltma_image_comparison_handle_icon_color',
 			[
-				'label'             => esc_html__('Icon Color', MELA_TD),
-				'type'              => Controls_Manager::COLOR,
-				'default'           => '#4b00e7',
-				'selectors'         => [
-					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle .twentytwenty-left-arrow' => 'border-right-color: {{VALUE}}',
+				'label'     => esc_html__('Icon Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#4b00e7',
+				'selectors' => [
+					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle .twentytwenty-left-arrow'  => 'border-right-color: {{VALUE}}',
 					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle .twentytwenty-right-arrow' => 'border-left-color: {{VALUE}}',
-					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle .twentytwenty-down-arrow' => 'border-top-color: {{VALUE}}',
-					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle .twentytwenty-up-arrow' => 'border-bottom-color: {{VALUE}}',
+					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle .twentytwenty-down-arrow'  => 'border-top-color: {{VALUE}}',
+					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle .twentytwenty-up-arrow'    => 'border-bottom-color: {{VALUE}}',
 				],
 			]
 		);
@@ -590,31 +590,31 @@ class Image_Comparison extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'              => 'jltma_image_comparison_handle_background',
-				'types'             => ['classic', 'gradient'],
-				'selector'          => '{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle',
+				'name'     => 'jltma_image_comparison_handle_background',
+				'types'    => ['classic', 'gradient'],
+				'selector' => '{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle',
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'              => 'jltma_image_comparison_handle_border',
-				'label'             => esc_html__('Border', MELA_TD),
-				'placeholder'       => '1px',
-				'default'           => '1px',
-				'selector'          => '{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle',
-				'separator'         => 'before',
+				'name'        => 'jltma_image_comparison_handle_border',
+				'label'       => esc_html__('Border', MELA_TD),
+				'placeholder' => '1px',
+				'default'     => '1px',
+				'selector'    => '{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle',
+				'separator'   => 'before',
 			]
 		);
 
 		$this->add_control(
 			'jltma_image_comparison_handle_border_radius',
 			[
-				'label'             => esc_html__('Border Radius', MELA_TD),
-				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => ['px', '%'],
-				'selectors'         => [
+				'label'      => esc_html__('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -623,8 +623,8 @@ class Image_Comparison extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'                  => 'jltma_image_comparison_handle_box_shadow',
-				'selector'              => '{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle',
+				'name'     => 'jltma_image_comparison_handle_box_shadow',
+				'selector' => '{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle',
 			]
 		);
 
@@ -633,18 +633,18 @@ class Image_Comparison extends Widget_Base
 		$this->start_controls_tab(
 			'jltma_image_comparison_tab_handle_hover',
 			[
-				'label'             => esc_html__('Hover', MELA_TD),
+				'label' => esc_html__('Hover', MELA_TD),
 			]
 		);
 
 		$this->add_control(
 			'jltma_image_comparison_handle_icon_color_hover',
 			[
-				'label'             => esc_html__('Icon Color', MELA_TD),
-				'type'              => Controls_Manager::COLOR,
-				'default'           => '',
-				'selectors'         => [
-					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle:hover .twentytwenty-left-arrow' => 'border-right-color: {{VALUE}}',
+				'label'     => esc_html__('Icon Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle:hover .twentytwenty-left-arrow'  => 'border-right-color: {{VALUE}}',
 					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle:hover .twentytwenty-right-arrow' => 'border-left-color: {{VALUE}}',
 				],
 			]
@@ -653,19 +653,19 @@ class Image_Comparison extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'              => 'jltma_image_comparison_handle_background_hover',
-				'types'             => ['classic', 'gradient'],
-				'selector'          => '{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle:hover',
+				'name'     => 'jltma_image_comparison_handle_background_hover',
+				'types'    => ['classic', 'gradient'],
+				'selector' => '{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle:hover',
 			]
 		);
 
 		$this->add_control(
 			'jltma_image_comparison_handle_border_color_hover',
 			[
-				'label'             => esc_html__('Border Color', MELA_TD),
-				'type'              => Controls_Manager::COLOR,
-				'default'           => '',
-				'selectors'         => [
+				'label'     => esc_html__('Border Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
 					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-handle:hover' => 'border-color: {{VALUE}}',
 				],
 			]
@@ -690,7 +690,7 @@ class Image_Comparison extends Widget_Base
 				'label'      => esc_html__('Label', MELA_TD),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
-				'condition' => ['jltma_image_comparison_overlay' => 'yes'],
+				'condition'  => ['jltma_image_comparison_overlay' => 'yes'],
 			)
 		);
 
@@ -706,11 +706,11 @@ class Image_Comparison extends Widget_Base
 		$this->add_responsive_control(
 			'jltma_image_comparison_before_label_color',
 			array(
-				'label' => esc_html__('Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-before-label:before' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-after-label:before' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-after-label:before'  => 'color: {{VALUE}}',
 				),
 			)
 		);
@@ -719,7 +719,7 @@ class Image_Comparison extends Widget_Base
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'jltma_image_comparison_before_label_typography_group',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme'   => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .jltma-image-comparison .twentytwenty-before-label:before',
 			)
 		);
@@ -740,7 +740,7 @@ class Image_Comparison extends Widget_Base
 				'label'       => esc_html__('Border', MELA_TD),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'  => '{{WRAPPER}} .twentytwenty-before-label:before',
+				'selector'    => '{{WRAPPER}} .twentytwenty-before-label:before',
 			)
 		);
 
@@ -792,8 +792,8 @@ class Image_Comparison extends Widget_Base
 		$this->add_responsive_control(
 			'jltma_image_comparison_after_label_color',
 			array(
-				'label' => esc_html__('Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .jltma-image-comparison .twentytwenty-after-label:before' => 'color: {{VALUE}}',
 				),
@@ -804,7 +804,7 @@ class Image_Comparison extends Widget_Base
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'jltma_image_comparison_after_label_typography_group',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme'   => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .jltma-image-comparison .twentytwenty-after-label:before',
 			)
 		);
@@ -826,7 +826,7 @@ class Image_Comparison extends Widget_Base
 				'label'       => esc_html__('Border', MELA_TD),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'  => '{{WRAPPER}} .jltma-image-comparison .twentytwenty-after-label:before',
+				'selector'    => '{{WRAPPER}} .jltma-image-comparison .twentytwenty-after-label:before',
 			)
 		);
 
@@ -930,15 +930,15 @@ class Image_Comparison extends Widget_Base
 			$this->add_control(
 				'jltma_control_get_pro_style_tab',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 				]
 			);
@@ -949,7 +949,7 @@ class Image_Comparison extends Widget_Base
 
 	protected function render()
 	{
-		$settings     = $this->get_settings_for_display();
+		$settings = $this->get_settings_for_display();
 		$id       = 'jltma-image-comparison-' . $this->get_id();
 
 		$this->add_render_attribute(
@@ -963,15 +963,15 @@ class Image_Comparison extends Widget_Base
 					]),
 					'data-image-comparison-settings' => [
 						wp_json_encode(array_filter([
-							"container_id"          =>  esc_attr($this->get_id()),
-							'visible_ratio'         => ($settings['jltma_image_comparison_visible_ratio']['size'] != '' ? $settings['jltma_image_comparison_visible_ratio']['size'] / 100 : '0.5'),
-							'orientation'           => ($settings['jltma_image_comparison_orientation'] != '' ? $settings['jltma_image_comparison_orientation'] : 'horizontal'),
-							'before_label'          => ($settings['jltma_image_comparison_before_label'] != '' ? esc_attr($settings['jltma_image_comparison_before_label']) : ''),
-							'after_label'           => ($settings['jltma_image_comparison_after_label'] != '' ? esc_attr($settings['jltma_image_comparison_after_label']) : ''),
-							'slider_on_hover'       => ($settings['jltma_image_comparison_move_handle'] == 'mouse_move' ? true : false),
-							'slider_with_handle'    => ($settings['jltma_image_comparison_move_handle'] == 'drag' ? true : false),
-							'slider_with_click'     => ($settings['jltma_image_comparison_move_handle'] == 'mouse_click' ? true : false),
-							'no_overlay'            => ($settings['jltma_image_comparison_overlay'] == 'yes' ? false : true)
+							"container_id"       => esc_attr($this->get_id()),
+							'visible_ratio'      => ($settings['jltma_image_comparison_visible_ratio']['size'] != '' ? $settings['jltma_image_comparison_visible_ratio']['size'] / 100 : '0.5'),
+							'orientation'        => ($settings['jltma_image_comparison_orientation'] != '' ? $settings['jltma_image_comparison_orientation'] : 'horizontal'),
+							'before_label'       => ($settings['jltma_image_comparison_before_label'] != '' ? esc_attr($settings['jltma_image_comparison_before_label']) : ''),
+							'after_label'        => ($settings['jltma_image_comparison_after_label'] != '' ? esc_attr($settings['jltma_image_comparison_after_label']) : ''),
+							'slider_on_hover'    => ($settings['jltma_image_comparison_move_handle'] == 'mouse_move' ? true : false),
+							'slider_with_handle' => ($settings['jltma_image_comparison_move_handle'] == 'drag' ? true : false),
+							'slider_with_click'  => ($settings['jltma_image_comparison_move_handle'] == 'mouse_click' ? true : false),
+							'no_overlay'         => ($settings['jltma_image_comparison_overlay'] == 'yes' ? false : true)
 						]))
 					]
 				]

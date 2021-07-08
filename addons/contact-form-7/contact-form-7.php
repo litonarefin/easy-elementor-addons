@@ -6,7 +6,7 @@ use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Background;
 
 use MasterAddons\Inc\Helper\Master_Addons_Helper;
@@ -338,7 +338,7 @@ class Contact_Form_7 extends Widget_Base
 			[
 				'name'                  => 'ma_cf7_title_typography',
 				'label'                 => esc_html__('Typography', MELA_TD),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'    			=> Typography::TYPOGRAPHY_4,
 				'selector'              => '{{WRAPPER}} .master-addons-cf7 .master-addons-cf7-title',
 			]
 		);
@@ -482,7 +482,7 @@ class Contact_Form_7 extends Widget_Base
 			[
 				'name'                  => 'ma_cf7_typography_label',
 				'label'                 => esc_html__('Typography', MELA_TD),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'    			=> Typography::TYPOGRAPHY_4,
 				'selector'              => '{{WRAPPER}} .master-addons-cf7 .wpcf7-form label',
 			]
 		);
@@ -509,7 +509,7 @@ class Contact_Form_7 extends Widget_Base
 			[
 				'name'                  => 'ma_cf7_button_typography',
 				'label'                 => esc_html__('Button Typography', MELA_TD),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'    			=> Typography::TYPOGRAPHY_4,
 				'selector'              => '{{WRAPPER}} .master-addons-cf7 .wpcf7-form input[type="submit"]',
 			]
 		);

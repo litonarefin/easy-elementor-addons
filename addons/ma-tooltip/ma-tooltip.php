@@ -7,7 +7,7 @@ use \Elementor\Utils;
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Box_Shadow;
@@ -73,21 +73,21 @@ class Tooltip extends Widget_Base
 		$this->add_control(
 			'ma_el_tooltip_type',
 			[
-				'label' => esc_html__('Content Type', MELA_TD),
-				'type' => Controls_Manager::CHOOSE,
+				'label'       => esc_html__('Content Type', MELA_TD),
+				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => true,
-				'options' => [
+				'options'     => [
 					'icon' => [
 						'title' => esc_html__('Icon', MELA_TD),
-						'icon' => 'fa fa-info',
+						'icon'  => 'fa fa-info',
 					],
 					'text' => [
 						'title' => esc_html__('Text', MELA_TD),
-						'icon' => 'fa fa-text-width',
+						'icon'  => 'fa fa-text-width',
 					],
 					'image' => [
 						'title' => esc_html__('Image', MELA_TD),
-						'icon' => 'fa fa-image',
+						'icon'  => 'fa fa-image',
 					],
 				],
 				'default' => 'icon',
@@ -97,11 +97,11 @@ class Tooltip extends Widget_Base
 		$this->add_control(
 			'ma_el_tooltip_content',
 			[
-				'label' => esc_html__('Content', MELA_TD),
-				'type' => Controls_Manager::TEXTAREA,
+				'label'       => esc_html__('Content', MELA_TD),
+				'type'        => Controls_Manager::TEXTAREA,
 				'label_block' => true,
-				'default' => esc_html__('Hover Me!', MELA_TD),
-				'condition' => [
+				'default'     => esc_html__('Hover Me!', MELA_TD),
+				'condition'   => [
 					'ma_el_tooltip_type' => ['text']
 				]
 			]
@@ -110,16 +110,16 @@ class Tooltip extends Widget_Base
 		$this->add_control(
 			'ma_el_tooltip_icon_content',
 			[
-				'label'         	=> esc_html__('Icon', MELA_TD),
-				'description' 		=> esc_html__('Please choose an icon from the list.', MELA_TD),
-				'type'          	=> Controls_Manager::ICONS,
-				'fa4compatibility' 	=> 'icon',
-				'default'       	=> [
-					'value'     => 'fab fa-linux',
-					'library'   => 'brand',
+				'label'            => esc_html__('Icon', MELA_TD),
+				'description'      => esc_html__('Please choose an icon from the list.', MELA_TD),
+				'type'             => Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'default'          => [
+					'value'   => 'fab fa-linux',
+					'library' => 'brand',
 				],
-				'render_type'      => 'template',
-				'condition' => [
+				'render_type' => 'template',
+				'condition'   => [
 					'ma_el_tooltip_type' => ['icon']
 				]
 			]
@@ -128,8 +128,8 @@ class Tooltip extends Widget_Base
 		$this->add_control(
 			'ma_el_tooltip_img_content',
 			[
-				'label' => esc_html__('Image', MELA_TD),
-				'type' => Controls_Manager::MEDIA,
+				'label'   => esc_html__('Image', MELA_TD),
+				'type'    => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
 				],
@@ -142,8 +142,8 @@ class Tooltip extends Widget_Base
 		$this->add_control(
 			'tooltip_button_img',
 			[
-				'label' => __('Image', MELA_TD),
-				'type' => Controls_Manager::MEDIA,
+				'label'   => __('Image', MELA_TD),
+				'type'    => Controls_Manager::MEDIA,
 				'dynamic' => [
 					'active' => true,
 				],
@@ -156,8 +156,8 @@ class Tooltip extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
-				'name' => 'tooltip_button_imgsize',
-				'default' => 'large',
+				'name'      => 'tooltip_button_imgsize',
+				'default'   => 'large',
 				'separator' => 'none',
 				'condition' => [
 					'tooltip_type' => ['image']
@@ -168,23 +168,23 @@ class Tooltip extends Widget_Base
 		$this->add_control(
 			'tooltip_style_section_align',
 			[
-				'label' => __('Alignment', MELA_TD),
-				'type' => Controls_Manager::CHOOSE,
+				'label'   => __('Alignment', MELA_TD),
+				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
 						'title' => __('Left', MELA_TD),
-						'icon' => 'fa fa-align-left',
+						'icon'  => 'fa fa-align-left',
 					],
 					'center' => [
 						'title' => __('Center', MELA_TD),
-						'icon' => 'fa fa-align-center',
+						'icon'  => 'fa fa-align-center',
 					],
 					'right' => [
 						'title' => __('Right', MELA_TD),
-						'icon' => 'fa fa-align-right',
+						'icon'  => 'fa fa-align-right',
 					],
 				],
-				'default' => 'center',
+				'default'      => 'center',
 				'prefix_class' => 'ma-el-tooltip-align-',
 			]
 		);
@@ -192,26 +192,26 @@ class Tooltip extends Widget_Base
 		$this->add_control(
 			'ma_el_tooltip_enable_link',
 			[
-				'label' => __('Show Link', MELA_TD),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __('Show', MELA_TD),
-				'label_off' => __('Hide', MELA_TD),
+				'label'        => __('Show Link', MELA_TD),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __('Show', MELA_TD),
+				'label_off'    => __('Hide', MELA_TD),
 				'return_value' => 'yes',
-				'default' => 'no',
+				'default'      => 'no',
 			]
 		);
 
 		$this->add_control(
 			'ma_el_tooltip_link',
 			[
-				'label' => __('Link', MELA_TD),
-				'type' => Controls_Manager::URL,
-				'placeholder' => __('https://your-link.com', MELA_TD),
+				'label'         => __('Link', MELA_TD),
+				'type'          => Controls_Manager::URL,
+				'placeholder'   => __('https://your-link.com', MELA_TD),
 				'show_external' => true,
-				'default' => [
-					'url' => '',
+				'default'       => [
+					'url'         => '',
 					'is_external' => true,
-					'nofollow' => true,
+					'nofollow'    => true,
 				],
 				'condition' => [
 					'ma_el_tooltip_enable_link' => 'yes',
@@ -231,26 +231,26 @@ class Tooltip extends Widget_Base
 		$this->add_control(
 			'ma_el_tooltip_text',
 			[
-				'label' => esc_html__('Tooltip Text', MELA_TD),
-				'type' => Controls_Manager::TEXTAREA,
+				'label'       => esc_html__('Tooltip Text', MELA_TD),
+				'type'        => Controls_Manager::TEXTAREA,
 				'label_block' => true,
-				'default' => esc_html__('These are some dummy tooltip contents.', MELA_TD),
-				'dynamic' => ['active' => true]
+				'default'     => esc_html__('These are some dummy tooltip contents.', MELA_TD),
+				'dynamic'     => ['active' => true]
 			]
 		);
 
 		$this->add_control(
 			'ma_el_tooltip_direction',
 			[
-				'label'         => esc_html__('Direction', MELA_TD),
-				'type'          => Controls_Manager::SELECT,
-				'default'       => 'tooltip-right',
-				'label_block'   => false,
-				'options'       => [
-					'tooltip-left'      => esc_html__('Left', MELA_TD),
-					'tooltip-right'     => esc_html__('Right', MELA_TD),
-					'tooltip-top'       => esc_html__('Top', MELA_TD),
-					'tooltip-bottom'    => esc_html__('Bottom', MELA_TD),
+				'label'       => esc_html__('Direction', MELA_TD),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'tooltip-right',
+				'label_block' => false,
+				'options'     => [
+					'tooltip-left'   => esc_html__('Left', MELA_TD),
+					'tooltip-right'  => esc_html__('Right', MELA_TD),
+					'tooltip-top'    => esc_html__('Top', MELA_TD),
+					'tooltip-bottom' => esc_html__('Bottom', MELA_TD),
 				],
 			]
 		);
@@ -259,13 +259,13 @@ class Tooltip extends Widget_Base
 		$this->add_control(
 			'ma_el_tooltip_visible_hover',
 			[
-				'label' 		=> __('Visible on Hover', MELA_TD),
-				'type' 			=> Controls_Manager::SWITCHER,
-				'label_on' 		=> __('Yes', MELA_TD),
-				'label_off' 	=> __('No', MELA_TD),
-				'return_value' 	=> 'yes',
-				'default' 		=> 'no',
-				'selectors' => [
+				'label'        => __('Visible on Hover', MELA_TD),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __('Yes', MELA_TD),
+				'label_off'    => __('No', MELA_TD),
+				'return_value' => 'yes',
+				'default'      => 'no',
+				'selectors'    => [
 					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item:hover .ma-el-tooltip-text' => 'visibility: visible;opacity: 1; display:block;',
 				]
 
@@ -331,15 +331,15 @@ class Tooltip extends Widget_Base
 			$this->add_control(
 				'ma_el_control_get_pro',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with
 Customization Options.</span>'
 				]
@@ -357,7 +357,7 @@ Customization Options.</span>'
 			'tooltip_style_section',
 			[
 				'label' => __('General Styles', MELA_TD),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
@@ -366,11 +366,11 @@ Customization Options.</span>'
 			'ma_el_tooltip_content_width',
 			[
 				'label' => __('Content Width', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
+				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
-						'min' => 0,
-						'max' => 1000,
+						'min'  => 0,
+						'max'  => 1000,
 						'step' => 5,
 					],
 					'%' => [
@@ -379,7 +379,7 @@ Customization Options.</span>'
 					],
 				],
 				'size_units' => ['px', '%'],
-				'default' => [
+				'default'    => [
 					'unit' => 'px',
 					'size' => 150,
 				],
@@ -391,14 +391,14 @@ Customization Options.</span>'
 		$this->add_control(
 			'ma_el_tooltip_content_padding',
 			[
-				'label' => esc_html__('Padding', MELA_TD),
-				'type' => Controls_Manager::DIMENSIONS,
+				'label'      => esc_html__('Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
-				'default' => [
-					'top' => 20,
-					'right' => 20,
-					'bottom' => 20,
-					'left' => 20,
+				'default'    => [
+					'top'      => 20,
+					'right'    => 20,
+					'bottom'   => 20,
+					'left'     => 20,
 					'isLinked' => true,
 				],
 				'selectors' => [
@@ -414,9 +414,9 @@ Customization Options.</span>'
 		$this->add_control(
 			'ma_el_tooltip_content_bg_color',
 			[
-				'label' => esc_html__('Background Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#f9f9f9',
+				'label'     => esc_html__('Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#f9f9f9',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content' => 'background: {{VALUE}};',
 				],
@@ -425,12 +425,12 @@ Customization Options.</span>'
 		$this->add_control(
 			'ma_el_tooltip_content_color',
 			[
-				'label' => esc_html__('Text Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#826EFF',
+				'label'     => esc_html__('Text Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#826EFF',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content, {{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content a'
-					=> 'color: {{VALUE}};',
+					=>   'color: {{VALUE}};',
 				],
 			]
 		);
@@ -438,7 +438,7 @@ Customization Options.</span>'
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'ma_el_tooltip_content_shadow',
+				'name'     => 'ma_el_tooltip_content_shadow',
 				'selector' => '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content',
 			]
 		);
@@ -450,9 +450,9 @@ Customization Options.</span>'
 		$this->add_control(
 			'ma_el_tooltip_content_hover_bg_color',
 			[
-				'label' => esc_html__('Background Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#f9f9f9',
+				'label'     => esc_html__('Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#f9f9f9',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content:hover' => 'background: {{VALUE}};',
 				],
@@ -461,11 +461,11 @@ Customization Options.</span>'
 		$this->add_control(
 			'ma_el_tooltip_content_hover_color',
 			[
-				'label' => esc_html__('Text Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#212121',
+				'label'     => esc_html__('Text Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#212121',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content:hover'   => 'color: {{VALUE}};',
 					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content a:hover' => 'color: {{VALUE}};',
 				],
 			]
@@ -474,7 +474,7 @@ Customization Options.</span>'
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'ma_el_tooltip_hover_shadow',
+				'name'     => 'ma_el_tooltip_hover_shadow',
 				'selector' => '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content:hover',
 			]
 		);
@@ -494,7 +494,7 @@ Customization Options.</span>'
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'ma_el_tooltip_content_typography',
+				'name'     => 'ma_el_tooltip_content_typography',
 				'selector' => '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content',
 			]
 		);
@@ -502,8 +502,8 @@ Customization Options.</span>'
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'ma_el_tooltip_hover_border',
-				'label' => esc_html__('Border', MELA_TD),
+				'name'     => 'ma_el_tooltip_hover_border',
+				'label'    => esc_html__('Border', MELA_TD),
 				'selector' => '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-content',
 			]
 		);
@@ -512,14 +512,14 @@ Customization Options.</span>'
 		$this->add_control(
 			'ma_el_tooltip_content_radius',
 			[
-				'label' => esc_html__('Border Radius', MELA_TD),
-				'type' => Controls_Manager::DIMENSIONS,
+				'label'      => esc_html__('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
-				'default' => [
-					'top' => 4,
-					'right' => 4,
-					'bottom' => 4,
-					'left' => 4,
+				'default'    => [
+					'top'      => 4,
+					'right'    => 4,
+					'bottom'   => 4,
+					'left'     => 4,
 					'isLinked' => true,
 				],
 				'selectors' => [
@@ -536,7 +536,7 @@ Customization Options.</span>'
 			'ma_el_tooltip_style_section',
 			[
 				'label' => __('Tooltip Styles', MELA_TD),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
@@ -544,11 +544,11 @@ Customization Options.</span>'
 			'ma_el_tooltip_text_width',
 			[
 				'label' => __('Tooltip Width', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
+				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
-						'min' => 0,
-						'max' => 1000,
+						'min'  => 0,
+						'max'  => 1000,
 						'step' => 5,
 					],
 					'%' => [
@@ -557,7 +557,7 @@ Customization Options.</span>'
 					],
 				],
 				'size_units' => ['px', '%'],
-				'default' => [
+				'default'    => [
 					'unit' => 'px',
 					'size' => 200,
 				],
@@ -570,9 +570,9 @@ Customization Options.</span>'
 		$this->add_control(
 			'ma_el_tooltip_bg_color',
 			[
-				'label' => __('Tooltip Background Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#826EFF',
+				'label'     => __('Tooltip Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#826EFF',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-text' => 'background: {{VALUE}};',
 				],
@@ -582,9 +582,9 @@ Customization Options.</span>'
 		$this->add_control(
 			'ma_el_tooltip_style_color',
 			[
-				'label' => __('Text Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#ffffff',
+				'label'     => __('Text Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item .ma-el-tooltip-text' => 'color: {{VALUE}};',
 				],
@@ -594,9 +594,9 @@ Customization Options.</span>'
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'hover_tooltip_content_background',
-				'label' => __('Background', MELA_TD),
-				'types' => ['classic', 'gradient'],
+				'name'     => 'hover_tooltip_content_background',
+				'label'    => __('Background', MELA_TD),
+				'types'    => ['classic', 'gradient'],
 				'selector' => '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-text',
 			]
 		);
@@ -604,8 +604,8 @@ Customization Options.</span>'
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'hover_tooltip_content_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'name'     => 'hover_tooltip_content_typography',
+				'scheme'   => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-text',
 			]
 		);
@@ -613,14 +613,14 @@ Customization Options.</span>'
 		$this->add_control(
 			'ma_el_tooltip_text_padding',
 			[
-				'label' => __('Padding', MELA_TD),
-				'type' => Controls_Manager::DIMENSIONS,
+				'label'      => __('Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%', 'em'],
-				'default' => [
-					'top' => 10,
-					'right' => 10,
-					'bottom' => 10,
-					'left' => 10,
+				'default'    => [
+					'top'      => 10,
+					'right'    => 10,
+					'bottom'   => 10,
+					'left'     => 10,
 					'isLinked' => true,
 				],
 				'selectors' => [
@@ -633,13 +633,13 @@ Customization Options.</span>'
 		$this->add_control(
 			'ma_el_tooltip_content_border_radius',
 			[
-				'label' => esc_html__('Border Radius', MELA_TD),
-				'type' => Controls_Manager::DIMENSIONS,
+				'label'   => esc_html__('Border Radius', MELA_TD),
+				'type'    => Controls_Manager::DIMENSIONS,
 				'default' => [
-					'top' => 4,
-					'right' => 4,
-					'bottom' => 4,
-					'left' => 4,
+					'top'      => 4,
+					'right'    => 4,
+					'bottom'   => 4,
+					'left'     => 4,
 					'isLinked' => true,
 				],
 				'selectors' => [
@@ -652,14 +652,14 @@ Customization Options.</span>'
 		$this->add_control(
 			'ma_el_tooltip_arrow_color',
 			[
-				'label' => __('Arrow Color', MELA_TD),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#826EFF',
+				'label'     => __('Arrow Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#826EFF',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-top .ma-el-tooltip-text:after' => 'border-color: {{VALUE}} transparent transparent transparent;',
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-left .ma-el-tooltip-text:after' => 'border-color: transparent transparent transparent {{VALUE}};',
+					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-top .ma-el-tooltip-text:after'    => 'border-color: {{VALUE}} transparent transparent transparent;',
+					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-left .ma-el-tooltip-text:after'   => 'border-color: transparent transparent transparent {{VALUE}};',
 					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-bottom .ma-el-tooltip-text:after' => 'border-color: transparent transparent {{VALUE}} transparent;',
-					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-right .ma-el-tooltip-text:after' => 'border-color: transparent {{VALUE}} transparent transparent;',
+					'{{WRAPPER}} .ma-el-tooltip .ma-el-tooltip-item.tooltip-right .ma-el-tooltip-text:after'  => 'border-color: transparent {{VALUE}} transparent transparent;',
 				],
 			]
 		);
@@ -673,22 +673,22 @@ Customization Options.</span>'
 				'ma_el_section_pro_style_section',
 				[
 					'label' => esc_html__('Upgrade to Pro Version for More Features', MELA_TD),
-					'tab' => Controls_Manager::TAB_STYLE
+					'tab'   => Controls_Manager::TAB_STYLE
 				]
 			);
 
 			$this->add_control(
 				'ma_el_control_get_pro_style_tab',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 				]
 			);
@@ -724,7 +724,8 @@ Customization Options.</span>'
 						<?php if ($settings['ma_el_tooltip_enable_link'] === 'yes') : ?>
 							<a href="<?php echo esc_url($settings['ma_el_tooltip_link']['url']); ?>">
 							<?php endif; ?>
-							<?php Master_Addons_Helper::jltma_fa_icon_picker('fab fa-linux', 'icon', $settings['ma_el_tooltip_icon_content'], 'ma_el_tooltip_icon_content'); ?>
+							<?php
+							Master_Addons_Helper::jltma_fa_icon_picker('fab fa-linux', 'icon', $settings['ma_el_tooltip_icon_content'], 'ma_el_tooltip_icon_content'); ?>
 							<?php if ($settings['ma_el_tooltip_enable_link'] === 'yes') : ?>
 							</a>
 						<?php endif; ?>

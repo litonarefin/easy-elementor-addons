@@ -11,14 +11,14 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
-use \Elementor\Scheme_Color;
+use \Elementor\Core\Schemes\Typography;
+use \Elementor\Core\Schemes\Color;
 
 
 /**
  * Author Name: Liton Arefin
- * Author URL: https://jeweltheme.com
- * Date: 6/27/19
+ * Author URL : https: //jeweltheme.com
+ * Date       : 6/27/19
  */
 
 if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
@@ -70,42 +70,42 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'jltma_counterup_contents',
 			[
-				'label'       => esc_html__('CounterUp Items', MELA_TD),
-				'type'        => Controls_Manager::REPEATER,
-				'default'     => [
+				'label'   => esc_html__('CounterUp Items', MELA_TD),
+				'type'    => Controls_Manager::REPEATER,
+				'default' => [
 					[
-						'number'    => 6000,
-						'icon'      => ['value' => 'far fa-thumbs-up', 'library'  => 'regular'],
-						'title'     => esc_html__('Happy Clients', MELA_TD),
+						'number'     => 6000,
+						'icon'       => ['value' => 'far fa-thumbs-up', 'library'  => 'regular'],
+						'title'      => esc_html__('Happy Clients', MELA_TD),
 						'background' => ''
 					],
 					[
-						'number'    => 9560,
-						'icon'      => ['value' => 'far fa-check-circle', 'library'  => 'regular'],
-						'title'     => esc_html__('Projects Completed', MELA_TD),
+						'number'     => 9560,
+						'icon'       => ['value' => 'far fa-check-circle', 'library'  => 'regular'],
+						'title'      => esc_html__('Projects Completed', MELA_TD),
 						'background' => ''
 					],
 					[
-						'number'    => 165893,
-						'icon'      => ['value' => 'fas fa-coffee', 'library'  => 'solid'],
-						'title'     => esc_html__('Cups of Coffee', MELA_TD),
+						'number'     => 165893,
+						'icon'       => ['value' => 'fas fa-coffee', 'library'  => 'solid'],
+						'title'      => esc_html__('Cups of Coffee', MELA_TD),
 						'background' => ''
 					],
 					[
-						'number'    => 12356789,
-						'icon'      => ['value' => 'fas fa-trophy', 'library'  => 'solid'],
-						'title'     => esc_html__('Awards Won', MELA_TD),
+						'number'     => 12356789,
+						'icon'       => ['value' => 'fas fa-trophy', 'library'  => 'solid'],
+						'title'      => esc_html__('Awards Won', MELA_TD),
 						'background' => ''
 					],
 				],
 				'fields'            => [
 					[
-						'type'          => Controls_Manager::CHOOSE,
-						'name'          => 'icon_type',
-						'label_block'   => true,
-						'label'         => esc_html__('Type', MELA_TD),
-						'default'       => 'icon',
-						'options'       => [
+						'type'        => Controls_Manager::CHOOSE,
+						'name'        => 'icon_type',
+						'label_block' => true,
+						'label'       => esc_html__('Type', MELA_TD),
+						'default'     => 'icon',
+						'options'     => [
 
 							'none'    => [
 								'title' => esc_html__('None', MELA_TD),
@@ -122,43 +122,43 @@ class Counter_Up extends Widget_Base
 						]
 					],
 					[
-						'name'          => 'icon',
-						'label'         => esc_html__('Icon', MELA_TD),
-						'type'          => Controls_Manager::ICONS,
-						'default'       => [
-							'value'     => 'fas fa-star',
-							'library'   => 'solid',
+						'name'    => 'icon',
+						'label'   => esc_html__('Icon', MELA_TD),
+						'type'    => Controls_Manager::ICONS,
+						'default' => [
+							'value'   => 'fas fa-star',
+							'library' => 'solid',
 						],
 						'condition'     => [
 							'icon_type' => 'icon',
 						],
 					],
 					[
-						'name'          => 'custom',
-						'label'         => esc_html__('Image', MELA_TD),
-						'label_block'   => true,
-						'type'          => Controls_Manager::MEDIA,
-						'condition'     => [
+						'name'        => 'custom',
+						'label'       => esc_html__('Image', MELA_TD),
+						'label_block' => true,
+						'type'        => Controls_Manager::MEDIA,
+						'condition'   => [
 							'icon_type' => 'custom',
 						],
 					],
 					[
-						'type'          => Controls_Manager::TEXT,
-						'name'          => 'title',
-						'label_block'   => true,
-						'label'         => esc_html__('Title', MELA_TD),
-						'default'       => 'Type your title',
+						'type'        => Controls_Manager::TEXT,
+						'name'        => 'title',
+						'label_block' => true,
+						'label'       => esc_html__('Title', MELA_TD),
+						'default'     => 'Type your title',
 					],
 					[
-						'type'          => Controls_Manager::NUMBER,
-						'name'          => 'number',
-						'label'         => esc_html__('Number', MELA_TD),
-						'default'       => 123456,
+						'type'    => Controls_Manager::NUMBER,
+						'name'    => 'number',
+						'label'   => esc_html__('Number', MELA_TD),
+						'default' => 123456,
 					],
 					[
-						'type'          => Controls_Manager::COLOR,
-						'name'          => 'background',
-						'label'         => esc_html__('Background', MELA_TD)
+						'type'  => Controls_Manager::COLOR,
+						'name'  => 'background',
+						'label' => esc_html__('Background', MELA_TD)
 					],
 
 				],
@@ -169,15 +169,15 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'column',
 			[
-				'label'         => esc_html__('Columns', MELA_TD),
-				'type'          => Controls_Manager::SELECT,
-				'default'       => 4,
-				'options'       => [
-					'6'           => esc_html__('6 Columns', MELA_TD),
-					'4'           => esc_html__('4 Columns', MELA_TD),
-					'3'           => esc_html__('3 Columns', MELA_TD),
-					'2'           => esc_html__('2 Columns', MELA_TD),
-					'1'           => esc_html__('1 Column', MELA_TD),
+				'label'   => esc_html__('Columns', MELA_TD),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 4,
+				'options' => [
+					'6' => esc_html__('6 Columns', MELA_TD),
+					'4' => esc_html__('4 Columns', MELA_TD),
+					'3' => esc_html__('3 Columns', MELA_TD),
+					'2' => esc_html__('2 Columns', MELA_TD),
+					'1' => esc_html__('1 Column', MELA_TD),
 				],
 			]
 		);
@@ -190,7 +190,7 @@ class Counter_Up extends Widget_Base
 		$this->start_controls_section(
 			'jltma_counterup_icons_section',
 			[
-				'label'         => esc_html__('Icon Settings', MELA_TD)
+				'label' => esc_html__('Icon Settings', MELA_TD)
 			]
 		);
 
@@ -199,9 +199,9 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'jltma_counterup_icon_align',
 			[
-				'label'         => esc_html__('Icon/Image Position', MELA_TD),
-				'type'          => Controls_Manager::CHOOSE,
-				'options'       => [
+				'label'   => esc_html__('Icon/Image Position', MELA_TD),
+				'type'    => Controls_Manager::CHOOSE,
+				'options' => [
 					'left'      => [
 						'title' => esc_html__('Left', MELA_TD),
 						'icon'  => 'fa fa-angle-left',
@@ -215,7 +215,7 @@ class Counter_Up extends Widget_Base
 						'icon'  => 'fa fa-angle-right',
 					],
 				],
-				'default'       => 'center',
+				'default' => 'center',
 			]
 		);
 
@@ -223,20 +223,20 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'icon_size',
 			[
-				'label'     => esc_html__('Icon Size', MELA_TD),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
+				'label' => esc_html__('Icon Size', MELA_TD),
+				'type'  => Controls_Manager::SLIDER,
+				'range' => [
 					'px'    => [
-						'min'   => 6,
-						'max'   => 300,
+						'min' => 6,
+						'max' => 300,
 					],
 				],
 				'default'   => [
-					'size'  => 30,
+					'size' => 30,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .jltma-counterup .jltma-counterup-icon i'     => 'font-size: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .jltma-counterup .jltma-counterup-icon img'   => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-counterup .jltma-counterup-icon i'   => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-counterup .jltma-counterup-icon img' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -245,21 +245,21 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'image_size',
 			[
-				'label'     => esc_html__('Icon Circle or Image Size', MELA_TD),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
+				'label' => esc_html__('Icon Circle or Image Size', MELA_TD),
+				'type'  => Controls_Manager::SLIDER,
+				'range' => [
 					'px'    => [
-						'min'   => 6,
-						'max'   => 300,
+						'min' => 6,
+						'max' => 300,
 					],
 				],
 				'default'   => [
-					'size'  => 70,
+					'size' => 70,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .jltma-counterup .jltma-counterup-icon i'     => 'height: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .jltma-counterup i'     => 'width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .jltma-counterup .jltma-counterup-icon img'   => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-counterup .jltma-counterup-icon i'   => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-counterup i'                         => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-counterup .jltma-counterup-icon img' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -276,8 +276,8 @@ class Counter_Up extends Widget_Base
 		$this->start_controls_section(
 			'jltma_counterup_box_style_section',
 			[
-				'label'         => esc_html__('Counter up Box Style', MELA_TD),
-				'tab'           => Controls_Manager::TAB_STYLE
+				'label' => esc_html__('Counter up Box Style', MELA_TD),
+				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
 
@@ -285,9 +285,9 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'jltma_counterup_bg_color',
 			[
-				'label'         => esc_html__('Background Color', MELA_TD),
-				'type'          => Controls_Manager::COLOR,
-				'selectors'     => [
+				'label'     => esc_html__('Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
 					'{{WRAPPER}} .jltma-counterup' => 'background-color: {{VALUE}};'
 				],
 			]
@@ -297,10 +297,10 @@ class Counter_Up extends Widget_Base
 		$this->add_responsive_control(
 			'jltma_counterup_padding',
 			[
-				'label'         => esc_html__('Padding', MELA_TD),
-				'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => ['px', 'em', '%'],
-				'selectors'     => [
+				'label'      => esc_html__('Padding', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .jltma-counterup' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -310,10 +310,10 @@ class Counter_Up extends Widget_Base
 		$this->add_responsive_control(
 			'jltma_counterup_margin',
 			[
-				'label'         => esc_html__('Margin', MELA_TD),
-				'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => ['px', 'em', '%'],
-				'selectors'     => [
+				'label'      => esc_html__('Margin', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .jltma-counterup' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -323,22 +323,22 @@ class Counter_Up extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'          => 'jltma_counterup_border',
-				'label'         => esc_html__('Border Type', MELA_TD),
-				'selector'      => '{{WRAPPER}} .jltma-counterup',
+				'name'     => 'jltma_counterup_border',
+				'label'    => esc_html__('Border Type', MELA_TD),
+				'selector' => '{{WRAPPER}} .jltma-counterup',
 			]
 		);
 
 		$this->add_responsive_control(
 			'jltma_counterup_border_radius',
 			[
-				'label' => esc_html__('Border Radius', MELA_TD),
-				'type' => Controls_Manager::SLIDER,
+				'label'      => esc_html__('Border Radius', MELA_TD),
+				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
-				'range' => [
+				'range'      => [
 					'px' => [
-						'min' => 0,
-						'max' => 100,
+						'min'  => 0,
+						'max'  => 100,
 						'step' => 1,
 					],
 					'%' => [
@@ -356,8 +356,8 @@ class Counter_Up extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'          => 'jltma_counterup_box_shadow',
-				'selector'      => '{{WRAPPER}} .jltma-counterup-column .jltma-counterup'
+				'name'     => 'jltma_counterup_box_shadow',
+				'selector' => '{{WRAPPER}} .jltma-counterup-column .jltma-counterup'
 			]
 		);
 
@@ -371,8 +371,8 @@ class Counter_Up extends Widget_Base
 		$this->start_controls_section(
 			'jltma_counterup_typography_section',
 			[
-				'label'         => esc_html__('Content Style', MELA_TD),
-				'tab'           => Controls_Manager::TAB_STYLE
+				'label' => esc_html__('Content Style', MELA_TD),
+				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
 
@@ -380,8 +380,8 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'jltma_counterup_icon_style',
 			[
-				'label'         => esc_html__('Icon Style', MELA_TD),
-				'type'          => Controls_Manager::HEADING
+				'label' => esc_html__('Icon Style', MELA_TD),
+				'type'  => Controls_Manager::HEADING
 			]
 		);
 
@@ -389,10 +389,10 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'jltma_counterup_icon_color',
 			[
-				'label'         => esc_html__('Color', MELA_TD),
-				'type'          => Controls_Manager::COLOR,
-				'default'       => '#fff',
-				'selectors'     => [
+				'label'     => esc_html__('Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#fff',
+				'selectors' => [
 					'{{WRAPPER}} .jltma-counterup i' => 'color: {{VALUE}};',
 				],
 			]
@@ -402,10 +402,10 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'jltma_counterup_icon_bg_color',
 			[
-				'label'         => esc_html__('Background Color', MELA_TD),
-				'type'          => Controls_Manager::COLOR,
-				'default'       => '#4b00e7',
-				'selectors'     => [
+				'label'     => esc_html__('Background Color', MELA_TD),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#4b00e7',
+				'selectors' => [
 					'{{WRAPPER}} .jltma-counterup-icon i' => 'background-color: {{VALUE}};',
 				],
 			]
@@ -415,9 +415,9 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'jltma_counterup_number_style',
 			[
-				'label'         => esc_html__('Number Style', MELA_TD),
-				'type'          => Controls_Manager::HEADING,
-				'separator'     => 'before'
+				'label'     => esc_html__('Number Style', MELA_TD),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before'
 			]
 		);
 
@@ -425,15 +425,15 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'jltma_counterup_number_color',
 			[
-				'type'          => Controls_Manager::COLOR,
-				'label'         => esc_html__('Color', MELA_TD),
-				'scheme'        => [
-					'type'      => Scheme_Color::get_type(),
-					'value'     => Scheme_Color::COLOR_1,
+				'type'   => Controls_Manager::COLOR,
+				'label'  => esc_html__('Color', MELA_TD),
+				'scheme' => [
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
-				'default'       => '#333',
-				'selectors'     => [
-					'{{WRAPPER}} .jltma-counterup h3.jltma-counter-up-number'      => 'color: {{VALUE}};'
+				'default'   => '#333',
+				'selectors' => [
+					'{{WRAPPER}} .jltma-counterup h3.jltma-counter-up-number' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -442,10 +442,10 @@ class Counter_Up extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'          => 'jltma_counterup_number_typography',
-				'scheme'        => Scheme_Typography::TYPOGRAPHY_1,
-				'selector'      => '{{WRAPPER}} .jltma-counterup h3.jltma-counter-up-number',
-				'exclude'       => [
+				'name'     => 'jltma_counterup_number_typography',
+				'scheme'   => Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .jltma-counterup h3.jltma-counter-up-number',
+				'exclude'  => [
 					'text_transform', // font_family, font_size, font_weight, text_transform, font_style, text_decoration, line_height, letter_spacing
 				]
 			]
@@ -455,10 +455,10 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'jltma_counterup_number_margin',
 			[
-				'label'         => esc_html__('Margin', MELA_TD),
-				'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => ['px', 'em', '%'],
-				'selectors'     => [
+				'label'      => esc_html__('Margin', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .jltma-counterup h3.jltma-counter-up-number' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -468,9 +468,9 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'jltma_counterup_title_style',
 			[
-				'label'         => esc_html__('Title Style', MELA_TD),
-				'type'          => Controls_Manager::HEADING,
-				'separator'     =>  'before'
+				'label'     => esc_html__('Title Style', MELA_TD),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before'
 			]
 		);
 
@@ -478,15 +478,15 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'jltma_counterup_title_color',
 			[
-				'type'          => Controls_Manager::COLOR,
-				'label'         => esc_html__('Title color', MELA_TD),
-				'scheme'        => [
-					'type'      => Scheme_Color::get_type(),
-					'value'     => Scheme_Color::COLOR_1,
+				'type'   => Controls_Manager::COLOR,
+				'label'  => esc_html__('Title color', MELA_TD),
+				'scheme' => [
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
-				'default'       => '#525151',
-				'selectors'     => [
-					'{{WRAPPER}} .jltma-counterup-title'      => 'color: {{VALUE}};'
+				'default'   => '#525151',
+				'selectors' => [
+					'{{WRAPPER}} .jltma-counterup-title' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -495,9 +495,9 @@ class Counter_Up extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'          => 'jltma_counterup_title_typography',
-				'scheme'        => Scheme_Typography::TYPOGRAPHY_1,
-				'selector'      => '{{WRAPPER}} .jltma-counterup-title'
+				'name'     => 'jltma_counterup_title_typography',
+				'scheme'   => Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .jltma-counterup-title'
 			]
 		);
 
@@ -505,10 +505,10 @@ class Counter_Up extends Widget_Base
 		$this->add_control(
 			'jltma_counterup_title_margin',
 			[
-				'label'         => esc_html__('Margin', MELA_TD),
-				'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => ['px', 'em', '%'],
-				'selectors'     => [
+				'label'      => esc_html__('Margin', MELA_TD),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors'  => [
 					'{{WRAPPER}} .jltma-counterup-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -574,15 +574,15 @@ class Counter_Up extends Widget_Base
 			$this->add_control(
 				'jltma_control_get_pro_style_tab',
 				[
-					'label' => esc_html__('Unlock more possibilities', MELA_TD),
-					'type' => Controls_Manager::CHOOSE,
+					'label'   => esc_html__('Unlock more possibilities', MELA_TD),
+					'type'    => Controls_Manager::CHOOSE,
 					'options' => [
 						'1' => [
 							'title' => esc_html__('', MELA_TD),
-							'icon' => 'fa fa-unlock-alt',
+							'icon'  => 'fa fa-unlock-alt',
 						],
 					],
-					'default' => '1',
+					'default'     => '1',
 					'description' => '<span class="pro-feature"> Upgrade to  <a href="' . ma_el_fs()->get_upgrade_url() . '" target="_blank">Pro Version</a> for more Elements with Customization Options.</span>'
 				]
 			);
@@ -595,8 +595,8 @@ class Counter_Up extends Widget_Base
 	protected function render()
 	{
 
-		$settings  	= $this->get_settings_for_display();
-		$id_int		= substr($this->get_id_int(), 0, 3);
+		$settings = $this->get_settings_for_display();
+		$id_int   = substr($this->get_id_int(), 0, 3);
 
 		if (is_array($settings['jltma_counterup_contents'])) :
 			$column = 12 / $settings['column'];
@@ -605,12 +605,12 @@ class Counter_Up extends Widget_Base
 
 			foreach ($settings['jltma_counterup_contents'] as $index => $list) :
 
-				$title_count = $index + 1;
+				$title_count        = $index + 1;
 				$title_settings_key = $this->get_repeater_setting_key('title', 'jltma_counterup_contents', $index);
 
 				$this->add_render_attribute($title_settings_key, [
-					'id' 			=> $id_int . $title_count,
-					'style' 		=> ['background-color:', $list['background']]
+					'id'    => $id_int . $title_count,
+					'style' => ['background-color:', $list['background']]
 				]);
 
 				echo '<div class="' . esc_attr($column) . ' jltma-counterup-column">';

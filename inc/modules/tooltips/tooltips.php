@@ -7,8 +7,8 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Box_Shadow;
-use \Elementor\Scheme_Typography;
-use \Elementor\Scheme_Color;
+use \Elementor\Core\Schemes\Typography;
+use \Elementor\Core\Schemes\Color;
 use \Elementor\Utils;
 use \Elementor\Element_Base;
 
@@ -58,7 +58,7 @@ class Extension_Tooltip extends Element_Base
      **/
     public static function get_description()
     {
-        return __('Adds the option to show a tooltip for any widget and the ability to customise them globally. Can be found under Advanced &rarr; Extras &rarr; Tooltip for any widget.', 'elementor-extras');
+        return __('Adds the option to show a tooltip for any widget and the ability to customise them globally. Can be found under Advanced &rarr; Extras &rarr; Tooltip for any widget.', MELA_TD);
     }
 
     /**
@@ -93,11 +93,11 @@ class Extension_Tooltip extends Element_Base
         $element->add_control(
             'tooltip_enable',
             [
-                'label'            => __('Tooltip', 'elementor-extras'),
+                'label'            => __('Tooltip', MELA_TD),
                 'type'             => Controls_Manager::SWITCHER,
                 'default'         => '',
-                'label_on'         => __('Yes', 'elementor-extras'),
-                'label_off'     => __('No', 'elementor-extras'),
+                'label_on'         => __('Yes', MELA_TD),
+                'label_off'     => __('No', MELA_TD),
                 'return_value'     => 'yes',
                 'separator'        => 'before',
                 'frontend_available'    => true,
@@ -107,7 +107,7 @@ class Extension_Tooltip extends Element_Base
         $element->start_controls_tabs('tooltip');
 
         $element->start_controls_tab('tooltip_settings', [
-            'label'     => __('Settings', 'elementor-extras'),
+            'label'     => __('Settings', MELA_TD),
             'condition'    => [
                 'tooltip_enable!' => '',
             ],
@@ -138,7 +138,7 @@ class Extension_Tooltip extends Element_Base
         $element->end_controls_tab();
 
         $element->start_controls_tab('tooltip_style', [
-            'label'     => __('Style', 'elementor-extras'),
+            'label'     => __('Style', MELA_TD),
             'condition'    => [
                 'tooltip_enable!' => '',
             ],
@@ -147,7 +147,7 @@ class Extension_Tooltip extends Element_Base
         $element->add_control(
             'tooltip_width',
             [
-                'label'         => __('Max Width', 'elementor-extras'),
+                'label'         => __('Max Width', MELA_TD),
                 'type'             => Controls_Manager::SLIDER,
                 'default'     => [
                     'size'     => '',
@@ -168,7 +168,7 @@ class Extension_Tooltip extends Element_Base
         $element->add_control(
             'tooltip_distance',
             [
-                'label'         => __('Distance', 'elementor-extras'),
+                'label'         => __('Distance', MELA_TD),
                 'type'             => Controls_Manager::SLIDER,
                 'size_units'     => ['px'],
                 'label_block'    => false,
@@ -184,8 +184,8 @@ class Extension_Tooltip extends Element_Base
         $element->add_control(
             'tooltip_offset',
             [
-                'label'         => __('Offset', 'elementor-extras'),
-                'description'     => __('Adjust offset to align arrow with target.', 'elementor-extras'),
+                'label'         => __('Offset', MELA_TD),
+                'description'     => __('Adjust offset to align arrow with target.', MELA_TD),
                 'type'             => Controls_Manager::SLIDER,
                 'label_block'    => false,
                 'default'     => [
@@ -212,12 +212,12 @@ class Extension_Tooltip extends Element_Base
         $element->add_control(
             'tooltip_arrow',
             [
-                'label'        => __('Arrow', 'elementor-extras'),
+                'label'        => __('Arrow', MELA_TD),
                 'type'         => Controls_Manager::SELECT,
                 'default'     => '',
                 'options'     => [
-                    ''         => __('Show', 'elementor-extras'),
-                    'none'     => __('Hide', 'elementor-extras'),
+                    ''         => __('Show', MELA_TD),
+                    'none'     => __('Hide', MELA_TD),
                 ],
                 'selectors' => [
                     '.ee-tooltip.ee-tooltip-{{ID}}:after' => 'content: {{VALUE}};',
@@ -228,19 +228,19 @@ class Extension_Tooltip extends Element_Base
         $element->add_control(
             'tooltip_align',
             [
-                'label'     => __('Text Align', 'elementor-extras'),
+                'label'     => __('Text Align', MELA_TD),
                 'type'         => Controls_Manager::CHOOSE,
                 'options'     => [
                     'left'     => [
-                        'title'     => __('Left', 'elementor-extras'),
+                        'title'     => __('Left', MELA_TD),
                         'icon'         => 'fa fa-align-left',
                     ],
                     'center'     => [
-                        'title' => __('Center', 'elementor-extras'),
+                        'title' => __('Center', MELA_TD),
                         'icon'     => 'fa fa-align-center',
                     ],
                     'right'     => [
-                        'title' => __('Right', 'elementor-extras'),
+                        'title' => __('Right', MELA_TD),
                         'icon'    => 'fa fa-align-right',
                     ],
                 ],
@@ -253,7 +253,7 @@ class Extension_Tooltip extends Element_Base
         $element->add_control(
             'tooltip_padding',
             [
-                'label'         => __('Padding', 'elementor-extras'),
+                'label'         => __('Padding', MELA_TD),
                 'type'             => Controls_Manager::DIMENSIONS,
                 'size_units'     => ['px', 'em', '%'],
                 'selectors'     => [
@@ -265,7 +265,7 @@ class Extension_Tooltip extends Element_Base
         $element->add_control(
             'tooltip_border_radius',
             [
-                'label'         => __('Border Radius', 'elementor-extras'),
+                'label'         => __('Border Radius', MELA_TD),
                 'type'             => Controls_Manager::DIMENSIONS,
                 'size_units'     => ['px', '%'],
                 'selectors'     => [
@@ -279,7 +279,7 @@ class Extension_Tooltip extends Element_Base
             [
                 'name'         => 'tooltip_typography',
                 'selector'     => '.ee-tooltip.ee-tooltip-{{ID}}',
-                'scheme'     => Scheme_Typography::TYPOGRAPHY_3,
+                'scheme'                => Typography::TYPOGRAPHY_3,
                 'separator' => 'after',
             ]
         );
@@ -287,16 +287,16 @@ class Extension_Tooltip extends Element_Base
         $element->add_control(
             'tooltip_background_color',
             [
-                'label'     => __('Background Color', 'elementor-extras'),
+                'label'     => __('Background Color', MELA_TD),
                 'type'         => Controls_Manager::COLOR,
-                'selectors' => Utils::get_tooltip_background_selectors(),
+                // 'selectors' => Utils::get_tooltip_background_selectors(),
             ]
         );
 
         $element->add_control(
             'tooltip_color',
             [
-                'label'     => __('Color', 'elementor-extras'),
+                'label'     => __('Color', MELA_TD),
                 'type'         => Controls_Manager::COLOR,
                 'selectors' => [
                     '.ee-tooltip.ee-tooltip-{{ID}}'         => 'color: {{VALUE}};',

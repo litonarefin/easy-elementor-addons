@@ -4,7 +4,7 @@ namespace MasterAddons\Inc\Controls;
 
 use Elementor\Group_Control_Base;
 use Elementor\Controls_Manager;
-use Elementor\Scheme_Color;
+use \Elementor\Core\Schemes\Color;
 
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
