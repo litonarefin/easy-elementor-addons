@@ -274,7 +274,7 @@ class Domain_Search extends Widget_Base
         );
 
         $this->add_group_control(
-            Group_Control_Background:: get_type(),
+            Group_Control_Background::get_type(),
             array(
                 'name'     => 'button_background',
                 'label'    => __('Background', MELA_TD),
@@ -284,7 +284,7 @@ class Domain_Search extends Widget_Base
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow:: get_type(),
+            Group_Control_Box_Shadow::get_type(),
             array(
                 'name'     => 'button_box_shadow',
                 'selector' => '{{WRAPPER}} .ma-el-button'
@@ -301,7 +301,7 @@ class Domain_Search extends Widget_Base
         );
 
         $this->add_group_control(
-            Group_Control_Background:: get_type(),
+            Group_Control_Background::get_type(),
             array(
                 'name'     => 'hover_button_background',
                 'label'    => __('Background', MELA_TD),
@@ -311,7 +311,7 @@ class Domain_Search extends Widget_Base
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow:: get_type(),
+            Group_Control_Box_Shadow::get_type(),
             array(
                 'name'     => 'hover_button_box_shadow',
                 'selector' => '{{WRAPPER}} .ma-el-button:hover'
@@ -352,7 +352,7 @@ class Domain_Search extends Widget_Base
         );
 
         $this->add_group_control(
-            Group_Control_Text_Shadow:: get_type(),
+            Group_Control_Text_Shadow::get_type(),
             array(
                 'name'     => 'btn_text_shadow',
                 'label'    => __('Text Shadow', MELA_TD),
@@ -361,7 +361,7 @@ class Domain_Search extends Widget_Base
         );
 
         $this->add_group_control(
-            Group_Control_Typography:: get_type(),
+            Group_Control_Typography::get_type(),
             array(
                 'name'     => 'button_typography',
                 'scheme'   => Typography::TYPOGRAPHY_1,
@@ -390,7 +390,7 @@ class Domain_Search extends Widget_Base
         );
 
         $this->add_group_control(
-            Group_Control_Text_Shadow:: get_type(),
+            Group_Control_Text_Shadow::get_type(),
             array(
                 'name'     => 'hover_btn_text_shadow',
                 'label'    => __('Text Shadow', MELA_TD),
@@ -399,7 +399,7 @@ class Domain_Search extends Widget_Base
         );
 
         $this->add_group_control(
-            Group_Control_Typography:: get_type(),
+            Group_Control_Typography::get_type(),
             array(
                 'name'     => 'hover_button_typography',
                 'scheme'   => Typography::TYPOGRAPHY_1,
@@ -436,7 +436,7 @@ class Domain_Search extends Widget_Base
         );
 
         $this->add_group_control(
-            Group_Control_Border:: get_type(),
+            Group_Control_Border::get_type(),
             [
                 'name'     => 'jltma_counterup_border',
                 'label'    => esc_html__('Border Type', MELA_TD),
@@ -608,8 +608,8 @@ class Domain_Search extends Widget_Base
         $ma_el_domain_affiliate = '';
         if ($settings['ma_el_domain_affiliate_show'] == "yes") {
             $ma_el_domain_affiliate = '<a ' . $this->get_render_attribute_string('domain_affiliate') . '>';
-            $ma_el_domain_affiliate . = $ma_el_domain_affiliate_text;
-            $ma_el_domain_affiliate . = '</a>';
+            $ma_el_domain_affiliate .= $ma_el_domain_affiliate_text;
+            $ma_el_domain_affiliate .= '</a>';
         }
 
 
@@ -641,22 +641,22 @@ class Domain_Search extends Widget_Base
         $is_new   = empty($settings['icon']) && Icons_Manager::is_migration_allowed();
         ob_start(); ?>
 
-        <div  class  = "ma-el-domain-checker">
-        <div  class  = "ma-el-input-group">
-        <form method = "post">
+        <div class="ma-el-domain-checker">
+            <div class="ma-el-input-group">
+                <form method="post">
 
-                    <div class = "form-group">
+                    <div class="form-group">
 
-                        <div   class = "input-group mb-3">
-                        <input type  = "text" placeholder = "<?php echo esc_attr($settings['palceholder_text']); ?>" class = "form-control ma-el-domain-name" autocomplete = "off">
-                        <div   class = "input-group-append">
+                        <div class="input-group mb-3">
+                            <input type="text" placeholder="<?php echo esc_attr($settings['palceholder_text']); ?>" class="form-control ma-el-domain-name" autocomplete="off">
+                            <div class="input-group-append">
 
-                                <button type  = "submit" <?php                                                            //echo $this->get_render_attribute_string('submit-button');
-                                ?>      class = "jltma-btn jltma-btn-dark domain-checker ma-el-button ma-el-btn-loader">
+                                <button type="submit" <?php                                                            //echo $this->get_render_attribute_string('submit-button');
+                                                        ?> class="jltma-btn jltma-btn-dark domain-checker ma-el-button ma-el-btn-loader">
                                     <span>
                                         <?php if ($has_icon and 'icon' == $settings['ma_el_domain_checker_submit_type']) {
                                             if ($is_new || $migrated) {
-                                                Icons_Manager:: render_icon($settings['ma_el_domain_checker_submit_icon'], ['aria-hidden' => 'true']);
+                                                Icons_Manager::render_icon($settings['ma_el_domain_checker_submit_icon'], ['aria-hidden' => 'true']);
                                             } else {
                                                 echo '<i ' . $this->get_render_attribute_string('font-icon') . '></i>';
                                             }
@@ -665,13 +665,13 @@ class Domain_Search extends Widget_Base
                                         } ?>
                                     </span>
 
-                                    <svg  version = "1.1" xmlns = "http://www.w3.org/2000/svg" xmlns:xlink = "http://www.w3.org/1999/xlink" x = "0px" y = "0px" width = "<?php echo $settings['loader_size']; ?>px" height = "<?php echo $settings['loader_size']; ?>px" viewBox = "0 0 40 40" enable-background = "new 0 0 40 40" xml:space = "preserve">
-                                    <path opacity = "0.2" fill  = "#ffffff" d                              = "M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="<?php echo $settings['loader_size']; ?>px" height="<?php echo $settings['loader_size']; ?>px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                                        <path opacity="0.2" fill="#ffffff" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
                                                     s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
                                                     c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z" />
                                         <path fill="#ffffff" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
                                                     C22.32,8.481,24.301,9.057,26.013,10.047z">
-                                            <animateTransform attributeType = "xml" attributeName = "transform" type = "rotate" from = "0 20 20" to = "360 20 20" dur = "0.5s" repeatCount = "indefinite" />
+                                            <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" dur="0.5s" repeatCount="indefinite" />
                                         </path>
                                     </svg>
                                 </button>
@@ -683,7 +683,7 @@ class Domain_Search extends Widget_Base
 
                 </form>
             </div>
-            <div class = "ma-el-results"></div>
+            <div class="ma-el-results"></div>
         </div>
 
 
@@ -698,24 +698,24 @@ class Domain_Search extends Widget_Base
                         // Enable/Disable Ajax Script depending on Button URL
                         if ($settings['ma_el_domain_checker_submit_button'] != "yes") { ?>
 
-                            var $this              = $(this),
-                                domain             = $('.ma-el-domain-name', $this).val(),
-                                succes_msg         = "<?php echo esc_attr($success_msg); ?>",
-                                error_msg          = "<?php echo esc_attr($error_msg); ?>",
-                                not_found          = "<?php echo esc_attr($not_found_msg); ?>",
+                            var $this = $(this),
+                                domain = $('.ma-el-domain-name', $this).val(),
+                                succes_msg = "<?php echo esc_attr($success_msg); ?>",
+                                error_msg = "<?php echo esc_attr($error_msg); ?>",
+                                not_found = "<?php echo esc_attr($not_found_msg); ?>",
                                 not_entered_domain = "<?php echo esc_attr($not_entered_domain); ?>";
                             $.ajax({
-                                type    : 'POST',
+                                type: 'POST',
                                 dataType: 'json',
-                                url     : '<?php echo admin_url('admin-ajax.php'); ?>',
-                                data    : {
-                                    action            : 'jltma_domain_checker',
-                                    domain            : domain,
-                                    succes_msg        : succes_msg,
-                                    error_msg         : error_msg,
-                                    not_found         : not_found,
+                                url: '<?php echo admin_url('admin-ajax.php'); ?>',
+                                data: {
+                                    action: 'jltma_domain_checker',
+                                    domain: domain,
+                                    succes_msg: succes_msg,
+                                    error_msg: error_msg,
+                                    not_found: not_found,
                                     not_entered_domain: not_entered_domain,
-                                    nonce             : '<?php echo wp_create_nonce('ma-el-domain-checker'); ?>'
+                                    nonce: '<?php echo wp_create_nonce('ma-el-domain-checker'); ?>'
                                 },
                                 beforeSend: function() {
                                     $('.ma-el-button', $this).addClass('ma-el-svg-progress').prop('disabled', true);
@@ -734,14 +734,14 @@ class Domain_Search extends Widget_Base
                         <?php } else { ?>
 
                             <?php if (!empty($settings['ma_el_domain_checker_submit_button_url']['url'])) { ?>
-                                var $this          = $(this),
-                                    domain         = $('.ma-el-domain-name', $this).val(),
-                                    link_target    = <?php echo (!empty($settings['ma_el_domain_checker_submit_button_url']['is_external'])) ? '"_blank"' : '""'; ?>,
+                                var $this = $(this),
+                                    domain = $('.ma-el-domain-name', $this).val(),
+                                    link_target = <?php echo (!empty($settings['ma_el_domain_checker_submit_button_url']['is_external'])) ? '"_blank"' : '""'; ?>,
                                     affiliate_link = "<?php echo esc_url($settings['ma_el_domain_checker_submit_button_url']['url']); ?>?=" + domain;
 
                                 $("<a>").prop({
                                     target: link_target,
-                                    href  : affiliate_link
+                                    href: affiliate_link
                                 })[0].click();
                             <?php } ?>
 
