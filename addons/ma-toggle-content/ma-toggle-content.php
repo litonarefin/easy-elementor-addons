@@ -13,7 +13,7 @@ use \Elementor\Group_Control_Text_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Group_Control_Background;
-use \Elementor\Scheme_Color;
+use \Elementor\Core\Schemes\Color;
 use \Elementor\Core\Schemes\Typography;
 
 // Master Addons Classes

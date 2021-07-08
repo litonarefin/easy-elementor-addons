@@ -17,7 +17,7 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Text_Shadow;
 use \Elementor\Group_Control_Css_Filter;
-use \Elementor\Scheme_Color;
+use \Elementor\Core\Schemes\Color;
 
 
 use MasterHeaderFooter\Inc\Comments\JLTMA_Comments_Builder;

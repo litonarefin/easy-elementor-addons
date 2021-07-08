@@ -8,7 +8,7 @@ use \Elementor\Utils;
 use \Elementor\Icons_Manager;
 use \Elementor\Controls_Manager;
 use \Elementor\Repeater;
-use \Elementor\Scheme_Color;
+use \Elementor\Core\Schemes\Color;
 use \Elementor\Control_Media;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;

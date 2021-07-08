@@ -718,8 +718,8 @@ class Slider extends Widget_Base
 				'label'  => __('Number Active Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-'type'  => Color::get_type(),
-'value' => Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered2 .swiper-slide-active span.count' => 'color: {{VALUE}};',
@@ -736,8 +736,8 @@ class Slider extends Widget_Base
 				'label'  => __('Number Active Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered2 .swiper-slide-active span.count' => 'background-color: {{VALUE}};',
@@ -788,8 +788,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.alpha .title_holder p' => 'color: {{VALUE}};',
@@ -808,8 +808,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.beta .title_holder p' => 'color: {{VALUE}};',
@@ -828,8 +828,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.gamma .title_holder p' => 'color: {{VALUE}};',
@@ -848,8 +848,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered .title_holder p' => 'color: {{VALUE}};',
@@ -868,8 +868,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered2 .title_holder p' => 'color: {{VALUE}};',
@@ -907,8 +907,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.alpha .title_holder h3 a' => 'color: {{VALUE}};',
@@ -927,8 +927,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.alpha .title_holder h3 a:hover' => 'color: {{VALUE}};',
@@ -948,8 +948,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.beta .title_holder h3 a' => 'color: {{VALUE}};',
@@ -968,8 +968,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.beta .title_holder h3 a:hover' => 'color: {{VALUE}};',
@@ -989,8 +989,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.gamma .title_holder h3 a' => 'color: {{VALUE}};',
@@ -1009,8 +1009,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.gamma .title_holder h3 a:hover' => 'color: {{VALUE}};',
@@ -1029,9 +1029,9 @@ class Slider extends Widget_Base
 			[
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
-				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+									'scheme' => [
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered .title_holder h3 a' => 'color: {{VALUE}};',
@@ -1050,8 +1050,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered .title_holder h3 a:hover' => 'color: {{VALUE}};',
@@ -1071,8 +1071,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered2 .title_holder h3 a' => 'color: {{VALUE}};',
@@ -1091,8 +1091,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_circle.numbered2 .title_holder h3 a:hover' => 'color: {{VALUE}};',
@@ -1192,8 +1192,8 @@ class Slider extends Widget_Base
 				'label'  => __('Separator Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_alpha .owl-carousel .item:after' => 'background-color: {{VALUE}};',
@@ -1222,8 +1222,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_alpha .owl_control span.a'                                                                                                                                                 => 'background-color: {{VALUE}};',
@@ -1243,8 +1243,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_alpha .owl_control > div' => 'background-color: {{VALUE}};',
@@ -1291,8 +1291,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_alpha .item .title_holder p a'       => 'color: {{VALUE}};',
@@ -1330,8 +1330,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_alpha .item .title_holder h3 a' => 'color: {{VALUE}};',
@@ -1346,8 +1346,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_alpha .item .title_holder h3 a:hover' => 'color: {{VALUE}};',
@@ -1385,8 +1385,8 @@ class Slider extends Widget_Base
 				'label'  => __('Read More Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_alpha .owl-carousel .item .title_holder > span a'                  => 'color: {{VALUE}};border-color: {{VALUE}};',
@@ -1521,8 +1521,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Holder Background', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_beta .owl-carousel .item .title_holder' => 'background-color: {{VALUE}};',
@@ -1537,8 +1537,8 @@ class Slider extends Widget_Base
 				'label'  => __('Separator Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_beta .owl-carousel .item:after' => 'background-color: {{VALUE}};',
@@ -1567,8 +1567,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_beta .owl_control span.a'                                                                                                                                                => 'background-color: {{VALUE}};',
@@ -1589,8 +1589,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_beta .owl_control > div' => 'background-color: {{VALUE}};',
@@ -1637,8 +1637,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_beta .owl-carousel .item .title_holder p a'       => 'color: {{VALUE}};',
@@ -1676,8 +1676,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_beta .owl-carousel .item .title_holder h3 a' => 'color: {{VALUE}};',
@@ -1692,8 +1692,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_beta .owl-carousel .item .title_holder h3 a:hover' => 'color: {{VALUE}};',
@@ -1787,8 +1787,8 @@ class Slider extends Widget_Base
 				'label'  => __('Separator Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_interactive .owl-carousel .item:after' => 'background-color: {{VALUE}};',
@@ -1815,8 +1815,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_interactive .owl_control span.a'                                                                                                                                                       => 'background-color: {{VALUE}};',
@@ -1836,8 +1836,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_interactive .owl_control > div' => 'background-color: {{VALUE}};',
@@ -1884,8 +1884,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_interactive .item .title_holder p a'       => 'color: {{VALUE}};',
@@ -1923,8 +1923,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_interactive .item .title_holder h3 a' => 'color: {{VALUE}};',
@@ -1939,8 +1939,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_interactive .item .title_holder h3 a:hover' => 'color: {{VALUE}};',
@@ -1978,8 +1978,8 @@ class Slider extends Widget_Base
 				'label'  => __('Read More Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_full_interactive .owl-carousel .item .title_holder > span a'                  => 'color: {{VALUE}};border-color: {{VALUE}};',
@@ -2085,8 +2085,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Holder Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_square.gamma .title_holder' => 'background-color: {{VALUE}};',
@@ -2121,8 +2121,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_square .owl_control span.a'                                                                                                                                             => 'background-color: {{VALUE}};',
@@ -2147,8 +2147,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_square .owl_control > div'                                                                                 => 'background-color: {{VALUE}};',
@@ -2168,8 +2168,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_square.numbered .numbered_control span.a' => 'background-color: {{VALUE}};',
@@ -2187,8 +2187,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_square.numbered .n_prev:after'                                                                             => 'background-color: {{VALUE}};',
@@ -2206,8 +2206,8 @@ class Slider extends Widget_Base
 				'label'  => __('Numbers Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_square.numbered .number_holder span' => 'color: {{VALUE}};',
@@ -2224,8 +2224,8 @@ class Slider extends Widget_Base
 				'label'  => __('Line Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_square.numbered .item:after' => 'background-color: {{VALUE}};',
@@ -2275,8 +2275,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_square.alpha .title_holder p' => 'color: {{VALUE}};',
@@ -2296,8 +2296,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_square.mini .title_holder p'     => 'color: {{VALUE}};',
@@ -2335,8 +2335,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_square.alpha .item .title_holder h3 a' => 'color: {{VALUE}};',
@@ -2356,8 +2356,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_square.alpha .item .title_holder h3 a:hover' => 'color: {{VALUE}};',
@@ -2379,8 +2379,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_square.mini .item .title_holder h3 a'     => 'color: {{VALUE}};',
@@ -2399,8 +2399,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_square.mini .item .title_holder h3 a:hover'     => 'color: {{VALUE}};',
@@ -2454,8 +2454,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_with_content .description h3' => 'color: {{VALUE}};',
@@ -2480,8 +2480,8 @@ class Slider extends Widget_Base
 				'label'  => __('Description Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_with_content .description p' => 'color: {{VALUE}};',
@@ -2562,8 +2562,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .alpha .fn-sample-slides .title_holder' => 'background-color: {{VALUE}};',
@@ -2614,8 +2614,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_with_content .title_holder p a'            => 'color: {{VALUE}};',
@@ -2656,8 +2656,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_with_content .title_holder h3 a'          => 'color: {{VALUE}};',
@@ -2675,8 +2675,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_carousel_with_content .title_holder h3 a:hover'          => 'color: {{VALUE}};',
@@ -2788,8 +2788,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_justified_images .caption p'         => 'color: {{VALUE}};',
@@ -2826,8 +2826,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_justified_images .caption h3 a' => 'color: {{VALUE}};',
@@ -2843,8 +2843,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_justified_images .caption h3 a:hover' => 'color: {{VALUE}};',
@@ -2947,8 +2947,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Holder Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_all_list_wrap[data-title-holder-pos="inside"][data-title-holder-bg="color_o"] .title_holder' => 'background-color: {{VALUE}};',
@@ -2965,8 +2965,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Holder Background Color on Hover', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_all_list_wrap[data-title-holder-pos="hover"] .title_holder' => 'background-color: {{VALUE}};',
@@ -3070,8 +3070,8 @@ class Slider extends Widget_Base
 				'label'  => __('Filter Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_all_list_wrap ul.modulify_filter li a' => 'color: {{VALUE}};',
@@ -3088,8 +3088,8 @@ class Slider extends Widget_Base
 				'label'  => __('On Hover and Selected Filter Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_all_list_wrap ul.modulify_filter li a:hover'   => 'color: {{VALUE}};',
@@ -3140,8 +3140,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_all_list_wrap .title_holder p'         => 'color: {{VALUE}};',
@@ -3178,8 +3178,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_all_list_wrap .title_holder h3 a' => 'color: {{VALUE}};',
@@ -3195,8 +3195,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_all_list_wrap .title_holder h3 a:hover' => 'color: {{VALUE}};',
@@ -3261,8 +3261,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Holder Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_alpha .title_holder' => 'background-color: {{VALUE}};',
@@ -3290,8 +3290,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_alpha .owl_control span.a'                                                                                                                                          => 'background-color: {{VALUE}};',
@@ -3311,8 +3311,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_alpha .owl_control > div' => 'background-color: {{VALUE}};',
@@ -3359,8 +3359,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_alpha .title_holder p'         => 'color: {{VALUE}};',
@@ -3397,8 +3397,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_alpha .title_holder h3'   => 'color: {{VALUE}};',
@@ -3414,8 +3414,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_alpha .title_holder h3:hover a' => 'color: {{VALUE}};',
@@ -3453,8 +3453,8 @@ class Slider extends Widget_Base
 				'label'  => __('Read More Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_alpha .title_holder .in > span a'              => 'color: {{VALUE}};border-color: {{VALUE}};',
@@ -3535,8 +3535,8 @@ class Slider extends Widget_Base
 				'label'  => __('Numbered Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_beta .swiper-slide.fn-numbered-pagination span.number'     => 'color: {{VALUE}};',
@@ -3552,8 +3552,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_beta .owl_control span.a'                                                                                                                                         => 'background-color: {{VALUE}};',
@@ -3573,8 +3573,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_beta .owl_control > div' => 'background-color: {{VALUE}};',
@@ -3621,8 +3621,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_beta .title_holder p'         => 'color: {{VALUE}};',
@@ -3659,8 +3659,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_beta .title_holder h3'   => 'color: {{VALUE}};',
@@ -3676,8 +3676,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_beta .title_holder h3:hover a' => 'color: {{VALUE}};',
@@ -3715,8 +3715,8 @@ class Slider extends Widget_Base
 				'label'  => __('Read More Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_beta .title_holder .in > span a'              => 'color: {{VALUE}};border-color: {{VALUE}};',
@@ -3796,8 +3796,8 @@ class Slider extends Widget_Base
 				'label'  => __('Numbered Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_delta .swiper-slide.fn-numbered-pagination span.number'     => 'color: {{VALUE}};',
@@ -3813,8 +3813,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_delta .owl_control span.a'                                                                                                                                          => 'background-color: {{VALUE}};',
@@ -3834,8 +3834,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_delta .owl_control > div' => 'background-color: {{VALUE}};',
@@ -3882,8 +3882,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_delta .title_holder p'         => 'color: {{VALUE}};',
@@ -3920,8 +3920,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_delta .title_holder h3'   => 'color: {{VALUE}};',
@@ -3937,8 +3937,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_delta .title_holder h3:hover a' => 'color: {{VALUE}};',
@@ -3962,8 +3962,8 @@ class Slider extends Widget_Base
 				'label'  => __('Read More Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_delta .title_holder a.open_post' => 'background-color: {{VALUE}};',
@@ -3978,8 +3978,8 @@ class Slider extends Widget_Base
 				'label'  => __('Read More Arrow Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_delta .title_holder a.open_post .a' => 'background-color: {{VALUE}};',
@@ -4068,8 +4068,8 @@ class Slider extends Widget_Base
 				'label'  => __('Numbered Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_epsilon .swiper-slide.fn-numbered-pagination span.number'     => 'color: {{VALUE}};',
@@ -4085,8 +4085,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_epsilon .owl_control span.a'                                                                                                                                            => 'background-color: {{VALUE}};',
@@ -4106,8 +4106,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_epsilon .owl_control > div' => 'background-color: {{VALUE}};',
@@ -4154,8 +4154,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_epsilon .title_holder p'         => 'color: {{VALUE}};',
@@ -4192,8 +4192,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_epsilon .title_holder h3'   => 'color: {{VALUE}};',
@@ -4209,8 +4209,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_epsilon .title_holder h3:hover a' => 'color: {{VALUE}};',
@@ -4249,8 +4249,8 @@ class Slider extends Widget_Base
 				'label'  => __('Read More Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_epsilon .title_holder .in > span a'              => 'color: {{VALUE}};border-color: {{VALUE}};',
@@ -4331,8 +4331,8 @@ class Slider extends Widget_Base
 				'label'  => __('Numbered Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_gamma .swiper-slide.fn-numbered-pagination span.number'     => 'color: {{VALUE}};',
@@ -4348,8 +4348,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_gamma .owl_control span.a'                                                                                                                                          => 'background-color: {{VALUE}};',
@@ -4369,8 +4369,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_gamma .owl_control > div' => 'background-color: {{VALUE}};',
@@ -4417,8 +4417,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_gamma .title_holder p'         => 'color: {{VALUE}};',
@@ -4455,8 +4455,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_gamma .title_holder h3'   => 'color: {{VALUE}};',
@@ -4472,8 +4472,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_gamma .title_holder h3:hover a' => 'color: {{VALUE}};',
@@ -4511,8 +4511,8 @@ class Slider extends Widget_Base
 				'label'  => __('Read More Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_gamma .title_holder .in > span a'              => 'color: {{VALUE}};border-color: {{VALUE}};',
@@ -4593,8 +4593,8 @@ class Slider extends Widget_Base
 				'label'  => __('Numbered Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_zeta .swiper-slide.fn-numbered-pagination span.number'     => 'color: {{VALUE}};',
@@ -4610,8 +4610,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_zeta .owl_control span.a'                                                                                                                                         => 'background-color: {{VALUE}};',
@@ -4631,8 +4631,8 @@ class Slider extends Widget_Base
 				'label'  => __('Navigation Background Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_zeta .owl_control > div' => 'background-color: {{VALUE}};',
@@ -4679,8 +4679,8 @@ class Slider extends Widget_Base
 				'label'  => __('Category Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_zeta .title_holder p'         => 'color: {{VALUE}};',
@@ -4717,8 +4717,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_zeta .title_holder h3'   => 'color: {{VALUE}};',
@@ -4734,8 +4734,8 @@ class Slider extends Widget_Base
 				'label'  => __('Title Hover Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_zeta .title_holder h3:hover a' => 'color: {{VALUE}};',
@@ -4774,8 +4774,8 @@ class Slider extends Widget_Base
 				'label'  => __('Read More Color', MELA_TD),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .modulify_slider_zeta .title_holder .in > span a'              => 'color: {{VALUE}};border-color: {{VALUE}};',
