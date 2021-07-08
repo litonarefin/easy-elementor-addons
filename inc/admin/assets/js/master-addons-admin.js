@@ -83,7 +83,7 @@
 
         //Navigation Tabs
         $('jltma-master-addons-tabs-navbar a').on('click',function(event){
-            
+
             event.preventDefault(); // Limit effect to the container element.
 
             var context = $(this).closest('jltma-master-addons-tabs-navbar').parent();
