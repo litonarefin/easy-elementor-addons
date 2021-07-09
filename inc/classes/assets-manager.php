@@ -3,6 +3,7 @@
 namespace MasterAddons\Inc\Classes;
 
 use MasterAddons\Master_Elementor_Addons;
+use Elementor\Plugin;
 
 class Master_Addons_Assets
 {
@@ -38,6 +39,8 @@ class Master_Addons_Assets
 
         add_action('elementor/preview/enqueue_styles', [$this, 'jltma_enqueue_preview_scripts'], 100);
         add_action('elementor/preview/enqueue_scripts', [$this, 'jltma_enqueue_preview_scripts'], 100);
+
+        add_action( 'admin_enqueue_scripts', [$this,'hooks_scripts'] );
     }
 
 
@@ -296,6 +299,44 @@ class Master_Addons_Assets
         //, MELA_VERSION, true );
         //		}
 
+
+    }
+
+
+
+    public function hooks_scripts( $hook ) {
+
+        if ( 'master-addons_page_master-custom-breakpoints' != $hook ) return;
+
+        wp_register_script( 'jltma-vue-js', JLTMA_MCB_PLUGIN_URL . 'assets/js/vue.js', [], JLTMA_MCB_VERSION, true );
+
+
+        wp_register_script( 'jltma-hooks-js', MELA_ADMIN_ASSETS . 'js/hooks.js', ['jltma-vue-js', 'jquery'], JLTMA_MCB_VERSION, true );
+
+        $breakpoints = Plugin::$instance->breakpoints->get_active_breakpoints();
+
+        $breakpoints = array_map( function( $breakpoint ) {
+            return [
+                'name' => $breakpoint->get_label(),
+                'key' => $breakpoint->get_name(),
+                'max' => $breakpoint->get_default_value()
+            ];
+        }, $breakpoints );
+
+        $breakpoints['desktop'] = [
+            'name' => 'Desktop',
+            'key' => 'desktop'
+        ];
+
+        $data = [
+            'breakpoints' => array_values( $breakpoints ),
+            'devices' => [],
+            'is_pro' => wp_validate_boolean( function_exists( 'ma_el_fs' ) && ma_el_fs()->can_use_premium_code() )
+        ];
+
+        wp_localize_script( 'jltma-hooks-js', 'jltma_custom_bp_data', $data );
+
+        wp_enqueue_script( 'jltma-hooks-js' );
 
     }
 

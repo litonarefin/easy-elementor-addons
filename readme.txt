@@ -384,7 +384,8 @@ Paste on your Local Computer
 
 
 == Changelog ==
-= 1.6.5 (08-07-2021) =
+= 1.6.5 (09-07-2021) =
+* Dependency: Elementor Custom Breakpoints plugin updated with latest Elementor Support
 * Tweak: Removed `Elementor\Scheme_Typography` deprecated function and updated with `Elementor\Core\Schemes\Typography`
 * Tweak: Removed `Elementor\Core\Schemes\Color` deprecated function and updated with `Elementor\Core\Schemes\Color`
 * Update: MA Toggle Content - Label field cann't change issue fixed, fixed Icon picker issue also.
