@@ -2127,7 +2127,6 @@ class Filterable_Image_Gallery extends Widget_Base
 
 					if (!empty($images)) {
 						foreach ($images as $image) {
-
 							$image_url = '';
 							if (isset($image['id']) && $image['id']) {
 								$image_url = wp_get_attachment_image_url($image['id'], 'full');
@@ -2141,7 +2140,7 @@ class Filterable_Image_Gallery extends Widget_Base
 								echo $img;
 								// echo $this->render_image($image['id'], $settings['ma_el_image_gallery_image_size']);
 							} else {
-								echo "<img src=" . $image . ">";
+								echo "<img src=" . $image['url'] . ">";
 							}
 
 							echo '<div class="ma-image-hover-item-info">';
