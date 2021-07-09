@@ -69,11 +69,11 @@ if (!class_exists('Master_Addons_Promotions')) {
                 __('%1$s got <strong>some Updates </strong> %2$s %3$s %4$s %5$s %6$s <br> <strong>Check Changelogs for </strong> <a href="%7$s" target="__blank">%8$s</a>', MELA_TD),
 
                 '<strong>' . esc_html__('Master Addons for Elementor v', MELA_TD) . MELA_VERSION . '</strong>',
-                '<br><br>' . __('✅ MA Icon not showing issue fixed', MELA_TD) . '<br>',
-                __('✅ Conflict with Ocean WP theme issue fixed ', MELA_TD) . '<br>',
-                __('✅ Add New Color option not working on "Animated Gradient" issue fixed', MELA_TD) . '<br>',
-                __('✅ Team Slider - outside arrow & pagination updated', MELA_TD) . '<br>',
-                __('✅ Image Carousel - outside arrow & pagination updated', MELA_TD) . '<br>',
+                '<br><br>' . __('✅ Custom Breakpoints plugin updated with latest Elementor support', MELA_TD) . '<br>',
+                __('✅ Deprecated "Typography" and "Color Schemes" code updated with latest standards ', MELA_TD) . '<br>',
+                __('✅ MA Toggle Content - Label field can not change issue fixed, fixed Icon picker issue also.', MELA_TD) . '<br>',
+                __('✅ Display Conditions not working issue fixed', MELA_TD) . '<br>',
+                __('✅ Removed "Master Addons for Elementor" text on Editor Breakpoints', MELA_TD) . '<br>',
                 esc_url_raw('https://master-addons.com/changelogs/'),
                 esc_html__('More Details', MELA_TD)
             );

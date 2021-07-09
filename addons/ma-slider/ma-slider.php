@@ -4869,8 +4869,8 @@ class Slider extends Widget_Base
 			$cc_numbered_hover_thumb = $settings['cc_numbered_hover_thumb'];
 
 			// before repeater
-			      $html = Modulify_Helper::modulify_open_wrap();
-			$html .     = '<div class="circle_carousel_version"><div class="modulify_carousel_circle ' . $cc_main_layout . '" data-category-show="' . $cc_category_show . '" data-box-shadow-gamma="' . $cc_box_shadow_gamma . '" data-box-shadow-numbered="' . $cc_box_shadow_numbered . '" data-box-shadow-numbered2="' . $cc_box_shadow_numbered2 . '" data-bg-line="' . $cc_beta_bg_line . '" data-numbered-img-thumb="' . $cc_numbered_img_thumb . '" data-numbered-hover-thumb="' . $cc_numbered_hover_thumb . '">';
+			$html = Modulify_Helper::modulify_open_wrap();
+			$html .= '<div class="circle_carousel_version"><div class="modulify_carousel_circle ' . $cc_main_layout . '" data-category-show="' . $cc_category_show . '" data-box-shadow-gamma="' . $cc_box_shadow_gamma . '" data-box-shadow-numbered="' . $cc_box_shadow_numbered . '" data-box-shadow-numbered2="' . $cc_box_shadow_numbered2 . '" data-bg-line="' . $cc_beta_bg_line . '" data-numbered-img-thumb="' . $cc_numbered_img_thumb . '" data-numbered-hover-thumb="' . $cc_numbered_hover_thumb . '">';
 
 
 			$img_slider = $content_controller = $content_slider = '';
