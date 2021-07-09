@@ -431,7 +431,7 @@ class Animated_Headlines extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ma_el_headlines_first_heading_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme' => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .first-heading',
 			]
 		);
@@ -534,7 +534,7 @@ class Animated_Headlines extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ma_el_headlines_second_heading_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme' => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .jltma-animated-heading .jltma-animated-heading-wrapper .jltma-animated-heading-title .second-heading',
 			]
 		);

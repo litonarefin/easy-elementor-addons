@@ -6,74 +6,74 @@
 
 
         // Save Button reacting on any changes
-        var saveHeaderAction = $( '.master-addons-el-dashboard-header-wrapper .master-addons-el-btn' );
-        $('.master-addons-dashboard-tab input').on( 'click', function() {
-            saveHeaderAction.addClass( 'master-addons-el-save-now' );
+        var saveHeaderAction = $( '.jltma-tab-dashboard-header-wrapper .jltma-tab-element-save-setting' );
+        $('.jltma-master-addons-features-list input').on( 'click', function() {
+            saveHeaderAction.addClass( 'jltma-addons-save-now' );
             saveHeaderAction.removeAttr('disabled').css('cursor', 'pointer');
         } );
         //API & White Label Input Fields Change
         $('#jltma-api-forms-settings input, #jltma-white-label-settings input').on( 'keyup', function() {
-            saveHeaderAction.addClass( 'master-addons-el-save-now' );
+            saveHeaderAction.addClass( 'jltma-addons-save-now' );
             saveHeaderAction.removeAttr('disabled').css('cursor', 'pointer');
         } );
 
         //White Label Checkbox Fields Change
         // $('#textbox1').val(this.checked);
         $('#jltma-white-label-settings input[type="checkbox"]').on( 'change', function() {
-            saveHeaderAction.addClass( 'master-addons-el-save-now' );
+            saveHeaderAction.addClass( 'jltma-addons-save-now' );
             saveHeaderAction.removeAttr('disabled').css('cursor', 'pointer');
         } );
 
         // Enable All Elements
-        $('#master-addons-elements .addons-enable-all, a.jltma-wl-plugin-logo, a.jltma-remove-button').on("click",function (e) {
+        $('#jltma-addons-elements .jltma-addons-enable-all, a.jltma-wl-plugin-logo, a.jltma-remove-button').on("click",function (e) {
             e.preventDefault();
 
-            $("#master-addons-elements .master_addons_feature_switchbox input:enabled").each(function (i) {
+            $("#jltma-addons-elements .jltma-master-addons_feature-switchbox input:enabled").each(function (i) {
                 $(this).prop("checked", true).change();
             });
             saveHeaderAction
-                .addClass("master-addons-el-save-now")
+                .addClass("jltma-addons-save-now")
                 .removeAttr("disabled")
                 .css("cursor", "pointer");
         });
 
         // Disable All Elements
-        $('#master-addons-elements .addons-disable-all').on("click",function (e) {
+        $('#jltma-addons-elements .jltma-addons-disable-all').on("click",function (e) {
             e.preventDefault();
 
-            $("#master-addons-elements .master_addons_feature_switchbox input:enabled").each(function (i) {
+            $("#jltma-addons-elements .jltma-master-addons_feature-switchbox input:enabled").each(function (i) {
                 $(this).prop("checked", false).change();
             });
 
             saveHeaderAction
-                .addClass("master-addons-el-save-now")
+                .addClass("jltma-addons-save-now")
                 .removeAttr("disabled")
                 .css("cursor", "pointer");
         });
 
         // Enable All Extensions
-        $('#master-addons-extensions .addons-enable-all').on("click",function (e) {
+        $('#jltma-addons-extensions .jltma-addons-enable-all').on("click",function (e) {
             e.preventDefault();
 
-            $("#master-addons-extensions .master_addons_feature_switchbox input:enabled").each(function (i) {
+            $("#jltma-addons-extensions .jltma-master-addons_feature-switchbox input:enabled").each(function (i) {
                 $(this).prop("checked", true).change();
             });
             saveHeaderAction
-                .addClass("master-addons-el-save-now")
+                .addClass("jltma-addons-save-now")
                 .removeAttr("disabled")
                 .css("cursor", "pointer");
         });
 
         // Disable All Elements
-        $('#master-addons-extensions .addons-disable-all').on("click",function (e) {
+        $('#jltma-addons-extensions .jltma-addons-disable-all').on("click",function (e) {
             e.preventDefault();
 
-            $("#master-addons-extensions .master_addons_feature_switchbox input:enabled").each(function (i) {
+            $("#jltma-addons-extensions .jltma-master-addons_feature-switchbox input:enabled").each(function (i) {
                 $(this).prop("checked", false).change();
             });
 
             saveHeaderAction
-                .addClass("master-addons-el-save-now")
+                .addClass("jltma-addons-save-now")
                 .removeAttr("disabled")
                 .css("cursor", "pointer");
         });
@@ -207,12 +207,12 @@
 
 
         // Saving Data With Ajax Request
-        $( '.master-addons-el-js-element-save-setting' ).on( 'click', function(e) {
+        $( '.jltma-tab-element-save-setting' ).on( 'click', function(e) {
             e.preventDefault();
 
             let $this = $(this);
 
-            if( $(this).hasClass('master-addons-el-save-now') ) {
+            if( $(this).hasClass('jltma-addons-save-now') ) {
 
                 // Master Addons Elemements
                 $.ajax( {
@@ -221,7 +221,7 @@
                     data: {
                         action: 'master_addons_save_elements_settings',
                         security: js_maad_el_settings.ajax_nonce,
-                        fields: $( '#master-addons-el-settings' ).serialize(),
+                        fields: $( '#jltma-addons-tab-settings' ).serialize(),
                     },
                     success: function( response ) {
 
@@ -237,15 +237,15 @@
 
                         }, function () {
                             setTimeout(function () {
-                                $('.master-addons-el-settings-saved').fadeOut('fast');
+                                $('.jltma-addons-settings-saved').fadeOut('fast');
                             }, 2000);
                         });
 
                         $this.html('Save Settings');
-                        $('.master-addons-el-dashboard-header-right').prepend('<span' +
-                            ' class="master-addons-el-settings-saved"></span>').fadeIn('slow');
+                        $('.jltma-tab-dashboard-header-right').prepend('<span' +
+                            ' class="jltma-addons-settings-saved"></span>').fadeIn('slow');
 
-                        saveHeaderAction.removeClass( 'master-addons-el-save-now' );
+                        saveHeaderAction.removeClass( 'jltma-addons-save-now' );
                     },
                     error: function() {}
                 } );
@@ -273,13 +273,13 @@
                         });
 
                         $this.html('Save Settings');
-                        $('.master-addons-el-dashboard-header-right').prepend('<span' +
-                            ' class="master-addons-el-settings-saved"></span>').fadeIn('slow');
+                        $('.jltma-tab-dashboard-header-right').prepend('<span' +
+                            ' class="jltma-addons-settings-saved"></span>').fadeIn('slow');
 
-                        saveHeaderAction.removeClass( 'master-addons-el-save-now' );
+                        saveHeaderAction.removeClass( 'jltma-addons-save-now' );
 
                         setTimeout(function(){
-                            $('.master-addons-el-settings-saved').fadeOut('slow');
+                            $('.jltma-addons-settings-saved').fadeOut('slow');
                             swal.close();
                         }, 1200);
 
@@ -310,13 +310,13 @@
                         });
 
                         $this.html('Save Settings');
-                        $('.master-addons-el-dashboard-header-right').prepend('<span' +
-                            ' class="master-addons-el-settings-saved"></span>').fadeIn('slow');
+                        $('.jltma-tab-dashboard-header-right').prepend('<span' +
+                            ' class="jltma-addons-settings-saved"></span>').fadeIn('slow');
 
-                        saveHeaderAction.removeClass( 'master-addons-el-save-now' );
+                        saveHeaderAction.removeClass( 'jltma-addons-save-now' );
 
                         setTimeout(function(){
-                            $('.master-addons-el-settings-saved').fadeOut('slow');
+                            $('.jltma-addons-settings-saved').fadeOut('slow');
                             swal.close();
                         }, 1200);
                     },
@@ -347,13 +347,13 @@
                             });
 
                             $this.html('Save Settings');
-                            $('.master-addons-el-dashboard-header-right').prepend('<span' +
-                                ' class="master-addons-el-settings-saved"></span>').fadeIn('slow');
+                            $('.jltma-tab-dashboard-header-right').prepend('<span' +
+                                ' class="jltma-addons-settings-saved"></span>').fadeIn('slow');
 
-                            saveHeaderAction.removeClass( 'master-addons-el-save-now' );
+                            saveHeaderAction.removeClass( 'jltma-addons-save-now' );
 
                             setTimeout(function(){
-                                $('.master-addons-el-settings-saved').fadeOut('slow');
+                                $('.jltma-addons-settings-saved').fadeOut('slow');
                                 swal.close();
                             }, 1200);
                         },

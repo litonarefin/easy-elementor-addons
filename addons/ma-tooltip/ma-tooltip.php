@@ -1,5 +1,4 @@
 <?php
-
 namespace MasterAddons\Addons;
 
 use \Elementor\Widget_Base;
@@ -656,10 +655,10 @@ Customization Options.</span>'
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#826EFF',
 				'selectors' => [
-					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item.tooltip-top .jltma-tooltip-text:after' => 'border-color: {{VALUE}} transparent transparent transparent;',
-					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item.tooltip-left .jltma-tooltip-text:after' => 'border-color: transparent transparent transparent {{VALUE}};',
-					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item.tooltip-bottom .jltma-tooltip-text:after' => 'border-color: transparent transparent {{VALUE}} transparent;',
-					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item.tooltip-right .jltma-tooltip-text:after' => 'border-color: transparent {{VALUE}} transparent transparent;',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item.jltma-tooltip-top .jltma-tooltip-text:after' => 'border-color: {{VALUE}} transparent transparent transparent;',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item.jltma-tooltip-left .jltma-tooltip-text:after' => 'border-color: transparent transparent transparent {{VALUE}};',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item.jltma-tooltip-bottom .jltma-tooltip-text:after' => 'border-color: transparent transparent {{VALUE}} transparent;',
+					'{{WRAPPER}} .jltma-tooltip .jltma-tooltip-item.jltma-tooltip-right .jltma-tooltip-text:after' => 'border-color: transparent {{VALUE}} transparent transparent;',
 				],
 			]
 		);
