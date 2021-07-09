@@ -2140,7 +2140,7 @@ class Filterable_Image_Gallery extends Widget_Base
 								echo $img;
 								// echo $this->render_image($image['id'], $settings['ma_el_image_gallery_image_size']);
 							} else {
-								echo "<img src=" . $image['url'] . ">";
+								echo "<img src=" . $image . ">";
 							}
 
 							echo '<div class="ma-image-hover-item-info">';
