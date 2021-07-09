@@ -114,7 +114,7 @@ class Master_Addons_Assets
 
 
         // Advanced Animations
-        wp_register_script('jltma-floating-effects', MELA_PLUGIN_URL . '/assets/vendor/floating-effects/floating-effects.js', array('ma-el-anime-lib', 'jquery'), MELA_VERSION);
+        // wp_register_script('jltma-floating-effects', MELA_PLUGIN_URL . '/assets/vendor/floating-effects/floating-effects.js', array('ma-el-anime-lib', 'jquery'), MELA_VERSION);
     }
 
 
