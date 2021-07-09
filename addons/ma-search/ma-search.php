@@ -16,7 +16,7 @@ use MasterAddons\Inc\Helper\Master_Addons_Helper;
 
 /**
  * Author Name: Liton Arefin
- * Author URL : https:        //jeweltheme.com
+ * Author URL : https://master-addons.com
  * Date       : 3/15/2020
  */
 

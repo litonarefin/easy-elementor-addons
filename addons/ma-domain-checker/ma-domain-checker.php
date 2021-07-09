@@ -15,7 +15,7 @@ use \Elementor\Group_Control_Text_Shadow;
 
 /**
  * Author Name: Liton Arefin
- * Author URL : https:        //jeweltheme.com
+ * Author URL : https://master-addons.com
  * Date       : 02/04/2020
  */
 

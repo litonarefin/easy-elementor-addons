@@ -23,7 +23,7 @@ use MasterAddons\Inc\Controls\MA_Group_Control_Transition;
 
 /**
  * Author Name: Liton Arefin
- * Author URL : https:        //jeweltheme.com
+ * Author URL : https://master-addons.com
  * Date       : 10/18/19
  */
 
