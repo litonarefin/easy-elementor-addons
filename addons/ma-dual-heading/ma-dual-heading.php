@@ -331,7 +331,7 @@ class Dual_Heading extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ma_el_dual_first_heading_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme' => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-title  .first-heading,{{WRAPPER}} .jltma-section-title span',
 			]
 		);
@@ -499,7 +499,7 @@ class Dual_Heading extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ma_el_dual_heading_description_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme' => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .jltma-dual-heading .jltma-dual-heading-wrapper .jltma-dual-heading-description,
 					{{WRAPPER}} .jltma-section-description',
 			]

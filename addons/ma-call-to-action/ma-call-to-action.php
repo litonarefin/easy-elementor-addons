@@ -252,7 +252,7 @@ class Call_to_Action extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ma_el_cta_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme' => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .jltma-call-action-title',
 			]
 		);
@@ -290,7 +290,7 @@ class Call_to_Action extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ma_el_call_to_action_text_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme' => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .jltma-call-action-description',
 			]
 		);
@@ -424,7 +424,7 @@ class Call_to_Action extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ma_el_call_to_action_button_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme' => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .jltma-call-action-btn',
 			]
 		);

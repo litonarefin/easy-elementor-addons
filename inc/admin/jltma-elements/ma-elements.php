@@ -50,7 +50,7 @@ if (!class_exists('JLTMA_Addon_Elements')) {
                             'tuts_url'          => 'https://www.youtube.com/watch?v=lsqGmIrdahw'
                         ],
                         [
-                            'key'               => '¡',
+                            'key'               => 'ma-tooltip',
                             'title'             => esc_html__('Tooltip', MELA_TD),
                             'demo_url'          => 'https://master-addons.com/demos/tooltip/',
                             'docs_url'          => 'https://master-addons.com/docs/addons/adding-tooltip-in-elementor-editor/',

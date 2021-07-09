@@ -604,7 +604,7 @@ Customization Options.</span>'
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'hover_tooltip_content_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme' => Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .jltma-tooltip .jltma-tooltip-text',
 			]
 		);
