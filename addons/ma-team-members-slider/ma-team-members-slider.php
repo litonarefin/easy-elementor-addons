@@ -245,7 +245,7 @@ class Team_Slider extends Widget_Base
 					'url' => Utils::get_placeholder_image_src(),
 				],
 				'selectors' => [
-					//						'{{WRAPPER}} .ma-el-team-member-circle-animation .ma-el-team-member-thumb .animation_svg_02:after' => 'background-image: url("{{URL}}");'
+					// '{{WRAPPER}} .jltma-team-member-circle-animation .jltma-team-member-thumb .animation_svg_02:after' => 'background-image: url("{{URL}}");'
 				]
 
 			]
@@ -460,12 +460,12 @@ class Team_Slider extends Widget_Base
 					'ma_el_team_carousel_preset' => ['-circle', '-circle-animation']
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb svg,
-						{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb,
-						{{WRAPPER}} .ma-el-team-member-circle-animation .ma-el-team-member-thumb svg,
-						{{WRAPPER}} .ma-el-team-member-circle-animation .ma-el-team-member-thumb .animation_svg_02,
-						{{WRAPPER}} .ma-el-team-member-circle-animation .ma-el-team-member-thumb .animation_svg_03,
-						{{WRAPPER}} .ma-el-team-member-circle-animation .ma-el-team-member-thumb' =>
+					'{{WRAPPER}} .jltma-team-member-circle .jltma-team-member-thumb svg,
+						{{WRAPPER}} .jltma-team-member-circle .jltma-team-member-thumb,
+						{{WRAPPER}} .jltma-team-member-circle-animation .jltma-team-member-thumb svg,
+						{{WRAPPER}} .jltma-team-member-circle-animation .jltma-team-member-thumb .animation_svg_02,
+						{{WRAPPER}} .jltma-team-member-circle-animation .jltma-team-member-thumb .animation_svg_03,
+						{{WRAPPER}} .jltma-team-member-circle-animation .jltma-team-member-thumb' =>
 					'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};'
 
 				]
@@ -493,8 +493,8 @@ class Team_Slider extends Widget_Base
 					'ma_el_team_carousel_preset' => ['-circle', '-circle-animation']
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb svg,
-						{{WRAPPER}} .ma-el-team-member-circle-animation .ma-el-team-member-thumb svg' => 'left: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-team-member-circle .jltma-team-member-thumb svg,
+						{{WRAPPER}} .jltma-team-member-circle-animation .jltma-team-member-thumb svg' => 'left: {{SIZE}}{{UNIT}};'
 				]
 			]
 		);
@@ -516,8 +516,8 @@ class Team_Slider extends Widget_Base
 					'ma_el_team_carousel_preset' => ['-circle', '-circle-animation']
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb svg,
-						{{WRAPPER}} .ma-el-team-member-circle-animation .ma-el-team-member-thumb svg' => 'top: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-team-member-circle .jltma-team-member-thumb svg,
+						{{WRAPPER}} .jltma-team-member-circle-animation .jltma-team-member-thumb svg' => 'top: {{SIZE}}{{UNIT}};'
 				]
 			]
 		);
@@ -550,14 +550,14 @@ class Team_Slider extends Widget_Base
 					'ma_el_team_carousel_preset' => ['-circle', '-circle-animation']
 				],
 				'selectors' => [
-					//						'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb' =>
+					//						'{{WRAPPER}} .jltma-team-member-circle .jltma-team-member-thumb' =>
 					//                            'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
 
-					'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb img,
-						{{WRAPPER}} .ma-el-team-member-circle-animation .ma-el-team-member-thumb .animation_svg_03_center,
-						{{WRAPPER}} .ma-el-team-member-circle-animation .ma-el-team-member-thumb img' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-team-member-circle .jltma-team-member-thumb img,
+						{{WRAPPER}} .jltma-team-member-circle-animation .jltma-team-member-thumb .animation_svg_03_center,
+						{{WRAPPER}} .jltma-team-member-circle-animation .jltma-team-member-thumb img' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
 
-					//						'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb svg' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
+					//						'{{WRAPPER}} .jltma-team-member-circle .jltma-team-member-thumb svg' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
 
 				]
 			]
@@ -585,8 +585,8 @@ class Team_Slider extends Widget_Base
 					'ma_el_team_carousel_preset' => ['-circle', '-circle-animation']
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb img,
-						{{WRAPPER}} .ma-el-team-member-circle-animation .ma-el-team-member-thumb img' => 'left: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-team-member-circle .jltma-team-member-thumb img,
+						{{WRAPPER}} .jltma-team-member-circle-animation .jltma-team-member-thumb img' => 'left: {{SIZE}}{{UNIT}};'
 				]
 			]
 		);
@@ -612,8 +612,8 @@ class Team_Slider extends Widget_Base
 					'ma_el_team_carousel_preset' => ['-circle', '-circle-animation']
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb img,
-						{{WRAPPER}} .ma-el-team-member-circle-animation .ma-el-team-member-thumb img' => 'top: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-team-member-circle .jltma-team-member-thumb img,
+						{{WRAPPER}} .jltma-team-member-circle-animation .jltma-team-member-thumb img' => 'top: {{SIZE}}{{UNIT}};'
 				]
 			]
 		);
@@ -625,7 +625,7 @@ class Team_Slider extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#826EFF',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb svg.team-avatar-bg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-circle .jltma-team-member-thumb svg.team-avatar-bg' => 'fill: {{VALUE}};',
 				],
 				'condition' => [
 					'ma_el_team_carousel_preset' => '-circle',
@@ -640,12 +640,12 @@ class Team_Slider extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#f9f9f9',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-basic,
-						{{WRAPPER}} .ma-el-team-member-circle,
-						{{WRAPPER}} .ma-el-team-member-social-left,
-						{{WRAPPER}} .ma-el-team-members-slider-section,
+					'{{WRAPPER}} .jltma-team-member-basic,
+						{{WRAPPER}} .jltma-team-member-circle,
+						{{WRAPPER}} .jltma-team-member-social-left,
+						{{WRAPPER}} .jltma-team-members-slider-section,
 						{{WRAPPER}} .swiper-container-fade .swiper-slide,
-						{{WRAPPER}} .ma-el-team-member-rounded' => 'background: {{VALUE}};',
+						{{WRAPPER}} .jltma-team-member-rounded' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .gridder .gridder-show' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} #animation_svg_04 circle' => 'fill: {{VALUE}}'
 				],
@@ -674,7 +674,7 @@ class Team_Slider extends Widget_Base
 				],
 				'default'       => 'left',
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-team-member-content' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-content' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -1312,7 +1312,7 @@ class Team_Slider extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#000',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-name' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-name' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1321,7 +1321,7 @@ class Team_Slider extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'title_typography',
-				'selector' => '{{WRAPPER}} .ma-el-team-member-name',
+				'selector' => '{{WRAPPER}} .jltma-team-member-name',
 			]
 		);
 
@@ -1342,7 +1342,7 @@ class Team_Slider extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#8a8d91',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-designation' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-designation' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1351,7 +1351,7 @@ class Team_Slider extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'designation_typography',
-				'selector' => '{{WRAPPER}} .ma-el-team-member-designation',
+				'selector' => '{{WRAPPER}} .jltma-team-member-designation',
 			]
 		);
 
@@ -1372,8 +1372,8 @@ class Team_Slider extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#8a8d91',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-about,
-						{{WRAPPER}} .gridder-expanded-content p.ma-el-team-member-desc' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-about,
+						{{WRAPPER}} .gridder-expanded-content p.jltma-team-member-desc' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1382,7 +1382,7 @@ class Team_Slider extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ma_el_description_typography',
-				'selector' => '{{WRAPPER}} .ma-el-team-member-about',
+				'selector' => '{{WRAPPER}} .jltma-team-member-about',
 			]
 		);
 
@@ -2059,7 +2059,7 @@ class Team_Slider extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#FFF',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-social li a' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-team-member-social li a' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -2071,7 +2071,7 @@ class Team_Slider extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#FFF',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-social-left .ma-el-team-member-social li a' => 'background: {{VALUE}};'
+					'{{WRAPPER}} .jltma-team-member-social-left .jltma-team-member-social li a' => 'background: {{VALUE}};'
 				],
 			]
 		);
@@ -2090,7 +2090,7 @@ class Team_Slider extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#FFF',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-social li a:hover' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-team-member-social li a:hover' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -2103,7 +2103,7 @@ class Team_Slider extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ff6d55',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-social-left .ma-el-team-member-social li a:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-social-left .jltma-team-member-social li a:hover' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -2159,9 +2159,9 @@ Customization Options.</span>'
 		$this->add_render_attribute([
 			'ma_el_team_carousel' => [
 				'class' => [
-					'ma-el-team-members-slider-section',
-					'ma-el-team-carousel-wrapper',
-					'ma-el-team-carousel' . $team_preset,
+					'jltma-team-members-slider-section',
+					'jltma-team-carousel-wrapper',
+					'jltma-team-carousel' . $team_preset,
 					'jltma-swiper',
 					'jltma-swiper__container',
 					'swiper-container',
@@ -2182,7 +2182,7 @@ Customization Options.</span>'
 					'jltma-slider__item',
 					'jltma-swiper__slide',
 					'swiper-slide',
-					'ma-el-team-carousel' . $team_preset . '-inner'
+					'jltma-team-carousel' . $team_preset . '-inner'
 				],
 			],
 		]);
@@ -2191,7 +2191,7 @@ Customization Options.</span>'
 		$this->add_render_attribute(
 			'ma_el_team_slider_section',
 			[
-				'class' => 'ma-el-team-members-slider-section',
+				'class' => 'jltma-team-members-slider-section',
 				'data-team-preset' => $team_preset,
 			]
 		);
@@ -2216,15 +2216,15 @@ Customization Options.</span>'
 						endif;
 					?>
 
-						<li class="gridder-list" data-griddercontent="#ma-el-team<?php echo $key + 1; ?>">
-							<img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled" alt="<?php echo $member['ma_el_team_carousel_name']; ?>">
-							<div class="ma-team-drawer-hover-content">
+						<li class="gridder-list" data-griddercontent="#jltma-team<?php echo $key + 1; ?>">
+							<img src="<?php echo esc_url($team_carousel_image_url); ?>" class="jltma-circled" alt="<?php echo $member['ma_el_team_carousel_name']; ?>">
+							<div class="jltma-team-drawer-hover-content">
 
-								<<?php echo tag_escape($settings['title_html_tag']); ?> class="ma-el-team-member-name">
+								<<?php echo tag_escape($settings['title_html_tag']); ?> class="jltma-team-member-name">
 									<?php echo esc_html($member['ma_el_team_carousel_name']); ?>
 								</<?php echo tag_escape($settings['title_html_tag']); ?>>
 
-								<span class="ma-el-team-member-designation">
+								<span class="jltma-team-member-designation">
 									<?php echo $member['ma_el_team_carousel_designation']; ?>
 								</span>
 							</div>
@@ -2236,20 +2236,20 @@ Customization Options.</span>'
 				<!-- Gridder content -->
 				<?php foreach ($settings['team_carousel_repeater'] as $key => $member) { ?>
 
-					<div id="ma-el-team<?php echo $key + 1; ?>" class="gridder-content">
-						<div class="content-left">
-							<span class="ma-el-team-member-designation"><?php echo $member['ma_el_team_carousel_designation']; ?></span>
-							<<?php echo $settings['title_html_tag']; ?> class="ma-el-team-member-name">
+					<div id="jltma-team<?php echo $key + 1; ?>" class="gridder-content">
+						<div class="jltma-content-left">
+							<span class="jltma-team-member-designation"><?php echo $member['ma_el_team_carousel_designation']; ?></span>
+							<<?php echo $settings['title_html_tag']; ?> class="jltma-team-member-name">
 								<?php echo $member['ma_el_team_carousel_name']; ?>
 							</<?php echo $settings['title_html_tag']; ?>>
-							<p class="ma-el-team-member-desc">
+							<p class="jltma-team-member-desc">
 								<?php echo $this->parse_text_editor($member['ma_el_team_carousel_description']); ?>
 							</p>
 						</div>
 
-						<div class="content-right">
+						<div class="jltma-content-right">
 							<?php if ($member['ma_el_team_carousel_enable_social_profiles'] == 'yes') : ?>
-								<ul class="list-inline ma-el-team-member-social">
+								<ul class="list-inline jltma-team-member-social">
 
 									<?php if (!empty($member['ma_el_team_carousel_facebook_link']['url'])) : ?>
 										<?php $target = $member['ma_el_team_carousel_facebook_link']['is_external'] ? ' target="_blank"' : ''; ?>
@@ -2269,9 +2269,7 @@ Customization Options.</span>'
 										<?php $target = $member['ma_el_team_carousel_instagram_link']['is_external'] ?
 											' target="_blank"' : ''; ?>
 										<li>
-											<a href="<?php echo esc_url(
-															$member['ma_el_team_carousel_instagram_link']['url']
-														); ?>" <?php echo $target; ?>><i class="fa fa-instagram"></i></a>
+											<a href="<?php echo esc_url($member['ma_el_team_carousel_instagram_link']['url']); ?>" <?php echo $target; ?>><i class="fa fa-instagram"></i></a>
 										</li>
 									<?php endif; ?>
 
@@ -2311,46 +2309,46 @@ Customization Options.</span>'
 					?>
 
 						<div <?php echo $this->get_render_attribute_string('swiper-item'); ?>>
-							<div class="ma-el-team-member<?php echo $team_preset; ?> text-center">
-								<div class="ma-el-team-member-thumb">
+							<div class="jltma-team-member<?php echo $team_preset; ?> text-center">
+								<div class="jltma-team-member-thumb">
 									<?php
-									//                                            if( $team_preset == '-circle' && isset( $settings['ma_el_team_circle_image'] ) && !isset( $settings['ma_el_team_circle_image_animation'] )) {
+									// if( $team_preset == '-circle' && isset( $settings['ma_el_team_circle_image'] ) && !isset( $settings['ma_el_team_circle_image_animation'] )) {
 									if ($team_preset == '-circle' && isset($settings['ma_el_team_circle_image'])) {
 										$file_path =  MELA_PLUGIN_PATH . '/assets/images/circlesvg/' . $settings['ma_el_team_circle_image'] . '.svg';
 										echo file_get_contents($file_path);
-										echo '<img src="' . esc_url($team_carousel_image_url) . '" class="circled" alt="' . $member['ma_el_team_carousel_name'] . '">';
+										echo '<img src="' . esc_url($team_carousel_image_url) . '" class="jltma-circled" alt="' . $member['ma_el_team_carousel_name'] . '">';
 									} elseif ($team_preset == '-circle-animation' && isset($settings['ma_el_team_circle_image_animation'])) {
 
 										if ($settings['ma_el_team_circle_image_animation'] == "animation_svg_02") {
 
-											echo '<div class="animation_svg_02"><img src="' . esc_url($team_carousel_image_url) . '" class="circled" alt="' . $member['ma_el_team_carousel_name'] . '"></div>';
+											echo '<div class="animation_svg_02"><img src="' . esc_url($team_carousel_image_url) . '" class="jltma-circled" alt="' . $member['ma_el_team_carousel_name'] . '"></div>';
 										} elseif ($settings['ma_el_team_circle_image_animation'] == "animation_svg_03") {
 
-											echo '<div class="animation_svg_03"></div><div class="animation_svg_03"></div><div class="animation_svg_03"></div><div class="animation_svg_03_center"><img src="' . esc_url($team_carousel_image_url) . '" class="circled" alt="' . $member['ma_el_team_carousel_name'] . '"></div>';
+											echo '<div class="animation_svg_03"></div><div class="animation_svg_03"></div><div class="animation_svg_03"></div><div class="animation_svg_03_center"><img src="' . esc_url($team_carousel_image_url) . '" class="jltma-circled" alt="' . $member['ma_el_team_carousel_name'] . '"></div>';
 										} else {
 
 											$file_path =  MELA_PLUGIN_PATH . '/assets/images/animation/' .
 												$settings['ma_el_team_circle_image_animation'] . '.svg';
 											echo file_get_contents($file_path);
-											echo '<img src="' . esc_url($team_carousel_image_url) . '" class="circled" alt="' . $member['ma_el_team_carousel_name'] . '">';
+											echo '<img src="' . esc_url($team_carousel_image_url) . '" class="jltma-circled" alt="' . $member['ma_el_team_carousel_name'] . '">';
 										}
 									} else {
 
-										echo '<img src="' . esc_url($team_carousel_image_url) . '" class="circled" alt="' . $member['ma_el_team_carousel_name'] . '">';
+										echo '<img src="' . esc_url($team_carousel_image_url) . '" class="jltma-circled" alt="' . $member['ma_el_team_carousel_name'] . '">';
 									} ?>
 
 								</div>
-								<div class="ma-el-team-member-content">
-									<<?php echo $settings['title_html_tag']; ?> class="ma-el-team-member-name">
+								<div class="jltma-team-member-content">
+									<<?php echo $settings['title_html_tag']; ?> class="jltma-team-member-name">
 										<?php echo $member['ma_el_team_carousel_name'];
 										?>
 									</<?php echo $settings['title_html_tag']; ?>>
-									<span class="ma-el-team-member-designation"><?php echo $member['ma_el_team_carousel_designation']; ?></span>
-									<p class="ma-el-team-member-about">
+									<span class="jltma-team-member-designation"><?php echo $member['ma_el_team_carousel_designation']; ?></span>
+									<p class="jltma-team-member-about">
 										<?php echo $member['ma_el_team_carousel_description']; ?>
 									</p>
 									<?php if ($member['ma_el_team_carousel_enable_social_profiles'] == 'yes') : ?>
-										<ul class="list-inline ma-el-team-member-social">
+										<ul class="list-inline jltma-team-member-social">
 
 											<?php if (!empty($member['ma_el_team_carousel_facebook_link']['url'])) : ?>
 												<?php $target = $member['ma_el_team_carousel_facebook_link']['is_external'] ? ' target="_blank"' : ''; ?>

@@ -51,7 +51,7 @@ class Master_Addons_Assets
     // Enqueue Preview Scripts
     public function jltma_enqueue_preview_scripts()
     {
-        wp_enqueue_style('ma-creative-buttons');
+        // wp_enqueue_style('ma-creative-buttons');
         wp_enqueue_script('jltma-timeline');
     }
 
@@ -63,8 +63,13 @@ class Master_Addons_Assets
         wp_register_style('fancybox', MELA_PLUGIN_URL . '/assets/vendor/fancybox/jquery.fancybox.min.css');
         wp_register_style('twentytwenty', MELA_PLUGIN_URL . '/assets/vendor/image-comparison/css/twentytwenty.css');
 
-        wp_register_style('ma-creative-buttons', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons.css');
-        wp_register_style('ma-image-hover-effects', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/image-hover-effects.css');
+        // wp_register_style('ma-creative-buttons', MELA_PLUGIN_URL . '/assets/vendor/creative-btn/buttons.css');
+        // wp_register_style('ma-image-hover-effects', MELA_PLUGIN_URL . '/assets/vendor/image-hover-effects/image-hover-effects.css');
+
+        if (ma_el_fs()->can_use_premium_code()) {
+            wp_register_style('jltma-pro', MELA_PLUGIN_URL . '/assets/premium/master-addons-pro.css');
+        }
+        
     }
 
 
@@ -144,6 +149,9 @@ class Master_Addons_Assets
         // Enqueue Styles
         wp_enqueue_style('master-addons-main-style', MELA_PLUGIN_URL . '/assets/css/master-addons-styles.css');
 
+        if (ma_el_fs()->can_use_premium_code()) {
+            wp_enqueue_style('jltma-pro');
+        }
 
         // Enqueue Scripts
         wp_enqueue_script('master-addons-plugins', MELA_PLUGIN_URL . '/assets/js/plugins.js', ['jquery'], MELA_VERSION, true);

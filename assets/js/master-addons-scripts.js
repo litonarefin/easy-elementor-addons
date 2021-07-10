@@ -9,7 +9,7 @@
     var currentDevice = '';
 
     var animatedProgressbar = function (id, type, value, strokeColor, trailColor, strokeWidth, strokeTrailWidth) {
-        var triggerClass = '.ma-el-progress-bar-' + id;
+        var triggerClass = '.jltma-progress-bar-' + id;
         if ("line" == type) {
             new ldBar(triggerClass, {
                 "type": 'stroke',
@@ -31,7 +31,7 @@
                 "stroke-width": strokeWidth,
                 "stroke-trail-width": strokeTrailWidth
             }).set(value);
-            $($('.ma-el-progress-bar-' + id).find('.ldBar-label')).animate({
+            $($('.jltma-progress-bar-' + id).find('.ldBar-label')).animate({
                 left: value + '%'
             }, 1000, 'swing');
         }
@@ -1510,7 +1510,7 @@
             var elementSettings     = getElementSettings( $scope ),
                 uniqueId 		    = getUniqueLoopScopeId( $scope ),
                 scopeId 		    = $scope.data('id'),
-                $teamCarouselWrapper = $scope.find('.ma-el-team-members-slider-section').eq(0),
+                $teamCarouselWrapper = $scope.find('.jltma-team-members-slider-section').eq(0),
                 $team_preset = $teamCarouselWrapper.data("team-preset"),
                 $ma_el_team_circle_image_animation = $teamCarouselWrapper.data("ma_el_team_circle_image_animation");
 
@@ -1552,7 +1552,7 @@
                 try {
                     (function ($) {
 
-                        var $teamCarousel 	        = $scope.find('.ma-el-team-members-slider-section'),
+                        var $teamCarousel 	        = $scope.find('.jltma-team-members-slider-section'),
                             $swiper 	        = $scope.find('.jltma-swiper__container');
 
                         var team_swiper = null,
@@ -2025,7 +2025,7 @@
 
         StatsBarHandler: function ($scope, $) {
 
-            $scope.find('.ma-el-stats-bar-content').each(function () {
+            $scope.find('.jltma-stats-bar-wrap').each(function () {
 
                 var dataperc = $(this).data('perc');
 

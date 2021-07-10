@@ -199,7 +199,7 @@ class Progress_Bars extends Widget_Base
 				'label' => esc_html__('Bar BG Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-bar-bg' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-stats-bars .jltma-stats-bar .jltma-stats-bar-bg' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -231,7 +231,7 @@ class Progress_Bars extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-stats-bars .jltma-stats-bar' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -253,8 +253,8 @@ class Progress_Bars extends Widget_Base
 					],
 				],
 				'selectors' 	=> [
-					'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-bar-bg, {{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-bar-content' => 'height: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-bar-bg' => 'margin-top: -{{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-stats-bars .jltma-stats-bar .jltma-stats-bar-bg, {{WRAPPER}} .jltma-stats-bars .jltma-stats-bar .jltma-stats-bar-content' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-stats-bars .jltma-stats-bar .jltma-stats-bar-bg' => 'margin-top: -{{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -267,7 +267,7 @@ class Progress_Bars extends Widget_Base
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-bar-bg, {{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-bar-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-stats-bars .jltma-stats-bar .jltma-stats-bar-bg, {{WRAPPER}} .jltma-stats-bars .jltma-stats-bar .jltma-stats-bar-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -291,7 +291,7 @@ class Progress_Bars extends Widget_Base
 				'label' => __('Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-stats-bars .jltma-stats-bar .ma-el-stats-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -300,7 +300,7 @@ class Progress_Bars extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'stats_title_typography',
-				'selector' => '{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-title',
+				'selector' => '{{WRAPPER}} .jltma-stats-bars .jltma-stats-bar .ma-el-stats-title',
 			]
 		);
 
@@ -341,7 +341,7 @@ class Progress_Bars extends Widget_Base
 				'default' 		 => 'inherit',
 				'style_transfer' => true,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-title span' => 'float: {{VALUE}};'
+					'{{WRAPPER}} .jltma-stats-bars .jltma-stats-bar .ma-el-stats-title span' => 'float: {{VALUE}};'
 				]
 			]
 		);
@@ -360,7 +360,7 @@ class Progress_Bars extends Widget_Base
 					'unit' => 'px',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-title span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-stats-bars .jltma-stats-bar .ma-el-stats-title span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'isLinked' => false
 			]
@@ -372,7 +372,7 @@ class Progress_Bars extends Widget_Base
 				'label' => __('Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-title span' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-stats-bars .jltma-stats-bar .ma-el-stats-title span' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -381,7 +381,7 @@ class Progress_Bars extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'stats_percentage_typography',
-				'selector' => '{{WRAPPER}} .ma-el-stats-bars .ma-el-stats-bar .ma-el-stats-title span',
+				'selector' => '{{WRAPPER}} .jltma-stats-bars .jltma-stats-bar .ma-el-stats-title span',
 			]
 		);
 
@@ -427,7 +427,7 @@ class Progress_Bars extends Widget_Base
 
 		$settings = apply_filters('ma_el_stats_bars_' . $this->get_id() . '_settings', $settings);
 
-		$output = '<div class="ma-el-stats-bars">';
+		$output = '<div class="jltma-stats-bars">';
 
 		foreach ($settings['stats_bars'] as $stats_bar) :
 
@@ -437,7 +437,7 @@ class Progress_Bars extends Widget_Base
 			if ($color)
 				$color_style = ' style="background:' . esc_attr($color) . ';"';
 
-			$child_output = '<div class="ma-el-stats-bar">';
+			$child_output = '<div class="jltma-stats-bar">';
 
 			$child_output .= '<div class="ma-el-stats-title">';
 
@@ -447,21 +447,21 @@ class Progress_Bars extends Widget_Base
 
 			$child_output .= '</div>';
 
-			$child_output .= '<div class="ma-el-stats-bar-wrap">';
+			$child_output .= '<div class="jltma-stats-bar-wrap">';
 
-			$child_output .= '<div ' . $color_style . ' class="ma-el-stats-bar-content" data-perc="' . esc_attr($stats_bar['percentage_value']) . '"></div>';
+			$child_output .= '<div ' . $color_style . ' class="jltma-stats-bar-content" data-perc="' . esc_attr($stats_bar['percentage_value']) . '"></div>';
 
-			$child_output .= '<div class="ma-el-stats-bar-bg"></div>';
+			$child_output .= '<div class="jltma-stats-bar-bg"></div>';
 
 			$child_output .= '</div>';
 
-			$child_output .= '</div><!-- .ma-el-stats-bar -->';
+			$child_output .= '</div><!-- .jltma-stats-bar -->';
 
 			$output .= apply_filters('ma_el_stats_bar_output', $child_output, $stats_bar, $settings);
 
 		endforeach;
 
-		$output .= '</div><!-- .ma-el-stats-bars -->';
+		$output .= '</div><!-- .jltma-stats-bars -->';
 
 		echo apply_filters('ma_el_stats_bars_output', $output, $settings);
 	}

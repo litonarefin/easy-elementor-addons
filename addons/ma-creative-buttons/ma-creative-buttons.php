@@ -77,40 +77,40 @@ class Creative_Button extends Widget_Base
 				[
 					'label'   => esc_html__('Button Effects', MELA_TD),
 					'type'    => Controls_Manager::SELECT,
-					'default' => 'ma-el-creative-button--default',
+					'default' => 'jltma-creative-button--default',
 					'options' => [
-						'ma-el-creative-button--default' => esc_html__('Default', 	    MELA_TD),
-						'ma-el-creative-button--winona'  => esc_html__('Winona', 	    MELA_TD),
-						'ma-el-creative-button--ujarak'  => esc_html__('Ujarak', 	    MELA_TD),
-						'ma-el-creative-button--wayra'   => esc_html__('Wayra', 	    MELA_TD),
-						'ma-el-creative-button--tamaya'  => esc_html__('Tamaya', 	    MELA_TD),
-						'ma-el-creative-button--rayen'   => esc_html__('Rayen', 	    MELA_TD),
-						//							'ma-el-creative-button--puck' 		=> esc_html__( 'Puck', 	        MELA_TD ),
-						//							'ma-el-creative-button--titania' 	=> esc_html__( 'Titania', 	    MELA_TD ),
-						//							'ma-el-creative-button--bagot' 	    => esc_html__( 'Bagot', 	    MELA_TD ),
-						//							'ma-el-creative-button--shylock'    => esc_html__( 'Shylock', 	    MELA_TD ),
-						//							'ma-el-creative-button--cordelia'   => esc_html__( 'Cordelia', 	    MELA_TD ),
-						//							'ma-el-creative-button--horatio'    => esc_html__( 'Horatio.', 	    MELA_TD ),
-						//							'ma-el-creative-button--luce'       => esc_html__( 'Luce', 	        MELA_TD ),
-						//							'ma-el-creative-button--juliet'     => esc_html__( 'Juliet', 	    MELA_TD ),
-						//							'ma-el-creative-button--invulner'   => esc_html__( 'Invulner', 	    MELA_TD ),
-						//							'ma-el-creative-button--tantalid'   => esc_html__( 'Tantalid', 	    MELA_TD ),
-						//							'ma-el-creative-button--wave' 		=> esc_html__( 'Wave', 	        MELA_TD ),
-						'ma-el-creative-button--pipaluk' => esc_html__('Pipaluk',       MELA_TD),
-						'ma-el-creative-button--moema'   => esc_html__('Moema', 	    MELA_TD),
-						'ma-el-creative-button--isi'     => esc_html__('Isi', 	        MELA_TD),
-						'ma-el-creative-button--aylen'   => esc_html__('Aylen', 	    MELA_TD),
-						'ma-el-creative-button--saqui'   => esc_html__('Saqui', 	    MELA_TD),
-						'ma-el-creative-button--wapasha' => esc_html__('Wapasha',       MELA_TD),
-						'ma-el-creative-button--nina'    => esc_html__('Nina', 	        MELA_TD),
-						'ma-el-creative-button--nanuk'   => esc_html__('Nanuk', 	    MELA_TD),
-						'ma-el-creative-button--nuka'    => esc_html__('Nuka', 	        MELA_TD),
-						'ma-el-creative-button--antiman' => esc_html__('Antiman',       MELA_TD),
-						'ma-el-creative-button--itzel'   => esc_html__('Itzel',         MELA_TD),
-						'ma-el-creative-button--naira'   => esc_html__('Naira',         MELA_TD),
-						'ma-el-creative-button--quidel'  => esc_html__('Quidel', 	    MELA_TD),
-						'ma-el-creative-button--sacnite' => esc_html__('Sacnite', 	    MELA_TD),
-						'ma-el-creative-button--shikoba' => esc_html__('Shikoba',       MELA_TD),
+						'jltma-creative-button--default' => esc_html__('Default', 	    MELA_TD),
+						'jltma-creative-button--winona'  => esc_html__('Winona', 	    MELA_TD),
+						'jltma-creative-button--ujarak'  => esc_html__('Ujarak', 	    MELA_TD),
+						'jltma-creative-button--wayra'   => esc_html__('Wayra', 	    MELA_TD),
+						'jltma-creative-button--tamaya'  => esc_html__('Tamaya', 	    MELA_TD),
+						'jltma-creative-button--rayen'   => esc_html__('Rayen', 	    MELA_TD),
+						//'jltma-creative-button--puck' 		=> esc_html__( 'Puck', 	        MELA_TD ),
+						//'jltma-creative-button--titania' 	=> esc_html__( 'Titania', 	    MELA_TD ),
+						//'jltma-creative-button--bagot' 	    => esc_html__( 'Bagot', 	    MELA_TD ),
+						//'jltma-creative-button--shylock'    => esc_html__( 'Shylock', 	    MELA_TD ),
+						//'jltma-creative-button--cordelia'   => esc_html__( 'Cordelia', 	    MELA_TD ),
+						//'jltma-creative-button--horatio'    => esc_html__( 'Horatio.', 	    MELA_TD ),
+						//'jltma-creative-button--luce'       => esc_html__( 'Luce', 	        MELA_TD ),
+						//'jltma-creative-button--juliet'     => esc_html__( 'Juliet', 	    MELA_TD ),
+						//'jltma-creative-button--invulner'   => esc_html__( 'Invulner', 	    MELA_TD ),
+						//'jltma-creative-button--tantalid'   => esc_html__( 'Tantalid', 	    MELA_TD ),
+						//'jltma-creative-button--wave' 		=> esc_html__( 'Wave', 	        MELA_TD ),
+						'jltma-creative-button--pipaluk' => esc_html__('Pipaluk',       MELA_TD),
+						'jltma-creative-button--moema'   => esc_html__('Moema', 	    MELA_TD),
+						'jltma-creative-button--isi'     => esc_html__('Isi', 	        MELA_TD),
+						'jltma-creative-button--aylen'   => esc_html__('Aylen', 	    MELA_TD),
+						'jltma-creative-button--saqui'   => esc_html__('Saqui', 	    MELA_TD),
+						'jltma-creative-button--wapasha' => esc_html__('Wapasha',       MELA_TD),
+						'jltma-creative-button--nina'    => esc_html__('Nina', 	        MELA_TD),
+						'jltma-creative-button--nanuk'   => esc_html__('Nanuk', 	    MELA_TD),
+						'jltma-creative-button--nuka'    => esc_html__('Nuka', 	        MELA_TD),
+						'jltma-creative-button--antiman' => esc_html__('Antiman',       MELA_TD),
+						'jltma-creative-button--itzel'   => esc_html__('Itzel',         MELA_TD),
+						'jltma-creative-button--naira'   => esc_html__('Naira',         MELA_TD),
+						'jltma-creative-button--quidel'  => esc_html__('Quidel', 	    MELA_TD),
+						'jltma-creative-button--sacnite' => esc_html__('Sacnite', 	    MELA_TD),
+						'jltma-creative-button--shikoba' => esc_html__('Shikoba',       MELA_TD),
 					],
 
 				]
@@ -126,40 +126,40 @@ class Creative_Button extends Widget_Base
 				[
 					'label'   => esc_html__('Set Button Effect', MELA_TD),
 					'type'    => Controls_Manager::SELECT,
-					'default' => 'ma-el-creative-button--default',
+					'default' => 'jltma-creative-button--default',
 					'options' => [
-						'ma-el-creative-button--default' => esc_html__('Default', 	    MELA_TD),
-						'ma-el-creative-button--winona'  => esc_html__('Winona', 	    MELA_TD),
-						'ma-el-creative-button--ujarak'  => esc_html__('Ujarak', 	    MELA_TD),
-						'ma-el-creative-button--wayra'   => esc_html__('Wayra', 	    MELA_TD),
-						'ma-el-creative-button--tamaya'  => esc_html__('Tamaya', 	    MELA_TD),
-						'ma-el-creative-button--rayen'   => esc_html__('Rayen', 	    MELA_TD),
-						//							'ma-el-creative-button--puck' 		=> esc_html__( 'Puck ( Pro )', 	    MELA_TD ),
-						//							'ma-el-creative-button--titania' 	=> esc_html__( 'Titania ( Pro )', 	    MELA_TD ),
-						//							'ma-el-creative-button--bagot' 	    => esc_html__( 'Bagot ( Pro )', 	    MELA_TD ),
-						//							'ma-el-creative-button--shylock'    => esc_html__( 'Shylock ( Pro )', 	    MELA_TD ),
-						//							'ma-el-creative-button--cordelia'   => esc_html__( 'Cordelia ( Pro )', 	    MELA_TD ),
-						//							'ma-el-creative-button--horatio'    => esc_html__( 'Horatio ( Pro )', 	    MELA_TD ),
-						//							'ma-el-creative-button--luce'       => esc_html__( 'Luce ( Pro )', 	        MELA_TD ),
-						//							'ma-el-creative-button--juliet'     => esc_html__( 'Juliet ( Pro )', 	    MELA_TD ),
-						//							'ma-el-creative-button--invulner'   => esc_html__( 'Invulner ( Pro )', 	    MELA_TD ),
-						//							'ma-el-creative-button--tantalid'   => esc_html__( 'Tantalid ( Pro )', 	    MELA_TD ),
-						//						    'ma-el-creative-button--wave' 		=> esc_html__( 'Wave (Pro)', 	MELA_TD ),
-						'ma-el-creative-button--pro-1'  => esc_html__('Pipaluk (Pro)', MELA_TD),
-						'ma-el-creative-button--pro-2'  => esc_html__('Moema (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-3'  => esc_html__('Isi (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-4'  => esc_html__('Aylen (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-5'  => esc_html__('Saqui (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-6'  => esc_html__('Wapasha (Pro)', MELA_TD),
-						'ma-el-creative-button--pro-7'  => esc_html__('Nina (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-8'  => esc_html__('Nanuk (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-9'  => esc_html__('Nuka (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-10' => esc_html__('Antiman (Pro)', MELA_TD),
-						'ma-el-creative-button--pro-11' => esc_html__('Itzel (Pro)',   MELA_TD),
-						'ma-el-creative-button--pro-12' => esc_html__('Naira (Pro)',   MELA_TD),
-						'ma-el-creative-button--pro-13' => esc_html__('Quidel (Pro)', 	MELA_TD),
-						'ma-el-creative-button--pro-14' => esc_html__('Sacnite (Pro)', MELA_TD),
-						'ma-el-creative-button--pro-15' => esc_html__('Shikoba (Pro)', MELA_TD),
+						'jltma-creative-button--default' => esc_html__('Default', 	    MELA_TD),
+						'jltma-creative-button--winona'  => esc_html__('Winona', 	    MELA_TD),
+						'jltma-creative-button--ujarak'  => esc_html__('Ujarak', 	    MELA_TD),
+						'jltma-creative-button--wayra'   => esc_html__('Wayra', 	    MELA_TD),
+						'jltma-creative-button--tamaya'  => esc_html__('Tamaya', 	    MELA_TD),
+						'jltma-creative-button--rayen'   => esc_html__('Rayen', 	    MELA_TD),
+						//'jltma-creative-button--puck' 		=> esc_html__( 'Puck ( Pro )', 	    MELA_TD ),
+						//'jltma-creative-button--titania' 	=> esc_html__( 'Titania ( Pro )', 	    MELA_TD ),
+						//'jltma-creative-button--bagot' 	    => esc_html__( 'Bagot ( Pro )', 	    MELA_TD ),
+						//'jltma-creative-button--shylock'    => esc_html__( 'Shylock ( Pro )', 	    MELA_TD ),
+						//'jltma-creative-button--cordelia'   => esc_html__( 'Cordelia ( Pro )', 	    MELA_TD ),
+						//'jltma-creative-button--horatio'    => esc_html__( 'Horatio ( Pro )', 	    MELA_TD ),
+						//'jltma-creative-button--luce'       => esc_html__( 'Luce ( Pro )', 	        MELA_TD ),
+						//'jltma-creative-button--juliet'     => esc_html__( 'Juliet ( Pro )', 	    MELA_TD ),
+						//'jltma-creative-button--invulner'   => esc_html__( 'Invulner ( Pro )', 	    MELA_TD ),
+						//'jltma-creative-button--tantalid'   => esc_html__( 'Tantalid ( Pro )', 	    MELA_TD ),
+						//'jltma-creative-button--wave' 		=> esc_html__( 'Wave (Pro)', 	MELA_TD ),
+						'jltma-creative-button--pro-1'  => esc_html__('Pipaluk (Pro)', MELA_TD),
+						'jltma-creative-button--pro-2'  => esc_html__('Moema (Pro)', 	MELA_TD),
+						'jltma-creative-button--pro-3'  => esc_html__('Isi (Pro)', 	MELA_TD),
+						'jltma-creative-button--pro-4'  => esc_html__('Aylen (Pro)', 	MELA_TD),
+						'jltma-creative-button--pro-5'  => esc_html__('Saqui (Pro)', 	MELA_TD),
+						'jltma-creative-button--pro-6'  => esc_html__('Wapasha (Pro)', MELA_TD),
+						'jltma-creative-button--pro-7'  => esc_html__('Nina (Pro)', 	MELA_TD),
+						'jltma-creative-button--pro-8'  => esc_html__('Nanuk (Pro)', 	MELA_TD),
+						'jltma-creative-button--pro-9'  => esc_html__('Nuka (Pro)', 	MELA_TD),
+						'jltma-creative-button--pro-10' => esc_html__('Antiman (Pro)', MELA_TD),
+						'jltma-creative-button--pro-11' => esc_html__('Itzel (Pro)',   MELA_TD),
+						'jltma-creative-button--pro-12' => esc_html__('Naira (Pro)',   MELA_TD),
+						'jltma-creative-button--pro-13' => esc_html__('Quidel (Pro)', 	MELA_TD),
+						'jltma-creative-button--pro-14' => esc_html__('Sacnite (Pro)', MELA_TD),
+						'jltma-creative-button--pro-15' => esc_html__('Shikoba (Pro)', MELA_TD),
 					],
 					'description' => sprintf(
 						'15+ more Variations on <a href="%s" target="_blank">%s</a>',
@@ -193,7 +193,7 @@ class Creative_Button extends Widget_Base
 				],
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-button-wrapper' => 'justify-content: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button-wrapper' => 'justify-content: {{VALUE}};',
 				],
 			]
 		);
@@ -298,9 +298,9 @@ class Creative_Button extends Widget_Base
 					'ma_el_creative_button_icon!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-button-icon-right' => 'margin-left: {{SIZE}}px;',
-					'{{WRAPPER}} .ma-el-creative-button-icon-left'  => 'margin-right: {{SIZE}}px;',
-					'{{WRAPPER}} .ma-el-creative-button--shikoba i' => 'left: -{{SIZE}}px;',
+					'{{WRAPPER}} .jltma-creative-button-icon-right' => 'margin-left: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-creative-button-icon-left'  => 'margin-right: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-creative-button--shikoba i' => 'left: -{{SIZE}}px;',
 				],
 			]
 		);
@@ -411,7 +411,7 @@ class Creative_Button extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-button' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-creative-button' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -421,7 +421,7 @@ class Creative_Button extends Widget_Base
 			[
 				'name'     => 'ma_el_creative_button_typography',
 				'scheme'   => Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .ma-el-creative-button',
+				'selector' => '{{WRAPPER}} .jltma-creative-button',
 			]
 		);
 
@@ -432,12 +432,12 @@ class Creative_Button extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors'  => [
-					'{{WRAPPER}} .ma-el-creative-button'                                       => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--winona::after'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--winona > span'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya::before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--rayen::before'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--rayen > span'   => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-creative-button'                                       => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--winona::after'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--winona > span'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--tamaya::before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--rayen::before'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--rayen > span'   => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -455,9 +455,9 @@ class Creative_Button extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-button'                                       => 'color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya::before' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya::after'  => 'color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-creative-button'                                       => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--tamaya::before' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--tamaya::after'  => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -471,12 +471,12 @@ class Creative_Button extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#333333',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-button'                                       => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--ujarak:hover'   => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--wayra:hover'    => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya::after'  => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--rayen:hover'    => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-creative-button'                                       => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--ujarak:hover'   => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--wayra:hover'    => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--tamaya::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--tamaya::after'  => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--rayen:hover'    => 'background-color: {{VALUE}};'
 				],
 			]
 		);
@@ -485,7 +485,7 @@ class Creative_Button extends Widget_Base
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'ma_el_creative_button_border',
-				'selector' => '{{WRAPPER}} .ma-el-creative-button',
+				'selector' => '{{WRAPPER}} .jltma-creative-button',
 			]
 		);
 
@@ -500,9 +500,9 @@ class Creative_Button extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-button'         => 'border-radius: {{SIZE}}px;',
-					'{{WRAPPER}} .ma-el-creative-button::before' => 'border-radius: {{SIZE}}px;',
-					'{{WRAPPER}} .ma-el-creative-button::after'  => 'border-radius: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-creative-button'         => 'border-radius: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-creative-button::before' => 'border-radius: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-creative-button::after'  => 'border-radius: {{SIZE}}px;',
 				],
 			]
 		);
@@ -522,10 +522,10 @@ class Creative_Button extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-button:hover'                                => 'color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--winona::after' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button--saqui:hover,
-						{{WRAPPER}} .ma-el-creative-button--saqui::after'  							=> 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button:hover'                                => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--winona::after' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button--saqui:hover,
+						{{WRAPPER}} .jltma-creative-button--saqui::after'  							=> 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -537,12 +537,12 @@ class Creative_Button extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#f54',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-button:hover'                                      => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--ujarak::before'      => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--wayra:hover::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--tamaya:hover'        => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--rayen::before'       => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button--saqui:hover'                               => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button:hover'                                      => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--ujarak::before'      => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--wayra:hover::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--tamaya:hover'        => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--rayen::before'       => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button--saqui:hover'                               => 'background-color: {{VALUE}};',
 				]
 			]
 		);
@@ -554,11 +554,11 @@ class Creative_Button extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-button:hover'                                  => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--wapasha::before' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--antiman::before' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--pipaluk::before' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-creative-button.ma-el-creative-button--quidel::before'  => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button:hover'                                  => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--wapasha::before' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--antiman::before' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--pipaluk::before' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-button.jltma-creative-button--quidel::before'  => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -571,7 +571,7 @@ class Creative_Button extends Widget_Base
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'button_box_shadow',
-				'selector' => '{{WRAPPER}} .ma-el-creative-button:hover',
+				'selector' => '{{WRAPPER}} .jltma-creative-button:hover',
 			]
 		);
 
@@ -615,7 +615,7 @@ Customization Options.</span>'
 		$settings = $this->get_settings();
 
 		$this->add_render_attribute('ma_el_creative_button', [
-			'class' => ['button ma-el-creative-button', esc_attr($settings['creative_button_effect'])],
+			'class' => ['jltma-button jltma-creative-button', esc_attr($settings['creative_button_effect'])],
 			'href'  => esc_url($settings['creative_button_link_url']['url']),
 		]);
 
@@ -630,19 +630,19 @@ Customization Options.</span>'
 		$this->add_render_attribute('ma_el_creative_button', 'data-text', esc_attr($settings['creative_alternative_button_text']));
 ?>
 
-		<div class="ma-el-creative-button-wrapper">
+		<div class="jltma-creative-button-wrapper">
 			<a <?php echo $this->get_render_attribute_string('ma_el_creative_button'); ?>>
 				<span>
 					<?php if (!empty($settings['ma_el_creative_button_icon']) && $settings['ma_el_creative_button_icon_alignment'] == 'left') : ?>
 
-						<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-external-link-alt', 'icon', $settings['ma_el_creative_button_icon'], 'ma_el_creative_button_icon', 'ma-el-creative-button-icon-left'); ?>
+						<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-external-link-alt', 'icon', $settings['ma_el_creative_button_icon'], 'ma_el_creative_button_icon', 'jltma-creative-button-icon-left'); ?>
 					<?php endif; ?>
 
 					<?php echo  $settings['creative_button_text']; ?>
 
 					<?php if (!empty($settings['ma_el_creative_button_icon']) && $settings['ma_el_creative_button_icon_alignment'] == 'right') : ?>
 
-						<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-external-link-alt', 'icon', $settings['ma_el_creative_button_icon'], 'ma_el_creative_button_icon', 'ma-el-creative-button-icon-right'); ?>
+						<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-external-link-alt', 'icon', $settings['ma_el_creative_button_icon'], 'ma_el_creative_button_icon', 'jltma-creative-button-icon-right'); ?>
 
 					<?php endif; ?>
 				</span>

@@ -1,0 +1,52 @@
+.jltma-stats-bars {
+    clear: both;
+    .jltma-stats-bar {
+        width: 100%;
+        display: block;
+        margin: 0 0 18px;
+        overflow: hidden;
+    }
+    .jltma-stats-title {
+        margin: 0;
+        display: block;
+        color: #888;
+        font-style: normal;
+        font-size: 15px;
+        text-transform: none;
+        color: #333;
+        font-size: 16px;
+        line-height: 28px;
+    }
+    .jltma-stats-title span {
+        margin-left: 5px;
+    }
+
+    .jltma-stats-bar-wrap {
+        position: relative;
+    }
+    .jltma-stats-bar-content {
+        background: #e55a54;
+        display: block;
+        height: 10px;
+        width: 0;
+        position: relative;
+        z-index: 1;
+        border-radius: 5px;
+    }
+    .jltma-stats-bar-bg {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.1);
+        height: 10px;
+        display: block;
+        margin-top: -10px;
+        border-radius: 5px;
+    }
+}
+.jltma-dark-bg {
+    .jltma-stats-bar-bg {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    .jltma-stats-title {
+        color: #ddd;
+    }
+}

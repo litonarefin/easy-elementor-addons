@@ -1,4 +1,4 @@
-Typography/*Master Addons Elementor Styles*/
+/*Master Addons Elementor Styles*/
 
 html,
 body {
@@ -5073,51 +5073,6 @@ body {
 
 /* Call to Action End */
 
-/* Creative Buttons */
-.ma-el-creative-button-align-center {
-    text-align: center;
-}
-
-.ma-el-creative-button-wrapper {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-}
-
-.ma-el-creative-button {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 auto;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    min-width: 150px;
-    text-align: center;
-    vertical-align: middle;
-    position: relative;
-    z-index: 1;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    /* padding: 20px 30px; */
-    font-size: 16px;
-    line-height: 1;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.ma-el-creative-button-align-center .ma-el-creative-button {
-    float: none;
-    display: inline-block;
-}
-
-.ma-el-creative-button:focus {
-    outline: none;
-}
-
-.ma-el-creative-button > span {
-    vertical-align: middle;
-}
-/* Creative Buttons */
 
 /* Particles Start */
 .divTest {
@@ -15342,25 +15297,7 @@ ul.jltma-toggle-content-controls {
 .elementor-widget-ma-image-carousel .elementor-widget-container {
     position: relative;
 }
-.jltma-arrow {
-    z-index: 1;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    border-radius: 100%;
-    background-color: #fff;
-    color: #000;
-    padding: 1em;
-    margin: 24px;
-    font-size: 24px;
-    cursor: pointer;
-    outline: none;
-}
-.jltma-arrow--prev {
-    left: 0;
-}
-.jltma-arrow--next {
-    right: 0;
-}
+
 .jltma-gallery-slider__preview .jltma-arrow {
     position: absolute;
     top: 50%;

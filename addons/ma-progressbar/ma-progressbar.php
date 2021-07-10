@@ -114,7 +114,7 @@ class Progress_Bar extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#61ce70',
 				'selectors' => [
-					'{{WRAPPER}} [class*="ma-el-progress-bar-"].line-bubble .ldBar-label' => 'background: {{VALUE}};',
+					'{{WRAPPER}} [class*="jltma-progress-bar-"].line-bubble .ldBar-label' => 'background: {{VALUE}};',
 				],
 				'condition' => [
 					'ma_el_progress_bar_preset' => 'line-bubble'
@@ -140,7 +140,7 @@ class Progress_Bar extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#000',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-progress-bar-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-progress-bar-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -149,7 +149,7 @@ class Progress_Bar extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'title_typography',
-				'selector' => '{{WRAPPER}} .ma-el-progress-bar-title',
+				'selector' => '{{WRAPPER}} .jltma-progress-bar-title',
 			]
 		);
 
@@ -234,7 +234,7 @@ class Progress_Bar extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#000',
 				'selectors' => [
-					'{{WRAPPER}} [class*="ma-el-progress-bar-"] .ldBar-label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} [class*="jltma-progress-bar-"] .ldBar-label' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -362,9 +362,9 @@ class Progress_Bar extends Widget_Base
 		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute(
-			'ma-el-progress-bar',
+			'jltma-progress-bar',
 			[
-				'class' => [$settings['ma_el_progress_bar_preset'], 'ma-el-progress-bar-' . $this->get_id()],
+				'class' => [$settings['ma_el_progress_bar_preset'], 'jltma-progress-bar-' . $this->get_id()],
 				'data-id' => $this->get_id(),
 				'data-type' => $settings['ma_el_progress_bar_preset'],
 				'data-progress-bar-value' => $settings['ma_el_progress_bar_value'],
@@ -377,7 +377,7 @@ class Progress_Bar extends Widget_Base
 
 		if ($settings['ma_el_progress_bar_preset'] == 'line' || $settings['ma_el_progress_bar_preset'] == 'line-bubble') {
 			$this->add_render_attribute(
-				'ma-el-progress-bar',
+				'jltma-progress-bar',
 				[
 					'data-preset' => 'line',
 					'style' => 'width: 100%; height: 50px'
@@ -387,7 +387,7 @@ class Progress_Bar extends Widget_Base
 
 		if ($settings['ma_el_progress_bar_preset'] == 'circle') {
 			$this->add_render_attribute(
-				'ma-el-progress-bar',
+				'jltma-progress-bar',
 				[
 					'data-preset' => 'circle',
 					'style' => 'width: 100%; height: 100%'
@@ -397,7 +397,7 @@ class Progress_Bar extends Widget_Base
 
 		if ($settings['ma_el_progress_bar_preset'] == 'fan') {
 			$this->add_render_attribute(
-				'ma-el-progress-bar',
+				'jltma-progress-bar',
 				[
 					'data-preset' => 'fan',
 					'style' => 'width: 100%; height: 100%'
@@ -406,8 +406,8 @@ class Progress_Bar extends Widget_Base
 		}
 ?>
 
-		<div <?php echo $this->get_render_attribute_string('ma-el-progress-bar') ?> data-progress-bar>
-			<h6 class="ma-el-progress-bar-title">
+		<div <?php echo $this->get_render_attribute_string('jltma-progress-bar') ?> data-progress-bar>
+			<h6 class="jltma-progress-bar-title">
 				<?php echo $settings['ma_el_progress_bar_title'] ?>
 			</h6>
 		</div>

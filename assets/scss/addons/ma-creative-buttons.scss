@@ -1,0 +1,46 @@
+
+/* Creative Buttons */
+.jltma-creative-button-align-center {
+    text-align: center;
+}
+
+.jltma-creative-button-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.jltma-creative-button {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    min-width: inherit !important;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    padding: 16px 20px;
+    font-size: 16px;
+    line-height: 1;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.jltma-creative-button-align-center .jltma-creative-button {
+    float: none;
+    display: inline-block;
+}
+
+.jltma-creative-button:focus {
+    outline: none;
+}
+
+.jltma-creative-button > span {
+    vertical-align: middle;
+}
+/* Creative Buttons */

@@ -36,11 +36,12 @@ mix.webpackConfig({
 });
 
 // Main Stylesheet
-mix.sass( 'assets/scss/style.scss', 'assets/css/master-addons.css' );
 mix.sass( 'assets/scss/admin/master-addons-admin.scss', './././inc/admin/assets/css/master-addons-admin.css' );
 mix.sass( 'assets/scss/modules/header-footer/header-footer.scss', './././inc/modules/header-footer-comment/assets/css/header-footer.css' );
 mix.sass( 'assets/scss/modules/mega-menu/mega-menu.scss', 'assets/megamenu/css/megamenu.css' );
 mix.sass( 'assets/scss/addons/addons-styles.scss', 'assets/css/master-addons-styles.css' );
+mix.sass( 'assets/scss/premium/master-addons-pro.scss', 'assets/premium/master-addons-pro.css' );
+
 
 
 // Element Stylesheet

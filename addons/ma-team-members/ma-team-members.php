@@ -201,7 +201,7 @@ class Team_Member extends Widget_Base
 				],
 				'default'       => 'left',
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-team-member-content:not(.ma-el-team-member-social li a)' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-content:not(.jltma-team-member-social li a)' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -382,7 +382,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#826EFF',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-circle .ma-el-team-member-thumb svg.team-avatar-bg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-circle .jltma-team-member-thumb svg.team-avatar-bg' => 'fill: {{VALUE}};',
 				],
 				'condition' => [
 					'ma_el_team_members_preset' => '-circle',
@@ -397,11 +397,11 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-basic,
-						{{WRAPPER}} .ma-el-team-member-circle,
-						{{WRAPPER}} .ma-el-team-member-social-left,
-						{{WRAPPER}} .ma-el-team-member-basic-4:hover .ma-el-team-member-content:before,
-						{{WRAPPER}} .ma-el-team-member-rounded' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-basic,
+						{{WRAPPER}} .jltma-team-member-circle,
+						{{WRAPPER}} .jltma-team-member-social-left,
+						{{WRAPPER}} .jltma-team-member-basic-4:hover .jltma-team-member-content:before,
+						{{WRAPPER}} .jltma-team-member-rounded' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .bb' => 'border-bottom: {{VALUE}};'
 				],
 			]
@@ -427,7 +427,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#000',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-name' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-name' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -436,7 +436,7 @@ Customization Options.</span>'
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'title_typography',
-				'selector' => '{{WRAPPER}} .ma-el-team-member-name',
+				'selector' => '{{WRAPPER}} .jltma-team-member-name',
 			]
 		);
 
@@ -457,7 +457,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#8a8d91',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-designation' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-designation' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -466,7 +466,7 @@ Customization Options.</span>'
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'designation_typography',
-				'selector' => '{{WRAPPER}} .ma-el-team-member-designation',
+				'selector' => '{{WRAPPER}} .jltma-team-member-designation',
 			]
 		);
 
@@ -487,7 +487,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#8a8d91',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-about' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-about' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -496,7 +496,7 @@ Customization Options.</span>'
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ma_el_description_typography',
-				'selector' => '{{WRAPPER}} .ma-el-team-member-about',
+				'selector' => '{{WRAPPER}} .jltma-team-member-about',
 			]
 		);
 
@@ -531,7 +531,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#999',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-social-left .ma-el-team-member-social li a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-social-left .jltma-team-member-social li a' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'ma_el_team_members_preset' => '-social-left',
@@ -546,7 +546,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#4b00e7',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-social-left .ma-el-team-member-social li a' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-social-left .jltma-team-member-social li a' => 'background: {{VALUE}};',
 				],
 				'condition' => [
 					'ma_el_team_members_preset' => '-social-left',
@@ -561,7 +561,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#272c44',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-rounded .ma-el-team-member-social li a' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-rounded .jltma-team-member-social li a' => 'background: {{VALUE}};',
 				],
 				'condition' => [
 					'ma_el_team_members_preset' => '-rounded',
@@ -585,7 +585,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#FFF',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-social-left .ma-el-team-member-social li a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-social-left .jltma-team-member-social li a:hover' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'ma_el_team_members_preset' => '-social-left',
@@ -600,7 +600,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ff6d55',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-social-left .ma-el-team-member-social li a:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-social-left .jltma-team-member-social li a:hover' => 'background: {{VALUE}};',
 				],
 				'condition' => [
 					'ma_el_team_members_preset' => '-social-left'
@@ -615,7 +615,7 @@ Customization Options.</span>'
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ff6d55',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-team-member-rounded .ma-el-team-member-social li a:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-team-member-rounded .jltma-team-member-social li a:hover' => 'background: {{VALUE}};',
 				],
 				'condition' => [
 					'ma_el_team_members_preset' => '-rounded'
@@ -675,7 +675,7 @@ Customization Options.</span>'
 
 		if ($settings['ma_el_team_members_preset'] == '-style6') { ?>
 
-			<div id="ma-el-team-member-slider" class="ma-el-team-member-slider owl-carousel owl-theme">
+			<div id="jltma-team-member-slider" class="jltma-team-member-slider owl-carousel owl-theme">
 				<div class="ma-el-member-container">
 					<div class="ma-el-inner-container">
 
@@ -712,7 +712,7 @@ Customization Options.</span>'
 						</div><!-- /.member-details -->
 					</div><!-- /.inner-container -->
 				</div><!-- /.member-container -->
-			</div><!-- /.ma-el-team-member-slider -->
+			</div><!-- /.jltma-team-member-slider -->
 
 
 		<?php } else { ?>
@@ -720,10 +720,10 @@ Customization Options.</span>'
 
 
 
-			<div id="ma-el-team-member-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-team-item
+			<div id="jltma-team-member-<?php echo esc_attr($this->get_id()); ?>" class="jltma-team-item
                 text-center <?php if ($settings['ma_el_team_members_preset'] == '-rounded') echo "rounded"; ?>">
-				<div class="ma-el-team-member<?php echo $settings['ma_el_team_members_preset']; ?> <?php if ($settings['ma_el_team_members_preset'] == '-basic-4') echo "bb"; ?> <?php if ($settings['ma_el_team_members_preset'] == '-circle-2') echo "bg-transparent"; ?>">
-					<div class="ma-el-team-member-thumb">
+				<div class="jltma-team-member<?php echo $settings['ma_el_team_members_preset']; ?> <?php if ($settings['ma_el_team_members_preset'] == '-basic-4') echo "bb"; ?> <?php if ($settings['ma_el_team_members_preset'] == '-circle-2') echo "bg-transparent"; ?>">
+					<div class="jltma-team-member-thumb">
 						<?php if ($settings['ma_el_team_members_preset'] == '-circle') : ?>
 							<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
 								<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z" />
@@ -744,17 +744,17 @@ Customization Options.</span>'
 						} ?>
 
 					</div>
-					<div class="ma-el-team-member-content">
-						<h2 class="ma-el-team-member-name"><?php echo $settings['ma_el_team_member_name']; ?></h2>
+					<div class="jltma-team-member-content">
+						<h2 class="jltma-team-member-name"><?php echo $settings['ma_el_team_member_name']; ?></h2>
 
-						<span class="ma-el-team-member-designation"><?php echo $settings['ma_el_team_member_designation']; ?></span>
+						<span class="jltma-team-member-designation"><?php echo $settings['ma_el_team_member_designation']; ?></span>
 
-						<p class="ma-el-team-member-about">
+						<p class="jltma-team-member-about">
 							<?php echo $settings['ma_el_team_member_description']; ?>
 						</p>
 
 						<?php if ($settings['ma_el_team_member_enable_social_profiles'] == 'yes') : ?>
-							<ul class="list-inline ma-el-team-member-social">
+							<ul class="list-inline jltma-team-member-social">
 								<?php foreach ($settings['ma_el_team_member_social_profile_links'] as $item) : ?>
 
 									<?php $target = $item['link']['is_external'] ? ' target="_blank"' : ''; ?>
@@ -796,7 +796,7 @@ Customization Options.</span>'
 
 		<# if ( '-style6'==settings.ma_el_team_members_preset ) { #>
 
-			<div id="ma-el-team-member-slider" class="ma-el-team-member-slider owl-carousel owl-theme">
+			<div id="jltma-team-member-slider" class="jltma-team-member-slider owl-carousel owl-theme">
 
 				<div class="item">
 					<div class="member-container">
@@ -833,14 +833,14 @@ Customization Options.</span>'
 					</div><!-- /.member-container -->
 				</div><!-- /.item -->
 
-			</div><!-- /.ma-el-team-member-slider -->
+			</div><!-- /.jltma-team-member-slider -->
 
 			<# } else{ #>
 
 
-				<div id="ma-el-team-member" class="ma-el-team-item">
-					<div class="ma-el-team-member{{ settings.ma_el_team_members_preset }}">
-						<div class="ma-el-team-member-thumb">
+				<div id="jltma-team-member" class="jltma-team-item">
+					<div class="jltma-team-member{{ settings.ma_el_team_members_preset }}">
+						<div class="jltma-team-member-thumb">
 							<# if ( '-circle'==settings.ma_el_team_members_preset ) { #>
 								<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
 									<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z" />
@@ -856,13 +856,13 @@ Customization Options.</span>'
                                 .ma_el_team_member_name }}">
 
 						</div>
-						<div class="ma-el-team-member-content">
-							<h2 class="ma-el-team-member-name">{{{ settings.ma_el_team_member_name }}}</h2>
-							<span class="ma-el-team-member-designation">{{{ settings.ma_el_team_member_designation
+						<div class="jltma-team-member-content">
+							<h2 class="jltma-team-member-name">{{{ settings.ma_el_team_member_name }}}</h2>
+							<span class="jltma-team-member-designation">{{{ settings.ma_el_team_member_designation
                                     }}}</span>
-							<p class="ma-el-team-member-about">{{{ settings.ma_el_team_member_description }}}</p>
+							<p class="jltma-team-member-about">{{{ settings.ma_el_team_member_description }}}</p>
 							<# if ( 'yes'==settings.ma_el_team_member_enable_social_profiles ) { #>
-								<ul class="list-inline ma-el-team-member-social">
+								<ul class="list-inline jltma-team-member-social">
 									<# _.each( settings.ma_el_team_member_social_profile_links, function( item, index ) { #>
 
 										<# var target=item.link.is_external ? ' target="_blank"' : '' #>
