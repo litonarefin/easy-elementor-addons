@@ -155,7 +155,7 @@ class Flipbox extends Widget_Base
 
 					],
 					'default'      => 'vertical',
-					'prefix_class' => 'ma-el-fb-animate-'
+					'prefix_class' => 'jltma-flip-animate-'
 				]
 			);
 
@@ -194,20 +194,14 @@ class Flipbox extends Widget_Base
 						'flipbox-anim-8'  => esc_html__('Right to Left (Pro)', MELA_TD),
 						'flipbox-anim-9'  => esc_html__('Top to Bottom (Pro)', MELA_TD),
 						'flipbox-anim-10' => esc_html__('Bottom to Top (Pro)', MELA_TD),
-						'flipbox-anim-11' => esc_html__(
-							'Diagonal (Top to Bottom) (Pro)',
-							MELA_TD
-						),
-						'flipbox-anim-12'                       => esc_html__(
-							'Diagonal (Bottom to Top) (Pro)',
-							MELA_TD
-						),
+						'flipbox-anim-11' => esc_html__('Diagonal (Top to Bottom) (Pro)', MELA_TD),
+						'flipbox-anim-12' => esc_html__('Diagonal (Bottom to Top) (Pro)', MELA_TD),
 						'flipbox-anim-13' => esc_html__('Fade In Out (Pro)', MELA_TD),
 
 
 					],
 					'default'      => 'vertical',
-					'prefix_class' => 'ma-el-fb-animate-',
+					'prefix_class' => 'jltma-flip-animate-',
 					'description'  => sprintf(
 						'15+ more Flipbox Variations on <a href="%s" target="_blank">%s</a>',
 						esc_url_raw(admin_url('admin.php?page=master-addons-settings-pricing')),
@@ -329,7 +323,7 @@ class Flipbox extends Widget_Base
 				],
 				'default'   => 'left',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-front' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-flip-box-front' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -452,7 +446,7 @@ class Flipbox extends Widget_Base
 				],
 				'default'   => 'left',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-back' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-flip-box-back' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -542,7 +536,7 @@ class Flipbox extends Widget_Base
 			[
 				'name'     => 'flip_box_border',
 				'label'    => __('Box Border', MELA_TD),
-				'selector' => '{{WRAPPER}} .ma-el-flip-box-inner > div',
+				'selector' => '{{WRAPPER}} .jltma-flip-box-inner > div',
 			]
 		);
 
@@ -555,8 +549,8 @@ class Flipbox extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors'  => [
-					'{{WRAPPER}} .ma-el-flip-box-front' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-flip-box-back'  => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-flip-box-front' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-flip-box-back'  => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -569,9 +563,9 @@ class Flipbox extends Widget_Base
 				'placeholder' => __('250', MELA_TD),
 				'default'     => __('250', MELA_TD),
 				'selectors'   => [
-					'{{WRAPPER}} .ma-el-flip-box-inner'                           => 'height: {{VALUE}}px;',
-					'{{WRAPPER}}.ma-el-fb-animate-flipcard .ma-el-flip-box-front' => 'transform-origin: center center calc(-{{VALUE}}px/2);-webkit-transform-origin:center center calc(-{{VALUE}}px/2);',
-					'{{WRAPPER}}.ma-el-fb-animate-flipcard .ma-el-flip-box-back'  => 'transform-origin: center center calc(-{{VALUE }}px/2);-webkit-transform-origin:center center calc(-{{VALUE}}px/2);'
+					'{{WRAPPER}} .jltma-flip-box-inner'                           => 'height: {{VALUE}}px;',
+					'{{WRAPPER}}.jltma-flip-animate-flipcard .jltma-flip-box-front' => 'transform-origin: center center calc(-{{VALUE}}px/2);-webkit-transform-origin:center center calc(-{{VALUE}}px/2);',
+					'{{WRAPPER}}.jltma-flip-animate-flipcard .jltma-flip-box-back'  => 'transform-origin: center center calc(-{{VALUE }}px/2);-webkit-transform-origin:center center calc(-{{VALUE}}px/2);'
 				],
 			]
 		);
@@ -595,7 +589,7 @@ class Flipbox extends Widget_Base
 				'label'     => __('Background', MELA_TD),
 				'types'     => ['classic', 'gradient'],
 				'default'   => '#fff',
-				'selector'  => '{{WRAPPER}} .ma-el-flip-box-front',
+				'selector'  => '{{WRAPPER}} .jltma-flip-box-front',
 				'condition' => [
 					'ma_flipbox_layout_style' => ['one', 'three', 'four']
 				]
@@ -625,7 +619,7 @@ class Flipbox extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-front' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-flip-box-front' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -671,7 +665,7 @@ class Flipbox extends Widget_Base
 				],
 				'default'   => '#78909c',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-front p' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-flip-box-front p' => 'color: {{VALUE}};',
 				],
 
 			]
@@ -683,7 +677,7 @@ class Flipbox extends Widget_Base
 				'name'     => 'front_box_text_typography',
 				'label'    => __('Description Typography', MELA_TD),
 				'scheme'   => Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .ma-el-flip-box-front p',
+				'selector' => '{{WRAPPER}} .jltma-flip-box-front p',
 			]
 		);
 
@@ -702,7 +696,7 @@ class Flipbox extends Widget_Base
 				],
 				'default'   => '#4b00e7',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-front .icon-wrapper i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-flip-box-front .icon-wrapper i' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'front_icon!' => ''
@@ -721,7 +715,7 @@ class Flipbox extends Widget_Base
 				],
 				'default'   => '#41dcab',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-fb-icon-view-stacked' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-flip-icon-view-stacked' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'front_icon_view' => 'stacked'
@@ -736,7 +730,7 @@ class Flipbox extends Widget_Base
 				'label'       => __('Box Border', MELA_TD),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .ma-el-flip-box-front .ma-el-fb-icon-view-framed, {{WRAPPER}} .ma-el-flip-box-front .ma-el-fb-icon-view-stacked',
+				'selector'    => '{{WRAPPER}} .jltma-flip-box-front .jltma-flip-icon-view-framed, {{WRAPPER}} .jltma-flip-box-front .jltma-flip-icon-view-stacked',
 				'label_block' => true,
 				'condition'   => [
 					'front_icon_view!' => 'default'
@@ -756,7 +750,7 @@ class Flipbox extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-front .icon-wrapper i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-flip-box-front .icon-wrapper i' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -767,7 +761,7 @@ class Flipbox extends Widget_Base
 				'label'     => __('Icon Padding', MELA_TD),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-front .icon-wrapper' => 'padding: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-flip-box-front .icon-wrapper' => 'padding: {{SIZE}}{{UNIT}};',
 				],
 				'default' => [
 					'size' => 1.5,
@@ -807,7 +801,7 @@ class Flipbox extends Widget_Base
 				'name'     => 'back_box_background',
 				'label'    => __('Back Box Background', MELA_TD),
 				'types'    => ['classic', 'gradient'],
-				'selector' => '{{WRAPPER}} .ma-el-flip-box-back',
+				'selector' => '{{WRAPPER}} .jltma-flip-box-back',
 			]
 		);
 
@@ -849,7 +843,7 @@ class Flipbox extends Widget_Base
 				],
 				'default'   => '#FFF',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-back p' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-flip-box-back p' => 'color: {{VALUE}};',
 				],
 
 			]
@@ -861,7 +855,7 @@ class Flipbox extends Widget_Base
 				'name'     => 'back_box_text_typography',
 				'label'    => __('Description Typography', MELA_TD),
 				'scheme'   => Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .ma-el-flip-box-back p',
+				'selector' => '{{WRAPPER}} .jltma-flip-box-back p',
 			]
 		);
 
@@ -880,7 +874,7 @@ class Flipbox extends Widget_Base
 				],
 				'default'   => '#FFF',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-back .icon-wrapper i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-flip-box-back .icon-wrapper i' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'back_icon!' => ''
@@ -899,7 +893,7 @@ class Flipbox extends Widget_Base
 				],
 				'default'   => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-back .ma-el-fb-icon-view-stacked' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-flip-box-back .jltma-flip-icon-view-stacked' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'front_icon_view' => 'stacked'
@@ -914,7 +908,7 @@ class Flipbox extends Widget_Base
 				'label'       => __('Box Border', MELA_TD),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .ma-el-flip-box-back .ma-el-fb-icon-view-framed, {{WRAPPER}} .ma-el-flip-box-back .ma-el-fb-icon-view-stacked',
+				'selector'    => '{{WRAPPER}} .jltma-flip-box-back .jltma-flip-icon-view-framed, {{WRAPPER}} .jltma-flip-box-back .jltma-flip-icon-view-stacked',
 				'label_block' => true,
 				'condition'   => [
 					'back_icon_view!' => 'default'
@@ -934,7 +928,7 @@ class Flipbox extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-back .icon-wrapper i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-flip-box-back .icon-wrapper i' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -945,7 +939,7 @@ class Flipbox extends Widget_Base
 				'label'     => __('Icon Padding', MELA_TD),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-back .icon-wrapper' => 'padding: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-flip-box-back .icon-wrapper' => 'padding: {{SIZE}}{{UNIT}};',
 				],
 				'default' => [
 					'size' => 1.5,
@@ -991,7 +985,7 @@ class Flipbox extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-flip-box-wrapper .jltma-flip-box-back .jltma-flipbox-content .jltma-flip-button' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1002,7 +996,7 @@ class Flipbox extends Widget_Base
 				'name'     => 'typography',
 				'label'    => __('Typography', MELA_TD),
 				'scheme'    			=> Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button',
+				'selector' => '{{WRAPPER}} .jltma-flip-box-wrapper .jltma-flip-box-back .jltma-flipbox-content .jltma-flip-button',
 			]
 		);
 
@@ -1017,7 +1011,7 @@ class Flipbox extends Widget_Base
 				],
 				'default'   => '#4b00e7',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-flip-box-wrapper .jltma-flip-box-back .jltma-flipbox-content .jltma-flip-button' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -1029,7 +1023,7 @@ class Flipbox extends Widget_Base
 				'label'       => __('Border', MELA_TD),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button',
+				'selector'    => '{{WRAPPER}} .jltma-flip-box-wrapper .jltma-flip-box-back .jltma-flipbox-content .jltma-flip-button',
 			]
 		);
 
@@ -1040,7 +1034,7 @@ class Flipbox extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors'  => [
-					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-flip-box-wrapper .jltma-flip-box-back .jltma-flipbox-content .jltma-flip-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1052,7 +1046,7 @@ class Flipbox extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors'  => [
-					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-flip-box-wrapper .jltma-flip-box-back .jltma-flipbox-content .jltma-flip-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1076,7 +1070,7 @@ class Flipbox extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-flip-box-wrapper .jltma-flip-box-back .jltma-flipbox-content .jltma-flip-button:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1087,7 +1081,7 @@ class Flipbox extends Widget_Base
 		// 		'name' => 'typography',
 		// 		'label' => __( 'Typography', MELA_TD ),
 		// 'scheme'    			=> Typography::TYPOGRAPHY_4,
-		// 		'selector' => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover',
+		// 		'selector' => '{{WRAPPER}} .jltma-flip-box-wrapper .jltma-flip-box-back .jltma-flipbox-content .jltma-flip-button:hover',
 		// 	]
 		// );
 
@@ -1102,7 +1096,7 @@ class Flipbox extends Widget_Base
 				],
 				'default'   => '#4b00e7',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-flip-box-wrapper .jltma-flip-box-back .jltma-flipbox-content .jltma-flip-button:hover' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -1114,7 +1108,7 @@ class Flipbox extends Widget_Base
 				'label'       => __('Border', MELA_TD),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover',
+				'selector'    => '{{WRAPPER}} .jltma-flip-box-wrapper .jltma-flip-box-back .jltma-flipbox-content .jltma-flip-button:hover',
 			]
 		);
 
@@ -1125,7 +1119,7 @@ class Flipbox extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors'  => [
-					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-flip-box-wrapper .jltma-flip-box-back .jltma-flipbox-content .jltma-flip-button:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1137,7 +1131,7 @@ class Flipbox extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors'  => [
-					'{{WRAPPER}} .ma-el-flip-box-wrapper .ma-el-flip-box-back .flipbox-content .ma-el-fb-button:hover' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-flip-box-wrapper .jltma-flip-box-back .jltma-flipbox-content .jltma-flip-button:hover' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1260,25 +1254,25 @@ Customization Options.</span>'
 			'ma_el_flipbox',
 			'class',
 			[
-				'ma-el-flip-box'
+				'jltma-flip-box'
 			]
 		);
 
 
 		$this->add_render_attribute('front-icon-wrapper', 'class', 'icon-wrapper');
-		$this->add_render_attribute('front-icon-wrapper', 'class', 'ma-el-fb-icon-view-' . $settings['front_icon_view']);
-		$this->add_render_attribute('front-icon-wrapper', 'class', 'ma-el-fb-icon-shape-' . $settings['front_icon_shape']);
+		$this->add_render_attribute('front-icon-wrapper', 'class', 'jltma-flip-icon-view-' . $settings['front_icon_view']);
+		$this->add_render_attribute('front-icon-wrapper', 'class', 'jltma-flip-icon-shape-' . $settings['front_icon_shape']);
 		$this->add_render_attribute('front-icon-title', 'class', 'front-icon-title');
 		$this->add_render_attribute('front-icon', 'class', $settings['front_icon']);
 
 
 		$this->add_render_attribute('back-icon-wrapper', 'class', 'icon-wrapper');
-		$this->add_render_attribute('back-icon-wrapper', 'class', 'ma-el-fb-icon-view-' . $settings['back_icon_view']);
-		$this->add_render_attribute('back-icon-wrapper', 'class', 'ma-el-fb-icon-shape-' . $settings['back_icon_shape']);
+		$this->add_render_attribute('back-icon-wrapper', 'class', 'jltma-flip-icon-view-' . $settings['back_icon_view']);
+		$this->add_render_attribute('back-icon-wrapper', 'class', 'jltma-flip-icon-shape-' . $settings['back_icon_shape']);
 		$this->add_render_attribute('back-icon-title', 'class', 'back-icon-title');
 		$this->add_render_attribute('back-icon', 'class', $settings['back_icon']);
 
-		$this->add_render_attribute('button', 'class', 'ma-el-fb-button');
+		$this->add_render_attribute('button', 'class', 'jltma-flip-button');
 		if (!empty($settings['link']['url'])) {
 			$this->add_render_attribute('button', 'href', $settings['link']['url']);
 
@@ -1306,13 +1300,11 @@ Customization Options.</span>'
 		}
 ?>
 
-		<div class="ma-el-flip-box-wrapper <?php echo $settings['ma_flipbox_layout_style'] ?> <?php if ($settings['ma_el_flip_3d']) {
-																									echo $settings['ma_el_flip_3d'];
-																								}; ?>">
+		<div class="jltma-flip-box-wrapper <?php echo $settings['ma_flipbox_layout_style'] ?> <?php if ($settings['ma_el_flip_3d']) {echo $settings['ma_el_flip_3d'];}; ?>">
 
-			<div class="ma-el-flip-box-inner">
-				<div class="ma-el-flip-box-front">
-					<div class="flipbox-content">
+			<div class="jltma-flip-box-inner">
+				<div class="jltma-flip-box-front">
+					<div class="jltma-flipbox-content">
 
 						<?php if ($settings['ma_flipbox_layout_style'] == "two") { ?>
 
@@ -1365,8 +1357,8 @@ Customization Options.</span>'
 					</div>
 				</div>
 
-				<div class="ma-el-flip-box-back">
-					<div class="flipbox-content">
+				<div class="jltma-flip-box-back">
+					<div class="jltma-flipbox-content">
 
 						<?php if (!empty($settings['back_icon'])) { ?>
 							<div <?php echo $this->get_render_attribute_string('back-icon-wrapper'); ?>>
@@ -1387,7 +1379,7 @@ Customization Options.</span>'
 						<?php } ?>
 
 						<?php if (!empty($settings['action_text'])) { ?>
-							<div class="ma-el-fb-button-wrapper">
+							<div class="jltma-flip-button-wrapper">
 								<a <?php echo $this->get_render_attribute_string('button'); ?>>
 									<span class="elementor-button-text">
 										<?php echo $settings['action_text']; ?>

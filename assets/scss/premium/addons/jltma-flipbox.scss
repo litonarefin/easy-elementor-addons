@@ -1,0 +1,318 @@
+.hideback .jltma-flip-box-front,
+.hideback .jltma-flip-box-back {
+    backface-visibility: hidden;
+}
+
+.jltma-flip-animate-nananana {
+    .jltma-flip-box-wrapper {
+        &:hover,
+        &:focus {
+            .jltma-flip-box-front,
+            .jltma-flip-box-front {
+                z-index: 10;
+                animation: batman 1s 2 alternate linear;
+            }
+        }
+    }
+}
+
+/* Cube Animation */
+/* top to down */
+
+.flipcard-rotate-top-down {
+    .jltma-flip-box-wrapper {
+        .jltma-flip-box-front {
+            transform: perspective(0px) rotateX(0deg) rotateY(0deg)
+                rotateZ(0deg);
+        }
+        .jltma-flip-box-back {
+            transform: perspective(0px) rotateX(90deg) rotateY(0deg)
+                rotateZ(0deg);
+        }
+        &:hover {
+            .jltma-flip-box-front {
+                transform: perspective(0px) rotateX(-90deg) rotateY(0)
+                    rotateZ(0deg);
+            }
+            .jltma-flip-box-back {
+                z-index: 99999;
+                transform: perspective(0px) rotateX(0deg) rotateY(0deg)
+                    rotateZ(0);
+            }
+        }
+    }
+}
+
+/* down to top */
+.flipcard-rotate-down-top {
+    .jltma-flip-box-wrapper {
+        .jltma-flip-box-front {
+            transform: perspective(0px) rotateX(0deg) rotateY(0deg)
+                rotateZ(0deg);
+        }
+        .jltma-flip-box-back {
+            transform: perspective(0px) rotateX(-90deg) rotateY(0deg)
+                rotateZ(0deg);
+        }
+        &:hover {
+            .jltma-flip-box-front {
+                transform: perspective(0px) rotateX(90deg) rotateY(0)
+                    rotateZ(0deg);
+            }
+            .jltma-flip-box-back {
+                z-index: 99999;
+                transform: perspective(0px) rotateX(0deg) rotateY(0deg)
+                    rotateZ(0deg);
+            }
+        }
+    }
+}
+
+/* left to right */
+
+.flipcard-rotate-left-right {
+    .jltma-flip-box-wrapper {
+        .jltma-flip-box-front {
+            transform: perspective(0px) rotateX(0deg) rotateY(0deg)
+                rotateZ(0deg);
+        }
+        .jltma-flip-box-back {
+            transform: perspective(0px) rotateX(0deg) rotateY(-90deg)
+                rotateZ(0deg);
+        }
+        &:hover {
+            .jltma-flip-box-front {
+                transform: perspective(0px) rotateX(0deg) rotateY(90deg)
+                    rotateZ(0deg);
+            }
+            .jltma-flip-box-back {
+                z-index: 99999;
+                transform: perspective(0px) rotateX(0deg) rotateY(0deg)
+                    rotateZ(0deg);
+            }
+        }
+    }
+}
+
+/* right to left */
+
+.flipcard-rotate-right-left {
+    .jltma-flip-box-wrapper {
+        .jltma-flip-box-front {
+            transform: perspective(0px) rotateX(0deg) rotateY(0deg)
+                rotateZ(0deg);
+        }
+        .jltma-flip-box-back {
+            transform: perspective(0px) rotateX(0deg) rotateY(95deg)
+                rotateZ(0deg);
+        }
+        &:hover {
+            .jltma-flip-box-front {
+                transform: perspective(0px) rotateX(0deg) rotateY(-95deg)
+                    rotateZ(0deg);
+            }
+            .jltma-flip-box-back {
+                z-index: 99999;
+                transform: perspective(0px) rotateX(0deg) rotateY(0deg)
+                    rotateZ(0deg);
+            }
+        }
+    }
+}
+
+@keyframes batman {
+    0% {
+        transform: scale(1, 1) rotateZ(0);
+    }
+    100% {
+        transform: scale(0, 0) rotateZ(720deg);
+        opacity: 0;
+    }
+}
+
+/* Left to Right */
+
+.jltma-flip-animate-left-to-right {
+    .jltma-flip-box-wrapper {
+        .jltma-flip-box-back {
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+        }
+        &:hover {
+            .jltma-flip-box-inner {
+                transform: rotateY(180deg);
+            }
+        }
+    }
+}
+
+/* Right to Left */
+
+.jltma-flip-animate-right-to-left {
+    .jltma-flip-box-wrapper {
+        .jltma-flip-box-back {
+            backface-visibility: hidden;
+            transform: rotateY(-180deg);
+        }
+        &:hover .jltma-flip-box-inner {
+            transform: rotateY(-180deg);
+        }
+    }
+}
+
+/* Top to Bottom */
+
+.jltma-flip-animate-top-to-bottom {
+    .jltma-flip-box-wrapper {
+        .jltma-flip-box-back {
+            backface-visibility: hidden;
+            transform: rotateX(180deg);
+        }
+        &:hover {
+            .jltma-flip-box-inner {
+                transform: rotateX(180deg);
+            }
+        }
+    }
+}
+
+/* Bottom to Top */
+
+.jltma-flip-animate-bottom-to-top {
+    .jltma-flip-box-wrapper {
+        .jltma-flip-box-back {
+            backface-visibility: hidden;
+            transform: rotateX(-180deg);
+        }
+        &:hover {
+            .jltma-flip-box-inner {
+                transform: rotateX(-180deg);
+            }
+        }
+    }
+}
+
+/* Diagonal Top to Bottom */
+
+.jltma-flip-animate-top-to-bottom-angle {
+    .jltma-flip-box-wrapper {
+        .jltma-flip-box-back {
+            backface-visibility: hidden;
+            transform: rotate3d(1, 1, 0, -180deg);
+        }
+        &:hover {
+            .jltma-flip-box-inner {
+                transform: rotate3d(1, 1, 0, -180deg);
+            }
+        }
+    }
+}
+
+/* Diagonal Bottom to Top */
+
+.jltma-flip-animate-bottom-to-top-angle {
+    .jltma-flip-box-wrapper {
+        .jltma-flip-box-back {
+            backface-visibility: hidden;
+            transform: rotate3d(1, 1, 0, 180deg);
+        }
+        &:hover {
+            .jltma-flip-box-inner {
+                transform: rotate3d(1, 1, 0, 180deg);
+            }
+        }
+    }
+}
+
+/* Fade In Out */
+
+.jltma-flip-animate-fade-in-out {
+    .jltma-flip-box-wrapper:hover .jltma-flip-box-front,
+    .jltma-flip-box-back {
+        opacity: 0;
+        transform: scale(0.5);
+        z-index: 2;
+    }
+    .jltma-flip-box-wrapper:hover .jltma-flip-box-back {
+        opacity: 1;
+        transform: scale(1);
+        z-index: 3;
+    }
+}
+
+/* 3D Flipbox */
+
+.jltma-flip-animate-flip3d {
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    .jltma-flip-box-front,
+    .jltma-flip-box-back {
+        box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.1);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #6ec1e4;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        transition: all 0.7s cubic-bezier(0.5, 0.2, 0.2, 0.8);
+        &:before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: stretch;
+            transform-style: preserve-3d;
+            transform: translateZ(0.1px);
+        }
+        .flipbox-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 1.875rem;
+            backface-visibility: hidden;
+            transform: translate3d(0px, 0px, 70px) scale(0.9);
+        }
+    }
+    .jltma-flip-box-front {
+        transform: none;
+        z-index: 1;
+    }
+    .jltma-flip-box-back {
+        transform: rotateX(0) rotateY(-180deg);
+    }
+    .flip_3d_right .jltma-flip-box-back {
+        transform: rotateX(0) rotateY(180deg);
+    }
+    .flip_3d_top .jltma-flip-box-back {
+        transform: rotateX(180deg) rotateY(0);
+    }
+    .flip_3d_bottom .jltma-flip-box-back {
+        transform: rotateX(-180deg) rotateY(0);
+    }
+    &:hover {
+        .jltma-flip-box-front {
+            transform: rotateX(0) rotateY(180deg);
+        }
+        .jltma-flip-box-back,
+        .flip_3d_right .jltma-flip-box-back,
+        .flip_3d_top .jltma-flip-box-back,
+        .flip_3d_bottom .jltma-flip-box-back {
+            transform: none;
+        }
+        .flip_3d_right .jltma-flip-box-front {
+            transform: rotateX(0) rotateY(-180deg);
+        }
+        .flip_3d_top .jltma-flip-box-front {
+            transform: rotateX(-180deg) rotateY(0);
+        }
+        .flip_3d_bottom .jltma-flip-box-front {
+            transform: rotateX(180deg) rotateY(0);
+        }
+    }
+}
+
+

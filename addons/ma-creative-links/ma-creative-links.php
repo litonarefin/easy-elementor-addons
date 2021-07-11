@@ -76,35 +76,34 @@ class Creative_Links extends Widget_Base
 				[
 					'label'   => esc_html__('Effects', MELA_TD),
 					'type'    => Controls_Manager::SELECT,
-					'default' => 'cl-effect-1',
+					'default' => 'jltma-cl-effect-1',
 					'options' => [
-						'cl-effect-1'  => esc_html__('Brackets', 	                                MELA_TD),
-						'cl-effect-2'  => esc_html__('3D Effect', 	                            MELA_TD),
-						'cl-effect-3'  => esc_html__('Bottom Line Slide', 	                    MELA_TD),
-						'cl-effect-4'  => esc_html__('Bottom Border Enlarge', 	                MELA_TD),
-						'cl-effect-5'  => esc_html__('Slide In', 	                                MELA_TD),
-						'cl-effect-6'  => esc_html__('Border Slide Down', 	                    MELA_TD),
-						'cl-effect-7'  => esc_html__('2nd Border Slide Up', 	                    MELA_TD),
-						'cl-effect-8'  => esc_html__('Border Translate', 	                        MELA_TD),
-						'cl-effect-9'  => esc_html__('2nd Text and Border', 	                    MELA_TD),
-						'cl-effect-10' => esc_html__('Reveal Push Out', 	                        MELA_TD),
-						'cl-effect-11' => esc_html__('Text Fill', 	                            MELA_TD),      //problem
-						'cl-effect-12' => esc_html__('Circle ', 	                                MELA_TD),
-						'cl-effect-13' => esc_html__('Three Dots', 	                            MELA_TD),
-						'cl-effect-14' => esc_html__('Border Switch', 	                        MELA_TD),
-						'cl-effect-15' => esc_html__('Scale Down', 	                            MELA_TD),
-						'cl-effect-16' => esc_html__('Fall Down', 	                            MELA_TD),
-						'cl-effect-17' => esc_html__('Move Up', 	                                MELA_TD),
-						'cl-effect-18' => esc_html__('Cross', 	                                MELA_TD),
-						'cl-effect-19' => esc_html__('3D Slide', 	                                MELA_TD),
-						'cl-effect-20' => esc_html__('3D Slide Down', 	                        MELA_TD),
-						'cl-effect-21' => esc_html__('Effect 21', 	                            MELA_TD),
-						// 'cl-effect-22' 	=> esc_html__( 'Effect 22', 	                            MELA_TD ),
+						'jltma-cl-effect-1'  => esc_html__('Brackets', 	                                MELA_TD),
+						'jltma-cl-effect-2'  => esc_html__('3D Effect', 	                            MELA_TD),
+						'jltma-cl-effect-3'  => esc_html__('Bottom Line Slide', 	                    MELA_TD),
+						'jltma-cl-effect-4'  => esc_html__('Bottom Border Enlarge', 	                MELA_TD),
+						'jltma-cl-effect-5'  => esc_html__('Slide In', 	                                MELA_TD),
+						'jltma-cl-effect-6'  => esc_html__('Border Slide Down', 	                    MELA_TD),
+						'jltma-cl-effect-7'  => esc_html__('2nd Border Slide Up', 	                    MELA_TD),
+						'jltma-cl-effect-8'  => esc_html__('Border Translate', 	                        MELA_TD),
+						'jltma-cl-effect-9'  => esc_html__('2nd Text and Border', 	                    MELA_TD),
+						'jltma-cl-effect-10' => esc_html__('Reveal Push Out', 	                        MELA_TD),
+						'jltma-cl-effect-11' => esc_html__('Text Fill', 	                            MELA_TD),      //problem
+						'jltma-cl-effect-12' => esc_html__('Circle ', 	                                MELA_TD),
+						'jltma-cl-effect-13' => esc_html__('Three Dots', 	                            MELA_TD),
+						'jltma-cl-effect-14' => esc_html__('Border Switch', 	                        MELA_TD),
+						'jltma-cl-effect-15' => esc_html__('Scale Down', 	                            MELA_TD),
+						'jltma-cl-effect-16' => esc_html__('Fall Down', 	                            MELA_TD),
+						'jltma-cl-effect-17' => esc_html__('Move Up', 	                                MELA_TD),
+						'jltma-cl-effect-18' => esc_html__('Cross', 	                                MELA_TD),
+						'jltma-cl-effect-19' => esc_html__('3D Slide', 	                                MELA_TD),
+						'jltma-cl-effect-20' => esc_html__('3D Slide Down', 	                        MELA_TD),
+						'jltma-cl-effect-21' => esc_html__('Effect 21', 	                            MELA_TD),
+						// 'jltma-cl-effect-22' 	=> esc_html__( 'Effect 22', 	                            MELA_TD ),
 					],
 
 				]
 			);
-
 
 			//Free Version Codes
 		} else {
@@ -114,20 +113,20 @@ class Creative_Links extends Widget_Base
 				[
 					'label'   => esc_html__('Effects', MELA_TD),
 					'type'    => Controls_Manager::SELECT,
-					'default' => 'cl-effect-1',
+					'default' => 'jltma-cl-effect-1',
 					'options' => [
-						'cl-effect-1'    => esc_html__('Brackets', 	                    MELA_TD),
-						'cl-effect-3'    => esc_html__('Bottom Line Slide', 	        MELA_TD),
-						'cl-effect-4'    => esc_html__('Bottom Border Enlarge', 	    MELA_TD),
-						'cl-effect-13'   => esc_html__('Three Dots', 	                MELA_TD),
-						'cl-effect-11'   => esc_html__('Text Fill', 	                MELA_TD),      //problem
-						'cl-effect-17'   => esc_html__('Move Up', 	                    MELA_TD),
-						'cl-effect-15'   => esc_html__('Scale Down', 	                MELA_TD),
-						'cl-effect-21'   => esc_html__('Basic Effect', 	                MELA_TD),
+						'jltma-cl-effect-1'    => esc_html__('Brackets', 	                    MELA_TD),
+						'jltma-cl-effect-3'    => esc_html__('Bottom Line Slide', 	        MELA_TD),
+						'jltma-cl-effect-4'    => esc_html__('Bottom Border Enlarge', 	    MELA_TD),
+						'jltma-cl-effect-13'   => esc_html__('Three Dots', 	                MELA_TD),
+						'jltma-cl-effect-11'   => esc_html__('Text Fill', 	                MELA_TD),      //problem
+						'jltma-cl-effect-17'   => esc_html__('Move Up', 	                    MELA_TD),
+						'jltma-cl-effect-15'   => esc_html__('Scale Down', 	                MELA_TD),
+						'jltma-cl-effect-21'   => esc_html__('Basic Effect', 	                MELA_TD),
 						'cl-pro-link-1'  => esc_html__('3D Effect (Pro)', 	            MELA_TD),
 						'cl-pro-link-2'  => esc_html__('Slide In (Pro)', 	            MELA_TD),
 						'cl-pro-link-3'  => esc_html__('Border Slide Down (Pro)', 	    MELA_TD),
-						'cl-effect-7'    => esc_html__('2nd Border Slide Up', 	        MELA_TD),
+						'jltma-cl-effect-7'    => esc_html__('2nd Border Slide Up', 	        MELA_TD),
 						'cl-pro-link-4'  => esc_html__('Border Translate (Pro)', 	    MELA_TD),
 						'cl-pro-link-5'  => esc_html__('2nd Text and Border (Pro)', 	MELA_TD),
 						'cl-pro-link-6'  => esc_html__('Reveal Push Out (Pro)', 	    MELA_TD),
@@ -137,7 +136,7 @@ class Creative_Links extends Widget_Base
 						'cl-pro-link-9'  => esc_html__('Cross (Pro)', 	                MELA_TD),
 						'cl-pro-link-10' => esc_html__('3D Slide (Pro)', 	            MELA_TD),
 						'cl-pro-link-11' => esc_html__('3D Slide Down (Pro)', 	        MELA_TD),
-						// 'cl-effect-22' 	=> esc_html__( 'Effect 22', 	                MELA_TD ),
+						'jltma-cl-effect-22' 	=> esc_html__( 'Effect 22', 	                MELA_TD ),
 					],
 
 
@@ -175,27 +174,27 @@ class Creative_Links extends Widget_Base
 				],
 				'default'   => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-links.cl-effect-1 .ma-el-creative-link .ma-el-creative-link-item,
-						{{WRAPPER}} .ma-el-creative-links.cl-effect-2 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-2 .ma-el-creative-link .ma-el-creative-link-item span,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-3 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-4 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-5 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-6 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-7 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-8 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-9 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-10 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-11 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-12 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-13 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-14 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-17 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-18 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-19 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-20 .ma-el-creative-link .ma-el-creative-link-item,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-20 .ma-el-creative-link span,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-21 .ma-el-creative-link .ma-el-creative-link-item' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-links.jltma-cl-effect-1 .jltma-creative-link .jltma-creative-link-item,
+						{{WRAPPER}} .jltma-creative-links.jltma-cl-effect-2 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-2 .jltma-creative-link .jltma-creative-link-item span,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-3 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-4 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-5 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-6 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-7 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-8 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-9 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-10 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-11 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-12 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-13 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-14 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-17 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-18 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-19 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-20 .jltma-creative-link .jltma-creative-link-item,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-20 .jltma-creative-link span,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-21 .jltma-creative-link .jltma-creative-link-item' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -236,6 +235,9 @@ class Creative_Links extends Widget_Base
 				'default'     => 'Go!',
 				'placeholder' => esc_html__('Enter Alternative Link text', MELA_TD),
 				'title'       => esc_html__('Enter Alternative Link text here', MELA_TD),
+				'condition' => [
+					'ma_el_creative_link_icon!' => '',
+				],
 			]
 		);
 
@@ -301,9 +303,9 @@ class Creative_Links extends Widget_Base
 					'ma_el_creative_link_icon!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-link-icon-right' => 'margin-left: {{SIZE}}px;',
-					'{{WRAPPER}} .ma-el-creative-link-icon-left'  => 'margin-right: {{SIZE}}px;',
-					'{{WRAPPER}} .ma-el-creative-link i'          => 'left: -{{SIZE}}px;',
+					'{{WRAPPER}} .jltma-creative-link-icon-right' => 'margin-left: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-creative-link-icon-left'  => 'margin-right: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-creative-link i'          => 'left: -{{SIZE}}px;',
 				],
 			]
 		);
@@ -413,7 +415,7 @@ class Creative_Links extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-link' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-creative-link' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -423,7 +425,7 @@ class Creative_Links extends Widget_Base
 			[
 				'name'     => 'ma_el_creative_link_typography',
 				'scheme'   => Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .ma-el-creative-links .ma-el-creative-link .ma-el-creative-link-item',
+				'selector' => '{{WRAPPER}} .jltma-creative-links .jltma-creative-link .jltma-creative-link-item',
 			]
 		);
 
@@ -434,12 +436,8 @@ class Creative_Links extends Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors'  => [
-					'{{WRAPPER}} .ma-el-creative-link'                                     => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--winona::after'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--winona > span'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--tamaya::before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--rayen::before'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--rayen > span'   => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-creative-link-item'                                     => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-creative-link-item::before'  => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -456,31 +454,31 @@ class Creative_Links extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#333333',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-links .ma-el-creative-link a'
+					'{{WRAPPER}} .jltma-creative-links .jltma-creative-link a'
 					=>  'color: {{VALUE}};',
 
 					// Bar Colors
-					'{{WRAPPER}} .ma-el-creative-links.cl-effect-4 a::after,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-3 a:: after,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-6 a:: before,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-6 a:: after,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-7 a:: before,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-7 a:: after
+					'{{WRAPPER}} .jltma-creative-links.jltma-cl-effect-4 a::after,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-3 a:: after,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-6 a:: before,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-6 a:: after,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-7 a:: before,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-7 a:: after
                         '
 					=>   'background: {{VALUE}};',
 
 
-					'{{WRAPPER}} .ma-el-creative-links.cl-effect-20 a span' => 'box-shadow: inset 0 3px {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-links.jltma-cl-effect-20 a span' => 'box-shadow: inset 0 3px {{VALUE}};',
 
 
-					'{{WRAPPER}} .ma-el-creative-links.cl-effect-8 a::before,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-8 a::after' => 'border: 3px solid {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-links.jltma-cl-effect-8 a::before,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-8 a::after' => 'border: 3px solid {{VALUE}};',
 
 
 
 
-					//						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--tamaya::before' => 'color: {{VALUE}};',
-					//						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--tamaya::after'  => 'color: {{VALUE}};',
+					//						'{{WRAPPER}} .jltma-creative-link.jltma-creative-link--tamaya::before' => 'color: {{VALUE}};',
+					//						'{{WRAPPER}} .jltma-creative-link.jltma-creative-link--tamaya::after'  => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -495,21 +493,21 @@ class Creative_Links extends Widget_Base
 				'default'   => '',
 				'selectors' => [
 
-					'{{WRAPPER}} .ma-el-creative-links .ma-el-creative-link' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-links .jltma-creative-link' => 'background-color: {{VALUE}};',
 
-					'{{WRAPPER}} .ma-el-creative-links.cl-effect-2 a span,
-						{{WRAPPER}} .ma-el-creative-links.cl-effect-20 a span' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-links.jltma-cl-effect-2 a span,
+						{{WRAPPER}} .jltma-creative-links.jltma-cl-effect-20 a span' => 'background: {{VALUE}};',
 
-					'{{WRAPPER}} .ma-el-creative-links.cl-effect-19 .ma-el-creative-link a span,
-						{{WRAPPER}} .csstransforms3d .ma-el-creative-links.cl-effect-19 a span::before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-links.jltma-cl-effect-19 .jltma-creative-link a span,
+						{{WRAPPER}} .csstransforms3d .jltma-creative-links.jltma-cl-effect-19 a span::before' => 'background: {{VALUE}};',
 
-					//						'{{WRAPPER}} .ma-el-creative-link'                                      => 'background-color: {{VALUE}};',
-					//						'{{WRAPPER}} .ma-el-creative-link:hover'   => 'background-color: {{VALUE}};',
+					//						'{{WRAPPER}} .jltma-creative-link'                                      => 'background-color: {{VALUE}};',
+					//						'{{WRAPPER}} .jltma-creative-link:hover'   => 'background-color: {{VALUE}};',
 
-					//						'{{WRAPPER}} .ma-el-creative-link a:hover'    => 'background-color: {{VALUE}};',
-					//						'{{WRAPPER}} .ma-el-creative-link a::before' => 'background-color: {{VALUE}};',
-					//						'{{WRAPPER}} .ma-el-creative-link a::after'  => 'background-color: {{VALUE}};',
-					//						'{{WRAPPER}} .ma-el-creative-link a:hover'    => 'background-color: {{VALUE}};',
+					//						'{{WRAPPER}} .jltma-creative-link a:hover'    => 'background-color: {{VALUE}};',
+					//						'{{WRAPPER}} .jltma-creative-link a::before' => 'background-color: {{VALUE}};',
+					//						'{{WRAPPER}} .jltma-creative-link a::after'  => 'background-color: {{VALUE}};',
+					//						'{{WRAPPER}} .jltma-creative-link a:hover'    => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -518,7 +516,7 @@ class Creative_Links extends Widget_Base
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'ma_el_creative_link_border',
-				'selector' => '{{WRAPPER}} .ma-el-creative-link',
+				'selector' => '{{WRAPPER}} .jltma-creative-link',
 			]
 		);
 
@@ -533,9 +531,9 @@ class Creative_Links extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-link'         => 'border-radius: {{SIZE}}px;',
-					'{{WRAPPER}} .ma-el-creative-link::before' => 'border-radius: {{SIZE}}px;',
-					'{{WRAPPER}} .ma-el-creative-link::after'  => 'border-radius: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-creative-link'         => 'border-radius: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-creative-link::before' => 'border-radius: {{SIZE}}px;',
+					'{{WRAPPER}} .jltma-creative-link::after'  => 'border-radius: {{SIZE}}px;',
 				],
 			]
 		);
@@ -555,22 +553,22 @@ class Creative_Links extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#333333',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-creative-links .ma-el-creative-link a:hover,
-						{{WRAPPER}} .ma-el-creative-links.cl-effect-9 a span  : last-child,
-						{{WRAPPER}} .ma-el-creative-links.cl-effect-20 a span:: before' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-links .jltma-creative-link a:hover,
+						{{WRAPPER}} .jltma-creative-links.jltma-cl-effect-9 a span  : last-child,
+						{{WRAPPER}} .jltma-creative-links.jltma-cl-effect-20 a span:: before' => 'color: {{VALUE}};',
 
-					'{{WRAPPER}} .ma-el-creative-links.cl-effect-8 .cl-effect-8 a::after' => 'border-color: {{VALUE}};',
-
-
-					'{{WRAPPER}} .ma-el-creative-links.cl-effect-13 a:hover::before,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-13 a:focus::before' => 'color: {{VALUE}}; text-shadow: 10px 0 {{VALUE}}, -10px 0 {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-links.jltma-cl-effect-8 .jltma-cl-effect-8 a::after' => 'border-color: {{VALUE}};',
 
 
-					'{{WRAPPER}} .ma-el-creative-links.cl-effect-14 a::before,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-14 a:: after,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-17 a:: after,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-18 a:: before,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-18 a:: after' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .jltma-creative-links.jltma-cl-effect-13 a:hover::before,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-13 a:focus::before' => 'color: {{VALUE}}; text-shadow: 10px 0 {{VALUE}}, -10px 0 {{VALUE}};',
+
+
+					'{{WRAPPER}} .jltma-creative-links.jltma-cl-effect-14 a::before,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-14 a:: after,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-17 a:: after,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-18 a:: before,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-18 a:: after' => 'background: {{VALUE}};',
 
 
 				],
@@ -584,9 +582,9 @@ class Creative_Links extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					//						'{{WRAPPER}} .ma-el-creative-link:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .csstransforms3d .cl-effect-2 a span::before,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-20 a span::before' => 'background: {{VALUE}};',
+					//						'{{WRAPPER}} .jltma-creative-link:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .csstransforms3d .jltma-cl-effect-2 a span::before,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-20 a span::before' => 'background: {{VALUE}};',
 
 				]
 			]
@@ -600,15 +598,15 @@ class Creative_Links extends Widget_Base
 				'default'   => '',
 				'selectors' => [
 
-					'{{WRAPPER}} .ma-el-creative-links.cl-effect-12 a::before,
-                        {{WRAPPER}} .ma-el-creative-links.cl-effect-12 a::after'
+					'{{WRAPPER}} .jltma-creative-links.jltma-cl-effect-12 a::before,
+                        {{WRAPPER}} .jltma-creative-links.jltma-cl-effect-12 a::after'
 					=>  'border: 2px solid {{VALUE}};',
 
-					//						'{{WRAPPER}} .ma-el-creative-link:hover'                                 => 'border-color: {{VALUE}};',
-					//						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--wapasha::before' => 'border-color: {{VALUE}};',
-					//						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--antiman::before' => 'border-color: {{VALUE}};',
-					//						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--pipaluk::before' => 'border-color: {{VALUE}};',
-					//						'{{WRAPPER}} .ma-el-creative-link.ma-el-creative-link--quidel::before'  => 'background-color: {{VALUE}};',
+					//						'{{WRAPPER}} .jltma-creative-link:hover'                                 => 'border-color: {{VALUE}};',
+					//						'{{WRAPPER}} .jltma-creative-link.jltma-creative-link--wapasha::before' => 'border-color: {{VALUE}};',
+					//						'{{WRAPPER}} .jltma-creative-link.jltma-creative-link--antiman::before' => 'border-color: {{VALUE}};',
+					//						'{{WRAPPER}} .jltma-creative-link.jltma-creative-link--pipaluk::before' => 'border-color: {{VALUE}};',
+					//						'{{WRAPPER}} .jltma-creative-link.jltma-creative-link--quidel::before'  => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -621,7 +619,7 @@ class Creative_Links extends Widget_Base
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'link_box_shadow',
-				'selector' => '{{WRAPPER}} .ma-el-creative-link',
+				'selector' => '{{WRAPPER}} .jltma-creative-link',
 			]
 		);
 
@@ -669,14 +667,14 @@ Customization Options.</span>'
 
 		$this->add_render_attribute('ma_el_creative_links_wrapper', [
 			'class'	=> [
-				'ma-el-creative-links',
+				'jltma-creative-links',
 				esc_attr($settings['creative_link_effect'])
 			],
 			'id' => 'ma-creative-link-' . esc_attr($link_id)
 		]);
 
 		$this->add_render_attribute('ma_el_creative_link', [
-			'class' => 'ma-el-creative-link-item',
+			'class' => 'jltma-creative-link-item',
 			'href'  => esc_url_raw($settings['creative_link_url']['url']),
 
 		]);
@@ -690,31 +688,31 @@ Customization Options.</span>'
 			$this->add_render_attribute('ma_el_creative_link', 'rel', 'nofollow');
 		}
 ?>
-		<?php if (($settings['creative_link_effect'] == "cl-effect-2") ||
-			($settings['creative_link_effect'] == "cl-effect-19") ||
-			($settings['creative_link_effect'] == "cl-effect-20")
+		<?php if (($settings['creative_link_effect'] == "jltma-cl-effect-2") ||
+			($settings['creative_link_effect'] == "jltma-cl-effect-19") ||
+			($settings['creative_link_effect'] == "jltma-cl-effect-20")
 		) { ?>
 			<div class="csstransforms3d">
 			<?php } ?>
 
 			<div <?php echo $this->get_render_attribute_string('ma_el_creative_links_wrapper'); ?>>
-				<div class="ma-el-creative-link">
-					<a <?php echo $this->get_render_attribute_string('ma_el_creative_link'); ?> <?php if (($settings['creative_link_effect'] == "cl-effect-10") ||
-																									($settings['creative_link_effect'] == "cl-effect-11") ||
-																									($settings['creative_link_effect'] == "cl-effect-15") ||
-																									($settings['creative_link_effect'] == "cl-effect-16") ||
-																									($settings['creative_link_effect'] == "cl-effect-17") ||
-																									($settings['creative_link_effect'] == "cl-effect-18") ||
-																									($settings['creative_link_effect'] == "cl-effect-19") ||
-																									($settings['creative_link_effect'] == "cl-effect-20")
-																								) { ?> data-hover="<?php echo ($settings['creative_alternative_link_text']) ? $settings['creative_alternative_link_text'] : $settings['creative_link_text']; ?>" <?php } ?>>
+				<div class="jltma-creative-link">
+					<a <?php echo $this->get_render_attribute_string('ma_el_creative_link'); ?> <?php if (($settings['creative_link_effect'] == "jltma-cl-effect-10") ||
+						($settings['creative_link_effect'] == "jltma-cl-effect-11") ||
+						($settings['creative_link_effect'] == "jltma-cl-effect-15") ||
+						($settings['creative_link_effect'] == "jltma-cl-effect-16") ||
+						($settings['creative_link_effect'] == "jltma-cl-effect-17") ||
+						($settings['creative_link_effect'] == "jltma-cl-effect-18") ||
+						($settings['creative_link_effect'] == "jltma-cl-effect-19") ||
+						($settings['creative_link_effect'] == "jltma-cl-effect-20")
+					) { ?> data-hover="<?php echo ($settings['creative_alternative_link_text']) ? $settings['creative_alternative_link_text'] : $settings['creative_link_text']; ?>" <?php } ?>>
 
 
 
-						<?php if (($settings['creative_link_effect'] == "cl-effect-2") ||
-							($settings['creative_link_effect'] == "cl-effect-5") ||
-							($settings['creative_link_effect'] == "cl-effect-19") ||
-							($settings['creative_link_effect'] == "cl-effect-20")
+						<?php if (($settings['creative_link_effect'] == "jltma-cl-effect-2") ||
+							($settings['creative_link_effect'] == "jltma-cl-effect-5") ||
+							($settings['creative_link_effect'] == "jltma-cl-effect-19") ||
+							($settings['creative_link_effect'] == "jltma-cl-effect-20")
 						) { ?>
 							<span data-hover="<?php echo ($settings['creative_alternative_link_text']) ? $settings['creative_alternative_link_text'] : $settings['creative_link_text']; ?>">
 							<?php } ?>
@@ -723,31 +721,31 @@ Customization Options.</span>'
 
 							<?php if (!empty($settings['ma_el_creative_link_icon']) && $settings['ma_el_creative_link_icon_alignment'] == 'left') : ?>
 								<?php
-								Master_Addons_Helper::jltma_fa_icon_picker('fas fa-external-link-alt', 'icon', $settings['ma_el_creative_link_icon'], 'ma_el_creative_link_icon', 'ma-el-creative-link-icon-left'); ?>
+								Master_Addons_Helper::jltma_fa_icon_picker('fas fa-external-link-alt', 'icon', $settings['ma_el_creative_link_icon'], 'ma_el_creative_link_icon', 'jltma-creative-link-icon-left'); ?>
 							<?php endif; ?>
 
 
-							<?php if ($settings['creative_link_effect'] == "cl-effect-10") { ?>
+							<?php if ($settings['creative_link_effect'] == "jltma-cl-effect-10") { ?>
 								<span><?php echo  $settings['creative_link_text']; ?></span>
 							<?php } else {
 								echo $settings['creative_link_text'];
 							} ?>
 
 
-							<?php if ($settings['creative_link_effect'] == "cl-effect-9") { ?>
+							<?php if ($settings['creative_link_effect'] == "jltma-cl-effect-9") { ?>
 								<span><?php echo ($settings['creative_alternative_link_text']) ? $settings['creative_alternative_link_text'] : $settings['creative_link_text']; ?></span>
 							<?php } ?>
 
 
 
 							<?php if (!empty($settings['ma_el_creative_link_icon']) && $settings['ma_el_creative_link_icon_alignment'] == 'right') : ?>
-								<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-external-link-alt', 'icon', $settings['ma_el_creative_link_icon'], 'ma_el_creative_link_icon', 'ma-el-creative-link-icon-right'); ?>
+								<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-external-link-alt', 'icon', $settings['ma_el_creative_link_icon'], 'ma_el_creative_link_icon', 'jltma-creative-link-icon-right'); ?>
 							<?php endif; ?>
 
-							<?php if (($settings['creative_link_effect'] == "cl-effect-2")  ||
-								($settings['creative_link_effect'] == "cl-effect-5") ||
-								($settings['creative_link_effect'] == "cl-effect-19") ||
-								($settings['creative_link_effect'] == "cl-effect-20")
+							<?php if (($settings['creative_link_effect'] == "jltma-cl-effect-2")  ||
+								($settings['creative_link_effect'] == "jltma-cl-effect-5") ||
+								($settings['creative_link_effect'] == "jltma-cl-effect-19") ||
+								($settings['creative_link_effect'] == "jltma-cl-effect-20")
 							) { ?>
 							</span>
 						<?php } ?>
@@ -756,9 +754,9 @@ Customization Options.</span>'
 				</div>
 			</div>
 
-			<?php if (($settings['creative_link_effect'] == "cl-effect-2") ||
-				($settings['creative_link_effect'] == "cl-effect-19") ||
-				($settings['creative_link_effect'] == "cl-effect-20")
+			<?php if (($settings['creative_link_effect'] == "jltma-cl-effect-2") ||
+				($settings['creative_link_effect'] == "jltma-cl-effect-19") ||
+				($settings['creative_link_effect'] == "jltma-cl-effect-20")
 			) { ?>
 			</div>
 		<?php } ?>

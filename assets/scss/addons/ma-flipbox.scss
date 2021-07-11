@@ -1,0 +1,262 @@
+/* MA Flipbox start */
+
+.jltma-flip-box-wrapper {
+    background-color: transparent;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    perspective: 1000px;
+    transform: perspective(1000px);
+    transform-style: preserve-3d;
+    [class*="icon-title"] {
+        color: #393c3f;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    &.one {
+        .jltma-flip-box-front {
+            background-color: #fff;
+        }
+        .jltma-flip-box-back p {
+            font-size: 15px;
+            line-height: 23px;
+        }
+    }
+    &.two .jltma-flip-box-front {
+        padding: 0;
+    }
+    &.three {
+        position: relative;
+        margin: 50px 0;
+        .jltma-flip-box-front,
+        .jltma-flip-box-back {
+            border-radius: 0;
+        }
+        .jltma-flip-box-front {
+            transform: rotate(-20deg) skewX(-20deg);
+            .flipbox-content {
+                transform: translateY(-50%) rotate(18deg) skewX(18deg);
+            }
+        }
+        .jltma-flip-box-back .flipbox-content {
+            transform: translateY(-50%) rotate(-18deg) skewX(-18deg);
+        }
+        &:hover .jltma-flip-box-back {
+            padding: 1.875rem 15px;
+            transform: rotate(20deg) skewX(20deg);
+        }
+    }
+    .icon-wrapper {
+        display: inline-block;
+        padding: 0;
+        line-height: 1;
+    }
+    .jltma-flip-box-inner {
+        width: 100%;
+        height: auto;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.75s;
+        .jltma-flip-box-front,
+        .jltma-flip-box-back {
+            border-radius: 5px;
+            box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            text-align: center;
+            padding: 1.875rem;
+            position: absolute;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.75s;
+            i {
+                font-size: 32px;
+                height: 1em;
+                width: 1em;
+            }
+            .front-icon-title,
+            .back-icon-title {
+                margin: 10px auto;
+                color: #fff;
+            }
+        }
+        .jltma-flip-box-front {
+            z-index: 2;
+        }
+        .jltma-flip-box-back {
+            background: #4b00e7;
+            z-index: 1;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+    }
+    .jltma-flip-button {
+        background: #4b00e7;
+        color: #fff;
+        display: inline-block;
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+    &:hover,
+    &:focus {
+        .jltma-flip-box-front {
+            backface-visibility: hidden;
+            z-index: 1;
+        }
+        .jltma-flip-box-back {
+            backface-visibility: hidden;
+            z-index: 2;
+        }
+    }
+}
+.jltma-flip-icon-view-framed {
+    border: 1px solid #92be43;
+}
+.jltma-flip-icon-shape-circle {
+    border-radius: 50%;
+}
+@media only screen and (max-width: 768px) {
+    .flipbox-content,
+    .jltma-flip-box-front,
+    .jltma-flip-box-back {
+        cursor: pointer;
+        overflow: visible;
+        transform-style: preserve-3d;
+    }
+}
+.jltma-flip-animate-vertical {
+    .jltma-flip-box-inner {
+        .jltma-flip-box-front {
+            transform: rotateX(0deg);
+        }
+        .jltma-flip-box-back {
+            transform: rotateX(180deg);
+        }
+        &:hover {
+            .jltma-flip-box-front {
+                transform: rotateX(180deg);
+            }
+            .jltma-flip-box-back {
+                transform: rotateX(0deg);
+            }
+        }
+    }
+}
+.jltma-flip-animate-horizontal {
+    .jltma-flip-box-inner {
+        .jltma-flip-box-front {
+            transform: rotateY(0deg);
+        }
+        .jltma-flip-box-back {
+            transform: rotateY(180deg);
+        }
+        &:hover {
+            .jltma-flip-box-front {
+                transform: rotateY(180deg);
+            }
+            .jltma-flip-box-back {
+                transform: rotateY(0deg);
+            }
+        }
+    }
+}
+.jltma-flip-animate-fade {
+    .jltma-flip-box-inner {
+        .jltma-flip-box-front {
+            opacity: 1;
+        }
+        .jltma-flip-box-back {
+            opacity: 0;
+        }
+        .jltma-flip-box-front,
+        .jltma-flip-box-back {
+            transition: opacity 0.6s;
+        }
+        &:hover {
+            .jltma-flip-box-front {
+                opacity: 0;
+            }
+            .jltma-flip-box-back {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.fade .jltma-flip-box-wrapper {
+    .jltma-flip-box-front {
+        opacity: 1;
+        transition: 0.6s;
+    }
+    .jltma-flip-box-back {
+        opacity: 0;
+        transition: 0.6s;
+    }
+    &:hover {
+        .jltma-flip-box-front {
+            opacity: 0;
+        }
+        .jltma-flip-box-back {
+            opacity: 1;
+        }
+    }
+}
+
+.jltma-flip-animate-flip.up,
+.up {
+    .jltma-flip-box-wrapper {
+        .jltma-flip-box-front {
+            transform: translate3d(0, 0, 0);
+        }
+        .jltma-flip-box-back {
+            transform: rotateX(180deg) translate3d(0, 0, 0);
+        }
+        &:hover,
+        &:focus {
+            .jltma-flip-box-inner {
+                transform: rotateX(180deg);
+            }
+        }
+    }
+}
+
+.box {
+    .jltma-flip-box-wrapper {
+        .jltma-flip-box-front {
+            transform: translate3d(0, 0, 100px) scale(0.85, 0.85);
+        }
+        .jltma-flip-box-back {
+            transform: rotateY(180deg) translate3d(0, 0, 100px)
+                scale(0.85, 0.85);
+        }
+    }
+    &.up .jltma-flip-box-back {
+        transform: rotateX(180deg) translate3d(0, 0, 100px) scale(0.85, 0.85);
+    }
+}
+
+.jltma-flip-animate-flip {
+    .jltma-flip-box-wrapper {
+        perspective: 1000px;
+        .jltma-flip-box-inner {
+            transform-style: preserve-3d;
+            transform: rotateX(0) rotateY(0) rotateZ(0);
+            transition: 1s;
+        }
+        .jltma-flip-box-front {
+            transform: translate3d(0, 0, 1px);
+        }
+        .jltma-flip-box-back {
+            transform: rotateY(180deg) translate3d(0, 0, 0);
+        }
+        &:hover,
+        &:focus {
+            .jltma-flip-box-inner {
+                transform: rotateY(180deg);
+            }
+        }
+    }
+}

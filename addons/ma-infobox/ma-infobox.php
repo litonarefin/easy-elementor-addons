@@ -25,7 +25,7 @@ class Infobox extends Widget_Base
 
 	public function get_name()
 	{
-		return 'ma-el-infobox';
+		return 'jltma-infobox';
 	}
 	public function get_title()
 	{
@@ -113,7 +113,7 @@ class Infobox extends Widget_Base
 					'name' => 'ma_el_infobox_gradient_color_scheme',
 					'label' => __('Background Color', MELA_TD),
 					'types' => ['gradient'],
-					'selector' => '{{WRAPPER}} .ma-el-infobox.six .ma-el-infobox-item .ma-el-infobox-icon',
+					'selector' => '{{WRAPPER}} .jltma-infobox.six .jltma-infobox-item .jltma-infobox-icon',
 					'condition' => [
 						'ma_el_infobox_preset' => 'six'
 					],
@@ -303,7 +303,7 @@ class Infobox extends Widget_Base
 				'label' => __('Box Border', MELA_TD),
 				'placeholder' => '1px',
 				'default' => '1px',
-				'selector' => '{{WRAPPER}} .ma-el-infobox .ma-el-infobox-item',
+				'selector' => '{{WRAPPER}} .jltma-infobox .jltma-infobox-item',
 				'label_block' => true,
 			]
 		);
@@ -315,7 +315,7 @@ class Infobox extends Widget_Base
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .jltma-infobox .jltma-infobox-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -327,7 +327,7 @@ class Infobox extends Widget_Base
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => ['px', 'em', '%'],
 				'selectors'         => [
-					'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-infobox .jltma-infobox-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -339,7 +339,7 @@ class Infobox extends Widget_Base
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => ['px', 'em', '%'],
 				'selectors'         => [
-					'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-infobox .jltma-infobox-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -369,7 +369,7 @@ class Infobox extends Widget_Base
 				'name' => 'ma_el_infobox_gradient_bg',
 				'label' => __('Background Color', MELA_TD),
 				'types' => ['gradient'],
-				'selector' => '{{WRAPPER}} .ma-el-infobox.six .ma-el-infobox-item',
+				'selector' => '{{WRAPPER}} .jltma-infobox.six .jltma-infobox-item',
 				'condition' => [
 					'ma_el_infobox_preset' => 'six'
 				],
@@ -382,12 +382,12 @@ class Infobox extends Widget_Base
 				'label'                 => esc_html__('Background Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item,
-						{{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item,
-						{{WRAPPER}} .ma-el-infobox.seven .ma-el-infobox-item,
-						{{WRAPPER}} .ma-el-infobox.eight .ma-el-infobox-item,
-						{{WRAPPER}} .ma-el-infobox.nine .ma-el-infobox-item .ma-el-infobox-content,
-						{{WRAPPER}} .ma-el-infobox.nine .ma-el-infobox-item .ma-el-infobox-icon'
+					'{{WRAPPER}} .jltma-infobox.four .jltma-infobox-item,
+						{{WRAPPER}} .jltma-infobox.five .jltma-infobox-item,
+						{{WRAPPER}} .jltma-infobox.seven .jltma-infobox-item,
+						{{WRAPPER}} .jltma-infobox.eight .jltma-infobox-item,
+						{{WRAPPER}} .jltma-infobox.nine .jltma-infobox-item .jltma-infobox-content,
+						{{WRAPPER}} .jltma-infobox.nine .jltma-infobox-item .jltma-infobox-icon'
 					=> 'background-color: {{VALUE}}'
 				],
 				'condition' => [
@@ -415,13 +415,13 @@ class Infobox extends Widget_Base
 				'label'                 => esc_html__('Background Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover,
-					        {{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item:hover,
-					        {{WRAPPER}} .ma-el-infobox.seven .ma-el-infobox-item:hover,
-					        {{WRAPPER}} .ma-el-infobox.eight .ma-el-infobox-item:hover,
-					        {{WRAPPER}} .ma-el-infobox.nine .ma-el-infobox-item .ma-el-infobox-content,
-					        {{WRAPPER}} .ma-el-infobox.ten .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-infobox.ten .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'border-top-color:{{VALUE}};border-bottom-color:{{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox.four .jltma-infobox-item:hover,
+					        {{WRAPPER}} .jltma-infobox.five .jltma-infobox-item:hover,
+					        {{WRAPPER}} .jltma-infobox.seven .jltma-infobox-item:hover,
+					        {{WRAPPER}} .jltma-infobox.eight .jltma-infobox-item:hover,
+					        {{WRAPPER}} .jltma-infobox.nine .jltma-infobox-item .jltma-infobox-content,
+					        {{WRAPPER}} .jltma-infobox.ten .jltma-infobox-item:hover .jltma-infobox-icon' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox.ten .jltma-infobox-item:hover .jltma-infobox-icon' => 'border-top-color:{{VALUE}};border-bottom-color:{{VALUE}};',
 				],
 				'default'               => '#4b00e7',
 			]
@@ -476,9 +476,9 @@ class Infobox extends Widget_Base
 				'label' => __('Icon Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-icon' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-infobox.three .ma-el-infobox-item .ma-el-infobox-icon,
-						{{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item .ma-el-infobox-icon' => 'color: #fff;',
+					'{{WRAPPER}} .jltma-infobox .jltma-infobox-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox.three .jltma-infobox-item .jltma-infobox-icon,
+						{{WRAPPER}} .jltma-infobox.five .jltma-infobox-item .jltma-infobox-icon' => 'color: #fff;',
 				],
 				'condition' => [
 					'ma_el_infobox_preset!' => 'six'
@@ -492,7 +492,7 @@ class Infobox extends Widget_Base
 				'label'                 => __('Background Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-icon' => 'background-color:{{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox .jltma-infobox-icon' => 'background-color:{{VALUE}};',
 				],
 			]
 		);
@@ -519,7 +519,7 @@ class Infobox extends Widget_Base
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-icon' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox .jltma-infobox-icon' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -531,7 +531,7 @@ class Infobox extends Widget_Base
 				'type'          => Controls_Manager::DIMENSIONS,
 				'size_units'    => ['px', 'em', '%'],
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-infobox .jltma-infobox-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -551,7 +551,7 @@ class Infobox extends Widget_Base
 				'label' => __('Icon Hover Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .jltma-infobox .jltma-infobox-item:hover .jltma-infobox-icon' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'ma_el_infobox_preset!' => 'six'
@@ -565,7 +565,7 @@ class Infobox extends Widget_Base
 				'label'                 => esc_html__('Background Color', MELA_TD),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'	=> [
-					'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'background-color:{{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox .jltma-infobox-item:hover .jltma-infobox-icon' => 'background-color:{{VALUE}};',
 				]
 			]
 		);
@@ -593,7 +593,7 @@ class Infobox extends Widget_Base
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox .jltma-infobox-item:hover .jltma-infobox-icon' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -605,7 +605,7 @@ class Infobox extends Widget_Base
 				'type'          => Controls_Manager::DIMENSIONS,
 				'size_units'    => ['px', 'em', '%'],
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-item:hover .ma-el-infobox-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-infobox .jltma-infobox-item:hover .jltma-infobox-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -638,7 +638,7 @@ class Infobox extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ma_el_title_typography',
-				'selector' => '{{WRAPPER}} .ma-el-infobox-content-title',
+				'selector' => '{{WRAPPER}} .jltma-infobox-content-title',
 			]
 		);
 
@@ -659,7 +659,7 @@ class Infobox extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#132c47',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-infobox-content-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox-content-title' => 'color: {{VALUE}};',
 
 				],
 			]
@@ -687,7 +687,7 @@ class Infobox extends Widget_Base
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-infobox-content-title' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox-content-title' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -699,7 +699,7 @@ class Infobox extends Widget_Base
 				'type'          => Controls_Manager::DIMENSIONS,
 				'size_units'    => ['px', 'em', '%'],
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-infobox-content-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-infobox-content-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -720,7 +720,7 @@ class Infobox extends Widget_Base
 				'label' => __('Color', MELA_TD),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox-item:hover .jltma-infobox-content-title' => 'color: {{VALUE}};',
 
 				],
 			]
@@ -749,7 +749,7 @@ class Infobox extends Widget_Base
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-title' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox-item:hover .jltma-infobox-content-title' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -761,7 +761,7 @@ class Infobox extends Widget_Base
 				'type'          => Controls_Manager::DIMENSIONS,
 				'size_units'    => ['px', 'em', '%'],
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-infobox-item:hover .jltma-infobox-content-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -788,7 +788,7 @@ class Infobox extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ma_el_description_typography',
-				'selector' => '{{WRAPPER}} .ma-el-infobox-content-description',
+				'selector' => '{{WRAPPER}} .jltma-infobox-content-description',
 			]
 		);
 
@@ -808,7 +808,7 @@ class Infobox extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '#797c80',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-content-description' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox .jltma-infobox-content-description' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -835,7 +835,7 @@ class Infobox extends Widget_Base
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-content-description' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox .jltma-infobox-content-description' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -847,7 +847,7 @@ class Infobox extends Widget_Base
 				'type'          => Controls_Manager::DIMENSIONS,
 				'size_units'    => ['px', 'em', '%'],
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-infobox .ma-el-infobox-content-description' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-infobox .jltma-infobox-content-description' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -868,12 +868,12 @@ class Infobox extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-description' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-infobox.four .ma-el-infobox-item:hover .ma-el-infobox-content-description,
-							{{WRAPPER}} .ma-el-infobox.five .ma-el-infobox-item:hover .ma-el-infobox-content-description,
-							{{WRAPPER}} .ma-el-infobox.seven .ma-el-infobox-item:hover .ma-el-infobox-content-description,
-							{{WRAPPER}} .ma-el-infobox.eight .ma-el-infobox-item:hover .ma-el-infobox-content-description,
-							{{WRAPPER}} .ma-el-infobox.nine .ma-el-infobox-item:hover .ma-el-infobox-content-description' =>
+					'{{WRAPPER}} .jltma-infobox-item:hover .jltma-infobox-content-description' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox.four .jltma-infobox-item:hover .jltma-infobox-content-description,
+							{{WRAPPER}} .jltma-infobox.five .jltma-infobox-item:hover .jltma-infobox-content-description,
+							{{WRAPPER}} .jltma-infobox.seven .jltma-infobox-item:hover .jltma-infobox-content-description,
+							{{WRAPPER}} .jltma-infobox.eight .jltma-infobox-item:hover .jltma-infobox-content-description,
+							{{WRAPPER}} .jltma-infobox.nine .jltma-infobox-item:hover .jltma-infobox-content-description' =>
 					'color: {{VALUE}};',
 				],
 			]
@@ -902,7 +902,7 @@ class Infobox extends Widget_Base
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-description' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .jltma-infobox-item:hover .jltma-infobox-content-description' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -914,7 +914,7 @@ class Infobox extends Widget_Base
 				'type'          => Controls_Manager::DIMENSIONS,
 				'size_units'    => ['px', 'em', '%'],
 				'selectors'     => [
-					'{{WRAPPER}} .ma-el-infobox-item:hover .ma-el-infobox-content-description' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .jltma-infobox-item:hover .jltma-infobox-content-description' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -1050,8 +1050,8 @@ Customization Options.</span>'
 
 ?>
 
-		<div id="ma-el-infobox-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-infobox <?php echo esc_attr($settings['ma_el_infobox_preset']); ?>">
-			<div class="ma-el-infobox-item">
+		<div id="jltma-infobox-<?php echo esc_attr($this->get_id()); ?>" class="jltma-infobox <?php echo esc_attr($settings['ma_el_infobox_preset']); ?>">
+			<div class="jltma-infobox-item">
 
 				<?php if ($settings['ma_el_infobox_img_or_icon'] != 'none') : ?>
 
@@ -1070,12 +1070,12 @@ Customization Options.</span>'
 
 
 
-					<div class="ma-el-infobox-icon">
+					<div class="jltma-infobox-icon">
 						<?php if ($settings['ma_el_infobox_preset'] == "five") { ?>
 							<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-tag', 'icon', $settings['ma_el_infobox_icon'], 'ma_el_infobox_icon'); ?>
 						<?php } ?>
 
-						<div class="inner-content">
+						<div class="jltma-inner-content">
 
 							<?php if ('icon' == $settings['ma_el_infobox_img_or_icon']) { ?>
 								<?php Master_Addons_Helper::jltma_fa_icon_picker('fas fa-tag', 'icon', $settings['ma_el_infobox_icon'], 'ma_el_infobox_icon'); ?>
@@ -1089,10 +1089,10 @@ Customization Options.</span>'
 
 								<?php if ($settings['ma_el_infobox_title_link']['url']) { ?>
 									<a href="<?php echo esc_url_raw($settings['ma_el_infobox_title_link']['url']); ?>" <?php echo $this->get_render_attribute_string('ma_el_infobox_title_link_attr'); ?>>
-										<h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+										<h3 class="jltma-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
 									</a>
 								<?php } else { ?>
-									<h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+									<h3 class="jltma-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
 								<?php } ?>
 
 							<?php } ?>
@@ -1101,47 +1101,47 @@ Customization Options.</span>'
 
 								<?php if ($settings['ma_el_infobox_title_link']['url']) { ?>
 									<a href="<?php echo esc_url_raw($settings['ma_el_infobox_title_link']['url']); ?>" <?php echo $this->get_render_attribute_string('ma_el_infobox_title_link_attr'); ?>>
-										<h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+										<h3 class="jltma-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
 									</a>
 								<?php } else { ?>
-									<h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+									<h3 class="jltma-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
 								<?php } ?>
 
 							<?php } ?>
 
 							<?php if ($settings['ma_el_infobox_preset'] == "five") { ?>
-								<div class="hexagon-shape">
-									<div class="shape-inner"></div>
+								<div class="jltma-hexagon-shape">
+									<div class="jltma-shape-inner"></div>
 								</div>
 							<?php } ?>
-						</div><!-- /.inner-content -->
+						</div><!-- /.jltma-inner-content -->
 					</div>
 				<?php endif; ?>
 
-				<div class="ma-el-infobox-content">
-					<div class="inner-content">
+				<div class="jltma-infobox-content">
+					<div class="jltma-inner-content">
 						<?php if ($settings['ma_el_infobox_preset'] !== "seven") { ?>
 
 							<?php if ($settings['ma_el_infobox_title_link']['url']) { ?>
 								<a href="<?php echo esc_url_raw($settings['ma_el_infobox_title_link']['url']); ?>" <?php echo $this->get_render_attribute_string('ma_el_infobox_title_link_attr'); ?>>
-									<h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+									<h3 class="jltma-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
 								</a>
 							<?php } else { ?>
-								<h3 class="ma-el-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
+								<h3 class="jltma-infobox-content-title"><?php echo $settings['ma_el_infobox_title']; ?></h3>
 							<?php } ?>
 
 						<?php } ?>
-						<p class="ma-el-infobox-content-description">
+						<p class="jltma-infobox-content-description">
 							<?php echo $settings['ma_el_infobox_description']; ?>
 						</p>
 
 						<?php if ($settings['ma_el_infobox_preset'] == "six") { ?>
-							<a <?php echo $this->get_render_attribute_string('ma_el_infobox_readmore_link'); ?> class="ma-el-btn-learn" <?php echo $this->get_render_attribute_string('ma_el_infobox_readmore'); ?>>
+							<a <?php echo $this->get_render_attribute_string('ma_el_infobox_readmore_link'); ?> class="jltma-btn-learn" <?php echo $this->get_render_attribute_string('ma_el_infobox_readmore'); ?>>
 								<?php echo esc_html($settings['ma_el_infobox_readmore_text']); ?>
 								<i class="ti-arrow-right"></i>
 							</a>
 						<?php } ?>
-					</div><!-- /.inner-content -->
+					</div><!-- /.jltma-inner-content -->
 				</div>
 			</div>
 		</div>
@@ -1152,11 +1152,11 @@ Customization Options.</span>'
 	protected function _content_template()
 	{ ?>
 
-		<div id="ma-el-infobox" class="ma-el-infobox {{ settings.ma_el_infobox_preset }}">
-			<div class="ma-el-infobox-item">
+		<div id="jltma-infobox" class="jltma-infobox {{ settings.ma_el_infobox_preset }}">
+			<div class="jltma-infobox-item">
 
 				<# if( settings.ma_el_infobox_img_or_icon !='none' ) { #>
-					<div class="ma-el-infobox-icon">
+					<div class="jltma-infobox-icon">
 
 						<# if( 'icon'==settings.ma_el_infobox_img_or_icon ) { #>
 							<i class="{{{ settings.ma_el_infobox_icon.value }}}"></i>
@@ -1166,19 +1166,15 @@ Customization Options.</span>'
 									<img src="{{{ settings.ma_el_infobox_image.url }}}" alt="Icon Image">
 									<# } #>
 
-										<# if( 'ten'==settings.ma_el_infobox_preset ) { #>
-											<h3 class="ma-el-infobox-content-title">{{{ settings.ma_el_infobox_title }}}</h3>
-											<# } #>
-
 
 					</div>
 					<# } #>
 
-						<div class="ma-el-infobox-content">
-							<# if( 'ten' !==settings.ma_el_infobox_preset ) { #>
-								<h3 class="ma-el-infobox-content-title">{{{ settings.ma_el_infobox_title }}}</h3>
+						<div class="jltma-infobox-content">
+							<# if( 'ten' ==settings.ma_el_infobox_preset ) { #>
+								<h3 class="jltma-infobox-content-title">{{{ settings.ma_el_infobox_title }}}</h3>
 								<# } #>
-									<p class="ma-el-infobox-content-description">{{{ settings.ma_el_infobox_description }}}
+									<p class="jltma-infobox-content-description">{{{ settings.ma_el_infobox_description }}}
 									</p>
 						</div>
 			</div>

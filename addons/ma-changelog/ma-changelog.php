@@ -239,20 +239,20 @@ class Changelogs extends Widget_Base
 ?>
 
 
-		<div id="ma-el-changelog-<?php echo esc_attr($this->get_id()); ?>" class="ma-el-changelog">
+		<div id="jltma-changelog-<?php echo esc_attr($this->get_id()); ?>" class="jltma-changelog">
 			<?php if ($settings['ma_el_changelog_heading']) { ?>
-				<h2 class="changelog-heading"><?php echo $settings['ma_el_changelog_heading']; ?></h2>
+				<h2 class="jltma-changelog-heading"><?php echo $settings['ma_el_changelog_heading']; ?></h2>
 			<?php } ?>
 
 			<?php if ($settings['ma_el_changelog_main_title']) { ?>
-				<h3 class="changelog-title"><?php echo $settings['ma_el_changelog_main_title']; ?></h3>
+				<h3 class="jltma-changelog-title"><?php echo $settings['ma_el_changelog_main_title']; ?></h3>
 			<?php } ?>
 
 			<?php foreach ($settings['changelog_tabs'] as $index => $tab) { ?>
 
 				<ul>
 					<li>
-						<span class="ma-el-label ma-el-<?php echo strtolower($tab['ma_el_changelog_title']); ?>">
+						<span class="jltma-label jltma-<?php echo strtolower($tab['ma_el_changelog_title']); ?>">
 							<?php echo $tab['ma_el_changelog_title']; ?>
 						</span>
 						<?php echo $tab['ma_el_changelog_content']; ?>

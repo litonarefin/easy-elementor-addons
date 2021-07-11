@@ -1,6 +1,22 @@
+.jltma-button {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    border-radius: 2px;
+    padding: 16px 20px; 
+    font-size: 16px;
+    line-height: 1;
+    z-index: 0;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    &::before,
+    &::after {
+        z-index: -1;
+    }
+}
 .jltma-creative-button--winona {
     overflow: hidden;
-    padding: 0;
     transition: border-color 0.3s, background-color 0.3s;
     transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
     &::after {
@@ -52,7 +68,10 @@
     height: 100%;
     opacity: 0;
 }
-.jltma-creative-button--nina::before {
+.jltma-creative-button--winona::after,
+.jltma-creative-button--ujarak::before,
+.jltma-creative-button--wayra::before,
+.jltma-creative-button--rayen::before {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -77,6 +96,7 @@
         border-color: #37474f;
         &::before {
             opacity: 1;
+            z-index: 1;
             transform: translate3d(0, 0, 0);
         }
     }
@@ -115,6 +135,7 @@
         border-color: #3f51b5;
         &::before {
             opacity: 1;
+            z-index: 1;
             background-color: #3f51b5;
             transform: rotate3d(0, 0, 1, 0deg);
             transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
@@ -191,8 +212,6 @@
 }
 .jltma-creative-button--rayen {
     overflow: hidden;
-    padding: 0;
-    width: 230px;
     &::before {
         content: attr(data-text);
         background: #7986cb;

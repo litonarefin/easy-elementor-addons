@@ -1,4 +1,6 @@
-@import "../../variables", "../../mixins";
+@import "../variables", "../mixins";
+
+/* Jltma Animated Headlines */
 
 .jltma-animated-headline {
     display: flex;
@@ -520,3 +522,4 @@
         transform: translateX(100%);
     }
 }
+/* Jltma Animated Headlines */

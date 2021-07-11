@@ -1,0 +1,291 @@
+/* MA Creative Links Start */
+
+.jltma-creative-links {
+    .jltma-creative-link a {
+        color: #fff;
+        display: inline-block;
+        font-size: 1.35em;
+        font-weight: 400;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        outline: none;
+        padding: 10px 1.5rem;
+        position: relative;
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+        &:hover,
+        &:focus {
+            outline: 0;
+        }
+    }
+}
+
+.jltma-creative-links {
+    &.jltma-cl-effect-1 a {
+        &::before,
+        &::after {
+            display: inline-block;
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.2s;
+        }
+        &::before {
+            margin-right: 10px;
+            content: "[";
+            transform: translateX(20px);
+        }
+        &::after {
+            margin-left: 10px;
+            content: "]";
+            transform: translateX(-20px);
+        }
+        &:hover {
+            &::before,
+            &::after {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+    }
+
+    &.jltma-cl-effect-3 a {
+        padding: 8px 0;
+        &::after {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.1);
+            content: "";
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            transform: translateY(10px);
+        }
+        &:hover,
+        &:focus {
+            &::after {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+    }
+
+    &.jltma-cl-effect-4 a {
+        padding: 0 0 10px;
+        &::after {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #333;
+            content: "";
+            opacity: 0;
+            transition: height 0.3s, opacity 0.3s, transform 0.3s;
+            transform: translateY(-10px);
+        }
+        &:hover::after,
+        &:focus::after {
+            height: 5px;
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+    
+    &.jltma-cl-effect-11 a {
+        border-top: 2px solid #0972b4;
+        color: #0972b4;
+        overflow: hidden;
+        text-shadow: none;
+        &::before {
+            content: attr(data-hover);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            padding: 10px 0;
+            width: 0;
+            border-bottom: 2px solid #333;
+            color: #333;
+            opacity: 0;
+            text-align: right;
+            transition: width 0.5s, opacity 0.5s;
+        }
+        &:hover::before,
+        &:focus::before {
+            opacity: 1;
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    &.jltma-cl-effect-13 a {
+        transition: color 0.3s;
+        &::before {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            color: transparent;
+            content: "•";
+            text-shadow: 0 0 transparent;
+            font-size: 1.2em;
+            transition: text-shadow 0.3s, color 0.3s;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+        &:hover::before,
+        &:focus::before {
+            color: #fff;
+            text-shadow: 10px 0 #fff, -10px 0 #fff;
+        }
+        &:hover,
+        &:focus {
+            color: #ba7700;
+        }
+    }
+
+    &.jltma-cl-effect-15 a {
+        color: rgba(0, 0, 0, 0.2);
+        font-weight: 700;
+        text-shadow: none;
+        &::before {
+            color: #fff;
+            content: attr(data-hover);
+            position: absolute;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        &:hover::before,
+        &:focus::before {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+    }
+
+    &.jltma-cl-effect-17 a {
+        overflow: hidden;
+        padding: 10px 0;
+        text-shadow: none;
+        &::before {
+            content: attr(data-hover);
+            background: #0e83cd;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s, opacity 0.3s;
+            pointer-events: none;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #333;
+            opacity: 0;
+            transform: translateY(5px);
+            transition: transform 0.3s, opacity 0.3s;
+            pointer-events: none;
+        }
+        &:hover,
+        &:focus {
+            &::before {
+                opacity: 0;
+                transform: translateY(-50%);
+            }
+            &::after {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+    }
+
+    &.jltma-cl-effect-21 a {
+        padding: 10px;
+        color: #237546;
+        font-weight: 700;
+        text-shadow: none;
+        transition: color 0.3s;
+        &::before,
+        &::after {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #333;
+            content: "";
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            transform: translateY(-10px);
+        }
+        &::before {
+            top: 0;
+            transform: translateY(-10px);
+        }
+        &::after {
+            bottom: 0;
+            transform: translateY(10px);
+        }
+        &:hover,
+        &:focus {
+            color: #fff;
+            &::before,
+            &::after {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+    }
+}
+
+.csstransforms3d .jltma-cl-effect-2 a {
+    span::before {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0965a0;
+        content: attr(data-hover);
+        transition: background 0.3s;
+        transform: rotateX(-90deg);
+        transform-origin: 50% 0;
+    }
+    &:hover,
+    &:focus {
+        span::before {
+            background: #28a2ee;
+        }
+    }
+}
+
+.csstransforms3d .jltma-cl-effect-19 a {
+    span::before {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        background: #b53a2d;
+        content: attr(data-hover);
+        transition: background 0.4s;
+        transform: rotateY(90deg);
+        transform-origin: 0 50%;
+        pointer-events: none;
+    }
+    &:hover span::before,
+    &:focus span::before {
+        background: #ef5e50;
+    }
+}
+/* MA Creative Links End */

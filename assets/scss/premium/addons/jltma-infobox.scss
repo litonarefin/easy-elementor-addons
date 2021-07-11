@@ -1,0 +1,217 @@
+/* Jltma Infobox */
+
+.jltma-infobox.six {
+    .jltma-infobox-icon {
+        background-image: -moz-linear-gradient(
+            -45deg,
+            rgb(10, 57, 252) 0%,
+            rgb(213, 0, 137) 100%
+        );
+        background-image: -webkit-linear-gradient(
+            -45deg,
+            rgb(10, 57, 252) 0%,
+            rgb(213, 0, 137) 100%
+        );
+        background-image: -ms-linear-gradient(
+            -45deg,
+            rgb(10, 57, 252) 0%,
+            rgb(213, 0, 137) 100%
+        );
+        border-radius: 5px;
+        color: #fff;
+        font-size: 2.5rem;
+        height: 90px;
+        line-height: 90px;
+        margin: 0 auto;
+        width: 90px;
+        text-align: center;
+    }
+    .jltma-infobox-content {
+        text-align: center;
+    }
+    .jltma-btn-learn {
+        color: #4b00e7;
+        font-size: 13px;
+        font-style: italic;
+        margin-top: 1rem;
+    }
+    .jltma-btn-learn i {
+        font-size: 10px;
+    }
+}
+
+.jltma-infobox.seven {
+    .jltma-infobox-icon {
+        .jltma-inner-content {
+            display: table;
+        }
+        i {
+            display: table-cell;
+            float: left;
+            margin-right: 1.25rem;
+        }
+        .jltma-infobox-content-title {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+    .jltma-infobox-content {
+        padding-top: 10px;
+    }
+}
+.jltma-infobox.eight {
+    .jltma-infobox-icon {
+        height: 150px;
+        width: 150px;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
+        i {
+            color: #e8156e;
+            height: 60px;
+            width: 60px;
+            line-height: 60px;
+            left: 50%;
+            top: 50%;
+            margin: -30px 0 0 -30px;
+            position: absolute;
+        }
+    }
+    .jltma-infobox-content {
+        padding-top: 5px;
+        text-align: center;
+    }
+}
+
+.jltma-infobox.nine {
+    .jltma-infobox-item {
+        border-radius: 0;
+        position: relative;
+        height: 220px;
+        -webkit-perspective: 800px;
+        perspective: 800px;
+        overflow: visible;
+        .jltma-infobox-icon,
+        .jltma-infobox-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            vertical-align: middle;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 220px;
+            width: 100%;
+            padding: 20px;
+            overflow: hidden;
+            transition: all 0.5s;
+        }
+        .jltma-infobox-icon {
+            z-index: 2;
+            i {
+                font-size: 3rem;
+                color: #e8156e;
+            }
+        }
+        .jltma-infobox-content {
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(110px) rotateX(-90deg);
+        }
+        .jltma-inner-content {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            right: 20px;
+            margin: 0 auto;
+            transform: translateY(-50%);
+        }
+        .jltma-infobox-content-title {
+            margin-top: 0.875rem;
+        }
+        &:hover,
+        &:focus,
+        &:active {
+            .jltma-infobox-icon {
+                opacity: 0;
+                transform: translateY(-110px) rotateX(90deg);
+            }
+            .jltma-infobox-content {
+                opacity: 1;
+                transform: rotateX(0);
+            }
+        }
+    }
+}
+.jltma-infobox.ten {
+    .jltma-infobox-item {
+        border: 1px solid #e2e7ea;
+        margin-top: 57px;
+        text-align: center;
+        .jltma-infobox-icon {
+            background: #fff;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            border-top-color: #e2e7ea;
+            border-bottom-color: #e2e7ea;
+            height: 90px;
+            width: 58px;
+            margin: -75px auto 0;
+            position: relative;
+
+            transform: rotate(30deg);
+            &:before,
+            &:after {
+                content: "";
+                border: inherit;
+                position: absolute;
+                top: -1px;
+                left: -1px;
+                background: inherit;
+                border-radius: inherit;
+                height: 100%;
+                width: 100%;
+                box-sizing: content-box;
+            }
+            &:before {
+                transform: rotate(60deg);
+            }
+            &:after {
+                transform: rotate(-60deg);
+            }
+            i {
+                font-size: 2rem;
+                height: 100%;
+                width: 100%;
+                line-height: 90px;
+                left: 0;
+                top: 0;
+                position: absolute;
+                z-index: 1;
+
+                transform: rotate(-30deg);
+            }
+        }
+        .jltma-infobox-content {
+            text-align: center;
+        }
+    }
+}
+.jltma-infobox.eight,
+.jltma-infobox.eight,
+.jltma-infobox.nine,
+.jltma-infobox.nine,
+.jltma-infobox.ten {
+    .jltma-infobox-item:hover {
+        .jltma-infobox-content-title,
+        .jltma-infobox-content-description,
+        .jltma-infobox-content-title,
+        .jltma-infobox-content-description,
+        .jltma-infobox-icon i {
+            color: #fff;
+        }
+    }
+}
+
+/* Jltma Infobox */

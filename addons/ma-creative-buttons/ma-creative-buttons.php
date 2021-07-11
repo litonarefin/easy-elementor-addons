@@ -571,7 +571,7 @@ class Creative_Button extends Widget_Base
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'button_box_shadow',
-				'selector' => '{{WRAPPER}} .jltma-creative-button:hover',
+				'selector' => '{{WRAPPER}} .jltma-creative-button',
 			]
 		);
 

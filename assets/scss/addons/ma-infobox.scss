@@ -1,0 +1,183 @@
+/* Jltma InfoBox Start */
+
+.jltma-infobox {
+    .jltma-infobox-item {
+        box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 1.875rem;
+        transition: all 0.3s ease;
+    }
+    .jltma-infobox-content {
+        padding: 20px 0 0;
+        text-align: left;
+    }
+    .jltma-infobox-icon {
+        color: #4b00e7;
+        font-size: 2.75rem;
+    }
+    .jltma-infobox-content-title {
+        color: #393c3f;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.5;
+        margin: 0 0 10px 0;
+    }
+    .jltma-infobox-content-description {
+        color: #78909c;
+        font-size: 16px;
+        margin: 10px auto;
+    }
+    .bg-fade-icon {
+        color: #4b00e7;
+        font-size: 7rem;
+        position: absolute;
+        right: -15px;
+        bottom: -20px;
+        opacity: 0.2;
+        z-index: -1;
+    }
+    &.two,
+    &.three {
+        .jltma-infobox-item {
+            overflow: hidden;
+            position: relative;
+            z-index: 0;
+        }
+    }
+    &.three {
+        .jltma-infobox-item {
+            .jltma-infobox-icon {
+                background: #4b00e7;
+                border-top-left-radius: 5px;
+                color: #fff;
+                font-size: 2.5rem;
+                left: 0;
+                top: 0;
+                padding: 0.5rem 1.5rem;
+                position: absolute;
+            }
+            .jltma-infobox-content {
+                padding-top: 3rem;
+            }
+        }
+    }
+    &.four {
+        .jltma-infobox-item {
+            align-items: center;
+            transition: 0.3s ease;
+            .jltma-infobox-icon {
+                background: #4b00e7;
+                border-radius: 50%;
+                color: #fff;
+                font-size: 2rem;
+                height: 90px;
+                width: 90px;
+                line-height: 90px;
+                margin: 0 auto;
+                text-align: center;
+                transition: 0.3s ease;
+            }
+            .jltma-infobox-content {
+                text-align: center;
+            }
+            .jltma-infobox-content-description {
+                transition: 0.3s ease;
+            }
+            &:hover {
+                .jltma-infobox-icon {
+                    background: #fff;
+                    color: #4b00e7;
+                }
+                .jltma-infobox-content-title,
+                .jltma-infobox-content-description {
+                    color: #fff;
+                }
+            }
+        }
+    }
+    &.five {
+        .jltma-infobox-item {
+            display: flex;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+
+            .jltma-infobox-icon {
+                color: #fff;
+                position: relative;
+                float: left;
+                margin: 0 1.25rem 0 -10px;
+                z-index: 0;
+                i {
+                    font-size: 2rem;
+                    height: 80px;
+                    width: 80px;
+                    line-height: 80px;
+                    text-align: center;
+                    z-index: 1;
+
+                    transition: all 0.3s ease;
+                }
+                .jltma-inner-content {
+                    position: absolute;
+                    top: -90px;
+                    left: -50px;
+                    overflow: hidden;
+                    display: inline-block;
+                    margin: 48px 0;
+                    width: 180px;
+                    height: 165px;
+                    transform: rotate(-30deg) skewX(30deg) scale(0.5);
+                    border-radius: 15px;
+                    z-index: -1;
+                    i {
+                        display: none;
+                    }
+                    *:before {
+                        display: block;
+                        overflow: hidden;
+                        width: inherit;
+                        height: inherit;
+                        border-radius: inherit;
+                    }
+                    .jltma-hexagon-shape {
+                        height: 100%;
+                        width: 100%;
+                        transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+                        opacity: 1;
+                        &:before {
+                            transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+                            background: #4b00e7;
+                            content: "";
+                            transition: all 0.3s ease;
+                        }
+                    }
+                    .jltma-shape-inner {
+                        transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+                        background: #4b00e7;
+                        transition: all 0.3s ease;
+                    }
+                }
+            }
+            .jltma-infobox-content-title,
+            .jltma-infobox-content-description {
+                text-align: left;
+                transition: all 0.3s ease;
+            }
+            &:hover {
+                .jltma-infobox-icon {
+                    color: #4b00e7;
+                    .jltma-inner-content {
+                        .jltma-hexagon-shape .jltma-shape-inner {
+                            background: #fff;
+                        }
+                    }
+                }
+                .jltma-infobox-content-title,
+                .jltma-infobox-content-description {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+/* Jltma InfoBox End */

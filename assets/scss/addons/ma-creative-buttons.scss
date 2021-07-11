@@ -3,14 +3,9 @@
 .jltma-creative-button-align-center {
     text-align: center;
 }
-
 .jltma-creative-button-wrapper {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
 }
-
 .jltma-creative-button {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
@@ -30,16 +25,13 @@
     backface-visibility: hidden;
     -moz-osx-font-smoothing: grayscale;
 }
-
 .jltma-creative-button-align-center .jltma-creative-button {
     float: none;
     display: inline-block;
 }
-
 .jltma-creative-button:focus {
     outline: none;
 }
-
 .jltma-creative-button > span {
     vertical-align: middle;
 }
