@@ -260,7 +260,7 @@ class Image_Hover_Effects extends Widget_Base
 					]
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-image-hover-effect figure, {{WRAPPER}} .ma-el-image-hover-effect figure img' => 'width: {{SIZE}}px;'
+					'{{WRAPPER}} .jltma-image-hover-effect figure, {{WRAPPER}} .jltma-image-hover-effect figure img' => 'width: {{SIZE}}px;'
 				],
 				'condition' => [
 					'ma_el_main_image_size' => 'custom',
@@ -284,7 +284,7 @@ class Image_Hover_Effects extends Widget_Base
 					]
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-image-hover-effect figure, {{WRAPPER}} .ma-el-image-hover-effect figure img' => 'height: {{SIZE}}px;'
+					'{{WRAPPER}} .jltma-image-hover-effect figure, {{WRAPPER}} .jltma-image-hover-effect figure img' => 'height: {{SIZE}}px;'
 				],
 				'condition' => [
 					'ma_el_main_image_size' => 'custom',
@@ -510,7 +510,7 @@ class Image_Hover_Effects extends Widget_Base
 				],
 				'default'   => 'flex-start',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-image-hover-effect figure' => 'align-items: {{VALUE}}; -webkit-align-items: {{VALUE}};'
+					'{{WRAPPER}} .jltma-image-hover-effect figure' => 'align-items: {{VALUE}}; -webkit-align-items: {{VALUE}};'
 				]
 			]
 		);
@@ -800,7 +800,7 @@ class Image_Hover_Effects extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-image-hover-effect figure' => 'background: {{VALUE}};'
+					'{{WRAPPER}} .jltma-image-hover-effect figure' => 'background: {{VALUE}};'
 				]
 			]
 		);
@@ -822,7 +822,7 @@ class Image_Hover_Effects extends Widget_Base
 					]
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-image-hover-effect figure img' => 'opacity: {{SIZE}};'
+					'{{WRAPPER}} .jltma-image-hover-effect figure img' => 'opacity: {{SIZE}};'
 				]
 			]
 		);
@@ -843,7 +843,7 @@ class Image_Hover_Effects extends Widget_Base
 					]
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-image-hover-effect figure:hover img' => 'opacity: {{SIZE}};'
+					'{{WRAPPER}} .jltma-image-hover-effect figure:hover img' => 'opacity: {{SIZE}};'
 				]
 			]
 		);
@@ -854,7 +854,7 @@ class Image_Hover_Effects extends Widget_Base
 			[
 				'name'     => 'image_filters',
 				'label'    => __('Image Filter', MELA_TD),
-				'selector' => '{{WRAPPER}} .ma-el-image-hover-effect figure img',
+				'selector' => '{{WRAPPER}} .jltma-image-hover-effect figure img',
 			]
 		);
 
@@ -863,7 +863,7 @@ class Image_Hover_Effects extends Widget_Base
 			[
 				'name'     => 'hover_image_filters',
 				'label'    => __('Hover Image Filter', MELA_TD),
-				'selector' => '{{WRAPPER}} .ma-el-image-hover-effect figure:hover img'
+				'selector' => '{{WRAPPER}} .jltma-image-hover-effect figure:hover img'
 			]
 		);
 
@@ -871,7 +871,7 @@ class Image_Hover_Effects extends Widget_Base
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'ma_el_main_image_border',
-				'selector' => '{{WRAPPER}} .ma-el-image-hover-effect figure'
+				'selector' => '{{WRAPPER}} .jltma-image-hover-effect figure'
 			]
 		);
 
@@ -883,7 +883,7 @@ class Image_Hover_Effects extends Widget_Base
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => ['px', '%', 'em'],
 					'selectors'  => [
-						'{{WRAPPER}} .ma-el-image-hover-effect figure' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+						'{{WRAPPER}} .jltma-image-hover-effect figure' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 					]
 				]
 			);
@@ -913,7 +913,7 @@ class Image_Hover_Effects extends Widget_Base
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => ['px', 'em', '%'],
 					'selectors'  => [
-						'{{WRAPPER}} .ma-el-image-hover-effect figure' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+						'{{WRAPPER}} .jltma-image-hover-effect figure' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 					]
 				]
 			);
@@ -944,7 +944,7 @@ class Image_Hover_Effects extends Widget_Base
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => ['px', 'em', '%'],
 					'selectors'  => [
-						'{{WRAPPER}} .ma-el-image-hover-effect figure' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+						'{{WRAPPER}} .jltma-image-hover-effect figure' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 					]
 				]
 			);
@@ -972,7 +972,7 @@ class Image_Hover_Effects extends Widget_Base
 			[
 				'label'    => __('Box Shadow', MELA_TD),
 				'name'     => 'ma_el_main_image_shadow',
-				'selector' => '{{WRAPPER}} .ma-el-image-hover-effect figure'
+				'selector' => '{{WRAPPER}} .jltma-image-hover-effect figure'
 			]
 		);
 		$this->end_controls_section();
@@ -1001,7 +1001,7 @@ class Image_Hover_Effects extends Widget_Base
 				],
 				'default'   => "#fff",
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-image-hover-effect .ma-el-image-hover-title' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-image-hover-effect .jltma-image-hover-title' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -1012,8 +1012,8 @@ class Image_Hover_Effects extends Widget_Base
 				'label'     => __('Border Color', MELA_TD),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-image-hover-effect figcaption::before' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .ma-el-image-hover-effect figcaption::after'  => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-image-hover-effect figcaption::before' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .jltma-image-hover-effect figcaption::after'  => 'border-color: {{VALUE}};',
 				]
 			]
 		);
@@ -1022,7 +1022,7 @@ class Image_Hover_Effects extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'ma_el_main_image_title_typography',
-				'selector' => '{{WRAPPER}} .ma-el-image-hover-effect .ma-el-image-hover-title',
+				'selector' => '{{WRAPPER}} .jltma-image-hover-effect .jltma-image-hover-title',
 				'scheme'   => Typography::TYPOGRAPHY_1,
 			]
 		);
@@ -1032,7 +1032,7 @@ class Image_Hover_Effects extends Widget_Base
 			[
 				'label'    => __('Box Shadow', MELA_TD),
 				'name'     => 'ma_el_main_image_title_shadow',
-				'selector' => '{{WRAPPER}} .ma-el-image-hover-title'
+				'selector' => '{{WRAPPER}} .jltma-image-hover-title'
 			]
 		);
 
@@ -1046,7 +1046,7 @@ class Image_Hover_Effects extends Widget_Base
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => ['px', 'em', '%'],
 					'selectors'  => [
-						'{{WRAPPER}} .ma-el-image-hover-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+						'{{WRAPPER}} .jltma-image-hover-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 					]
 				]
 			);
@@ -1076,7 +1076,7 @@ class Image_Hover_Effects extends Widget_Base
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => ['px', 'em', '%'],
 					'selectors'  => [
-						'{{WRAPPER}} .ma-el-image-hover-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+						'{{WRAPPER}} .jltma-image-hover-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 					]
 				]
 			);
@@ -1125,7 +1125,7 @@ class Image_Hover_Effects extends Widget_Base
 				],
 				'default'   => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-image-hover-effect p' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-image-hover-effect p' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -1136,7 +1136,7 @@ class Image_Hover_Effects extends Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'ma_el_main_image_desc_typography',
-				'selector' => '{{WRAPPER}} .ma-el-image-hover-effect p',
+				'selector' => '{{WRAPPER}} .jltma-image-hover-effect p',
 				'scheme'   => Typography::TYPOGRAPHY_3,
 			]
 		);
@@ -1146,7 +1146,7 @@ class Image_Hover_Effects extends Widget_Base
 			[
 				'label'    => __('Text Shadow', MELA_TD),
 				'name'     => 'ma_el_main_image_desc_text_shadow',
-				'selector' => '{{WRAPPER}} .ma-el-image-hover-effect p',
+				'selector' => '{{WRAPPER}} .jltma-image-hover-effect p',
 			]
 		);
 
@@ -1158,7 +1158,7 @@ class Image_Hover_Effects extends Widget_Base
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => ['px', 'em', '%'],
 					'selectors'  => [
-						'{{WRAPPER}} .ma-el-image-hover-effect p' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+						'{{WRAPPER}} .jltma-image-hover-effect p' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 					]
 				]
 			);
@@ -1189,7 +1189,7 @@ class Image_Hover_Effects extends Widget_Base
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => ['px', 'em', '%'],
 					'selectors'  => [
-						'{{WRAPPER}} .ma-el-image-hover-effect p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+						'{{WRAPPER}} .jltma-image-hover-effect p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 					]
 				]
 			);
@@ -1250,7 +1250,7 @@ class Image_Hover_Effects extends Widget_Base
 				],
 				//					'default'   => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-image-hover-effect .icon-links a' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-image-hover-effect .jltma-icon-links a' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -1275,7 +1275,7 @@ class Image_Hover_Effects extends Widget_Base
 				],
 				//					'default'   => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .ma-el-image-hover-effect .icon-links a:hover' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .jltma-image-hover-effect .jltma-icon-links a:hover' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -1389,15 +1389,15 @@ class Image_Hover_Effects extends Widget_Base
 
 		$this->add_render_attribute('ma_el_image_hover_effect_wrapper', [
 			'class'	=> [
-				'ma-el-image-hover-effect',
-				'ma-el-image-hover-effect-' . $ma_el_image_hover_sets,
-				'ma-el-image-hover-effect-' . esc_attr($settings['ma_el_main_image_effect'])
+				'jltma-image-hover-effect',
+				'jltma-image-hover-effect-' . $ma_el_image_hover_sets,
+				'jltma-image-hover-effect-' . esc_attr($settings['ma_el_main_image_effect'])
 			],
-			'id' => 'ma-el-image-hover-effect-' . $this->get_id()
+			'id' => 'jltma-image-hover-effect-' . $this->get_id()
 		]);
 
 
-		$this->add_render_attribute('ma_el_image_hover_effect_heading', ['class'	=> 'ma-el-image-hover-title']);
+		$this->add_render_attribute('ma_el_image_hover_effect_heading', ['class'	=> 'jltma-image-hover-title']);
 
 
 		$ma_el_main_image = $this->get_settings_for_display('ma_el_main_image');
@@ -1438,7 +1438,7 @@ class Image_Hover_Effects extends Widget_Base
 
 		<div <?php echo $this->get_render_attribute_string('ma_el_image_hover_effect_wrapper'); ?>>
 
-			<figure class="effect-<?php echo esc_attr($settings['ma_el_main_image_effect']); ?>">
+			<figure class="jltma-effect-<?php echo esc_attr($settings['ma_el_main_image_effect']); ?>">
 
 				<?php if (isset($settings['ma_el_main_image']['id']) && $settings['ma_el_main_image']['id'] != "") {
 					echo $this->render_image($settings['ma_el_main_image']['id'], $settings);
@@ -1447,7 +1447,7 @@ class Image_Hover_Effects extends Widget_Base
 				} ?>
 
 				<figcaption>
-					<div class="ma-image-hover-content">
+					<div class="jltma-image-hover-content">
 						<<?php echo tag_escape($settings['title_html_tag']); ?> <?php echo $this->get_render_attribute_string('ma_el_image_hover_effect_heading'); ?>>
 
 							<?php echo $this->parse_text_editor($settings['ma_el_main_image_title']); ?>
@@ -1464,7 +1464,7 @@ class Image_Hover_Effects extends Widget_Base
 						// Social Icons Sets
 						$ma_el_main_image_socials_array = array("hera", "zoe", "winston", "terry", "phoebe", "kira");
 						if (in_array($ma_el_main_image_effect, $ma_el_main_image_socials_array)) { ?>
-							<p class="icon-links">
+							<p class="jltma-icon-links">
 								<?php foreach ($settings['ma_el_main_image_icon_tabs'] as $index => $tab) { ?>
 									<a href="<?php echo esc_url_raw($tab['ma_el_main_image_icon_link']['url']); ?>">
 										<span><?php Master_Addons_Helper::jltma_fa_icon_picker('fab fa-elementor', 'icon', $tab['ma_el_main_image_icon'], 'ma_el_main_image_icon'); ?></span>
@@ -1482,7 +1482,7 @@ class Image_Hover_Effects extends Widget_Base
 								$ma_el_main_image_effect_one_array = array("julia");
 								if (in_array($ma_el_main_image_effect, $ma_el_main_image_effect_one_array)) {
 						?>
-									<p class="ma-el-image-hover-desc"><?php echo $tab['ma_el_main_image_desc_set2']; ?></p>
+									<p class="jltma-image-hover-desc"><?php echo $tab['ma_el_main_image_desc_set2']; ?></p>
 							<?php }
 							}
 						}
@@ -1491,16 +1491,24 @@ class Image_Hover_Effects extends Widget_Base
 
 						// Design Specific Descriptions for Set 1
 						$ma_el_main_image_effect_array = array(
-							"zoe", "goliath", "selena", "apollo", "steve", "moses", "jazz", "ming", "lexi", "duke",
+							 "goliath", "selena", "apollo", "steve", "moses", "jazz", "ming", "lexi", "duke",
 							"lily", "sadie", "oscar", "layla", "marley", "dexter", "sarah", "chico", "hera", "kira", "milo", "roxy", "bubba", "romeo", "ruby"
 						);
 						if (in_array($ma_el_main_image_effect, $ma_el_main_image_effect_array)) { ?>
-							<p class="ma-el-image-hover-desc">
+							<p class="jltma-image-hover-desc">
 								<?php echo htmlspecialchars_decode($settings['ma_el_main_image_desc']); ?>
 							</p>
 						<?php } ?>
 
 					</div>
+				
+					<?php 
+					$ma_el_main_image_effect_array = array("zoe");
+					if (in_array($ma_el_main_image_effect, $ma_el_main_image_effect_array)) { ?>
+						<p class="jltma-image-hover-desc">
+							<?php echo htmlspecialchars_decode($settings['ma_el_main_image_desc']); ?>
+						</p>
+					<?php } ?>
 
 					<?php if ($settings['ma_el_image_hover_link_type'] == "links" && $settings['ma_el_main_image_more_link_url']['url'] != "") { ?>
 
@@ -1509,10 +1517,8 @@ class Image_Hover_Effects extends Widget_Base
 					<?php } elseif (ma_el_fs()->can_use_premium_code() && $settings['ma_el_image_hover_link_type'] == "popup") { ?>
 
 						<a data-fancybox data-src="#jltma-image-hover-<?php echo $this->get_id(); ?>" href="javascript:;" data-animation-duration="700" data-animation="fade" data-modal="false" <?php if ($settings['ma_el_image_popup_type'] == 'image') {
-																																																		echo 'href="' . esc_url(
-																																																			$settings['popup_image']['url']
-																																																		) . '" data-fancybox="images"';
-																																																	} ?> class="ma-el-fancybox elementor-clickable" aria-label="Fancybox Popup"></a>
+							echo 'href="' . esc_url($settings['popup_image']['url']) . '" data-fancybox="images"';} ?> class="jltma-fancybox elementor-clickable" aria-label="Fancybox Popup">
+						</a>
 
 						<div style="display: none;" id="jltma-image-hover-<?php echo $this->get_id(); ?>">
 

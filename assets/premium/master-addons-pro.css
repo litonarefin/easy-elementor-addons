@@ -1714,95 +1714,6 @@
 }
 
 /* Jltma Creative Links Start */
-.jltma-creative-links.jltma-cl-effect-1 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-2 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-3 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-4 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-5 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-6 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-7 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-8 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-9 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-10 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-11 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-12 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-13 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-14 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-17 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-18 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-19 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-20 .jltma-creative-link-item,
-.jltma-creative-links.jltma-cl-effect-21 .jltma-creative-link-item {
-  width: 100%;
-  text-align: center;
-}
-
-.jltma-creative-links.jltma-cl-effect-2 .jltma-creative-link a {
-  line-height: 2.4em;
-  margin: 0;
-}
-
-.jltma-creative-links.jltma-cl-effect-3 .jltma-creative-link a,
-.jltma-creative-links.jltma-cl-effect-6 .jltma-creative-link a {
-  margin: 7px 0;
-}
-
-.jltma-creative-links.jltma-cl-effect-4 .jltma-creative-link a {
-  margin: 10px 0;
-}
-
-.jltma-creative-links.jltma-cl-effect-5 .jltma-creative-link a,
-.jltma-creative-links.jltma-cl-effect-12 .jltma-creative-link a,
-.jltma-creative-links.jltma-cl-effect-13 .jltma-creative-link a {
-  margin: 15px 0;
-}
-
-.jltma-creative-links.jltma-cl-effect-7 .jltma-creative-link a {
-  margin: 6px 0;
-}
-
-.jltma-creative-links.jltma-cl-effect-8 .jltma-creative-link {
-  padding: 0 7px;
-}
-
-.jltma-creative-links.jltma-cl-effect-8 .jltma-creative-link a {
-  margin: 7px 0;
-}
-
-.jltma-creative-links.jltma-cl-effect-9 .jltma-creative-link a,
-.jltma-creative-links.jltma-cl-effect-17 .jltma-creative-link a {
-  margin: 7px 0;
-}
-
-.jltma-creative-links.jltma-cl-effect-10 .jltma-creative-link a span {
-  padding: 15px 0;
-}
-
-.jltma-creative-links.jltma-cl-effect-10 .jltma-creative-link a,
-.jltma-creative-links.jltma-cl-effect-21 a,
-.jltma-creative-links.jltma-cl-effect-19 .jltma-creative-link a {
-  margin: 0;
-}
-
-.jltma-creative-links.jltma-cl-effect-11 .jltma-creative-link a,
-.jltma-creative-links.jltma-cl-effect-20 .jltma-creative-link a {
-  margin: 0;
-}
-
-.jltma-creative-links.jltma-cl-effect-14 .jltma-creative-link a {
-  margin: 3px 0;
-}
-
-.jltma-creative-links.jltma-cl-effect-18 .jltma-creative-link a {
-  margin: 17px 0;
-}
-
-.jltma-creative-links.jltma-cl-effect-19 a span {
-  -webkit-transform-origin: 50% 50% -140px;
-      -ms-transform-origin: 50% 50% -140px;
-          transform-origin: 50% 50% -140px;
-}
-
 .jltma-creative-links.jltma-cl-effect-2 a {
   line-height: 44px;
   -webkit-perspective: 1000px;
@@ -1831,7 +1742,7 @@
 }
 .jltma-creative-links.jltma-cl-effect-5 a {
   overflow: hidden;
-  padding: 0 4px;
+  padding: 0 !important;
 }
 .jltma-creative-links.jltma-cl-effect-5 a span {
   position: relative;
@@ -1843,10 +1754,12 @@
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
 .jltma-creative-links.jltma-cl-effect-5 a span::before {
-  position: absolute;
-  top: 100%;
   content: attr(data-hover);
   font-weight: 700;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 100%;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
@@ -1864,7 +1777,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: #fff;
+  background: #333;
   content: "";
   -webkit-transition: top 0.3s;
   -o-transition: top 0.3s;
@@ -1909,9 +1822,6 @@
   -o-transition: transform 0.3s;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
-  -webkit-transform: scale(0.85);
-      -ms-transform: scale(0.85);
-          transform: scale(0.85);
 }
 .jltma-creative-links.jltma-cl-effect-7 a::after {
   opacity: 0;
@@ -1920,8 +1830,16 @@
   -o-transition: top 0.3s, opacity 0.3s, transform 0.3s;
   transition: top 0.3s, opacity 0.3s, transform 0.3s;
   transition: top 0.3s, opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transform: scale(0.85);
+      -ms-transform: scale(0.85);
+          transform: scale(0.85);
 }
-.jltma-creative-links.jltma-cl-effect-7 a:hover::before, .jltma-creative-links.jltma-cl-effect-7 a:hover::after, .jltma-creative-links.jltma-cl-effect-7 a:focus::before, .jltma-creative-links.jltma-cl-effect-7 a:focus::after {
+.jltma-creative-links.jltma-cl-effect-7 a:hover::before, .jltma-creative-links.jltma-cl-effect-7 a:focus::before {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+.jltma-creative-links.jltma-cl-effect-7 a:hover::after, .jltma-creative-links.jltma-cl-effect-7 a:focus::after {
   top: 0;
   opacity: 1;
   -webkit-transform: scale(1);
@@ -1972,7 +1890,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: #fff;
+  background: #333;
   content: "";
   opacity: 0.2;
   -webkit-transition: opacity 0.3s, height 0.3s;
@@ -2032,6 +1950,7 @@
           transform: translateY(0%);
 }
 .jltma-creative-links.jltma-cl-effect-10 {
+  padding: 0 !important;
   position: relative;
   z-index: 1;
 }
@@ -2040,9 +1959,7 @@
   z-index: 0;
 }
 .jltma-creative-links.jltma-cl-effect-10 a span {
-  display: block;
-  padding: 10px 20px;
-  background: #0f7c67;
+  display: inline-block;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   -o-transition: transform 0.3s;
@@ -2050,29 +1967,42 @@
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
 .jltma-creative-links.jltma-cl-effect-10 a::before {
+  content: attr(data-hover);
+  background: #0f7c67;
+  color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
-  padding: 15px 20px;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  color: #0f7c67;
-  content: attr(data-hover);
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  -o-transition: transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transition: opacity 0.3s, width 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, width 0.3s, -webkit-transform 0.3s;
+  -o-transition: transform 0.3s, opacity 0.3s, width 0.3s;
+  transition: transform 0.3s, opacity 0.3s, width 0.3s;
+  transition: transform 0.3s, opacity 0.3s, width 0.3s, -webkit-transform 0.3s;
   -webkit-transform: translateX(-25%);
+      -ms-transform: translateX(-25%);
+          transform: translateX(-25%);
 }
 .jltma-creative-links.jltma-cl-effect-10 a:hover span, .jltma-creative-links.jltma-cl-effect-10 a:focus span {
   -webkit-transform: translateX(120%);
       -ms-transform: translateX(120%);
           transform: translateX(120%);
 }
-.jltma-creative-links.jltma-cl-effect-10 a:hover ::before, .jltma-creative-links.jltma-cl-effect-10 a:focus ::before {
+.jltma-creative-links.jltma-cl-effect-10 a:hover::before, .jltma-creative-links.jltma-cl-effect-10 a:focus::before {
+  opacity: 1;
+  width: 100%;
   -webkit-transform: translateX(0%);
       -ms-transform: translateX(0%);
           transform: translateX(0%);
@@ -2111,39 +2041,33 @@
       -ms-transform: translateX(-50%) translateY(-50%) scale(1);
           transform: translateX(-50%) translateY(-50%) scale(1);
 }
-.jltma-creative-links.jltma-cl-effect-14 a {
-  padding: 0 20px;
-  height: 45px;
-  line-height: 45px;
-}
 .jltma-creative-links.jltma-cl-effect-14 a::before, .jltma-creative-links.jltma-cl-effect-14 a::after {
   position: absolute;
   width: 45px;
   height: 2px;
-  background: #fff;
+  background: #333;
   content: "";
   opacity: 0.2;
+  top: 50%;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
   pointer-events: none;
 }
 .jltma-creative-links.jltma-cl-effect-14 a::before {
-  top: 0;
-  left: 15px;
-  -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
+  left: 0;
+  -webkit-transform: rotate(90deg) translateX(-50%);
+      -ms-transform: rotate(90deg) translateX(-50%);
+          transform: rotate(90deg) translateX(-50%);
   -webkit-transform-origin: 0 0;
       -ms-transform-origin: 0 0;
           transform-origin: 0 0;
 }
 .jltma-creative-links.jltma-cl-effect-14 a::after {
-  right: 15px;
-  bottom: 0;
-  -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
+  right: 0;
+  -webkit-transform: rotate(90deg) translateX(50%);
+      -ms-transform: rotate(90deg) translateX(50%);
+          transform: rotate(90deg) translateX(50%);
   -webkit-transform-origin: 100% 0;
       -ms-transform-origin: 100% 0;
           transform-origin: 100% 0;
@@ -2152,12 +2076,15 @@
   opacity: 1;
 }
 .jltma-creative-links.jltma-cl-effect-14 a:hover::before, .jltma-creative-links.jltma-cl-effect-14 a:focus::before {
+  top: inherit;
+  bottom: 0;
   left: 50%;
   -webkit-transform: rotate(0deg) translateX(-50%);
       -ms-transform: rotate(0deg) translateX(-50%);
           transform: rotate(0deg) translateX(-50%);
 }
 .jltma-creative-links.jltma-cl-effect-14 a:hover::after, .jltma-creative-links.jltma-cl-effect-14 a:focus::after {
+  top: 0;
   right: 50%;
   -webkit-transform: rotate(0deg) translateX(50%);
       -ms-transform: rotate(0deg) translateX(50%);
@@ -2168,8 +2095,24 @@
   text-shadow: 0 0 1px rgba(111, 134, 134, 0.3);
 }
 .jltma-creative-links.jltma-cl-effect-16 a::before {
-  color: #fff;
   content: attr(data-hover);
+  color: red;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
   position: absolute;
   opacity: 0;
   text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
@@ -2194,9 +2137,6 @@
   z-index: 1;
 }
 .jltma-creative-links.jltma-cl-effect-18 a {
-  padding: 0 5px;
-  color: #b4770d;
-  font-weight: 700;
   -webkit-transition: color 0.3s;
   -o-transition: color 0.3s;
   transition: color 0.3s;
@@ -2239,13 +2179,13 @@
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-.jltma-creative-links.jltma-cl-effect-18 a:hover ::after, .jltma-creative-links.jltma-cl-effect-18 a:focus ::after {
+.jltma-creative-links.jltma-cl-effect-18 a:hover::after, .jltma-creative-links.jltma-cl-effect-18 a:focus::after {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 .jltma-creative-links.jltma-cl-effect-19 a {
-  line-height: 2em;
+  padding: 0 !important;
   -webkit-perspective: 800px;
           perspective: 800px;
 }
@@ -2253,7 +2193,6 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  padding: 0 14px;
   background: #e35041;
   -webkit-transition: background 0.4s, -webkit-transform 0.4s;
   transition: background 0.4s, -webkit-transform 0.4s;
@@ -2323,37 +2262,43 @@
   -webkit-transform: rotateX(10deg);
           transform: rotateX(10deg);
 }
+.jltma-creative-links.jltma-cl-effect-22 a {
+  overflow: hidden;
+}
 .jltma-creative-links.jltma-cl-effect-22 a::after, .jltma-creative-links.jltma-cl-effect-22 a::before {
   content: "";
+  top: 0;
   position: absolute;
   height: 100%;
-  width: 50%;
-  -webkit-transform: skewX(30deg);
-      -ms-transform: skewX(30deg);
-          transform: skewX(30deg);
-  -webkit-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  -o-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  z-index: -2;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s, -webkit-transform 0.4s;
+  transition: opacity 0.4s, -webkit-transform 0.4s;
+  -o-transition: transform 0.4s, opacity 0.4s;
+  transition: transform 0.4s, opacity 0.4s;
+  transition: transform 0.4s, opacity 0.4s, -webkit-transform 0.4s;
 }
 .jltma-creative-links.jltma-cl-effect-22 a::before {
   background-color: #ff0;
-  top: -1rem;
   left: 0;
+  z-index: -1;
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
 }
 .jltma-creative-links.jltma-cl-effect-22 a::after {
   background-color: #8a19ff;
-  top: 1rem;
-  left: 8rem;
+  right: 0;
+  z-index: -2;
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
 }
 .jltma-creative-links.jltma-cl-effect-22 a:hover::before, .jltma-creative-links.jltma-cl-effect-22 a:hover::after {
-  top: 0;
-  -webkit-transform: skewx(0deg);
-      -ms-transform: skewx(0deg);
-          transform: skewx(0deg);
-}
-.jltma-creative-links.jltma-cl-effect-22 a:hover::after {
-  left: 0;
+  opacity: 1;
+  -webkit-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+          transform: translateX(0%);
 }
 
 .csstransforms3d .jltma-cl-effect-2 a span::before {

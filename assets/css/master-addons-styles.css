@@ -4990,9 +4990,8 @@ fieldset:disabled a.jltma-btn {
   text-shadow: none;
 }
 .jltma-creative-links.jltma-cl-effect-15 a::before {
-  color: #fff;
+  color: red;
   content: attr(data-hover);
-  position: absolute;
   -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
   transition: opacity 0.3s, -webkit-transform 0.3s;
   -o-transition: transform 0.3s, opacity 0.3s;
@@ -5005,15 +5004,7 @@ fieldset:disabled a.jltma-btn {
           transform: scale(0.9);
   opacity: 0;
 }
-.jltma-creative-links.jltma-cl-effect-17 a {
-  overflow: hidden;
-  padding: 10px 0;
-  text-shadow: none;
-}
-.jltma-creative-links.jltma-cl-effect-17 a::before {
-  content: attr(data-hover);
-  background: #0e83cd;
-  color: #fff;
+.jltma-creative-links.jltma-cl-effect-15 a::before, .jltma-creative-links.jltma-cl-effect-17 a::before {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5022,15 +5013,24 @@ fieldset:disabled a.jltma-btn {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   height: 100%;
   width: 100%;
   top: 0;
   left: 0;
+  opacity: 1;
   position: absolute;
+}
+.jltma-creative-links.jltma-cl-effect-17 a {
+  overflow: hidden;
+  text-shadow: none;
+}
+.jltma-creative-links.jltma-cl-effect-17 a::before {
+  content: attr(data-hover);
+  color: red;
   text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
   -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
   transition: opacity 0.3s, -webkit-transform 0.3s;
@@ -5060,9 +5060,9 @@ fieldset:disabled a.jltma-btn {
 }
 .jltma-creative-links.jltma-cl-effect-17 a:hover::before, .jltma-creative-links.jltma-cl-effect-17 a:focus::before {
   opacity: 0;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+  -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+          transform: translateY(-2px);
 }
 .jltma-creative-links.jltma-cl-effect-17 a:hover::after, .jltma-creative-links.jltma-cl-effect-17 a:focus::after {
   opacity: 1;
@@ -5118,47 +5118,2280 @@ fieldset:disabled a.jltma-btn {
           transform: translateY(0px);
 }
 
-.csstransforms3d .jltma-cl-effect-2 a span::before {
+/* MA Creative Links End */
+/* Jltma Image Hover Effects */
+.jltma-image-hover-effect figure {
+  background: #3085a3;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  overflow: hidden;
+  position: relative;
+  width: -webkit-fill-available;
+}
+.jltma-image-hover-effect figure img {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.jltma-image-hover-effect figure figcaption {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  padding: 1em;
   position: absolute;
+  text-transform: uppercase;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.jltma-image-hover-effect figure figcaption::before, .jltma-image-hover-effect figure figcaption::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+}
+.jltma-image-hover-effect figure h2,
+.jltma-image-hover-effect figure p {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.jltma-image-hover-effect figure h2 {
+  font-size: 2.5rem;
+  word-spacing: -0.15em;
+}
+.jltma-image-hover-effect figure h2 span {
+  font-weight: 800;
+}
+.jltma-image-hover-effect figure p {
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.icon-eye::before {
+  content: "";
+}
+
+.icon-paper-clip::before {
+  content: "";
+}
+
+.icon-heart::before {
+  content: "";
+}
+
+/* Individual effects */
+figure.jltma-effect-sadie img,
+figure.jltma-effect-roxy img,
+figure.jltma-effect-milo img,
+figure.jltma-effect-sarah img {
+  max-width: none;
+  width: -webkit-calc(100% + 50px);
+  width: calc(100% + 50px);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+}
+figure.jltma-effect-sadie:hover img,
+figure.jltma-effect-roxy:hover img,
+figure.jltma-effect-milo:hover img,
+figure.jltma-effect-sarah:hover img {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/***** Lily *****/
+figure.jltma-effect-lily img {
+  opacity: 0.7;
+}
+figure.jltma-effect-lily figcaption > div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2em;
+  width: 100%;
+  height: 50%;
+}
+figure.jltma-effect-lily figcaption h2,
+figure.jltma-effect-lily figcaption p {
+  text-align: left;
+  -webkit-transform: translate3d(0, 40px, 0);
+          transform: translate3d(0, 40px, 0);
+}
+figure.jltma-effect-lily figcaption h2 {
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+}
+figure.jltma-effect-lily figcaption p {
+  color: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.35s;
+  transition: opacity 0.2s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.2s, transform 0.35s;
+  transition: opacity 0.2s, transform 0.35s;
+  transition: opacity 0.2s, transform 0.35s, -webkit-transform 0.35s;
+}
+figure.jltma-effect-lily:hover img,
+figure.jltma-effect-lily:hover p {
+  opacity: 1;
+}
+figure.jltma-effect-lily:hover h2,
+figure.jltma-effect-lily:hover p {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+figure.jltma-effect-lily:hover p {
+  -webkit-transition-delay: 0.05s;
+       -o-transition-delay: 0.05s;
+          transition-delay: 0.05s;
+  -webkit-transition-duration: 0.35s;
+       -o-transition-duration: 0.35s;
+          transition-duration: 0.35s;
+}
+
+/***** Sadie *****/
+figure.jltma-effect-sadie img {
+  -webkit-transform: translate3d(-40px, 0, 0);
+          transform: translate3d(-40px, 0, 0);
+}
+figure.jltma-effect-sadie figcaption::before {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(72, 76, 97, 0)), color-stop(75%, rgba(72, 76, 97, 0.8)));
+  background: -o-linear-gradient(top, rgba(72, 76, 97, 0) 0%, rgba(72, 76, 97, 0.8) 75%);
+  background: linear-gradient(to bottom, rgba(72, 76, 97, 0) 0%, rgba(72, 76, 97, 0.8) 75%);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 50%, 0);
+          transform: translate3d(0, 50%, 0);
+}
+figure.jltma-effect-sadie figcaption h2 {
+  color: #484c61;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
+  -webkit-transition: color 0.35s, -webkit-transform 0.35s;
+  transition: color 0.35s, -webkit-transform 0.35s;
+  -o-transition: transform 0.35s, color 0.35s;
+  transition: transform 0.35s, color 0.35s;
+  transition: transform 0.35s, color 0.35s, -webkit-transform 0.35s;
+}
+figure.jltma-effect-sadie figcaption::before,
+figure.jltma-effect-sadie figcaption p {
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+}
+figure.jltma-effect-sadie figcaption p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2em;
+  width: 100%;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 10px, 0);
+          transform: translate3d(0, 10px, 0);
+}
+figure.jltma-effect-sadie:hover h2 {
+  color: #fff;
+  -webkit-transform: translate3d(0, -50%, 0) translate3d(0, -40px, 0);
+          transform: translate3d(0, -50%, 0) translate3d(0, -40px, 0);
+}
+figure.jltma-effect-sadie:hover figcaption::before,
+figure.jltma-effect-sadie:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/***** Roxy *****/
+figure.jltma-effect-roxy {
+  background: -o-linear-gradient(45deg, #ff89e9 0%, #05abe0 100%);
+  background: linear-gradient(45deg, #ff89e9 0%, #05abe0 100%);
+}
+figure.jltma-effect-roxy img {
+  -webkit-transform: translate3d(-40px, 0, 0);
+          transform: translate3d(-40px, 0, 0);
+}
+figure.jltma-effect-roxy figcaption {
+  padding: 3em;
+  text-align: left;
+}
+figure.jltma-effect-roxy figcaption::before {
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  border: 1px solid #fff;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(-20px, 0, 0);
+          transform: translate3d(-20px, 0, 0);
+}
+figure.jltma-effect-roxy figcaption h2 {
+  padding: 30% 0 10px 0;
+}
+figure.jltma-effect-roxy figcaption p {
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(-10px, 0, 0);
+          transform: translate3d(-10px, 0, 0);
+}
+figure.jltma-effect-roxy:hover img {
+  opacity: 0.7;
+}
+figure.jltma-effect-roxy:hover figcaption::before,
+figure.jltma-effect-roxy:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/***** Bubba *****/
+figure.jltma-effect-bubba {
+  background: #9e5406;
+}
+figure.jltma-effect-bubba img {
+  opacity: 0.7;
+  -webkit-transition: opacity 0.35s;
+  -o-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+figure.jltma-effect-bubba figcaption::before, figure.jltma-effect-bubba figcaption::after {
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+}
+figure.jltma-effect-bubba figcaption::before {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: scale(0, 1);
+      -ms-transform: scale(0, 1);
+          transform: scale(0, 1);
+}
+figure.jltma-effect-bubba figcaption::after {
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+  -webkit-transform: scale(1, 0);
+      -ms-transform: scale(1, 0);
+          transform: scale(1, 0);
+}
+figure.jltma-effect-bubba figcaption::before, figure.jltma-effect-bubba figcaption::after,
+figure.jltma-effect-bubba figcaption p {
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+}
+figure.jltma-effect-bubba figcaption h2 {
+  padding-top: 30%;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, -20px, 0);
+          transform: translate3d(0, -20px, 0);
+}
+figure.jltma-effect-bubba figcaption p {
+  padding: 20px 2.5em;
+  -webkit-transform: translate3d(0, 20px, 0);
+          transform: translate3d(0, 20px, 0);
+}
+figure.jltma-effect-bubba:hover img {
+  opacity: 0.4;
+}
+figure.jltma-effect-bubba:hover figcaption::before, figure.jltma-effect-bubba:hover figcaption::after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+figure.jltma-effect-bubba:hover figcaption h2,
+figure.jltma-effect-bubba:hover figcaption p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/***** Romeo *****/
+figure.jltma-effect-romeo {
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+figure.jltma-effect-romeo img {
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, 0, 300px);
+          transform: translate3d(0, 0, 300px);
+}
+figure.jltma-effect-romeo figcaption::before, figure.jltma-effect-romeo figcaption::after {
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 1px;
+  background: #fff;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+}
+figure.jltma-effect-romeo figcaption h2,
+figure.jltma-effect-romeo figcaption p {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+}
+figure.jltma-effect-romeo figcaption h2 {
+  -webkit-transform: translate3d(0, -50%, 0) translate3d(0, -150%, 0);
+          transform: translate3d(0, -50%, 0) translate3d(0, -150%, 0);
+}
+figure.jltma-effect-romeo figcaption p {
+  padding: 0.25em 2em;
+  -webkit-transform: translate3d(0, -50%, 0) translate3d(0, 150%, 0);
+          transform: translate3d(0, -50%, 0) translate3d(0, 150%, 0);
+}
+figure.jltma-effect-romeo:hover figcaption::before {
+  -webkit-transform: translate3d(-50%, -50%, 0) rotate(45deg);
+          transform: translate3d(-50%, -50%, 0) rotate(45deg);
+}
+figure.jltma-effect-romeo:hover figcaption::after {
+  -webkit-transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+          transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+}
+figure.jltma-effect-romeo:hover img {
+  opacity: 0.6;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+figure.jltma-effect-romeo:hover h2 {
+  -webkit-transform: translate3d(0, -50%, 0) translate3d(0, -100%, 0);
+          transform: translate3d(0, -50%, 0) translate3d(0, -100%, 0);
+}
+figure.jltma-effect-romeo:hover p {
+  -webkit-transform: translate3d(0, -50%, 0) translate3d(0, 100%, 0);
+          transform: translate3d(0, -50%, 0) translate3d(0, 100%, 0);
+}
+
+/***** Layla *****/
+figure.jltma-effect-layla img {
+  -webkit-transform: translate3d(0, -30px, 0) scale(1.15, 1.15);
+          transform: translate3d(0, -30px, 0) scale(1.15, 1.15);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+}
+figure.jltma-effect-layla figcaption {
+  padding: 3em;
+}
+figure.jltma-effect-layla figcaption::before, figure.jltma-effect-layla figcaption::after {
+  opacity: 0;
+}
+figure.jltma-effect-layla figcaption::before {
+  top: 50px;
+  right: 30px;
+  bottom: 50px;
+  left: 30px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: scale(0, 1);
+      -ms-transform: scale(0, 1);
+          transform: scale(0, 1);
+  -webkit-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+          transform-origin: 0 0;
+}
+figure.jltma-effect-layla figcaption::after {
+  top: 30px;
+  right: 50px;
+  bottom: 30px;
+  left: 50px;
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+  -webkit-transform: scale(1, 0);
+      -ms-transform: scale(1, 0);
+          transform: scale(1, 0);
+  -webkit-transform-origin: 100% 0;
+      -ms-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+}
+figure.jltma-effect-layla figcaption h2 {
+  padding-top: 26%;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, -30px, 0);
+          transform: translate3d(0, -30px, 0);
+}
+figure.jltma-effect-layla figcaption p {
+  padding: 0.5em 2em;
+  text-transform: none;
+  opacity: 0;
+  -webkit-transform: translate3d(0, -10px, 0);
+          transform: translate3d(0, -10px, 0);
+}
+figure.jltma-effect-layla figcaption::before, figure.jltma-effect-layla figcaption::after,
+figure.jltma-effect-layla figcaption p {
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+}
+figure.jltma-effect-layla:hover img {
+  opacity: 0.7;
+  -webkit-transform: translate3d(0, 0, 0) scale(1.15, 1.15);
+          transform: translate3d(0, 0, 0) scale(1.15, 1.15);
+}
+figure.jltma-effect-layla:hover figcaption::before, figure.jltma-effect-layla:hover figcaption::after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+figure.jltma-effect-layla:hover h2,
+figure.jltma-effect-layla:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+figure.jltma-effect-layla:hover figcaption::after,
+figure.jltma-effect-layla:hover h2,
+figure.jltma-effect-layla:hover p,
+figure.jltma-effect-layla:hover img {
+  -webkit-transition-delay: 0.15s;
+       -o-transition-delay: 0.15s;
+          transition-delay: 0.15s;
+}
+
+/***** Honey *****/
+figure.jltma-effect-honey {
+  background: #4a3753;
+}
+figure.jltma-effect-honey figcaption::before {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: #4b00e7;
+  -webkit-transform: translate3d(0, 10px, 0);
+          transform: translate3d(0, 10px, 0);
+}
+figure.jltma-effect-honey figcaption h2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1em 1.5em;
+  width: 100%;
+  text-align: left;
+  -webkit-transform: translate3d(0, -30px, 0);
+          transform: translate3d(0, -30px, 0);
+}
+figure.jltma-effect-honey figcaption h2 i {
+  font-style: normal;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, -30px, 0);
+          transform: translate3d(0, -30px, 0);
+}
+figure.jltma-effect-honey figcaption::before,
+figure.jltma-effect-honey figcaption h2 {
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+}
+figure.jltma-effect-honey:hover figcaption::before,
+figure.jltma-effect-honey:hover h2,
+figure.jltma-effect-honey:hover h2 i {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+figure.jltma-effect-honey img,
+figure.jltma-effect-oscar img {
+  opacity: 0.9;
+  -webkit-transition: opacity 0.35s;
+  -o-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+/***** Oscar *****/
+figure.jltma-effect-oscar {
+  background: -o-linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
+  background: linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
+}
+figure.jltma-effect-oscar figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3em;
+  background-color: rgba(58, 52, 42, 0.7);
+  -webkit-transition: background-color 0.35s;
+  -o-transition: background-color 0.35s;
+  transition: background-color 0.35s;
+}
+figure.jltma-effect-oscar figcaption::before {
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  border: 1px solid #fff;
+}
+figure.jltma-effect-oscar figcaption h2 {
+  margin: 20% 0 10px 0;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+}
+figure.jltma-effect-oscar figcaption::before,
+figure.jltma-effect-oscar figcaption p {
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+}
+figure.jltma-effect-oscar:hover h2 {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+figure.jltma-effect-oscar:hover figcaption::before,
+figure.jltma-effect-oscar:hover p {
+  opacity: 1;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+figure.jltma-effect-oscar:hover figcaption {
+  background-color: rgba(58, 52, 42, 0);
+}
+figure.jltma-effect-oscar:hover img {
+  opacity: 0.4;
+}
+
+/***** Marley *****/
+figure.jltma-effect-marley figcaption h2,
+figure.jltma-effect-marley figcaption p {
+  position: absolute;
+  right: 30px;
+  left: 30px;
+  padding: 10px 0;
+  text-align: right;
+}
+figure.jltma-effect-marley figcaption p {
+  bottom: 30px;
+  line-height: 1.5;
+  -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+}
+figure.jltma-effect-marley figcaption h2 {
+  top: 30px;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, 20px, 0);
+          transform: translate3d(0, 20px, 0);
+}
+figure.jltma-effect-marley figcaption h2::after {
+  content: "";
+  background: #fff;
   top: 100%;
   left: 0;
   width: 100%;
+  height: 4px;
+  position: absolute;
+  -webkit-transform: translate3d(0, 40px, 0);
+          transform: translate3d(0, 40px, 0);
+}
+figure.jltma-effect-marley figcaption h2::after,
+figure.jltma-effect-marley figcaption p {
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+}
+figure.jltma-effect-marley:hover h2 {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+figure.jltma-effect-marley:hover h2::after,
+figure.jltma-effect-marley:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/***** Ruby *****/
+figure.jltma-effect-ruby {
+  background-color: #17819c;
+}
+figure.jltma-effect-ruby img {
+  opacity: 0.7;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: scale(1.15);
+      -ms-transform: scale(1.15);
+          transform: scale(1.15);
+}
+figure.jltma-effect-ruby h2 {
+  margin-top: 20%;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, 20px, 0);
+          transform: translate3d(0, 20px, 0);
+}
+figure.jltma-effect-ruby p {
+  margin: 1em 0 0;
+  padding: 3em;
+  border: 1px solid #fff;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, 20px, 0) scale(1.1);
+          transform: translate3d(0, 20px, 0) scale(1.1);
+}
+figure.jltma-effect-ruby:hover img {
+  opacity: 0.5;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+figure.jltma-effect-ruby:hover h2 {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+figure.jltma-effect-ruby:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0) scale(1);
+          transform: translate3d(0, 0, 0) scale(1);
+}
+
+/***** Milo *****/
+figure.jltma-effect-milo {
+  background: #2e5d5a;
+}
+figure.jltma-effect-milo img {
+  opacity: 1;
+  -webkit-transform: translate3d(-30px, 0, 0) scale(1.12);
+          transform: translate3d(-30px, 0, 0) scale(1.12);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+figure.jltma-effect-milo h2 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 1em 1.2em;
+}
+figure.jltma-effect-milo p {
+  padding: 0 10px 0 0;
+  width: 50%;
+  border-right: 1px solid #fff;
+  text-align: right;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(-40px, 0, 0);
+          transform: translate3d(-40px, 0, 0);
+}
+figure.jltma-effect-milo:hover img {
+  opacity: 0.5;
+  -webkit-transform: translate3d(0, 0, 0) scale(1);
+          transform: translate3d(0, 0, 0) scale(1);
+}
+figure.jltma-effect-milo:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/***** Dexter *****/
+figure.jltma-effect-dexter {
+  background: -webkit-gradient(linear, left top, left bottom, from(#258dc8), to(#683c13));
+  background: -o-linear-gradient(top, #258dc8 0%, #683c13 100%);
+  background: linear-gradient(to bottom, #258dc8 0%, #683c13 100%);
+}
+figure.jltma-effect-dexter img {
+  -webkit-transition: opacity 0.35s;
+  -o-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+figure.jltma-effect-dexter figcaption {
+  padding: 3em;
+}
+figure.jltma-effect-dexter figcaption::after {
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  height: -webkit-calc(50% - 30px);
+  height: calc(50% - 30px);
+  border: 7px solid #fff;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+}
+figure.jltma-effect-dexter figcaption p {
+  position: absolute;
+  right: 60px;
+  bottom: 60px;
+  left: 60px;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, -100px, 0);
+          transform: translate3d(0, -100px, 0);
+}
+figure.jltma-effect-dexter:hover figcaption::after {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+figure.jltma-effect-dexter:hover img {
+  opacity: 0.4;
+}
+figure.jltma-effect-dexter:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/***** Sarah *****/
+figure.jltma-effect-sarah {
+  background: #42b078;
+}
+figure.jltma-effect-sarah img {
+  -webkit-transform: translate3d(-10px, 0, 0);
+          transform: translate3d(-10px, 0, 0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+figure.jltma-effect-sarah figcaption {
+  text-align: left;
+}
+figure.jltma-effect-sarah figcaption h2 {
+  position: relative;
+  overflow: hidden;
+  padding: 0.5em 0;
+  text-align: left;
+}
+figure.jltma-effect-sarah figcaption h2::after {
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  position: absolute;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+}
+figure.jltma-effect-sarah figcaption p {
+  padding: 1em 0;
+  opacity: 0;
+  text-align: left;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+}
+figure.jltma-effect-sarah:hover img {
+  opacity: 0.4;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+figure.jltma-effect-sarah:hover h2::after {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+figure.jltma-effect-sarah:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/***** Zoe *****/
+figure.jltma-effect-zoe figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: 0;
+}
+figure.jltma-effect-zoe .jltma-image-hover-content {
+  background: #42b078;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  top: auto;
+  bottom: 0;
+  padding: 2rem;
+  height: auto;
+  width: 100%;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+}
+figure.jltma-effect-zoe .jltma-image-hover-content h2 {
+  color: #343434;
+  display: inline-block;
+}
+figure.jltma-effect-zoe .jltma-image-hover-content h2,
+figure.jltma-effect-zoe .jltma-image-hover-content .jltma-icon-links a {
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, 200%, 0);
+          transform: translate3d(0, 200%, 0);
+}
+figure.jltma-effect-zoe .jltma-image-hover-content .jltma-icon-links a {
+  display: inline-block;
+  color: #4b00e7;
+  font-size: 1.4em;
+  padding: 5px;
+}
+figure.jltma-effect-zoe .jltma-image-hover-content .jltma-icon-links a:first-child {
+  -webkit-transition-delay: 0.1s;
+       -o-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+figure.jltma-effect-zoe .jltma-image-hover-content .jltma-icon-links a:nth-child(2) {
+  -webkit-transition-delay: 0.15s;
+       -o-transition-delay: 0.15s;
+          transition-delay: 0.15s;
+}
+figure.jltma-effect-zoe .jltma-image-hover-content .jltma-icon-links a:nth-child(3) {
+  -webkit-transition-delay: 0.2s;
+       -o-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+figure.jltma-effect-zoe .jltma-image-hover-content .jltma-icon-links a:nth-child(4) {
+  -webkit-transition-delay: 0.25s;
+       -o-transition-delay: 0.25s;
+          transition-delay: 0.25s;
+}
+figure.jltma-effect-zoe p.jltma-image-hover-desc {
+  position: absolute;
+  padding: 2em;
+  color: #fff;
+  font-size: 1.25rem;
+  text-transform: none;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: transform 0.35s, opacity 0.35s;
+  transition: transform 0.35s, opacity 0.35s;
+  transition: transform 0.35s, opacity 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate(-50%, -40%);
+      -ms-transform: translate(-50%, -40%);
+          transform: translate(-50%, -40%);
+}
+figure.jltma-effect-zoe:hover .jltma-icon-links:hover, figure.jltma-effect-zoe:hover .jltma-icon-links:focus {
+  color: #252d31;
+}
+figure.jltma-effect-zoe:hover p.jltma-image-hover-desc {
+  opacity: 1;
+  -webkit-transform: translate(-50%, -65%);
+      -ms-transform: translate(-50%, -65%);
+          transform: translate(-50%, -65%);
+}
+figure.jltma-effect-zoe:hover .jltma-image-hover-content,
+figure.jltma-effect-zoe:hover h2,
+figure.jltma-effect-zoe:hover .jltma-icon-links a {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+figure.jltma-effect-zoe:hover h2 {
+  -webkit-transition-delay: 0.05s;
+       -o-transition-delay: 0.05s;
+          transition-delay: 0.05s;
+}
+
+/***** Chico *****/
+figure.jltma-effect-chico img {
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: scale(1.12);
+      -ms-transform: scale(1.12);
+          transform: scale(1.12);
+}
+figure.jltma-effect-chico figcaption {
+  padding: 3em;
+}
+figure.jltma-effect-chico figcaption::before {
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  border: 1px solid #fff;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+}
+figure.jltma-effect-chico figcaption::before,
+figure.jltma-effect-chico figcaption p {
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+}
+figure.jltma-effect-chico figcaption h2 {
+  padding: 20% 0 20px 0;
+}
+figure.jltma-effect-chico figcaption p {
+  margin: 0 auto;
+  max-width: 200px;
+  -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+          transform: scale(1.5);
+}
+figure.jltma-effect-chico:hover img {
+  opacity: 0.5;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+figure.jltma-effect-chico:hover figcaption::before,
+figure.jltma-effect-chico:hover p {
+  opacity: 1;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
+/***** Julia *****/
+figure.jltma-effect-julia {
+  background: #2f3238;
+}
+figure.jltma-effect-julia img {
+  -webkit-transition: opacity 1s, -webkit-transform 1s;
+  transition: opacity 1s, -webkit-transform 1s;
+  -o-transition: opacity 1s, transform 1s;
+  transition: opacity 1s, transform 1s;
+  transition: opacity 1s, transform 1s, -webkit-transform 1s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+figure.jltma-effect-julia figcaption {
+  padding: 2rem;
+}
+figure.jltma-effect-julia figcaption h2 {
+  position: relative;
+  padding: 0 0 0.5em;
+  text-align: left;
+}
+figure.jltma-effect-julia figcaption p {
+  background: rgba(255, 255, 255, 0.9);
+  color: #2f3238;
+  clear: both;
+  float: left;
+  font-weight: 500;
+  margin: 0 0 0.25em;
+  padding: 0.4em 1em;
+  text-align: left;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(-500%, 0, 0);
+          transform: translate3d(-500%, 0, 0);
+}
+figure.jltma-effect-julia figcaption p:first-child {
+  -webkit-transition-delay: 0.05s;
+       -o-transition-delay: 0.05s;
+          transition-delay: 0.05s;
+}
+figure.jltma-effect-julia figcaption p:nth-of-type(2) {
+  -webkit-transition-delay: 0.1s;
+       -o-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+figure.jltma-effect-julia figcaption p:nth-of-type(3) {
+  -webkit-transition-delay: 0.15s;
+       -o-transition-delay: 0.15s;
+          transition-delay: 0.15s;
+}
+figure.jltma-effect-julia:hover img {
+  opacity: 0.4;
+  -webkit-transform: scale3d(1.1, 1.1, 1);
+          transform: scale3d(1.1, 1.1, 1);
+}
+figure.jltma-effect-julia:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/***** Goliath *****/
+figure.jltma-effect-goliath {
+  background: #df4e4e;
+}
+figure.jltma-effect-goliath img,
+figure.jltma-effect-goliath h2 {
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+}
+figure.jltma-effect-goliath h2,
+figure.jltma-effect-goliath p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2rem;
+}
+figure.jltma-effect-goliath p {
+  text-transform: none;
+  font-size: 90%;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, 50px, 0);
+          transform: translate3d(0, 50px, 0);
+}
+figure.jltma-effect-goliath:hover img {
+  -webkit-transform: translate3d(0, -80px, 0);
+          transform: translate3d(0, -80px, 0);
+}
+figure.jltma-effect-goliath:hover h2 {
+  -webkit-transform: translate3d(0, -100px, 0);
+          transform: translate3d(0, -100px, 0);
+}
+figure.jltma-effect-goliath:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/***** Hera *****/
+figure.jltma-effect-hera {
+  background: #303fa9;
+}
+figure.jltma-effect-hera h2,
+figure.jltma-effect-hera p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  -webkit-transform-origin: 50%;
+      -ms-transform-origin: 50%;
+          transform-origin: 50%;
+}
+figure.jltma-effect-hera figcaption::before {
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border: 2px solid #fff;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(0, 0, 1);
+          transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(0, 0, 1);
+  -webkit-transform-origin: 50%;
+      -ms-transform-origin: 50%;
+          transform-origin: 50%;
+}
+figure.jltma-effect-hera p {
+  width: 100px;
+  text-transform: none;
+  line-height: 2;
+}
+figure.jltma-effect-hera p a {
+  color: #fff;
+}
+figure.jltma-effect-hera p a i {
+  width: 1.6em;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+}
+figure.jltma-effect-hera p a:hover {
+  opacity: 0.6;
+}
+figure.jltma-effect-hera p a:hover i {
+  opacity: 1;
+}
+figure.jltma-effect-hera p a:first-child i {
+  -webkit-transform: translate3d(-60px, -60px, 0);
+          transform: translate3d(-60px, -60px, 0);
+}
+figure.jltma-effect-hera p a:nth-child(2) i {
+  -webkit-transform: translate3d(60px, -60px, 0);
+          transform: translate3d(60px, -60px, 0);
+}
+figure.jltma-effect-hera p a:nth-child(3) i {
+  -webkit-transform: translate3d(-60px, 60px, 0);
+          transform: translate3d(-60px, 60px, 0);
+}
+figure.jltma-effect-hera p a:nth-child(4) i {
+  -webkit-transform: translate3d(60px, 60px, 0);
+          transform: translate3d(60px, 60px, 0);
+}
+figure.jltma-effect-hera:hover figcaption::before, figure.jltma-effect-hera:focus figcaption::before {
+  opacity: 1;
+  -webkit-transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(1, 1, 1);
+          transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(1, 1, 1);
+}
+figure.jltma-effect-hera:hover h2, figure.jltma-effect-hera:focus h2 {
+  opacity: 0;
+  -webkit-transform: translate3d(-50%, -50%, 0) scale3d(0.8, 0.8, 1);
+          transform: translate3d(-50%, -50%, 0) scale3d(0.8, 0.8, 1);
+}
+figure.jltma-effect-hera:hover span:empty, figure.jltma-effect-hera:focus span:empty {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+/***** Winston *****/
+figure.jltma-effect-winston {
+  background: #162633;
+}
+figure.jltma-effect-winston img {
+  -webkit-transition: opacity 0.45s;
+  -o-transition: opacity 0.45s;
+  transition: opacity 0.45s;
+}
+figure.jltma-effect-winston figcaption::before {
+  top: 0;
+  left: 0;
+  width: 110%;
   height: 100%;
-  background: #0965a0;
-  content: attr(data-hover);
-  -webkit-transition: background 0.3s;
-  -o-transition: background 0.3s;
-  transition: background 0.3s;
-  -webkit-transform: rotateX(-90deg);
-          transform: rotateX(-90deg);
+  background: url(../../images/triangle.svg) no-repeat center center;
+  background-size: 100% 100%;
+  -webkit-transition: opacity 0.45s, -webkit-transform 0.45s;
+  transition: opacity 0.45s, -webkit-transform 0.45s;
+  -o-transition: opacity 0.45s, transform 0.45s;
+  transition: opacity 0.45s, transform 0.45s;
+  transition: opacity 0.45s, transform 0.45s, -webkit-transform 0.45s;
+  -webkit-transform: rotate3d(0, 0, 1, 45deg);
+          transform: rotate3d(0, 0, 1, 45deg);
+  -webkit-transform-origin: 0 100%;
+      -ms-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+}
+figure.jltma-effect-winston h2 {
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, 20px, 0);
+          transform: translate3d(0, 20px, 0);
+}
+figure.jltma-effect-winston p {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0 1.5em 7% 0;
+}
+figure.jltma-effect-winston a {
+  margin: 0 10px;
+  color: #5d504f;
+  font-size: 170%;
+}
+figure.jltma-effect-winston a:hover {
+  color: #cc6055;
+}
+figure.jltma-effect-winston a i {
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, 50px, 0);
+          transform: translate3d(0, 50px, 0);
+}
+figure.jltma-effect-winston a:nth-child(1) i {
+  -webkit-transition-delay: 0.05s;
+       -o-transition-delay: 0.05s;
+          transition-delay: 0.05s;
+}
+figure.jltma-effect-winston a:nth-child(2) i {
+  -webkit-transition-delay: 0.1s;
+       -o-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+figure.jltma-effect-winston a:nth-child(3) i {
+  -webkit-transition-delay: 0.15s;
+       -o-transition-delay: 0.15s;
+          transition-delay: 0.15s;
+}
+figure.jltma-effect-winston:hover img {
+  opacity: 0.6;
+}
+figure.jltma-effect-winston:hover h2 {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+figure.jltma-effect-winston:hover figcaption::before {
+  opacity: 0.7;
+  -webkit-transform: rotate3d(0, 0, 1, 20deg);
+          transform: rotate3d(0, 0, 1, 20deg);
+}
+figure.jltma-effect-winston:hover p span {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/***** Selena *****/
+figure.jltma-effect-selena {
+  background: #fff;
+}
+
+figure.jltma-effect-selena img {
+  opacity: 0.95;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+figure.jltma-effect-selena:hover img {
+  -webkit-transform: scale3d(0.95, 0.95, 1);
+          transform: scale3d(0.95, 0.95, 1);
+}
+
+figure.jltma-effect-selena h2 {
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, 20px, 0);
+          transform: translate3d(0, 20px, 0);
+}
+
+figure.jltma-effect-selena p {
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
+          transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
+  -webkit-transform-origin: 50% 0%;
+      -ms-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+}
+
+figure.jltma-effect-selena:hover h2 {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+figure.jltma-effect-selena:hover p {
+  opacity: 1;
+  -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 0);
+          transform: perspective(1000px) rotate3d(1, 0, 0, 0);
+}
+
+/***** Terry *****/
+figure.jltma-effect-terry {
+  background: #34495e;
+}
+
+figure.jltma-effect-terry figcaption {
+  padding: 1em;
+  font-size: 1em;
+}
+
+figure.jltma-effect-terry figcaption::before,
+figure.jltma-effect-terry figcaption::after {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  border-style: solid;
+  border-color: #101010;
+  content: "";
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+}
+
+figure.jltma-effect-terry figcaption::before {
+  right: 0;
+  bottom: 0;
+  border-width: 0 70px 60px 0;
+  -webkit-transform: translate3d(70px, 60px, 0);
+          transform: translate3d(70px, 60px, 0);
+}
+
+figure.jltma-effect-terry figcaption::after {
+  top: 0;
+  left: 0;
+  border-width: 15px 0 0 15px;
+  -webkit-transform: translate3d(-15px, -15px, 0);
+          transform: translate3d(-15px, -15px, 0);
+}
+
+figure.jltma-effect-terry img,
+figure.jltma-effect-terry p a {
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+}
+
+figure.jltma-effect-terry img {
+  opacity: 0.85;
+}
+
+figure.jltma-effect-terry h2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0.4em 10px;
+  width: 50%;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+}
+
+figure.jltma-effect-terry p {
+  float: right;
+  clear: both;
+  text-align: left;
+  text-transform: none;
+  font-size: 111%;
+}
+
+figure.jltma-effect-terry p a {
+  display: block;
+  margin-bottom: 1em;
+  color: #fff;
+  opacity: 0;
+  -webkit-transform: translate3d(90px, 0, 0);
+          transform: translate3d(90px, 0, 0);
+}
+
+figure.jltma-effect-terry p a:hover,
+figure.jltma-effect-terry p a:focus {
+  color: #f3cf3f;
+}
+
+figure.jltma-effect-terry:hover figcaption::before,
+figure.jltma-effect-terry:hover figcaption::after {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+figure.jltma-effect-terry:hover img {
+  opacity: 0.6;
+}
+
+figure.jltma-effect-terry:hover h2,
+figure.jltma-effect-terry:hover p a {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+figure.jltma-effect-terry:hover p a {
+  opacity: 1;
+}
+
+figure.jltma-effect-terry:hover p a:first-child {
+  -webkit-transition-delay: 0.025s;
+       -o-transition-delay: 0.025s;
+          transition-delay: 0.025s;
+}
+
+figure.jltma-effect-terry:hover p a:nth-child(2) {
+  -webkit-transition-delay: 0.05s;
+       -o-transition-delay: 0.05s;
+          transition-delay: 0.05s;
+}
+
+figure.jltma-effect-terry:hover p a:nth-child(3) {
+  -webkit-transition-delay: 0.075s;
+       -o-transition-delay: 0.075s;
+          transition-delay: 0.075s;
+}
+
+figure.jltma-effect-terry:hover p a:nth-child(4) {
+  -webkit-transition-delay: 0.1s;
+       -o-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+
+/***** Phoebe *****/
+figure.jltma-effect-phoebe {
+  background: #675983;
+}
+
+figure.jltma-effect-phoebe img {
+  opacity: 0.85;
+  -webkit-transition: opacity 0.35s;
+  -o-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+figure.jltma-effect-phoebe:hover img {
+  opacity: 0.6;
+}
+
+figure.jltma-effect-phoebe figcaption {
+  z-index: 0;
+}
+
+figure.jltma-effect-phoebe figcaption::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../../images/triangle2.svg) no-repeat center center;
+  background-size: cover;
+  content: "";
+  z-index: -1;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: scale3d(5, 2.5, 1);
+          transform: scale3d(5, 2.5, 1);
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+figure.jltma-effect-phoebe:hover figcaption::before {
+  opacity: 0.6;
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+}
+
+figure.jltma-effect-phoebe .ma-image-hover-content {
+  z-index: 1;
+}
+
+figure.jltma-effect-phoebe h2 {
+  margin-top: 1em;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, 40px, 0);
+          transform: translate3d(0, 40px, 0);
+}
+
+figure.jltma-effect-phoebe:hover h2 {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+figure.jltma-effect-phoebe p a {
+  color: #fff;
+  font-size: 140%;
+  opacity: 0;
+  position: relative;
+  display: inline-block;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+}
+
+figure.jltma-effect-phoebe p a:first-child {
+  -webkit-transform: translate3d(-60px, -60px, 0);
+          transform: translate3d(-60px, -60px, 0);
+}
+
+figure.jltma-effect-phoebe p a:nth-child(2) {
+  -webkit-transform: translate3d(0, 60px, 0);
+          transform: translate3d(0, 60px, 0);
+}
+
+figure.jltma-effect-phoebe p a:nth-child(3) {
+  -webkit-transform: translate3d(60px, -60px, 0);
+          transform: translate3d(60px, -60px, 0);
+}
+
+figure.jltma-effect-phoebe:hover p a {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/***** Apollo *****/
+figure.jltma-effect-apollo {
+  background: #3498db;
+}
+
+figure.jltma-effect-apollo img {
+  opacity: 0.95;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: scale3d(1.05, 1.05, 1);
+          transform: scale3d(1.05, 1.05, 1);
+}
+
+figure.jltma-effect-apollo figcaption::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  content: "";
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: -webkit-transform 0.6s;
+  -o-transition: transform 0.6s;
+  transition: transform 0.6s;
+  transition: transform 0.6s, -webkit-transform 0.6s;
+  -webkit-transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, -110%, 0);
+          transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, -110%, 0);
+}
+
+figure.jltma-effect-apollo p {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 3em;
+  padding: 0 1em;
+  max-width: 150px;
+  border-right: 4px solid #fff;
+  text-align: right;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s;
+  -o-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+figure.jltma-effect-apollo h2 {
+  text-align: left;
+}
+
+figure.jltma-effect-apollo:hover img {
+  opacity: 0.6;
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+}
+
+figure.jltma-effect-apollo:hover figcaption::before {
+  -webkit-transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, 110%, 0);
+          transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, 110%, 0);
+}
+
+figure.jltma-effect-apollo:hover p {
+  opacity: 1;
+  -webkit-transition-delay: 0.1s;
+       -o-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+
+/***** Kira *****/
+figure.jltma-effect-kira {
+  background: #fff;
+  text-align: left;
+}
+
+figure.jltma-effect-kira img {
+  -webkit-transition: opacity 0.35s;
+  -o-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+figure.jltma-effect-kira figcaption {
+  z-index: 1;
+}
+
+figure.jltma-effect-kira p {
+  padding: 1.4em 0.5em;
+  font-weight: 600;
+  font-size: 100%;
+  line-height: 1.5;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, -10px, 0);
+          transform: translate3d(0, -10px, 0);
+}
+
+figure.jltma-effect-kira p a {
+  margin: 0 0.5em;
+  color: #101010;
+}
+
+figure.jltma-effect-kira p a:hover,
+figure.jltma-effect-kira p a:focus {
+  opacity: 0.6;
+}
+
+figure.jltma-effect-kira figcaption::before {
+  position: absolute;
+  top: 0;
+  right: 2em;
+  left: 2em;
+  z-index: -1;
+  height: 3.5em;
+  background: #fff;
+  content: "";
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(0, 4.75em, 0) scale3d(1, 0.023, 1);
+          transform: translate3d(0, 4.75em, 0) scale3d(1, 0.023, 1);
   -webkit-transform-origin: 50% 0;
       -ms-transform-origin: 50% 0;
           transform-origin: 50% 0;
 }
-.csstransforms3d .jltma-cl-effect-2 a:hover span::before, .csstransforms3d .jltma-cl-effect-2 a:focus span::before {
-  background: #28a2ee;
+
+figure.jltma-effect-kira:hover img {
+  opacity: 0.5;
 }
 
-.csstransforms3d .jltma-cl-effect-19 a span::before {
+figure.jltma-effect-kira:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+figure.jltma-effect-kira:hover figcaption::before {
+  opacity: 0.7;
+  -webkit-transform: translate3d(0, 5em, 0) scale3d(1, 1, 1);
+          transform: translate3d(0, 5em, 0) scale3d(1, 1, 1);
+}
+
+/***** Steve *****/
+figure.jltma-effect-steve {
+  z-index: auto;
+  overflow: visible;
+  background: #000;
+}
+
+figure.jltma-effect-steve:before,
+figure.jltma-effect-steve h2:before {
   position: absolute;
   top: 0;
-  left: 100%;
+  left: 0;
+  z-index: -1;
   width: 100%;
   height: 100%;
-  background: #b53a2d;
-  content: attr(data-hover);
-  -webkit-transition: background 0.4s;
-  -o-transition: background 0.4s;
-  transition: background 0.4s;
-  -webkit-transform: rotateY(90deg);
-          transform: rotateY(90deg);
-  -webkit-transform-origin: 0 50%;
-      -ms-transform-origin: 0 50%;
-          transform-origin: 0 50%;
-  pointer-events: none;
-}
-.csstransforms3d .jltma-cl-effect-19 a:hover span::before, .csstransforms3d .jltma-cl-effect-19 a:focus span::before {
-  background: #ef5e50;
+  background: #000;
+  content: "";
+  -webkit-transition: opacity 0.35s;
+  -o-transition: opacity 0.35s;
+  transition: opacity 0.35s;
 }
 
-/* MA Creative Links End */
+figure.jltma-effect-steve:before {
+  -webkit-box-shadow: 0 3px 30px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 3px 30px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+}
+
+figure.jltma-effect-steve figcaption {
+  z-index: 1;
+}
+
+figure.jltma-effect-steve img {
+  opacity: 1;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: perspective(1000px) translate3d(0, 0, 0);
+          transform: perspective(1000px) translate3d(0, 0, 0);
+}
+
+figure.jltma-effect-steve h2,
+figure.jltma-effect-steve p {
+  background: #fff;
+  color: #000;
+}
+
+figure.jltma-effect-steve h2 {
+  position: relative;
+  margin-top: 2em;
+  padding: 0.25em;
+}
+
+figure.jltma-effect-steve h2:before {
+  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+figure.jltma-effect-steve p {
+  margin-top: 1em;
+  padding: 0.5em;
+  font-weight: 800;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: scale3d(0.9, 0.9, 1);
+          transform: scale3d(0.9, 0.9, 1);
+}
+
+figure.jltma-effect-steve:hover:before {
+  opacity: 1;
+}
+
+figure.jltma-effect-steve:hover img {
+  -webkit-transform: perspective(1000px) translate3d(0, 0, 21px);
+          transform: perspective(1000px) translate3d(0, 0, 21px);
+}
+
+figure.jltma-effect-steve:hover h2:before {
+  opacity: 0;
+}
+
+figure.jltma-effect-steve:hover p {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+}
+
+/***** Moses *****/
+figure.jltma-effect-moses {
+  background: -o-linear-gradient(135deg, #ec65b7 0%, #05e0d8 100%);
+  background: linear-gradient(-45deg, #ec65b7 0%, #05e0d8 100%);
+}
+
+figure.jltma-effect-moses img {
+  opacity: 0.85;
+  -webkit-transition: opacity 0.35s;
+  -o-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+figure.jltma-effect-moses h2,
+figure.jltma-effect-moses p {
+  padding: 20px;
+  width: 50%;
+  height: 50%;
+  border: 2px solid #fff;
+}
+
+figure.jltma-effect-moses h2 {
+  padding: 20px;
+  width: 50%;
+  height: 50%;
+  text-align: left;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(10px, 10px, 0);
+          transform: translate3d(10px, 10px, 0);
+}
+
+figure.jltma-effect-moses p {
+  float: right;
+  padding: 20px;
+  text-align: right;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+}
+
+figure.jltma-effect-moses:hover h2 {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+figure.jltma-effect-moses:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+figure.jltma-effect-moses:hover img {
+  opacity: 0.6;
+}
+
+/*---------------*/
+/***** Jazz *****/
+/*---------------*/
+figure.jltma-effect-jazz {
+  background: -o-linear-gradient(135deg, #f3cf3f 0%, #f33f58 100%);
+  background: linear-gradient(-45deg, #f3cf3f 0%, #f33f58 100%);
+}
+
+figure.jltma-effect-jazz img {
+  opacity: 0.9;
+}
+
+figure.jltma-effect-jazz figcaption::after,
+figure.jltma-effect-jazz img,
+figure.jltma-effect-jazz p {
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+}
+
+figure.jltma-effect-jazz figcaption::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  content: "";
+  opacity: 0;
+  -webkit-transform: rotate3d(0, 0, 1, 45deg) scale3d(1, 0, 1);
+          transform: rotate3d(0, 0, 1, 45deg) scale3d(1, 0, 1);
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+figure.jltma-effect-jazz h2,
+figure.jltma-effect-jazz p {
+  opacity: 1;
+  -webkit-transform: scale3d(0.8, 0.8, 1);
+          transform: scale3d(0.8, 0.8, 1);
+}
+
+figure.jltma-effect-jazz h2 {
+  padding-top: 22%;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+}
+
+figure.jltma-effect-jazz p {
+  padding: 0.5em 2em;
+  text-transform: none;
+  font-size: 0.85em;
+  opacity: 0;
+}
+
+figure.jltma-effect-jazz:hover img {
+  opacity: 0.7;
+  -webkit-transform: scale3d(1.05, 1.05, 1);
+          transform: scale3d(1.05, 1.05, 1);
+}
+
+figure.jltma-effect-jazz:hover figcaption::after {
+  opacity: 1;
+  -webkit-transform: rotate3d(0, 0, 1, 45deg) scale3d(1, 1, 1);
+          transform: rotate3d(0, 0, 1, 45deg) scale3d(1, 1, 1);
+}
+
+figure.jltma-effect-jazz:hover h2,
+figure.jltma-effect-jazz:hover p {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+}
+
+/*---------------*/
+/***** Ming *****/
+/*---------------*/
+figure.jltma-effect-ming {
+  background: #030c17;
+}
+
+figure.jltma-effect-ming img {
+  opacity: 0.9;
+  -webkit-transition: opacity 0.35s;
+  -o-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+figure.jltma-effect-ming figcaption::before {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  border: 2px solid #fff;
+  -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.2);
+          box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.2);
+  content: "";
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: scale3d(1.4, 1.4, 1);
+          transform: scale3d(1.4, 1.4, 1);
+}
+
+figure.jltma-effect-ming h2 {
+  margin: 20% 0 10px 0;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+}
+
+figure.jltma-effect-ming p {
+  padding: 1em;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+figure.jltma-effect-ming:hover h2 {
+  -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+figure.jltma-effect-ming:hover figcaption::before,
+figure.jltma-effect-ming:hover p {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+}
+
+figure.jltma-effect-ming:hover figcaption {
+  background-color: rgba(58, 52, 42, 0);
+}
+
+figure.jltma-effect-ming:hover img {
+  opacity: 0.4;
+}
+
+/*---------------*/
+/***** Lexi *****/
+/*---------------*/
+figure.jltma-effect-lexi {
+  background: -o-linear-gradient(135deg, #000 0%, #fff 100%);
+  background: linear-gradient(-45deg, #000 0%, #fff 100%);
+}
+
+figure.jltma-effect-lexi img {
+  margin: -10px 0 10px -10px;
+  max-width: none;
+  /* width: -webkit-calc(100% + 10px);
+  width: calc(100% + 10px); */
+  opacity: 0.9;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(10px, 10px, 0);
+          transform: translate3d(10px, 10px, 0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+figure.jltma-effect-lexi figcaption::before,
+figure.jltma-effect-lexi p {
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+}
+
+figure.jltma-effect-lexi figcaption::before {
+  position: absolute;
+  right: -100px;
+  bottom: -100px;
+  width: 300px;
+  height: 300px;
+  border: 2px solid #fff;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  -webkit-box-shadow: 0 0 0 900px rgba(255, 255, 255, 0.2);
+          box-shadow: 0 0 0 900px rgba(255, 255, 255, 0.2);
+  content: "";
+  opacity: 0;
+  -webkit-transform: scale3d(0.5, 0.5, 1);
+          transform: scale3d(0.5, 0.5, 1);
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+figure.jltma-effect-lexi:hover img {
+  opacity: 0.6;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+figure.jltma-effect-lexi h2 {
+  text-align: left;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(5px, 5px, 0);
+          transform: translate3d(5px, 5px, 0);
+}
+
+figure.jltma-effect-lexi p {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0 1.5em 1.5em 0;
+  width: 140px;
+  text-align: right;
+  opacity: 0;
+  -webkit-transform: translate3d(20px, 20px, 0);
+          transform: translate3d(20px, 20px, 0);
+}
+
+figure.jltma-effect-lexi:hover figcaption::before {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+}
+
+figure.jltma-effect-lexi:hover h2,
+figure.jltma-effect-lexi:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/*---------------*/
+/***** Duke *****/
+/*---------------*/
+figure.jltma-effect-duke {
+  background: -o-linear-gradient(135deg, #34495e 0%, #cc6055 100%);
+  background: linear-gradient(-45deg, #34495e 0%, #cc6055 100%);
+}
+
+figure.jltma-effect-duke img,
+figure.jltma-effect-duke p {
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+}
+
+figure.jltma-effect-duke:hover img {
+  opacity: 0.1;
+  -webkit-transform: scale3d(2, 2, 1);
+          transform: scale3d(2, 2, 1);
+}
+
+figure.jltma-effect-duke h2 {
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  -o-transition: transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: scale3d(0.8, 0.8, 1);
+          transform: scale3d(0.8, 0.8, 1);
+  -webkit-transform-origin: 50% 100%;
+      -ms-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+}
+
+figure.jltma-effect-duke p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 20px;
+  padding: 30px;
+  border: 2px solid #fff;
+  text-transform: none;
+  font-size: 90%;
+  opacity: 0;
+  -webkit-transform: scale3d(0.8, 0.8, 1);
+          transform: scale3d(0.8, 0.8, 1);
+  -webkit-transform-origin: 50% -100%;
+      -ms-transform-origin: 50% -100%;
+          transform-origin: 50% -100%;
+}
+
+figure.jltma-effect-duke:hover h2,
+figure.jltma-effect-duke:hover p {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+}
